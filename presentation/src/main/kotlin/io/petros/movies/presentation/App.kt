@@ -1,6 +1,10 @@
 package io.petros.movies.presentation
 
 import android.app.Application
+import android.arch.lifecycle.Lifecycle
+import android.arch.lifecycle.LifecycleObserver
+import android.arch.lifecycle.OnLifecycleEvent
+import android.arch.lifecycle.ProcessLifecycleOwner
 import android.os.Build
 import android.os.StrictMode
 import com.squareup.leakcanary.LeakCanary
@@ -8,13 +12,15 @@ import io.petros.movies.BuildConfig
 import io.petros.movies.R
 import timber.log.Timber
 
-class App : Application() {
+@Suppress("TooManyFunctions")
+class App : Application(), LifecycleObserver {
 
     override fun onCreate() {
         super.onCreate()
         if (!initLeakCanary()) return
         initLogging()
         initStrictMode()
+        initLifecycleObserver()
         Timber.i("${getString(R.string.app_name)} created.")
     }
 
@@ -85,6 +91,42 @@ class App : Application() {
             strictModeBuilder.detectCleartextNetwork()
                 .detectContentUriWithoutPermission()
         }
+    }
+
+    private fun initLifecycleObserver() {
+        ProcessLifecycleOwner.get().lifecycle.addObserver(this)
+    }
+
+    /* LIFECYCLE */
+
+    @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
+    fun onCreated() {
+        Timber.v("${javaClass.simpleName} created.")
+    }
+
+    @OnLifecycleEvent(Lifecycle.Event.ON_START)
+    fun onStart() {
+        Timber.v("${javaClass.simpleName} started. [App In Foreground]")
+    }
+
+    @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
+    fun onResume() {
+        Timber.v("${javaClass.simpleName} resumed.")
+    }
+
+    @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
+    fun onPause() {
+        Timber.v("${javaClass.simpleName} paused.")
+    }
+
+    @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
+    fun onStop() {
+        Timber.v("${javaClass.simpleName} stopped. [App In Background]")
+    }
+
+    @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
+    fun onDestroyed() {
+        Timber.v("${javaClass.simpleName} destroyed.")
     }
 
 }

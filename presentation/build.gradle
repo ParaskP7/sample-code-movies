@@ -56,6 +56,7 @@ dependencies {
     implementation deps.kotlin.jre
     implementation deps.support.appCompat
     implementation deps.support.constraintLayout
+    implementation deps.arch.lifecycleExtensions
     implementation deps.logging.timber
 
     testImplementation deps.test.junit
