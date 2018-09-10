@@ -31,6 +31,10 @@ ext.deps = [
                 'constraintLayout': "com.android.support.constraint:constraint-layout:$versions.constraint_layout",
         ],
 
+        'logging'    : [
+                'timber': "com.jakewharton.timber:timber:$versions.timber",
+        ],
+
         // TEST IMPLEMENTATION // *******************************************************************************************
 
         'test'       : [

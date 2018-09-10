@@ -16,6 +16,9 @@ ext.versions = [
         support_library  : '28.0.0-rc02',
         constraint_layout: '1.1.3',
 
+        // Logging
+        timber           : '4.7.1',
+
         // TEST IMPLEMENTATION // *******************************************************************************************
 
         // Test

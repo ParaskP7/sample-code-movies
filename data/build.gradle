@@ -29,6 +29,7 @@ dependencies {
     implementation deps.module.domain
 
     implementation deps.kotlin.jre
+    implementation deps.logging.timber
 
     testImplementation deps.test.junit
 }
