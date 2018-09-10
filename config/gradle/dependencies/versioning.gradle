@@ -5,6 +5,7 @@ ext.versions = [
         kotlin_plugin    : '1.2.61',
         versions_plugin  : '0.20.0',
         dexcount_plugin  : '0.8.3',
+        detekt_plugin    : '1.0.0.RC8',
 
         // IMPLEMENTATION // ************************************************************************************************
 

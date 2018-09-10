@@ -8,6 +8,7 @@ buildscript {
         classpath deps.plugin.kotlin
         classpath deps.plugin.versions
         classpath deps.plugin.dexcount
+        classpath deps.plugin.detekt
     }
 }
 
@@ -16,10 +17,12 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'com.github.ben-manes.versions'
 apply plugin: 'com.getkeepsafe.dexcount'
+apply plugin: 'io.gitlab.arturbosch.detekt'
 
 apply from: '../config/gradle/android/android.gradle'
 apply from: '../config/gradle/android/dexcount.gradle'
 apply from: '../config/gradle/quality/lint.gradle'
+apply from: '../config/gradle/quality/detekt.gradle'
 apply from: '../config/gradle/dependencies/dependency_updates.gradle'
 
 android {

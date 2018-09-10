@@ -1,0 +1,17 @@
+detekt {
+
+    version = versions.detekt_plugin
+
+    def comma = ","
+    profile("main") {
+        input = "$projectDir"
+        config = "$project.rootDir/config/quality/detekt.yml"
+        filters = ".*/test/.*" + comma +
+                ".*/androidTest/.*" + comma +
+                ".*/resources/.*"
+        disableDefaultRuleSets = false
+        output = "$project.buildDir/reports/detekt"
+        parallel = true
+    }
+
+}
