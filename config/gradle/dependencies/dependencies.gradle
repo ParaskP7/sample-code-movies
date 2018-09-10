@@ -1,0 +1,35 @@
+ext.deps = [
+
+        'plugin'     : [
+                'android': "com.android.tools.build:gradle:$versions.android_plugin",
+                'kotlin' : "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin_plugin",
+        ],
+
+        // IMPLEMENTATION // ************************************************************************************************
+
+        'kotlin'     : [
+                'jre': "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$versions.kotlin_plugin",
+        ],
+
+        'support'    : [
+                'appCompat'       : "com.android.support:appcompat-v7:$versions.support_library",
+                'constraintLayout': "com.android.support.constraint:constraint-layout:$versions.constraint_layout",
+        ],
+
+        // TEST IMPLEMENTATION // *******************************************************************************************
+
+        'test'       : [
+                'junit': "junit:junit:$versions.junit",
+        ],
+
+        // ANDROID TEST IMPLEMENTATION // ***********************************************************************************
+
+        'supportTest': [
+                'runner': "com.android.support.test:runner:$versions.support_test",
+        ],
+
+        'androidTest': [
+                'espresso': "com.android.support.test.espresso:espresso-core:$versions.espresso",
+        ],
+
+]

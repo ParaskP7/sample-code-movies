@@ -18,7 +18,7 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getTargetContext()
-        assertEquals("io.petros.movies", appContext.packageName)
+        assertEquals("io.petros.movies.debug", appContext.packageName)
     }
 
 }

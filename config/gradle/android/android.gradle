@@ -1,0 +1,71 @@
+apply from: '../config/gradle/lang/java.gradle'
+
+def versionMajor = 1
+def versionMinor = 0
+def versionPatch = 0
+def versionBuild = 0
+
+ext.app = [
+
+        major: versionMajor,
+        minor: versionMinor,
+        patch: versionPatch,
+        build: versionBuild,
+
+]
+
+ext.sdk = [
+
+        min_sdk    : 21,
+        target_sdk : 28,
+        compile_sdk: 28,
+
+]
+
+ext.suffix = [
+
+        debug: 'debug',
+
+]
+
+android {
+    compileSdkVersion sdk.compile_sdk
+    defaultConfig {
+        minSdkVersion sdk.min_sdk
+        targetSdkVersion sdk.target_sdk
+    }
+    compileOptions {
+        sourceCompatibility java.version
+        targetCompatibility java.version
+    }
+    testOptions {
+        unitTests {
+            all {
+                testLogging { // Print test details in the terminal (or CI).
+                    events 'passed', 'skipped', 'failed', 'standardOut', 'standardError'
+                    exceptionFormat 'full'
+                }
+            }
+        }
+    }
+    sourceSets {
+        main {
+            java.srcDirs = [
+                    'src/main/kotlin',
+            ]
+        }
+        test {
+            java.srcDirs = [
+                    'src/test/kotlin',
+            ]
+            resources.srcDirs = [
+                    'src/test/resources',
+            ]
+        }
+        androidTest {
+            java.srcDirs = [
+                    'src/androidTest/kotlin',
+            ]
+        }
+    }
+}
