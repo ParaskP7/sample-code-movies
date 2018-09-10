@@ -19,6 +19,9 @@ ext.versions = [
         // Architecture Components
         arch             : '1.1.1',
 
+        // Dependency Injection
+        dagger           : "2.17",
+
         // Logging
         timber           : '4.7.1',
 

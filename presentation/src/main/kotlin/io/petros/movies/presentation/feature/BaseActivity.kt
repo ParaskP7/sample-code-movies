@@ -3,11 +3,11 @@ package io.petros.movies.presentation.feature
 import android.content.Intent
 import android.content.res.Configuration
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import dagger.android.support.DaggerAppCompatActivity
 import timber.log.Timber
 
 @Suppress("TooManyFunctions")
-abstract class BaseActivity : AppCompatActivity() {
+abstract class BaseActivity : DaggerAppCompatActivity() {
 
     /* LIFECYCLE */
 

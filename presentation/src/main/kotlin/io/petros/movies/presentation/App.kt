@@ -1,6 +1,5 @@
 package io.petros.movies.presentation
 
-import android.app.Application
 import android.arch.lifecycle.Lifecycle
 import android.arch.lifecycle.LifecycleObserver
 import android.arch.lifecycle.OnLifecycleEvent
@@ -8,12 +7,14 @@ import android.arch.lifecycle.ProcessLifecycleOwner
 import android.os.Build
 import android.os.StrictMode
 import com.squareup.leakcanary.LeakCanary
+import dagger.android.DaggerApplication
 import io.petros.movies.BuildConfig
 import io.petros.movies.R
+import io.petros.movies.presentation.di.dagger.DaggerAppComponent
 import timber.log.Timber
 
 @Suppress("TooManyFunctions")
-class App : Application(), LifecycleObserver {
+class App : DaggerApplication(), LifecycleObserver {
 
     override fun onCreate() {
         super.onCreate()
@@ -128,5 +129,11 @@ class App : Application(), LifecycleObserver {
     fun onDestroyed() {
         Timber.v("${javaClass.simpleName} destroyed.")
     }
+
+    /* CONTRACT */
+
+    override fun applicationInjector() = DaggerAppComponent.builder()
+        .application(this)
+        .build()
 
 }

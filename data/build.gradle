@@ -15,6 +15,7 @@ buildscript {
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 apply plugin: 'com.github.ben-manes.versions'
 apply plugin: 'com.getkeepsafe.dexcount'
 apply plugin: 'io.gitlab.arturbosch.detekt'
@@ -29,6 +30,10 @@ dependencies {
     implementation deps.module.domain
 
     implementation deps.kotlin.jre
+    implementation deps.di.dagger
+    implementation deps.di.daggerAndroid
+    kapt deps.di.daggerCompiler
+    kapt deps.di.daggerAndroidProcessor
     implementation deps.logging.timber
 
     testImplementation deps.test.junit

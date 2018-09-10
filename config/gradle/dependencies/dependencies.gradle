@@ -35,6 +35,13 @@ ext.deps = [
                 'lifecycleExtensions': "android.arch.lifecycle:extensions:$versions.arch",
         ],
 
+        'di'         : [
+                'dagger'                : "com.google.dagger:dagger:$versions.dagger",
+                'daggerCompiler'        : "com.google.dagger:dagger-compiler:$versions.dagger",
+                'daggerAndroid'         : "com.google.dagger:dagger-android-support:$versions.dagger",
+                'daggerAndroidProcessor': "com.google.dagger:dagger-android-processor:$versions.dagger",
+        ],
+
         'logging'    : [
                 'timber': "com.jakewharton.timber:timber:$versions.timber",
         ],
