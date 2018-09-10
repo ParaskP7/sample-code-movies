@@ -5,14 +5,17 @@ buildscript {
     }
     dependencies {
         classpath deps.plugin.kotlin
+        classpath deps.plugin.versions
     }
 }
 
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'com.github.ben-manes.versions'
 
 apply from: '../config/gradle/android/android.gradle'
+apply from: '../config/gradle/dependencies/dependency_updates.gradle'
 
 dependencies {
     implementation deps.module.domain
