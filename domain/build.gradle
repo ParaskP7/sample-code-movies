@@ -24,6 +24,7 @@ dependencies {
     implementation deps.kotlin.jre
     implementation deps.di.dagger
     kapt deps.di.daggerCompiler
+    implementation deps.rx.rxjava
 
     testImplementation deps.test.junit
 }
