@@ -18,6 +18,7 @@ apply plugin: 'com.getkeepsafe.dexcount'
 
 apply from: '../config/gradle/android/android.gradle'
 apply from: '../config/gradle/android/dexcount.gradle'
+apply from: '../config/gradle/quality/lint.gradle'
 apply from: '../config/gradle/dependencies/dependency_updates.gradle'
 
 dependencies {

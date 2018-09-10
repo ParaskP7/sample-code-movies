@@ -1,0 +1,18 @@
+android {
+
+    lintOptions {
+        abortOnError true
+        checkAllWarnings true
+        ignoreWarnings false
+        checkReleaseBuilds true
+        warningsAsErrors true
+        lintConfig file("../config/quality/lint.xml")
+        htmlReport true
+        xmlReport true
+        disable 'MissingRegistered', // Because of UAST
+                'UnusedIds', // Because of UAST
+                'ContentDescription',
+                'SelectableText'
+    }
+
+}
