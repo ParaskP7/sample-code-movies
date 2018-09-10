@@ -8,6 +8,11 @@ ext.deps = [
                 'detekt'  : "gradle.plugin.io.gitlab.arturbosch.detekt:detekt-gradle-plugin:$versions.detekt_plugin",
         ],
 
+        'leakcanary' : [
+                'debug'  : "com.squareup.leakcanary:leakcanary-android:$versions.leakcanary",
+                'release': "com.squareup.leakcanary:leakcanary-android-no-op:$versions.leakcanary"
+        ],
+
         // PROJECT // *******************************************************************************************************
 
         'module'     : [

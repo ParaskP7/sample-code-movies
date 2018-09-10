@@ -7,6 +7,9 @@ ext.versions = [
         dexcount_plugin  : '0.8.3',
         detekt_plugin    : '1.0.0.RC8',
 
+        // LeakCanary
+        'leakcanary'     : '1.6.1',
+
         // IMPLEMENTATION // ************************************************************************************************
 
         // Android

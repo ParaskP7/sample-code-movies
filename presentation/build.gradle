@@ -21,6 +21,7 @@ apply plugin: 'io.gitlab.arturbosch.detekt'
 
 apply from: '../config/gradle/android/android.gradle'
 apply from: '../config/gradle/android/dexcount.gradle'
+apply from: '../config/gradle/android/leakcanary.gradle'
 apply from: '../config/gradle/quality/lint.gradle'
 apply from: '../config/gradle/quality/detekt.gradle'
 apply from: '../config/gradle/dependencies/dependency_updates.gradle'
@@ -48,6 +49,9 @@ android {
 dependencies {
     implementation deps.module.domain
     implementation deps.module.data
+
+    debugImplementation deps.leakcanary.debug
+    releaseImplementation deps.leakcanary.release
 
     implementation deps.kotlin.jre
     implementation deps.support.appCompat
