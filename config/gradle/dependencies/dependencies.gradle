@@ -5,6 +5,13 @@ ext.deps = [
                 'kotlin' : "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin_plugin",
         ],
 
+        // PROJECT // *******************************************************************************************************
+
+        'module'     : [
+                'domain': project(':domain'),
+                'data'  : project(':data'),
+        ],
+
         // IMPLEMENTATION // ************************************************************************************************
 
         'kotlin'     : [

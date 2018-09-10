@@ -1,0 +1,19 @@
+buildscript {
+    repositories {
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath deps.plugin.kotlin
+    }
+}
+
+apply plugin: 'kotlin'
+
+apply from: '../config/gradle/lang/kotlin.gradle'
+
+dependencies {
+    implementation deps.kotlin.jre
+
+    testImplementation deps.test.junit
+}

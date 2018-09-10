@@ -1,0 +1,23 @@
+buildscript {
+    repositories {
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath deps.plugin.kotlin
+    }
+}
+
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+apply from: '../config/gradle/android/android.gradle'
+
+dependencies {
+    implementation deps.module.domain
+
+    implementation deps.kotlin.jre
+
+    testImplementation deps.test.junit
+}

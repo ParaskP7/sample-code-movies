@@ -35,6 +35,9 @@ android {
 }
 
 dependencies {
+    implementation deps.module.domain
+    implementation deps.module.data
+
     implementation deps.kotlin.jre
     implementation deps.support.appCompat
     implementation deps.support.constraintLayout
