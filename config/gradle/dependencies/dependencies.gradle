@@ -29,6 +29,7 @@ ext.deps = [
 
         'support'    : [
                 'appCompat'       : "com.android.support:appcompat-v7:$versions.support_library",
+                'recyclerView'    : "com.android.support:recyclerview-v7:$versions.support_library",
                 'constraintLayout': "com.android.support.constraint:constraint-layout:$versions.constraint_layout",
         ],
 
