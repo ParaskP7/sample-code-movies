@@ -26,5 +26,12 @@ dependencies {
     kapt deps.di.daggerCompiler
     implementation deps.rx.rxjava
 
+    testImplementation deps.module.test
+
     testImplementation deps.test.junit
+    testImplementation deps.test.assertj
+    testImplementation(deps.mock.mockitoKotlin, {
+        exclude group: excludedDeps.group.jetbrainsKotlin,
+                module: excludedDeps.module.kotlinReflect
+    })
 }

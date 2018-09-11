@@ -40,6 +40,10 @@ ext.versions = [
 
         // Test
         junit            : '4.12',
+        assertj          : '3.11.1',
+
+        // Mock
+        mockito_kotlin   : '1.6.0',
 
         // ANDROID TEST IMPLEMENTATION // ***********************************************************************************
 
