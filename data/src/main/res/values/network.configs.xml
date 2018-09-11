@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+    <integer name="network_timeout">10000</integer>
+
+    <!-- The Movie DB -->
+    <string name="rest_themoviedb_url">https://api.themoviedb.org/</string>
+
+</resources>

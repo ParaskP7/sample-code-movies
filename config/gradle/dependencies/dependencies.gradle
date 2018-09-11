@@ -47,6 +47,17 @@ ext.deps = [
                 'rxandroid': "io.reactivex.rxjava2:rxandroid:$versions.rxandroid",
         ],
 
+        'network'    : [
+                'gson'         : "com.google.code.gson:gson:$versions.gson",
+                'okhttpLogging': "com.squareup.okhttp3:logging-interceptor:$versions.okhttp",
+        ],
+
+        'rest'       : [
+                'retrofit'    : "com.squareup.retrofit2:retrofit:$versions.retrofit",
+                'retrofitGson': "com.squareup.retrofit2:converter-gson:$versions.retrofit",
+                'retrofitRx'  : "com.squareup.retrofit2:adapter-rxjava2:$versions.retrofit",
+        ],
+
         'logging'    : [
                 'timber': "com.jakewharton.timber:timber:$versions.timber",
         ],

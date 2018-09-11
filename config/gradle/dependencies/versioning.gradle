@@ -26,6 +26,13 @@ ext.versions = [
         rxjava           : '2.2.2',
         rxandroid        : '2.1.0',
 
+        // Network
+        gson             : "2.8.5",
+        okhttp           : "3.11.0",
+
+        // Rest
+        retrofit         : "2.4.0",
+
         // Logging
         timber           : '4.7.1',
 

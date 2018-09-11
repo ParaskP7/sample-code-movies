@@ -1,1 +1,5 @@
-ext.keys = []
+ext.keys = [
+
+        themoviedb_api_properties_file_path: '../config/keys/themoviedb_api.properties',
+
+]

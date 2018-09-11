@@ -38,6 +38,19 @@ android {
         sourceCompatibility java.version
         targetCompatibility java.version
     }
+    buildTypes {
+        def themoviedbApiPropertiesFile = file(keys.themoviedb_api_properties_file_path)
+        def themoviedbApiProperties = new Properties()
+        themoviedbApiProperties.load(new FileInputStream(themoviedbApiPropertiesFile))
+        def themoviedb_api_key = themoviedbApiProperties['themoviedb_api_key']
+
+        debug {
+            buildConfigField 'String', 'THEMOVIEDB_API_KEY', "\"${themoviedb_api_key}\""
+        }
+        release {
+            buildConfigField 'String', 'THEMOVIEDB_API_KEY', "\"${themoviedb_api_key}\""
+        }
+    }
     testOptions {
         unitTests {
             all {

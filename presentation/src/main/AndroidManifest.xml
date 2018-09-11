@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="io.petros.movies">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:name=".presentation.App"
         android:allowBackup="false"
