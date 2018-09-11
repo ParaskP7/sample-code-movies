@@ -7,6 +7,7 @@ import com.nhaarman.mockito_kotlin.mock
 import com.nhaarman.mockito_kotlin.verify
 import com.nhaarman.mockito_kotlin.verifyZeroInteractions
 import io.petros.movies.domain.model.movie.MoviesResultPage
+import io.petros.movies.presentation.feature.common.list.adapter.AdapterStatus
 import io.petros.movies.test.domain.TestMoviesProvider.Companion.provideMoviesResultPage
 import org.junit.Before
 import org.junit.Rule
@@ -21,12 +22,21 @@ class MoviesSubscriberTest {
     private val moviesResultPage = provideMoviesResultPage()
 
     private lateinit var testedClass: MoviesSubscriber
+    private val statusObservableMock = mock<Observer<AdapterStatus>>()
     private val moviesResultPageObservableMock = mock<Observer<MoviesResultPage>>()
 
     @Before
     fun setUp() {
-        testedClass = MoviesSubscriber(MutableLiveData())
+        testedClass = MoviesSubscriber(MutableLiveData(), MutableLiveData())
+        testedClass.statusObservable.observeForever(statusObservableMock)
         testedClass.moviesObservable.observeForever(moviesResultPageObservableMock)
+    }
+
+    @Test
+    fun `When load movies succeeds, then an idle status is posted`() {
+        testedClass.onSuccess(moviesResultPage)
+
+        verify(statusObservableMock).onChanged(AdapterStatus.IDLE)
     }
 
     @Test
@@ -34,6 +44,13 @@ class MoviesSubscriberTest {
         testedClass.onSuccess(moviesResultPage)
 
         verify(moviesResultPageObservableMock).onChanged(moviesResultPage)
+    }
+
+    @Test
+    fun `When load movies fails, then an error status is posted`() {
+        testedClass.onError(Exception())
+
+        verify(statusObservableMock).onChanged(AdapterStatus.ERROR)
     }
 
     @Test

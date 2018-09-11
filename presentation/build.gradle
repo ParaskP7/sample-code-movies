@@ -57,6 +57,7 @@ dependencies {
     implementation deps.kotlin.jre
     implementation deps.support.appCompat
     implementation deps.support.recyclerView
+    implementation deps.support.cardView
     implementation deps.support.constraintLayout
     implementation deps.arch.lifecycleExtensions
     implementation deps.di.dagger
