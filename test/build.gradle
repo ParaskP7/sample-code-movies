@@ -1,0 +1,24 @@
+buildscript {
+    repositories {
+        google()
+        jcenter()
+        maven { url reps.url.gradle }
+    }
+    dependencies {
+        classpath deps.plugin.kotlin
+        classpath deps.plugin.versions
+    }
+}
+
+apply plugin: 'kotlin'
+apply plugin: 'com.github.ben-manes.versions'
+
+apply from: '../config/gradle/lang/kotlin.gradle'
+apply from: '../config/gradle/dependencies/dependency_updates.gradle'
+
+dependencies {
+    implementation deps.module.domain
+
+    implementation deps.kotlin.jre
+    implementation deps.rx.rxjava
+}
