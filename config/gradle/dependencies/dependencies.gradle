@@ -74,6 +74,10 @@ ext.deps = [
                 'mockitoKotlin': "com.nhaarman:mockito-kotlin:$versions.mockito_kotlin",
         ],
 
+        'archTest'   : [
+                'core': "android.arch.core:core-testing:$versions.arch",
+        ],
+
         // ANDROID TEST IMPLEMENTATION // ***********************************************************************************
 
         'supportTest': [

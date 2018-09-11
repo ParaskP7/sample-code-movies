@@ -6,7 +6,7 @@ import io.reactivex.observers.DisposableSingleObserver
 import timber.log.Timber
 
 class MoviesSubscriber(
-    private val moviesObservable: MutableLiveData<MoviesResultPage>
+    val moviesObservable: MutableLiveData<MoviesResultPage>
 ) : DisposableSingleObserver<MoviesResultPage>() {
 
     override fun onSuccess(movies: MoviesResultPage) {
