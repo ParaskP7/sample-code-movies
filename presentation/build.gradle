@@ -69,7 +69,14 @@ dependencies {
     implementation deps.rest.retrofit
     implementation deps.logging.timber
 
+    testImplementation deps.module.test
+
     testImplementation deps.test.junit
+    testImplementation deps.test.assertj
+    testImplementation(deps.mock.mockitoKotlin, {
+        exclude group: excludedDeps.group.jetbrainsKotlin,
+                module: excludedDeps.module.kotlinReflect
+    })
 
     androidTestImplementation deps.supportTest.runner
     androidTestImplementation deps.androidTest.espresso

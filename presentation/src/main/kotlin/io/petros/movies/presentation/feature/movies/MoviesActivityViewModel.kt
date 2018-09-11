@@ -2,6 +2,7 @@ package io.petros.movies.presentation.feature.movies
 
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
+import android.support.annotation.VisibleForTesting
 import io.petros.movies.domain.interactor.movie.LoadMoviesUseCase
 import io.petros.movies.domain.model.movie.MoviesResultPage
 import io.petros.movies.presentation.feature.movies.subscriber.MoviesSubscriber
@@ -17,7 +18,8 @@ class MoviesActivityViewModel @Inject constructor(
         loadMoviesUseCase.execute(MoviesSubscriber(moviesObservable))
     }
 
-    override fun onCleared() {
+    @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
+    public override fun onCleared() {
         super.onCleared()
         loadMoviesUseCase.dispose()
     }
