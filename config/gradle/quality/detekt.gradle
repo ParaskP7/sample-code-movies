@@ -7,6 +7,7 @@ detekt {
         input = "$projectDir"
         config = "$project.rootDir/config/quality/detekt.yml"
         filters = ".*/test/.*" + comma +
+                ".*/robolectricTest/.*" + comma +
                 ".*/androidTest/.*" + comma +
                 ".*/resources/.*"
         disableDefaultRuleSets = false

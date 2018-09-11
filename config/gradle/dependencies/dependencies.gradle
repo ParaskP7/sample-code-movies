@@ -78,6 +78,10 @@ ext.deps = [
                 'core': "android.arch.core:core-testing:$versions.arch",
         ],
 
+        'robolectric': [
+                'robolectric': "org.robolectric:robolectric:$versions.robolectric",
+        ],
+
         // ANDROID TEST IMPLEMENTATION // ***********************************************************************************
 
         'supportTest': [
