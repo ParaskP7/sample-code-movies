@@ -7,9 +7,14 @@ import dagger.android.ContributesAndroidInjector
 import io.petros.movies.presentation.di.dagger.viewmodel.ViewModelFactory
 import io.petros.movies.presentation.feature.movies.MoviesActivity
 import io.petros.movies.presentation.feature.movies.MoviesActivitySubModule
+import io.petros.movies.presentation.feature.splash.SplashActivity
+import io.petros.movies.presentation.feature.splash.SplashActivitySubModule
 
 @Module
 abstract class ActivitiesModule {
+
+    @ContributesAndroidInjector(modules = [SplashActivitySubModule::class])
+    abstract fun bindsSplashActivity(): SplashActivity
 
     @ContributesAndroidInjector(modules = [MoviesActivitySubModule::class])
     abstract fun bindsMoviesActivity(): MoviesActivity
