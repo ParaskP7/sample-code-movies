@@ -15,11 +15,10 @@ import org.mockito.ArgumentCaptor
 @RunWith(PreconfiguredRobolectricTestRunner::class)
 class MoviesActivityLauncherRobolectricTest {
 
-    private var appCompatActivityMock = mock<AppCompatActivity>()
-
     private val intentCaptor = ArgumentCaptor.forClass(Intent::class.java)
 
     private lateinit var testedClass: MoviesActivityLauncher
+    private var appCompatActivityMock = mock<AppCompatActivity>()
 
     @Before
     fun setUp() {
