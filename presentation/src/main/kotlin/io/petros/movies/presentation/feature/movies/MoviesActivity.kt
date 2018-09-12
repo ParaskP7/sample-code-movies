@@ -3,11 +3,14 @@ package io.petros.movies.presentation.feature.movies
 import android.arch.lifecycle.Observer
 import android.os.Bundle
 import io.petros.movies.R
+import io.petros.movies.domain.model.movie.Movie
 import io.petros.movies.presentation.feature.BaseActivity
 import io.petros.movies.presentation.feature.movies.list.MoviesAdapter
+import io.petros.movies.presentation.feature.movies.listener.MovieCallback
 import kotlinx.android.synthetic.main.activity_movies.*
+import timber.log.Timber
 
-class MoviesActivity : BaseActivity<MoviesActivityViewModel>() {
+class MoviesActivity : BaseActivity<MoviesActivityViewModel>(), MovieCallback {
 
     private val adapter = MoviesAdapter()
 
@@ -21,6 +24,7 @@ class MoviesActivity : BaseActivity<MoviesActivityViewModel>() {
     /* OBSERVERS */
 
     private fun initRecyclerView() {
+        adapter.callback = this
         recycler_view.adapter = adapter
     }
 
@@ -45,6 +49,12 @@ class MoviesActivity : BaseActivity<MoviesActivityViewModel>() {
 
     private fun loadMovies() {
         viewModel.loadMovies()
+    }
+
+    /* NAVIGATION */
+
+    override fun onClick(movie: Movie) {
+        Timber.i("Movie clicked. [Movie: $movie]")
     }
 
     /* CONTRACT */

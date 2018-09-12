@@ -11,6 +11,7 @@ import io.petros.movies.presentation.feature.common.list.holder.ErrorViewHolder
 import io.petros.movies.presentation.feature.common.list.holder.ProgressViewHolder
 import io.petros.movies.presentation.feature.common.list.item.ErrorItemView
 import io.petros.movies.presentation.feature.common.list.item.ProgressItemView
+import io.petros.movies.presentation.feature.movies.listener.MovieCallback
 import io.petros.movies.presentation.feature.movies.view.MovieItemView
 import io.petros.movies.presentation.toast
 
@@ -32,6 +33,8 @@ class MoviesAdapter(
             field = value
             notifyDataSetChanged()
         }
+
+    lateinit var callback: MovieCallback
 
     /* CONTEXT */
 
@@ -64,7 +67,7 @@ class MoviesAdapter(
         context?.let {
             return when (viewType) {
                 VIEW_TYPE_PROGRESS -> ProgressViewHolder(ProgressItemView(it))
-                VIEW_TYPE_MOVIE -> MovieViewHolder(MovieItemView(it))
+                VIEW_TYPE_MOVIE -> MovieViewHolder(MovieItemView(it), callback)
                 VIEW_TYPE_ERROR -> ErrorViewHolder(ErrorItemView(it)) { it.toast(R.string.retry_loading) }
                 else -> throw IllegalArgumentException("View type out of range. [View Type: $viewType]")
             }

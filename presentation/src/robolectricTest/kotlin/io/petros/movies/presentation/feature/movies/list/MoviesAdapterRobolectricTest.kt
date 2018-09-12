@@ -36,6 +36,7 @@ class MoviesAdapterRobolectricTest {
         allItems.addAll(currentItems)
 
         testedClass = MoviesAdapter(allItems)
+        testedClass.callback = mock()
     }
 
     /* CONTEXT */
