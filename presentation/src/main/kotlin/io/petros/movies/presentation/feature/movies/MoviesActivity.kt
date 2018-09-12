@@ -7,10 +7,13 @@ import io.petros.movies.domain.model.movie.Movie
 import io.petros.movies.presentation.feature.BaseActivity
 import io.petros.movies.presentation.feature.movies.list.MoviesAdapter
 import io.petros.movies.presentation.feature.movies.listener.MovieCallback
+import io.petros.movies.presentation.feature.movies.navigator.MoviesNavigator
 import kotlinx.android.synthetic.main.activity_movies.*
-import timber.log.Timber
+import javax.inject.Inject
 
 class MoviesActivity : BaseActivity<MoviesActivityViewModel>(), MovieCallback {
+
+    @Inject lateinit var moviesNavigator: MoviesNavigator
 
     private val adapter = MoviesAdapter()
 
@@ -54,7 +57,7 @@ class MoviesActivity : BaseActivity<MoviesActivityViewModel>(), MovieCallback {
     /* NAVIGATION */
 
     override fun onClick(movie: Movie) {
-        Timber.i("Movie clicked. [Movie: $movie]")
+        moviesNavigator.navigate(movie)
     }
 
     /* CONTRACT */
