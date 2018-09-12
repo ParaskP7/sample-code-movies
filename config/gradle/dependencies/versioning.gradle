@@ -33,6 +33,9 @@ ext.versions = [
         // Rest
         retrofit         : "2.4.0",
 
+        // Image
+        glide            : '4.8.0',
+
         // Logging
         timber           : '4.7.1',
 

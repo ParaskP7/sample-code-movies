@@ -14,7 +14,7 @@ class RestClientTest {
 
     @Before
     fun setUp() {
-        testedClass = RestClient(restApiMock)
+        testedClass = RestClient(mock(), restApiMock)
     }
 
     @Test

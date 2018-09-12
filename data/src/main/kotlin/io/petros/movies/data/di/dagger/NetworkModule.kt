@@ -61,7 +61,7 @@ class NetworkModule {
 
     @Provides
     @Singleton
-    fun provideRestClient(restApi: RestApi): RestClient = RestClient(restApi)
+    fun provideRestClient(context: Context, restApi: RestApi): RestClient = RestClient(context, restApi)
 
     @Provides
     @Singleton

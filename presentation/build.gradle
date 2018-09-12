@@ -69,6 +69,8 @@ dependencies {
     implementation deps.network.gson
     implementation deps.network.okhttpLogging
     implementation deps.rest.retrofit
+    implementation deps.ui.glide
+    kapt deps.ui.glideCompiler
     implementation deps.logging.timber
 
     testImplementation deps.module.test

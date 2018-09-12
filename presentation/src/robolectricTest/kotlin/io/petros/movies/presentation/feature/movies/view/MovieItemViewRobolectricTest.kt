@@ -23,10 +23,33 @@ class MovieItemViewRobolectricTest {
     }
 
     @Test
+    fun `When movie is bind, then the movie backdrop is set`() {
+        assertThat(testedClass.iv_movie_backdrop.drawable).isNull()
+
+        testedClass.bind(movie)
+
+        assertThat(testedClass.iv_movie_backdrop.drawable).isNotNull
+    }
+
+    @Test
     fun `When movie is bind, then the movie title is set`() {
         testedClass.bind(movie)
 
         assertThat(testedClass.tv_movie_title.text).isEqualTo(movie.title)
+    }
+
+    @Test
+    fun `When movie is bind, then the movie release date is set`() {
+        testedClass.bind(movie)
+
+        assertThat(testedClass.tv_movie_release_date.text).isEqualTo(movie.releaseDate())
+    }
+
+    @Test
+    fun `When movie is bind, then the movie vote is set`() {
+        testedClass.bind(movie)
+
+        assertThat(testedClass.tv_movie_vote.text).isEqualTo(movie.vote())
     }
 
 }

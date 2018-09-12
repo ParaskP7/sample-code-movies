@@ -61,6 +61,11 @@ ext.deps = [
                 'retrofitRx'  : "com.squareup.retrofit2:adapter-rxjava2:$versions.retrofit",
         ],
 
+        'ui'         : [
+                'glide'        : "com.github.bumptech.glide:glide:$versions.glide",
+                'glideCompiler': "com.github.bumptech.glide:compiler:$versions.glide",
+        ],
+
         'logging'    : [
                 'timber': "com.jakewharton.timber:timber:$versions.timber",
         ],
