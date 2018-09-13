@@ -66,6 +66,13 @@ ext.deps = [
                 'glideCompiler': "com.github.bumptech.glide:compiler:$versions.glide",
         ],
 
+        'extras'     : [
+                'dart'           : "com.f2prateek.dart:dart:$versions.dart",
+                'dartProcessor'  : "com.f2prateek.dart:dart-processor:$versions.dart",
+                'henson'         : "com.f2prateek.dart:henson:$versions.dart",
+                'hensonProcessor': "com.f2prateek.dart:henson-processor:$versions.dart",
+        ],
+
         'logging'    : [
                 'timber': "com.jakewharton.timber:timber:$versions.timber",
         ],

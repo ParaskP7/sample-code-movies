@@ -21,6 +21,7 @@ apply plugin: 'com.getkeepsafe.dexcount'
 apply plugin: 'io.gitlab.arturbosch.detekt'
 
 apply from: '../config/gradle/android/android.gradle'
+apply from: '../config/gradle/android/dart.gradle'
 apply from: '../config/gradle/android/dexcount.gradle'
 apply from: '../config/gradle/android/leakcanary.gradle'
 apply from: '../config/gradle/quality/lint.gradle'
@@ -71,6 +72,10 @@ dependencies {
     implementation deps.rest.retrofit
     implementation deps.ui.glide
     kapt deps.ui.glideCompiler
+    implementation deps.extras.dart
+    kapt deps.extras.dartProcessor
+    implementation deps.extras.henson
+    kapt deps.extras.hensonProcessor
     implementation deps.logging.timber
 
     testImplementation deps.module.test

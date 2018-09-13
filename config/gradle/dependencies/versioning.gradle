@@ -36,6 +36,9 @@ ext.versions = [
         // Image
         glide            : '4.8.0',
 
+        // Dart
+        'dart'           : '2.0.3',
+
         // Logging
         timber           : '4.7.1',
 

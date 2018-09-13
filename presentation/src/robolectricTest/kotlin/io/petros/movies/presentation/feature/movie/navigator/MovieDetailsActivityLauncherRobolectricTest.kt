@@ -7,7 +7,7 @@ import com.nhaarman.mockito_kotlin.verify
 import io.petros.movies.presentation.PreconfiguredRobolectricTestRunner
 import io.petros.movies.presentation.feature.movie.MovieDetailsActivity
 import io.petros.movies.test.domain.TestMoviesProvider.Companion.provideMovie
-import org.assertj.core.api.Assertions
+import org.assertj.core.api.Assertions.assertThat
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -15,6 +15,12 @@ import org.mockito.ArgumentCaptor
 
 @RunWith(PreconfiguredRobolectricTestRunner::class)
 class MovieDetailsActivityLauncherRobolectricTest {
+
+    companion object {
+
+        private const val EXTRA_MOVIE = "movie"
+
+    }
 
     private val movie = provideMovie()
 
@@ -33,7 +39,8 @@ class MovieDetailsActivityLauncherRobolectricTest {
         testedClass.launch(movie)
 
         verify(appCompatActivityMock).startActivity(intentCaptor.capture())
-        Assertions.assertThat(intentCaptor.value?.component?.className).isEqualTo(MovieDetailsActivity::class.java.name)
+        assertThat(intentCaptor.value?.component?.className).isEqualTo(MovieDetailsActivity::class.java.name)
+        assertThat(intentCaptor.value?.extras?.get(EXTRA_MOVIE)).isEqualTo(movie)
     }
 
 }

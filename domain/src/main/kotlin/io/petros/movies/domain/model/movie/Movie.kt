@@ -5,6 +5,7 @@ import io.petros.movies.domain.star
 import io.petros.movies.domain.toMonth
 import io.petros.movies.domain.toYear
 import io.petros.movies.domain.withParentheses
+import java.io.Serializable
 import java.util.*
 
 data class Movie(
@@ -14,7 +15,7 @@ data class Movie(
     val voteAverage: Double,
     val voteCount: Int,
     val backdrop: String
-) {
+) : Serializable {
 
     fun releaseDate() = releaseDate.toYear().toString() + space() + releaseDate.toMonth().withParentheses()
 

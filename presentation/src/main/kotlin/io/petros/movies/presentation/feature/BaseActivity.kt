@@ -6,6 +6,7 @@ import android.arch.lifecycle.ViewModelProviders
 import android.content.Intent
 import android.content.res.Configuration
 import android.os.Bundle
+import com.f2prateek.dart.Dart
 import dagger.android.support.DaggerAppCompatActivity
 import timber.log.Timber
 import javax.inject.Inject
@@ -21,6 +22,7 @@ abstract class BaseActivity<Modeling : ViewModel> : DaggerAppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Dart.inject(this)
         setContentView()
         setViewModel()
         Timber.v("${javaClass.simpleName} created. [Bundle: $savedInstanceState]")

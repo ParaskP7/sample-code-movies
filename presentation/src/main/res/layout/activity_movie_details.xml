@@ -8,6 +8,7 @@
     tools:context=".presentation.feature.movies.MoviesActivity">
 
     <TextView
+        android:id="@+id/tv_movie_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Movie Details!"
