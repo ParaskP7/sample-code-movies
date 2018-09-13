@@ -77,6 +77,7 @@ dependencies {
     kapt deps.extras.dartProcessor
     implementation deps.extras.henson
     kapt deps.extras.hensonProcessor
+    implementation deps.util.monthAndYearPicker
     implementation deps.logging.timber
 
     testImplementation deps.module.test

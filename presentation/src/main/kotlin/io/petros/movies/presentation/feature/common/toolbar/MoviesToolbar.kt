@@ -14,13 +14,24 @@ class MoviesToolbar : AppBarLayout {
 
     constructor(ctx: Context, attrs: AttributeSet) : super(ctx, attrs)
 
+    lateinit var callback: MoviesToolbarCallback
+
     init {
         inflate(R.layout.toolbar_movies)
         initFilterIcon()
+        initYearFilter()
     }
 
     private fun initFilterIcon() {
         iv_filter_icon.setOnClickListener { tv_filter_year.visibility = View.VISIBLE }
+    }
+
+    private fun initYearFilter() {
+        tv_filter_year.setOnClickListener { callback.onYearClicked() }
+    }
+
+    fun setYear(year: Int) {
+        tv_filter_year.text = year.toString()
     }
 
 }

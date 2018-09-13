@@ -5,13 +5,18 @@ import android.os.Bundle
 import io.petros.movies.R
 import io.petros.movies.domain.model.movie.Movie
 import io.petros.movies.presentation.feature.BaseActivity
+import io.petros.movies.presentation.feature.common.picker.MovieYearPickerFragment
+import io.petros.movies.presentation.feature.common.picker.MovieYearPickerFragmentCallback
+import io.petros.movies.presentation.feature.common.toolbar.MoviesToolbarCallback
 import io.petros.movies.presentation.feature.movies.list.MoviesAdapter
 import io.petros.movies.presentation.feature.movies.listener.MovieCallback
 import io.petros.movies.presentation.feature.movies.navigator.MoviesNavigator
 import kotlinx.android.synthetic.main.activity_movies.*
 import javax.inject.Inject
 
-class MoviesActivity : BaseActivity<MoviesActivityViewModel>(), MovieCallback {
+@Suppress("TooManyFunctions")
+class MoviesActivity : BaseActivity<MoviesActivityViewModel>(), MoviesToolbarCallback,
+    MovieYearPickerFragmentCallback, MovieCallback {
 
     @Inject lateinit var moviesNavigator: MoviesNavigator
 
@@ -19,17 +24,22 @@ class MoviesActivity : BaseActivity<MoviesActivityViewModel>(), MovieCallback {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        initToolbar()
         initRecyclerView()
         initObservers()
         loadMovies()
     }
 
-    /* OBSERVERS */
+    private fun initToolbar() {
+        toolbar.callback = this
+    }
 
     private fun initRecyclerView() {
         adapter.callback = this
         recycler_view.adapter = adapter
     }
+
+    /* OBSERVERS */
 
     private fun initObservers() {
         observeStatus()
@@ -58,6 +68,16 @@ class MoviesActivity : BaseActivity<MoviesActivityViewModel>(), MovieCallback {
 
     override fun onClick(movie: Movie) {
         moviesNavigator.navigate(movie)
+    }
+
+    /* CALLBACK */
+
+    override fun onYearClicked() {
+        MovieYearPickerFragment().show(supportFragmentManager, MovieYearPickerFragment.TAG)
+    }
+
+    override fun onYearPicked(year: Int) {
+        toolbar.setYear(year)
     }
 
     /* CONTRACT */

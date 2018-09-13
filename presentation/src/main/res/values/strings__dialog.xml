@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+    <!-- Movie -->
+    <string name="dialog_picker_movie_year">Select Movie Year</string>
+
+</resources>

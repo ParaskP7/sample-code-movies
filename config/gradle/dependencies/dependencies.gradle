@@ -74,6 +74,10 @@ ext.deps = [
                 'hensonProcessor': "com.f2prateek.dart:henson-processor:$versions.dart",
         ],
 
+        'util'       : [
+                'monthAndYearPicker': "com.whiteelephant:monthandyearpicker:$versions.month_and_year_picker",
+        ],
+
         'logging'    : [
                 'timber': "com.jakewharton.timber:timber:$versions.timber",
         ],

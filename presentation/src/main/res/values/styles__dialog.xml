@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources xmlns:tools="http://schemas.android.com/tools" >
+
+    <style name="MonthPickerDialogStyle" tools:ignore="UnusedResources">
+        <item name="monthBgSelectedColor">@color/colorPrimary</item>
+        <item name="headerBgColor">@color/colorPrimary</item>
+        <item name="dialogActionButtonColor">@color/colorPrimary</item>
+    </style>
+
+</resources>
