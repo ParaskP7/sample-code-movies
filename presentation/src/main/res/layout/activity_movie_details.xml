@@ -1,21 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".presentation.feature.movies.MoviesActivity">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/tv_movie_title"
-        android:layout_width="wrap_content"
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Movie Details!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="HardcodedText"/>
+        tools:context=".presentation.feature.movie.MovieDetailsActivity">
 
-</android.support.constraint.ConstraintLayout>
+        <ImageView
+            android:id="@+id/iv_movie_backdrop"
+            style="@style/ActivityMovieBackdropImageView"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/activity_movie_details_backdrop_height"
+            app:layout_constraintBottom_toTopOf="@+id/tv_movie_title"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:src="@android:color/darker_gray"/>
+
+        <TextView
+            android:id="@+id/tv_movie_title"
+            style="@style/ActivityMovieTitleTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@id/tv_movie_release_date"
+            app:layout_constraintTop_toBottomOf="@id/iv_movie_backdrop"
+            tools:text="Avengers: Infinity War"/>
+
+        <TextView
+            android:id="@+id/tv_movie_release_date"
+            style="@style/ActivityMovieDetailsTextView.Top"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@id/tv_movie_vote"
+            app:layout_constraintTop_toBottomOf="@id/tv_movie_title"
+            tools:text="2018 (April)"/>
+
+        <TextView
+            android:id="@+id/tv_movie_vote"
+            style="@style/ActivityMovieDetailsTextView.Bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@id/tv_movie_overview"
+            app:layout_constraintTop_toBottomOf="@id/tv_movie_release_date"
+            tools:text="8.3 ★ (7651)"/>
+
+        <TextView
+            android:id="@+id/tv_movie_overview"
+            style="@style/ActivityMovieOverviewTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_movie_vote"
+            tools:text="As the Avengers and their allies have continued to protect the world from threats too large for any one hero to handle, a new danger has emerged from the cosmic shadows: Thanos. A despot of intergalactic infamy, his goal is to collect all six Infinity Stones, artifacts of unimaginable power, and use them to inflict his twisted will on all of reality. Everything the Avengers have fought for has led up to this moment - the fate of Earth and existence itself has never been more uncertain."/>
+
+    </android.support.constraint.ConstraintLayout>
+
+</ScrollView>

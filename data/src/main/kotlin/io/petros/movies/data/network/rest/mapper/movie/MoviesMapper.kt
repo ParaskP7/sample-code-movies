@@ -33,6 +33,7 @@ private fun MovieResponse.toMovie(context: Context): Movie {
         releaseDate = release_date.toDate(MOVIE_DATE_FORMAT),
         voteAverage = vote_average,
         voteCount = vote_count,
+        overview = overview,
         backdrop = context.getString(R.string.rest_themoviedb_image_url) + backdrop_path
     )
 }

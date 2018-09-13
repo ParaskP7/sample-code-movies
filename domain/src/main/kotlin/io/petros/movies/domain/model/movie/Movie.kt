@@ -14,6 +14,7 @@ data class Movie(
     val releaseDate: Date,
     val voteAverage: Double,
     val voteCount: Int,
+    val overview: String,
     val backdrop: String
 ) : Serializable {
 

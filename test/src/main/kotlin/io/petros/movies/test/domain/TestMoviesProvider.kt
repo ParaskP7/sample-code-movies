@@ -13,6 +13,7 @@ class TestMoviesProvider {
         private val RELEASE_DATE = GregorianCalendar(2018, Calendar.SEPTEMBER, 12).time
         private const val VOTE_AVERAGE = 10.0
         private const val VOTE_COUNT = 100
+        private const val OVERVIEW = "OVERVIEW"
         private const val BACKDROP = "BACKDROP"
 
         fun provideMovie(
@@ -21,6 +22,7 @@ class TestMoviesProvider {
             releaseDate: Date = RELEASE_DATE,
             voteAverage: Double = VOTE_AVERAGE,
             voteCount: Int = VOTE_COUNT,
+            overview: String = OVERVIEW,
             backdrop: String = BACKDROP
         ): Movie {
             return Movie(
@@ -29,6 +31,7 @@ class TestMoviesProvider {
                 releaseDate,
                 voteAverage,
                 voteCount,
+                overview,
                 backdrop
             )
         }
