@@ -78,6 +78,7 @@ class MoviesActivity : BaseActivity<MoviesActivityViewModel>(), MoviesToolbarCal
 
     override fun onYearPicked(year: Int) {
         toolbar.setYear(year)
+        viewModel.loadMovies(year)
     }
 
     /* CONTRACT */

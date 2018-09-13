@@ -8,6 +8,8 @@ class TestMoviesProvider {
 
     companion object {
 
+        const val MOVIE_YEAR = 2018
+
         private const val ID = 1
         private const val TITLE = "TITLE"
         private val RELEASE_DATE = GregorianCalendar(2018, Calendar.SEPTEMBER, 12).time

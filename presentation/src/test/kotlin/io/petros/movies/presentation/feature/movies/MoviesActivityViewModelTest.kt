@@ -8,6 +8,7 @@ import com.nhaarman.mockito_kotlin.mock
 import com.nhaarman.mockito_kotlin.verify
 import io.petros.movies.domain.interactor.movie.LoadMoviesUseCase
 import io.petros.movies.presentation.feature.common.list.adapter.AdapterStatus
+import io.petros.movies.test.domain.TestMoviesProvider.Companion.MOVIE_YEAR
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -39,7 +40,14 @@ class MoviesActivityViewModelTest {
     fun `When load movies is triggered, then load movies use case executes`() {
         testedClass.loadMovies()
 
-        verify(loadMoviesUseCaseMock).execute(any(), eq(null))
+        verify(loadMoviesUseCaseMock).execute(any(), eq(LoadMoviesUseCase.Params.with(null)))
+    }
+
+    @Test
+    fun `Given a movie year, when load movies is triggered, then load movies use case executes for that year`() {
+        testedClass.loadMovies(MOVIE_YEAR)
+
+        verify(loadMoviesUseCaseMock).execute(any(), eq(LoadMoviesUseCase.Params.with(MOVIE_YEAR)))
     }
 
     @Test

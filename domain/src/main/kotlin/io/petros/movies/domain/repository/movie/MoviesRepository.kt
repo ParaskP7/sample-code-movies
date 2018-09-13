@@ -5,6 +5,6 @@ import io.reactivex.Single
 
 interface MoviesRepository {
 
-    fun loadMovies(): Single<MoviesResultPage>
+    fun loadMovies(year: Int?): Single<MoviesResultPage>
 
 }

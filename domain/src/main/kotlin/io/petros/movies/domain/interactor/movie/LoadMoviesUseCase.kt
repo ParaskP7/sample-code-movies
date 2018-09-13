@@ -10,10 +10,22 @@ import javax.inject.Inject
 class LoadMoviesUseCase @Inject constructor(
     private val moviesRepository: MoviesRepository,
     rxSchedulers: RxSchedulers
-) : UseCaseSingle<MoviesResultPage, Unit>(rxSchedulers) {
+) : UseCaseSingle<MoviesResultPage, LoadMoviesUseCase.Params>(rxSchedulers) {
 
-    override fun buildUseCaseObservable(params: Unit): Single<MoviesResultPage> {
-        return moviesRepository.loadMovies()
+    override fun buildUseCaseObservable(params: Params): Single<MoviesResultPage> {
+        return moviesRepository.loadMovies(params.year)
+    }
+
+    data class Params constructor(val year: Int?) {
+
+        companion object {
+
+            fun with(year: Int?): Params {
+                return Params(year)
+            }
+
+        }
+
     }
 
 }

@@ -16,9 +16,12 @@ class MoviesActivityViewModel @Inject constructor(
     val statusObservable = MutableLiveData<AdapterStatus>()
     val moviesObservable = MutableLiveData<MoviesResultPage>()
 
-    fun loadMovies() {
+    fun loadMovies(year: Int? = null) {
         statusObservable.postValue(AdapterStatus.LOADING)
-        loadMoviesUseCase.execute(MoviesSubscriber(statusObservable, moviesObservable))
+        loadMoviesUseCase.execute(
+            MoviesSubscriber(statusObservable, moviesObservable),
+            LoadMoviesUseCase.Params.with(year)
+        )
     }
 
     @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
