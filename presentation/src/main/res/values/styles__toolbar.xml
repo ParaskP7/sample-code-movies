@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+    <!-- Label -->
+
+    <style name="ToolbarLabel">
+        <item name="android:layout_gravity">center</item>
+        <item name="android:paddingEnd">16dp</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <!-- Movies -->
+
+    <style name="ToolbarMoviesFilterIcon">
+        <item name="android:layout_gravity">center</item>
+        <item name="android:paddingEnd">10dp</item>
+        <item name="android:paddingStart">10dp</item>
+        <item name="android:src">@drawable/ic_search</item>
+    </style>
+
+    <style name="ToolbarMoviesFilterYear">
+        <item name="android:layout_gravity">center</item>
+        <item name="android:paddingEnd">16dp</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+</resources>

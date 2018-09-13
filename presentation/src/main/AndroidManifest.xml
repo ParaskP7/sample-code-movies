@@ -28,9 +28,7 @@
 
         <activity android:name=".presentation.feature.movies.MoviesActivity"/>
 
-        <activity
-            android:name=".presentation.feature.movie.MovieDetailsActivity"
-            android:label="@string/activity_movie_details_name"/>
+        <activity android:name=".presentation.feature.movie.MovieDetailsActivity"/>
 
     </application>
 

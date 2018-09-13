@@ -11,15 +11,22 @@
         android:layout_height="wrap_content"
         tools:context=".presentation.feature.movie.MovieDetailsActivity">
 
+        <io.petros.movies.presentation.feature.common.toolbar.MovieDetailsToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/toolbar_height"
+            app:layout_constraintBottom_toTopOf="@id/iv_movie_backdrop"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:layout_constraintVertical_chainStyle="packed"/>
+
         <ImageView
             android:id="@+id/iv_movie_backdrop"
             style="@style/ActivityMovieBackdropImageView"
             android:layout_width="match_parent"
             android:layout_height="@dimen/activity_movie_details_backdrop_height"
             app:layout_constraintBottom_toTopOf="@+id/tv_movie_title"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0"
-            app:layout_constraintVertical_chainStyle="packed"
+            app:layout_constraintTop_toTopOf="@id/toolbar"
             tools:src="@android:color/darker_gray"/>
 
         <TextView

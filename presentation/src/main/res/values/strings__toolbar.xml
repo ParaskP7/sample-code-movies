@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+    <!-- Movies -->
+    <string name="toolbar_movies_filter_year">Year</string>
+
+</resources>

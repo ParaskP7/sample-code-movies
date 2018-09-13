@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimary"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/ToolbarLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/activity_movies_name"/>
+
+        <ImageView
+            android:id="@+id/iv_filter_icon"
+            style="@style/ToolbarMoviesFilterIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/tv_filter_year"
+            style="@style/ToolbarMoviesFilterYear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/toolbar_movies_filter_year"
+            android:visibility="invisible"/>
+
+    </LinearLayout>
+
+</merge>
