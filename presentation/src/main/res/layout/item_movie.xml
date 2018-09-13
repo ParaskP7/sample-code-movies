@@ -13,7 +13,7 @@
             style="@style/ItemMovieBackdropImageView"
             android:layout_width="match_parent"
             android:layout_height="@dimen/item_movie_backdrop_height"
-            app:layout_constraintBottom_toTopOf="@+id/ll_movie_details"
+            app:layout_constraintBottom_toTopOf="@id/ll_movie_details"
             app:layout_constraintTop_toTopOf="parent"
             tools:src="@android:color/darker_gray"/>
 
@@ -41,7 +41,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                tools:text="2018 (25/4)"/>
+                tools:text="2018 (April)"/>
 
             <TextView
                 android:id="@+id/tv_movie_vote"
@@ -49,7 +49,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                tools:text="8.3 (7651)"/>
+                tools:text="8.3 ★ (7651)"/>
 
         </LinearLayout>
 
