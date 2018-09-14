@@ -5,6 +5,8 @@ import android.os.Bundle
 import io.petros.movies.R
 import io.petros.movies.domain.model.movie.Movie
 import io.petros.movies.presentation.feature.BaseActivity
+import io.petros.movies.presentation.feature.common.picker.MovieMonthPickerFragment
+import io.petros.movies.presentation.feature.common.picker.MovieMonthPickerFragmentCallback
 import io.petros.movies.presentation.feature.common.picker.MovieYearPickerFragment
 import io.petros.movies.presentation.feature.common.picker.MovieYearPickerFragmentCallback
 import io.petros.movies.presentation.feature.common.toolbar.MoviesToolbarCallback
@@ -17,7 +19,7 @@ import javax.inject.Inject
 
 @Suppress("TooManyFunctions")
 class MoviesActivity : BaseActivity<MoviesActivityViewModel>(), InfiniteRecyclerView.Listener, MoviesToolbarCallback,
-    MovieYearPickerFragmentCallback, MovieCallback {
+    MovieYearPickerFragmentCallback, MovieMonthPickerFragmentCallback, MovieCallback {
 
     @Inject lateinit var moviesNavigator: MoviesNavigator
 
@@ -63,11 +65,11 @@ class MoviesActivity : BaseActivity<MoviesActivityViewModel>(), InfiniteRecycler
     /* DATA LOADING */
 
     override fun loadDataOrRestore() {
-        viewModel.loadMoviesOrRestore(toolbar.getYear())
+        viewModel.loadMoviesOrRestore(toolbar.getYear(), toolbar.getMonth())
     }
 
     override fun loadData(page: Int?) {
-        viewModel.loadMovies(toolbar.getYear(), page)
+        viewModel.loadMovies(toolbar.getYear(), toolbar.getMonth(), page)
     }
 
     /* NAVIGATION */
@@ -82,9 +84,19 @@ class MoviesActivity : BaseActivity<MoviesActivityViewModel>(), InfiniteRecycler
         MovieYearPickerFragment().show(supportFragmentManager, MovieYearPickerFragment.TAG)
     }
 
+    override fun onMonthClicked() {
+        MovieMonthPickerFragment().show(supportFragmentManager, MovieMonthPickerFragment.TAG)
+    }
+
     override fun onYearPicked(year: Int) {
         toolbar.setYear(year)
+        toolbar.showMonth()
         viewModel.reloadMovies(year)
+    }
+
+    override fun onMonthPicked(month: Int) {
+        toolbar.setMonth(month)
+        viewModel.reloadMovies(toolbar.getYear(), month)
     }
 
     /* CONFIGURATION CHANGE */

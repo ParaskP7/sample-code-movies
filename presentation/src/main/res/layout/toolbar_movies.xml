@@ -22,10 +22,18 @@
 
         <TextView
             android:id="@+id/tv_filter_year"
-            style="@style/ToolbarMoviesFilterYear"
+            style="@style/ToolbarMoviesFilterDate.Year"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/toolbar_movies_filter_year"
+            android:visibility="invisible"/>
+
+        <TextView
+            android:id="@+id/tv_filter_month"
+            style="@style/ToolbarMoviesFilterDate.Month"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/toolbar_movies_filter_month"
             android:visibility="invisible"/>
 
     </LinearLayout>

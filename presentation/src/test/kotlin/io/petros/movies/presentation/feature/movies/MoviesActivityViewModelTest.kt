@@ -11,6 +11,7 @@ import io.petros.movies.domain.model.common.PaginationData
 import io.petros.movies.domain.model.movie.Movie
 import io.petros.movies.domain.model.movie.MoviesResultPage
 import io.petros.movies.presentation.feature.common.list.adapter.AdapterStatus
+import io.petros.movies.test.domain.TestMoviesProvider.Companion.MOVIE_MONTH
 import io.petros.movies.test.domain.TestMoviesProvider.Companion.MOVIE_YEAR
 import io.petros.movies.test.domain.TestMoviesProvider.Companion.NEXT_PAGE
 import io.petros.movies.test.domain.TestMoviesProvider.Companion.provideMovie
@@ -45,7 +46,7 @@ class MoviesActivityViewModelTest {
         testedClass.loadMoviesOrRestore()
 
         verify(statusObservableMock).onChanged(AdapterStatus.LOADING)
-        verify(loadMoviesUseCaseMock).execute(any(), eq(LoadMoviesUseCase.Params.with(null, null)))
+        verify(loadMoviesUseCaseMock).execute(any(), eq(LoadMoviesUseCase.Params.with(null, null, null)))
     }
 
     @Test
@@ -70,14 +71,14 @@ class MoviesActivityViewModelTest {
     fun `When load movies is triggered, then load movies use case executes`() {
         testedClass.loadMovies()
 
-        verify(loadMoviesUseCaseMock).execute(any(), eq(LoadMoviesUseCase.Params.with(null, null)))
+        verify(loadMoviesUseCaseMock).execute(any(), eq(LoadMoviesUseCase.Params.with(null, null, null)))
     }
 
     @Test
     fun `Given a movie year, when load movies is triggered, then load movies use case executes for that year`() {
-        testedClass.loadMovies(MOVIE_YEAR, NEXT_PAGE)
+        testedClass.loadMovies(MOVIE_YEAR, MOVIE_MONTH, NEXT_PAGE)
 
-        verify(loadMoviesUseCaseMock).execute(any(), eq(LoadMoviesUseCase.Params.with(MOVIE_YEAR, NEXT_PAGE)))
+        verify(loadMoviesUseCaseMock).execute(any(), eq(LoadMoviesUseCase.Params.with(MOVIE_YEAR, MOVIE_MONTH, NEXT_PAGE)))
     }
 
     @Test
@@ -86,11 +87,11 @@ class MoviesActivityViewModelTest {
         testedClass.paginationData.addPage(MoviesResultPage(NEXT_PAGE, movies))
         assertThat(testedClass.paginationData.isEmpty()).isFalse()
 
-        testedClass.reloadMovies(MOVIE_YEAR)
+        testedClass.reloadMovies(MOVIE_YEAR, MOVIE_MONTH)
 
         assertThat(testedClass.paginationData.isEmpty()).isTrue()
         verify(statusObservableMock).onChanged(AdapterStatus.LOADING)
-        verify(loadMoviesUseCaseMock).execute(any(), eq(LoadMoviesUseCase.Params.with(MOVIE_YEAR, null)))
+        verify(loadMoviesUseCaseMock).execute(any(), eq(LoadMoviesUseCase.Params.with(MOVIE_YEAR, MOVIE_MONTH, null)))
     }
 
     @Test

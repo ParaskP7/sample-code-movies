@@ -4,5 +4,6 @@
 
     <!-- Movies -->
     <string name="toolbar_movies_filter_year">Year</string>
+    <string name="toolbar_movies_filter_month">Month</string>
 
 </resources>

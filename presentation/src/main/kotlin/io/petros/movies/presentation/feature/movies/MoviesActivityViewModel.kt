@@ -19,21 +19,21 @@ class MoviesActivityViewModel @Inject constructor(
 
     val paginationData = PaginationData<Movie>()
 
-    fun loadMoviesOrRestore(year: Int? = null) {
-        if (paginationData.isEmpty()) loadMovies(year) else moviesObservable.postValue(paginationData)
+    fun loadMoviesOrRestore(year: Int? = null, month: Int? = null) {
+        if (paginationData.isEmpty()) loadMovies(year, month) else moviesObservable.postValue(paginationData)
     }
 
-    fun loadMovies(year: Int? = null, page: Int? = null) {
+    fun loadMovies(year: Int? = null, month: Int? = null, page: Int? = null) {
         statusObservable.postValue(AdapterStatus.LOADING)
         loadMoviesUseCase.execute(
             MoviesSubscriber(statusObservable, moviesObservable, paginationData),
-            LoadMoviesUseCase.Params.with(year, page)
+            LoadMoviesUseCase.Params.with(year, month, page)
         )
     }
 
-    fun reloadMovies(year: Int? = null) {
+    fun reloadMovies(year: Int? = null, month: Int? = null) {
         paginationData.clear()
-        loadMovies(year)
+        loadMovies(year, month)
     }
 
     @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)

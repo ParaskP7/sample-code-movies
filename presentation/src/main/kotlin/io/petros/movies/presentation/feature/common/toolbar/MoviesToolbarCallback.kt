@@ -4,4 +4,6 @@ interface MoviesToolbarCallback {
 
     fun onYearClicked()
 
+    fun onMonthClicked()
+
 }

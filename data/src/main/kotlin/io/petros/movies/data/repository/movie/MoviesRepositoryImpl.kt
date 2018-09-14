@@ -10,8 +10,8 @@ class MoviesRepositoryImpl @Inject constructor(
     private val webService: WebService
 ) : MoviesRepository {
 
-    override fun loadMovies(year: Int?, page: Int?): Single<MoviesResultPage> {
-        return webService.loadMovies(year, page)
+    override fun loadMovies(year: Int?, month: Int?, page: Int?): Single<MoviesResultPage> {
+        return webService.loadMovies(year, month, page)
     }
 
 }

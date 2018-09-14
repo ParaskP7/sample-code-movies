@@ -10,6 +10,7 @@ class TestMoviesProvider {
 
         const val NEXT_PAGE = 2
         const val MOVIE_YEAR = 2018
+        const val MOVIE_MONTH = 7
 
         private const val ID = 1
         private const val TITLE = "TITLE"

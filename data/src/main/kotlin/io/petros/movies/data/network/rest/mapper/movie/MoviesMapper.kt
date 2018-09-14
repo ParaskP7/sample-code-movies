@@ -7,6 +7,7 @@ import io.petros.movies.data.network.rest.response.movie.MoviesResultPageRespons
 import io.petros.movies.domain.model.movie.Movie
 import io.petros.movies.domain.model.movie.MoviesResultPage
 import io.petros.movies.domain.toDate
+import io.petros.movies.domain.util.MOVIE_DATE_FORMAT
 
 class MoviesMapper {
 
@@ -29,8 +30,6 @@ class MoviesMapper {
     }
 
 }
-
-private const val MOVIE_DATE_FORMAT = "yyyy-MM-dd"
 
 private fun MovieResponse.toMovie(context: Context): Movie {
     return Movie(

@@ -13,15 +13,15 @@ class LoadMoviesUseCase @Inject constructor(
 ) : UseCaseSingle<MoviesResultPage, LoadMoviesUseCase.Params>(rxSchedulers) {
 
     override fun buildUseCaseObservable(params: Params): Single<MoviesResultPage> {
-        return moviesRepository.loadMovies(params.year, params.page)
+        return moviesRepository.loadMovies(params.year, params.month, params.page)
     }
 
-    data class Params constructor(val year: Int?, val page: Int?) {
+    data class Params constructor(val year: Int?, val month: Int?, val page: Int?) {
 
         companion object {
 
-            fun with(year: Int?, page: Int?): Params {
-                return Params(year, page)
+            fun with(year: Int?, month: Int?, page: Int?): Params {
+                return Params(year, month, page)
             }
 
         }
