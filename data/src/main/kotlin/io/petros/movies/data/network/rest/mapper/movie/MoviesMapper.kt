@@ -40,6 +40,6 @@ private fun MovieResponse.toMovie(context: Context): Movie {
         voteAverage = vote_average,
         voteCount = vote_count,
         overview = overview,
-        backdrop = context.getString(R.string.rest_themoviedb_image_url) + backdrop_path
+        backdrop = backdrop_path?.let { context.getString(R.string.rest_themoviedb_image_url) + it }
     )
 }

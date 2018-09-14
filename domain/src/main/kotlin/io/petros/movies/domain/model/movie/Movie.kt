@@ -15,7 +15,7 @@ data class Movie(
     val voteAverage: Double,
     val voteCount: Int,
     val overview: String,
-    val backdrop: String
+    val backdrop: String?
 ) : Serializable {
 
     fun releaseDate() = releaseDate.toYear().toString() + space() + releaseDate.toMonth().withParentheses()
