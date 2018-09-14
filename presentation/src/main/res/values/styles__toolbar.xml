@@ -14,11 +14,18 @@
 
     <!-- Movies -->
 
-    <style name="ToolbarMoviesFilterIcon">
+    <style name="ToolbarMoviesIcon">
         <item name="android:layout_gravity">center</item>
         <item name="android:paddingEnd">10dp</item>
         <item name="android:paddingStart">10dp</item>
+    </style>
+
+    <style name="ToolbarMoviesIcon.Filter">
         <item name="android:src">@drawable/ic_filter</item>
+    </style>
+
+    <style name="ToolbarMoviesIcon.Close">
+        <item name="android:src">@drawable/ic_close</item>
     </style>
 
     <style name="ToolbarMoviesFilterDate">

@@ -16,9 +16,16 @@
 
         <ImageView
             android:id="@+id/iv_filter_icon"
-            style="@style/ToolbarMoviesFilterIcon"
+            style="@style/ToolbarMoviesIcon.Filter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
+
+        <ImageView
+            android:id="@+id/iv_close_icon"
+            style="@style/ToolbarMoviesIcon.Close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"/>
 
         <TextView
             android:id="@+id/tv_filter_year"

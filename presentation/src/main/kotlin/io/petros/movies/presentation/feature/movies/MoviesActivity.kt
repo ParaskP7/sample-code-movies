@@ -80,6 +80,10 @@ class MoviesActivity : BaseActivity<MoviesActivityViewModel>(), InfiniteRecycler
 
     /* CALLBACK */
 
+    override fun onCloseClicked() {
+        viewModel.reloadMovies()
+    }
+
     override fun onYearClicked() {
         MovieYearPickerFragment().show(supportFragmentManager, MovieYearPickerFragment.TAG)
     }
