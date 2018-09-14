@@ -1,7 +1,10 @@
 package io.petros.movies.presentation.feature.movies.view
 
+import com.nhaarman.mockito_kotlin.mock
+import com.nhaarman.mockito_kotlin.verify
 import io.petros.movies.presentation.PreconfiguredRobolectricTestRunner
 import io.petros.movies.presentation.RobolectricTestProvider.Companion.provideContext
+import io.petros.movies.presentation.feature.movies.listener.MovieCallback
 import io.petros.movies.test.domain.TestMoviesProvider.Companion.provideMovie
 import kotlinx.android.synthetic.main.item_movie.view.*
 import org.assertj.core.api.Assertions.assertThat
@@ -13,6 +16,8 @@ import org.junit.runner.RunWith
 class MovieItemViewRobolectricTest {
 
     private val movie = provideMovie()
+
+    private val callbackMock = mock<MovieCallback>()
 
     private lateinit var testedClass: MovieItemView
     private val context = provideContext()
@@ -50,6 +55,16 @@ class MovieItemViewRobolectricTest {
         testedClass.bind(movie)
 
         assertThat(testedClass.tv_movie_vote.text).isEqualTo(movie.vote())
+    }
+
+    @Test
+    fun `When movie callback is bind, then the callback's on click event is triggered`() {
+        testedClass.bindCallback(movie, callbackMock)
+
+        testedClass.performClick()
+
+        val sharedElementMovie = SharedElementMovie(movie, testedClass.iv_movie_backdrop)
+        verify(callbackMock).onClick(sharedElementMovie)
     }
 
 }

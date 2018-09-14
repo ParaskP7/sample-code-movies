@@ -13,6 +13,7 @@
             style="@style/ItemMovieBackdropImageView"
             android:layout_width="match_parent"
             android:layout_height="@dimen/item_movie_backdrop_height"
+            android:transitionName="@string/movie_backdrop_shared_element"
             app:layout_constraintBottom_toTopOf="@id/ll_movie_details"
             app:layout_constraintTop_toTopOf="parent"
             tools:src="@android:color/darker_gray"/>

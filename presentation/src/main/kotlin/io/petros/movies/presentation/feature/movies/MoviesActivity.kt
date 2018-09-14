@@ -3,7 +3,6 @@ package io.petros.movies.presentation.feature.movies
 import android.arch.lifecycle.Observer
 import android.os.Bundle
 import io.petros.movies.R
-import io.petros.movies.domain.model.movie.Movie
 import io.petros.movies.presentation.feature.BaseActivity
 import io.petros.movies.presentation.feature.common.picker.MovieMonthPickerFragment
 import io.petros.movies.presentation.feature.common.picker.MovieMonthPickerFragmentCallback
@@ -14,6 +13,7 @@ import io.petros.movies.presentation.feature.common.view.InfiniteRecyclerView
 import io.petros.movies.presentation.feature.movies.list.MoviesAdapter
 import io.petros.movies.presentation.feature.movies.listener.MovieCallback
 import io.petros.movies.presentation.feature.movies.navigator.MoviesNavigator
+import io.petros.movies.presentation.feature.movies.view.SharedElementMovie
 import kotlinx.android.synthetic.main.activity_movies.*
 import javax.inject.Inject
 
@@ -74,7 +74,7 @@ class MoviesActivity : BaseActivity<MoviesActivityViewModel>(), InfiniteRecycler
 
     /* NAVIGATION */
 
-    override fun onClick(movie: Movie) {
+    override fun onClick(movie: SharedElementMovie) {
         moviesNavigator.navigate(movie)
     }
 

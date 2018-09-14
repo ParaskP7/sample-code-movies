@@ -25,6 +25,7 @@
             style="@style/ActivityMovieBackdropImageView"
             android:layout_width="match_parent"
             android:layout_height="@dimen/activity_movie_details_backdrop_height"
+            android:transitionName="@string/movie_backdrop_shared_element"
             app:layout_constraintBottom_toTopOf="@+id/tv_movie_title"
             app:layout_constraintTop_toTopOf="@id/toolbar"
             tools:src="@android:color/darker_gray"/>

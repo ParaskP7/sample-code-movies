@@ -12,15 +12,15 @@ class MovieViewHolder(
 
     fun bind(movie: Movie) {
         bindMovie(movie)
-        bindCallback(movie)
+        bindMovieCallback(movie)
     }
 
     private fun bindMovie(movie: Movie) {
         (itemView as MovieItemView).bind(movie)
     }
 
-    private fun bindCallback(movie: Movie) {
-        itemView.setOnClickListener { callback.onClick(movie) }
+    private fun bindMovieCallback(movie: Movie) {
+        (itemView as MovieItemView).bindCallback(movie, callback)
     }
 
 }

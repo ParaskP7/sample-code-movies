@@ -3,6 +3,7 @@ package io.petros.movies.presentation.feature.movies.navigator
 import com.nhaarman.mockito_kotlin.mock
 import com.nhaarman.mockito_kotlin.verify
 import io.petros.movies.presentation.feature.movie.navigator.MovieDetailsLauncher
+import io.petros.movies.presentation.feature.movies.view.SharedElementMovie
 import io.petros.movies.presentation.feature.navigator.Launcher
 import io.petros.movies.test.domain.TestMoviesProvider.Companion.provideMovie
 import org.junit.Before
@@ -24,9 +25,11 @@ class MoviesActivityNavigatorTest {
 
     @Test
     fun `When navigating from movies activity, then movie details activity launches`() {
-        testedClass.navigate(movie)
+        val sharedElementMovie = SharedElementMovie(movie, mock())
 
-        verify(movieDetailsLauncherMock).launch(movie)
+        testedClass.navigate(sharedElementMovie)
+
+        verify(movieDetailsLauncherMock).launch(sharedElementMovie)
     }
 
 }

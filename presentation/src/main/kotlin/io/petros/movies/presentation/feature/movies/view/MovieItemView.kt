@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import io.petros.movies.R
 import io.petros.movies.domain.model.movie.Movie
 import io.petros.movies.presentation.displayImage
+import io.petros.movies.presentation.feature.movies.listener.MovieCallback
 import io.petros.movies.presentation.getDimension
 import io.petros.movies.presentation.inflate
 import kotlinx.android.synthetic.main.item_movie.view.*
@@ -41,6 +42,11 @@ class MovieItemView : CardView {
         tv_movie_title.text = movie.title
         tv_movie_release_date.text = movie.releaseDate()
         tv_movie_vote.text = movie.vote()
+    }
+
+    fun bindCallback(movie: Movie, callback: MovieCallback) {
+        val sharedElementMovie = SharedElementMovie(movie, iv_movie_backdrop)
+        setOnClickListener { callback.onClick(sharedElementMovie) }
     }
 
 }
