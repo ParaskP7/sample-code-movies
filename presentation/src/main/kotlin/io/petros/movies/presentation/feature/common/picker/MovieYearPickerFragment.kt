@@ -12,6 +12,7 @@ class MovieYearPickerFragment : DialogFragment(), MonthPickerDialog.OnDateSetLis
     companion object {
 
         const val TAG = "MovieYearPickerFragment"
+        private const val EXTRA_YEARS = 10
 
     }
 
@@ -19,7 +20,7 @@ class MovieYearPickerFragment : DialogFragment(), MonthPickerDialog.OnDateSetLis
         val year = Calendar.getInstance().get(Calendar.YEAR)
         return MonthPickerDialog.Builder(context, this, year, 0)
             .setActivatedYear(year)
-            .setMaxYear(year)
+            .setMaxYear(year + EXTRA_YEARS)
             .setTitle(context?.getString(R.string.dialog_picker_movie_year))
             .showYearOnly()
             .build()
