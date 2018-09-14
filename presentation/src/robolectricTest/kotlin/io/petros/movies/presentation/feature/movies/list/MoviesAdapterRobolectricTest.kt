@@ -4,7 +4,6 @@ import android.support.v7.widget.RecyclerView
 import com.nhaarman.mockito_kotlin.mock
 import com.nhaarman.mockito_kotlin.verify
 import com.nhaarman.mockito_kotlin.verifyZeroInteractions
-import io.petros.movies.domain.model.movie.Movie
 import io.petros.movies.presentation.PreconfiguredRobolectricTestRunner
 import io.petros.movies.presentation.RobolectricTestProvider.Companion.provideContext
 import io.petros.movies.presentation.feature.common.list.adapter.AdapterStatus
@@ -25,60 +24,29 @@ class MoviesAdapterRobolectricTest {
     private val context = provideContext()
     private val recyclerView = RecyclerView(context)
 
-    private val allItems = ArrayList<Movie>()
-    private val currentItems = listOf(provideMovie(title = "1"), provideMovie(title = "2"), provideMovie(title = "3"))
-    private val newItems = listOf(provideMovie(title = "4"), provideMovie(title = "5"), provideMovie(title = "6"))
+    private val items = listOf(provideMovie(id = 1), provideMovie(id = 2), provideMovie(id = 3))
 
     private lateinit var testedClass: MoviesAdapter
 
     @Before
     fun setUp() {
-        allItems.addAll(currentItems)
-
-        testedClass = MoviesAdapter(allItems)
+        testedClass = MoviesAdapter()
+        testedClass.items.addAll(items)
         testedClass.callback = mock()
     }
 
-    /* CONTEXT */
+    /* STATUS */
 
     @Test
     fun `When adapter is set, then status is idle`() {
         assertThat(testedClass.status).isEqualTo(AdapterStatus.IDLE)
     }
 
-    @Test
-    fun `When attaching to recycler view, then context is set`() {
-        assertThat(testedClass.context).isNull()
-
-        testedClass.onAttachedToRecyclerView(recyclerView)
-
-        assertThat(testedClass.context).isEqualTo(context)
-    }
-
-    @Test
-    fun `When detaching from recycler view, then context is unset`() {
-        testedClass.onAttachedToRecyclerView(recyclerView)
-        assertThat(testedClass.context).isEqualTo(context)
-
-        testedClass.onDetachedFromRecyclerView(recyclerView)
-
-        assertThat(testedClass.context).isNull()
-    }
-
     /* ITEMS */
 
     @Test
     fun `When adapter is set, then all items are used`() {
-        assertThat(testedClass.itemCount).isEqualTo(currentItems.size)
-    }
-
-    @Test
-    fun `When setting items to adapter, then new items replace the current items`() {
-        assertThat(testedClass.items).isEqualTo(currentItems)
-
-        testedClass.setItems(newItems)
-
-        assertThat(testedClass.items).isEqualTo(newItems)
+        assertThat(testedClass.itemCount).isEqualTo(items.size)
     }
 
     /* VIEW HOLDER */
@@ -119,7 +87,7 @@ class MoviesAdapterRobolectricTest {
 
         testedClass.onBindViewHolder(viewHolderMock, position)
 
-        verify(viewHolderMock).bind(currentItems[position])
+        verify(viewHolderMock).bind(items[position])
     }
 
     @Test
@@ -127,7 +95,7 @@ class MoviesAdapterRobolectricTest {
         testedClass.onAttachedToRecyclerView(recyclerView)
         testedClass.onCreateViewHolder(mock(), VIEW_TYPE_PROGRESS)
         testedClass.status = AdapterStatus.LOADING
-        val position = currentItems.size
+        val position = items.size
         val viewHolderMock = mock<MovieViewHolder>()
 
         testedClass.onBindViewHolder(viewHolderMock, position)
@@ -148,7 +116,7 @@ class MoviesAdapterRobolectricTest {
     fun `Given at last position and idle, when getting the item view type, then a movie item view type is returned`() {
         testedClass.status = AdapterStatus.IDLE
 
-        val result = testedClass.getItemViewType(currentItems.size)
+        val result = testedClass.getItemViewType(items.size)
 
         assertThat(result).isEqualTo(VIEW_TYPE_MOVIE)
     }
@@ -157,7 +125,7 @@ class MoviesAdapterRobolectricTest {
     fun `Given at last position and loading, when getting the item view type, then a progress view type is returned`() {
         testedClass.status = AdapterStatus.LOADING
 
-        val result = testedClass.getItemViewType(currentItems.size)
+        val result = testedClass.getItemViewType(items.size)
 
         assertThat(result).isEqualTo(VIEW_TYPE_PROGRESS)
     }
@@ -166,7 +134,7 @@ class MoviesAdapterRobolectricTest {
     fun `Given at last position and error, when getting the item view type, then an error view type is returned`() {
         testedClass.status = AdapterStatus.ERROR
 
-        val result = testedClass.getItemViewType(currentItems.size)
+        val result = testedClass.getItemViewType(items.size)
 
         assertThat(result).isEqualTo(VIEW_TYPE_ERROR)
     }

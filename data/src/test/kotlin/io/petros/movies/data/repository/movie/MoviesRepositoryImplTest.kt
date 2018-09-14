@@ -4,6 +4,7 @@ import com.nhaarman.mockito_kotlin.mock
 import com.nhaarman.mockito_kotlin.verify
 import io.petros.movies.data.network.WebService
 import io.petros.movies.test.domain.TestMoviesProvider.Companion.MOVIE_YEAR
+import io.petros.movies.test.domain.TestMoviesProvider.Companion.NEXT_PAGE
 import org.junit.Before
 import org.junit.Test
 
@@ -19,9 +20,9 @@ class MoviesRepositoryImplTest {
 
     @Test
     fun `When load movies is triggered, then web service triggers load movies`() {
-        testedClass.loadMovies(MOVIE_YEAR)
+        testedClass.loadMovies(NEXT_PAGE, MOVIE_YEAR)
 
-        verify(webServiceMock).loadMovies(MOVIE_YEAR)
+        verify(webServiceMock).loadMovies(NEXT_PAGE, MOVIE_YEAR)
     }
 
 }

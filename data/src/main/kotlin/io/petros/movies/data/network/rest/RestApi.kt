@@ -10,7 +10,8 @@ interface RestApi {
 
     @GET("3/discover/movie")
     fun loadMovies(
-        @Query("year") releaseYear: Int? = null,
+        @Query("primary_release_year") releaseYear: Int? = null,
+        @Query("page") page: Int? = null,
         @Query("sort_by") sortBy: String = "popularity.desc",
         @Query("api_key") clientId: String = BuildConfig.THEMOVIEDB_API_KEY
     ): Single<MoviesResultPageResponse>

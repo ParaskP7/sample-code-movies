@@ -5,6 +5,7 @@ import com.nhaarman.mockito_kotlin.verify
 import com.nhaarman.mockito_kotlin.whenever
 import io.petros.movies.domain.repository.movie.MoviesRepository
 import io.petros.movies.test.domain.TestMoviesProvider.Companion.MOVIE_YEAR
+import io.petros.movies.test.domain.TestMoviesProvider.Companion.NEXT_PAGE
 import io.petros.movies.test.domain.TestMoviesProvider.Companion.provideMoviesResultPage
 import io.petros.movies.test.rx.TestRxSchedulersProvider.Companion.provideRxSchedulers
 import io.reactivex.Single
@@ -14,7 +15,7 @@ import org.junit.Test
 
 class LoadMoviesUseCaseTest {
 
-    private val params = LoadMoviesUseCase.Params.with(MOVIE_YEAR)
+    private val params = LoadMoviesUseCase.Params.with(NEXT_PAGE, MOVIE_YEAR)
 
     private val moviesResultPage = provideMoviesResultPage()
 
@@ -30,12 +31,12 @@ class LoadMoviesUseCaseTest {
     fun `When load movies use case is build, then movies repository triggers load movies`() {
         testedClass.buildUseCaseObservable(params)
 
-        verify(moviesRepositoryMock).loadMovies(MOVIE_YEAR)
+        verify(moviesRepositoryMock).loadMovies(NEXT_PAGE, MOVIE_YEAR)
     }
 
     @Test
     fun `When load movies returns, then the movies result page is the expected one`() {
-        whenever(moviesRepositoryMock.loadMovies(MOVIE_YEAR)).thenReturn(Single.just(moviesResultPage))
+        whenever(moviesRepositoryMock.loadMovies(NEXT_PAGE, MOVIE_YEAR)).thenReturn(Single.just(moviesResultPage))
 
         val result = testedClass.buildUseCaseObservable(params).blockingGet()
 

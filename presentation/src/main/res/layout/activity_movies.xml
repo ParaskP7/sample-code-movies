@@ -16,7 +16,7 @@
         app:layout_constraintVertical_bias="0.0"
         app:layout_constraintVertical_chainStyle="packed"/>
 
-    <android.support.v7.widget.RecyclerView
+    <io.petros.movies.presentation.feature.common.view.InfiniteRecyclerView
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="0dp"

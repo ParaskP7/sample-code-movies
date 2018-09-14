@@ -8,6 +8,7 @@ import io.petros.movies.presentation.feature.BaseActivity
 import io.petros.movies.presentation.feature.common.picker.MovieYearPickerFragment
 import io.petros.movies.presentation.feature.common.picker.MovieYearPickerFragmentCallback
 import io.petros.movies.presentation.feature.common.toolbar.MoviesToolbarCallback
+import io.petros.movies.presentation.feature.common.view.InfiniteRecyclerView
 import io.petros.movies.presentation.feature.movies.list.MoviesAdapter
 import io.petros.movies.presentation.feature.movies.listener.MovieCallback
 import io.petros.movies.presentation.feature.movies.navigator.MoviesNavigator
@@ -15,7 +16,7 @@ import kotlinx.android.synthetic.main.activity_movies.*
 import javax.inject.Inject
 
 @Suppress("TooManyFunctions")
-class MoviesActivity : BaseActivity<MoviesActivityViewModel>(), MoviesToolbarCallback,
+class MoviesActivity : BaseActivity<MoviesActivityViewModel>(), InfiniteRecyclerView.Listener, MoviesToolbarCallback,
     MovieYearPickerFragmentCallback, MovieCallback {
 
     @Inject lateinit var moviesNavigator: MoviesNavigator
@@ -27,7 +28,7 @@ class MoviesActivity : BaseActivity<MoviesActivityViewModel>(), MoviesToolbarCal
         initToolbar()
         initRecyclerView()
         initObservers()
-        loadMovies()
+        loadDataOrRestore()
     }
 
     private fun initToolbar() {
@@ -37,6 +38,7 @@ class MoviesActivity : BaseActivity<MoviesActivityViewModel>(), MoviesToolbarCal
     private fun initRecyclerView() {
         adapter.callback = this
         recycler_view.adapter = adapter
+        recycler_view.listener = this
     }
 
     /* OBSERVERS */
@@ -54,14 +56,18 @@ class MoviesActivity : BaseActivity<MoviesActivityViewModel>(), MoviesToolbarCal
 
     private fun observeMovies() {
         viewModel.moviesObservable.observe(this, Observer { it ->
-            it?.let { adapter.setItems(it.movies) }
+            it?.let { adapter.setItems(it) }
         })
     }
 
     /* DATA LOADING */
 
-    private fun loadMovies() {
-        viewModel.loadMovies()
+    override fun loadDataOrRestore() {
+        viewModel.loadMoviesOrRestore(toolbar.getYear())
+    }
+
+    override fun loadData(page: Int?) {
+        viewModel.loadMovies(toolbar.getYear(), page)
     }
 
     /* NAVIGATION */
@@ -78,7 +84,19 @@ class MoviesActivity : BaseActivity<MoviesActivityViewModel>(), MoviesToolbarCal
 
     override fun onYearPicked(year: Int) {
         toolbar.setYear(year)
-        viewModel.loadMovies(year)
+        viewModel.reloadMovies(year)
+    }
+
+    /* CONFIGURATION CHANGE */
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+        toolbar.onRestoreInstanceState(savedInstanceState)
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        toolbar.onSaveInstanceState(outState)
     }
 
     /* CONTRACT */

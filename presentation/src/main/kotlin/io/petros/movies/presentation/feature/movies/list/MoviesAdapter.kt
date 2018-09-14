@@ -1,7 +1,5 @@
 package io.petros.movies.presentation.feature.movies.list
 
-import android.content.Context
-import android.support.annotation.VisibleForTesting
 import android.support.v7.widget.RecyclerView
 import android.view.ViewGroup
 import io.petros.movies.R
@@ -11,13 +9,12 @@ import io.petros.movies.presentation.feature.common.list.holder.ErrorViewHolder
 import io.petros.movies.presentation.feature.common.list.holder.ProgressViewHolder
 import io.petros.movies.presentation.feature.common.list.item.ErrorItemView
 import io.petros.movies.presentation.feature.common.list.item.ProgressItemView
+import io.petros.movies.presentation.feature.common.view.InfiniteAdapter
 import io.petros.movies.presentation.feature.movies.listener.MovieCallback
 import io.petros.movies.presentation.feature.movies.view.MovieItemView
 import io.petros.movies.presentation.toast
 
-class MoviesAdapter(
-    val items: ArrayList<Movie> = arrayListOf()
-) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class MoviesAdapter : InfiniteAdapter<Movie>() {
 
     companion object {
         internal const val VIEW_TYPE_PROGRESS = 0
@@ -25,8 +22,7 @@ class MoviesAdapter(
         internal const val VIEW_TYPE_ERROR = 101
     }
 
-    @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
-    var context: Context? = null
+    lateinit var callback: MovieCallback
 
     var status = AdapterStatus.IDLE
         set(value) {
@@ -34,27 +30,13 @@ class MoviesAdapter(
             notifyDataSetChanged()
         }
 
-    lateinit var callback: MovieCallback
+    /* STATUS */
 
-    /* CONTEXT */
-
-    override fun onAttachedToRecyclerView(recyclerView: RecyclerView) {
-        context = recyclerView.context
-        super.onAttachedToRecyclerView(recyclerView)
-    }
-
-    override fun onDetachedFromRecyclerView(recyclerView: RecyclerView) {
-        context = null
-        super.onDetachedFromRecyclerView(recyclerView)
+    override fun isLoading(): Boolean {
+        return status == AdapterStatus.LOADING
     }
 
     /* ITEMS */
-
-    fun setItems(newItems: List<Movie>) {
-        items.clear()
-        items.plusAssign(newItems)
-        notifyDataSetChanged()
-    }
 
     override fun getItemCount(): Int {
         val statusCount = if (status != AdapterStatus.IDLE) 1 else 0

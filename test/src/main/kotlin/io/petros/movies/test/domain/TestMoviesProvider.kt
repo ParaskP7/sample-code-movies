@@ -8,6 +8,7 @@ class TestMoviesProvider {
 
     companion object {
 
+        const val NEXT_PAGE = 2
         const val MOVIE_YEAR = 2018
 
         private const val ID = 1
@@ -39,9 +40,11 @@ class TestMoviesProvider {
         }
 
         fun provideMoviesResultPage(
+            nextPage: Int = NEXT_PAGE,
             movies: List<Movie> = arrayListOf(provideMovie(), provideMovie(), provideMovie())
         ): MoviesResultPage {
             return MoviesResultPage(
+                nextPage,
                 movies
             )
         }

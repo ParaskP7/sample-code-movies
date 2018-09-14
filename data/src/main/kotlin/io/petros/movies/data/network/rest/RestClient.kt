@@ -12,8 +12,8 @@ class RestClient @Inject constructor(
     private val restApi: RestApi
 ) : WebService {
 
-    override fun loadMovies(year: Int?): Single<MoviesResultPage> {
-        return restApi.loadMovies(year)
+    override fun loadMovies(year: Int?, page: Int?): Single<MoviesResultPage> {
+        return restApi.loadMovies(year, page)
             .map { MoviesMapper.transform(context, it) }
     }
 

@@ -5,8 +5,8 @@ import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.Observer
 import com.nhaarman.mockito_kotlin.mock
 import com.nhaarman.mockito_kotlin.verify
-import com.nhaarman.mockito_kotlin.verifyZeroInteractions
-import io.petros.movies.domain.model.movie.MoviesResultPage
+import io.petros.movies.domain.model.common.PaginationData
+import io.petros.movies.domain.model.movie.Movie
 import io.petros.movies.presentation.feature.common.list.adapter.AdapterStatus
 import io.petros.movies.test.domain.TestMoviesProvider.Companion.provideMoviesResultPage
 import org.junit.Before
@@ -23,11 +23,11 @@ class MoviesSubscriberTest {
 
     private lateinit var testedClass: MoviesSubscriber
     private val statusObservableMock = mock<Observer<AdapterStatus>>()
-    private val moviesResultPageObservableMock = mock<Observer<MoviesResultPage>>()
+    private val moviesResultPageObservableMock = mock<Observer<PaginationData<Movie>>>()
 
     @Before
     fun setUp() {
-        testedClass = MoviesSubscriber(MutableLiveData(), MutableLiveData())
+        testedClass = MoviesSubscriber(MutableLiveData(), MutableLiveData(), PaginationData())
         testedClass.statusObservable.observeForever(statusObservableMock)
         testedClass.moviesObservable.observeForever(moviesResultPageObservableMock)
     }
@@ -40,10 +40,10 @@ class MoviesSubscriberTest {
     }
 
     @Test
-    fun `When load movies succeeds, then the movies result page is posted`() {
+    fun `When load movies succeeds, then the updated movies pagination data is posted`() {
         testedClass.onSuccess(moviesResultPage)
 
-        verify(moviesResultPageObservableMock).onChanged(moviesResultPage)
+        verify(moviesResultPageObservableMock).onChanged(testedClass.paginationData.addPage(moviesResultPage))
     }
 
     @Test
@@ -54,10 +54,10 @@ class MoviesSubscriberTest {
     }
 
     @Test
-    fun `When load movies fails, then the movies result page is not posted`() {
+    fun `When load movies fails, then a null movies pagination data is not posted`() {
         testedClass.onError(Exception())
 
-        verifyZeroInteractions(moviesResultPageObservableMock)
+        verify(moviesResultPageObservableMock).onChanged(null)
     }
 
 }

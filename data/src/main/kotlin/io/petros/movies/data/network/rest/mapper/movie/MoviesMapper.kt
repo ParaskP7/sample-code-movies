@@ -12,12 +12,18 @@ class MoviesMapper {
 
     companion object {
 
-        internal fun transform(context: Context, moviesResultPageResponse: MoviesResultPageResponse): MoviesResultPage {
+        internal fun transform(
+            context: Context,
+            moviesResultPageResponse: MoviesResultPageResponse
+        ): MoviesResultPage {
             val movies = arrayListOf<Movie>()
             for (movieResponse in moviesResultPageResponse.results) {
                 movies.add(movieResponse.toMovie(context))
             }
-            return MoviesResultPage(movies)
+            return MoviesResultPage(
+                moviesResultPageResponse.nextPage(),
+                movies
+            )
         }
 
     }
