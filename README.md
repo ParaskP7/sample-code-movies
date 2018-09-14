@@ -79,7 +79,7 @@ under the below config directory:
 config/keys/
 ```
 
-There is currently one property files that you need to put into that directory, this is:
+There is currently one property file that you need to put into that directory, this is the:
 ```
 themoviedb_api.properties
 ```
@@ -88,6 +88,8 @@ For the `themoviedb_api.properties` file, add the below line:
 ```
 themoviedb_api_key=<YOUR_API_KEY>
 ```
+For more information on how to obtain your personal TMDB api key visit  
+[The Movie Database API (v3)](https://developers.themoviedb.org/3/getting-started/introduction).
 
 All set, use the below command to build the project in order to install it on an Android device for demonstration:
 ```
