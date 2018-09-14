@@ -4,7 +4,7 @@ package io.petros.movies.domain.util
 enum class MonthOfYear(
     val month: Int?,
     val monthName: String
-) {
+) { // MUT
 
     JANUARY(0, "January"),
     FEBRUARY(1, "February"),

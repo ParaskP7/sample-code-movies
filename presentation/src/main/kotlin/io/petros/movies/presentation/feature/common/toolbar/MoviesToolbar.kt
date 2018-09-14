@@ -11,7 +11,7 @@ import io.petros.movies.presentation.inflate
 import kotlinx.android.synthetic.main.toolbar_movies.view.*
 
 @Suppress("TooManyFunctions")
-class MoviesToolbar : AppBarLayout {
+class MoviesToolbar : AppBarLayout { // MRT
 
     companion object {
 

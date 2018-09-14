@@ -6,7 +6,7 @@ import android.support.v7.widget.RecyclerView
 class InfiniteScrollListener(
     private val layoutManager: LinearLayoutManager,
     private val listener: Listener
-) : RecyclerView.OnScrollListener() {
+) : RecyclerView.OnScrollListener() { // MRT
 
     private var pageSize = 0
     private var currentItemsCount = 0

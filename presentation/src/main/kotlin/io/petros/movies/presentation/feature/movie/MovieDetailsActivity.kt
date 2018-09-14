@@ -8,7 +8,7 @@ import io.petros.movies.presentation.displayImage
 import io.petros.movies.presentation.feature.BaseActivity
 import kotlinx.android.synthetic.main.activity_movie_details.*
 
-class MovieDetailsActivity : BaseActivity<MovieDetailsActivityViewModel>() {
+class MovieDetailsActivity : BaseActivity<MovieDetailsActivityViewModel>() { // MET
 
     @InjectExtra lateinit var movie: Movie
 

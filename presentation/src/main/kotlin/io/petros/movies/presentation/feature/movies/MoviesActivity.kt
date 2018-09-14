@@ -19,7 +19,7 @@ import javax.inject.Inject
 
 @Suppress("TooManyFunctions")
 class MoviesActivity : BaseActivity<MoviesActivityViewModel>(), InfiniteRecyclerView.Listener, MoviesToolbarCallback,
-    MovieYearPickerFragmentCallback, MovieMonthPickerFragmentCallback, MovieCallback {
+    MovieYearPickerFragmentCallback, MovieMonthPickerFragmentCallback, MovieCallback { // MET
 
     @Inject lateinit var moviesNavigator: MoviesNavigator
 

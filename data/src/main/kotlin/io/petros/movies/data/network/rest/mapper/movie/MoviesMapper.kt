@@ -9,7 +9,7 @@ import io.petros.movies.domain.model.movie.MoviesResultPage
 import io.petros.movies.domain.toDate
 import io.petros.movies.domain.util.MOVIE_DATE_FORMAT
 
-class MoviesMapper {
+class MoviesMapper { // MIT
 
     companion object {
 

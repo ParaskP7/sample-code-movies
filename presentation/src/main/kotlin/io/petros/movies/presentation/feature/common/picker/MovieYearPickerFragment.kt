@@ -7,7 +7,7 @@ import com.whiteelephant.monthpicker.MonthPickerDialog
 import io.petros.movies.R
 import java.util.*
 
-class MovieYearPickerFragment : DialogFragment(), MonthPickerDialog.OnDateSetListener {
+class MovieYearPickerFragment : DialogFragment(), MonthPickerDialog.OnDateSetListener { // MRT
 
     companion object {
 

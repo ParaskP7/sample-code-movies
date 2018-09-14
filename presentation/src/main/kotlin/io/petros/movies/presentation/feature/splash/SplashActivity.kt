@@ -5,7 +5,7 @@ import io.petros.movies.presentation.feature.BaseActivity
 import io.petros.movies.presentation.feature.splash.navigator.SplashNavigator
 import javax.inject.Inject
 
-class SplashActivity : BaseActivity<SplashActivityViewModel>() {
+class SplashActivity : BaseActivity<SplashActivityViewModel>() { // MET
 
     @Inject lateinit var splashNavigator: SplashNavigator
 
