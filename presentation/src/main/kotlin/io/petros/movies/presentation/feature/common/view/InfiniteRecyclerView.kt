@@ -26,17 +26,13 @@ class InfiniteRecyclerView : RecyclerView, InfiniteScrollListener.Listener {
 
     /* INFINITE SCROLL LISTENER */
 
-    override fun nextPage(): Int? {
-        return (adapter as? InfiniteAdapter<*>)?.nextPage()
-    }
+    override fun nextPage() = (adapter as? InfiniteAdapter<*>)?.nextPage()
 
     override fun loadMore() {
         listener?.loadData(nextPage())
     }
 
-    override fun isLoading(): Boolean {
-        return (adapter as? InfiniteAdapter<*>)?.isLoading() ?: false
-    }
+    override fun isLoading() = (adapter as? InfiniteAdapter<*>)?.isLoading() ?: false
 
     /* INTERFACES */
 

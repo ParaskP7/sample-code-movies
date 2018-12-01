@@ -6,20 +6,20 @@ import java.util.*
 
 /* GENERAL */
 
+@Suppress("FunctionOnlyReturningConstant")
 fun space() = " "
 
+@Suppress("FunctionOnlyReturningConstant")
 fun leftParentheses() = "("
 
+@Suppress("FunctionOnlyReturningConstant")
 fun rightParentheses() = ")"
 
-fun String.withParentheses(): String {
-    return leftParentheses() + this + rightParentheses()
-}
+fun String.withParentheses() = leftParentheses() + this + rightParentheses()
 
-fun Int.withParentheses(): String {
-    return leftParentheses() + this + rightParentheses()
-}
+fun Int.withParentheses() = leftParentheses() + this + rightParentheses()
 
+@Suppress("FunctionOnlyReturningConstant")
 fun star() = "★"
 
 /* DATE */

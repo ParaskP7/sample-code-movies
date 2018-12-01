@@ -5,7 +5,7 @@ import io.petros.movies.data.network.rest.response.movie.MoviesResultPageRespons
 import io.petros.movies.domain.model.movie.Movie
 import io.petros.movies.domain.model.movie.MoviesResultPage
 
-class MoviesMapper { // MIT
+class MoviesMapper private constructor() { // MIT
 
     companion object {
 

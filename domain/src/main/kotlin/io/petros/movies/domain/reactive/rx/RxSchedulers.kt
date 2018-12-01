@@ -8,4 +8,7 @@ import io.reactivex.Scheduler
  *
  * A [Scheduler] which executes actions on the Android UI thread.
  */
-class RxSchedulers(val io: Scheduler, val androidMainThread: Scheduler)
+data class RxSchedulers(
+    val io: Scheduler,
+    val androidMainThread: Scheduler
+)

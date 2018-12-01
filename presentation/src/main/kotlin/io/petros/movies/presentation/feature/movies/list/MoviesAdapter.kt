@@ -33,9 +33,7 @@ class MoviesAdapter : InfiniteAdapter<Movie>() {
 
     /* STATUS */
 
-    override fun isLoading(): Boolean {
-        return status == AdapterStatus.LOADING
-    }
+    override fun isLoading() = status == AdapterStatus.LOADING
 
     /* ITEMS */
 

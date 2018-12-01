@@ -111,9 +111,7 @@ class MoviesToolbar : AppBarLayout { // MRT
         tv_filter_month.text = MonthOfYear.from(month).monthName
     }
 
-    fun getMonth(): Int? {
-        return MonthOfYear.from(tv_filter_month.text).month
-    }
+    fun getMonth() = MonthOfYear.from(tv_filter_month.text).month
 
     /* CONFIGURATION CHANGE */
 

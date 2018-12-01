@@ -8,6 +8,7 @@ import io.petros.movies.domain.withParentheses
 import java.io.Serializable
 import java.util.*
 
+@Suppress("DataClassContainsFunctions", "SerialVersionUIDInSerializableClass")
 data class Movie(
     val id: Int,
     val title: String,
