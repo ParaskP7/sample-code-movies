@@ -15,10 +15,12 @@ class MovieViewHolder(
         bindMovieCallback(movie)
     }
 
+    @Suppress("UnsafeCast")
     private fun bindMovie(movie: Movie) {
         (itemView as MovieItemView).bind(movie)
     }
 
+    @Suppress("UnsafeCast")
     private fun bindMovieCallback(movie: Movie) {
         (itemView as MovieItemView).bindCallback(movie, callback)
     }

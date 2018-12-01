@@ -22,6 +22,7 @@ class MoviesAdapter : InfiniteAdapter<Movie>() {
         internal const val VIEW_TYPE_ERROR = 101
     }
 
+    @Suppress("LateinitUsage")
     lateinit var callback: MovieCallback
 
     var status = AdapterStatus.IDLE
@@ -57,6 +58,7 @@ class MoviesAdapter : InfiniteAdapter<Movie>() {
         throw IllegalArgumentException("Context not initialised.")
     }
 
+    @Suppress("UnsafeCast")
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         if (getItemViewType(position) == VIEW_TYPE_MOVIE) {
             (holder as MovieViewHolder).bind(items[position])

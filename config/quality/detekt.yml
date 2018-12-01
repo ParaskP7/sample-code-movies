@@ -368,33 +368,33 @@ potential-bugs:
   DuplicateCaseInWhenExpression:
     active: true
   EqualsAlwaysReturnsTrueOrFalse:
-    active: false
+    active: true
   EqualsWithHashCodeExist:
     active: true
   ExplicitGarbageCollectionCall:
     active: true
   InvalidRange:
-    active: false
+    active: true
   IteratorHasNextCallsNextMethod:
-    active: false
+    active: true
   IteratorNotThrowingNoSuchElementException:
-    active: false
+    active: true
   LateinitUsage:
-    active: false
-    excludeAnnotatedProperties: ""
+    active: true
+    excludeAnnotatedProperties: "Inject"
     ignoreOnClassesPattern: ""
   UnconditionalJumpStatementInLoop:
-    active: false
+    active: true
   UnreachableCode:
     active: true
   UnsafeCallOnNullableType:
-    active: false
+    active: true
   UnsafeCast:
-    active: false
+    active: true
   UselessPostfixExpression:
-    active: false
+    active: true
   WrongEqualsTypeParameter:
-    active: false
+    active: true
 
 style:
   active: true

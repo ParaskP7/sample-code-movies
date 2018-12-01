@@ -26,6 +26,7 @@ class MoviesToolbar : AppBarLayout { // MRT
 
     constructor(ctx: Context, attrs: AttributeSet) : super(ctx, attrs)
 
+    @Suppress("LateinitUsage")
     lateinit var callback: MoviesToolbarCallback
 
     init {

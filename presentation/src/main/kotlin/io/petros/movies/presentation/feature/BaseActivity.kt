@@ -16,6 +16,7 @@ abstract class BaseActivity<Modeling : ViewModel> : DaggerAppCompatActivity() {
 
     @Inject lateinit var viewModelFactory: ViewModelProvider.Factory
 
+    @Suppress("LateinitUsage")
     protected lateinit var viewModel: Modeling
 
     /* LIFECYCLE */

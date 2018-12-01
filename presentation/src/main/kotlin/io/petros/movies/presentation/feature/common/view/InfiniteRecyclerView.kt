@@ -17,6 +17,7 @@ class InfiniteRecyclerView : RecyclerView, InfiniteScrollListener.Listener {
         initOnScrollListener()
     }
 
+    @Suppress("UnsafeCast")
     private fun initOnScrollListener() {
         val layoutManager = layoutManager?.let { it as LinearLayoutManager } ?: LinearLayoutManager(context)
         val listener = InfiniteScrollListener(layoutManager, this)
