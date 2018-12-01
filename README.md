@@ -152,8 +152,7 @@ and library enhancements:
 01. Update Gradle to the Latest Version. For more info, see  
     [Gradle Release Notes](https://docs.gradle.org/current/release-notes.html)
 02. Update Android Studio to the Latest Canary Version. For more info, see 
-    [Android Studio Release Updates](https://androidstudio.googleblog.com) 
-    in a lightly tested build```
+    [Android Studio Release Updates](https://androidstudio.googleblog.com)
 03. Replace current Package Structure to the new AndroidX Package Structure. For more info, see 
     [AndroidX](https://developer.android.com/topic/libraries/support-library/androidx-overview) ```(A new package structure 
     to make it clearer which packages are bundled with the Android operating system, and which are packaged with your app's 
