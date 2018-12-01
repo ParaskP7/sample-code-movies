@@ -1,16 +1,3 @@
-buildscript {
-    repositories {
-        google()
-        jcenter()
-        maven { url reps.url.gradle }
-    }
-    dependencies {
-        classpath deps.plugin.kotlin
-        classpath deps.plugin.versions
-        classpath deps.plugin.detekt
-    }
-}
-
 apply plugin: 'kotlin'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'com.github.ben-manes.versions'

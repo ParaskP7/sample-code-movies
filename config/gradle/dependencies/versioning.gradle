@@ -1,7 +1,7 @@
 ext.versions = [
 
         // Plugins
-        android_plugin       : '3.1.4', // When updating, also sync that with top-level build.gradle version.
+        android_plugin       : '3.1.4',
         kotlin_plugin        : '1.2.70',
         versions_plugin      : '0.20.0',
         dexcount_plugin      : '0.8.3',

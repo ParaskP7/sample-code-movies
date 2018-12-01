@@ -1,17 +1,20 @@
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
-apply from: 'config/gradle/dependencies/repositories.gradle'
-apply from: 'config/gradle/dependencies/versioning.gradle'
-apply from: 'config/gradle/dependencies/dependencies.gradle'
-apply from: 'config/gradle/keys/keys.gradle'
-
 buildscript {
-    def android_plugin = '3.1.4' // When updating, also sync that with the "config" versioning.gradle version.
+    apply from: 'config/gradle/dependencies/repositories.gradle'
+    apply from: 'config/gradle/dependencies/versioning.gradle'
+    apply from: 'config/gradle/dependencies/dependencies.gradle'
+    apply from: 'config/gradle/keys/keys.gradle'
+
     repositories {
         google()
         jcenter()
+        maven { url reps.url.gradle }
     }
     dependencies {
-        classpath "com.android.tools.build:gradle:$android_plugin"
+        classpath deps.plugin.android
+        classpath deps.plugin.kotlin
+        classpath deps.plugin.versions
+        classpath deps.plugin.dexcount
+        classpath deps.plugin.detekt
     }
 }
 
