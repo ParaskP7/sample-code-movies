@@ -8,6 +8,7 @@ import io.petros.movies.presentation.di.dagger.activity.SubModuleBinding
 import io.petros.movies.presentation.di.dagger.viewmodel.ViewModelKey
 
 @Module
+@Suppress("FunctionMaxLength")
 abstract class MovieDetailsActivitySubModule : SubModuleBinding<MovieDetailsActivity> {
 
     @Binds

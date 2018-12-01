@@ -306,10 +306,10 @@ naming:
     active: false
     forbiddenName: ''
   FunctionMaxLength:
-    active: false
+    active: true
     maximumFunctionNameLength: 30
   FunctionMinLength:
-    active: false
+    active: true
     minimumFunctionNameLength: 3
   FunctionNaming:
     active: true
@@ -324,7 +324,7 @@ naming:
   MatchingDeclarationName:
     active: true
   MemberNameEqualsClassName:
-    active: false
+    active: true
     ignoreOverriddenFunction: true
   ObjectPropertyNaming:
     active: true
@@ -340,10 +340,10 @@ naming:
     propertyPattern: '[A-Za-z][_A-Za-z0-9]*'
     privatePropertyPattern: '(_)?[A-Za-z][A-Za-z0-9]*'
   VariableMaxLength:
-    active: false
+    active: true
     maximumVariableNameLength: 64
   VariableMinLength:
-    active: false
+    active: true
     minimumVariableNameLength: 1
   VariableNaming:
     active: true

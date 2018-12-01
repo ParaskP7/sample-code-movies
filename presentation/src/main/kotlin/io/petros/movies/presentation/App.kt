@@ -58,18 +58,18 @@ class App : DaggerApplication(), LifecycleObserver {
             .penaltyLog()
             .penaltyFlashScreen()
             .penaltyDialog()
-        addAndroidMThreadPolicyToStrictMode(strictModeBuilder)
-        addAndroidOThreadPolicyToStrictMode(strictModeBuilder)
+        addAndroidMThreadPolicy(strictModeBuilder)
+        addAndroidOThreadPolicy(strictModeBuilder)
         StrictMode.setThreadPolicy(strictModeBuilder.build())
     }
 
-    private fun addAndroidMThreadPolicyToStrictMode(strictModeBuilder: StrictMode.ThreadPolicy.Builder) {
+    private fun addAndroidMThreadPolicy(strictModeBuilder: StrictMode.ThreadPolicy.Builder) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             strictModeBuilder.detectResourceMismatches()
         }
     }
 
-    private fun addAndroidOThreadPolicyToStrictMode(strictModeBuilder: StrictMode.ThreadPolicy.Builder) {
+    private fun addAndroidOThreadPolicy(strictModeBuilder: StrictMode.ThreadPolicy.Builder) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             strictModeBuilder.detectUnbufferedIo()
         }
@@ -83,11 +83,11 @@ class App : DaggerApplication(), LifecycleObserver {
             .detectLeakedSqlLiteObjects()
             .detectLeakedRegistrationObjects()
             .penaltyLog()
-        addAndroidOVmPolicyToStrictMode(strictModeBuilder)
+        addAndroidOVmPolicy(strictModeBuilder)
         StrictMode.setVmPolicy(strictModeBuilder.build())
     }
 
-    private fun addAndroidOVmPolicyToStrictMode(strictModeBuilder: StrictMode.VmPolicy.Builder) {
+    private fun addAndroidOVmPolicy(strictModeBuilder: StrictMode.VmPolicy.Builder) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             strictModeBuilder.detectCleartextNetwork()
                 .detectContentUriWithoutPermission()
