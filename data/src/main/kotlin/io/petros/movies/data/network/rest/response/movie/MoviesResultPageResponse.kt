@@ -1,5 +1,6 @@
 package io.petros.movies.data.network.rest.response.movie
 
+@Suppress("ConstructorParameterNaming")
 data class MoviesResultPageResponse(
     val page: Int,
     val total_pages: Int,

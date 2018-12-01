@@ -1,18 +1,14 @@
+def comma = ","
+
 detekt {
 
-    version = versions.detekt_plugin
-
-    def comma = ","
-    profile("main") {
-        input = "$projectDir"
-        config = "$project.rootDir/config/quality/detekt.yml"
-        filters = ".*/test/.*" + comma +
-                ".*/robolectricTest/.*" + comma +
-                ".*/androidTest/.*" + comma +
-                ".*/resources/.*"
-        disableDefaultRuleSets = false
-        output = "$project.buildDir/reports/detekt"
-        parallel = true
-    }
+    toolVersion = versions.detekt_plugin
+    config = files("${project.rootDir}/config/quality/detekt.yml")
+    filters = ".*/test/.*" + comma +
+            ".*/robolectricTest/.*" + comma +
+            ".*/androidTest/.*" + comma +
+            ".*/resources/.*"
+    disableDefaultRuleSets = false
+    parallel = true
 
 }
