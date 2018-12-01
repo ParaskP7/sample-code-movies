@@ -72,16 +72,16 @@ complexity:
     active: true
     threshold: 4
   ComplexInterface:
-    active: false
+    active: true
     threshold: 10
-    includeStaticDeclarations: false
+    includeStaticDeclarations: true
   ComplexMethod:
     active: true
     threshold: 10
     ignoreSingleWhenExpression: false
     ignoreSimpleWhenEntries: false
   LabeledExpression:
-    active: false
+    active: true
   LargeClass:
     active: true
     threshold: 150
@@ -93,13 +93,13 @@ complexity:
     threshold: 6
     ignoreDefaultParameters: false
   MethodOverloading:
-    active: false
+    active: true
     threshold: 6
   NestedBlockDepth:
     active: true
     threshold: 4
   StringLiteralDuplication:
-    active: false
+    active: true
     threshold: 3
     ignoreAnnotation: true
     excludeStringsWithLessThan5Characters: true
