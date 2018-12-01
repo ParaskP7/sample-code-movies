@@ -51,14 +51,14 @@ class MoviesActivity : BaseActivity<MoviesActivityViewModel>(), InfiniteRecycler
     }
 
     private fun observeStatus() {
-        viewModel.statusObservable.observe(this, Observer { it ->
-            it?.let { adapter.status = it }
+        viewModel.statusObservable.observe(this, Observer { adapterStatus ->
+            adapterStatus?.let { adapter.status = it }
         })
     }
 
     private fun observeMovies() {
-        viewModel.moviesObservable.observe(this, Observer { it ->
-            it?.let { adapter.setItems(it) }
+        viewModel.moviesObservable.observe(this, Observer { paginationData ->
+            paginationData?.let { adapter.setItems(it) }
         })
     }
 

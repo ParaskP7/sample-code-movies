@@ -1,11 +1,12 @@
 ext.deps = [
 
         'plugin'     : [
-                'android' : "com.android.tools.build:gradle:$versions.android_plugin",
-                'kotlin'  : "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin_plugin",
-                'versions': "com.github.ben-manes:gradle-versions-plugin:$versions.versions_plugin",
-                'dexcount': "com.getkeepsafe.dexcount:dexcount-gradle-plugin:$versions.dexcount_plugin",
-                'detekt'  : "io.gitlab.arturbosch.detekt:detekt-gradle-plugin:$versions.detekt_plugin",
+                'android'         : "com.android.tools.build:gradle:$versions.android_plugin",
+                'kotlin'          : "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin_plugin",
+                'versions'        : "com.github.ben-manes:gradle-versions-plugin:$versions.versions_plugin",
+                'dexcount'        : "com.getkeepsafe.dexcount:dexcount-gradle-plugin:$versions.dexcount_plugin",
+                'detekt'          : "io.gitlab.arturbosch.detekt:detekt-gradle-plugin:$versions.detekt_plugin",
+                'detektFormatting': "io.gitlab.arturbosch.detekt:detekt-formatting:$versions.detekt_plugin",
         ],
 
         'leakcanary' : [

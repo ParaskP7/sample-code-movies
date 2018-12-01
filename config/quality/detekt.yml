@@ -195,7 +195,7 @@ exceptions:
 
 formatting:
   active: true
-  android: false
+  android: true
   autoCorrect: true
   ChainWrapping:
     active: true
@@ -209,7 +209,7 @@ formatting:
     active: true
     autoCorrect: true
   ImportOrdering:
-    active: true
+    active: false
     autoCorrect: true
   Indentation:
     active: true
@@ -218,12 +218,12 @@ formatting:
     continuationIndentSize: 4
   MaximumLineLength:
     active: true
-    maxLineLength: 120
+    maxLineLength: 125
   ModifierOrdering:
     active: true
     autoCorrect: true
   NoBlankLineBeforeRbrace:
-    active: true
+    active: false
     autoCorrect: true
   NoConsecutiveBlankLines:
     active: true
@@ -255,7 +255,7 @@ formatting:
     active: true
     autoCorrect: true
   NoWildcardImports:
-    active: true
+    active: false
     autoCorrect: true
   PackageName:
     active: true

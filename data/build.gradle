@@ -38,4 +38,6 @@ dependencies {
         exclude group: excludedDeps.group.jetbrainsKotlin,
                 module: excludedDeps.module.kotlinReflect
     })
+
+    detektPlugins deps.plugin.detektFormatting
 }

@@ -46,11 +46,11 @@ class MoviesAdapter : InfiniteAdapter<Movie>() {
     /* ITEM VIEW HOLDER */
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        context?.let {
+        context?.let { context ->
             return when (viewType) {
-                VIEW_TYPE_PROGRESS -> ProgressViewHolder(ProgressItemView(it))
-                VIEW_TYPE_MOVIE -> MovieViewHolder(MovieItemView(it), callback)
-                VIEW_TYPE_ERROR -> ErrorViewHolder(ErrorItemView(it)) { it.toast(R.string.retry_loading) }
+                VIEW_TYPE_PROGRESS -> ProgressViewHolder(ProgressItemView(context))
+                VIEW_TYPE_MOVIE -> MovieViewHolder(MovieItemView(context), callback)
+                VIEW_TYPE_ERROR -> ErrorViewHolder(ErrorItemView(context)) { context.toast(R.string.retry_loading) }
                 else -> throw IllegalArgumentException("View type out of range. [View Type: $viewType]")
             }
         }

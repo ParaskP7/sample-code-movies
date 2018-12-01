@@ -79,4 +79,6 @@ dependencies {
 
     androidTestImplementation deps.supportTest.runner
     androidTestImplementation deps.androidTest.espresso
+
+    detektPlugins deps.plugin.detektFormatting
 }
