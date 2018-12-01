@@ -24,6 +24,7 @@ fun star() = "★"
 
 /* DATE */
 
+@Suppress("SwallowedException")
 fun String.toDate(dateFormat: String): Date {
     try {
         return SimpleDateFormat(dateFormat, Locale.US).parse(this)

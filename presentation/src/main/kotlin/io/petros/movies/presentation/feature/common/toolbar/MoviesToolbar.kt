@@ -9,6 +9,7 @@ import io.petros.movies.R
 import io.petros.movies.domain.util.MonthOfYear
 import io.petros.movies.presentation.inflate
 import kotlinx.android.synthetic.main.toolbar_movies.view.*
+import timber.log.Timber
 
 @Suppress("TooManyFunctions")
 class MoviesToolbar : AppBarLayout { // MRT
@@ -94,9 +95,11 @@ class MoviesToolbar : AppBarLayout { // MRT
     }
 
     fun getYear(): Int? {
+        val year = tv_filter_year.text.toString()
         return try {
-            tv_filter_year.text.toString().toInt()
+            year.toInt()
         } catch (nfe: NumberFormatException) {
+            Timber.e(nfe, "Cannot convert the year text to an integer. [Year: $year]")
             null
         }
     }

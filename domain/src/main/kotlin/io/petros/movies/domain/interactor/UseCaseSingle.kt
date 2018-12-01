@@ -8,7 +8,7 @@ abstract class UseCaseSingle<Object, in Params> constructor(private val rxSchedu
 
     internal abstract fun buildUseCaseObservable(params: Params): Single<Object>
 
-    @Suppress("UNCHECKED_CAST")
+    @Suppress("UNCHECKED_CAST", "SwallowedException")
     fun execute(observer: DisposableSingleObserver<Object>, params: Params? = null) {
         return try {
             val single = buildUseCaseObservable(params ?: Unit as Params)

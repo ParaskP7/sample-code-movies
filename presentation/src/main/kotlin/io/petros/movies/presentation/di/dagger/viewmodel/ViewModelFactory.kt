@@ -10,7 +10,7 @@ class ViewModelFactory @Inject constructor(
             @JvmSuppressWildcards Provider<ViewModel>>
 ) : ViewModelProvider.Factory {
 
-    @Suppress("UNCHECKED_CAST", "NestedBlockDepth")
+    @Suppress("UNCHECKED_CAST", "NestedBlockDepth", "SwallowedException")
     override fun <Modeling : ViewModel> create(modelClass: Class<Modeling>): Modeling {
         var creator: Provider<ViewModel>? = creators[modelClass]
         if (creator == null) {

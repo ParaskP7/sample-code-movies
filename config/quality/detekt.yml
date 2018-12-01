@@ -150,29 +150,29 @@ empty-blocks:
 exceptions:
   active: true
   ExceptionRaisedInUnexpectedLocation:
-    active: false
+    active: true
     methodNames: 'toString,hashCode,equals,finalize'
   InstanceOfCheckForException:
-    active: false
+    active: true
   NotImplementedDeclaration:
-    active: false
+    active: true
   PrintStackTrace:
-    active: false
+    active: true
   RethrowCaughtException:
-    active: false
+    active: true
   ReturnFromFinally:
-    active: false
+    active: true
   SwallowedException:
-    active: false
+    active: true
   ThrowingExceptionFromFinally:
-    active: false
+    active: true
   ThrowingExceptionInMain:
-    active: false
+    active: true
   ThrowingExceptionsWithoutMessageOrCause:
-    active: false
+    active: true
     exceptions: 'IllegalArgumentException,IllegalStateException,IOException'
   ThrowingNewInstanceOfSameException:
-    active: false
+    active: true
   TooGenericExceptionCaught:
     active: true
     exceptionNames:
