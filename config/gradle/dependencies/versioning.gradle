@@ -28,7 +28,7 @@ ext.versions = [
 
         // Network
         gson                 : "2.8.5",
-        okhttp               : "3.11.0",
+        okhttp               : "3.12.0",
 
         // Rest
         retrofit             : "2.4.0",
