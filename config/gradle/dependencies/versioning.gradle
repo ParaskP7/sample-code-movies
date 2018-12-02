@@ -8,7 +8,7 @@ ext.versions = [
         detekt_plugin        : '1.0.0-RC11',
 
         // LeakCanary
-        'leakcanary'         : '1.6.1',
+        'leakcanary'         : '1.6.2',
 
         // IMPLEMENTATION // ************************************************************************************************
 
