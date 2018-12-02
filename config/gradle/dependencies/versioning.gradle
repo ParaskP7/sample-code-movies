@@ -20,7 +20,7 @@ ext.versions = [
         arch                 : '1.1.1',
 
         // Dependency Injection
-        dagger               : "2.17",
+        dagger               : "2.19",
 
         // Rx
         rxjava               : '2.2.2',
