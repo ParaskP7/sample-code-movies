@@ -23,7 +23,7 @@ ext.versions = [
         dagger               : "2.19",
 
         // Rx
-        rxjava               : '2.2.2',
+        rxjava               : '2.2.4',
         rxandroid            : '2.1.0',
 
         // Network
