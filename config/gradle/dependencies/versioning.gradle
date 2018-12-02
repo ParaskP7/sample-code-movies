@@ -55,7 +55,7 @@ ext.versions = [
         mockito_kotlin       : '1.6.0',
 
         // Robolectric
-        robolectric          : '3.8',
+        robolectric          : '4.0.2',
 
         // ANDROID TEST IMPLEMENTATION // ***********************************************************************************
 

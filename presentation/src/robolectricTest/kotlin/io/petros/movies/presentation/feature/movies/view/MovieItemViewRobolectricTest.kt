@@ -2,7 +2,6 @@ package io.petros.movies.presentation.feature.movies.view
 
 import com.nhaarman.mockito_kotlin.mock
 import com.nhaarman.mockito_kotlin.verify
-import io.petros.movies.presentation.PreconfiguredRobolectricTestRunner
 import io.petros.movies.presentation.RobolectricTestProvider.Companion.provideContext
 import io.petros.movies.presentation.feature.movies.listener.MovieCallback
 import io.petros.movies.test.domain.TestMoviesProvider.Companion.provideMovie
@@ -11,8 +10,9 @@ import org.assertj.core.api.Assertions.assertThat
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
+import org.robolectric.RobolectricTestRunner
 
-@RunWith(PreconfiguredRobolectricTestRunner::class)
+@RunWith(RobolectricTestRunner::class)
 class MovieItemViewRobolectricTest {
 
     private val movie = provideMovie()

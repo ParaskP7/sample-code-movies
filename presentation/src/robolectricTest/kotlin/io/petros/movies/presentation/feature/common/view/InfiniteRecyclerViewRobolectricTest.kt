@@ -4,14 +4,14 @@ import com.nhaarman.mockito_kotlin.mock
 import com.nhaarman.mockito_kotlin.verify
 import com.nhaarman.mockito_kotlin.whenever
 import io.petros.movies.domain.model.movie.Movie
-import io.petros.movies.presentation.PreconfiguredRobolectricTestRunner
 import io.petros.movies.presentation.RobolectricTestProvider.Companion.provideContext
 import io.petros.movies.test.domain.TestMoviesProvider.Companion.NEXT_PAGE
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
+import org.robolectric.RobolectricTestRunner
 
-@RunWith(PreconfiguredRobolectricTestRunner::class)
+@RunWith(RobolectricTestRunner::class)
 class InfiniteRecyclerViewRobolectricTest {
 
     private val context = provideContext()

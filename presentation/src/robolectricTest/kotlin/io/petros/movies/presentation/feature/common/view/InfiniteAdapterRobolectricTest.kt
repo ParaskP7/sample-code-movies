@@ -6,7 +6,6 @@ import com.nhaarman.mockito_kotlin.mock
 import io.petros.movies.domain.model.common.PaginationData
 import io.petros.movies.domain.model.movie.Movie
 import io.petros.movies.domain.model.movie.MoviesResultPage
-import io.petros.movies.presentation.PreconfiguredRobolectricTestRunner
 import io.petros.movies.presentation.RobolectricTestProvider.Companion.provideContext
 import io.petros.movies.test.domain.TestMoviesProvider.Companion.NEXT_PAGE
 import io.petros.movies.test.domain.TestMoviesProvider.Companion.provideMovie
@@ -14,8 +13,9 @@ import org.assertj.core.api.Assertions.assertThat
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
+import org.robolectric.RobolectricTestRunner
 
-@RunWith(PreconfiguredRobolectricTestRunner::class)
+@RunWith(RobolectricTestRunner::class)
 class InfiniteAdapterRobolectricTest {
 
     private val context = provideContext()

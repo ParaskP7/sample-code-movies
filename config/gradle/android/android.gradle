@@ -30,6 +30,7 @@ ext.suffix = [
 
 android {
     compileSdkVersion sdk.compile_sdk
+    testOptions.unitTests.includeAndroidResources = true
     defaultConfig {
         minSdkVersion sdk.min_sdk
         targetSdkVersion sdk.target_sdk
@@ -53,7 +54,6 @@ android {
     }
     testOptions {
         unitTests {
-            includeAndroidResources = true // So that robolectric has access to resources.
             all {
                 testLogging { // Print test details in the terminal (or CI).
                     events 'passed', 'skipped', 'failed', 'standardOut', 'standardError'

@@ -4,7 +4,6 @@ import android.support.v7.widget.RecyclerView
 import com.nhaarman.mockito_kotlin.mock
 import com.nhaarman.mockito_kotlin.verify
 import com.nhaarman.mockito_kotlin.verifyZeroInteractions
-import io.petros.movies.presentation.PreconfiguredRobolectricTestRunner
 import io.petros.movies.presentation.RobolectricTestProvider.Companion.provideContext
 import io.petros.movies.presentation.feature.common.list.adapter.AdapterStatus
 import io.petros.movies.presentation.feature.common.list.holder.ErrorViewHolder
@@ -17,8 +16,9 @@ import org.assertj.core.api.Assertions.assertThat
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
+import org.robolectric.RobolectricTestRunner
 
-@RunWith(PreconfiguredRobolectricTestRunner::class)
+@RunWith(RobolectricTestRunner::class)
 class MoviesAdapterRobolectricTest {
 
     private val context = provideContext()
