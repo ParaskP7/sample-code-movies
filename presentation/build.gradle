@@ -77,6 +77,7 @@ dependencies {
     testImplementation deps.archTest.coreTesting
     testImplementation deps.robolectric.robolectric
 
+    androidTestImplementation deps.androidTest.core
     androidTestImplementation deps.androidTest.runner
     androidTestImplementation deps.androidTest.espresso
 

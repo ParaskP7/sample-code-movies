@@ -1,7 +1,7 @@
 package io.petros.movies.presentation
 
-import androidx.test.InstrumentationRegistry
-import androidx.test.runner.AndroidJUnit4
+import androidx.test.core.app.ApplicationProvider
+import androidx.test.ext.junit.runners.AndroidJUnit4
 import org.junit.Assert.assertEquals
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -16,9 +16,11 @@ class ExampleInstrumentedTest {
 
     @Test
     fun useAppContext() {
-        // Context of the app under test.
-        val appContext = InstrumentationRegistry.getTargetContext()
-        assertEquals("io.petros.movies.debug", appContext.packageName)
+        val expectedPackageName = "io.petros.movies.debug"
+
+        val result = ApplicationProvider.getApplicationContext<App>()
+
+        assertEquals(expectedPackageName, result.packageName)
     }
 
 }
