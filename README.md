@@ -149,7 +149,7 @@ Below is a list of all those ```I WISH I HAD MORE TIME TO DO``` future technical
 
 Furthermore, below is a wish list of all those ```I REALLY WANNA DO, AND WILL DO AT SOME POINT``` future architecture 
 and library enhancements:
-01. **![#f03c15](https://placehold.it/15/f03c15/000000?text=+) `IN PROGRESS`** Update Gradle to the Latest Version. 
+01. **![#2cb42c](https://placehold.it/15/f03c15/000000?text=+) `DONE`** Update Gradle to the Latest Version. 
     For more info, see [Gradle Release Notes](https://docs.gradle.org/current/release-notes.html)
 02. **![#f03c15](https://placehold.it/15/f03c15/000000?text=+) `IN PROGRESS`** Update Android Studio to the Latest Canary 
     Version. For more info, see [Android Studio Release Updates](https://androidstudio.googleblog.com)
