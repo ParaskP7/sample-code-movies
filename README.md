@@ -153,7 +153,8 @@ and library enhancements:
     For more info, see [Gradle Release Notes](https://docs.gradle.org/current/release-notes.html)
 02. **![#2cb42c](https://placehold.it/15/f03c15/000000?text=+) `DONE`** Update Android Studio to the Latest Canary 
     Version. For more info, see [Android Studio Release Updates](https://androidstudio.googleblog.com)
-03. Replace current Package Structure to the new AndroidX Package Structure. For more info, see 
+03. **![#f03c15](https://placehold.it/15/f03c15/000000?text=+) `IN PROGRESS`** Replace current Package Structure to the new 
+    AndroidX Package Structure. For more info, see 
     [AndroidX](https://developer.android.com/topic/libraries/support-library/androidx-overview) ```(A new package structure 
     to make it clearer which packages are bundled with the Android operating system, and which are packaged with your app's 
     APK)```
