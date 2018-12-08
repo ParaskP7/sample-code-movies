@@ -158,9 +158,9 @@ and library enhancements:
     [AndroidX](https://developer.android.com/topic/libraries/support-library/androidx-overview) ```(A new package structure 
     to make it clearer which packages are bundled with the Android operating system, and which are packaged with your app's 
     APK)```
-04. Replace Manual Android Extensions with Android KTX. For more info, see
-    [Android KTX](https://developer.android.com/kotlin/ktx) ```(Android KTX is a set of Kotlin extensions that is part of the 
-    Android Jetpack family)```
+04. **![#ffff00](https://placehold.it/15/ffff00/000000?text=+) `IN PROGRESS`** Replace Manual Android Extensions with Android 
+    KTX. For more info, see [Android KTX](https://developer.android.com/kotlin/ktx) ```(Android KTX is a set of Kotlin 
+    extensions that is part of the Android Jetpack family)```
 05. Replace Gradle Groovy with Kotlin DSL. For more info, see [Gradle Kotlin DSL](https://github.com/gradle/kotlin-dsl) ```
     (Kotlin language support for Gradle build scripts)```
 06. Replace RxJava with Coroutines. For more info, see [Coroutines](https://kotlinlang.org/docs/reference/coroutines.html) ```
