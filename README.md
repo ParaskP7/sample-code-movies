@@ -151,8 +151,8 @@ Furthermore, below is a wish list of all those ```I REALLY WANNA DO, AND WILL DO
 and library enhancements:
 01. **![#f03c15](https://placehold.it/15/f03c15/000000?text=+) `IN PROGRESS`** Update Gradle to the Latest Version. 
     For more info, see [Gradle Release Notes](https://docs.gradle.org/current/release-notes.html)
-02. Update Android Studio to the Latest Canary Version. For more info, see 
-    [Android Studio Release Updates](https://androidstudio.googleblog.com)
+02. **![#f03c15](https://placehold.it/15/f03c15/000000?text=+) `IN PROGRESS`** Update Android Studio to the Latest Canary 
+    Version. For more info, see [Android Studio Release Updates](https://androidstudio.googleblog.com)
 03. Replace current Package Structure to the new AndroidX Package Structure. For more info, see 
     [AndroidX](https://developer.android.com/topic/libraries/support-library/androidx-overview) ```(A new package structure 
     to make it clearer which packages are bundled with the Android operating system, and which are packaged with your app's 
