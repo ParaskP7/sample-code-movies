@@ -75,6 +75,7 @@ dependencies {
                 module: excludedDeps.module.kotlinReflect
     })
     testImplementation deps.archTest.coreTesting
+    testImplementation deps.androidTest.core
     testImplementation deps.robolectric.robolectric
 
     androidTestImplementation deps.androidTest.core
