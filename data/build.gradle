@@ -16,7 +16,7 @@ dependencies {
     implementation deps.module.domain
 
     implementation deps.kotlin.jre
-    implementation deps.support.appCompat
+    implementation deps.android.appCompat
     implementation deps.di.dagger
     implementation deps.di.daggerAndroid
     kapt deps.di.daggerCompiler

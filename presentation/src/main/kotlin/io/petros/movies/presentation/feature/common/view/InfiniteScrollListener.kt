@@ -1,7 +1,7 @@
 package io.petros.movies.presentation.feature.common.view
 
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 
 class InfiniteScrollListener(
     private val layoutManager: LinearLayoutManager,

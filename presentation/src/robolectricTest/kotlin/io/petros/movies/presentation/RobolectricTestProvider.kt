@@ -1,6 +1,6 @@
 package io.petros.movies.presentation
 
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import org.robolectric.Robolectric
 import org.robolectric.RuntimeEnvironment
 

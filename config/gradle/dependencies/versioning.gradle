@@ -13,11 +13,14 @@ ext.versions = [
         // IMPLEMENTATION // ************************************************************************************************
 
         // Android
-        support_library      : '28.0.0',
+        app_compat           : '1.0.2',
+        recycler_view        : '1.0.0',
+        card_view            : '1.0.0',
+        material             : '1.0.0',
         constraint_layout    : '1.1.3',
 
         // Architecture Components
-        arch                 : '1.1.1',
+        lifecycle_extensions : '2.0.0',
 
         // Dependency Injection
         dagger               : "2.19",
@@ -51,6 +54,9 @@ ext.versions = [
         junit                : '4.12',
         assertj              : '3.11.1',
 
+        // Architecture Components
+        core_testing         : '2.0.0',
+
         // Mock
         mockito_kotlin       : '1.6.0',
 
@@ -59,10 +65,8 @@ ext.versions = [
 
         // ANDROID TEST IMPLEMENTATION // ***********************************************************************************
 
-        // Support Test
-        support_test         : '1.0.2',
-
         // Android Test
-        espresso             : '3.0.2',
+        test_runner          : '1.1.0',
+        espresso             : '3.1.0',
 
 ]

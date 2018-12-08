@@ -1,7 +1,7 @@
 package io.petros.movies.presentation.feature.movies.navigator
 
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import com.nhaarman.mockito_kotlin.mock
 import com.nhaarman.mockito_kotlin.verify
 import io.petros.movies.presentation.feature.movies.MoviesActivity

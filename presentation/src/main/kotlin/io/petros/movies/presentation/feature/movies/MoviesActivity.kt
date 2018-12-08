@@ -1,7 +1,7 @@
 package io.petros.movies.presentation.feature.movies
 
-import android.arch.lifecycle.Observer
 import android.os.Bundle
+import androidx.lifecycle.Observer
 import io.petros.movies.R
 import io.petros.movies.presentation.feature.BaseActivity
 import io.petros.movies.presentation.feature.common.picker.MovieMonthPickerFragment

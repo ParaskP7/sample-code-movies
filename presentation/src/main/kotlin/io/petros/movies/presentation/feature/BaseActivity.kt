@@ -1,11 +1,11 @@
 package io.petros.movies.presentation.feature
 
-import android.arch.lifecycle.ViewModel
-import android.arch.lifecycle.ViewModelProvider
-import android.arch.lifecycle.ViewModelProviders
 import android.content.Intent
 import android.content.res.Configuration
 import android.os.Bundle
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelProviders
 import com.f2prateek.dart.Dart
 import dagger.android.support.DaggerAppCompatActivity
 import timber.log.Timber

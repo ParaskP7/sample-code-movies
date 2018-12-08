@@ -1,7 +1,7 @@
 package io.petros.movies.data
 
 import android.content.Context
-import android.support.annotation.IntegerRes
+import androidx.annotation.IntegerRes
 
 /* CONTEXT */
 

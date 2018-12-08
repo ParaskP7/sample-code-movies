@@ -1,8 +1,8 @@
 package io.petros.movies.presentation.feature.common.view
 
 import android.content.Context
-import android.support.annotation.VisibleForTesting
-import android.support.v7.widget.RecyclerView
+import androidx.annotation.VisibleForTesting
+import androidx.recyclerview.widget.RecyclerView
 import io.petros.movies.domain.model.common.PaginationData
 
 abstract class InfiniteAdapter<T>(

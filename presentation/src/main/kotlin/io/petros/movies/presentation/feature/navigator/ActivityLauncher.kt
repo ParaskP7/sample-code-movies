@@ -1,6 +1,6 @@
 package io.petros.movies.presentation.feature.navigator
 
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import javax.inject.Inject
 
 open class ActivityLauncher @Inject constructor(

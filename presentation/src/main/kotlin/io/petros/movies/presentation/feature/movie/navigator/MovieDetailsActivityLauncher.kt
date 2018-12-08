@@ -2,8 +2,8 @@ package io.petros.movies.presentation.feature.movie.navigator
 
 import android.content.Intent
 import android.os.Bundle
-import android.support.v4.app.ActivityOptionsCompat
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityOptionsCompat
 import io.petros.movies.Henson
 import io.petros.movies.R
 import io.petros.movies.domain.model.movie.Movie

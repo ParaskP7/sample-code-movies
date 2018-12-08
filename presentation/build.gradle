@@ -19,7 +19,7 @@ android {
         applicationId group
         versionCode app.major * 10000 + app.minor * 1000 + app.patch * 100 + app.build
         versionName "${app.major}.${app.minor}.${app.patch}"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner deps.androidTest.config
     }
     buildTypes {
         debug {
@@ -42,11 +42,11 @@ dependencies {
     releaseImplementation deps.leakcanary.release
 
     implementation deps.kotlin.jre
-    implementation deps.support.appCompat
-    implementation deps.support.recyclerView
-    implementation deps.support.cardView
-    implementation deps.support.design
-    implementation deps.support.constraintLayout
+    implementation deps.android.appCompat
+    implementation deps.android.recyclerView
+    implementation deps.android.cardView
+    implementation deps.android.material
+    implementation deps.android.constraintLayout
     implementation deps.arch.lifecycleExtensions
     implementation deps.di.dagger
     implementation deps.di.daggerAndroid
@@ -74,10 +74,10 @@ dependencies {
         exclude group: excludedDeps.group.jetbrainsKotlin,
                 module: excludedDeps.module.kotlinReflect
     })
-    testImplementation deps.archTest.core
+    testImplementation deps.archTest.coreTesting
     testImplementation deps.robolectric.robolectric
 
-    androidTestImplementation deps.supportTest.runner
+    androidTestImplementation deps.androidTest.runner
     androidTestImplementation deps.androidTest.espresso
 
     detektPlugins deps.plugin.detektFormatting

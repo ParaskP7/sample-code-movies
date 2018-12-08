@@ -1,7 +1,7 @@
 package io.petros.movies.presentation.feature.movies.navigator
 
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import io.petros.movies.presentation.feature.movies.MoviesActivity
 import io.petros.movies.presentation.feature.navigator.ActivityLauncher
 import javax.inject.Inject

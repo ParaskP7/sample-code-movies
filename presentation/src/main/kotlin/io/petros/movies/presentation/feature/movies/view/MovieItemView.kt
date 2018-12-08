@@ -1,9 +1,9 @@
 package io.petros.movies.presentation.feature.movies.view
 
 import android.content.Context
-import android.support.v7.widget.CardView
 import android.util.AttributeSet
 import android.view.ViewGroup
+import androidx.cardview.widget.CardView
 import io.petros.movies.R
 import io.petros.movies.domain.model.movie.Movie
 import io.petros.movies.presentation.displayImage

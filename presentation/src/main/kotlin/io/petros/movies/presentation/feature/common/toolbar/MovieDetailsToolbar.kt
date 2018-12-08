@@ -1,8 +1,8 @@
 package io.petros.movies.presentation.feature.common.toolbar
 
 import android.content.Context
-import android.support.design.widget.AppBarLayout
 import android.util.AttributeSet
+import com.google.android.material.appbar.AppBarLayout
 import io.petros.movies.R
 import io.petros.movies.presentation.inflate
 

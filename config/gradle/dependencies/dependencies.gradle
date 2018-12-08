@@ -28,16 +28,16 @@ ext.deps = [
                 'jre': "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$versions.kotlin_plugin",
         ],
 
-        'support'    : [
-                'appCompat'       : "com.android.support:appcompat-v7:$versions.support_library",
-                'recyclerView'    : "com.android.support:recyclerview-v7:$versions.support_library",
-                'cardView'        : "com.android.support:cardview-v7:$versions.support_library",
-                'design'          : "com.android.support:design:$versions.support_library",
-                'constraintLayout': "com.android.support.constraint:constraint-layout:$versions.constraint_layout",
+        'android'    : [
+                'appCompat'       : "androidx.appcompat:appcompat:$versions.app_compat",
+                'recyclerView'    : "androidx.recyclerview:recyclerview:$versions.recycler_view",
+                'cardView'        : "androidx.cardview:cardview:$versions.card_view",
+                'material'        : "com.google.android.material:material:$versions.material",
+                'constraintLayout': "androidx.constraintlayout:constraintlayout:$versions.constraint_layout",
         ],
 
         'arch'       : [
-                'lifecycleExtensions': "android.arch.lifecycle:extensions:$versions.arch",
+                'lifecycleExtensions': "androidx.lifecycle:lifecycle-extensions:$versions.lifecycle_extensions",
         ],
 
         'di'         : [
@@ -95,7 +95,7 @@ ext.deps = [
         ],
 
         'archTest'   : [
-                'core': "android.arch.core:core-testing:$versions.arch",
+                'coreTesting': "androidx.arch.core:core-testing:$versions.core_testing",
         ],
 
         'robolectric': [
@@ -104,12 +104,10 @@ ext.deps = [
 
         // ANDROID TEST IMPLEMENTATION // ***********************************************************************************
 
-        'supportTest': [
-                'runner': "com.android.support.test:runner:$versions.support_test",
-        ],
-
         'androidTest': [
-                'espresso': "com.android.support.test.espresso:espresso-core:$versions.espresso",
+                'config'  : "androidx.test.runner.AndroidJUnitRunner",
+                'runner'  : "androidx.test:runner:$versions.test_runner",
+                'espresso': "androidx.test.espresso:espresso-core:$versions.espresso",
         ],
 
 ]

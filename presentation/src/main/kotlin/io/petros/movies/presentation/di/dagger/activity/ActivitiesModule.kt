@@ -1,6 +1,6 @@
 package io.petros.movies.presentation.di.dagger.activity
 
-import android.arch.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelProvider
 import dagger.Binds
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
