@@ -149,7 +149,7 @@ Below is a list of all those ```I WISH I HAD MORE TIME TO DO``` future technical
 
 Furthermore, below is a wish list of all those ```I REALLY WANNA DO, AND WILL DO AT SOME POINT``` future architecture 
 and library enhancements:
-01. Update Gradle to the Latest Version. For more info, see 
+01. **IN PROGRESS** Update Gradle to the Latest Version. For more info, see 
     [Gradle Release Notes](https://docs.gradle.org/current/release-notes.html)
 02. Update Android Studio to the Latest Canary Version. For more info, see 
     [Android Studio Release Updates](https://androidstudio.googleblog.com)
