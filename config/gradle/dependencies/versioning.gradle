@@ -22,7 +22,7 @@ ext.versions = [
         // Android KTX
         ktx_core             : '1.0.1',
 
-        // Architecture Components
+        // Android Architecture Components
         lifecycle_extensions : '2.0.0',
 
         // Dependency Injection

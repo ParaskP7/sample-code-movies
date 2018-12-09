@@ -48,7 +48,7 @@ dependencies {
     implementation deps.android.material
     implementation deps.android.constraintLayout
     implementation deps.androidKtx.core
-    implementation deps.arch.lifecycleExtensions
+    implementation deps.androidArch.lifecycleExtensions
     implementation deps.di.dagger
     implementation deps.di.daggerAndroid
     kapt deps.di.daggerCompiler
@@ -75,7 +75,7 @@ dependencies {
         exclude group: excludedDeps.group.jetbrainsKotlin,
                 module: excludedDeps.module.kotlinReflect
     })
-    testImplementation deps.archTest.coreTesting
+    testImplementation deps.androidArchTest.coreTesting
     testImplementation deps.androidTest.core
     testImplementation deps.robolectric.robolectric
 

@@ -40,7 +40,7 @@ ext.deps = [
                 'core': "androidx.core:core-ktx:$versions.ktx_core",
         ],
 
-        'arch'       : [
+        'androidArch'       : [
                 'lifecycleExtensions': "androidx.lifecycle:lifecycle-extensions:$versions.lifecycle_extensions",
         ],
 
@@ -98,7 +98,7 @@ ext.deps = [
                 'mockitoKotlin': "com.nhaarman:mockito-kotlin:$versions.mockito_kotlin",
         ],
 
-        'archTest'   : [
+        'androidArchTest'   : [
                 'coreTesting': "androidx.arch.core:core-testing:$versions.core_testing",
         ],
 
