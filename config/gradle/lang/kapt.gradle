@@ -1,0 +1,3 @@
+kapt {
+    useBuildCache = true
+}

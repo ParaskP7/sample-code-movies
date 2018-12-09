@@ -1,3 +1,4 @@
+apply from: '../config/gradle/lang/kapt.gradle'
 apply from: '../config/gradle/lang/java.gradle'
 
 sourceCompatibility = java.version
