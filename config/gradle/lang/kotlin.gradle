@@ -6,7 +6,7 @@ targetCompatibility = java.version
 
 test {
     testLogging { // Print test details in the terminal (or CI).
-        events "passed", "skipped", "failed", "standardOut", "standardError"
-        exceptionFormat "full"
+        events("passed", "skipped", "failed", "standardOut", "standardError")
+        exceptionFormat = "full"
     }
 }

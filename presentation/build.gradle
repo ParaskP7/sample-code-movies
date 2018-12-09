@@ -16,72 +16,72 @@ apply from: "../config/gradle/dependencies/dependency_updates.gradle"
 
 android {
     defaultConfig {
-        applicationId group
-        versionCode app.major * 10000 + app.minor * 1000 + app.patch * 100 + app.build
-        versionName "${app.major}.${app.minor}.${app.patch}"
-        testInstrumentationRunner deps.androidTest.config
+        applicationId = group
+        versionCode = app.major * 10000 + app.minor * 1000 + app.patch * 100 + app.build
+        versionName = "${app.major}.${app.minor}.${app.patch}"
+        testInstrumentationRunner = deps.androidTest.config
     }
     buildTypes {
         debug {
-            applicationIdSuffix ".$suffix.debug"
-            versionNameSuffix "-$suffix.debug"
-            debuggable true
+            applicationIdSuffix = ".$suffix.debug"
+            versionNameSuffix = "-$suffix.debug"
+            debuggable = true
         }
         release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+            minifyEnabled = false
+            proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro")
         }
     }
 }
 
 dependencies {
-    implementation deps.module.domain
-    implementation deps.module.data
+    implementation(deps.module.domain)
+    implementation(deps.module.data)
 
-    debugImplementation deps.leakcanary.debug
-    releaseImplementation deps.leakcanary.release
+    debugImplementation(deps.leakcanary.debug)
+    releaseImplementation(deps.leakcanary.release)
 
-    implementation deps.kotlin.jre
-    implementation deps.android.appCompat
-    implementation deps.android.recyclerView
-    implementation deps.android.cardView
-    implementation deps.android.material
-    implementation deps.android.constraintLayout
-    implementation deps.androidKtx.core
-    implementation deps.androidArch.lifecycleExtensions
-    implementation deps.di.dagger
-    implementation deps.di.daggerAndroid
-    kapt deps.di.daggerCompiler
-    kapt deps.di.daggerAndroidProcessor
-    implementation deps.rx.rxjava
-    implementation deps.rx.rxandroid
-    implementation deps.network.gson
-    implementation deps.network.okhttpLogging
-    implementation deps.rest.retrofit
-    implementation deps.ui.glide
-    kapt deps.ui.glideCompiler
-    implementation deps.extras.dart
-    kapt deps.extras.dartProcessor
-    implementation deps.extras.henson
-    kapt deps.extras.hensonProcessor
-    implementation deps.util.monthAndYearPicker
-    implementation deps.logging.timber
+    implementation(deps.kotlin.jre)
+    implementation(deps.android.appCompat)
+    implementation(deps.android.recyclerView)
+    implementation(deps.android.cardView)
+    implementation(deps.android.material)
+    implementation(deps.android.constraintLayout)
+    implementation(deps.androidKtx.core)
+    implementation(deps.androidArch.lifecycleExtensions)
+    implementation(deps.di.dagger)
+    implementation(deps.di.daggerAndroid)
+    kapt(deps.di.daggerCompiler)
+    kapt(deps.di.daggerAndroidProcessor)
+    implementation(deps.rx.rxjava)
+    implementation(deps.rx.rxandroid)
+    implementation(deps.network.gson)
+    implementation(deps.network.okhttpLogging)
+    implementation(deps.rest.retrofit)
+    implementation(deps.ui.glide)
+    kapt(deps.ui.glideCompiler)
+    implementation(deps.extras.dart)
+    kapt(deps.extras.dartProcessor)
+    implementation(deps.extras.henson)
+    kapt(deps.extras.hensonProcessor)
+    implementation(deps.util.monthAndYearPicker)
+    implementation(deps.logging.timber)
 
-    testImplementation deps.module.test
+    testImplementation(deps.module.test)
 
-    testImplementation deps.test.junit
-    testImplementation deps.test.assertj
+    testImplementation(deps.test.junit)
+    testImplementation(deps.test.assertj)
     testImplementation(deps.mock.mockitoKotlin, {
         exclude group: excludedDeps.group.jetbrainsKotlin,
                 module: excludedDeps.module.kotlinReflect
     })
-    testImplementation deps.androidArchTest.coreTesting
-    testImplementation deps.androidTest.core
-    testImplementation deps.robolectric.robolectric
+    testImplementation(deps.androidArchTest.coreTesting)
+    testImplementation(deps.androidTest.core)
+    testImplementation(deps.robolectric.robolectric)
 
-    androidTestImplementation deps.androidTest.core
-    androidTestImplementation deps.androidTest.runner
-    androidTestImplementation deps.androidTest.espresso
+    androidTestImplementation(deps.androidTest.core)
+    androidTestImplementation(deps.androidTest.runner)
+    androidTestImplementation(deps.androidTest.espresso)
 
-    detektPlugins deps.plugin.detektFormatting
+    detektPlugins(deps.plugin.detektFormatting)
 }

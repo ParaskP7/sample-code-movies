@@ -8,10 +8,10 @@ apply from: "../config/gradle/quality/detekt.gradle"
 apply from: "../config/gradle/dependencies/dependency_updates.gradle"
 
 dependencies {
-    implementation deps.module.domain
+    implementation(deps.module.domain)
 
-    implementation deps.kotlin.jre
-    implementation deps.rx.rxjava
+    implementation(deps.kotlin.jre)
+    implementation(deps.rx.rxjava)
 
-    detektPlugins deps.plugin.detektFormatting
+    detektPlugins(deps.plugin.detektFormatting)
 }

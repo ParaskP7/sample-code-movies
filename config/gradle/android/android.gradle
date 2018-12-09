@@ -29,15 +29,15 @@ ext.suffix = [
 ]
 
 android {
-    compileSdkVersion sdk.compile_sdk
+    compileSdkVersion(sdk.compile_sdk)
     testOptions.unitTests.includeAndroidResources = true
     defaultConfig {
-        minSdkVersion sdk.min_sdk
-        targetSdkVersion sdk.target_sdk
+        minSdkVersion(sdk.min_sdk)
+        targetSdkVersion(sdk.target_sdk)
     }
     compileOptions {
-        sourceCompatibility java.version
-        targetCompatibility java.version
+        sourceCompatibility = java.version
+        targetCompatibility = java.version
     }
     buildTypes {
         def themoviedbApiPropertiesFile = file(keys.themoviedb_api_properties_file_path)
@@ -56,8 +56,8 @@ android {
         unitTests {
             all {
                 testLogging { // Print test details in the terminal (or CI).
-                    events "passed", "skipped", "failed", "standardOut", "standardError"
-                    exceptionFormat "full"
+                    events("passed", "skipped", "failed", "standardOut", "standardError")
+                    exceptionFormat = "full"
                 }
             }
         }
