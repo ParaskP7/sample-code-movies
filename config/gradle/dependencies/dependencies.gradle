@@ -1,130 +1,130 @@
 ext.deps = [
 
-        'plugin'     : [
-                'android'         : "com.android.tools.build:gradle:$versions.android_plugin",
-                'kotlin'          : "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin_plugin",
-                'versions'        : "com.github.ben-manes:gradle-versions-plugin:$versions.versions_plugin",
-                'dexcount'        : "com.getkeepsafe.dexcount:dexcount-gradle-plugin:$versions.dexcount_plugin",
-                'detekt'          : "io.gitlab.arturbosch.detekt:detekt-gradle-plugin:$versions.detekt_plugin",
-                'detektFormatting': "io.gitlab.arturbosch.detekt:detekt-formatting:$versions.detekt_plugin",
+        "plugin"     : [
+                "android"         : "com.android.tools.build:gradle:$versions.android_plugin",
+                "kotlin"          : "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin_plugin",
+                "versions"        : "com.github.ben-manes:gradle-versions-plugin:$versions.versions_plugin",
+                "dexcount"        : "com.getkeepsafe.dexcount:dexcount-gradle-plugin:$versions.dexcount_plugin",
+                "detekt"          : "io.gitlab.arturbosch.detekt:detekt-gradle-plugin:$versions.detekt_plugin",
+                "detektFormatting": "io.gitlab.arturbosch.detekt:detekt-formatting:$versions.detekt_plugin",
         ],
 
-        'leakcanary' : [
-                'debug'  : "com.squareup.leakcanary:leakcanary-android:$versions.leakcanary",
-                'release': "com.squareup.leakcanary:leakcanary-android-no-op:$versions.leakcanary"
+        "leakcanary" : [
+                "debug"  : "com.squareup.leakcanary:leakcanary-android:$versions.leakcanary",
+                "release": "com.squareup.leakcanary:leakcanary-android-no-op:$versions.leakcanary"
         ],
 
         // PROJECT // *******************************************************************************************************
 
-        'module'     : [
-                'domain': project(':domain'),
-                'data'  : project(':data'),
-                'test'  : project('test'),
+        "module"     : [
+                "domain": project(":domain"),
+                "data"  : project(":data"),
+                "test"  : project("test"),
         ],
 
         // IMPLEMENTATION // ************************************************************************************************
 
-        'kotlin'     : [
-                'jre': "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$versions.kotlin_plugin",
+        "kotlin"     : [
+                "jre": "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$versions.kotlin_plugin",
         ],
 
-        'android'    : [
-                'appCompat'       : "androidx.appcompat:appcompat:$versions.app_compat",
-                'recyclerView'    : "androidx.recyclerview:recyclerview:$versions.recycler_view",
-                'cardView'        : "androidx.cardview:cardview:$versions.card_view",
-                'material'        : "com.google.android.material:material:$versions.material",
-                'constraintLayout': "androidx.constraintlayout:constraintlayout:$versions.constraint_layout",
+        "android"    : [
+                "appCompat"       : "androidx.appcompat:appcompat:$versions.app_compat",
+                "recyclerView"    : "androidx.recyclerview:recyclerview:$versions.recycler_view",
+                "cardView"        : "androidx.cardview:cardview:$versions.card_view",
+                "material"        : "com.google.android.material:material:$versions.material",
+                "constraintLayout": "androidx.constraintlayout:constraintlayout:$versions.constraint_layout",
         ],
 
-        'androidKtx' : [
-                'core': "androidx.core:core-ktx:$versions.ktx_core",
+        "androidKtx" : [
+                "core": "androidx.core:core-ktx:$versions.ktx_core",
         ],
 
-        'androidArch'       : [
-                'lifecycleExtensions': "androidx.lifecycle:lifecycle-extensions:$versions.lifecycle_extensions",
+        "androidArch"       : [
+                "lifecycleExtensions": "androidx.lifecycle:lifecycle-extensions:$versions.lifecycle_extensions",
         ],
 
-        'di'         : [
-                'dagger'                : "com.google.dagger:dagger:$versions.dagger",
-                'daggerCompiler'        : "com.google.dagger:dagger-compiler:$versions.dagger",
-                'daggerAndroid'         : "com.google.dagger:dagger-android-support:$versions.dagger",
-                'daggerAndroidProcessor': "com.google.dagger:dagger-android-processor:$versions.dagger",
+        "di"         : [
+                "dagger"                : "com.google.dagger:dagger:$versions.dagger",
+                "daggerCompiler"        : "com.google.dagger:dagger-compiler:$versions.dagger",
+                "daggerAndroid"         : "com.google.dagger:dagger-android-support:$versions.dagger",
+                "daggerAndroidProcessor": "com.google.dagger:dagger-android-processor:$versions.dagger",
         ],
 
-        'rx'         : [
-                'rxjava'   : "io.reactivex.rxjava2:rxjava:$versions.rxjava",
-                'rxandroid': "io.reactivex.rxjava2:rxandroid:$versions.rxandroid",
+        "rx"         : [
+                "rxjava"   : "io.reactivex.rxjava2:rxjava:$versions.rxjava",
+                "rxandroid": "io.reactivex.rxjava2:rxandroid:$versions.rxandroid",
         ],
 
-        'network'    : [
-                'gson'         : "com.google.code.gson:gson:$versions.gson",
-                'okhttpLogging': "com.squareup.okhttp3:logging-interceptor:$versions.okhttp",
+        "network"    : [
+                "gson"         : "com.google.code.gson:gson:$versions.gson",
+                "okhttpLogging": "com.squareup.okhttp3:logging-interceptor:$versions.okhttp",
         ],
 
-        'rest'       : [
-                'retrofit'    : "com.squareup.retrofit2:retrofit:$versions.retrofit",
-                'retrofitGson': "com.squareup.retrofit2:converter-gson:$versions.retrofit",
-                'retrofitRx'  : "com.squareup.retrofit2:adapter-rxjava2:$versions.retrofit",
+        "rest"       : [
+                "retrofit"    : "com.squareup.retrofit2:retrofit:$versions.retrofit",
+                "retrofitGson": "com.squareup.retrofit2:converter-gson:$versions.retrofit",
+                "retrofitRx"  : "com.squareup.retrofit2:adapter-rxjava2:$versions.retrofit",
         ],
 
-        'ui'         : [
-                'glide'        : "com.github.bumptech.glide:glide:$versions.glide",
-                'glideCompiler': "com.github.bumptech.glide:compiler:$versions.glide",
+        "ui"         : [
+                "glide"        : "com.github.bumptech.glide:glide:$versions.glide",
+                "glideCompiler": "com.github.bumptech.glide:compiler:$versions.glide",
         ],
 
-        'extras'     : [
-                'dart'           : "com.f2prateek.dart:dart:$versions.dart",
-                'dartProcessor'  : "com.f2prateek.dart:dart-processor:$versions.dart",
-                'henson'         : "com.f2prateek.dart:henson:$versions.dart",
-                'hensonProcessor': "com.f2prateek.dart:henson-processor:$versions.dart",
+        "extras"     : [
+                "dart"           : "com.f2prateek.dart:dart:$versions.dart",
+                "dartProcessor"  : "com.f2prateek.dart:dart-processor:$versions.dart",
+                "henson"         : "com.f2prateek.dart:henson:$versions.dart",
+                "hensonProcessor": "com.f2prateek.dart:henson-processor:$versions.dart",
         ],
 
-        'util'       : [
-                'monthAndYearPicker': "com.whiteelephant:monthandyearpicker:$versions.month_and_year_picker",
+        "util"       : [
+                "monthAndYearPicker": "com.whiteelephant:monthandyearpicker:$versions.month_and_year_picker",
         ],
 
-        'logging'    : [
-                'timber': "com.jakewharton.timber:timber:$versions.timber",
+        "logging"    : [
+                "timber": "com.jakewharton.timber:timber:$versions.timber",
         ],
 
         // TEST IMPLEMENTATION // *******************************************************************************************
 
-        'test'       : [
-                'junit'  : "junit:junit:$versions.junit",
-                'assertj': "org.assertj:assertj-core:$versions.assertj",
+        "test"       : [
+                "junit"  : "junit:junit:$versions.junit",
+                "assertj": "org.assertj:assertj-core:$versions.assertj",
         ],
 
-        'mock'       : [
-                'mockitoKotlin': "com.nhaarman:mockito-kotlin:$versions.mockito_kotlin",
+        "mock"       : [
+                "mockitoKotlin": "com.nhaarman:mockito-kotlin:$versions.mockito_kotlin",
         ],
 
-        'androidArchTest'   : [
-                'coreTesting': "androidx.arch.core:core-testing:$versions.core_testing",
+        "androidArchTest"   : [
+                "coreTesting": "androidx.arch.core:core-testing:$versions.core_testing",
         ],
 
-        'robolectric': [
-                'robolectric': "org.robolectric:robolectric:$versions.robolectric",
+        "robolectric": [
+                "robolectric": "org.robolectric:robolectric:$versions.robolectric",
         ],
 
         // ANDROID TEST IMPLEMENTATION // ***********************************************************************************
 
-        'androidTest': [
-                'config'  : "androidx.test.runner.AndroidJUnitRunner",
-                'core'    : "androidx.test:core:$versions.test_core",
-                'runner'  : "androidx.test.ext:junit:$versions.test_junit",
-                'espresso': "androidx.test.espresso:espresso-core:$versions.test_espresso",
+        "androidTest": [
+                "config"  : "androidx.test.runner.AndroidJUnitRunner",
+                "core"    : "androidx.test:core:$versions.test_core",
+                "runner"  : "androidx.test.ext:junit:$versions.test_junit",
+                "espresso": "androidx.test.espresso:espresso-core:$versions.test_espresso",
         ],
 
 ]
 
 ext.excludedDeps = [
 
-        'group' : [
-                'jetbrainsKotlin': 'org.jetbrains.kotlin',
+        "group" : [
+                "jetbrainsKotlin": "org.jetbrains.kotlin",
         ],
 
-        'module': [
-                'kotlinReflect': 'kotlin-reflect',
+        "module": [
+                "kotlinReflect": "kotlin-reflect",
         ],
 
 ]

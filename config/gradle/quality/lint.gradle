@@ -9,10 +9,10 @@ android {
         lintConfig file("../config/quality/lint.xml")
         htmlReport true
         xmlReport true
-        disable 'MissingRegistered', // Because of UAST
-                'UnusedIds', // Because of UAST
-                'ContentDescription',
-                'SelectableText'
+        disable "MissingRegistered", // Because of UAST
+                "UnusedIds", // Because of UAST
+                "ContentDescription",
+                "SelectableText"
     }
 
 }

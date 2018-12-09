@@ -1,8 +1,8 @@
 buildscript {
-    apply from: 'config/gradle/dependencies/repositories.gradle'
-    apply from: 'config/gradle/dependencies/versioning.gradle'
-    apply from: 'config/gradle/dependencies/dependencies.gradle'
-    apply from: 'config/gradle/keys/keys.gradle'
+    apply from: "config/gradle/dependencies/repositories.gradle"
+    apply from: "config/gradle/dependencies/versioning.gradle"
+    apply from: "config/gradle/dependencies/dependencies.gradle"
+    apply from: "config/gradle/keys/keys.gradle"
 
     repositories {
         google()

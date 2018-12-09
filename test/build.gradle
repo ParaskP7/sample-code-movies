@@ -1,11 +1,11 @@
-apply plugin: 'kotlin'
-apply plugin: 'kotlin-kapt'
-apply plugin: 'com.github.ben-manes.versions'
-apply plugin: 'io.gitlab.arturbosch.detekt'
+apply plugin: "kotlin"
+apply plugin: "kotlin-kapt"
+apply plugin: "com.github.ben-manes.versions"
+apply plugin: "io.gitlab.arturbosch.detekt"
 
-apply from: '../config/gradle/lang/kotlin.gradle'
-apply from: '../config/gradle/quality/detekt.gradle'
-apply from: '../config/gradle/dependencies/dependency_updates.gradle'
+apply from: "../config/gradle/lang/kotlin.gradle"
+apply from: "../config/gradle/quality/detekt.gradle"
+apply from: "../config/gradle/dependencies/dependency_updates.gradle"
 
 dependencies {
     implementation deps.module.domain

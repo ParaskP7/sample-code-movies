@@ -1,4 +1,4 @@
-apply from: '../config/gradle/lang/java.gradle'
+apply from: "../config/gradle/lang/java.gradle"
 
 def versionMajor = 1
 def versionMinor = 0
@@ -24,7 +24,7 @@ ext.sdk = [
 
 ext.suffix = [
 
-        debug: 'debug',
+        debug: "debug",
 
 ]
 
@@ -43,21 +43,21 @@ android {
         def themoviedbApiPropertiesFile = file(keys.themoviedb_api_properties_file_path)
         def themoviedbApiProperties = new Properties()
         themoviedbApiProperties.load(new FileInputStream(themoviedbApiPropertiesFile))
-        def themoviedb_api_key = themoviedbApiProperties['themoviedb_api_key']
+        def themoviedb_api_key = themoviedbApiProperties["themoviedb_api_key"]
 
         debug {
-            buildConfigField 'String', 'THEMOVIEDB_API_KEY', "\"${themoviedb_api_key}\""
+            buildConfigField "String", "THEMOVIEDB_API_KEY", "\"${themoviedb_api_key}\""
         }
         release {
-            buildConfigField 'String', 'THEMOVIEDB_API_KEY', "\"${themoviedb_api_key}\""
+            buildConfigField "String", "THEMOVIEDB_API_KEY", "\"${themoviedb_api_key}\""
         }
     }
     testOptions {
         unitTests {
             all {
                 testLogging { // Print test details in the terminal (or CI).
-                    events 'passed', 'skipped', 'failed', 'standardOut', 'standardError'
-                    exceptionFormat 'full'
+                    events "passed", "skipped", "failed", "standardOut", "standardError"
+                    exceptionFormat "full"
                 }
             }
         }
@@ -65,21 +65,21 @@ android {
     sourceSets {
         main {
             java.srcDirs = [
-                    'src/main/kotlin',
+                    "src/main/kotlin",
             ]
         }
         test {
             java.srcDirs = [
-                    'src/test/kotlin',
-                    'src/robolectricTest/kotlin',
+                    "src/test/kotlin",
+                    "src/robolectricTest/kotlin",
             ]
             resources.srcDirs = [
-                    'src/test/resources',
+                    "src/test/resources",
             ]
         }
         androidTest {
             java.srcDirs = [
-                    'src/androidTest/kotlin',
+                    "src/androidTest/kotlin",
             ]
         }
     }
