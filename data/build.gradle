@@ -1,10 +1,12 @@
-apply plugin: "com.android.library"
-apply plugin: "kotlin-android"
-apply plugin: "kotlin-android-extensions"
-apply plugin: "kotlin-kapt"
-apply plugin: "com.github.ben-manes.versions"
-apply plugin: "com.getkeepsafe.dexcount"
-apply plugin: "io.gitlab.arturbosch.detekt"
+plugins {
+    id("com.android.library")
+    id("kotlin-android")
+    id("kotlin-android-extensions")
+    id("kotlin-kapt")
+    id("com.github.ben-manes.versions")
+    id("com.getkeepsafe.dexcount")
+    id("io.gitlab.arturbosch.detekt")
+}
 
 apply from: "../config/gradle/android/android.gradle"
 apply from: "../config/gradle/android/dexcount.gradle"
