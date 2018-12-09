@@ -4,7 +4,7 @@ import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.*
 
-/* GENERAL */
+/* SINGLE CHARACTER */
 
 @Suppress("FunctionOnlyReturningConstant")
 fun space() = " "
@@ -15,12 +15,14 @@ fun leftParentheses() = "("
 @Suppress("FunctionOnlyReturningConstant")
 fun rightParentheses() = ")"
 
+@Suppress("FunctionOnlyReturningConstant")
+fun star() = "★"
+
+/* GENERAL */
+
 fun String.withParentheses() = leftParentheses() + this + rightParentheses()
 
 fun Int.withParentheses() = leftParentheses() + this + rightParentheses()
-
-@Suppress("FunctionOnlyReturningConstant")
-fun star() = "★"
 
 /* DATE */
 

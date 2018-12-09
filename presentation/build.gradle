@@ -47,6 +47,7 @@ dependencies {
     implementation deps.android.cardView
     implementation deps.android.material
     implementation deps.android.constraintLayout
+    implementation deps.androidKtx.core
     implementation deps.arch.lifecycleExtensions
     implementation deps.di.dagger
     implementation deps.di.daggerAndroid

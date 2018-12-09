@@ -36,6 +36,10 @@ ext.deps = [
                 'constraintLayout': "androidx.constraintlayout:constraintlayout:$versions.constraint_layout",
         ],
 
+        'androidKtx' : [
+                'core': "androidx.core:core-ktx:$versions.ktx_core",
+        ],
+
         'arch'       : [
                 'lifecycleExtensions': "androidx.lifecycle:lifecycle-extensions:$versions.lifecycle_extensions",
         ],

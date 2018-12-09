@@ -3,6 +3,7 @@ package io.petros.movies.presentation.feature.movies.list
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import io.petros.movies.R
+import io.petros.movies.data.toast
 import io.petros.movies.domain.model.movie.Movie
 import io.petros.movies.presentation.feature.common.list.adapter.AdapterStatus
 import io.petros.movies.presentation.feature.common.list.holder.ErrorViewHolder
@@ -12,7 +13,6 @@ import io.petros.movies.presentation.feature.common.list.item.ProgressItemView
 import io.petros.movies.presentation.feature.common.view.InfiniteAdapter
 import io.petros.movies.presentation.feature.movies.listener.MovieCallback
 import io.petros.movies.presentation.feature.movies.view.MovieItemView
-import io.petros.movies.presentation.toast
 
 class MoviesAdapter : InfiniteAdapter<Movie>() {
 

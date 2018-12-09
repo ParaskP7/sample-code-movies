@@ -3,7 +3,8 @@ package io.petros.movies.presentation.feature.common.toolbar
 import android.content.Context
 import android.os.Bundle
 import android.util.AttributeSet
-import android.view.View
+import androidx.core.view.isInvisible
+import androidx.core.view.isVisible
 import com.google.android.material.appbar.AppBarLayout
 import io.petros.movies.R
 import io.petros.movies.domain.util.MonthOfYear
@@ -42,8 +43,8 @@ class MoviesToolbar : AppBarLayout { // MRT
     }
 
     private fun onFilterIconClicked() {
-        iv_filter_icon.visibility = View.GONE
-        iv_close_icon.visibility = View.VISIBLE
+        iv_filter_icon.isVisible = false
+        iv_close_icon.isVisible = true
         showYear()
     }
 
@@ -52,8 +53,8 @@ class MoviesToolbar : AppBarLayout { // MRT
     }
 
     private fun onCloseIconClicked() {
-        iv_close_icon.visibility = View.GONE
-        iv_filter_icon.visibility = View.VISIBLE
+        iv_close_icon.isVisible = false
+        iv_filter_icon.isVisible = true
         hideYear()
         hideMonth()
         callback.onCloseClicked()
@@ -70,22 +71,22 @@ class MoviesToolbar : AppBarLayout { // MRT
     /* SHOW/HIDE */
 
     fun showYear() {
-        tv_filter_year.visibility = View.VISIBLE
+        tv_filter_year.isInvisible = false
         tv_filter_year.text = context.getString(R.string.toolbar_movies_filter_year)
     }
 
     fun hideYear() {
-        tv_filter_year.visibility = View.INVISIBLE
+        tv_filter_year.isInvisible = true
         tv_filter_year.text = context.getString(R.string.toolbar_movies_filter_year)
     }
 
     fun showMonth() {
-        tv_filter_month.visibility = View.VISIBLE
+        tv_filter_month.isInvisible = false
         tv_filter_month.text = context.getString(R.string.toolbar_movies_filter_month)
     }
 
     fun hideMonth() {
-        tv_filter_month.visibility = View.INVISIBLE
+        tv_filter_month.isInvisible = true
         tv_filter_month.text = context.getString(R.string.toolbar_movies_filter_month)
     }
 
@@ -150,7 +151,7 @@ class MoviesToolbar : AppBarLayout { // MRT
     }
 
     private fun onSaveCloseIconInstanceState(outState: Bundle) {
-        outState.putBoolean(INSTANCE_STATE_KEY_CLOSE_ICON, iv_close_icon.visibility == View.VISIBLE)
+        outState.putBoolean(INSTANCE_STATE_KEY_CLOSE_ICON, iv_close_icon.isVisible)
     }
 
     private fun onSaveYearInstanceState(outState: Bundle) {
