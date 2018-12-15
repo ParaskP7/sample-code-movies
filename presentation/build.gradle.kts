@@ -8,13 +8,13 @@ plugins {
     id("io.gitlab.arturbosch.detekt")
 }
 
-apply from: "../config/gradle/android/android.gradle"
-apply from: "../config/gradle/android/dart.gradle"
-apply from: "../config/gradle/android/dexcount.gradle"
-apply from: "../config/gradle/android/leakcanary.gradle"
-apply from: "../config/gradle/quality/lint.gradle"
-apply from: "../config/gradle/quality/detekt.gradle"
-apply from: "../config/gradle/dependencies/dependency_updates.gradle"
+apply("../config/gradle/android/android.gradle")
+apply("../config/gradle/android/dart.gradle")
+apply("../config/gradle/android/dexcount.gradle")
+apply("../config/gradle/android/leakcanary.gradle")
+apply("../config/gradle/quality/lint.gradle")
+apply("../config/gradle/quality/detekt.gradle")
+apply("../config/gradle/dependencies/dependency_updates.gradle")
 
 android {
     defaultConfig {
@@ -24,13 +24,13 @@ android {
         testInstrumentationRunner = Android.TEST_INSTRUMENTATION_RUNNER
     }
     buildTypes {
-        debug {
+        named("debug") {
             applicationIdSuffix = App.DEBUG_APPLICATION_ID_SUFFIX
             versionNameSuffix = App.DEBUG_VERSION_NAME_SUFFIX
-            debuggable = true
+            isDebuggable = true
         }
-        release {
-            minifyEnabled = false
+        named("release") {
+            isMinifyEnabled = false
             proguardFiles(getDefaultProguardFile(Files.PROGUARD_ANDROID), Files.PROGUARD_RULES)
         }
     }
@@ -74,8 +74,7 @@ dependencies {
     testImplementation(Deps.testJUnit)
     testImplementation(Deps.testAssertJ)
     testImplementation(Deps.mockMockitoKotlin, {
-        exclude group: ExcludedDeps.groupJetbrainsKotlin,
-                module: ExcludedDeps.moduleKotlinReflect
+        exclude(ExcludedDeps.groupJetbrainsKotlin, ExcludedDeps.moduleKotlinReflect)
     })
     testImplementation(Deps.androidArchTestCoreTesting)
     testImplementation(Deps.androidTestCore)
