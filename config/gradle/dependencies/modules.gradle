@@ -1,9 +1,0 @@
-ext.deps = [
-
-        "module"     : [
-                "domain": project(":domain"),
-                "data"  : project(":data"),
-                "test"  : project("test"),
-        ],
-
-]

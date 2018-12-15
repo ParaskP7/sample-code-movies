@@ -10,7 +10,7 @@ apply from: "../config/gradle/quality/detekt.gradle"
 apply from: "../config/gradle/dependencies/dependency_updates.gradle"
 
 dependencies {
-    implementation(deps.module.domain)
+    implementation(project(":domain"))
 
     implementation(Deps.kotlin)
     implementation(Deps.rxJava)

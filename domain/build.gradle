@@ -15,7 +15,7 @@ dependencies {
     kapt(Deps.diDaggerCompiler)
     implementation(Deps.rxJava)
 
-    testImplementation(deps.module.test)
+    testImplementation(project(":test"))
 
     testImplementation(Deps.testJUnit)
     testImplementation(Deps.testAssertJ)

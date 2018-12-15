@@ -37,8 +37,8 @@ android {
 }
 
 dependencies {
-    implementation(deps.module.domain)
-    implementation(deps.module.data)
+    implementation(project(":domain"))
+    implementation(project(":data"))
 
     debugImplementation(Deps.leakCanaryDebug)
     releaseImplementation(Deps.leakCanaryRelease)
@@ -69,7 +69,7 @@ dependencies {
     implementation(Deps.utilMonthYearPicker)
     implementation(Deps.logTimber)
 
-    testImplementation(deps.module.test)
+    testImplementation(project(":test"))
 
     testImplementation(Deps.testJUnit)
     testImplementation(Deps.testAssertJ)

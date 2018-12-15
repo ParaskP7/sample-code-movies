@@ -15,7 +15,7 @@ apply from: "../config/gradle/quality/detekt.gradle"
 apply from: "../config/gradle/dependencies/dependency_updates.gradle"
 
 dependencies {
-    implementation(deps.module.domain)
+    implementation(project(":domain"))
 
     implementation(Deps.kotlin)
     implementation(Deps.androidAppCompat)
@@ -32,7 +32,7 @@ dependencies {
     implementation(Deps.restRetrofitRx)
     implementation(Deps.logTimber)
 
-    testImplementation(deps.module.test)
+    testImplementation(project(":test"))
 
     testImplementation(Deps.testJUnit)
     testImplementation(Deps.testAssertJ)
