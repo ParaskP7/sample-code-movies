@@ -8,11 +8,11 @@ plugins {
     id("io.gitlab.arturbosch.detekt")
 }
 
-apply from: "../config/gradle/android/android.gradle"
-apply from: "../config/gradle/android/dexcount.gradle"
-apply from: "../config/gradle/quality/lint.gradle"
-apply from: "../config/gradle/quality/detekt.gradle"
-apply from: "../config/gradle/dependencies/dependency_updates.gradle"
+apply("../config/gradle/android/android.gradle")
+apply("../config/gradle/android/dexcount.gradle")
+apply("../config/gradle/quality/lint.gradle")
+apply("../config/gradle/quality/detekt.gradle")
+apply("../config/gradle/dependencies/dependency_updates.gradle")
 
 dependencies {
     implementation(project(":domain"))
@@ -37,8 +37,7 @@ dependencies {
     testImplementation(Deps.testJUnit)
     testImplementation(Deps.testAssertJ)
     testImplementation(Deps.mockMockitoKotlin, {
-        exclude group: ExcludedDeps.groupJetbrainsKotlin,
-                module: ExcludedDeps.moduleKotlinReflect
+        exclude(ExcludedDeps.groupJetbrainsKotlin, ExcludedDeps.moduleKotlinReflect)
     })
 
     detektPlugins(Deps.pluginDetektFormatting)
