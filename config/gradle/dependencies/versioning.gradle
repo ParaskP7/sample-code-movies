@@ -1,7 +1,7 @@
 ext.versions = [
 
         // Plugins
-        android_plugin       : "3.4.0-alpha07",
+        android_plugin       : "3.4.0-alpha08",
         kotlin_plugin        : "1.3.10",
         versions_plugin      : "0.20.0",
         dexcount_plugin      : "0.8.4",
