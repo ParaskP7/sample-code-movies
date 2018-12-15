@@ -6,13 +6,10 @@ android {
         ignoreWarnings = false
         checkReleaseBuilds = true
         warningsAsErrors = true
-        lintConfig(file("../config/quality/lint.xml"))
+        lintConfig(file(Config.LINT_CONFIG_FILE_PATH))
         htmlReport = true
         xmlReport = true
-        disable("MissingRegistered", // Because of UAST
-                "UnusedIds", // Because of UAST
-                "ContentDescription",
-                "SelectableText")
+        disable(Config.lintListOfDisabledIssues)
     }
 
 }

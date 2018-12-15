@@ -1,12 +1,10 @@
 buildscript {
-    apply from: "config/gradle/dependencies/repositories.gradle"
     apply from: "config/gradle/dependencies/modules.gradle"
-    apply from: "config/gradle/keys/keys.gradle"
 
     repositories {
         google()
         jcenter()
-        maven { url = reps.url.gradle }
+        maven { url = Reps.URL_GRADLE }
     }
     dependencies {
         classpath(Deps.pluginAndroid)
@@ -21,6 +19,6 @@ allprojects {
     repositories {
         google()
         jcenter()
-        maven { url = reps.url.gradle }
+        maven { url = Reps.URL_GRADLE }
     }
 }

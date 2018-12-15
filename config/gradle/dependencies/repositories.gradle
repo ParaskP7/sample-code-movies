@@ -1,7 +1,0 @@
-ext.reps = [
-
-        "url": [
-                "gradle": "https://plugins.gradle.org/m2/"
-        ],
-
-]

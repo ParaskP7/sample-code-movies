@@ -18,20 +18,20 @@ apply from: "../config/gradle/dependencies/dependency_updates.gradle"
 
 android {
     defaultConfig {
-        applicationId = group
-        versionCode = app.major * 10000 + app.minor * 1000 + app.patch * 100 + app.build
-        versionName = "${app.major}.${app.minor}.${app.patch}"
-        testInstrumentationRunner = Config.testInstrumentationRunner
+        applicationId = App.APPLICATION_ID
+        versionCode = App.VERSION_CODE
+        versionName = App.VERSION_NAME
+        testInstrumentationRunner = Android.TEST_INSTRUMENTATION_RUNNER
     }
     buildTypes {
         debug {
-            applicationIdSuffix = ".$suffix.debug"
-            versionNameSuffix = "-$suffix.debug"
+            applicationIdSuffix = App.DEBUG_APPLICATION_ID_SUFFIX
+            versionNameSuffix = App.DEBUG_VERSION_NAME_SUFFIX
             debuggable = true
         }
         release {
             minifyEnabled = false
-            proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro")
+            proguardFiles(getDefaultProguardFile(Files.PROGUARD_ANDROID), Files.PROGUARD_RULES)
         }
     }
 }

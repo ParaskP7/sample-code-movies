@@ -1,5 +1,0 @@
-ext.java = [
-
-        version: JavaVersion.VERSION_1_8,
-
-]

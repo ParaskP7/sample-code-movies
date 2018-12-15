@@ -1,13 +1,8 @@
-def comma = ","
-
 detekt {
 
     toolVersion = Versions.PLUGIN_DETEKT
-    config = files("${project.rootDir}/config/quality/detekt.yml")
-    filters = ".*/test/.*" + comma +
-            ".*/robolectricTest/.*" + comma +
-            ".*/androidTest/.*" + comma +
-            ".*/resources/.*"
+    config = files(Config.DETEKT_CONFIG_FILE_PATH)
+    filters = Config.DETEKT_FILTERS
     disableDefaultRuleSets = false
     parallel = true
 

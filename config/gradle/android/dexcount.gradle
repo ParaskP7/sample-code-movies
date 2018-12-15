@@ -1,5 +1,5 @@
 dexcount {
-    format = "list"
+    format = Config.DEXCOUNT_FORMAT
     includeClasses = true
     includeClassCount = true
     includeFieldCount = true

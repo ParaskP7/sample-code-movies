@@ -1,86 +1,47 @@
-apply from: "../config/gradle/lang/java.gradle"
-
-def versionMajor = 1
-def versionMinor = 0
-def versionPatch = 0
-def versionBuild = 0
-
-ext.app = [
-
-        major: versionMajor,
-        minor: versionMinor,
-        patch: versionPatch,
-        build: versionBuild,
-
-]
-
-ext.sdk = [
-
-        min_sdk    : 21,
-        target_sdk : 28,
-        compile_sdk: 28,
-
-]
-
-ext.suffix = [
-
-        debug: "debug",
-
-]
-
 android {
-    compileSdkVersion(sdk.compile_sdk)
+    compileSdkVersion(Android.SDK_COMPLIE)
     testOptions.unitTests.includeAndroidResources = true
     defaultConfig {
-        minSdkVersion(sdk.min_sdk)
-        targetSdkVersion(sdk.target_sdk)
+        minSdkVersion(Android.SDK_MIN)
+        targetSdkVersion(Android.SDK_TARGET)
     }
     compileOptions {
-        sourceCompatibility = java.version
-        targetCompatibility = java.version
+        sourceCompatibility = Java.version
+        targetCompatibility = Java.version
     }
     buildTypes {
-        def themoviedbApiPropertiesFile = file(keys.themoviedb_api_properties_file_path)
+        def themoviedbApiPropertiesFile = file(Config.KEYS_THEMOVIEDB_API_FILE_PATH)
         def themoviedbApiProperties = new Properties()
         themoviedbApiProperties.load(new FileInputStream(themoviedbApiPropertiesFile))
-        def themoviedb_api_key = themoviedbApiProperties["themoviedb_api_key"]
+        def themoviedb_api_key = themoviedbApiProperties[Keys.THEMOVIEDB_API_KEY_PROPERTY]
 
         debug {
-            buildConfigField "String", "THEMOVIEDB_API_KEY", "\"${themoviedb_api_key}\""
+            buildConfigField "String", Keys.THEMOVIEDB_API_KEY_CONST, "\"${themoviedb_api_key}\""
         }
         release {
-            buildConfigField "String", "THEMOVIEDB_API_KEY", "\"${themoviedb_api_key}\""
+            buildConfigField "String", Keys.THEMOVIEDB_API_KEY_CONST, "\"${themoviedb_api_key}\""
         }
     }
     testOptions {
         unitTests {
             all {
                 testLogging { // Print test details in the terminal (or CI).
-                    events("passed", "skipped", "failed", "standardOut", "standardError")
-                    exceptionFormat = "full"
+                    events(Logs.listOfTestLoggingEvents)
+                    exceptionFormat = Logs.TEST_LOGGING_EXCEPTION_FORMAT
                 }
             }
         }
     }
     sourceSets {
         main {
-            java.srcDirs = [
-                    "src/main/kotlin",
-            ]
+            java.srcDirs = [Sources.MAIN_KOTLIN]
         }
         test {
-            java.srcDirs = [
-                    "src/test/kotlin",
-                    "src/robolectricTest/kotlin",
-            ]
-            resources.srcDirs = [
-                    "src/test/resources",
-            ]
+            java.srcDirs = [Sources.TEST_KOTLIN, Sources.TEST_ROBOLECTRIC]
+            resources.srcDirs = [Sources.TEST_RESOURCES]
         }
         androidTest {
-            java.srcDirs = [
-                    "src/androidTest/kotlin",
-            ]
+            java.srcDirs = [Sources.ANDROID_KOTLIN]
         }
     }
 }
