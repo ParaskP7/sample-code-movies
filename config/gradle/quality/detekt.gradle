@@ -2,7 +2,7 @@ def comma = ","
 
 detekt {
 
-    toolVersion = versions.detekt_plugin
+    toolVersion = Versions.PLUGIN_DETEKT
     config = files("${project.rootDir}/config/quality/detekt.yml")
     filters = ".*/test/.*" + comma +
             ".*/robolectricTest/.*" + comma +

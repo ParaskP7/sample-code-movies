@@ -10,19 +10,19 @@ apply from: "../config/gradle/quality/detekt.gradle"
 apply from: "../config/gradle/dependencies/dependency_updates.gradle"
 
 dependencies {
-    implementation(deps.kotlin.jre)
-    implementation(deps.di.dagger)
-    kapt(deps.di.daggerCompiler)
-    implementation(deps.rx.rxjava)
+    implementation(Deps.kotlin)
+    implementation(Deps.diDagger)
+    kapt(Deps.diDaggerCompiler)
+    implementation(Deps.rxJava)
 
     testImplementation(deps.module.test)
 
-    testImplementation(deps.test.junit)
-    testImplementation(deps.test.assertj)
-    testImplementation(deps.mock.mockitoKotlin, {
-        exclude group: excludedDeps.group.jetbrainsKotlin,
-                module: excludedDeps.module.kotlinReflect
+    testImplementation(Deps.testJUnit)
+    testImplementation(Deps.testAssertJ)
+    testImplementation(Deps.mockMockitoKotlin, {
+        exclude group: ExcludedDeps.groupJetbrainsKotlin,
+                module: ExcludedDeps.moduleKotlinReflect
     })
 
-    detektPlugins(deps.plugin.detektFormatting)
+    detektPlugins(Deps.pluginDetektFormatting)
 }

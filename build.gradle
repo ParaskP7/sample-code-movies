@@ -1,7 +1,6 @@
 buildscript {
     apply from: "config/gradle/dependencies/repositories.gradle"
-    apply from: "config/gradle/dependencies/versioning.gradle"
-    apply from: "config/gradle/dependencies/dependencies.gradle"
+    apply from: "config/gradle/dependencies/modules.gradle"
     apply from: "config/gradle/keys/keys.gradle"
 
     repositories {
@@ -10,11 +9,11 @@ buildscript {
         maven { url = reps.url.gradle }
     }
     dependencies {
-        classpath(deps.plugin.android)
-        classpath(deps.plugin.kotlin)
-        classpath(deps.plugin.versions)
-        classpath(deps.plugin.dexcount)
-        classpath(deps.plugin.detekt)
+        classpath(Deps.pluginAndroid)
+        classpath(Deps.pluginKotlin)
+        classpath(Deps.pluginVersions)
+        classpath(Deps.pluginDexcount)
+        classpath(Deps.pluginDetekt)
     }
 }
 

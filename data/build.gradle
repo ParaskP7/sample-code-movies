@@ -17,29 +17,29 @@ apply from: "../config/gradle/dependencies/dependency_updates.gradle"
 dependencies {
     implementation(deps.module.domain)
 
-    implementation(deps.kotlin.jre)
-    implementation(deps.android.appCompat)
-    implementation(deps.di.dagger)
-    implementation(deps.di.daggerAndroid)
-    kapt(deps.di.daggerCompiler)
-    kapt(deps.di.daggerAndroidProcessor)
-    implementation(deps.rx.rxjava)
-    implementation(deps.rx.rxandroid)
-    implementation(deps.network.okhttpLogging)
-    implementation(deps.network.gson)
-    implementation(deps.rest.retrofit)
-    implementation(deps.rest.retrofitGson)
-    implementation(deps.rest.retrofitRx)
-    implementation(deps.logging.timber)
+    implementation(Deps.kotlin)
+    implementation(Deps.androidAppCompat)
+    implementation(Deps.diDagger)
+    kapt(Deps.diDaggerCompiler)
+    implementation(Deps.diDaggerAndroid)
+    kapt(Deps.diDaggerAndroidProcessor)
+    implementation(Deps.rxJava)
+    implementation(Deps.rxAndroid)
+    implementation(Deps.netGson)
+    implementation(Deps.netOkHttpLogging)
+    implementation(Deps.restRetrofit)
+    implementation(Deps.restRetrofitGson)
+    implementation(Deps.restRetrofitRx)
+    implementation(Deps.logTimber)
 
     testImplementation(deps.module.test)
 
-    testImplementation(deps.test.junit)
-    testImplementation(deps.test.assertj)
-    testImplementation(deps.mock.mockitoKotlin, {
-        exclude group: excludedDeps.group.jetbrainsKotlin,
-                module: excludedDeps.module.kotlinReflect
+    testImplementation(Deps.testJUnit)
+    testImplementation(Deps.testAssertJ)
+    testImplementation(Deps.mockMockitoKotlin, {
+        exclude group: ExcludedDeps.groupJetbrainsKotlin,
+                module: ExcludedDeps.moduleKotlinReflect
     })
 
-    detektPlugins(deps.plugin.detektFormatting)
+    detektPlugins(Deps.pluginDetektFormatting)
 }

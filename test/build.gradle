@@ -12,8 +12,8 @@ apply from: "../config/gradle/dependencies/dependency_updates.gradle"
 dependencies {
     implementation(deps.module.domain)
 
-    implementation(deps.kotlin.jre)
-    implementation(deps.rx.rxjava)
+    implementation(Deps.kotlin)
+    implementation(Deps.rxJava)
 
-    detektPlugins(deps.plugin.detektFormatting)
+    detektPlugins(Deps.pluginDetektFormatting)
 }
