@@ -1,11 +1,11 @@
 plugins {
-    id("com.android.library")
-    id("kotlin-android")
-    id("kotlin-android-extensions")
-    id("kotlin-kapt")
-    id("com.github.ben-manes.versions")
-    id("com.getkeepsafe.dexcount")
-    id("io.gitlab.arturbosch.detekt")
+    id(PluginIds.ANDROID_LIBRARY)
+    id(PluginIds.KOTLIN_ANDROID)
+    id(PluginIds.KOTLIN_ANDROID_EXTENSIONS)
+    id(PluginIds.KOTLIN_KAPT)
+    id(PluginIds.VERSIONS)
+    id(PluginIds.DEXCOUNT)
+    id(PluginIds.DETEKT)
 }
 
 apply(Config.GRADLE_ANDROID)

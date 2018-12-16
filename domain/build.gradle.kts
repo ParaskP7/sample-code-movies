@@ -1,8 +1,8 @@
 plugins {
-    id("kotlin")
-    id("kotlin-kapt")
-    id("com.github.ben-manes.versions")
-    id("io.gitlab.arturbosch.detekt")
+    id(PluginIds.KOTLIN)
+    id(PluginIds.KOTLIN_KAPT)
+    id(PluginIds.VERSIONS)
+    id(PluginIds.DETEKT)
 }
 
 apply(Config.GRADLE_DETEKT)
