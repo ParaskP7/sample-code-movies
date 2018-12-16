@@ -1,11 +1,11 @@
 plugins {
-    id(PluginIds.ANDROID_LIBRARY)
-    id(PluginIds.KOTLIN_ANDROID)
-    id(PluginIds.KOTLIN_ANDROID_EXTENSIONS)
-    id(PluginIds.KOTLIN_KAPT)
-    id(PluginIds.VERSIONS)
-    id(PluginIds.DEXCOUNT)
-    id(PluginIds.DETEKT)
+    id(PluginIds.Android.LIBRARY)
+    id(PluginIds.Android.DEXCOUNT)
+    id(PluginIds.Kotlin.Android.ANDROID)
+    id(PluginIds.Kotlin.Android.EXTENSIONS)
+    id(PluginIds.Kotlin.KAPT)
+    id(PluginIds.Dependency.VERSIONS)
+    id(PluginIds.Quality.DETEKT)
 }
 
 apply(Config.GRADLE_ANDROID)

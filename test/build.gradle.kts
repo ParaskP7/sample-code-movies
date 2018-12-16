@@ -1,8 +1,8 @@
 plugins {
-    id(PluginIds.KOTLIN)
-    id(PluginIds.KOTLIN_KAPT)
-    id(PluginIds.VERSIONS)
-    id(PluginIds.DETEKT)
+    id(PluginIds.Kotlin.KOTLIN)
+    id(PluginIds.Kotlin.KAPT)
+    id(PluginIds.Dependency.VERSIONS)
+    id(PluginIds.Quality.DETEKT)
 }
 
 apply(Config.GRADLE_DETEKT)

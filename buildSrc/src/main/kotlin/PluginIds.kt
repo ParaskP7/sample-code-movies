@@ -1,20 +1,37 @@
 object PluginIds {
 
-    /* KOTLIN */
-    const val KOTLIN = "kotlin"
-    const val KOTLIN_KAPT = "kotlin-kapt"
-    const val KOTLIN_ANDROID = "kotlin-android"
-    const val KOTLIN_ANDROID_EXTENSIONS = "kotlin-android-extensions"
+    object Kotlin {
 
-    /* ANDROID */
-    const val ANDROID_APPLICATION = "com.android.application"
-    const val ANDROID_LIBRARY = "com.android.library"
-    const val DEXCOUNT = "com.getkeepsafe.dexcount"
+        object Android {
 
-    /* QUALITY */
-    const val DETEKT = "io.gitlab.arturbosch.detekt"
+            const val ANDROID = "kotlin-android"
+            const val EXTENSIONS = "kotlin-android-extensions"
 
-    /* DEPENDENCY */
-    const val VERSIONS = "com.github.ben-manes.versions"
+        }
+
+        const val KOTLIN = "kotlin"
+        const val KAPT = "kotlin-kapt"
+
+    }
+
+    object Android {
+
+        const val APPLICATION = "com.android.application"
+        const val LIBRARY = "com.android.library"
+        const val DEXCOUNT = "com.getkeepsafe.dexcount"
+
+    }
+
+    object Dependency {
+
+        const val VERSIONS = "com.github.ben-manes.versions"
+
+    }
+
+    object Quality {
+
+        const val DETEKT = "io.gitlab.arturbosch.detekt"
+
+    }
 
 }

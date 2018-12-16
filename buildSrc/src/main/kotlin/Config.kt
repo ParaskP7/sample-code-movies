@@ -10,7 +10,7 @@ object Config {
     const val GRADLE_LEAK_CANARY =
         "${Folders.PARENT}/${Folders.CONFIG}/${Folders.GRADLE}/${Folders.ANDROID}/${Files.GRADLE_LEAK_CANARY}"
     const val GRADLE_DEPENDENCY_UPDATES =
-        "${Folders.PARENT}/${Folders.CONFIG}/${Folders.GRADLE}/${Folders.DEPENDENCIES}/${Files.GRADLE_DEPENDENCY_UPDATES}"
+        "${Folders.PARENT}/${Folders.CONFIG}/${Folders.GRADLE}/${Folders.DEPENDENCY}/${Files.GRADLE_DEPENDENCY_UPDATES}"
     const val GRADLE_DETEKT =
         "${Folders.PARENT}/${Folders.CONFIG}/${Folders.GRADLE}/${Folders.QUALITY}/${Files.GRADLE_DETEKT}"
     const val GRADLE_LINT =
