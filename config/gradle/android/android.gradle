@@ -13,13 +13,13 @@ android {
         def themoviedbApiPropertiesFile = file(Config.KEYS_THEMOVIEDB_API_FILE_PATH)
         def themoviedbApiProperties = new Properties()
         themoviedbApiProperties.load(new FileInputStream(themoviedbApiPropertiesFile))
-        def themoviedb_api_key = themoviedbApiProperties[Keys.THEMOVIEDB_API_KEY_PROPERTY]
+        def themoviedbApiKey = themoviedbApiProperties[Keys.THEMOVIEDB_API_KEY_PROPERTY]
 
         debug {
-            buildConfigField "String", Keys.THEMOVIEDB_API_KEY_CONST, "\"${themoviedb_api_key}\""
+            buildConfigField "String", Keys.THEMOVIEDB_API_KEY_CONST, "\"${themoviedbApiKey}\""
         }
         release {
-            buildConfigField "String", Keys.THEMOVIEDB_API_KEY_CONST, "\"${themoviedb_api_key}\""
+            buildConfigField "String", Keys.THEMOVIEDB_API_KEY_CONST, "\"${themoviedbApiKey}\""
         }
     }
     testOptions {
