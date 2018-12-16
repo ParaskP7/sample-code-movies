@@ -13,7 +13,7 @@ java {
     targetCompatibility = Java.version
 }
 
-tasks.getByName<Test>("test") {
+tasks.getByName<Test>(Tasks.TEST) {
     testLogging {
         events(*Logs.testLogEvents)
         setExceptionFormat(Logs.TEST_LOGGING_EXCEPTION_FORMAT)
