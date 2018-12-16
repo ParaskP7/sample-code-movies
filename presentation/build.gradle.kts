@@ -8,13 +8,15 @@ plugins {
     id(PluginIds.Quality.DETEKT)
 }
 
-apply(Config.GRADLE_ANDROID)
-apply(Config.GRADLE_DART)
-apply(Config.GRADLE_DEXCOUNT)
-apply(Config.GRADLE_LEAK_CANARY)
-apply(Config.GRADLE_LINT)
-apply(Config.GRADLE_DETEKT)
-apply(Config.GRADLE_DEPENDENCY_UPDATES)
+apply(Config.Gradle.ANDROID)
+apply(Config.Gradle.DEXCOUNT)
+apply(Config.Gradle.LINT)
+
+apply(Config.Gradle.DART)
+apply(Config.Gradle.LEAK_CANARY)
+
+apply(Config.Gradle.DETEKT)
+apply(Config.Gradle.DEPENDENCY_UPDATES)
 
 android {
     defaultConfig {
@@ -31,7 +33,7 @@ android {
         }
         named(BuildTypes.RELEASE) {
             isMinifyEnabled = false
-            proguardFiles(getDefaultProguardFile(Files.TXT_PROGUARD_ANDROID), Files.PRO_PROGUARD_RULES)
+            proguardFiles(getDefaultProguardFile(Files.Txt.PROGUARD_ANDROID), Files.Pro.PROGUARD_RULES)
         }
     }
 }

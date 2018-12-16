@@ -1,31 +1,46 @@
 object Files {
 
-    /* GRADLE */
-    const val GRADLE_ANDROID = "android.gradle"
-    const val GRADLE_DART = "dart.gradle"
-    const val GRADLE_DEXCOUNT = "dexcount.gradle"
-    const val GRADLE_LEAK_CANARY = "leak_canary.gradle"
-    const val GRADLE_DEPENDENCY_UPDATES = "dependency_updates.gradle"
-    const val GRADLE_DETEKT = "detekt.gradle"
-    const val GRADLE_LINT = "lint.gradle"
+    object Gradle {
 
-    /* YML */
-    const val YML_DETEKT = "detekt.yml"
 
-    /* XML */
+        const val ANDROID = "android.gradle"
+        const val DART = "dart.gradle"
+        const val DEXCOUNT = "dexcount.gradle"
+        const val LEAK_CANARY = "leak_canary.gradle"
+        const val DEPENDENCY_UPDATES = "dependency_updates.gradle"
+        const val DETEKT = "detekt.gradle"
+        const val LINT = "lint.gradle"
 
-    const val XML_LINT = "lint.xml"
+    }
 
-    /* TXT */
+    object Yml {
 
-    const val TXT_PROGUARD_ANDROID = "proguard-android.txt"
+        const val DETEKT = "detekt.yml"
 
-    /* PROPERTIES */
+    }
 
-    const val PROPERTIES_THEMOVIEDB_API = "themoviedb_api.properties"
+    object Xml {
 
-    /* PROGUARD */
+        const val LINT = "lint.xml"
 
-    const val PRO_PROGUARD_RULES = "proguard-rules.pro"
+    }
+
+    object Txt {
+
+        const val PROGUARD_ANDROID = "proguard-android.txt"
+
+    }
+
+    object Properties {
+
+        const val THEMOVIEDB_API = "themoviedb_api.properties"
+
+    }
+
+    object Pro {
+
+        const val PROGUARD_RULES = "proguard-rules.pro"
+
+    }
 
 }

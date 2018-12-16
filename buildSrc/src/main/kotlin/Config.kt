@@ -1,25 +1,25 @@
 object Config {
 
-    /* GRADLE */
-    const val GRADLE_ANDROID =
-        "${Folders.PARENT}/${Folders.CONFIG}/${Folders.GRADLE}/${Folders.ANDROID}/${Files.GRADLE_ANDROID}"
-    const val GRADLE_DART =
-        "${Folders.PARENT}/${Folders.CONFIG}/${Folders.GRADLE}/${Folders.ANDROID}/${Files.GRADLE_DART}"
-    const val GRADLE_DEXCOUNT =
-        "${Folders.PARENT}/${Folders.CONFIG}/${Folders.GRADLE}/${Folders.ANDROID}/${Files.GRADLE_DEXCOUNT}"
-    const val GRADLE_LEAK_CANARY =
-        "${Folders.PARENT}/${Folders.CONFIG}/${Folders.GRADLE}/${Folders.ANDROID}/${Files.GRADLE_LEAK_CANARY}"
-    const val GRADLE_DEPENDENCY_UPDATES =
-        "${Folders.PARENT}/${Folders.CONFIG}/${Folders.GRADLE}/${Folders.DEPENDENCY}/${Files.GRADLE_DEPENDENCY_UPDATES}"
-    const val GRADLE_DETEKT =
-        "${Folders.PARENT}/${Folders.CONFIG}/${Folders.GRADLE}/${Folders.QUALITY}/${Files.GRADLE_DETEKT}"
-    const val GRADLE_LINT =
-        "${Folders.PARENT}/${Folders.CONFIG}/${Folders.GRADLE}/${Folders.QUALITY}/${Files.GRADLE_LINT}"
+    object Gradle {
+
+        private const val GRADLE_DIRECTORY = "${Folders.PARENT}/${Folders.Config.CONFIG}/${Folders.Config.GRADLE}"
+
+        const val ANDROID = "${GRADLE_DIRECTORY}/${Folders.Config.ANDROID}/${Files.Gradle.ANDROID}"
+        const val DART = "${GRADLE_DIRECTORY}/${Folders.Config.ANDROID}/${Files.Gradle.DART}"
+        const val DEXCOUNT = "${GRADLE_DIRECTORY}/${Folders.Config.ANDROID}/${Files.Gradle.DEXCOUNT}"
+        const val LEAK_CANARY = "${GRADLE_DIRECTORY}/${Folders.Config.ANDROID}/${Files.Gradle.LEAK_CANARY}"
+        const val DEPENDENCY_UPDATES = "${GRADLE_DIRECTORY}/${Folders.Config.DEPENDENCY}/${Files.Gradle.DEPENDENCY_UPDATES}"
+        const val DETEKT = "${GRADLE_DIRECTORY}/${Folders.Config.QUALITY}/${Files.Gradle.DETEKT}"
+        const val LINT = "${GRADLE_DIRECTORY}/${Folders.Config.QUALITY}/${Files.Gradle.LINT}"
+
+    }
+
+    private const val KEYS_DIRECTORY = "${Folders.PARENT}/${Folders.Config.CONFIG}/${Folders.Config.KEYS}"
+    private const val QUALITY_DIRECTORY = "${Folders.PARENT}/${Folders.Config.QUALITY}/${Folders.Config.KEYS}"
 
     /* KEYS */
 
-    const val KEYS_THEMOVIEDB_API_FILE_PATH =
-        "${Folders.PARENT}/${Folders.CONFIG}/${Folders.KEYS}/${Files.PROPERTIES_THEMOVIEDB_API}"
+    const val KEYS_THEMOVIEDB_API_FILE_PATH = "${KEYS_DIRECTORY}/${Files.Properties.THEMOVIEDB_API}"
 
     /* DEXCOUNT */
 
@@ -27,15 +27,15 @@ object Config {
 
     /* DETEKT */
 
-    const val DETEKT_CONFIG_FILE_PATH = "${Folders.PARENT}/${Folders.CONFIG}/${Folders.QUALITY}/${Files.YML_DETEKT}"
-    const val DETEKT_FILTERS = ".*/${Folders.TEST}/.*" + Utils.COMMA +
-            ".*/${Folders.ROBOLECTRIC_TEST}/.*" + Utils.COMMA +
-            ".*/${Folders.ANDROID_TEST}/.*" + Utils.COMMA +
-            ".*/${Folders.RESOURCES}/.*"
+    const val DETEKT_CONFIG_FILE_PATH = "${QUALITY_DIRECTORY}/${Files.Yml.DETEKT}"
+    const val DETEKT_FILTERS = ".*/${Folders.Source.TEST}/.*" + Utils.COMMA +
+            ".*/${Folders.Source.ROBOLECTRIC_TEST}/.*" + Utils.COMMA +
+            ".*/${Folders.Source.ANDROID_TEST}/.*" + Utils.COMMA +
+            ".*/${Folders.Source.RESOURCES}/.*"
 
     /* LINT */
 
-    const val LINT_CONFIG_FILE_PATH = "${Folders.PARENT}/${Folders.CONFIG}/${Folders.QUALITY}/${Files.XML_LINT}"
+    const val LINT_CONFIG_FILE_PATH = "${QUALITY_DIRECTORY}/${Files.Xml.LINT}"
     val lintListOfDisabledIssues = arrayOf(
         "MissingRegistered", // Because of UAST
         "UnusedIds", // Because of UAST
