@@ -26,8 +26,8 @@ android {
         unitTests {
             all {
                 testLogging { // Print test details in the terminal (or CI).
-                    events(Logs.listOfTestLoggingEvents)
-                    exceptionFormat = Logs.TEST_LOGGING_EXCEPTION_FORMAT
+                    events(Logs.events)
+                    exceptionFormat = Logs.EXCEPTION_FORMAT
                 }
             }
         }

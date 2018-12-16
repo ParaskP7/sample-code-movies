@@ -15,8 +15,8 @@ java {
 
 tasks.getByName<Test>(Tasks.TEST) {
     testLogging {
-        events(*Logs.testLogEvents)
-        setExceptionFormat(Logs.TEST_LOGGING_EXCEPTION_FORMAT)
+        events(*Logs.eventsKts)
+        setExceptionFormat(Logs.EXCEPTION_FORMAT)
     }
 }
 
