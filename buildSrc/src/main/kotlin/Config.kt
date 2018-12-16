@@ -15,7 +15,7 @@ object Config {
     }
 
     private const val KEYS_DIRECTORY = "${Folders.PARENT}/${Folders.Config.CONFIG}/${Folders.Config.KEYS}"
-    private const val QUALITY_DIRECTORY = "${Folders.PARENT}/${Folders.Config.QUALITY}/${Folders.Config.KEYS}"
+    private const val QUALITY_DIRECTORY = "${Folders.PARENT}/${Folders.Config.CONFIG}/${Folders.Config.QUALITY}"
 
     /* KEYS */
 
