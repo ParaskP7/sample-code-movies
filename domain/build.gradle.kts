@@ -30,7 +30,7 @@ dependencies {
     kapt(Deps.Di.DAGGER_COMPILER)
     implementation(Deps.Rx.RX_JAVA)
 
-    testImplementation(project(Project.TEST))
+    testImplementation(project(Project.TestImplementation.TEST))
 
     testImplementation(Deps.Test.J_UNIT)
     testImplementation(Deps.Test.ASSERT_J)

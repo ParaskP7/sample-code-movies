@@ -19,7 +19,7 @@ kapt {
 }
 
 dependencies {
-    implementation(project(Project.DOMAIN))
+    implementation(project(Project.Implementation.DOMAIN))
 
     implementation(Deps.Kotlin.KOTLIN)
     implementation(Deps.Android.APP_COMPAT)
@@ -36,7 +36,7 @@ dependencies {
     implementation(Deps.Net.Rest.RETROFIT_RX)
     implementation(Deps.Log.TIMBER)
 
-    testImplementation(project(Project.TEST))
+    testImplementation(project(Project.TestImplementation.TEST))
 
     testImplementation(Deps.Test.J_UNIT)
     testImplementation(Deps.Test.ASSERT_J)

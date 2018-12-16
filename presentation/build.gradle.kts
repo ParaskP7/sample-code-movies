@@ -41,8 +41,8 @@ kapt {
 }
 
 dependencies {
-    implementation(project(Project.DOMAIN))
-    implementation(project(Project.DATA))
+    implementation(project(Project.Implementation.DOMAIN))
+    implementation(project(Project.Implementation.DATA))
 
     debugImplementation(Deps.LeakCanary.DEBUG)
     releaseImplementation(Deps.LeakCanary.RELEASE)
@@ -73,7 +73,7 @@ dependencies {
     implementation(Deps.Util.MONTH_YEAR_PICKER)
     implementation(Deps.Log.TIMBER)
 
-    testImplementation(project(Project.TEST))
+    testImplementation(project(Project.TestImplementation.TEST))
 
     testImplementation(Deps.Test.J_UNIT)
     testImplementation(Deps.Test.ASSERT_J)

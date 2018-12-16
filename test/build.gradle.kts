@@ -25,7 +25,7 @@ kapt {
 }
 
 dependencies {
-    implementation(project(Project.DOMAIN))
+    implementation(project(Project.Implementation.DOMAIN))
 
     implementation(Deps.Kotlin.KOTLIN)
     implementation(Deps.Rx.RX_JAVA)
