@@ -14,6 +14,10 @@ apply("../config/gradle/quality/lint.gradle")
 apply("../config/gradle/quality/detekt.gradle")
 apply("../config/gradle/dependencies/dependency_updates.gradle")
 
+kapt {
+    useBuildCache = true
+}
+
 dependencies {
     implementation(project(":domain"))
 
