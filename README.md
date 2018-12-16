@@ -151,22 +151,22 @@ Furthermore, below is a wish list of all those ```I REALLY WANNA DO, AND WILL DO
 and library enhancements:
 01. **![#2cb42c](https://placehold.it/15/2cb42c/000000?text=+) `DONE`** Update Gradle to the Latest Version. 
     For more info, see [Gradle Release Notes](https://docs.gradle.org/current/release-notes.html)
-02. **![#2cb42c](https://placehold.it/15/2cb42c/000000?text=+) `DONE`** Update Android Studio to the Latest Canary 
-    Version. For more info, see [Android Studio Release Updates](https://androidstudio.googleblog.com)
-03. **![#2cb42c](https://placehold.it/15/2cb42c/000000?text=+) `DONE`** Replace current Package Structure to the new 
-    AndroidX Package Structure. For more info, see 
-    [AndroidX](https://developer.android.com/topic/libraries/support-library/androidx-overview) ```(A new package structure 
-    to make it clearer which packages are bundled with the Android operating system, and which are packaged with your app's 
-    APK)```
-04. **![#2cb42c](https://placehold.it/15/2cb42c/000000?text=+) `DONE`** Replace Manual Android Extensions with Android 
-    KTX. For more info, see [Android KTX](https://developer.android.com/kotlin/ktx) ```(Android KTX is a set of Kotlin 
-    extensions that is part of the Android Jetpack family)```
+02. **![#2cb42c](https://placehold.it/15/2cb42c/000000?text=+) `DONE`** Update Android Studio to the Latest Canary Version. 
+    For more info, see [Android Studio Release Updates](https://androidstudio.googleblog.com)
+03. **![#2cb42c](https://placehold.it/15/2cb42c/000000?text=+) `DONE`** Replace current to the new AndroidX Package Structure. 
+    For more info, see [AndroidX](https://developer.android.com/topic/libraries/support-library/androidx-overview) ```(A new 
+    package structure to make it clearer which packages are bundled with the Android operating system, and which are packaged 
+    with your app's APK)```
+04. **![#2cb42c](https://placehold.it/15/2cb42c/000000?text=+) `DONE`** Replace Manual Android Extensions with Android KTX. 
+    For more info, see [Android KTX](https://developer.android.com/kotlin/ktx) ```(Android KTX is a set of Kotlin extensions 
+    that is part of the Android Jetpack family)```
 05. **![#2cb42c](https://placehold.it/15/2cb42c/000000?text=+) `DONE`** Replace Gradle Groovy with Kotlin DSL. 
     For more info, see [Gradle Kotlin DSL](https://github.com/gradle/kotlin-dsl) ``` (Kotlin language support for Gradle 
     build scripts)```
-06. Replace RxJava with Coroutines. For more info, see [Coroutines](https://kotlinlang.org/docs/reference/coroutines.html) ```
-    (Coroutines simplify asynchronous programming by putting the complications into libraries. The logic of the program can 
-    be expressed sequentially in a coroutine, and the underlying library will figure out the asynchrony for us)```
+06. **![#ffff00](https://placehold.it/15/ffff00/000000?text=+) `IN PROGRESS`** Replace RxJava with Coroutines. 
+    For more info, see [Coroutines](https://kotlinlang.org/docs/reference/coroutines.html) ```(Coroutines simplify 
+    asynchronous programming by putting the complications into libraries. The logic of the program can be expressed 
+    sequentially in a coroutine, and the underlying library will figure out the asynchrony for us)```
 07. Replace Dagger with Koin. For more info, see [Koin](https://github.com/InsertKoinIO/koin) ```(A pragmatic lightweight 
     dependency injection framework for Kotlin)```
 08. Replace AssertJ with Kotlin's new AssertK Library. For more info see 
