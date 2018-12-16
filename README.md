@@ -161,7 +161,7 @@ and library enhancements:
 04. **![#2cb42c](https://placehold.it/15/2cb42c/000000?text=+) `DONE`** Replace Manual Android Extensions with Android 
     KTX. For more info, see [Android KTX](https://developer.android.com/kotlin/ktx) ```(Android KTX is a set of Kotlin 
     extensions that is part of the Android Jetpack family)```
-05. **![#ffff00](https://placehold.it/15/ffff00/000000?text=+) `IN PROGRESS`** Replace Gradle Groovy with Kotlin DSL. 
+05. **![#2cb42c](https://placehold.it/15/2cb42c/000000?text=+) `DONE`** Replace Gradle Groovy with Kotlin DSL. 
     For more info, see [Gradle Kotlin DSL](https://github.com/gradle/kotlin-dsl) ``` (Kotlin language support for Gradle 
     build scripts)```
 06. Replace RxJava with Coroutines. For more info, see [Coroutines](https://kotlinlang.org/docs/reference/coroutines.html) ```
