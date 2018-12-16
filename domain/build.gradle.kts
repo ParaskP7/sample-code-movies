@@ -30,7 +30,7 @@ dependencies {
     kapt(Deps.diDaggerCompiler)
     implementation(Deps.rxJava)
 
-    testImplementation(project(":test"))
+    testImplementation(project(Project.TEST))
 
     testImplementation(Deps.testJUnit)
     testImplementation(Deps.testAssertJ)

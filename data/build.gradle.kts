@@ -19,7 +19,7 @@ kapt {
 }
 
 dependencies {
-    implementation(project(":domain"))
+    implementation(project(Project.DOMAIN))
 
     implementation(Deps.kotlin)
     implementation(Deps.androidAppCompat)
@@ -36,7 +36,7 @@ dependencies {
     implementation(Deps.restRetrofitRx)
     implementation(Deps.logTimber)
 
-    testImplementation(project(":test"))
+    testImplementation(project(Project.TEST))
 
     testImplementation(Deps.testJUnit)
     testImplementation(Deps.testAssertJ)
