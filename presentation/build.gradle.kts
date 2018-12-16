@@ -21,14 +21,14 @@ apply(Config.Gradle.DEPENDENCY_UPDATES)
 android {
     defaultConfig {
         applicationId = App.APPLICATION_ID
-        versionCode = App.VERSION_CODE
-        versionName = App.VERSION_NAME
-        testInstrumentationRunner = Android.TEST_INSTRUMENTATION_RUNNER
+        versionCode = App.Version.CODE
+        versionName = App.Version.NAME
+        testInstrumentationRunner = Android.DefaultConfig.Test.INSTRUMENTATION_RUNNER
     }
     buildTypes {
         named(BuildTypes.DEBUG) {
-            applicationIdSuffix = App.DEBUG_APPLICATION_ID_SUFFIX
-            versionNameSuffix = App.DEBUG_VERSION_NAME_SUFFIX
+            applicationIdSuffix = App.Debug.Suffix.APPLICATION_ID
+            versionNameSuffix = App.Debug.Suffix.VERSION_NAME
             isDebuggable = true
         }
         named(BuildTypes.RELEASE) {
