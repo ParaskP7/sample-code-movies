@@ -26,12 +26,12 @@ android {
         testInstrumentationRunner = Android.DefaultConfig.Test.INSTRUMENTATION_RUNNER
     }
     buildTypes {
-        named(BuildTypes.DEBUG) {
+        named(Android.BuildTypes.DEBUG) {
             applicationIdSuffix = App.Debug.Suffix.APPLICATION_ID
             versionNameSuffix = App.Debug.Suffix.VERSION_NAME
             isDebuggable = true
         }
-        named(BuildTypes.RELEASE) {
+        named(Android.BuildTypes.RELEASE) {
             isMinifyEnabled = false
             proguardFiles(getDefaultProguardFile(Files.Txt.PROGUARD_ANDROID), Files.Pro.PROGUARD_RULES)
         }

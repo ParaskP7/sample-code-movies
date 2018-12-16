@@ -10,6 +10,13 @@ object Android {
 
     }
 
+    object BuildTypes {
+
+        const val DEBUG = "debug"
+        const val RELEASE = "release"
+
+    }
+
     /* SDK */
 
     const val SDK_MIN = 21
