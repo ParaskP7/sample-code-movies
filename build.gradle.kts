@@ -5,11 +5,11 @@ buildscript {
         maven { url = uri(Reps.URL_GRADLE) }
     }
     dependencies {
-        classpath(Deps.pluginAndroid)
-        classpath(Deps.pluginKotlin)
-        classpath(Deps.pluginVersions)
-        classpath(Deps.pluginDexcount)
-        classpath(Deps.pluginDetekt)
+        classpath(Deps.Plugin.ANDROID)
+        classpath(Deps.Plugin.KOTLIN)
+        classpath(Deps.Plugin.VERSIONS)
+        classpath(Deps.Plugin.DEXCOUNT)
+        classpath(Deps.Plugin.DETEKT)
     }
 }
 

@@ -21,28 +21,28 @@ kapt {
 dependencies {
     implementation(project(Project.DOMAIN))
 
-    implementation(Deps.kotlin)
-    implementation(Deps.androidAppCompat)
-    implementation(Deps.diDagger)
-    kapt(Deps.diDaggerCompiler)
-    implementation(Deps.diDaggerAndroid)
-    kapt(Deps.diDaggerAndroidProcessor)
-    implementation(Deps.rxJava)
-    implementation(Deps.rxAndroid)
-    implementation(Deps.netGson)
-    implementation(Deps.netOkHttpLogging)
-    implementation(Deps.restRetrofit)
-    implementation(Deps.restRetrofitGson)
-    implementation(Deps.restRetrofitRx)
-    implementation(Deps.logTimber)
+    implementation(Deps.Kotlin.KOTLIN)
+    implementation(Deps.Android.APP_COMPAT)
+    implementation(Deps.Di.DAGGER)
+    kapt(Deps.Di.DAGGER_COMPILER)
+    implementation(Deps.Di.DAGGER_ANDROID)
+    kapt(Deps.Di.DAGGER_ANDROID_PROCESSOR)
+    implementation(Deps.Rx.RX_JAVA)
+    implementation(Deps.Rx.RX_ANDROID)
+    implementation(Deps.Net.GSON)
+    implementation(Deps.Net.OK_HTTP_LOGGING)
+    implementation(Deps.Net.Rest.RETROFIT)
+    implementation(Deps.Net.Rest.RETROFIT_GSON)
+    implementation(Deps.Net.Rest.RETROFIT_RX)
+    implementation(Deps.Log.TIMBER)
 
     testImplementation(project(Project.TEST))
 
-    testImplementation(Deps.testJUnit)
-    testImplementation(Deps.testAssertJ)
-    testImplementation(Deps.mockMockitoKotlin, {
-        exclude(ExcludedDeps.groupJetbrainsKotlin, ExcludedDeps.moduleKotlinReflect)
+    testImplementation(Deps.Test.J_UNIT)
+    testImplementation(Deps.Test.ASSERT_J)
+    testImplementation(Deps.Mock.MOCKITO_KOTLIN, {
+        exclude(ExcludedDeps.Group.Jetbrains.KOTLIN, ExcludedDeps.Module.Kotlin.REFLECT)
     })
 
-    detektPlugins(Deps.pluginDetektFormatting)
+    detektPlugins(Deps.Plugin.DETEKT_FORMATTING)
 }

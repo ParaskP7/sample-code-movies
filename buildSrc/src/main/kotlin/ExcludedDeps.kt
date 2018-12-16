@@ -1,11 +1,23 @@
 object ExcludedDeps {
 
-    /* GROUP */
+    object Group {
 
-    val groupJetbrainsKotlin = "org.jetbrains.kotlin"
+        object Jetbrains {
 
-    /* MODULE */
+            val KOTLIN = "org.jetbrains.kotlin"
 
-    val moduleKotlinReflect = "kotlin-reflect"
+        }
+
+    }
+
+    object Module {
+
+        object Kotlin {
+
+            val REFLECT = "kotlin-reflect"
+
+        }
+
+    }
 
 }

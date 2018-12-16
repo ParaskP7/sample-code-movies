@@ -25,18 +25,18 @@ kapt {
 }
 
 dependencies {
-    implementation(Deps.kotlin)
-    implementation(Deps.diDagger)
-    kapt(Deps.diDaggerCompiler)
-    implementation(Deps.rxJava)
+    implementation(Deps.Kotlin.KOTLIN)
+    implementation(Deps.Di.DAGGER)
+    kapt(Deps.Di.DAGGER_COMPILER)
+    implementation(Deps.Rx.RX_JAVA)
 
     testImplementation(project(Project.TEST))
 
-    testImplementation(Deps.testJUnit)
-    testImplementation(Deps.testAssertJ)
-    testImplementation(Deps.mockMockitoKotlin, {
-        exclude(ExcludedDeps.groupJetbrainsKotlin, ExcludedDeps.moduleKotlinReflect)
+    testImplementation(Deps.Test.J_UNIT)
+    testImplementation(Deps.Test.ASSERT_J)
+    testImplementation(Deps.Mock.MOCKITO_KOTLIN, {
+        exclude(ExcludedDeps.Group.Jetbrains.KOTLIN, ExcludedDeps.Module.Kotlin.REFLECT)
     })
 
-    detektPlugins(Deps.pluginDetektFormatting)
+    detektPlugins(Deps.Plugin.DETEKT_FORMATTING)
 }

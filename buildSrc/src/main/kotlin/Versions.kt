@@ -27,22 +27,36 @@ object Versions {
 
     object Android {
 
+        object Ktx {
+
+            const val CORE = "1.0.1"
+
+        }
+
+        object Arch {
+
+            object Test {
+
+                const val CORE_TESTING = "2.0.0"
+
+            }
+
+            const val LIFECYCLE_EXTENSIONS = "2.0.0"
+
+        }
+
+        object Test {
+
+            const val TEST_CORE = "1.0.0"
+            const val TEST_J_UNIT = "1.0.0"
+            const val TEST_ESPRESSO = "3.1.0"
+
+        }
+
         const val APP_COMPAT = "1.0.2"
         const val RECYCLER_VIEW = "1.0.0"
         const val CARD_VIEW = "1.0.0"
         const val CONSTRAINT_LAYOUT = "1.1.3"
-
-    }
-
-    object AndroidKtx {
-
-        const val KTX_CORE = "1.0.1"
-
-    }
-
-    object AndroidArch {
-
-        const val LIFECYCLE_EXTENSIONS = "2.0.0"
 
     }
 
@@ -111,25 +125,9 @@ object Versions {
 
     }
 
-    object AndroidArchTest {
-
-        const val CORE_TESTING = "2.0.0"
-
-    }
-
     object Robolectric {
 
         const val ROBOLECTRIC = "4.0.2"
-
-    }
-
-    // ANDROID TEST IMPLEMENTATION // ***************************************************************************************
-
-    object AndroidTest {
-
-        const val TEST_CORE = "1.0.0"
-        const val TEST_J_UNIT = "1.0.0"
-        const val TEST_ESPRESSO = "3.1.0"
 
     }
 

@@ -27,8 +27,8 @@ kapt {
 dependencies {
     implementation(project(Project.DOMAIN))
 
-    implementation(Deps.kotlin)
-    implementation(Deps.rxJava)
+    implementation(Deps.Kotlin.KOTLIN)
+    implementation(Deps.Rx.RX_JAVA)
 
-    detektPlugins(Deps.pluginDetektFormatting)
+    detektPlugins(Deps.Plugin.DETEKT_FORMATTING)
 }

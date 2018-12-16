@@ -1,113 +1,151 @@
 object Deps {
 
-    /* PLUGINS */
+    object Plugin {
 
-    val pluginAndroid = "com.android.tools.build:gradle:${Versions.Plugin.ANDROID}"
-    val pluginKotlin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.Plugin.KOTLIN}"
-    val pluginVersions = "com.github.ben-manes:gradle-versions-plugin:${Versions.Plugin.VERSIONS}"
-    val pluginDexcount = "com.getkeepsafe.dexcount:dexcount-gradle-plugin:${Versions.Plugin.DEXCOUNT}"
-    val pluginDetekt = "io.gitlab.arturbosch.detekt:detekt-gradle-plugin:${Versions.PLUGIN_DETEKT}"
-    val pluginDetektFormatting = "io.gitlab.arturbosch.detekt:detekt-formatting:${Versions.PLUGIN_DETEKT}"
+        val ANDROID = "com.android.tools.build:gradle:${Versions.Plugin.ANDROID}"
+        val KOTLIN = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.Plugin.KOTLIN}"
+        val VERSIONS = "com.github.ben-manes:gradle-versions-plugin:${Versions.Plugin.VERSIONS}"
+        val DEXCOUNT = "com.getkeepsafe.dexcount:dexcount-gradle-plugin:${Versions.Plugin.DEXCOUNT}"
+        val DETEKT = "io.gitlab.arturbosch.detekt:detekt-gradle-plugin:${Versions.PLUGIN_DETEKT}"
+        val DETEKT_FORMATTING = "io.gitlab.arturbosch.detekt:detekt-formatting:${Versions.PLUGIN_DETEKT}"
 
-    /* LEAK CANARY */
+    }
 
-    val leakCanaryDebug = "com.squareup.leakcanary:leakcanary-android:${Versions.LeakCanary.LEAK_CANARY}"
-    val leakCanaryRelease = "com.squareup.leakcanary:leakcanary-android-no-op:${Versions.LeakCanary.LEAK_CANARY}"
+    object LeakCanary {
+
+        val DEBUG = "com.squareup.leakcanary:leakcanary-android:${Versions.LeakCanary.LEAK_CANARY}"
+        val RELEASE = "com.squareup.leakcanary:leakcanary-android-no-op:${Versions.LeakCanary.LEAK_CANARY}"
+
+    }
 
     // IMPLEMENTATION // ****************************************************************************************************
 
-    /* KOTLIN */
+    object Kotlin {
 
-    val kotlin = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${Versions.Plugin.KOTLIN}"
+        val KOTLIN = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${Versions.Plugin.KOTLIN}"
 
-    /* MATERIAL */
+    }
 
-    val material = "com.google.android.material:material:${Versions.Material.MATERIAL}"
+    object Material {
 
-    /* ANDROID */
+        val MATERIAL = "com.google.android.material:material:${Versions.Material.MATERIAL}"
 
-    val androidAppCompat = "androidx.appcompat:appcompat:${Versions.Android.APP_COMPAT}"
-    val androidRecyclerView = "androidx.recyclerview:recyclerview:${Versions.Android.RECYCLER_VIEW}"
-    val androidCardView = "androidx.cardview:cardview:${Versions.Android.CARD_VIEW}"
-    val androidConstraintLayout = "androidx.constraintlayout:constraintlayout:${Versions.Android.CONSTRAINT_LAYOUT}"
+    }
 
-    /* ANDROID KTX */
+    object Android {
 
-    val androidKtxCore = "androidx.core:core-ktx:${Versions.AndroidKtx.KTX_CORE}"
+        object Ktx {
 
-    /* ANDROID ARCH */
+            val CORE = "androidx.core:core-ktx:${Versions.Android.Ktx.CORE}"
 
-    val androidArchLifecycleExtensions =
-        "androidx.lifecycle:lifecycle-extensions:${Versions.AndroidArch.LIFECYCLE_EXTENSIONS}"
+        }
 
-    /* DI */
+        object Arch {
 
-    val diDagger = "com.google.dagger:dagger:${Versions.Di.DAGGER}"
-    val diDaggerCompiler = "com.google.dagger:dagger-compiler:${Versions.Di.DAGGER}"
-    val diDaggerAndroid = "com.google.dagger:dagger-android-support:${Versions.Di.DAGGER}"
-    val diDaggerAndroidProcessor = "com.google.dagger:dagger-android-processor:${Versions.Di.DAGGER}"
+            object Test {
 
-    /* RX */
+                val CORE_TESTING = "androidx.arch.core:core-testing:${Versions.Android.Arch.Test.CORE_TESTING}"
 
-    val rxJava = "io.reactivex.rxjava2:rxjava:${Versions.Rx.RX_JAVA}"
-    val rxAndroid = "io.reactivex.rxjava2:rxandroid:${Versions.Rx.RX_ANDROID}"
+            }
 
-    /* NET */
+            val LIFECYCLE_EXTENSIONS =
+                "androidx.lifecycle:lifecycle-extensions:${Versions.Android.Arch.LIFECYCLE_EXTENSIONS}"
 
-    val netGson = "com.google.code.gson:gson:${Versions.Net.GSON}"
-    val netOkHttpLogging = "com.squareup.okhttp3:logging-interceptor:${Versions.Net.OK_HTTP}"
+        }
 
-    /* REST */
+        object Test {
 
-    val restRetrofit = "com.squareup.retrofit2:retrofit:${Versions.Rest.RETROFIT}"
-    val restRetrofitGson = "com.squareup.retrofit2:converter-gson:${Versions.Rest.RETROFIT}"
-    val restRetrofitRx = "com.squareup.retrofit2:adapter-rxjava2:${Versions.Rest.RETROFIT}"
+            val CORE = "androidx.test:core:${Versions.Android.Test.TEST_CORE}"
+            val J_UNIT = "androidx.test.ext:junit:${Versions.Android.Test.TEST_J_UNIT}"
+            val ESPRESSO = "androidx.test.espresso:espresso-core:${Versions.Android.Test.TEST_ESPRESSO}"
 
-    /* IMAGE */
+        }
 
-    val imageGlide = "com.github.bumptech.glide:glide:${Versions.Image.GLIDE}"
-    val imageGlideCompiler = "com.github.bumptech.glide:compiler:${Versions.Image.GLIDE}"
+        val APP_COMPAT = "androidx.appcompat:appcompat:${Versions.Android.APP_COMPAT}"
+        val RECYCLER_VIEW = "androidx.recyclerview:recyclerview:${Versions.Android.RECYCLER_VIEW}"
+        val CARD_VIEW = "androidx.cardview:cardview:${Versions.Android.CARD_VIEW}"
+        val CONSTRAINT_LAYOUT = "androidx.constraintlayout:constraintlayout:${Versions.Android.CONSTRAINT_LAYOUT}"
 
-    /* DART */
+    }
 
-    val extrasDart = "com.f2prateek.dart:dart:${Versions.Extras.DART}"
-    val extrasartProcessor = "com.f2prateek.dart:dart-processor:${Versions.Extras.DART}"
-    val extrasHenson = "com.f2prateek.dart:henson:${Versions.Extras.DART}"
-    val extrasHensonProcessor = "com.f2prateek.dart:henson-processor:${Versions.Extras.DART}"
+    object Di {
 
-    /* UTIL */
+        val DAGGER = "com.google.dagger:dagger:${Versions.Di.DAGGER}"
+        val DAGGER_COMPILER = "com.google.dagger:dagger-compiler:${Versions.Di.DAGGER}"
+        val DAGGER_ANDROID = "com.google.dagger:dagger-android-support:${Versions.Di.DAGGER}"
+        val DAGGER_ANDROID_PROCESSOR = "com.google.dagger:dagger-android-processor:${Versions.Di.DAGGER}"
 
-    val utilMonthYearPicker = "com.whiteelephant:monthandyearpicker:${Versions.Util.MONTH_YEAR_PICKER}"
+    }
 
-    /* LOGGING */
+    object Rx {
 
-    val logTimber = "com.jakewharton.timber:timber:${Versions.Log.TIMBER}"
+        val RX_JAVA = "io.reactivex.rxjava2:rxjava:${Versions.Rx.RX_JAVA}"
+        val RX_ANDROID = "io.reactivex.rxjava2:rxandroid:${Versions.Rx.RX_ANDROID}"
+
+    }
+
+    object Net {
+
+        object Rest {
+
+            val RETROFIT = "com.squareup.retrofit2:retrofit:${Versions.Rest.RETROFIT}"
+            val RETROFIT_GSON = "com.squareup.retrofit2:converter-gson:${Versions.Rest.RETROFIT}"
+            val RETROFIT_RX = "com.squareup.retrofit2:adapter-rxjava2:${Versions.Rest.RETROFIT}"
+
+        }
+
+        val GSON = "com.google.code.gson:gson:${Versions.Net.GSON}"
+        val OK_HTTP_LOGGING = "com.squareup.okhttp3:logging-interceptor:${Versions.Net.OK_HTTP}"
+
+    }
+
+    object Image {
+
+        val GLIDE = "com.github.bumptech.glide:glide:${Versions.Image.GLIDE}"
+        val GLIDE_COMPILER = "com.github.bumptech.glide:compiler:${Versions.Image.GLIDE}"
+
+    }
+
+    object Extras {
+
+        val DART = "com.f2prateek.dart:dart:${Versions.Extras.DART}"
+        val DART_PROCESSOR = "com.f2prateek.dart:dart-processor:${Versions.Extras.DART}"
+        val HENSON = "com.f2prateek.dart:henson:${Versions.Extras.DART}"
+        val HENSON_PROCESSOR = "com.f2prateek.dart:henson-processor:${Versions.Extras.DART}"
+
+    }
+
+    object Util {
+
+        val MONTH_YEAR_PICKER = "com.whiteelephant:monthandyearpicker:${Versions.Util.MONTH_YEAR_PICKER}"
+
+    }
+
+    object Log {
+
+        val TIMBER = "com.jakewharton.timber:timber:${Versions.Log.TIMBER}"
+
+    }
 
     // TEST IMPLEMENTATION // ***********************************************************************************************
 
-    /* TEST */
+    object Test {
 
-    val testJUnit = "junit:junit:${Versions.Test.J_UNIT}"
-    val testAssertJ = "org.assertj:assertj-core:${Versions.Test.ASSERT_J}"
+        val J_UNIT = "junit:junit:${Versions.Test.J_UNIT}"
+        val ASSERT_J = "org.assertj:assertj-core:${Versions.Test.ASSERT_J}"
 
-    /* MOCK */
+    }
 
-    val mockMockitoKotlin = "com.nhaarman:mockito-kotlin:${Versions.Mock.MOCKITO_KOTLIN}"
+    object Mock {
 
-    /* ANDROID ARCH TEST */
+        val MOCKITO_KOTLIN = "com.nhaarman:mockito-kotlin:${Versions.Mock.MOCKITO_KOTLIN}"
 
-    val androidArchTestCoreTesting = "androidx.arch.core:core-testing:${Versions.AndroidArchTest.CORE_TESTING}"
+    }
 
-    /* ROBOLECTRIC */
+    object Robolectric {
 
-    val robolectric = "org.robolectric:robolectric:${Versions.Robolectric.ROBOLECTRIC}"
+        val ROBOLECTRIC = "org.robolectric:robolectric:${Versions.Robolectric.ROBOLECTRIC}"
 
-    // ANDROID TEST IMPLEMENTATION // ***************************************************************************************
-
-    /* ANDROID TEST */
-
-    val androidTestCore = "androidx.test:core:${Versions.AndroidTest.TEST_CORE}"
-    val androidTestRunner = "androidx.test.ext:junit:${Versions.AndroidTest.TEST_J_UNIT}"
-    val androidTestEspresso = "androidx.test.espresso:espresso-core:${Versions.AndroidTest.TEST_ESPRESSO}"
+    }
 
 }
