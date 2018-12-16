@@ -8,11 +8,11 @@ plugins {
     id("io.gitlab.arturbosch.detekt")
 }
 
-apply("../config/gradle/android/android.gradle")
-apply("../config/gradle/android/dexcount.gradle")
-apply("../config/gradle/quality/lint.gradle")
-apply("../config/gradle/quality/detekt.gradle")
-apply("../config/gradle/dependencies/dependency_updates.gradle")
+apply(Config.GRADLE_ANDROID)
+apply(Config.GRADLE_DEXCOUNT)
+apply(Config.GRADLE_LINT)
+apply(Config.GRADLE_DETEKT)
+apply(Config.GRADLE_DEPENDENCY_UPDATES)
 
 kapt {
     useBuildCache = true

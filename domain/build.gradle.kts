@@ -5,8 +5,8 @@ plugins {
     id("io.gitlab.arturbosch.detekt")
 }
 
-apply("../config/gradle/quality/detekt.gradle")
-apply("../config/gradle/dependencies/dependency_updates.gradle")
+apply(Config.GRADLE_DETEKT)
+apply(Config.GRADLE_DEPENDENCY_UPDATES)
 
 java {
     sourceCompatibility = Java.version

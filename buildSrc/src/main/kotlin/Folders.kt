@@ -5,6 +5,9 @@ object Folders {
     /* CONFIG */
 
     const val CONFIG = "config"
+    const val GRADLE = "gradle"
+    const val ANDROID = "android"
+    const val DEPENDENCIES = "dependencies"
     const val QUALITY = "quality"
     const val KEYS = "keys"
 

@@ -8,13 +8,13 @@ plugins {
     id("io.gitlab.arturbosch.detekt")
 }
 
-apply("../config/gradle/android/android.gradle")
-apply("../config/gradle/android/dart.gradle")
-apply("../config/gradle/android/dexcount.gradle")
-apply("../config/gradle/android/leakcanary.gradle")
-apply("../config/gradle/quality/lint.gradle")
-apply("../config/gradle/quality/detekt.gradle")
-apply("../config/gradle/dependencies/dependency_updates.gradle")
+apply(Config.GRADLE_ANDROID)
+apply(Config.GRADLE_DART)
+apply(Config.GRADLE_DEXCOUNT)
+apply(Config.GRADLE_LEAK_CANARY)
+apply(Config.GRADLE_LINT)
+apply(Config.GRADLE_DETEKT)
+apply(Config.GRADLE_DEPENDENCY_UPDATES)
 
 android {
     defaultConfig {
@@ -31,7 +31,7 @@ android {
         }
         named("release") {
             isMinifyEnabled = false
-            proguardFiles(getDefaultProguardFile(Files.PROGUARD_ANDROID), Files.PROGUARD_RULES)
+            proguardFiles(getDefaultProguardFile(Files.TXT_PROGUARD_ANDROID), Files.PRO_PROGUARD_RULES)
         }
     }
 }
