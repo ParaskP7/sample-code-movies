@@ -2,7 +2,7 @@ buildscript {
     repositories {
         google()
         jcenter()
-        maven { url = uri(Reps.URL_GRADLE) }
+        maven { url = uri(Reps.Url.GRADLE) }
     }
     dependencies {
         classpath(Deps.Plugin.ANDROID)
@@ -17,6 +17,6 @@ allprojects {
     repositories {
         google()
         jcenter()
-        maven { url = uri(Reps.URL_GRADLE) }
+        maven { url = uri(Reps.Url.GRADLE) }
     }
 }

@@ -1,5 +1,9 @@
 object Reps {
 
-    const val URL_GRADLE = "https://plugins.gradle.org/m2/"
+    object Url {
+
+        const val GRADLE = "https://plugins.gradle.org/m2/"
+
+    }
 
 }
