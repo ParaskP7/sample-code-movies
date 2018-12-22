@@ -1,6 +1,8 @@
 import io.gitlab.arturbosch.detekt.DetektPlugin
 import io.gitlab.arturbosch.detekt.detekt
 
+import com.github.benmanes.gradle.versions.VersionsPlugin
+
 buildscript {
     repositories {
         google()
@@ -33,5 +35,8 @@ subprojects {
             disableDefaultRuleSets = false
             parallel = true
         }
+    }
+    plugins.withType(VersionsPlugin::class) {
+        apply(Config.Gradle.DEPENDENCY_UPDATES)
     }
 }

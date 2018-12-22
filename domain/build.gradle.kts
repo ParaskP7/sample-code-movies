@@ -5,8 +5,6 @@ plugins {
     id(PluginIds.Quality.DETEKT)
 }
 
-apply(Config.Gradle.DEPENDENCY_UPDATES)
-
 java {
     sourceCompatibility = Java.version
     targetCompatibility = Java.version

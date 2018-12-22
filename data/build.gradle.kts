@@ -12,8 +12,6 @@ apply(Config.Gradle.ANDROID)
 apply(Config.Gradle.DEXCOUNT)
 apply(Config.Gradle.LINT)
 
-apply(Config.Gradle.DEPENDENCY_UPDATES)
-
 kapt {
     useBuildCache = true
 }
