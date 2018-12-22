@@ -51,7 +51,7 @@ object Config {
     /* LINT */
 
     const val LINT_CONFIG_FILE_PATH = "${QUALITY_DIRECTORY}/${Files.Xml.LINT}"
-    val lintListOfDisabledIssues = arrayOf(
+    val lintDisabledIssues = arrayOf(
         "MissingRegistered", // Because of UAST
         "UnusedIds", // Because of UAST
         "ContentDescription",

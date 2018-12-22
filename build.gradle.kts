@@ -1,6 +1,10 @@
 import io.gitlab.arturbosch.detekt.DetektPlugin
 import io.gitlab.arturbosch.detekt.detekt
 
+import com.android.build.gradle.BasePlugin as AndroidPlugin
+import com.android.build.gradle.internal.dsl.BaseAppModuleExtension
+import com.android.build.gradle.LibraryExtension
+
 import com.github.benmanes.gradle.versions.VersionsPlugin
 import com.getkeepsafe.dexcount.DexMethodCountPlugin
 import com.getkeepsafe.dexcount.DexMethodCountExtension
@@ -40,6 +44,10 @@ allprojects {
 }
 
 subprojects {
+    plugins.withType(AndroidPlugin::class) {
+        apply(Config.Gradle.ANDROID)
+        apply(Config.Gradle.LINT)
+    }
     plugins.withType(DexMethodCountPlugin::class) {
         dexcount {
             format = Config.Dexcount.FORMAT

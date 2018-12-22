@@ -1,5 +1,4 @@
 android {
-
     lintOptions {
         abortOnError = true
         checkAllWarnings = true
@@ -9,7 +8,6 @@ android {
         lintConfig(file(Config.LINT_CONFIG_FILE_PATH))
         htmlReport = true
         xmlReport = true
-        disable(Config.lintListOfDisabledIssues)
+        disable(Config.lintDisabledIssues)
     }
-
 }

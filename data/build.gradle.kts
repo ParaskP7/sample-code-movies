@@ -10,11 +10,6 @@ plugins {
     id(PluginIds.Quality.DETEKT)
 }
 
-/* GROOVY */
-
-apply(Config.Gradle.ANDROID)
-apply(Config.Gradle.LINT)
-
 /* KAPT */
 
 kapt {
