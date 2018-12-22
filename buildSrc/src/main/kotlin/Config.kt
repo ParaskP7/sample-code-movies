@@ -40,9 +40,16 @@ object Config {
 
     }
 
-    /* KEYS */
+    object Keys {
 
-    const val KEYS_THEMOVIEDB_API_FILE_PATH = "${KEYS_DIRECTORY}/${Files.Properties.THEMOVIEDB_API}"
+        object TheMoviesDb {
+
+            const val API_FILE_PATH = "${KEYS_DIRECTORY}/${Files.Properties.THEMOVIEDB_API}"
+            const val API_KEY_CONST = "THEMOVIEDB_API_KEY"
+
+        }
+
+    }
 
     /* LINT */
 

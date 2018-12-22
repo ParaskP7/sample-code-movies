@@ -9,19 +9,6 @@ android {
         sourceCompatibility = Java.version
         targetCompatibility = Java.version
     }
-    buildTypes {
-        def themoviedbApiPropertiesFile = file(Config.KEYS_THEMOVIEDB_API_FILE_PATH)
-        def themoviedbApiProperties = new Properties()
-        themoviedbApiProperties.load(new FileInputStream(themoviedbApiPropertiesFile))
-        def themoviedbApiKey = themoviedbApiProperties[Keys.THEMOVIEDB_API_KEY_PROPERTY]
-
-        debug {
-            buildConfigField "String", Keys.THEMOVIEDB_API_KEY_CONST, "\"${themoviedbApiKey}\""
-        }
-        release {
-            buildConfigField "String", Keys.THEMOVIEDB_API_KEY_CONST, "\"${themoviedbApiKey}\""
-        }
-    }
     testOptions {
         unitTests {
             all {
