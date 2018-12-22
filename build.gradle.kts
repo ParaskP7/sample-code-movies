@@ -53,6 +53,7 @@ allprojects {
 
 subprojects {
     plugins.withType(KotlinPlatformCommonPlugin::class) {
+        task("logKotlinPlugin") { println("<<<RUNNING WITH KOTLIN PLUGIN>>>") }
         java {
             sourceCompatibility = Java.version
             targetCompatibility = Java.version
@@ -68,10 +69,12 @@ subprojects {
         }
     }
     plugins.withType(AndroidPlugin::class) {
+        task("logAndroidPlugin") { println("<<<RUNNING WITH ANDROID PLUGIN>>>") }
         apply(Config.Gradle.ANDROID)
         apply(Config.Gradle.LINT)
     }
     plugins.withType(DexcountPlugin::class) {
+        task("logDexcountPlugin") { println("<<<RUNNING WITH DEXCOUNT PLUGIN>>>") }
         dexcount {
             format = Config.Dexcount.FORMAT
             includeClasses = true
@@ -88,6 +91,7 @@ subprojects {
         }
     }
     plugins.withType(DetektPlugin::class) {
+        task("logDetektPlugin") { println("<<<RUNNING WITH DETEKT PLUGIN>>>") }
         detekt {
             toolVersion = Versions.Plugin.DETEKT
             config = files(Config.Detekt.CONFIG_FILE_PATH)
@@ -97,6 +101,7 @@ subprojects {
         }
     }
     plugins.withType(VersionsPlugin::class) {
+        task("logVersionsPlugin") { println("<<<RUNNING WITH VERSIONS PLUGIN>>>") }
         apply(Config.Gradle.DEPENDENCY_UPDATES)
     }
 }
