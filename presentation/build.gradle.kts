@@ -15,7 +15,6 @@ apply(Config.Gradle.LINT)
 apply(Config.Gradle.DART)
 apply(Config.Gradle.LEAK_CANARY)
 
-apply(Config.Gradle.DETEKT)
 apply(Config.Gradle.DEPENDENCY_UPDATES)
 
 android {

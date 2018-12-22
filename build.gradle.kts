@@ -1,3 +1,6 @@
+import io.gitlab.arturbosch.detekt.DetektPlugin
+import io.gitlab.arturbosch.detekt.detekt
+
 buildscript {
     repositories {
         google()
@@ -18,5 +21,17 @@ allprojects {
         google()
         jcenter()
         maven { url = uri(Reps.Url.GRADLE) }
+    }
+}
+
+subprojects {
+    plugins.withType(DetektPlugin::class) {
+        detekt {
+            toolVersion = Versions.Plugin.DETEKT
+            config = files(Config.Detekt.CONFIG_FILE_PATH)
+            filters = Config.Detekt.FILTERS
+            disableDefaultRuleSets = false
+            parallel = true
+        }
     }
 }

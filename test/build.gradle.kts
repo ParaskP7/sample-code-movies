@@ -5,7 +5,6 @@ plugins {
     id(PluginIds.Quality.DETEKT)
 }
 
-apply(Config.Gradle.DETEKT)
 apply(Config.Gradle.DEPENDENCY_UPDATES)
 
 java {

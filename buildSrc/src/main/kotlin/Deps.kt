@@ -6,8 +6,8 @@ object Deps {
         val KOTLIN = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.Plugin.KOTLIN}"
         val VERSIONS = "com.github.ben-manes:gradle-versions-plugin:${Versions.Plugin.VERSIONS}"
         val DEXCOUNT = "com.getkeepsafe.dexcount:dexcount-gradle-plugin:${Versions.Plugin.DEXCOUNT}"
-        val DETEKT = "io.gitlab.arturbosch.detekt:detekt-gradle-plugin:${Versions.PLUGIN_DETEKT}"
-        val DETEKT_FORMATTING = "io.gitlab.arturbosch.detekt:detekt-formatting:${Versions.PLUGIN_DETEKT}"
+        val DETEKT = "io.gitlab.arturbosch.detekt:detekt-gradle-plugin:${Versions.Plugin.DETEKT}"
+        val DETEKT_FORMATTING = "io.gitlab.arturbosch.detekt:detekt-formatting:${Versions.Plugin.DETEKT}"
 
     }
 

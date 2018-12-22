@@ -1,9 +1,0 @@
-detekt {
-
-    toolVersion = Versions.PLUGIN_DETEKT
-    config = files(Config.DETEKT_CONFIG_FILE_PATH)
-    filters = Config.DETEKT_FILTERS
-    disableDefaultRuleSets = false
-    parallel = true
-
-}

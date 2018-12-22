@@ -1,5 +1,8 @@
 object Config {
 
+    private const val KEYS_DIRECTORY = "${Folders.PARENT}/${Folders.Config.CONFIG}/${Folders.Config.KEYS}"
+    private const val QUALITY_DIRECTORY = "${Folders.PARENT}/${Folders.Config.CONFIG}/${Folders.Config.QUALITY}"
+
     object Gradle {
 
         private const val GRADLE_DIRECTORY = "${Folders.PARENT}/${Folders.Config.CONFIG}/${Folders.Config.GRADLE}"
@@ -14,8 +17,15 @@ object Config {
 
     }
 
-    private const val KEYS_DIRECTORY = "${Folders.PARENT}/${Folders.Config.CONFIG}/${Folders.Config.KEYS}"
-    private const val QUALITY_DIRECTORY = "${Folders.PARENT}/${Folders.Config.CONFIG}/${Folders.Config.QUALITY}"
+    object Detekt {
+
+        const val CONFIG_FILE_PATH = "${QUALITY_DIRECTORY}/${Files.Yml.DETEKT}"
+        const val FILTERS = ".*/${Folders.Source.TEST}/.*" + Utils.COMMA +
+                ".*/${Folders.Source.ROBOLECTRIC_TEST}/.*" + Utils.COMMA +
+                ".*/${Folders.Source.ANDROID_TEST}/.*" + Utils.COMMA +
+                ".*/${Folders.Source.RESOURCES}/.*"
+
+    }
 
     /* KEYS */
 
@@ -24,14 +34,6 @@ object Config {
     /* DEXCOUNT */
 
     const val DEXCOUNT_FORMAT = "list"
-
-    /* DETEKT */
-
-    const val DETEKT_CONFIG_FILE_PATH = "${QUALITY_DIRECTORY}/${Files.Yml.DETEKT}"
-    const val DETEKT_FILTERS = ".*/${Folders.Source.TEST}/.*" + Utils.COMMA +
-            ".*/${Folders.Source.ROBOLECTRIC_TEST}/.*" + Utils.COMMA +
-            ".*/${Folders.Source.ANDROID_TEST}/.*" + Utils.COMMA +
-            ".*/${Folders.Source.RESOURCES}/.*"
 
     /* LINT */
 
