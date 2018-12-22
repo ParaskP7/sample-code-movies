@@ -4,11 +4,7 @@ object Files {
 
 
         const val ANDROID = "android.gradle"
-        const val DART = "dart.gradle"
-        const val DEXCOUNT = "dexcount.gradle"
-        const val LEAK_CANARY = "leak_canary.gradle"
         const val DEPENDENCY_UPDATES = "dependency_updates.gradle"
-        const val DETEKT = "detekt.gradle"
         const val LINT = "lint.gradle"
 
     }
