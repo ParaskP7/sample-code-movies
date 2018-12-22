@@ -13,8 +13,11 @@ object Deps {
 
     object LeakCanary {
 
-        val DEBUG = "com.squareup.leakcanary:leakcanary-android:${Versions.LeakCanary.LEAK_CANARY}"
-        val RELEASE = "com.squareup.leakcanary:leakcanary-android-no-op:${Versions.LeakCanary.LEAK_CANARY}"
+        val GROUP = "com.squareup.leakcanary"
+        val NAME = "leakcanary-android"
+
+        val DEBUG = "${LeakCanary.GROUP}:${LeakCanary.NAME}:${Versions.LeakCanary.LEAK_CANARY}"
+        val RELEASE = "${LeakCanary.GROUP}:${LeakCanary.NAME}-no-op:${Versions.LeakCanary.LEAK_CANARY}"
 
     }
 

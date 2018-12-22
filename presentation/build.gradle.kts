@@ -43,11 +43,11 @@ android {
 /* LEAK CANARY */
 
 configurations.all {
-    if (name.contains("UnitTest") || name.contains("AndroidTest")) {
+    if (name.contains(Configuration.Test.UNIT_TEST) || name.contains(Configuration.Test.ANDROID_TEST)) {
         resolutionStrategy {
             eachDependency {
-                if (requested.group == "com.squareup.leakcanary" && requested.name == "leakcanary-android") {
-                    useTarget("${requested.group}leakcanary-android-no-op${requested.version}")
+                if (requested.group == Deps.LeakCanary.GROUP && requested.name == Deps.LeakCanary.NAME) {
+                    useTarget(Deps.LeakCanary.RELEASE)
                 }
             }
         }
