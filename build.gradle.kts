@@ -1,7 +1,8 @@
 import io.gitlab.arturbosch.detekt.DetektPlugin
 import io.gitlab.arturbosch.detekt.detekt
 
-import com.android.build.gradle.BasePlugin as AndroidPlugin
+import com.android.build.gradle.AppPlugin as AndroidApplicationPlugin
+import com.android.build.gradle.LibraryPlugin as AndroidLibraryPlugin
 import com.android.build.gradle.internal.dsl.BaseAppModuleExtension
 import com.android.build.gradle.LibraryExtension
 
@@ -72,8 +73,13 @@ subprojects {
             useBuildCache = true
         }
     }
-    plugins.withType(AndroidPlugin::class) {
-        task("logAndroidPlugin") { println("<<<RUNNING WITH ANDROID PLUGIN>>>") }
+    plugins.withType(AndroidLibraryPlugin::class) {
+        task("logAndroidLibraryPlugin") { println("<<<RUNNING WITH ANDROID LIBRARY PLUGIN>>>") }
+        apply(Config.Gradle.ANDROID)
+        apply(Config.Gradle.LINT)
+    }
+    plugins.withType(AndroidApplicationPlugin::class) {
+        task("logAndroidApplicationPlugin") { println("<<<RUNNING WITH ANDROID APPLICATION PLUGIN>>>") }
         apply(Config.Gradle.ANDROID)
         apply(Config.Gradle.LINT)
     }
