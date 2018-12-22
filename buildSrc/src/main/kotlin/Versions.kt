@@ -1,6 +1,6 @@
 object Versions {
 
-    const val PLUGIN_DETEKT = "1.0.0-RC11"
+    const val PLUGIN_DETEKT = "1.0.0-RC12"
 
     object Plugin {
 
