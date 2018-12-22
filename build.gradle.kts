@@ -6,7 +6,7 @@ import com.android.build.gradle.internal.dsl.BaseAppModuleExtension
 import com.android.build.gradle.LibraryExtension
 
 import com.github.benmanes.gradle.versions.VersionsPlugin
-import com.getkeepsafe.dexcount.DexMethodCountPlugin
+import com.getkeepsafe.dexcount.DexMethodCountPlugin as DexcountPlugin
 import com.getkeepsafe.dexcount.DexMethodCountExtension
 import io.gitlab.arturbosch.detekt.extensions.DetektExtension
 import org.gradle.api.Project
@@ -48,7 +48,7 @@ subprojects {
         apply(Config.Gradle.ANDROID)
         apply(Config.Gradle.LINT)
     }
-    plugins.withType(DexMethodCountPlugin::class) {
+    plugins.withType(DexcountPlugin::class) {
         dexcount {
             format = Config.Dexcount.FORMAT
             includeClasses = true
