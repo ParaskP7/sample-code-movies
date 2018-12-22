@@ -1,9 +1,13 @@
+/* PLUGINS */
+
 plugins {
     id(PluginIds.Kotlin.KOTLIN)
     id(PluginIds.Kotlin.KAPT)
     id(PluginIds.Dependency.VERSIONS)
     id(PluginIds.Quality.DETEKT)
 }
+
+/* KOTLIN */
 
 java {
     sourceCompatibility = Java.version
@@ -17,9 +21,13 @@ tasks.getByName<Test>(Tasks.TEST) {
     }
 }
 
+/* KAPT */
+
 kapt {
     useBuildCache = true
 }
+
+/* DEPENDENCIES */
 
 dependencies {
     implementation(project(Project.Implementation.DOMAIN))

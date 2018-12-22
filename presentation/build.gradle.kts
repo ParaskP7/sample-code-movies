@@ -1,3 +1,5 @@
+/* PLUGINS */
+
 plugins {
     id(PluginIds.Android.APPLICATION)
     id(PluginIds.Android.DEXCOUNT)
@@ -8,11 +10,15 @@ plugins {
     id(PluginIds.Quality.DETEKT)
 }
 
+/* GROOVY */
+
 apply(Config.Gradle.ANDROID)
 apply(Config.Gradle.DEXCOUNT)
 apply(Config.Gradle.LINT)
 
 apply(Config.Gradle.DART)
+
+/* ANDROID */
 
 android {
     defaultConfig {
@@ -34,6 +40,8 @@ android {
     }
 }
 
+/* LEAK CANARY */
+
 configurations.all {
     if (name.contains("UnitTest") || name.contains("AndroidTest")) {
         resolutionStrategy {
@@ -46,9 +54,13 @@ configurations.all {
     }
 }
 
+/* KAPT */
+
 kapt {
     useBuildCache = true
 }
+
+/* DEPENDENCIES */
 
 dependencies {
     implementation(project(Project.Implementation.DOMAIN))

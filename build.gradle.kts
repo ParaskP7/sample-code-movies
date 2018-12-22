@@ -3,6 +3,8 @@ import io.gitlab.arturbosch.detekt.detekt
 
 import com.github.benmanes.gradle.versions.VersionsPlugin
 
+/* BUILD SCRIPT */
+
 buildscript {
     repositories {
         google()
@@ -17,6 +19,8 @@ buildscript {
         classpath(Deps.Plugin.DETEKT)
     }
 }
+
+/* PROJECTS CONFIGURATION */
 
 allprojects {
     repositories {

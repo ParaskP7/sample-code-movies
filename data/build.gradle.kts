@@ -1,3 +1,5 @@
+/* PLUGINS */
+
 plugins {
     id(PluginIds.Android.LIBRARY)
     id(PluginIds.Android.DEXCOUNT)
@@ -8,13 +10,19 @@ plugins {
     id(PluginIds.Quality.DETEKT)
 }
 
+/* GROOVY */
+
 apply(Config.Gradle.ANDROID)
 apply(Config.Gradle.DEXCOUNT)
 apply(Config.Gradle.LINT)
 
+/* KAPT */
+
 kapt {
     useBuildCache = true
 }
+
+/* DEPENDENCIES */
 
 dependencies {
     implementation(project(Project.Implementation.DOMAIN))
