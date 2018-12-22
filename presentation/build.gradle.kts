@@ -13,7 +13,6 @@ apply(Config.Gradle.DEXCOUNT)
 apply(Config.Gradle.LINT)
 
 apply(Config.Gradle.DART)
-apply(Config.Gradle.LEAK_CANARY)
 
 android {
     defaultConfig {
@@ -31,6 +30,18 @@ android {
         named(Android.BuildTypes.RELEASE) {
             isMinifyEnabled = false
             proguardFiles(getDefaultProguardFile(Files.Txt.PROGUARD_ANDROID), Files.Pro.PROGUARD_RULES)
+        }
+    }
+}
+
+configurations.all {
+    if (name.contains("UnitTest") || name.contains("AndroidTest")) {
+        resolutionStrategy {
+            eachDependency {
+                if (requested.group == "com.squareup.leakcanary" && requested.name == "leakcanary-android") {
+                    useTarget("${requested.group}leakcanary-android-no-op${requested.version}")
+                }
+            }
         }
     }
 }
