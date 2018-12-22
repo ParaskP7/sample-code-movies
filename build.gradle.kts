@@ -18,6 +18,9 @@ import org.jetbrains.kotlin.gradle.plugin.KaptExtension
 fun Project.dexcount(configure: DexMethodCountExtension.() -> Unit) =
     extensions.configure(DexMethodCountExtension::class.java, configure)
 
+fun Project.java(configure: JavaPluginExtension.() -> Unit) =
+    extensions.configure(JavaPluginExtension::class.java, configure)
+
 fun Project.kapt(configure: KaptExtension.() -> Unit) =
     extensions.configure(KaptExtension::class.java, configure)
 
@@ -50,6 +53,10 @@ allprojects {
 
 subprojects {
     plugins.withType(KotlinPlatformCommonPlugin::class) {
+        java {
+            sourceCompatibility = Java.version
+            targetCompatibility = Java.version
+        }
         kapt {
             useBuildCache = true
         }

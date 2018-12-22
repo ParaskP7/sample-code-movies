@@ -9,11 +9,6 @@ plugins {
 
 /* KOTLIN */
 
-java {
-    sourceCompatibility = Java.version
-    targetCompatibility = Java.version
-}
-
 tasks.getByName<Test>(Tasks.TEST) {
     testLogging {
         events(*Logs.eventsKts)
