@@ -13,7 +13,6 @@ plugins {
 /* GROOVY */
 
 apply(Config.Gradle.ANDROID)
-apply(Config.Gradle.DEXCOUNT)
 apply(Config.Gradle.LINT)
 
 /* KAPT */

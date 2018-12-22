@@ -2,6 +2,15 @@ import io.gitlab.arturbosch.detekt.DetektPlugin
 import io.gitlab.arturbosch.detekt.detekt
 
 import com.github.benmanes.gradle.versions.VersionsPlugin
+import com.getkeepsafe.dexcount.DexMethodCountPlugin
+import com.getkeepsafe.dexcount.DexMethodCountExtension
+import io.gitlab.arturbosch.detekt.extensions.DetektExtension
+import org.gradle.api.Project
+
+/* EXTENSION FUNCTIONS */
+
+fun Project.dexcount(configure: DexMethodCountExtension.() -> Unit) =
+    extensions.configure(DexMethodCountExtension::class.java, configure)
 
 /* BUILD SCRIPT */
 
@@ -31,6 +40,22 @@ allprojects {
 }
 
 subprojects {
+    plugins.withType(DexMethodCountPlugin::class) {
+        dexcount {
+            format = Config.Dexcount.FORMAT
+            includeClasses = true
+            includeClassCount = true
+            includeFieldCount = true
+            includeTotalMethodCount = true
+            orderByMethodCount = false
+            verbose = false
+            maxTreeDepth = Integer.MAX_VALUE
+            teamCityIntegration = false
+            teamCitySlug = null
+            runOnEachPackage = true
+            maxMethodCount = Config.Dexcount.MAX_METHOD_COUNT
+        }
+    }
     plugins.withType(DetektPlugin::class) {
         detekt {
             toolVersion = Versions.Plugin.DETEKT

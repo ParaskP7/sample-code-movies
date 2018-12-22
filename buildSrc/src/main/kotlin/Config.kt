@@ -17,6 +17,13 @@ object Config {
 
     }
 
+    object Dexcount {
+
+        const val FORMAT = "list"
+        const val MAX_METHOD_COUNT = 60000
+
+    }
+
     object Detekt {
 
         const val CONFIG_FILE_PATH = "${QUALITY_DIRECTORY}/${Files.Yml.DETEKT}"
@@ -30,10 +37,6 @@ object Config {
     /* KEYS */
 
     const val KEYS_THEMOVIEDB_API_FILE_PATH = "${KEYS_DIRECTORY}/${Files.Properties.THEMOVIEDB_API}"
-
-    /* DEXCOUNT */
-
-    const val DEXCOUNT_FORMAT = "list"
 
     /* LINT */
 
