@@ -79,15 +79,13 @@ under the below config directory:
 config/keys/
 ```
 
-There is currently one property file that you need to put into that directory, this is the:
+With the current configuration the build will be completed successful. However, in order for you to play with the app you 
+will need to obtain your personal api key from "The Movie Database" and replace the existing mocked api key with yours 
+within the below property file:
 ```
 themoviedb_api.properties
 ```
- 
-For the `themoviedb_api.properties` file, add the below line:
-```
-themoviedb_api_key=<YOUR_API_KEY>
-```
+
 For more information on how to obtain your personal TMDB api key visit  
 [The Movie Database API (v3)](https://developers.themoviedb.org/3/getting-started/introduction).
 
