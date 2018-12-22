@@ -15,14 +15,14 @@ import org.jetbrains.kotlin.gradle.plugin.KaptExtension
 
 /* EXTENSION FUNCTIONS */
 
-fun Project.dexcount(configure: DexMethodCountExtension.() -> Unit) =
-    extensions.configure(DexMethodCountExtension::class.java, configure)
-
 fun Project.java(configure: JavaPluginExtension.() -> Unit) =
     extensions.configure(JavaPluginExtension::class.java, configure)
 
 fun Project.kapt(configure: KaptExtension.() -> Unit) =
     extensions.configure(KaptExtension::class.java, configure)
+
+fun Project.dexcount(configure: DexMethodCountExtension.() -> Unit) =
+    extensions.configure(DexMethodCountExtension::class.java, configure)
 
 /* BUILD SCRIPT */
 
