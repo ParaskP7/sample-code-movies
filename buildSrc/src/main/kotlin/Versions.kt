@@ -4,7 +4,7 @@ object Versions {
 
     object Plugin {
 
-        const val ANDROID = "3.4.0-alpha08"
+        const val ANDROID = "3.4.0-alpha09"
         const val KOTLIN = "1.3.10"
         const val VERSIONS = "0.20.0"
         const val DEXCOUNT = "0.8.4"
