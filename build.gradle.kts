@@ -11,9 +11,9 @@ import com.getkeepsafe.dexcount.DexMethodCountPlugin as DexcountPlugin
 import com.getkeepsafe.dexcount.DexMethodCountExtension
 import io.gitlab.arturbosch.detekt.extensions.DetektExtension
 import org.gradle.api.Project
-import org.jetbrains.kotlin.gradle.internal.Kapt3GradleSubplugin
+import org.jetbrains.kotlin.gradle.internal.Kapt3GradleSubplugin as KotlinKaptPlugin
 import org.jetbrains.kotlin.gradle.plugin.KaptExtension
-import org.jetbrains.kotlin.gradle.plugin.KotlinPluginWrapper
+import org.jetbrains.kotlin.gradle.plugin.KotlinPluginWrapper as KotlinPlugin
 
 /* EXTENSION FUNCTIONS */
 
@@ -54,7 +54,7 @@ allprojects {
 }
 
 subprojects {
-    plugins.withType(KotlinPluginWrapper::class) {
+    plugins.withType(KotlinPlugin::class) {
         task("logKotlinPlugin") { println("<<<RUNNING WITH KOTLIN PLUGIN>>>") }
         java {
             sourceCompatibility = Java.version
@@ -67,7 +67,7 @@ subprojects {
             }
         }
     }
-    plugins.withType(Kapt3GradleSubplugin::class) {
+    plugins.withType(KotlinKaptPlugin::class) {
         task("logKotlinKaptPlugin") { println("<<<RUNNING WITH KOTLIN KAPT PLUGIN>>>") }
         kapt {
             useBuildCache = true
