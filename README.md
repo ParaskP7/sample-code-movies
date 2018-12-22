@@ -89,6 +89,12 @@ themoviedb_api.properties
 For more information on how to obtain your personal TMDB api key visit  
 [The Movie Database API (v3)](https://developers.themoviedb.org/3/getting-started/introduction).
 
+After this, you might want to ignore this change and make git forget all about that. In order to do so, run the below git 
+command:
+```
+git update-index --assume-unchanged config/keys/themoviedb_api.properties
+```
+
 All set, use the below command to build the project in order to install it on an Android device for demonstration:
 ```
 gradlew clean build -x check
