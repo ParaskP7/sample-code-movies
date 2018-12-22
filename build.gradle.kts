@@ -10,11 +10,16 @@ import com.getkeepsafe.dexcount.DexMethodCountPlugin as DexcountPlugin
 import com.getkeepsafe.dexcount.DexMethodCountExtension
 import io.gitlab.arturbosch.detekt.extensions.DetektExtension
 import org.gradle.api.Project
+import org.jetbrains.kotlin.gradle.plugin.KotlinPlatformCommonPlugin
+import org.jetbrains.kotlin.gradle.plugin.KaptExtension
 
 /* EXTENSION FUNCTIONS */
 
 fun Project.dexcount(configure: DexMethodCountExtension.() -> Unit) =
     extensions.configure(DexMethodCountExtension::class.java, configure)
+
+fun Project.kapt(configure: KaptExtension.() -> Unit) =
+    extensions.configure(KaptExtension::class.java, configure)
 
 /* BUILD SCRIPT */
 
@@ -44,6 +49,11 @@ allprojects {
 }
 
 subprojects {
+    plugins.withType(KotlinPlatformCommonPlugin::class) {
+        kapt {
+            useBuildCache = true
+        }
+    }
     plugins.withType(AndroidPlugin::class) {
         apply(Config.Gradle.ANDROID)
         apply(Config.Gradle.LINT)

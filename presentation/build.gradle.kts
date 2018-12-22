@@ -46,13 +46,9 @@ configurations.all {
     }
 }
 
-/* KAPT */
+/* DART */
 
 kapt {
-    useBuildCache = true
-
-    /* DART */
-
     arguments { arg(Config.Dart.Kapt.NAME, App.APPLICATION_ID) }
 }
 

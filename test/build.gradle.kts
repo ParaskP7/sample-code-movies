@@ -21,12 +21,6 @@ tasks.getByName<Test>(Tasks.TEST) {
     }
 }
 
-/* KAPT */
-
-kapt {
-    useBuildCache = true
-}
-
 /* DEPENDENCIES */
 
 dependencies {

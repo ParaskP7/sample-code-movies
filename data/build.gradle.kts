@@ -33,12 +33,6 @@ android {
     }
 }
 
-/* KAPT */
-
-kapt {
-    useBuildCache = true
-}
-
 /* DEPENDENCIES */
 
 dependencies {
