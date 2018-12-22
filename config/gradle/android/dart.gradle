@@ -1,5 +1,0 @@
-kapt {
-    arguments {
-        arg("dart.henson.package", "io.petros.movies")
-    }
-}

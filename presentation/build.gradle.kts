@@ -15,8 +15,6 @@ plugins {
 apply(Config.Gradle.ANDROID)
 apply(Config.Gradle.LINT)
 
-apply(Config.Gradle.DART)
-
 /* ANDROID */
 
 android {
@@ -57,6 +55,10 @@ configurations.all {
 
 kapt {
     useBuildCache = true
+
+    /* DART */
+
+    arguments { arg(Config.Dart.Kapt.NAME, App.APPLICATION_ID) }
 }
 
 /* DEPENDENCIES */
