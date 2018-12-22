@@ -7,15 +7,6 @@ plugins {
     id(PluginIds.Quality.DETEKT)
 }
 
-/* KOTLIN */
-
-tasks.getByName<Test>(Tasks.TEST) {
-    testLogging {
-        events(*Logs.eventsKts)
-        setExceptionFormat(Logs.EXCEPTION_FORMAT)
-    }
-}
-
 /* DEPENDENCIES */
 
 dependencies {

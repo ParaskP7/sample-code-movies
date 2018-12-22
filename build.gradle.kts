@@ -60,6 +60,12 @@ subprojects {
         kapt {
             useBuildCache = true
         }
+        tasks.getByName<Test>(Tasks.TEST) {
+            testLogging {
+                events(*Logs.eventsKts)
+                setExceptionFormat(Logs.EXCEPTION_FORMAT)
+            }
+        }
     }
     plugins.withType(AndroidPlugin::class) {
         apply(Config.Gradle.ANDROID)
