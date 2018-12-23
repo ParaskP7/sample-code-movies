@@ -116,6 +116,13 @@ fun JavaPluginExtension.java() {
     targetCompatibility = Java.version
 }
 
+fun Test.testLogging() {
+    testLogging {
+        events(*Logs.eventsKts)
+        setExceptionFormat(Logs.EXCEPTION_FORMAT)
+    }
+}
+
 fun KaptExtension.kapt() {
     useBuildCache = true
 }
@@ -139,6 +146,31 @@ fun AppExtension.androidApplication() {
     testOptions { testOptions() }
     lintOptions { lintOptions() }
 }
+
+fun DexMethodCountExtension.dexcount() {
+    format = Config.Dexcount.FORMAT
+    includeClasses = true
+    includeClassCount = true
+    includeFieldCount = true
+    includeTotalMethodCount = true
+    orderByMethodCount = false
+    verbose = false
+    maxTreeDepth = Integer.MAX_VALUE
+    teamCityIntegration = false
+    teamCitySlug = null
+    runOnEachPackage = true
+    maxMethodCount = Config.Dexcount.MAX_METHOD_COUNT
+}
+
+fun DetektExtension.detekt() {
+    toolVersion = Versions.Plugin.DETEKT
+    config = files(Config.Detekt.CONFIG_FILE_PATH)
+    filters = Config.Detekt.FILTERS
+    disableDefaultRuleSets = false
+    parallel = true
+}
+
+/* CONFIGURATION EXTENSION FUNCTIONS - ANDROID */
 
 fun DefaultConfig.defaultConfig() {
     minSdkVersion(Android.Sdk.MIN)
@@ -171,13 +203,6 @@ fun TestOptions.testOptions() {
     }
 }
 
-fun Test.testLogging() {
-    testLogging {
-        events(*Logs.eventsKts)
-        setExceptionFormat(Logs.EXCEPTION_FORMAT)
-    }
-}
-
 fun LintOptions.lintOptions() {
     isAbortOnError = true
     isCheckAllWarnings = true
@@ -188,27 +213,4 @@ fun LintOptions.lintOptions() {
     htmlReport = true
     xmlReport = true
     disable(*Config.Lint.disabledIssues)
-}
-
-fun DexMethodCountExtension.dexcount() {
-    format = Config.Dexcount.FORMAT
-    includeClasses = true
-    includeClassCount = true
-    includeFieldCount = true
-    includeTotalMethodCount = true
-    orderByMethodCount = false
-    verbose = false
-    maxTreeDepth = Integer.MAX_VALUE
-    teamCityIntegration = false
-    teamCitySlug = null
-    runOnEachPackage = true
-    maxMethodCount = Config.Dexcount.MAX_METHOD_COUNT
-}
-
-fun DetektExtension.detekt() {
-    toolVersion = Versions.Plugin.DETEKT
-    config = files(Config.Detekt.CONFIG_FILE_PATH)
-    filters = Config.Detekt.FILTERS
-    disableDefaultRuleSets = false
-    parallel = true
 }
