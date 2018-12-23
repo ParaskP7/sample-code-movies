@@ -122,7 +122,7 @@ fun JavaPluginExtension.java() {
 
 fun Test.testLogging() {
     testLogging {
-        events(*Logs.eventsKts)
+        events(*Logs.events)
         setExceptionFormat(Logs.EXCEPTION_FORMAT)
     }
 }
