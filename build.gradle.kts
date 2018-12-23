@@ -99,27 +99,11 @@ subprojects {
     }
     plugins.withType(AndroidLibraryPlugin::class) {
         task("logAndroidLibraryPlugin") { println("<<<RUNNING WITH ANDROID LIBRARY PLUGIN>>>") }
-        androidLibrary {
-            compileSdkVersion(Android.Sdk.COMPLIE)
-            testOptions.unitTests.isIncludeAndroidResources = true
-            defaultConfig { defaultConfig() }
-            compileOptions { compileOptions() }
-            sourceSets { sourceSets() }
-            testOptions { testOptions() }
-            lintOptions { lintOptions() }
-        }
+        androidLibrary { androidLibrary() }
     }
     plugins.withType(AndroidApplicationPlugin::class) {
         task("logAndroidApplicationPlugin") { println("<<<RUNNING WITH ANDROID APPLICATION PLUGIN>>>") }
-        androidApplication {
-            compileSdkVersion(Android.Sdk.COMPLIE)
-            testOptions.unitTests.isIncludeAndroidResources = true
-            defaultConfig { defaultConfig() }
-            compileOptions { compileOptions() }
-            sourceSets { sourceSets() }
-            testOptions { testOptions() }
-            lintOptions { lintOptions() }
-        }
+        androidApplication { androidApplication() }
     }
     plugins.withType(DexcountPlugin::class) {
         task("logDexcountPlugin") { println("<<<RUNNING WITH DEXCOUNT PLUGIN>>>") }
@@ -136,6 +120,26 @@ subprojects {
 }
 
 /* CONFIGURATION EXTENSION FUNCTIONS */
+
+fun LibraryExtension.androidLibrary() {
+    compileSdkVersion(Android.Sdk.COMPLIE)
+    testOptions.unitTests.isIncludeAndroidResources = true
+    defaultConfig { defaultConfig() }
+    compileOptions { compileOptions() }
+    sourceSets { sourceSets() }
+    testOptions { testOptions() }
+    lintOptions { lintOptions() }
+}
+
+fun AppExtension.androidApplication() {
+    compileSdkVersion(Android.Sdk.COMPLIE)
+    testOptions.unitTests.isIncludeAndroidResources = true
+    defaultConfig { defaultConfig() }
+    compileOptions { compileOptions() }
+    sourceSets { sourceSets() }
+    testOptions { testOptions() }
+    lintOptions { lintOptions() }
+}
 
 fun DefaultConfig.defaultConfig() {
     minSdkVersion(Android.Sdk.MIN)
