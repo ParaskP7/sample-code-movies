@@ -2,6 +2,10 @@ import com.android.build.gradle.AppExtension
 import com.android.build.gradle.AppPlugin as AndroidApplicationPlugin
 import com.android.build.gradle.internal.dsl.LintOptions
 import com.android.build.gradle.LibraryExtension
+import com.android.build.gradle.api.AndroidSourceSet
+import com.android.build.gradle.internal.CompileOptions
+import com.android.build.gradle.internal.dsl.DefaultConfig
+import com.android.build.gradle.internal.dsl.TestOptions
 import com.android.build.gradle.LibraryPlugin as AndroidLibraryPlugin
 
 import com.getkeepsafe.dexcount.DexMethodCountExtension
@@ -94,15 +98,25 @@ subprojects {
     }
     plugins.withType(AndroidLibraryPlugin::class) {
         task("logAndroidLibraryPlugin") { println("<<<RUNNING WITH ANDROID LIBRARY PLUGIN>>>") }
-        apply(Config.Gradle.ANDROID)
         androidLibrary {
+            compileSdkVersion(Android.Sdk.COMPLIE)
+            testOptions.unitTests.isIncludeAndroidResources = true
+            defaultConfig { defaultConfig() }
+            compileOptions { compileOptions() }
+            sourceSets { sourceSets() }
+            testOptions { testOptions() }
             lintOptions { lint() }
         }
     }
     plugins.withType(AndroidApplicationPlugin::class) {
         task("logAndroidApplicationPlugin") { println("<<<RUNNING WITH ANDROID APPLICATION PLUGIN>>>") }
-        apply(Config.Gradle.ANDROID)
         androidApplication {
+            compileSdkVersion(Android.Sdk.COMPLIE)
+            testOptions.unitTests.isIncludeAndroidResources = true
+            defaultConfig { defaultConfig() }
+            compileOptions { compileOptions() }
+            sourceSets { sourceSets() }
+            testOptions { testOptions() }
             lintOptions { lint() }
         }
     }
@@ -151,4 +165,40 @@ fun LintOptions.lint() {
     htmlReport = true
     xmlReport = true
     disable(*Config.Lint.disabledIssues)
+}
+
+fun DefaultConfig.defaultConfig() {
+    minSdkVersion(Android.Sdk.MIN)
+    targetSdkVersion(Android.Sdk.TARGET)
+}
+
+fun CompileOptions.compileOptions() {
+    sourceCompatibility = Java.version
+    targetCompatibility = Java.version
+}
+
+fun NamedDomainObjectContainer<AndroidSourceSet>.sourceSets() {
+    named(Sources.MAIN) {
+        java.setSrcDirs(arrayListOf(Sources.Main.KOTLIN))
+    }
+    named(Sources.TEST) {
+        java.setSrcDirs(arrayListOf(Sources.Test.KOTLIN, Sources.Test.ROBOLECTRIC))
+        resources.setSrcDirs(arrayListOf(Sources.Test.RESOURCES))
+    }
+    named(Sources.ANDROID_TEST) {
+        java.setSrcDirs(arrayListOf(Sources.Android.Test.KOTLIN))
+    }
+}
+
+fun TestOptions.testOptions() {
+    unitTests.apply {
+        all(KotlinClosure1<Any, Test>({
+            (this as Test).also {
+                testLogging {
+                    events(*Logs.eventsKts)
+                    setExceptionFormat(Logs.EXCEPTION_FORMAT)
+                }
+            }
+        }, this))
+    }
 }

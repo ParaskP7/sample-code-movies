@@ -2,8 +2,6 @@ object Files {
 
     object Gradle {
 
-
-        const val ANDROID = "android.gradle"
         const val DEPENDENCY_UPDATES = "dependency_updates.gradle"
 
     }
