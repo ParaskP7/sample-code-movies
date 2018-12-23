@@ -1,6 +1,4 @@
 import com.android.build.gradle.AppPlugin as AndroidApplicationPlugin
-import com.android.build.gradle.internal.dsl.BaseAppModuleExtension
-import com.android.build.gradle.LibraryExtension
 import com.android.build.gradle.LibraryPlugin as AndroidLibraryPlugin
 
 import com.getkeepsafe.dexcount.DexMethodCountExtension
@@ -10,7 +8,6 @@ import com.github.benmanes.gradle.versions.VersionsPlugin
 
 import io.gitlab.arturbosch.detekt.detekt
 import io.gitlab.arturbosch.detekt.DetektPlugin
-import io.gitlab.arturbosch.detekt.extensions.DetektExtension
 
 import org.gradle.api.Project
 
