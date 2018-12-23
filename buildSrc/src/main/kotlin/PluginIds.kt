@@ -22,15 +22,15 @@ object PluginIds {
 
     }
 
-    object Dependency {
-
-        const val VERSIONS = "com.github.ben-manes.versions"
-
-    }
-
     object Quality {
 
         const val DETEKT = "io.gitlab.arturbosch.detekt"
+
+    }
+
+    object Dependency {
+
+        const val VERSIONS = "com.github.ben-manes.versions"
 
     }
 

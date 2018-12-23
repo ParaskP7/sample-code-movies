@@ -73,40 +73,44 @@ allprojects {
 
 subprojects {
     plugins.withType(KotlinPlugin::class) {
-        task("logKotlinPlugin") { println("<<<RUNNING WITH KOTLIN PLUGIN>>>") }
+        log(PluginIds.Kotlin.KOTLIN)
         java { java() }
         tasks.getByName<Test>(Tasks.TEST) { testLogging() }
     }
     plugins.withType(KotlinKaptPlugin::class) {
-        task("logKotlinKaptPlugin") { println("<<<RUNNING WITH KOTLIN KAPT PLUGIN>>>") }
+        log(PluginIds.Kotlin.KAPT)
         kapt { kapt() }
     }
     plugins.withType(KotlinAndroidPlugin::class) {
-        task("logKotlinAndroidPlugin") { println("<<<RUNNING WITH KOTLIN ANDROID PLUGIN>>>") }
+        log(PluginIds.Kotlin.Android.ANDROID)
     }
     plugins.withType(KotlinAndroidExtensionsPlugin::class) {
-        task("logKotlinAndroidExtensionsPlugin") { println("<<<RUNNING WITH KOTLIN ANDROID EXTENSIONS PLUGIN>>>") }
+        log(PluginIds.Kotlin.Android.EXTENSIONS)
     }
     plugins.withType(AndroidLibraryPlugin::class) {
-        task("logAndroidLibraryPlugin") { println("<<<RUNNING WITH ANDROID LIBRARY PLUGIN>>>") }
+        log(PluginIds.Android.LIBRARY)
         androidLibrary { androidLibrary() }
     }
     plugins.withType(AndroidApplicationPlugin::class) {
-        task("logAndroidApplicationPlugin") { println("<<<RUNNING WITH ANDROID APPLICATION PLUGIN>>>") }
+        log(PluginIds.Android.APPLICATION)
         androidApplication { androidApplication() }
     }
     plugins.withType(DexcountPlugin::class) {
-        task("logDexcountPlugin") { println("<<<RUNNING WITH DEXCOUNT PLUGIN>>>") }
+        log(PluginIds.Android.DEXCOUNT)
         dexcount { dexcount() }
     }
     plugins.withType(DetektPlugin::class) {
-        task("logDetektPlugin") { println("<<<RUNNING WITH DETEKT PLUGIN>>>") }
+        log(PluginIds.Quality.DETEKT)
         detekt { detekt() }
     }
     plugins.withType(VersionsPlugin::class) {
-        task("logVersionsPlugin") { println("<<<RUNNING WITH VERSIONS PLUGIN>>>") }
+        log(PluginIds.Dependency.VERSIONS)
         apply(Config.Gradle.DEPENDENCY_UPDATES)
     }
+}
+
+fun Project.log(pluginId: String) {
+    task("log-$pluginId") { println("<<< CONFIGURE WITH $pluginId PLUGIN >>>") }
 }
 
 /* CONFIGURATION EXTENSION FUNCTIONS */

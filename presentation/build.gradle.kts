@@ -13,8 +13,8 @@ plugins {
     id(PluginIds.Kotlin.Android.ANDROID)
     id(PluginIds.Kotlin.Android.EXTENSIONS)
     id(PluginIds.Kotlin.KAPT)
-    id(PluginIds.Dependency.VERSIONS)
     id(PluginIds.Quality.DETEKT)
+    id(PluginIds.Dependency.VERSIONS)
 }
 
 /* ANDROID */

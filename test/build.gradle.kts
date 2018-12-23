@@ -3,8 +3,8 @@
 plugins {
     id(PluginIds.Kotlin.KOTLIN)
     id(PluginIds.Kotlin.KAPT)
-    id(PluginIds.Dependency.VERSIONS)
     id(PluginIds.Quality.DETEKT)
+    id(PluginIds.Dependency.VERSIONS)
 }
 
 /* DEPENDENCIES */
