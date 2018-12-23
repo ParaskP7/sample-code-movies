@@ -3,6 +3,8 @@ import com.android.build.gradle.internal.dsl.BuildType
 import com.android.build.gradle.internal.dsl.DefaultConfig
 import com.android.build.gradle.ProguardFiles.getDefaultProguardFile
 
+import org.jetbrains.kotlin.gradle.plugin.KaptExtension
+
 /* PLUGINS */
 
 plugins {
@@ -28,10 +30,10 @@ configurations.all {
     leakCanary()
 }
 
-/* DART */
+/* KAPT */
 
 kapt {
-    arguments { arg(Config.Dart.Kapt.NAME, App.APPLICATION_ID) }
+    dart()
 }
 
 /* DEPENDENCIES */
@@ -120,4 +122,10 @@ fun org.gradle.api.artifacts.Configuration.leakCanary() {
             }
         }
     }
+}
+
+/* CONFIGURATION EXTENSION FUNCTIONS - DART */
+
+fun KaptExtension.dart() {
+    arguments { arg(Config.Dart.Kapt.NAME, App.APPLICATION_ID) }
 }
