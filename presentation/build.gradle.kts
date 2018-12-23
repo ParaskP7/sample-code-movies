@@ -1,3 +1,8 @@
+import com.android.build.gradle.internal.dsl.BaseAppModuleExtension
+import com.android.build.gradle.internal.dsl.BuildType
+import com.android.build.gradle.internal.dsl.DefaultConfig
+import com.android.build.gradle.ProguardFiles.getDefaultProguardFile
+
 /* PLUGINS */
 
 plugins {
@@ -13,23 +18,8 @@ plugins {
 /* ANDROID */
 
 android {
-    defaultConfig {
-        applicationId = App.APPLICATION_ID
-        versionCode = App.Version.CODE
-        versionName = App.Version.NAME
-        testInstrumentationRunner = Android.DefaultConfig.Test.INSTRUMENTATION_RUNNER
-    }
-    buildTypes {
-        named(Android.BuildTypes.DEBUG) {
-            applicationIdSuffix = App.Debug.Suffix.APPLICATION_ID
-            versionNameSuffix = App.Debug.Suffix.VERSION_NAME
-            isDebuggable = true
-        }
-        named(Android.BuildTypes.RELEASE) {
-            isMinifyEnabled = false
-            proguardFiles(getDefaultProguardFile(Files.Txt.PROGUARD_ANDROID), Files.Pro.PROGUARD_RULES)
-        }
-    }
+    defaultConfig { defaultConfig() }
+    buildTypes { buildTypes() }
 }
 
 /* LEAK CANARY */
@@ -103,4 +93,25 @@ dependencies {
     androidTestImplementation(Deps.Android.Test.ESPRESSO)
 
     detektPlugins(Deps.Plugin.DETEKT_FORMATTING)
+}
+
+/* CONFIGURATION EXTENSION FUNCTIONS - ANDROID */
+
+fun DefaultConfig.defaultConfig() {
+    applicationId = App.APPLICATION_ID
+    versionCode = App.Version.CODE
+    versionName = App.Version.NAME
+    testInstrumentationRunner = Android.DefaultConfig.Test.INSTRUMENTATION_RUNNER
+}
+
+fun NamedDomainObjectContainer<BuildType>.buildTypes() {
+    named(Android.BuildTypes.DEBUG) {
+        applicationIdSuffix = App.Debug.Suffix.APPLICATION_ID
+        versionNameSuffix = App.Debug.Suffix.VERSION_NAME
+        isDebuggable = true
+    }
+    named(Android.BuildTypes.RELEASE) {
+        isMinifyEnabled = false
+        proguardFiles(getDefaultProguardFile(Files.Txt.PROGUARD_ANDROID, project), Files.Pro.PROGUARD_RULES)
+    }
 }
