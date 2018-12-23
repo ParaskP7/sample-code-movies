@@ -74,10 +74,7 @@ allprojects {
 subprojects {
     plugins.withType(KotlinPlugin::class) {
         task("logKotlinPlugin") { println("<<<RUNNING WITH KOTLIN PLUGIN>>>") }
-        java {
-            sourceCompatibility = Java.version
-            targetCompatibility = Java.version
-        }
+        java { java() }
         tasks.getByName<Test>(Tasks.TEST) { testLogging() }
     }
     plugins.withType(KotlinKaptPlugin::class) {
@@ -113,6 +110,11 @@ subprojects {
 }
 
 /* CONFIGURATION EXTENSION FUNCTIONS */
+
+fun JavaPluginExtension.java() {
+    sourceCompatibility = Java.version
+    targetCompatibility = Java.version
+}
 
 fun KaptExtension.kapt() {
     useBuildCache = true
