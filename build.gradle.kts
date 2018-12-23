@@ -55,6 +55,8 @@ allprojects {
     }
 }
 
+/* PROJECT PLUGINS CONFIGURATION */
+
 subprojects {
     plugins.withType(KotlinPlugin::class) {
         task("logKotlinPlugin") { println("<<<RUNNING WITH KOTLIN PLUGIN>>>") }
