@@ -14,6 +14,8 @@ import org.gradle.api.Project
 import org.jetbrains.kotlin.gradle.internal.Kapt3GradleSubplugin as KotlinKaptPlugin
 import org.jetbrains.kotlin.gradle.plugin.KaptExtension
 import org.jetbrains.kotlin.gradle.plugin.KotlinPluginWrapper as KotlinPlugin
+import org.jetbrains.kotlin.gradle.plugin.KotlinAndroidPluginWrapper as KotlinAndroidPlugin
+import org.jetbrains.kotlin.gradle.internal.AndroidExtensionsSubpluginIndicator as KotlinAndroidExtensionsPlugin
 
 /* EXTENSION FUNCTIONS */
 
@@ -72,6 +74,12 @@ subprojects {
         kapt {
             useBuildCache = true
         }
+    }
+    plugins.withType(KotlinAndroidPlugin::class) {
+        task("logKotlinAndroidPlugin") { println("<<<RUNNING WITH KOTLIN ANDROID PLUGIN>>>") }
+    }
+    plugins.withType(KotlinAndroidExtensionsPlugin::class) {
+        task("logKotlinAndroidExtensionsPlugin") { println("<<<RUNNING WITH KOTLIN ANDROID EXTENSIONS PLUGIN>>>") }
     }
     plugins.withType(AndroidLibraryPlugin::class) {
         task("logAndroidLibraryPlugin") { println("<<<RUNNING WITH ANDROID LIBRARY PLUGIN>>>") }
