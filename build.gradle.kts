@@ -87,9 +87,7 @@ subprojects {
     }
     plugins.withType(KotlinKaptPlugin::class) {
         task("logKotlinKaptPlugin") { println("<<<RUNNING WITH KOTLIN KAPT PLUGIN>>>") }
-        kapt {
-            useBuildCache = true
-        }
+        kapt { kapt() }
     }
     plugins.withType(KotlinAndroidPlugin::class) {
         task("logKotlinAndroidPlugin") { println("<<<RUNNING WITH KOTLIN ANDROID PLUGIN>>>") }
@@ -120,6 +118,10 @@ subprojects {
 }
 
 /* CONFIGURATION EXTENSION FUNCTIONS */
+
+fun KaptExtension.kapt() {
+    useBuildCache = true
+}
 
 fun LibraryExtension.androidLibrary() {
     compileSdkVersion(Android.Sdk.COMPLIE)
