@@ -1,21 +1,24 @@
-import io.gitlab.arturbosch.detekt.DetektPlugin
-import io.gitlab.arturbosch.detekt.detekt
-
 import com.android.build.gradle.AppPlugin as AndroidApplicationPlugin
-import com.android.build.gradle.LibraryPlugin as AndroidLibraryPlugin
 import com.android.build.gradle.internal.dsl.BaseAppModuleExtension
 import com.android.build.gradle.LibraryExtension
+import com.android.build.gradle.LibraryPlugin as AndroidLibraryPlugin
+
+import com.getkeepsafe.dexcount.DexMethodCountExtension
+import com.getkeepsafe.dexcount.DexMethodCountPlugin as DexcountPlugin
 
 import com.github.benmanes.gradle.versions.VersionsPlugin
-import com.getkeepsafe.dexcount.DexMethodCountPlugin as DexcountPlugin
-import com.getkeepsafe.dexcount.DexMethodCountExtension
+
+import io.gitlab.arturbosch.detekt.detekt
+import io.gitlab.arturbosch.detekt.DetektPlugin
 import io.gitlab.arturbosch.detekt.extensions.DetektExtension
+
 import org.gradle.api.Project
+
+import org.jetbrains.kotlin.gradle.internal.AndroidExtensionsSubpluginIndicator as KotlinAndroidExtensionsPlugin
 import org.jetbrains.kotlin.gradle.internal.Kapt3GradleSubplugin as KotlinKaptPlugin
 import org.jetbrains.kotlin.gradle.plugin.KaptExtension
-import org.jetbrains.kotlin.gradle.plugin.KotlinPluginWrapper as KotlinPlugin
 import org.jetbrains.kotlin.gradle.plugin.KotlinAndroidPluginWrapper as KotlinAndroidPlugin
-import org.jetbrains.kotlin.gradle.internal.AndroidExtensionsSubpluginIndicator as KotlinAndroidExtensionsPlugin
+import org.jetbrains.kotlin.gradle.plugin.KotlinPluginWrapper as KotlinPlugin
 
 /* EXTENSION FUNCTIONS */
 
