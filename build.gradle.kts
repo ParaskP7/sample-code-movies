@@ -1,11 +1,11 @@
+import com.android.build.gradle.api.AndroidSourceSet
 import com.android.build.gradle.AppExtension
 import com.android.build.gradle.AppPlugin as AndroidApplicationPlugin
-import com.android.build.gradle.internal.dsl.LintOptions
-import com.android.build.gradle.LibraryExtension
-import com.android.build.gradle.api.AndroidSourceSet
 import com.android.build.gradle.internal.CompileOptions
 import com.android.build.gradle.internal.dsl.DefaultConfig
+import com.android.build.gradle.internal.dsl.LintOptions
 import com.android.build.gradle.internal.dsl.TestOptions
+import com.android.build.gradle.LibraryExtension
 import com.android.build.gradle.LibraryPlugin as AndroidLibraryPlugin
 
 import com.getkeepsafe.dexcount.DexMethodCountExtension
