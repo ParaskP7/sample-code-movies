@@ -1,8 +1,8 @@
 package io.petros.movies.presentation.feature.common.view
 
-import com.nhaarman.mockito_kotlin.mock
-import com.nhaarman.mockito_kotlin.verify
-import com.nhaarman.mockito_kotlin.whenever
+import com.nhaarman.mockitokotlin2.mock
+import com.nhaarman.mockitokotlin2.verify
+import com.nhaarman.mockitokotlin2.whenever
 import io.petros.movies.domain.model.movie.Movie
 import io.petros.movies.presentation.RobolectricTestProvider.Companion.provideContext
 import io.petros.movies.test.domain.TestMoviesProvider.Companion.NEXT_PAGE

@@ -2,8 +2,8 @@ package io.petros.movies.presentation.feature.movie.navigator
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
-import com.nhaarman.mockito_kotlin.mock
-import com.nhaarman.mockito_kotlin.verify
+import com.nhaarman.mockitokotlin2.mock
+import com.nhaarman.mockitokotlin2.verify
 import io.petros.movies.presentation.feature.movie.MovieDetailsActivity
 import io.petros.movies.test.domain.TestMoviesProvider.Companion.provideMovie
 import org.assertj.core.api.Assertions.assertThat

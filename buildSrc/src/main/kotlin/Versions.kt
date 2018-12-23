@@ -120,7 +120,7 @@ object Versions {
 
     object Mock {
 
-        const val MOCKITO_KOTLIN = "1.6.0"
+        const val MOCKITO_KOTLIN = "2.0.0"
 
     }
 

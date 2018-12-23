@@ -141,7 +141,7 @@ object Deps {
 
     object Mock {
 
-        val MOCKITO_KOTLIN = "com.nhaarman:mockito-kotlin:${Versions.Mock.MOCKITO_KOTLIN}"
+        val MOCKITO_KOTLIN = "com.nhaarman.mockitokotlin2:mockito-kotlin:${Versions.Mock.MOCKITO_KOTLIN}"
 
     }
 

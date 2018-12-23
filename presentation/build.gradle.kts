@@ -75,9 +75,7 @@ dependencies {
 
     testImplementation(Deps.Test.J_UNIT)
     testImplementation(Deps.Test.ASSERT_J)
-    testImplementation(Deps.Mock.MOCKITO_KOTLIN, {
-        exclude(ExcludedDeps.Group.Jetbrains.KOTLIN, ExcludedDeps.Module.Kotlin.REFLECT)
-    })
+    testImplementation(Deps.Mock.MOCKITO_KOTLIN)
     testImplementation(Deps.Android.Arch.Test.CORE_TESTING)
     testImplementation(Deps.Android.Test.CORE)
     testImplementation(Deps.Robolectric.ROBOLECTRIC)

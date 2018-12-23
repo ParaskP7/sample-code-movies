@@ -1,7 +1,7 @@
 package io.petros.movies.presentation.feature.movies.navigator
 
-import com.nhaarman.mockito_kotlin.mock
-import com.nhaarman.mockito_kotlin.verify
+import com.nhaarman.mockitokotlin2.mock
+import com.nhaarman.mockitokotlin2.verify
 import io.petros.movies.presentation.feature.movie.navigator.MovieDetailsLauncher
 import io.petros.movies.presentation.feature.movies.view.SharedElementMovie
 import io.petros.movies.presentation.feature.navigator.Launcher

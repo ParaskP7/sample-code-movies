@@ -1,7 +1,7 @@
 package io.petros.movies.presentation.feature.movies.list
 
-import com.nhaarman.mockito_kotlin.mock
-import com.nhaarman.mockito_kotlin.verify
+import com.nhaarman.mockitokotlin2.mock
+import com.nhaarman.mockitokotlin2.verify
 import io.petros.movies.presentation.feature.movies.listener.MovieCallback
 import io.petros.movies.presentation.feature.movies.view.MovieItemView
 import io.petros.movies.test.domain.TestMoviesProvider.Companion.provideMovie

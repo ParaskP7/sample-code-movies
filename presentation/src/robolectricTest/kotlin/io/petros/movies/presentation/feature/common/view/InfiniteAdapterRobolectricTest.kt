@@ -2,7 +2,7 @@ package io.petros.movies.presentation.feature.common.view
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.nhaarman.mockito_kotlin.mock
+import com.nhaarman.mockitokotlin2.mock
 import io.petros.movies.domain.model.common.PaginationData
 import io.petros.movies.domain.model.movie.Movie
 import io.petros.movies.domain.model.movie.MoviesResultPage
