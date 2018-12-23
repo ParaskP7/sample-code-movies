@@ -1,4 +1,7 @@
+import com.android.build.gradle.AppExtension
 import com.android.build.gradle.AppPlugin as AndroidApplicationPlugin
+import com.android.build.gradle.internal.dsl.LintOptions
+import com.android.build.gradle.LibraryExtension
 import com.android.build.gradle.LibraryPlugin as AndroidLibraryPlugin
 
 import com.getkeepsafe.dexcount.DexMethodCountExtension
@@ -24,6 +27,12 @@ fun Project.java(configure: JavaPluginExtension.() -> Unit) =
 
 fun Project.kapt(configure: KaptExtension.() -> Unit) =
     extensions.configure(KaptExtension::class.java, configure)
+
+fun Project.androidLibrary(configure: LibraryExtension.() -> Unit) =
+    extensions.configure(LibraryExtension::class.java, configure)
+
+fun Project.androidApplication(configure: AppExtension.() -> Unit) =
+    extensions.configure(AppExtension::class.java, configure)
 
 fun Project.dexcount(configure: DexMethodCountExtension.() -> Unit) =
     extensions.configure(DexMethodCountExtension::class.java, configure)
@@ -86,12 +95,16 @@ subprojects {
     plugins.withType(AndroidLibraryPlugin::class) {
         task("logAndroidLibraryPlugin") { println("<<<RUNNING WITH ANDROID LIBRARY PLUGIN>>>") }
         apply(Config.Gradle.ANDROID)
-        apply(Config.Gradle.LINT)
+        androidLibrary {
+            lintOptions { lint() }
+        }
     }
     plugins.withType(AndroidApplicationPlugin::class) {
         task("logAndroidApplicationPlugin") { println("<<<RUNNING WITH ANDROID APPLICATION PLUGIN>>>") }
         apply(Config.Gradle.ANDROID)
-        apply(Config.Gradle.LINT)
+        androidApplication {
+            lintOptions { lint() }
+        }
     }
     plugins.withType(DexcountPlugin::class) {
         task("logDexcountPlugin") { println("<<<RUNNING WITH DEXCOUNT PLUGIN>>>") }
@@ -124,4 +137,18 @@ subprojects {
         task("logVersionsPlugin") { println("<<<RUNNING WITH VERSIONS PLUGIN>>>") }
         apply(Config.Gradle.DEPENDENCY_UPDATES)
     }
+}
+
+/* CONFIGURATION EXTENSION FUNCTIONS */
+
+fun LintOptions.lint() {
+    isAbortOnError = true
+    isCheckAllWarnings = true
+    isIgnoreWarnings = false
+    isCheckReleaseBuilds = true
+    isWarningsAsErrors = true
+    lintConfig = file(Config.Lint.CONFIG_FILE_PATH)
+    htmlReport = true
+    xmlReport = true
+    disable(*Config.Lint.disabledIssues)
 }

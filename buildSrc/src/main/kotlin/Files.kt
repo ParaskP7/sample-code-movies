@@ -5,7 +5,6 @@ object Files {
 
         const val ANDROID = "android.gradle"
         const val DEPENDENCY_UPDATES = "dependency_updates.gradle"
-        const val LINT = "lint.gradle"
 
     }
 
