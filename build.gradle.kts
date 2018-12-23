@@ -92,6 +92,10 @@ subprojects {
     }
 }
 
+/* *********************************************************************************************************************** */
+
+/* PLUGINS EXTENSION FUNCTIONS */
+
 fun Project.log(pluginId: String) {
     task("log-$pluginId") { println("<<< CONFIGURE WITH $pluginId PLUGIN >>>") }
 }

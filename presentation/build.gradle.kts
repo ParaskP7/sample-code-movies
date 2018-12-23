@@ -48,6 +48,49 @@ dependencies {
     plugins()
 }
 
+/* *********************************************************************************************************************** */
+
+/* CONFIGURATION EXTENSION FUNCTIONS - ANDROID */
+
+fun DefaultConfig.defaultConfig() {
+    applicationId = App.APPLICATION_ID
+    versionCode = App.Version.CODE
+    versionName = App.Version.NAME
+    testInstrumentationRunner = Android.DefaultConfig.Test.INSTRUMENTATION_RUNNER
+}
+
+fun NamedDomainObjectContainer<BuildType>.buildTypes() {
+    named(Android.BuildTypes.DEBUG) {
+        applicationIdSuffix = App.Debug.Suffix.APPLICATION_ID
+        versionNameSuffix = App.Debug.Suffix.VERSION_NAME
+        isDebuggable = true
+    }
+    named(Android.BuildTypes.RELEASE) {
+        isMinifyEnabled = false
+        proguardFiles(getDefaultProguardFile(Files.Txt.PROGUARD_ANDROID, project), Files.Pro.PROGUARD_RULES)
+    }
+}
+
+/* CONFIGURATION EXTENSION FUNCTIONS - LEAK CANARY */
+
+fun org.gradle.api.artifacts.Configuration.leakCanary() {
+    if (name.contains(Configuration.Test.UNIT_TEST) || name.contains(Configuration.Test.ANDROID_TEST)) {
+        resolutionStrategy {
+            eachDependency {
+                if (requested.group == Deps.LeakCanary.GROUP && requested.name == Deps.LeakCanary.NAME) {
+                    useTarget(Deps.LeakCanary.RELEASE)
+                }
+            }
+        }
+    }
+}
+
+/* CONFIGURATION EXTENSION FUNCTIONS - DART */
+
+fun KaptExtension.dart() {
+    arguments { arg(Config.Dart.Kapt.NAME, App.APPLICATION_ID) }
+}
+
 /* DEPENDENCIES - PROJECT IMPLEMENTATION */
 
 fun DependencyHandlerScope.projectImplementation() {
@@ -193,45 +236,4 @@ fun DependencyHandlerScope.androidTestImplementation() {
 
 fun DependencyHandlerScope.plugins() {
     detektPlugins(Deps.Plugin.DETEKT_FORMATTING)
-}
-
-/* CONFIGURATION EXTENSION FUNCTIONS - ANDROID */
-
-fun DefaultConfig.defaultConfig() {
-    applicationId = App.APPLICATION_ID
-    versionCode = App.Version.CODE
-    versionName = App.Version.NAME
-    testInstrumentationRunner = Android.DefaultConfig.Test.INSTRUMENTATION_RUNNER
-}
-
-fun NamedDomainObjectContainer<BuildType>.buildTypes() {
-    named(Android.BuildTypes.DEBUG) {
-        applicationIdSuffix = App.Debug.Suffix.APPLICATION_ID
-        versionNameSuffix = App.Debug.Suffix.VERSION_NAME
-        isDebuggable = true
-    }
-    named(Android.BuildTypes.RELEASE) {
-        isMinifyEnabled = false
-        proguardFiles(getDefaultProguardFile(Files.Txt.PROGUARD_ANDROID, project), Files.Pro.PROGUARD_RULES)
-    }
-}
-
-/* CONFIGURATION EXTENSION FUNCTIONS - LEAK CANARY */
-
-fun org.gradle.api.artifacts.Configuration.leakCanary() {
-    if (name.contains(Configuration.Test.UNIT_TEST) || name.contains(Configuration.Test.ANDROID_TEST)) {
-        resolutionStrategy {
-            eachDependency {
-                if (requested.group == Deps.LeakCanary.GROUP && requested.name == Deps.LeakCanary.NAME) {
-                    useTarget(Deps.LeakCanary.RELEASE)
-                }
-            }
-        }
-    }
-}
-
-/* CONFIGURATION EXTENSION FUNCTIONS - DART */
-
-fun KaptExtension.dart() {
-    arguments { arg(Config.Dart.Kapt.NAME, App.APPLICATION_ID) }
 }
