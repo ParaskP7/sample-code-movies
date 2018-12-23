@@ -4,3 +4,5 @@ object Utils {
     const val COLON = ":"
 
 }
+
+fun Any?.asString() = "\"$this\""

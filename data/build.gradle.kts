@@ -3,10 +3,6 @@ import com.android.build.gradle.internal.dsl.BuildType
 import java.io.FileInputStream
 import java.util.Properties
 
-/* EXTENSIONS FUNCTIONS */
-
-fun Any?.asString() = "\"$this\""
-
 /* PLUGINS */
 
 plugins {

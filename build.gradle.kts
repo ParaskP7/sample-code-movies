@@ -25,23 +25,6 @@ import org.jetbrains.kotlin.gradle.plugin.KaptExtension
 import org.jetbrains.kotlin.gradle.plugin.KotlinAndroidPluginWrapper as KotlinAndroidPlugin
 import org.jetbrains.kotlin.gradle.plugin.KotlinPluginWrapper as KotlinPlugin
 
-/* EXTENSION FUNCTIONS */
-
-fun Project.java(configure: JavaPluginExtension.() -> Unit) =
-    extensions.configure(JavaPluginExtension::class.java, configure)
-
-fun Project.kapt(configure: KaptExtension.() -> Unit) =
-    extensions.configure(KaptExtension::class.java, configure)
-
-fun Project.androidLibrary(configure: LibraryExtension.() -> Unit) =
-    extensions.configure(LibraryExtension::class.java, configure)
-
-fun Project.androidApplication(configure: AppExtension.() -> Unit) =
-    extensions.configure(AppExtension::class.java, configure)
-
-fun Project.dexcount(configure: DexMethodCountExtension.() -> Unit) =
-    extensions.configure(DexMethodCountExtension::class.java, configure)
-
 /* BUILD SCRIPT */
 
 buildscript {
@@ -112,6 +95,21 @@ subprojects {
 fun Project.log(pluginId: String) {
     task("log-$pluginId") { println("<<< CONFIGURE WITH $pluginId PLUGIN >>>") }
 }
+
+fun Project.java(configure: JavaPluginExtension.() -> Unit) =
+    extensions.configure(JavaPluginExtension::class.java, configure)
+
+fun Project.kapt(configure: KaptExtension.() -> Unit) =
+    extensions.configure(KaptExtension::class.java, configure)
+
+fun Project.androidLibrary(configure: LibraryExtension.() -> Unit) =
+    extensions.configure(LibraryExtension::class.java, configure)
+
+fun Project.androidApplication(configure: AppExtension.() -> Unit) =
+    extensions.configure(AppExtension::class.java, configure)
+
+fun Project.dexcount(configure: DexMethodCountExtension.() -> Unit) =
+    extensions.configure(DexMethodCountExtension::class.java, configure)
 
 /* CONFIGURATION EXTENSION FUNCTIONS */
 
