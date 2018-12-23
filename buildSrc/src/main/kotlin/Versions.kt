@@ -126,7 +126,7 @@ object Versions {
 
     object Robolectric {
 
-        const val ROBOLECTRIC = "4.0.2"
+        const val ROBOLECTRIC = "4.1"
 
     }
 
