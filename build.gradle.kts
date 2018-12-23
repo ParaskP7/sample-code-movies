@@ -105,7 +105,7 @@ subprojects {
             compileOptions { compileOptions() }
             sourceSets { sourceSets() }
             testOptions { testOptions() }
-            lintOptions { lint() }
+            lintOptions { lintOptions() }
         }
     }
     plugins.withType(AndroidApplicationPlugin::class) {
@@ -117,7 +117,7 @@ subprojects {
             compileOptions { compileOptions() }
             sourceSets { sourceSets() }
             testOptions { testOptions() }
-            lintOptions { lint() }
+            lintOptions { lintOptions() }
         }
     }
     plugins.withType(DexcountPlugin::class) {
@@ -155,18 +155,6 @@ subprojects {
 
 /* CONFIGURATION EXTENSION FUNCTIONS */
 
-fun LintOptions.lint() {
-    isAbortOnError = true
-    isCheckAllWarnings = true
-    isIgnoreWarnings = false
-    isCheckReleaseBuilds = true
-    isWarningsAsErrors = true
-    lintConfig = file(Config.Lint.CONFIG_FILE_PATH)
-    htmlReport = true
-    xmlReport = true
-    disable(*Config.Lint.disabledIssues)
-}
-
 fun DefaultConfig.defaultConfig() {
     minSdkVersion(Android.Sdk.MIN)
     targetSdkVersion(Android.Sdk.TARGET)
@@ -201,4 +189,16 @@ fun TestOptions.testOptions() {
             }
         }, this))
     }
+}
+
+fun LintOptions.lintOptions() {
+    isAbortOnError = true
+    isCheckAllWarnings = true
+    isIgnoreWarnings = false
+    isCheckReleaseBuilds = true
+    isWarningsAsErrors = true
+    lintConfig = file(Config.Lint.CONFIG_FILE_PATH)
+    htmlReport = true
+    xmlReport = true
+    disable(*Config.Lint.disabledIssues)
 }
