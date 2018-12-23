@@ -123,20 +123,7 @@ subprojects {
     }
     plugins.withType(DexcountPlugin::class) {
         task("logDexcountPlugin") { println("<<<RUNNING WITH DEXCOUNT PLUGIN>>>") }
-        dexcount {
-            format = Config.Dexcount.FORMAT
-            includeClasses = true
-            includeClassCount = true
-            includeFieldCount = true
-            includeTotalMethodCount = true
-            orderByMethodCount = false
-            verbose = false
-            maxTreeDepth = Integer.MAX_VALUE
-            teamCityIntegration = false
-            teamCitySlug = null
-            runOnEachPackage = true
-            maxMethodCount = Config.Dexcount.MAX_METHOD_COUNT
-        }
+        dexcount { dexcount() }
     }
     plugins.withType(DetektPlugin::class) {
         task("logDetektPlugin") { println("<<<RUNNING WITH DETEKT PLUGIN>>>") }
@@ -196,6 +183,21 @@ fun LintOptions.lintOptions() {
     htmlReport = true
     xmlReport = true
     disable(*Config.Lint.disabledIssues)
+}
+
+fun DexMethodCountExtension.dexcount() {
+    format = Config.Dexcount.FORMAT
+    includeClasses = true
+    includeClassCount = true
+    includeFieldCount = true
+    includeTotalMethodCount = true
+    orderByMethodCount = false
+    verbose = false
+    maxTreeDepth = Integer.MAX_VALUE
+    teamCityIntegration = false
+    teamCitySlug = null
+    runOnEachPackage = true
+    maxMethodCount = Config.Dexcount.MAX_METHOD_COUNT
 }
 
 fun DetektExtension.detekt() {
