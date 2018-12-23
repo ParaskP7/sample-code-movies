@@ -78,12 +78,7 @@ subprojects {
             sourceCompatibility = Java.version
             targetCompatibility = Java.version
         }
-        tasks.getByName<Test>(Tasks.TEST) {
-            testLogging {
-                events(*Logs.eventsKts)
-                setExceptionFormat(Logs.EXCEPTION_FORMAT)
-            }
-        }
+        tasks.getByName<Test>(Tasks.TEST) { testLogging() }
     }
     plugins.withType(KotlinKaptPlugin::class) {
         task("logKotlinKaptPlugin") { println("<<<RUNNING WITH KOTLIN KAPT PLUGIN>>>") }
@@ -169,13 +164,15 @@ fun NamedDomainObjectContainer<AndroidSourceSet>.sourceSets() {
 fun TestOptions.testOptions() {
     unitTests.apply {
         all(KotlinClosure1<Any, Test>({
-            (this as Test).also {
-                testLogging {
-                    events(*Logs.eventsKts)
-                    setExceptionFormat(Logs.EXCEPTION_FORMAT)
-                }
-            }
+            (this as Test).also { testLogging() }
         }, this))
+    }
+}
+
+fun Test.testLogging() {
+    testLogging {
+        events(*Logs.eventsKts)
+        setExceptionFormat(Logs.EXCEPTION_FORMAT)
     }
 }
 
