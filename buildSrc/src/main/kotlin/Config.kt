@@ -1,13 +1,12 @@
 object Config {
 
+    private const val GRADLE_DIRECTORY = "${Folders.PARENT}/${Folders.Config.CONFIG}/${Folders.Config.GRADLE}"
     private const val KEYS_DIRECTORY = "${Folders.PARENT}/${Folders.Config.CONFIG}/${Folders.Config.KEYS}"
     private const val QUALITY_DIRECTORY = "${Folders.Config.CONFIG}/${Folders.Config.QUALITY}"
 
     object Gradle {
 
-        private const val GRADLE_DIRECTORY = "${Folders.PARENT}/${Folders.Config.CONFIG}/${Folders.Config.GRADLE}"
-
-        const val DEPENDENCY_UPDATES = "${GRADLE_DIRECTORY}/${Folders.Config.DEPENDENCY}/${Files.Gradle.DEPENDENCY_UPDATES}"
+        const val DEPENDENCY_UPDATES = "${GRADLE_DIRECTORY}/${Files.Gradle.DEPENDENCY_UPDATES}"
 
     }
 

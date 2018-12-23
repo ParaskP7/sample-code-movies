@@ -6,7 +6,6 @@ object Folders {
 
         const val CONFIG = "config"
         const val GRADLE = "gradle"
-        const val DEPENDENCY = "dependency"
         const val QUALITY = "quality"
         const val KEYS = "keys"
 
