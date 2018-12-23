@@ -1,3 +1,4 @@
+import com.android.build.gradle.internal.dsl.BuildType
 import java.io.FileInputStream
 import java.util.Properties
 
@@ -20,17 +21,7 @@ plugins {
 /* ANDROID */
 
 android {
-    buildTypes {
-        val themoviedbApiProperties = Properties()
-        themoviedbApiProperties.load(FileInputStream(file(Config.Keys.TheMoviesDb.API_FILE_PATH)))
-        val themoviedbApiKey = themoviedbApiProperties[Keys.TheMoviesDb.Property.API_KEY].asString()
-        named(Android.BuildTypes.DEBUG) {
-            buildConfigField(BuildConfig.Field.STRING, Config.Keys.TheMoviesDb.API_KEY_CONST, themoviedbApiKey)
-        }
-        named(Android.BuildTypes.RELEASE) {
-            buildConfigField(BuildConfig.Field.STRING, Config.Keys.TheMoviesDb.API_KEY_CONST, themoviedbApiKey)
-        }
-    }
+    buildTypes { buildTypes() }
 }
 
 /* DEPENDENCIES */
@@ -62,4 +53,18 @@ dependencies {
     })
 
     detektPlugins(Deps.Plugin.DETEKT_FORMATTING)
+}
+
+/* CONFIGURATION EXTENSION FUNCTIONS - ANDROID */
+
+fun NamedDomainObjectContainer<BuildType>.buildTypes() {
+    val themoviedbApiProperties = Properties()
+    themoviedbApiProperties.load(FileInputStream(file(Config.Keys.TheMoviesDb.API_FILE_PATH)))
+    val themoviedbApiKey = themoviedbApiProperties[Keys.TheMoviesDb.Property.API_KEY].asString()
+    named(Android.BuildTypes.DEBUG) {
+        buildConfigField(BuildConfig.Field.STRING, Config.Keys.TheMoviesDb.API_KEY_CONST, themoviedbApiKey)
+    }
+    named(Android.BuildTypes.RELEASE) {
+        buildConfigField(BuildConfig.Field.STRING, Config.Keys.TheMoviesDb.API_KEY_CONST, themoviedbApiKey)
+    }
 }
