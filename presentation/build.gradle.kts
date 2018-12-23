@@ -22,18 +22,10 @@ android {
     buildTypes { buildTypes() }
 }
 
-/* LEAK CANARY */
+/* CONFIGURATIONS */
 
 configurations.all {
-    if (name.contains(Configuration.Test.UNIT_TEST) || name.contains(Configuration.Test.ANDROID_TEST)) {
-        resolutionStrategy {
-            eachDependency {
-                if (requested.group == Deps.LeakCanary.GROUP && requested.name == Deps.LeakCanary.NAME) {
-                    useTarget(Deps.LeakCanary.RELEASE)
-                }
-            }
-        }
-    }
+    leakCanary()
 }
 
 /* DART */
@@ -113,5 +105,19 @@ fun NamedDomainObjectContainer<BuildType>.buildTypes() {
     named(Android.BuildTypes.RELEASE) {
         isMinifyEnabled = false
         proguardFiles(getDefaultProguardFile(Files.Txt.PROGUARD_ANDROID, project), Files.Pro.PROGUARD_RULES)
+    }
+}
+
+/* CONFIGURATION EXTENSION FUNCTIONS - LEAK CANARY */
+
+fun org.gradle.api.artifacts.Configuration.leakCanary() {
+    if (name.contains(Configuration.Test.UNIT_TEST) || name.contains(Configuration.Test.ANDROID_TEST)) {
+        resolutionStrategy {
+            eachDependency {
+                if (requested.group == Deps.LeakCanary.GROUP && requested.name == Deps.LeakCanary.NAME) {
+                    useTarget(Deps.LeakCanary.RELEASE)
+                }
+            }
+        }
     }
 }
