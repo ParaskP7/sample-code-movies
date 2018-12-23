@@ -10,16 +10,57 @@ plugins {
 /* DEPENDENCIES */
 
 dependencies {
+    implementation()
+    testProjectImplementation()
+    testImplementation()
+    plugins()
+}
+
+/* DEPENDENCIES - IMPLEMENTATION */
+
+fun DependencyHandlerScope.implementation() {
+    implementationKotlin()
+    implementationDi()
+    implementationRx()
+}
+
+fun DependencyHandlerScope.implementationKotlin() {
     implementation(Deps.Kotlin.KOTLIN)
+}
+
+fun DependencyHandlerScope.implementationDi() {
     implementation(Deps.Di.DAGGER)
     kapt(Deps.Di.DAGGER_COMPILER)
+}
+
+fun DependencyHandlerScope.implementationRx() {
     implementation(Deps.Rx.RX_JAVA)
+}
 
+/* DEPENDENCIES - TEST PROJECT IMPLEMENTATION */
+
+fun DependencyHandlerScope.testProjectImplementation() {
     testImplementation(project(Project.TestImplementation.TEST))
+}
 
+/* DEPENDENCIES - TEST IMPLEMENTATION */
+
+fun DependencyHandlerScope.testImplementation() {
+    testImplementationTest()
+    testImplementationMock()
+}
+
+fun DependencyHandlerScope.testImplementationTest() {
     testImplementation(Deps.Test.J_UNIT)
     testImplementation(Deps.Test.ASSERT_J)
-    testImplementation(Deps.Mock.MOCKITO_KOTLIN)
+}
 
+fun DependencyHandlerScope.testImplementationMock() {
+    testImplementation(Deps.Mock.MOCKITO_KOTLIN)
+}
+
+/* DEPENDENCIES - PLUGINS */
+
+fun DependencyHandlerScope.plugins() {
     detektPlugins(Deps.Plugin.DETEKT_FORMATTING)
 }

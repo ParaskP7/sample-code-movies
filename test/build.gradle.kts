@@ -10,10 +10,34 @@ plugins {
 /* DEPENDENCIES */
 
 dependencies {
+    projectImplementation()
+    implementation()
+    plugins()
+}
+
+/* DEPENDENCIES - PROJECT IMPLEMENTATION */
+
+fun DependencyHandlerScope.projectImplementation() {
     implementation(project(Project.Implementation.DOMAIN))
+}
 
+/* DEPENDENCIES - IMPLEMENTATION */
+
+fun DependencyHandlerScope.implementation() {
+    implementationKotlin()
+    implementationRx()
+}
+
+fun DependencyHandlerScope.implementationKotlin() {
     implementation(Deps.Kotlin.KOTLIN)
-    implementation(Deps.Rx.RX_JAVA)
+}
 
+fun DependencyHandlerScope.implementationRx() {
+    implementation(Deps.Rx.RX_JAVA)
+}
+
+/* DEPENDENCIES - PLUGINS */
+
+fun DependencyHandlerScope.plugins() {
     detektPlugins(Deps.Plugin.DETEKT_FORMATTING)
 }

@@ -39,51 +39,159 @@ kapt {
 /* DEPENDENCIES */
 
 dependencies {
+    projectImplementation()
+    buildTypeImplementation()
+    implementation()
+    testProjectImplementation()
+    testImplementation()
+    androidTestImplementation()
+    plugins()
+}
+
+/* DEPENDENCIES - PROJECT IMPLEMENTATION */
+
+fun DependencyHandlerScope.projectImplementation() {
     implementation(project(Project.Implementation.DOMAIN))
     implementation(project(Project.Implementation.DATA))
+}
 
+/* DEPENDENCIES - BUILD TYPE IMPLEMENTATION */
+
+fun DependencyHandlerScope.buildTypeImplementation() {
+    buildTypeImplementationLeakCanary()
+}
+
+fun DependencyHandlerScope.buildTypeImplementationLeakCanary() {
     debugImplementation(Deps.LeakCanary.DEBUG)
     releaseImplementation(Deps.LeakCanary.RELEASE)
+}
 
+/* DEPENDENCIES - IMPLEMENTATION */
+
+fun DependencyHandlerScope.implementation() {
+    implementationKotlin()
+    implementationMaterial()
+    implementationAndroid()
+    implementationAndroidKtx()
+    implementationAndroidArch()
+    implementationDi()
+    implementationRx()
+    implementationNet()
+    implementationRetrofit()
+    implementationGlide()
+    implementationExtras()
+    implementationUtil()
+    implementationLog()
+}
+
+fun DependencyHandlerScope.implementationKotlin() {
     implementation(Deps.Kotlin.KOTLIN)
+}
+
+fun DependencyHandlerScope.implementationMaterial() {
     implementation(Deps.Material.MATERIAL)
+}
+
+fun DependencyHandlerScope.implementationAndroid() {
     implementation(Deps.Android.APP_COMPAT)
     implementation(Deps.Android.RECYCLER_VIEW)
     implementation(Deps.Android.CARD_VIEW)
     implementation(Deps.Android.CONSTRAINT_LAYOUT)
+}
+
+fun DependencyHandlerScope.implementationAndroidKtx() {
     implementation(Deps.Android.Ktx.CORE)
+}
+
+fun DependencyHandlerScope.implementationAndroidArch() {
     implementation(Deps.Android.Arch.LIFECYCLE_EXTENSIONS)
+}
+
+fun DependencyHandlerScope.implementationDi() {
     implementation(Deps.Di.DAGGER)
     kapt(Deps.Di.DAGGER_COMPILER)
     implementation(Deps.Di.DAGGER_ANDROID)
     kapt(Deps.Di.DAGGER_ANDROID_PROCESSOR)
+}
+
+fun DependencyHandlerScope.implementationRx() {
     implementation(Deps.Rx.RX_JAVA)
     implementation(Deps.Rx.RX_ANDROID)
+}
+
+fun DependencyHandlerScope.implementationNet() {
     implementation(Deps.Net.GSON)
     implementation(Deps.Net.OK_HTTP_LOGGING)
+}
+
+fun DependencyHandlerScope.implementationRetrofit() {
     implementation(Deps.Net.Rest.RETROFIT)
+}
+
+fun DependencyHandlerScope.implementationGlide() {
     implementation(Deps.Image.GLIDE)
     kapt(Deps.Image.GLIDE_COMPILER)
+}
+
+fun DependencyHandlerScope.implementationExtras() {
     implementation(Deps.Extras.DART)
     kapt(Deps.Extras.DART_PROCESSOR)
     implementation(Deps.Extras.HENSON)
     kapt(Deps.Extras.HENSON_PROCESSOR)
+}
+
+fun DependencyHandlerScope.implementationUtil() {
     implementation(Deps.Util.MONTH_YEAR_PICKER)
+}
+
+fun DependencyHandlerScope.implementationLog() {
     implementation(Deps.Log.TIMBER)
+}
 
+/* DEPENDENCIES - TEST PROJECT IMPLEMENTATION */
+
+fun DependencyHandlerScope.testProjectImplementation() {
     testImplementation(project(Project.TestImplementation.TEST))
+}
 
+/* DEPENDENCIES - TEST IMPLEMENTATION */
+
+fun DependencyHandlerScope.testImplementation() {
+    testImplementationTest()
+    testImplementationMock()
+    testImplementationAndroidArch()
+    testImplementationRobolectric()
+}
+
+fun DependencyHandlerScope.testImplementationTest() {
     testImplementation(Deps.Test.J_UNIT)
     testImplementation(Deps.Test.ASSERT_J)
+}
+
+fun DependencyHandlerScope.testImplementationMock() {
     testImplementation(Deps.Mock.MOCKITO_KOTLIN)
+}
+
+fun DependencyHandlerScope.testImplementationAndroidArch() {
     testImplementation(Deps.Android.Arch.Test.CORE_TESTING)
+}
+
+fun DependencyHandlerScope.testImplementationRobolectric() {
     testImplementation(Deps.Android.Test.CORE)
     testImplementation(Deps.Robolectric.ROBOLECTRIC)
+}
 
+/* DEPENDENCIES - ANDROID TEST IMPLEMENTATION */
+
+fun DependencyHandlerScope.androidTestImplementation() {
     androidTestImplementation(Deps.Android.Test.CORE)
     androidTestImplementation(Deps.Android.Test.J_UNIT)
     androidTestImplementation(Deps.Android.Test.ESPRESSO)
+}
 
+/* DEPENDENCIES - PLUGINS */
+
+fun DependencyHandlerScope.plugins() {
     detektPlugins(Deps.Plugin.DETEKT_FORMATTING)
 }
 
