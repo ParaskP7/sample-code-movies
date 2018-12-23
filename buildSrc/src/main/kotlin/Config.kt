@@ -43,7 +43,7 @@ object Config {
 
     object Detekt {
 
-        const val CONFIG_FILE_PATH = "${Folders.PARENT}/${QUALITY_DIRECTORY}/${Files.Yml.DETEKT}"
+        const val CONFIG_FILE_PATH = "${QUALITY_DIRECTORY}/${Files.Yml.DETEKT}"
         const val FILTERS = ".*/${Folders.Source.TEST}/.*" + Utils.COMMA +
                 ".*/${Folders.Source.ROBOLECTRIC_TEST}/.*" + Utils.COMMA +
                 ".*/${Folders.Source.ANDROID_TEST}/.*" + Utils.COMMA +

@@ -15,6 +15,7 @@ import com.github.benmanes.gradle.versions.VersionsPlugin
 
 import io.gitlab.arturbosch.detekt.detekt
 import io.gitlab.arturbosch.detekt.DetektPlugin
+import io.gitlab.arturbosch.detekt.extensions.DetektExtension
 
 import org.gradle.api.Project
 
@@ -139,13 +140,7 @@ subprojects {
     }
     plugins.withType(DetektPlugin::class) {
         task("logDetektPlugin") { println("<<<RUNNING WITH DETEKT PLUGIN>>>") }
-        detekt {
-            toolVersion = Versions.Plugin.DETEKT
-            config = files(Config.Detekt.CONFIG_FILE_PATH)
-            filters = Config.Detekt.FILTERS
-            disableDefaultRuleSets = false
-            parallel = true
-        }
+        detekt { detekt() }
     }
     plugins.withType(VersionsPlugin::class) {
         task("logVersionsPlugin") { println("<<<RUNNING WITH VERSIONS PLUGIN>>>") }
@@ -201,4 +196,12 @@ fun LintOptions.lintOptions() {
     htmlReport = true
     xmlReport = true
     disable(*Config.Lint.disabledIssues)
+}
+
+fun DetektExtension.detekt() {
+    toolVersion = Versions.Plugin.DETEKT
+    config = files(Config.Detekt.CONFIG_FILE_PATH)
+    filters = Config.Detekt.FILTERS
+    disableDefaultRuleSets = false
+    parallel = true
 }
