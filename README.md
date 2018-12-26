@@ -124,8 +124,8 @@ gradlew check -x test
 
 Or if you want to be more specific, run the below commands to run the code quality tool or your choice (in isolation):
 ```
+gradlew detekt
 gradlew lintDebug
-gradlew detektCheck
 ```
 
 Run the project unit tests using this command (this includes Robolectric):
