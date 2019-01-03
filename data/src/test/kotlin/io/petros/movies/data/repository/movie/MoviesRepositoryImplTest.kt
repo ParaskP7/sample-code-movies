@@ -6,6 +6,7 @@ import io.petros.movies.data.network.WebService
 import io.petros.movies.test.domain.TestMoviesProvider.Companion.MOVIE_MONTH
 import io.petros.movies.test.domain.TestMoviesProvider.Companion.MOVIE_YEAR
 import io.petros.movies.test.domain.TestMoviesProvider.Companion.NEXT_PAGE
+import kotlinx.coroutines.runBlocking
 import org.junit.Before
 import org.junit.Test
 
@@ -21,9 +22,11 @@ class MoviesRepositoryImplTest {
 
     @Test
     fun `When load movies is triggered, then web service triggers load movies`() {
-        testedClass.loadMovies(MOVIE_YEAR, MOVIE_MONTH, NEXT_PAGE)
+        runBlocking {
+            testedClass.loadMovies(MOVIE_YEAR, MOVIE_MONTH, NEXT_PAGE)
 
-        verify(webServiceMock).loadMovies(MOVIE_YEAR, MOVIE_MONTH, NEXT_PAGE)
+            verify(webServiceMock).loadMovies(MOVIE_YEAR, MOVIE_MONTH, NEXT_PAGE)
+        }
     }
 
 }

@@ -6,7 +6,6 @@ import io.petros.movies.data.network.rest.mapper.movie.MoviesMapper
 import io.petros.movies.domain.model.movie.MoviesResultPage
 import io.petros.movies.domain.util.releaseDateGte
 import io.petros.movies.domain.util.releaseDateLte
-import io.reactivex.Single
 import javax.inject.Inject
 
 class RestClient @Inject constructor(
@@ -14,12 +13,12 @@ class RestClient @Inject constructor(
     private val restApi: RestApi
 ) : WebService {
 
-    override fun loadMovies(year: Int?, month: Int?, page: Int?): Single<MoviesResultPage> {
+    override suspend fun loadMovies(year: Int?, month: Int?, page: Int?): MoviesResultPage {
         return restApi.loadMovies(
             releaseDateGte(year, month),
             releaseDateLte(year, month),
             page
-        ).map { MoviesMapper.transform(context, it) }
+        ).let { MoviesMapper.transform(context, it.await()) }
     }
 
 }

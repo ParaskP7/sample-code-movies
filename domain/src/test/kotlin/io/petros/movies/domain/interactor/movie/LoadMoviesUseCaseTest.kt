@@ -8,15 +8,14 @@ import io.petros.movies.test.domain.TestMoviesProvider.Companion.MOVIE_MONTH
 import io.petros.movies.test.domain.TestMoviesProvider.Companion.MOVIE_YEAR
 import io.petros.movies.test.domain.TestMoviesProvider.Companion.NEXT_PAGE
 import io.petros.movies.test.domain.TestMoviesProvider.Companion.provideMoviesResultPage
-import io.petros.movies.test.rx.TestRxSchedulersProvider.Companion.provideRxSchedulers
-import io.reactivex.Single
+import kotlinx.coroutines.runBlocking
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.Before
 import org.junit.Test
 
 class LoadMoviesUseCaseTest {
 
-    private val params = LoadMoviesUseCase.Params.with(MOVIE_YEAR, MOVIE_MONTH, NEXT_PAGE)
+    private val params = LoadMoviesUseCase.Params(MOVIE_YEAR, MOVIE_MONTH, NEXT_PAGE)
 
     private val moviesResultPage = provideMoviesResultPage()
 
@@ -25,24 +24,31 @@ class LoadMoviesUseCaseTest {
 
     @Before
     fun setUp() {
-        testedClass = LoadMoviesUseCase(moviesRepositoryMock, provideRxSchedulers())
+        testedClass = LoadMoviesUseCase(moviesRepositoryMock)
     }
 
     @Test
     fun `When load movies use case is build, then movies repository triggers load movies`() {
-        testedClass.buildUseCaseObservable(params)
+        runBlocking {
+            whenever(moviesRepositoryMock.loadMovies(MOVIE_YEAR, MOVIE_MONTH, NEXT_PAGE))
+                .thenReturn(moviesResultPage)
 
-        verify(moviesRepositoryMock).loadMovies(MOVIE_YEAR, MOVIE_MONTH, NEXT_PAGE)
+            testedClass.execute(params)
+
+            verify(moviesRepositoryMock).loadMovies(MOVIE_YEAR, MOVIE_MONTH, NEXT_PAGE)
+        }
     }
 
     @Test
     fun `When load movies returns, then the movies result page is the expected one`() {
-        whenever(moviesRepositoryMock.loadMovies(MOVIE_YEAR, MOVIE_MONTH, NEXT_PAGE))
-            .thenReturn(Single.just(moviesResultPage))
+        runBlocking {
+            whenever(moviesRepositoryMock.loadMovies(MOVIE_YEAR, MOVIE_MONTH, NEXT_PAGE))
+                .thenReturn(moviesResultPage)
 
-        val result = testedClass.buildUseCaseObservable(params).blockingGet()
+            val result = testedClass.execute(params)
 
-        assertThat(result).isEqualTo(moviesResultPage)
+            assertThat(result).isEqualTo(moviesResultPage)
+        }
     }
 
 }

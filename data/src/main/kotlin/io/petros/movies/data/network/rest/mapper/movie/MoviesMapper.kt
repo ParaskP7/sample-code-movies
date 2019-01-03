@@ -11,14 +11,14 @@ class MoviesMapper private constructor() { // MIT
 
         internal fun transform(
             context: Context,
-            moviesResultPageResponse: MoviesResultPageResponse
+            moviesResponse: MoviesResultPageResponse
         ): MoviesResultPage {
             val movies = arrayListOf<Movie>()
-            for (movieResponse in moviesResultPageResponse.results) {
+            for (movieResponse in moviesResponse.results) {
                 movies.add(movieResponse.toMovie(context))
             }
             return MoviesResultPage(
-                moviesResultPageResponse.nextPage(),
+                moviesResponse.nextPage(),
                 movies
             )
         }

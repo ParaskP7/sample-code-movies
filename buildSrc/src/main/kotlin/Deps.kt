@@ -25,6 +25,13 @@ object Deps {
 
     object Kotlin {
 
+        object Coroutines {
+
+            val CORE = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.Kotlin.COROUTINES}"
+            val ANDROID = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.Kotlin.COROUTINES}"
+
+        }
+
         val KOTLIN = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${Versions.Plugin.KOTLIN}"
 
     }
@@ -80,20 +87,13 @@ object Deps {
 
     }
 
-    object Rx {
-
-        val RX_JAVA = "io.reactivex.rxjava2:rxjava:${Versions.Rx.RX_JAVA}"
-        val RX_ANDROID = "io.reactivex.rxjava2:rxandroid:${Versions.Rx.RX_ANDROID}"
-
-    }
-
     object Net {
 
         object Rest {
 
             val RETROFIT = "com.squareup.retrofit2:retrofit:${Versions.Rest.RETROFIT}"
             val RETROFIT_GSON = "com.squareup.retrofit2:converter-gson:${Versions.Rest.RETROFIT}"
-            val RETROFIT_RX = "com.squareup.retrofit2:adapter-rxjava2:${Versions.Rest.RETROFIT}"
+            val RETROFIT_COROUTINES = "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:${Versions.Rest.RETROFIT_COROUTINES}"
 
         }
 

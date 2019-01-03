@@ -118,7 +118,6 @@ fun DependencyHandlerScope.implementation() {
     implementationAndroidKtx()
     implementationAndroidArch()
     implementationDi()
-    implementationRx()
     implementationNet()
     implementationRetrofit()
     implementationGlide()
@@ -129,6 +128,8 @@ fun DependencyHandlerScope.implementation() {
 
 fun DependencyHandlerScope.implementationKotlin() {
     implementation(Deps.Kotlin.KOTLIN)
+    implementation(Deps.Kotlin.Coroutines.CORE)
+    implementation(Deps.Kotlin.Coroutines.ANDROID)
 }
 
 fun DependencyHandlerScope.implementationMaterial() {
@@ -155,11 +156,6 @@ fun DependencyHandlerScope.implementationDi() {
     kapt(Deps.Di.DAGGER_COMPILER)
     implementation(Deps.Di.DAGGER_ANDROID)
     kapt(Deps.Di.DAGGER_ANDROID_PROCESSOR)
-}
-
-fun DependencyHandlerScope.implementationRx() {
-    implementation(Deps.Rx.RX_JAVA)
-    implementation(Deps.Rx.RX_ANDROID)
 }
 
 fun DependencyHandlerScope.implementationNet() {

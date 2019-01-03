@@ -18,6 +18,12 @@ object Versions {
 
     // IMPLEMENTATION // ****************************************************************************************************
 
+    object Kotlin {
+
+        const val COROUTINES = "1.1.0"
+
+    }
+
     object Material {
 
         const val MATERIAL = "1.0.0"
@@ -65,13 +71,6 @@ object Versions {
 
     }
 
-    object Rx {
-
-        const val RX_JAVA = "2.2.4"
-        const val RX_ANDROID = "2.1.0"
-
-    }
-
     object Net {
 
         const val GSON = "2.8.5"
@@ -82,6 +81,7 @@ object Versions {
     object Rest {
 
         const val RETROFIT = "2.5.0"
+        const val RETROFIT_COROUTINES = "0.9.2"
 
     }
 
