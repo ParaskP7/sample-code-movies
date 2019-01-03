@@ -5,7 +5,7 @@ object Versions {
         const val ANDROID = "3.4.0-alpha10"
         const val KOTLIN = "1.3.11"
         const val VERSIONS = "0.20.0"
-        const val DEXCOUNT = "0.8.4"
+        const val DEXCOUNT = "0.8.5"
         const val DETEKT = "1.0.0-RC12"
 
     }
