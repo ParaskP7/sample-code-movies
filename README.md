@@ -167,7 +167,7 @@ and library enhancements:
 05. **![#2cb42c](https://placehold.it/15/2cb42c/000000?text=+) `DONE`** Replace Gradle Groovy with Kotlin DSL. 
     For more info, see [Gradle Kotlin DSL](https://github.com/gradle/kotlin-dsl) ``` (Kotlin language support for Gradle 
     build scripts)```
-06. **![#ffff00](https://placehold.it/15/ffff00/000000?text=+) `IN PROGRESS`** Replace RxJava with Coroutines. 
+06. **![#2cb42c](https://placehold.it/15/2cb42c/000000?text=+) `DONE`** Replace RxJava with Coroutines.
     For more info, see [Coroutines](https://kotlinlang.org/docs/reference/coroutines.html) ```(Coroutines simplify 
     asynchronous programming by putting the complications into libraries. The logic of the program can be expressed 
     sequentially in a coroutine, and the underlying library will figure out the asynchrony for us)```
