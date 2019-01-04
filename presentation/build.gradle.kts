@@ -30,12 +30,6 @@ configurations.all {
     leakCanary()
 }
 
-/* KAPT */
-
-kapt {
-    dart()
-}
-
 /* DEPENDENCIES */
 
 dependencies {
@@ -85,12 +79,6 @@ fun org.gradle.api.artifacts.Configuration.leakCanary() {
     }
 }
 
-/* CONFIGURATION EXTENSION FUNCTIONS - DART */
-
-fun KaptExtension.dart() {
-    arguments { arg(Config.Dart.Kapt.NAME, App.APPLICATION_ID) }
-}
-
 /* DEPENDENCIES - PROJECT IMPLEMENTATION */
 
 fun DependencyHandlerScope.projectImplementation() {
@@ -121,7 +109,6 @@ fun DependencyHandlerScope.implementation() {
     implementationNet()
     implementationRetrofit()
     implementationGlide()
-    implementationExtras()
     implementationUtil()
     implementationLog()
 }
@@ -170,13 +157,6 @@ fun DependencyHandlerScope.implementationRetrofit() {
 fun DependencyHandlerScope.implementationGlide() {
     implementation(Deps.Image.GLIDE)
     kapt(Deps.Image.GLIDE_COMPILER)
-}
-
-fun DependencyHandlerScope.implementationExtras() {
-    implementation(Deps.Extras.DART)
-    kapt(Deps.Extras.DART_PROCESSOR)
-    implementation(Deps.Extras.HENSON)
-    kapt(Deps.Extras.HENSON_PROCESSOR)
 }
 
 fun DependencyHandlerScope.implementationUtil() {

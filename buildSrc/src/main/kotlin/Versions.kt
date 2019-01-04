@@ -91,12 +91,6 @@ object Versions {
 
     }
 
-    object Extras {
-
-        const val DART = "2.0.3"
-
-    }
-
     object Util {
 
         const val MONTH_YEAR_PICKER = "1.3.0"

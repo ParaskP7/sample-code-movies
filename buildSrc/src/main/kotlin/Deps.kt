@@ -109,15 +109,6 @@ object Deps {
 
     }
 
-    object Extras {
-
-        val DART = "com.f2prateek.dart:dart:${Versions.Extras.DART}"
-        val DART_PROCESSOR = "com.f2prateek.dart:dart-processor:${Versions.Extras.DART}"
-        val HENSON = "com.f2prateek.dart:henson:${Versions.Extras.DART}"
-        val HENSON_PROCESSOR = "com.f2prateek.dart:henson-processor:${Versions.Extras.DART}"
-
-    }
-
     object Util {
 
         val MONTH_YEAR_PICKER = "com.whiteelephant:monthandyearpicker:${Versions.Util.MONTH_YEAR_PICKER}"

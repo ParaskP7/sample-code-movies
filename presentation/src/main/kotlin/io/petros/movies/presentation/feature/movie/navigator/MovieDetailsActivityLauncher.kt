@@ -1,19 +1,32 @@
 package io.petros.movies.presentation.feature.movie.navigator
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityOptionsCompat
-import io.petros.movies.Henson
 import io.petros.movies.R
 import io.petros.movies.domain.model.movie.Movie
+import io.petros.movies.presentation.feature.movie.MovieDetailsActivity
 import io.petros.movies.presentation.feature.movies.view.SharedElementMovie
 import io.petros.movies.presentation.feature.navigator.ActivityLauncher
+import io.petros.movies.presentation.getExtraName
 import javax.inject.Inject
 
 class MovieDetailsActivityLauncher @Inject constructor(
     private val activity: AppCompatActivity
 ) : ActivityLauncher(activity), MovieDetailsLauncher {
+
+    companion object {
+
+        private val EXTRA_CLASS = MovieDetailsActivity::class.java
+        private val EXTRA_MOVIE = getExtraName(EXTRA_CLASS, "movie")
+
+        @Suppress("UnsafeCast")
+        @SuppressLint("SyntheticAccessor")
+        fun getMovie(intent: Intent) = intent.getSerializableExtra(EXTRA_MOVIE) as Movie
+
+    }
 
     override fun launch(movie: Movie) {
         activity.startActivity(getIntent(movie))
@@ -24,10 +37,9 @@ class MovieDetailsActivityLauncher @Inject constructor(
     }
 
     private fun getIntent(movie: Movie): Intent {
-        return Henson.with(activity)
-            .gotoMovieDetailsActivity()
-            .movie(movie)
-            .build()
+        return Intent(activity, EXTRA_CLASS).also {
+            it.putExtra(EXTRA_MOVIE, movie)
+        }
     }
 
     private fun getSharedElement(movie: SharedElementMovie): Bundle? {
