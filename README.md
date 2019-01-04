@@ -26,24 +26,29 @@ Below is a list of goodies that are being showcased:
     LiveData Class)```
 2. Libraries
     1. [Dagger](https://github.com/google/dagger) ```(A fast dependency injector for Android and Java)```
-    2. [RxJava](https://github.com/ReactiveX/RxJava) ```(RxJava – Reactive Extensions for the JVM – a library for 
-    composing asynchronous and event-based programs using observable sequences for the Java VM)```
+    2. [Kotlin Coroutines](https://kotlinlang.org/docs/reference/coroutines.html) ```(Coroutines simplify asynchronous
+    programming by putting the complications into libraries. The logic of the program can be expressed sequentially in a
+    coroutine, and the underlying library will figure out the asynchrony for us)```
     3. [Retrofit](https://github.com/square/retrofit) ```(Type-safe HTTP client for Android and Java by Square, Inc.)```
     4. [GSON](https://github.com/google/gson) ```(A Java serialization/deserialization library to convert Java Objects into 
     JSON and back)```
     5. [Glide](https://github.com/bumptech/glide) ```(An image loading and caching library for Android focused on smooth 
     scrolling)```
-    6. [Dart](https://github.com/f2prateek/dart) ```(Extras binding and intent builders for Android apps)```
-    7. [Timber](https://github.com/JakeWharton/timber) ```(A logger with a small, extensible API which provides utility on 
+    6. [Timber](https://github.com/JakeWharton/timber) ```(A logger with a small, extensible API which provides utility on
     top of Android's normal Log class)```
 3. Android Support
-    1. [Constraint Layout](https://developer.android.com/reference/android/support/constraint/ConstraintLayout) ```(A 
+    1. [AndroidX](https://developer.android.com/topic/libraries/support-library/androidx-overview) ```(A new package
+    structure to make it clearer which packages are bundled with the Android operating system, and which are packaged with
+    your app's APK)```
+    2. [Android KTX](https://developer.android.com/kotlin/ktx) ```(Android KTX is a set of Kotlin extensions that is part of
+    the Android Jetpack family)```
+    3. [Constraint Layout](https://developer.android.com/reference/android/support/constraint/ConstraintLayout) ```(A
     ConstraintLayout is a ViewGroup which allows you to position and size widgets in a flexible way)```
-    2. [Card View](https://developer.android.com/reference/android/support/v7/widget/CardView.html) ```(A FrameLayout with a 
+    4. [Card View](https://developer.android.com/reference/android/support/v7/widget/CardView.html) ```(A FrameLayout with a
     rounded corner background and shadow)```
-    3. [Recycler View](https://developer.android.com/reference/android/support/v7/widget/RecyclerView.html) ```(A flexible 
+    5. [Recycler View](https://developer.android.com/reference/android/support/v7/widget/RecyclerView.html) ```(A flexible
     view for providing a limited window into a large data set)```
-    4. [Shared Element Transition](https://developer.android.com/training/material/animations.html#Transitions) ```(Activity 
+    6. [Shared Element Transition](https://developer.android.com/training/material/animations.html#Transitions) ```(Activity
     transitions in material design apps provide visual connections between different states through motion and 
     transformations between common elements)```
 4. Code Quality
@@ -61,10 +66,11 @@ Below is a list of goodies that are being showcased:
     1. [LeakCanary](https://github.com/square/leakcanary) ```(A memory leak detection library for Android and Java)```
     1. [Strict Mode](https://developer.android.com/reference/android/os/StrictMode) ```(StrictMode is a developer tool which 
     detects things you might be doing by accident and brings them to your attention so you can fix them)```
-7. Plugin
-    1. [Gradle Versions](https://github.com/ben-manes/gradle-versions-plugin) ```(Gradle plugin to discover dependency 
+7. Build
+    1. [Gradle Kotlin DSL](https://github.com/gradle/kotlin-dsl) ```(Kotlin language support for Gradle build scripts)```
+    2. [Gradle Versions](https://github.com/ben-manes/gradle-versions-plugin) ```(Gradle plugin to discover dependency
     updates)```
-    2. [Dexcount Gradle](https://github.com/KeepSafe/dexcount-gradle-plugin) ```(A Gradle plugin to report the number of 
+    3. [Dexcount Gradle](https://github.com/KeepSafe/dexcount-gradle-plugin) ```(A Gradle plugin to report the number of
     method references in your APK on every build)```
 
 # Screenshots
