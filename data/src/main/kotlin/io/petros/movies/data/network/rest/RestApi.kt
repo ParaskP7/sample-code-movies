@@ -2,7 +2,7 @@ package io.petros.movies.data.network.rest
 
 import io.petros.movies.data.BuildConfig
 import io.petros.movies.data.network.rest.response.movie.MoviesResultPageResponse
-import io.reactivex.Single
+import kotlinx.coroutines.Deferred
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -16,6 +16,6 @@ interface RestApi {
         @Query("page") page: Int? = null,
         @Query("sort_by") sortBy: String = "popularity.desc",
         @Query("api_key") clientId: String = BuildConfig.THEMOVIEDB_API_KEY
-    ): Single<MoviesResultPageResponse>
+    ): Deferred<MoviesResultPageResponse>
 
 }

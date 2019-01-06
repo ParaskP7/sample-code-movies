@@ -23,20 +23,16 @@ dependencies {
 fun DependencyHandlerScope.implementation() {
     implementationKotlin()
     implementationDi()
-    implementationRx()
 }
 
 fun DependencyHandlerScope.implementationKotlin() {
     implementation(Deps.Kotlin.KOTLIN)
+    implementation(Deps.Kotlin.Coroutines.CORE)
 }
 
 fun DependencyHandlerScope.implementationDi() {
     implementation(Deps.Di.DAGGER)
     kapt(Deps.Di.DAGGER_COMPILER)
-}
-
-fun DependencyHandlerScope.implementationRx() {
-    implementation(Deps.Rx.RX_JAVA)
 }
 
 /* DEPENDENCIES - TEST PROJECT IMPLEMENTATION */

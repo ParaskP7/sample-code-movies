@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.verify
 import io.petros.movies.presentation.feature.movie.MovieDetailsActivity
+import io.petros.movies.presentation.feature.movie.navigator.MovieDetailsActivityLauncher.Companion.getMovie
 import io.petros.movies.test.domain.TestMoviesProvider.Companion.provideMovie
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.Before
@@ -15,12 +16,6 @@ import org.robolectric.RobolectricTestRunner
 
 @RunWith(RobolectricTestRunner::class)
 class MovieDetailsActivityLauncherRobolectricTest {
-
-    companion object {
-
-        private const val EXTRA_MOVIE = "movie"
-
-    }
 
     private val movie = provideMovie()
 
@@ -40,7 +35,7 @@ class MovieDetailsActivityLauncherRobolectricTest {
 
         verify(appCompatActivityMock).startActivity(intentCaptor.capture())
         assertThat(intentCaptor.value?.component?.className).isEqualTo(MovieDetailsActivity::class.java.name)
-        assertThat(intentCaptor.value?.extras?.get(EXTRA_MOVIE)).isEqualTo(movie)
+        assertThat(intentCaptor.value?.let { getMovie(it) }).isEqualTo(movie)
     }
 
 }

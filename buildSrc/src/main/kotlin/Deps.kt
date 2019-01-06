@@ -25,6 +25,13 @@ object Deps {
 
     object Kotlin {
 
+        object Coroutines {
+
+            val CORE = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.Kotlin.COROUTINES}"
+            val ANDROID = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.Kotlin.COROUTINES}"
+
+        }
+
         val KOTLIN = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${Versions.Plugin.KOTLIN}"
 
     }
@@ -80,20 +87,13 @@ object Deps {
 
     }
 
-    object Rx {
-
-        val RX_JAVA = "io.reactivex.rxjava2:rxjava:${Versions.Rx.RX_JAVA}"
-        val RX_ANDROID = "io.reactivex.rxjava2:rxandroid:${Versions.Rx.RX_ANDROID}"
-
-    }
-
     object Net {
 
         object Rest {
 
             val RETROFIT = "com.squareup.retrofit2:retrofit:${Versions.Rest.RETROFIT}"
             val RETROFIT_GSON = "com.squareup.retrofit2:converter-gson:${Versions.Rest.RETROFIT}"
-            val RETROFIT_RX = "com.squareup.retrofit2:adapter-rxjava2:${Versions.Rest.RETROFIT}"
+            val RETROFIT_COROUTINES = "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:${Versions.Rest.RETROFIT_COROUTINES}"
 
         }
 
@@ -106,15 +106,6 @@ object Deps {
 
         val GLIDE = "com.github.bumptech.glide:glide:${Versions.Image.GLIDE}"
         val GLIDE_COMPILER = "com.github.bumptech.glide:compiler:${Versions.Image.GLIDE}"
-
-    }
-
-    object Extras {
-
-        val DART = "com.f2prateek.dart:dart:${Versions.Extras.DART}"
-        val DART_PROCESSOR = "com.f2prateek.dart:dart-processor:${Versions.Extras.DART}"
-        val HENSON = "com.f2prateek.dart:henson:${Versions.Extras.DART}"
-        val HENSON_PROCESSOR = "com.f2prateek.dart:henson-processor:${Versions.Extras.DART}"
 
     }
 

@@ -8,6 +8,6 @@ class MoviesRepositoryImpl @Inject constructor(
     private val webService: WebService
 ) : MoviesRepository {
 
-    override fun loadMovies(year: Int?, month: Int?, page: Int?) = webService.loadMovies(year, month, page)
+    override suspend fun loadMovies(year: Int?, month: Int?, page: Int?) = webService.loadMovies(year, month, page)
 
 }

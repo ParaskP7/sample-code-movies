@@ -10,16 +10,6 @@ object Config {
 
     }
 
-    object Dart {
-
-        object Kapt {
-
-            const val NAME = "dart.henson.package"
-
-        }
-
-    }
-
     object Dexcount {
 
         const val FORMAT = "list"

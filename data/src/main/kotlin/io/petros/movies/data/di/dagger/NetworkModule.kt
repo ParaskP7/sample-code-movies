@@ -2,6 +2,7 @@ package io.petros.movies.data.di.dagger
 
 import android.content.Context
 import com.google.gson.Gson
+import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import dagger.Module
 import dagger.Provides
 import io.petros.movies.data.BuildConfig
@@ -13,7 +14,6 @@ import io.petros.movies.data.network.rest.RestClient
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
-import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
@@ -50,7 +50,7 @@ class NetworkModule {
         return Retrofit.Builder()
             .baseUrl(context.getString(R.string.rest_themoviedb_url))
             .addConverterFactory(GsonConverterFactory.create(gson))
-            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+            .addCallAdapterFactory(CoroutineCallAdapterFactory())
             .client(httpClient)
             .build()
     }

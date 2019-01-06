@@ -2,10 +2,10 @@ object Versions {
 
     object Plugin {
 
-        const val ANDROID = "3.4.0-alpha09"
+        const val ANDROID = "3.4.0-alpha10"
         const val KOTLIN = "1.3.11"
         const val VERSIONS = "0.20.0"
-        const val DEXCOUNT = "0.8.4"
+        const val DEXCOUNT = "0.8.5"
         const val DETEKT = "1.0.0-RC12"
 
     }
@@ -17,6 +17,12 @@ object Versions {
     }
 
     // IMPLEMENTATION // ****************************************************************************************************
+
+    object Kotlin {
+
+        const val COROUTINES = "1.1.0"
+
+    }
 
     object Material {
 
@@ -65,13 +71,6 @@ object Versions {
 
     }
 
-    object Rx {
-
-        const val RX_JAVA = "2.2.4"
-        const val RX_ANDROID = "2.1.0"
-
-    }
-
     object Net {
 
         const val GSON = "2.8.5"
@@ -82,18 +81,13 @@ object Versions {
     object Rest {
 
         const val RETROFIT = "2.5.0"
+        const val RETROFIT_COROUTINES = "0.9.2"
 
     }
 
     object Image {
 
         const val GLIDE = "4.8.0"
-
-    }
-
-    object Extras {
-
-        const val DART = "2.0.3"
 
     }
 
@@ -120,7 +114,7 @@ object Versions {
 
     object Mock {
 
-        const val MOCKITO_KOTLIN = "2.0.0"
+        const val MOCKITO_KOTLIN = "2.1.0"
 
     }
 

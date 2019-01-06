@@ -59,7 +59,6 @@ fun DependencyHandlerScope.implementation() {
     implementationKotlin()
     implementationAndroid()
     implementationDi()
-    implementationRx()
     implementationNet()
     implementationRetrofit()
     implementationLog()
@@ -67,6 +66,7 @@ fun DependencyHandlerScope.implementation() {
 
 fun DependencyHandlerScope.implementationKotlin() {
     implementation(Deps.Kotlin.KOTLIN)
+    implementation(Deps.Kotlin.Coroutines.CORE)
 }
 
 fun DependencyHandlerScope.implementationAndroid() {
@@ -80,11 +80,6 @@ fun DependencyHandlerScope.implementationDi() {
     kapt(Deps.Di.DAGGER_ANDROID_PROCESSOR)
 }
 
-fun DependencyHandlerScope.implementationRx() {
-    implementation(Deps.Rx.RX_JAVA)
-    implementation(Deps.Rx.RX_ANDROID)
-}
-
 fun DependencyHandlerScope.implementationNet() {
     implementation(Deps.Net.GSON)
     implementation(Deps.Net.OK_HTTP_LOGGING)
@@ -93,7 +88,7 @@ fun DependencyHandlerScope.implementationNet() {
 fun DependencyHandlerScope.implementationRetrofit() {
     implementation(Deps.Net.Rest.RETROFIT)
     implementation(Deps.Net.Rest.RETROFIT_GSON)
-    implementation(Deps.Net.Rest.RETROFIT_RX)
+    implementation(Deps.Net.Rest.RETROFIT_COROUTINES)
 }
 
 fun DependencyHandlerScope.implementationLog() {

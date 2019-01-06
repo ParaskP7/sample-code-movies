@@ -27,15 +27,10 @@ fun DependencyHandlerScope.projectImplementation() {
 
 fun DependencyHandlerScope.implementation() {
     implementationKotlin()
-    implementationRx()
 }
 
 fun DependencyHandlerScope.implementationKotlin() {
     implementation(Deps.Kotlin.KOTLIN)
-}
-
-fun DependencyHandlerScope.implementationRx() {
-    implementation(Deps.Rx.RX_JAVA)
 }
 
 /* DEPENDENCIES - PLUGINS */

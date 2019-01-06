@@ -1,18 +1,19 @@
 package io.petros.movies.presentation.feature.movies
 
-import androidx.annotation.VisibleForTesting
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import io.petros.movies.domain.interactor.movie.LoadMoviesUseCase
 import io.petros.movies.domain.model.common.PaginationData
 import io.petros.movies.domain.model.movie.Movie
+import io.petros.movies.domain.model.movie.MoviesResultPage
+import io.petros.movies.presentation.feature.BaseViewModel
 import io.petros.movies.presentation.feature.common.list.adapter.AdapterStatus
-import io.petros.movies.presentation.feature.movies.subscriber.MoviesSubscriber
+import kotlinx.coroutines.launch
+import timber.log.Timber
 import javax.inject.Inject
 
 class MoviesActivityViewModel @Inject constructor(
     private val loadMoviesUseCase: LoadMoviesUseCase
-) : ViewModel() {
+) : BaseViewModel() {
 
     val statusObservable = MutableLiveData<AdapterStatus>()
     val moviesObservable = MutableLiveData<PaginationData<Movie>>()
@@ -24,22 +25,32 @@ class MoviesActivityViewModel @Inject constructor(
     }
 
     fun loadMovies(year: Int? = null, month: Int? = null, page: Int? = null) {
-        statusObservable.postValue(AdapterStatus.LOADING)
-        loadMoviesUseCase.execute(
-            MoviesSubscriber(statusObservable, moviesObservable, paginationData),
-            LoadMoviesUseCase.Params.with(year, month, page)
-        )
+        uiScope.launch {
+            try {
+                statusObservable.postValue(AdapterStatus.LOADING)
+                val movies = loadMoviesUseCase.execute(LoadMoviesUseCase.Params(year, month, page))
+                onLoadMoviesSuccess(movies)
+            } catch (error: LoadMoviesUseCase.Error) {
+                onLoadMoviesError(error)
+            }
+        }
+    }
+
+    private fun onLoadMoviesSuccess(movies: MoviesResultPage) {
+        Timber.d("Load movies success. [Movies: $movies]")
+        statusObservable.postValue(AdapterStatus.IDLE)
+        moviesObservable.postValue(paginationData.addPage(movies))
+    }
+
+    private fun onLoadMoviesError(error: LoadMoviesUseCase.Error) {
+        Timber.w(error, "Load movies error.")
+        statusObservable.postValue(AdapterStatus.ERROR)
+        moviesObservable.postValue(null)
     }
 
     fun reloadMovies(year: Int? = null, month: Int? = null) {
         paginationData.clear()
         loadMovies(year, month)
-    }
-
-    @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
-    public override fun onCleared() {
-        super.onCleared()
-        loadMoviesUseCase.dispose()
     }
 
 }
