@@ -12,7 +12,7 @@ object Versions {
 
     object LeakCanary {
 
-        const val LEAK_CANARY = "1.6.2"
+        const val LEAK_CANARY = "1.6.3"
 
     }
 
