@@ -6,7 +6,6 @@ import io.petros.movies.domain.model.movie.Movie
 import io.petros.movies.domain.toDate
 import io.petros.movies.domain.util.MOVIE_DATE_FORMAT
 
-@Suppress("ConstructorParameterNaming")
 data class MovieRaw(
     private val vote_count: Int,
     private val id: Int,

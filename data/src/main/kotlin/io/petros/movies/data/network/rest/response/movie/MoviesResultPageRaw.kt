@@ -3,7 +3,6 @@ package io.petros.movies.data.network.rest.response.movie
 import android.content.Context
 import io.petros.movies.domain.model.movie.MoviesResultPage
 
-@Suppress("ConstructorParameterNaming")
 data class MoviesResultPageRaw(
     private val page: Int,
     private val total_pages: Int,
