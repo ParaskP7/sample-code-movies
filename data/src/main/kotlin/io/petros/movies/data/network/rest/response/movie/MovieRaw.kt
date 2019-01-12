@@ -8,14 +8,14 @@ import io.petros.movies.domain.util.MOVIE_DATE_FORMAT
 
 @Suppress("ConstructorParameterNaming")
 data class MovieRaw(
-    val vote_count: Int,
-    val id: Int,
-    val vote_average: Double,
-    val title: String,
-    val backdrop_path: String?,
-    val overview: String,
-    val release_date: String
-) {
+    private val vote_count: Int,
+    private val id: Int,
+    private val vote_average: Double,
+    private val title: String,
+    private val backdrop_path: String?,
+    private val overview: String,
+    private val release_date: String
+) { // MIT
 
     fun toMovie(context: Context): Movie {
         return Movie(

@@ -2,7 +2,6 @@ package io.petros.movies.data.network.rest
 
 import android.content.Context
 import io.petros.movies.data.network.WebService
-import io.petros.movies.data.network.rest.mapper.movie.MoviesMapper
 import io.petros.movies.domain.model.movie.MoviesResultPage
 import io.petros.movies.domain.util.releaseDateGte
 import io.petros.movies.domain.util.releaseDateLte
@@ -17,7 +16,7 @@ class RestClient constructor(
             releaseDateGte(year, month),
             releaseDateLte(year, month),
             page
-        ).let { MoviesMapper.transform(context, it.await()) }
+        ).let { it.await().toMoviesResultPage(context) }
     }
 
 }
