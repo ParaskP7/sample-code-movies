@@ -74,10 +74,7 @@ fun DependencyHandlerScope.implementationAndroid() {
 }
 
 fun DependencyHandlerScope.implementationDi() {
-    implementation(Deps.Di.DAGGER)
-    kapt(Deps.Di.DAGGER_COMPILER)
-    implementation(Deps.Di.DAGGER_ANDROID)
-    kapt(Deps.Di.DAGGER_ANDROID_PROCESSOR)
+    implementation(Deps.Di.Koin.Android.ANDROID)
 }
 
 fun DependencyHandlerScope.implementationNet() {

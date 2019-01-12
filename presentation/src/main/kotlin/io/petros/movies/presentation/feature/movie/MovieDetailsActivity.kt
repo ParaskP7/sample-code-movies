@@ -8,7 +8,7 @@ import io.petros.movies.presentation.feature.BaseActivity
 import io.petros.movies.presentation.feature.movie.navigator.MovieDetailsActivityLauncher.Companion.getMovie
 import kotlinx.android.synthetic.main.activity_movie_details.*
 
-class MovieDetailsActivity : BaseActivity<MovieDetailsActivityViewModel>() { // MET
+class MovieDetailsActivity : BaseActivity() { // MET
 
     private val movie: Movie by lazy { getMovie(intent) }
 
@@ -28,7 +28,5 @@ class MovieDetailsActivity : BaseActivity<MovieDetailsActivityViewModel>() { // 
     /* CONTRACT */
 
     override fun constructContentView() = R.layout.activity_movie_details
-
-    override fun constructViewModel() = MovieDetailsActivityViewModel::class.java
 
 }

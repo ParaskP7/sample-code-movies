@@ -9,4 +9,6 @@ interface MovieDetailsLauncher {
 
     fun launch(movie: SharedElementMovie)
 
+    fun finish()
+
 }

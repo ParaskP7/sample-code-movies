@@ -9,13 +9,11 @@ import io.petros.movies.R
 import io.petros.movies.domain.model.movie.Movie
 import io.petros.movies.presentation.feature.movie.MovieDetailsActivity
 import io.petros.movies.presentation.feature.movies.view.SharedElementMovie
-import io.petros.movies.presentation.feature.navigator.ActivityLauncher
 import io.petros.movies.presentation.getExtraName
-import javax.inject.Inject
 
-class MovieDetailsActivityLauncher @Inject constructor(
+class MovieDetailsActivityLauncher constructor(
     private val activity: AppCompatActivity
-) : ActivityLauncher(activity), MovieDetailsLauncher {
+) : MovieDetailsLauncher {
 
     companion object {
 
@@ -46,6 +44,10 @@ class MovieDetailsActivityLauncher @Inject constructor(
         val sharedElement = activity.getString(R.string.movie_backdrop_shared_element)
         val anim = ActivityOptionsCompat.makeSceneTransitionAnimation(activity, movie.sharedElement, sharedElement)
         return anim.toBundle()
+    }
+
+    override fun finish() {
+        activity.finish()
     }
 
 }

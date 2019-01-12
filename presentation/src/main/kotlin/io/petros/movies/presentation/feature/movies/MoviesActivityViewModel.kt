@@ -9,9 +9,8 @@ import io.petros.movies.presentation.feature.BaseViewModel
 import io.petros.movies.presentation.feature.common.list.adapter.AdapterStatus
 import kotlinx.coroutines.launch
 import timber.log.Timber
-import javax.inject.Inject
 
-class MoviesActivityViewModel @Inject constructor(
+class MoviesActivityViewModel constructor(
     private val loadMoviesUseCase: LoadMoviesUseCase
 ) : BaseViewModel() {
 

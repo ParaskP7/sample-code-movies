@@ -3,9 +3,8 @@ package io.petros.movies.domain.interactor.movie
 import io.petros.movies.domain.interactor.BaseUseCase
 import io.petros.movies.domain.model.movie.MoviesResultPage
 import io.petros.movies.domain.repository.movie.MoviesRepository
-import javax.inject.Inject
 
-class LoadMoviesUseCase @Inject constructor(
+class LoadMoviesUseCase constructor(
     private val moviesRepository: MoviesRepository
 ) : BaseUseCase<MoviesResultPage, LoadMoviesUseCase.Params, LoadMoviesUseCase.Error>() {
 

@@ -80,10 +80,22 @@ object Deps {
 
     object Di {
 
-        val DAGGER = "com.google.dagger:dagger:${Versions.Di.DAGGER}"
-        val DAGGER_COMPILER = "com.google.dagger:dagger-compiler:${Versions.Di.DAGGER}"
-        val DAGGER_ANDROID = "com.google.dagger:dagger-android-support:${Versions.Di.DAGGER}"
-        val DAGGER_ANDROID_PROCESSOR = "com.google.dagger:dagger-android-processor:${Versions.Di.DAGGER}"
+        object Koin {
+
+            object Kotlin {
+
+                val CORE = "org.koin:koin-core:${Versions.Di.KOIN}"
+
+            }
+
+            object Android {
+
+                val ANDROID = "org.koin:koin-android:${Versions.Di.KOIN}"
+                val VIEW_MODEL = "org.koin:koin-androidx-viewmodel:${Versions.Di.KOIN}"
+
+            }
+
+        }
 
     }
 

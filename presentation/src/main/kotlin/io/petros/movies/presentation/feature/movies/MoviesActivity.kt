@@ -15,13 +15,17 @@ import io.petros.movies.presentation.feature.movies.listener.MovieCallback
 import io.petros.movies.presentation.feature.movies.navigator.MoviesNavigator
 import io.petros.movies.presentation.feature.movies.view.SharedElementMovie
 import kotlinx.android.synthetic.main.activity_movies.*
-import javax.inject.Inject
+import org.koin.android.ext.android.inject
+import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.core.parameter.parametersOf
 
 @Suppress("TooManyFunctions")
-class MoviesActivity : BaseActivity<MoviesActivityViewModel>(), InfiniteRecyclerView.Listener, MoviesToolbarCallback,
+class MoviesActivity : BaseActivity(), InfiniteRecyclerView.Listener, MoviesToolbarCallback,
     MovieYearPickerFragmentCallback, MovieMonthPickerFragmentCallback, MovieCallback { // MET
 
-    @Inject lateinit var moviesNavigator: MoviesNavigator
+    private val viewModel: MoviesActivityViewModel by viewModel()
+
+    private val moviesNavigator: MoviesNavigator by inject { parametersOf(this) }
 
     private val adapter = MoviesAdapter()
 
@@ -118,7 +122,5 @@ class MoviesActivity : BaseActivity<MoviesActivityViewModel>(), InfiniteRecycler
     /* CONTRACT */
 
     override fun constructContentView() = R.layout.activity_movies
-
-    override fun constructViewModel() = MoviesActivityViewModel::class.java
 
 }

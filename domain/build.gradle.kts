@@ -31,8 +31,7 @@ fun DependencyHandlerScope.implementationKotlin() {
 }
 
 fun DependencyHandlerScope.implementationDi() {
-    implementation(Deps.Di.DAGGER)
-    kapt(Deps.Di.DAGGER_COMPILER)
+    implementation(Deps.Di.Koin.Kotlin.CORE)
 }
 
 /* DEPENDENCIES - TEST PROJECT IMPLEMENTATION */

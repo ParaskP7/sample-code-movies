@@ -67,7 +67,7 @@ object Versions {
 
     object Di {
 
-        const val DAGGER = "2.20"
+        const val KOIN = "1.0.2"
 
     }
 

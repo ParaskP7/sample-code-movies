@@ -3,11 +3,12 @@ package io.petros.movies.presentation.feature.splash
 import android.os.Bundle
 import io.petros.movies.presentation.feature.BaseActivity
 import io.petros.movies.presentation.feature.splash.navigator.SplashNavigator
-import javax.inject.Inject
+import org.koin.android.ext.android.inject
+import org.koin.core.parameter.parametersOf
 
-class SplashActivity : BaseActivity<SplashActivityViewModel>() { // MET
+class SplashActivity : BaseActivity() { // MET
 
-    @Inject lateinit var splashNavigator: SplashNavigator
+    private val splashNavigator: SplashNavigator by inject { parametersOf(this) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -17,7 +18,5 @@ class SplashActivity : BaseActivity<SplashActivityViewModel>() { // MET
     /* CONTRACT */
 
     override fun constructContentView(): Int? = null
-
-    override fun constructViewModel(): Class<SplashActivityViewModel> = SplashActivityViewModel::class.java
 
 }

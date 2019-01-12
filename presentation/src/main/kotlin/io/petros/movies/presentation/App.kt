@@ -1,5 +1,6 @@
 package io.petros.movies.presentation
 
+import android.app.Application
 import android.os.Build
 import android.os.StrictMode
 import androidx.lifecycle.Lifecycle
@@ -7,18 +8,23 @@ import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.OnLifecycleEvent
 import androidx.lifecycle.ProcessLifecycleOwner
 import com.squareup.leakcanary.LeakCanary
-import dagger.android.DaggerApplication
 import io.petros.movies.BuildConfig
 import io.petros.movies.R
-import io.petros.movies.presentation.di.dagger.DaggerAppComponent
+import io.petros.movies.data.di.koin.networkModule
+import io.petros.movies.data.di.koin.repositoriesModule
+import io.petros.movies.domain.di.koin.useCasesModule
+import io.petros.movies.presentation.di.koin.appModule
+import io.petros.movies.presentation.di.koin.navigatorModule
+import org.koin.android.ext.android.startKoin
 import timber.log.Timber
 
 @Suppress("TooManyFunctions")
-class App : DaggerApplication(), LifecycleObserver {
+class App : Application(), LifecycleObserver {
 
     override fun onCreate() {
         super.onCreate()
         if (!initLeakCanary()) return
+        initKoin()
         initLogging()
         initStrictMode()
         initLifecycleObserver()
@@ -32,6 +38,18 @@ class App : DaggerApplication(), LifecycleObserver {
             LeakCanary.install(this)
             true
         }
+    }
+
+    private fun initKoin() {
+        startKoin(
+            this, listOf(
+                appModule,
+                navigatorModule,
+                useCasesModule,
+                repositoriesModule,
+                networkModule
+            )
+        )
     }
 
     private fun initLogging() {
@@ -129,11 +147,5 @@ class App : DaggerApplication(), LifecycleObserver {
     fun onDestroyed() {
         Timber.v("${javaClass.simpleName} destroyed.")
     }
-
-    /* CONTRACT */
-
-    override fun applicationInjector() = DaggerAppComponent.builder()
-        .application(this)
-        .build()
 
 }

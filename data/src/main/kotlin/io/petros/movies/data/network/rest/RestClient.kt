@@ -6,9 +6,8 @@ import io.petros.movies.data.network.rest.mapper.movie.MoviesMapper
 import io.petros.movies.domain.model.movie.MoviesResultPage
 import io.petros.movies.domain.util.releaseDateGte
 import io.petros.movies.domain.util.releaseDateLte
-import javax.inject.Inject
 
-class RestClient @Inject constructor(
+class RestClient constructor(
     private val context: Context,
     private val restApi: RestApi
 ) : WebService {

@@ -8,7 +8,7 @@ class RobolectricTestProvider {
 
     companion object {
 
-        internal fun provideContext() = ApplicationProvider.getApplicationContext<App>()
+        internal fun provideContext() = ApplicationProvider.getApplicationContext<TestApp>()
 
         internal fun provideActivity() = Robolectric.setupActivity(AppCompatActivity::class.java)
 

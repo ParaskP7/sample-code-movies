@@ -3,27 +3,17 @@ package io.petros.movies.presentation.feature
 import android.content.Intent
 import android.content.res.Configuration
 import android.os.Bundle
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProviders
-import dagger.android.support.DaggerAppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import timber.log.Timber
-import javax.inject.Inject
 
 @Suppress("TooManyFunctions")
-abstract class BaseActivity<Modeling : ViewModel> : DaggerAppCompatActivity() {
-
-    @Inject lateinit var viewModelFactory: ViewModelProvider.Factory
-
-    @Suppress("LateinitUsage")
-    protected lateinit var viewModel: Modeling
+abstract class BaseActivity : AppCompatActivity() {
 
     /* LIFECYCLE */
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView()
-        setViewModel()
         Timber.v("${javaClass.simpleName} created. [Bundle: $savedInstanceState]")
     }
 
@@ -32,13 +22,6 @@ abstract class BaseActivity<Modeling : ViewModel> : DaggerAppCompatActivity() {
     }
 
     protected abstract fun constructContentView(): Int?
-
-    private fun setViewModel() {
-        viewModel = ViewModelProviders.of(this, viewModelFactory).get(constructViewModel())
-        Timber.v("${javaClass.simpleName} view model constructed.")
-    }
-
-    protected abstract fun constructViewModel(): Class<Modeling>
 
     override fun onNewIntent(intent: Intent) {
         super.onNewIntent(intent)

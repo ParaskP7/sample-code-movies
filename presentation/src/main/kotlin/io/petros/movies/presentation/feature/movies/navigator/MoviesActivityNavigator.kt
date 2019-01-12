@@ -2,15 +2,17 @@ package io.petros.movies.presentation.feature.movies.navigator
 
 import io.petros.movies.presentation.feature.movie.navigator.MovieDetailsLauncher
 import io.petros.movies.presentation.feature.movies.view.SharedElementMovie
-import io.petros.movies.presentation.feature.navigator.ActivityNavigator
-import javax.inject.Inject
 
-class MoviesActivityNavigator @Inject constructor(
+class MoviesActivityNavigator constructor(
     private val movieDetailsLauncher: MovieDetailsLauncher
-) : ActivityNavigator(), MoviesNavigator {
+) : MoviesNavigator {
 
     override fun navigate(movie: SharedElementMovie) {
         movieDetailsLauncher.launch(movie)
+    }
+
+    override fun finish() {
+        movieDetailsLauncher.finish()
     }
 
 }

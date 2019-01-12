@@ -6,4 +6,6 @@ interface MoviesNavigator {
 
     fun navigate(movie: SharedElementMovie)
 
+    fun finish()
+
 }

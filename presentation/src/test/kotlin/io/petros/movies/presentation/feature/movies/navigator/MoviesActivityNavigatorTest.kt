@@ -4,7 +4,6 @@ import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.verify
 import io.petros.movies.presentation.feature.movie.navigator.MovieDetailsLauncher
 import io.petros.movies.presentation.feature.movies.view.SharedElementMovie
-import io.petros.movies.presentation.feature.navigator.Launcher
 import io.petros.movies.test.domain.TestMoviesProvider.Companion.provideMovie
 import org.junit.Before
 import org.junit.Test
@@ -15,12 +14,10 @@ class MoviesActivityNavigatorTest {
 
     private lateinit var testedClass: MoviesActivityNavigator
     private val movieDetailsLauncherMock = mock<MovieDetailsLauncher>()
-    private val launcherMock = mock<Launcher>()
 
     @Before
     fun setUp() {
         testedClass = MoviesActivityNavigator(movieDetailsLauncherMock)
-        testedClass.launcher = launcherMock
     }
 
     @Test

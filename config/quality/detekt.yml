@@ -381,7 +381,6 @@ potential-bugs:
     active: true
   LateinitUsage:
     active: true
-    excludeAnnotatedProperties: "Inject"
     ignoreOnClassesPattern: ""
   UnconditionalJumpStatementInLoop:
     active: true
@@ -482,7 +481,6 @@ style:
     active: true
   UnnecessaryAbstractClass:
     active: true
-    excludeAnnotatedClasses: "dagger.Module"
   UnnecessaryApply:
     active: true
   UnnecessaryInheritance:

@@ -4,4 +4,6 @@ interface MoviesLauncher {
 
     fun launch()
 
+    fun finish()
+
 }
