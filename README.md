@@ -25,7 +25,7 @@ Below is a list of goodies that are being showcased:
     4. [LivaData](https://developer.android.com/topic/libraries/architecture/livedata) ```(Architecture Components 
     LiveData Class)```
 2. Libraries
-    1. [Dagger](https://github.com/google/dagger) ```(A fast dependency injector for Android and Java)```
+    1. [Koin](https://github.com/InsertKoinIO/koin) ```(A pragmatic lightweight dependency injection framework for Kotlin)```
     2. [Kotlin Coroutines](https://kotlinlang.org/docs/reference/coroutines.html) ```(Coroutines simplify asynchronous
     programming by putting the complications into libraries. The logic of the program can be expressed sequentially in a
     coroutine, and the underlying library will figure out the asynchrony for us)```
