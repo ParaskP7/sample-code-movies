@@ -96,12 +96,13 @@ class MoviesToolbar : AppBarLayout { // MRT
         tv_filter_year.text = year.toString()
     }
 
+    @Suppress("SwallowedException")
     fun getYear(): Int? {
         val year = tv_filter_year.text.toString()
         return try {
             year.toInt()
         } catch (nfe: NumberFormatException) {
-            Timber.e(nfe, "Cannot convert the year text to an integer. [Year: $year]")
+            Timber.d("Cannot convert the year text to an integer, defaulting to null. [Year: $year]")
             null
         }
     }
