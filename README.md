@@ -177,7 +177,7 @@ and library enhancements:
     For more info, see [Coroutines](https://kotlinlang.org/docs/reference/coroutines.html) ```(Coroutines simplify 
     asynchronous programming by putting the complications into libraries. The logic of the program can be expressed 
     sequentially in a coroutine, and the underlying library will figure out the asynchrony for us)```
-07. **![#ffff00](https://placehold.it/15/ffff00/000000?text=+) `IN PROGRESS`** Replace Dagger with Koin.
+07. **![#2cb42c](https://placehold.it/15/2cb42c/000000?text=+) `DONE`** Replace Dagger with Koin.
     For more info, see [Koin](https://github.com/InsertKoinIO/koin) ```(A pragmatic lightweight dependency injection
     framework for Kotlin)```
 08. Replace AssertJ with Kotlin's new AssertK Library. For more info see 
