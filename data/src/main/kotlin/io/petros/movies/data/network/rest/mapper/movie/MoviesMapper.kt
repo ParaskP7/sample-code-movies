@@ -1,7 +1,7 @@
 package io.petros.movies.data.network.rest.mapper.movie
 
 import android.content.Context
-import io.petros.movies.data.network.rest.response.movie.MoviesResultPageResponse
+import io.petros.movies.data.network.rest.response.movie.MoviesResultPageRaw
 import io.petros.movies.domain.model.movie.Movie
 import io.petros.movies.domain.model.movie.MoviesResultPage
 
@@ -11,7 +11,7 @@ class MoviesMapper private constructor() { // MIT
 
         internal fun transform(
             context: Context,
-            moviesResponse: MoviesResultPageResponse
+            moviesResponse: MoviesResultPageRaw
         ): MoviesResultPage {
             val movies = arrayListOf<Movie>()
             for (movieResponse in moviesResponse.results) {

@@ -3,7 +3,7 @@ package io.petros.movies.data.network.rest
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.verify
 import com.nhaarman.mockitokotlin2.whenever
-import io.petros.movies.data.network.rest.response.movie.MoviesResultPageResponse
+import io.petros.movies.data.network.rest.response.movie.MoviesResultPageRaw
 import io.petros.movies.test.domain.TestMoviesProvider.Companion.MOVIE_MONTH
 import io.petros.movies.test.domain.TestMoviesProvider.Companion.MOVIE_YEAR
 import io.petros.movies.test.domain.TestMoviesProvider.Companion.NEXT_PAGE
@@ -22,7 +22,7 @@ class RestClientTest {
 
     }
 
-    private val moviesResponse = CompletableDeferred(MoviesResultPageResponse(0, 1, emptyList()))
+    private val moviesResponse = CompletableDeferred(MoviesResultPageRaw(0, 1, emptyList()))
 
     private lateinit var testedClass: RestClient
     private val restApiMock = mock<RestApi>()
