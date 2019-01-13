@@ -180,8 +180,9 @@ and library enhancements:
 07. **![#2cb42c](https://placehold.it/15/2cb42c/000000?text=+) `DONE`** Replace Dagger with Koin.
     For more info, see [Koin](https://github.com/InsertKoinIO/koin) ```(A pragmatic lightweight dependency injection
     framework for Kotlin)```
-08. **![#ffff00](https://placehold.it/15/ffff00/000000?text=+) `IN PROGRESS`** Replace AssertJ with Kotlin's new AssertK.
-    For more info see [AssertK](https://github.com/willowtreeapps/assertk) ```(Assertions for kotlin inspired by AssertJ)```
+08. **![#ffff00](https://placehold.it/15/ffff00/000000?text=+) `IN PROGRESS`** Replace AssertJ with Strikt.
+    For more info see [Strikt](https://strikt.io/) ```(Strikt is an assertion library for Kotlin intended for use with a 
+    test runner such as JUnit or Spek)```
 09. Upgrade JUnit4 to SPEK Framework and JUnit5. For more info, see [SPEK](https://spekframework.org/) ```(A specification 
     framework for Kotlin)``` and [JUnit5](https://junit.org/junit5/) ```(JUnit 5 is the next generation of JUnit)```
 10. Add Code Coverage Reports for Tests with Jacoco. For more info see [Jacoco](https://github.com/jacoco/jacoco) 
