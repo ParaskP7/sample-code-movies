@@ -181,11 +181,11 @@ and library enhancements:
     For more info, see [Koin](https://github.com/InsertKoinIO/koin) ```(A pragmatic lightweight dependency injection
     framework for Kotlin)```
 08. **![#2cb42c](https://placehold.it/15/2cb42c/000000?text=+) `DONE`** Replace AssertJ with Strikt.
-    For more info see [Strikt](https://strikt.io/) ```(Strikt is an assertion library for Kotlin intended for use with a 
+    For more info see [Strikt](https://strikt.io) ```(Strikt is an assertion library for Kotlin intended for use with a 
     test runner such as JUnit or Spek)```
 09. **![#ffff00](https://placehold.it/15/ffff00/000000?text=+) `IN PROGRESS`** Upgrade JUnit4 to SPEK Framework and JUnit5. 
-    For more info, see [SPEK](https://spekframework.org/) ```(A specification framework for Kotlin)``` 
-    and [JUnit5](https://junit.org/junit5/) ```(JUnit 5 is the next generation of JUnit)```
+    For more info, see [SPEK](https://spekframework.org) ```(A specification framework for Kotlin)``` 
+    and [JUnit5](https://junit.org/junit5) ```(JUnit 5 is the next generation of JUnit)```
 10. Add Code Coverage Reports for Tests with Jacoco. For more info see [Jacoco](https://github.com/jacoco/jacoco) 
     ```(Java Code Coverage Library)```
 11. Modularize the App Horizontally by Features. To get an Understanding of Modularization and how to Apply it to any Android 
@@ -206,10 +206,10 @@ and library enhancements:
     [Maps SDK for Android](https://developers.google.com/maps/documentation/android-sdk/intro) ```(With the Maps SDK for 
     Android, you can add maps based on Google Maps data to your application)```
 16. Replace Manual Navigation with the Navigation Architecture Component. For more info, see 
-    [Navigation Architecture Component](https://developer.android.com/topic/libraries/architecture/navigation/) ```(The 
+    [Navigation Architecture Component](https://developer.android.com/topic/libraries/architecture/navigation) ```(The 
     Navigation Architecture Component simplifies the implementation of navigation in an Android app)```
 17. Replace Manual Pagination with the Paging Architecture Component. For more info, see 
-    [Paging Architecture Component](https://developer.android.com/topic/libraries/architecture/paging/) ```(The Paging 
+    [Paging Architecture Component](https://developer.android.com/topic/libraries/architecture/paging) ```(The Paging 
     Library makes it easier for you to load data gradually and gracefully within your app's RecyclerView)```
 18. Add Background Support with Work Manager. For more info see 
     [Work Manager](https://developer.android.com/topic/libraries/architecture/workmanager) ```(The WorkManager API makes it 
@@ -242,7 +242,7 @@ and library enhancements:
     [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging) ```(Firebase Cloud Messaging (FCM) is a 
     cross-platform messaging solution that lets you reliably deliver messages at no cost)```
 28. Create a Continue Integration Environment using GitLab. For more info see 
-    [GitLab Continuous Integration & Delivery](https://about.gitlab.com/product/continuous-integration/) ```(GitLab has 
+    [GitLab Continuous Integration & Delivery](https://about.gitlab.com/product/continuous-integration) ```(GitLab has 
     integrated CI/CD pipelines to build, test, deploy, and monitor your code)```
 29. Add Support for R8 (ProGuard). For more info see 
     [ProGuard and R8: a comparison of optimizers](https://www.guardsquare.com/en/blog/proguard-and-r8) ```(ProGuard and R8 
