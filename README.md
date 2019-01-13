@@ -58,8 +58,8 @@ Below is a list of goodies that are being showcased:
     2. [Detekt](https://github.com/arturbosch/detekt) ```(Static code analysis for Kotlin)```
 5. Tests
     1. [JUnit](https://github.com/junit-team/junit4) ```(A programmer-oriented testing framework for Java)```
-    2. [AssertJ](https://github.com/joel-costigliola/assertj-core) ```(AssertJ is a library providing easy to use rich typed 
-    assertions)```
+    2. [Strikt](https://strikt.io) ```(Strikt is an assertion library for Kotlin intended for use with a test runner such as 
+    JUnit or Spek)```
     3. [Mockito Kotlin](https://github.com/nhaarman/mockito-kotlin) ```(Using Mockito with Kotlin)```
     4. [Robolectric](https://github.com/robolectric/robolectric) ```(Android Unit Testing Framework)```
 6. Debug
