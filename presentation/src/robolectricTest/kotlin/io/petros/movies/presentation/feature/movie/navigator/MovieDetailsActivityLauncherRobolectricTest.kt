@@ -12,7 +12,7 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.ArgumentCaptor
 import org.robolectric.RobolectricTestRunner
-import strikt.api.expectThat
+import strikt.api.expect
 import strikt.assertions.isEqualTo
 
 @RunWith(RobolectricTestRunner::class)
@@ -35,8 +35,10 @@ class MovieDetailsActivityLauncherRobolectricTest {
         testedClass.launch(movie)
 
         verify(appCompatActivityMock).startActivity(intentCaptor.capture())
-        expectThat(intentCaptor.value?.component?.className).isEqualTo(MovieDetailsActivity::class.java.name)
-        expectThat(intentCaptor.value?.let { getMovie(it) }).isEqualTo(movie)
+        expect {
+            that(intentCaptor.value?.component?.className).isEqualTo(MovieDetailsActivity::class.java.name)
+            that(intentCaptor.value?.let { getMovie(it) }).isEqualTo(movie)
+        }
     }
 
 }

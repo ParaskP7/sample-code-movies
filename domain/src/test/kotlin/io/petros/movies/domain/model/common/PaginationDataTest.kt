@@ -6,7 +6,7 @@ import io.petros.movies.test.domain.TestMoviesProvider.Companion.NEXT_PAGE
 import io.petros.movies.test.domain.TestMoviesProvider.Companion.provideMovie
 import org.junit.Before
 import org.junit.Test
-import strikt.api.expectThat
+import strikt.api.expect
 import strikt.assertions.isEmpty
 import strikt.assertions.isEqualTo
 import strikt.assertions.isFalse
@@ -28,21 +28,21 @@ class PaginationDataTest {
 
     @Test
     fun `Given no pages, when checking if it is empty, then the return value is true`() {
-        expectThat(testedClass.isEmpty()).isTrue()
+        expect { that(testedClass.isEmpty()).isTrue() }
     }
 
     @Test
     fun `Given some pages, when checking if it is empty, then the return value is false`() {
         testedClass.addPage(MoviesResultPage(NEXT_PAGE, firstPageItems))
 
-        expectThat(testedClass.isEmpty()).isFalse()
+        expect { that(testedClass.isEmpty()).isFalse() }
     }
 
     @Test
     fun `Given single page, when checking if it is the first page, then the return value is true`() {
         testedClass.addPage(MoviesResultPage(NEXT_PAGE, firstPageItems))
 
-        expectThat(testedClass.isFirstPage()).isTrue()
+        expect { that(testedClass.isFirstPage()).isTrue() }
     }
 
     @Test
@@ -50,51 +50,63 @@ class PaginationDataTest {
         testedClass.addPage(MoviesResultPage(NEXT_PAGE, firstPageItems))
         testedClass.addPage(MoviesResultPage(NEXT_PAGE, secondPageItems))
 
-        expectThat(testedClass.isFirstPage()).isFalse()
+        expect { that(testedClass.isFirstPage()).isFalse() }
     }
 
     @Test
     fun `When adding a first page, then the pagination state is the expected one`() {
-        expectThat(testedClass.items()).isEmpty()
-        expectThat(testedClass.latestItems()).isNull()
-        expectThat(testedClass.nextPage()).isNull()
+        expect {
+            that(testedClass.items()).isEmpty()
+            that(testedClass.latestItems()).isNull()
+            that(testedClass.nextPage()).isNull()
+        }
         val firstPage = MoviesResultPage(NEXT_PAGE, firstPageItems)
 
         testedClass.addPage(firstPage)
 
-        expectThat(testedClass.items()).isEqualTo(firstPageItems)
-        expectThat(testedClass.latestItems()).isEqualTo(firstPageItems)
-        expectThat(testedClass.nextPage()).isEqualTo(NEXT_PAGE)
+        expect {
+            that(testedClass.items()).isEqualTo(firstPageItems)
+            that(testedClass.latestItems()).isEqualTo(firstPageItems)
+            that(testedClass.nextPage()).isEqualTo(NEXT_PAGE)
+        }
     }
 
     @Test
     fun `When adding a second page, then the pagination state is the expected one`() {
-        expectThat(testedClass.items()).isEmpty()
-        expectThat(testedClass.latestItems()).isNull()
-        expectThat(testedClass.nextPage()).isNull()
+        expect {
+            that(testedClass.items()).isEmpty()
+            that(testedClass.latestItems()).isNull()
+            that(testedClass.nextPage()).isNull()
+        }
         val firstPage = MoviesResultPage(NEXT_PAGE, firstPageItems)
         testedClass.addPage(firstPage)
         val secondPage = MoviesResultPage(NEXT_PAGE + 1, secondPageItems)
 
         testedClass.addPage(secondPage)
 
-        expectThat(testedClass.items()).isEqualTo(firstPageItems + secondPageItems)
-        expectThat(testedClass.latestItems()).isEqualTo(secondPageItems)
-        expectThat(testedClass.nextPage()).isEqualTo(NEXT_PAGE + 1)
+        expect {
+            that(testedClass.items()).isEqualTo(firstPageItems + secondPageItems)
+            that(testedClass.latestItems()).isEqualTo(secondPageItems)
+            that(testedClass.nextPage()).isEqualTo(NEXT_PAGE + 1)
+        }
     }
 
     @Test
     fun `When pagination data is cleared, then all fields are reset`() {
         testedClass.addPage(MoviesResultPage(NEXT_PAGE, firstPageItems))
-        expectThat(testedClass.isEmpty()).isFalse()
-        expectThat(testedClass.latestItems()).isNotNull()
-        expectThat(testedClass.nextPage()).isNotNull()
+        expect {
+            that(testedClass.isEmpty()).isFalse()
+            that(testedClass.latestItems()).isNotNull()
+            that(testedClass.nextPage()).isNotNull()
+        }
 
         testedClass.clear()
 
-        expectThat(testedClass.isEmpty()).isTrue()
-        expectThat(testedClass.latestItems()).isNull()
-        expectThat(testedClass.nextPage()).isNull()
+        expect {
+            that(testedClass.isEmpty()).isTrue()
+            that(testedClass.latestItems()).isNull()
+            that(testedClass.nextPage()).isNull()
+        }
     }
 
 }

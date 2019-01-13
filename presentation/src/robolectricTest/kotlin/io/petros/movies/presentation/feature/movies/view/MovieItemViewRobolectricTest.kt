@@ -10,7 +10,7 @@ import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
-import strikt.api.expectThat
+import strikt.api.expect
 import strikt.assertions.isEqualTo
 import strikt.assertions.isNotNull
 import strikt.assertions.isNull
@@ -32,32 +32,32 @@ class MovieItemViewRobolectricTest {
 
     @Test
     fun `When movie is bind, then the movie backdrop is set`() {
-        expectThat(testedClass.iv_movie_backdrop.drawable).isNull()
+        expect { that(testedClass.iv_movie_backdrop.drawable).isNull() }
 
         testedClass.bind(movie)
 
-        expectThat(testedClass.iv_movie_backdrop.drawable).isNotNull()
+        expect { that(testedClass.iv_movie_backdrop.drawable).isNotNull() }
     }
 
     @Test
     fun `When movie is bind, then the movie title is set`() {
         testedClass.bind(movie)
 
-        expectThat(testedClass.tv_movie_title.text).isEqualTo(movie.title)
+        expect { that(testedClass.tv_movie_title.text).isEqualTo(movie.title) }
     }
 
     @Test
     fun `When movie is bind, then the movie release date is set`() {
         testedClass.bind(movie)
 
-        expectThat(testedClass.tv_movie_release_date.text).isEqualTo(movie.releaseDate())
+        expect { that(testedClass.tv_movie_release_date.text).isEqualTo(movie.releaseDate()) }
     }
 
     @Test
     fun `When movie is bind, then the movie vote is set`() {
         testedClass.bind(movie)
 
-        expectThat(testedClass.tv_movie_vote.text).isEqualTo(movie.vote())
+        expect { that(testedClass.tv_movie_vote.text).isEqualTo(movie.vote()) }
     }
 
     @Test

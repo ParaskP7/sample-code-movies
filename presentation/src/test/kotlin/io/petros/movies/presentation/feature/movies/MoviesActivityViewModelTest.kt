@@ -23,7 +23,7 @@ import kotlinx.coroutines.runBlocking
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
-import strikt.api.expectThat
+import strikt.api.expect
 import strikt.assertions.isEqualTo
 import strikt.assertions.isFalse
 import strikt.assertions.isTrue
@@ -62,7 +62,7 @@ class MoviesActivityViewModelTest {
     fun `Given empty pagination data, when load movies or restore is triggered, then load movies is triggered`() {
         runBlocking {
             testedClass.paginationData.clear()
-            expectThat(testedClass.paginationData.isEmpty()).isTrue()
+            expect { that(testedClass.paginationData.isEmpty()).isTrue() }
 
             testedClass.loadMoviesOrRestore()
 
@@ -74,7 +74,7 @@ class MoviesActivityViewModelTest {
     @Test
     fun `Given pagination data, when load movies or restore is triggered, then restore is triggered`() {
         testedClass.paginationData.addPage(previousMoviesResultPage)
-        expectThat(testedClass.paginationData.isEmpty()).isFalse()
+        expect { that(testedClass.paginationData.isEmpty()).isFalse() }
 
         testedClass.loadMoviesOrRestore()
 
@@ -110,11 +110,11 @@ class MoviesActivityViewModelTest {
     fun `When reload movies is triggered, then existing pagination data gets cleared before triggering new load`() {
         runBlocking {
             testedClass.paginationData.addPage(previousMoviesResultPage)
-            expectThat(testedClass.paginationData.items().size).isEqualTo(previousMoviesResultPage.movies.size)
+            expect { that(testedClass.paginationData.items().size).isEqualTo(previousMoviesResultPage.movies.size) }
 
             testedClass.reloadMovies(MOVIE_YEAR, MOVIE_MONTH)
 
-            expectThat(testedClass.paginationData.items().size).isEqualTo(moviesResultPage.movies.size)
+            expect { that(testedClass.paginationData.items().size).isEqualTo(moviesResultPage.movies.size) }
             verify(statusObservableMock).onChanged(AdapterStatus.LOADING)
             verify(loadMoviesUseCaseMock).execute(LoadMoviesUseCase.Params(MOVIE_YEAR, MOVIE_MONTH, null))
         }

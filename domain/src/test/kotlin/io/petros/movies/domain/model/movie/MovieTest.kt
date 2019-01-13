@@ -3,7 +3,7 @@ package io.petros.movies.domain.model.movie
 import io.petros.movies.test.domain.TestMoviesProvider.Companion.provideMovie
 import org.junit.Before
 import org.junit.Test
-import strikt.api.expectThat
+import strikt.api.expect
 import strikt.assertions.isEqualTo
 
 class MovieTest {
@@ -17,12 +17,12 @@ class MovieTest {
 
     @Test
     fun `When release date string is constructed, then it is the expected one`() {
-        expectThat(testedClass.releaseDate()).isEqualTo("2018 (September)")
+        expect { that(testedClass.releaseDate()).isEqualTo("2018 (September)") }
     }
 
     @Test
     fun `When vote string is constructed, then it is the expected one`() {
-        expectThat(testedClass.vote()).isEqualTo("10.0 ★ (100)")
+        expect { that(testedClass.vote()).isEqualTo("10.0 ★ (100)") }
     }
 
 }

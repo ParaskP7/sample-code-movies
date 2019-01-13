@@ -11,7 +11,7 @@ import io.petros.movies.test.domain.TestMoviesProvider.Companion.provideMoviesRe
 import kotlinx.coroutines.runBlocking
 import org.junit.Before
 import org.junit.Test
-import strikt.api.expectThat
+import strikt.api.expect
 import strikt.assertions.isEqualTo
 
 class LoadMoviesUseCaseTest {
@@ -48,7 +48,7 @@ class LoadMoviesUseCaseTest {
 
             val result = testedClass.execute(params)
 
-            expectThat(result).isEqualTo(moviesResultPage)
+            expect { that(result).isEqualTo(moviesResultPage) }
         }
     }
 

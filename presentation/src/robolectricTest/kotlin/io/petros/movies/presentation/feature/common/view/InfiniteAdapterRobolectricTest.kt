@@ -13,7 +13,7 @@ import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
-import strikt.api.expectThat
+import strikt.api.expect
 import strikt.assertions.isEqualTo
 import strikt.assertions.isNull
 
@@ -46,32 +46,32 @@ class InfiniteAdapterRobolectricTest {
 
     @Test
     fun `When attaching to recycler view, then context is set`() {
-        expectThat(testedClass.context).isNull()
+        expect { that(testedClass.context).isNull() }
 
         testedClass.onAttachedToRecyclerView(recyclerView)
 
-        expectThat(testedClass.context).isEqualTo(context)
+        expect { that(testedClass.context).isEqualTo(context) }
     }
 
     @Test
     fun `When detaching from recycler view, then context is unset`() {
         testedClass.onAttachedToRecyclerView(recyclerView)
-        expectThat(testedClass.context).isEqualTo(context)
+        expect { that(testedClass.context).isEqualTo(context) }
 
         testedClass.onDetachedFromRecyclerView(recyclerView)
 
-        expectThat(testedClass.context).isNull()
+        expect { that(testedClass.context).isNull() }
     }
 
     /* ITEMS */
 
     @Test
     fun `Given first page load, when setting items to adapter, then the first page items are set`() {
-        expectThat(testedClass.items()).isEqualTo(emptyList<Movie>())
+        expect { that(testedClass.items()).isEqualTo(emptyList()) }
 
         testedClass.setItems(PaginationData<Movie>().addPage(MoviesResultPage(NEXT_PAGE, firstPageItems)))
 
-        expectThat(testedClass.items()).isEqualTo(firstPageItems)
+        expect { that(testedClass.items()).isEqualTo(firstPageItems) }
     }
 
     @Test
@@ -79,22 +79,22 @@ class InfiniteAdapterRobolectricTest {
         val paginationData = PaginationData<Movie>()
         paginationData.addPage(MoviesResultPage(NEXT_PAGE, firstPageItems))
         testedClass.setItems(paginationData)
-        expectThat(testedClass.items()).isEqualTo(firstPageItems)
+        expect { that(testedClass.items()).isEqualTo(firstPageItems) }
         paginationData.addPage(MoviesResultPage(NEXT_PAGE + 1, secondPageItems))
 
         testedClass.setItems(paginationData)
 
-        expectThat(testedClass.items()).isEqualTo(firstPageItems + secondPageItems)
+        expect { that(testedClass.items()).isEqualTo(firstPageItems + secondPageItems) }
     }
 
     @Test
     fun `Given another page reload, when setting items to adapter, then this another page items are reloaded`() {
         testedClass.setItems(PaginationData<Movie>().addPage(MoviesResultPage(NEXT_PAGE, firstPageItems)))
-        expectThat(testedClass.items()).isEqualTo(firstPageItems)
+        expect { that(testedClass.items()).isEqualTo(firstPageItems) }
 
         testedClass.setItems(PaginationData<Movie>().addPage(MoviesResultPage(NEXT_PAGE, anotherPageItems)))
 
-        expectThat(testedClass.items()).isEqualTo(anotherPageItems)
+        expect { that(testedClass.items()).isEqualTo(anotherPageItems) }
     }
 
     @Test
@@ -104,11 +104,11 @@ class InfiniteAdapterRobolectricTest {
         testedClass.setItems(paginationData)
         paginationData.addPage(MoviesResultPage(NEXT_PAGE + 1, secondPageItems))
         testedClass.setItems(paginationData)
-        expectThat(testedClass.items()).isEqualTo(firstPageItems + secondPageItems)
+        expect { that(testedClass.items()).isEqualTo(firstPageItems + secondPageItems) }
 
         testedClass.setItems(paginationData)
 
-        expectThat(testedClass.items()).isEqualTo(firstPageItems + secondPageItems)
+        expect { that(testedClass.items()).isEqualTo(firstPageItems + secondPageItems) }
     }
 
 }
