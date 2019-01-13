@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import io.petros.movies.domain.model.common.PaginationData
 
 abstract class InfiniteAdapter<T>(
-    val items: ArrayList<T> = arrayListOf()
+    private val items: ArrayList<T> = arrayListOf()
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     @VisibleForTesting(otherwise = VisibleForTesting.PROTECTED)
@@ -14,7 +14,11 @@ abstract class InfiniteAdapter<T>(
 
     private var paginationData: PaginationData<T>? = null
 
-    fun nextPage() = paginationData?.nextPage
+    fun items(): List<T> = items
+
+    fun item(position: Int): T = items[position]
+
+    fun nextPage() = paginationData?.nextPage()
 
     /* STATUS */
 
@@ -48,11 +52,11 @@ abstract class InfiniteAdapter<T>(
 
     private fun reloadItems(paginationData: PaginationData<T>) {
         items.clear()
-        items.addAll(paginationData.allPageItems)
+        items.addAll(paginationData.items())
     }
 
     private fun appendItems(paginationData: PaginationData<T>) {
-        paginationData.latestPage?.items()?.let { items.addAll(it) }
+        paginationData.latestItems()?.let { items.addAll(it) }
     }
 
 }

@@ -108,7 +108,7 @@ object Versions {
     object Test {
 
         const val J_UNIT = "4.12"
-        const val ASSERT_J = "3.11.1"
+        const val STRIKT = "0.17.1"
 
     }
 

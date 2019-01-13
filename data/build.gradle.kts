@@ -106,7 +106,7 @@ fun DependencyHandlerScope.testImplementation() {
 
 fun DependencyHandlerScope.testImplementationTest() {
     testImplementation(Deps.Test.J_UNIT)
-    testImplementation(Deps.Test.ASSERT_J)
+    testImplementation(Deps.Test.STRIKT)
 }
 
 fun DependencyHandlerScope.testImplementationMock() {

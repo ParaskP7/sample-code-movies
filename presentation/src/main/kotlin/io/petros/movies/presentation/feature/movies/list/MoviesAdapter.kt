@@ -14,7 +14,7 @@ import io.petros.movies.presentation.feature.common.view.InfiniteAdapter
 import io.petros.movies.presentation.feature.movies.listener.MovieCallback
 import io.petros.movies.presentation.feature.movies.view.MovieItemView
 
-class MoviesAdapter : InfiniteAdapter<Movie>() {
+class MoviesAdapter(items: ArrayList<Movie> = arrayListOf()) : InfiniteAdapter<Movie>(items) {
 
     companion object {
         internal const val VIEW_TYPE_PROGRESS = 0
@@ -39,7 +39,7 @@ class MoviesAdapter : InfiniteAdapter<Movie>() {
 
     override fun getItemCount(): Int {
         val statusCount = if (status != AdapterStatus.IDLE) 1 else 0
-        return items.size + statusCount
+        return items().size + statusCount
     }
 
     /* ITEM VIEW HOLDER */
@@ -59,7 +59,7 @@ class MoviesAdapter : InfiniteAdapter<Movie>() {
     @Suppress("UnsafeCast")
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         if (getItemViewType(position) == VIEW_TYPE_MOVIE) {
-            (holder as MovieViewHolder).bind(items[position])
+            (holder as MovieViewHolder).bind(item(position))
         }
     }
 

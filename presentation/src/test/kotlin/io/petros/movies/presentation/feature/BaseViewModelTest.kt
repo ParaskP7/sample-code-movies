@@ -1,8 +1,10 @@
 package io.petros.movies.presentation.feature
 
-import org.assertj.core.api.Assertions.assertThat
 import org.junit.Before
 import org.junit.Test
+import strikt.api.expectThat
+import strikt.assertions.isFalse
+import strikt.assertions.isTrue
 
 class BaseViewModelTest {
 
@@ -15,11 +17,11 @@ class BaseViewModelTest {
 
     @Test
     fun `When base view model is destroyed, then the job is cancelled`() {
-        assertThat(testedClass.job.isCancelled).isFalse()
+        expectThat(testedClass.job.isCancelled).isFalse()
 
         testedClass.onCleared()
 
-        assertThat(testedClass.job.isCancelled).isTrue()
+        expectThat(testedClass.job.isCancelled).isTrue()
     }
 
 }

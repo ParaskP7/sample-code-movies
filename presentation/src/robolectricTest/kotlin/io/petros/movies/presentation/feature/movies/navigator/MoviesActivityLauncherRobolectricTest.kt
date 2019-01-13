@@ -5,12 +5,13 @@ import androidx.appcompat.app.AppCompatActivity
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.verify
 import io.petros.movies.presentation.feature.movies.MoviesActivity
-import org.assertj.core.api.Assertions.assertThat
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.ArgumentCaptor
 import org.robolectric.RobolectricTestRunner
+import strikt.api.expectThat
+import strikt.assertions.isEqualTo
 
 @RunWith(RobolectricTestRunner::class)
 class MoviesActivityLauncherRobolectricTest {
@@ -30,7 +31,7 @@ class MoviesActivityLauncherRobolectricTest {
         testedClass.launch()
 
         verify(appCompatActivityMock).startActivity(intentCaptor.capture())
-        assertThat(intentCaptor.value?.component?.className).isEqualTo(MoviesActivity::class.java.name)
+        expectThat(intentCaptor.value?.component?.className).isEqualTo(MoviesActivity::class.java.name)
     }
 
 }

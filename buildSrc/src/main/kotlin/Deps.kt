@@ -138,7 +138,7 @@ object Deps {
     object Test {
 
         val J_UNIT = "junit:junit:${Versions.Test.J_UNIT}"
-        val ASSERT_J = "org.assertj:assertj-core:${Versions.Test.ASSERT_J}"
+        val STRIKT = "io.strikt:strikt-core:${Versions.Test.STRIKT}"
 
     }
 

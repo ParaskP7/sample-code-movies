@@ -12,11 +12,12 @@ import io.petros.movies.presentation.feature.movies.list.MoviesAdapter.Companion
 import io.petros.movies.presentation.feature.movies.list.MoviesAdapter.Companion.VIEW_TYPE_MOVIE
 import io.petros.movies.presentation.feature.movies.list.MoviesAdapter.Companion.VIEW_TYPE_PROGRESS
 import io.petros.movies.test.domain.TestMoviesProvider.Companion.provideMovie
-import org.assertj.core.api.Assertions.assertThat
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
+import strikt.api.expectThat
+import strikt.assertions.isEqualTo
 
 @RunWith(RobolectricTestRunner::class)
 class MoviesAdapterRobolectricTest {
@@ -30,8 +31,7 @@ class MoviesAdapterRobolectricTest {
 
     @Before
     fun setUp() {
-        testedClass = MoviesAdapter()
-        testedClass.items.addAll(items)
+        testedClass = MoviesAdapter(ArrayList(items))
         testedClass.callback = mock()
     }
 
@@ -39,14 +39,14 @@ class MoviesAdapterRobolectricTest {
 
     @Test
     fun `When adapter is set, then status is idle`() {
-        assertThat(testedClass.status).isEqualTo(AdapterStatus.IDLE)
+        expectThat(testedClass.status).isEqualTo(AdapterStatus.IDLE)
     }
 
     /* ITEMS */
 
     @Test
     fun `When adapter is set, then all items are used`() {
-        assertThat(testedClass.itemCount).isEqualTo(items.size)
+        expectThat(testedClass.itemCount).isEqualTo(items.size)
     }
 
     /* VIEW HOLDER */
@@ -57,7 +57,7 @@ class MoviesAdapterRobolectricTest {
 
         val viewHolder = testedClass.onCreateViewHolder(mock(), VIEW_TYPE_PROGRESS)
 
-        assertThat(viewHolder).isInstanceOf(ProgressViewHolder::class.java)
+        expectThat(viewHolder.javaClass.name).isEqualTo(ProgressViewHolder::class.java.name)
     }
 
     @Test
@@ -66,7 +66,7 @@ class MoviesAdapterRobolectricTest {
 
         val viewHolder = testedClass.onCreateViewHolder(mock(), VIEW_TYPE_MOVIE)
 
-        assertThat(viewHolder).isInstanceOf(MovieViewHolder::class.java)
+        expectThat(viewHolder.javaClass.name).isEqualTo(MovieViewHolder::class.java.name)
     }
 
     @Test
@@ -75,7 +75,7 @@ class MoviesAdapterRobolectricTest {
 
         val viewHolder = testedClass.onCreateViewHolder(mock(), VIEW_TYPE_ERROR)
 
-        assertThat(viewHolder).isInstanceOf(ErrorViewHolder::class.java)
+        expectThat(viewHolder.javaClass.name).isEqualTo(ErrorViewHolder::class.java.name)
     }
 
     @Test
@@ -109,7 +109,7 @@ class MoviesAdapterRobolectricTest {
     fun `When getting the item view type of a movie item, then a movie view type is returned`() {
         val result = testedClass.getItemViewType(1)
 
-        assertThat(result).isEqualTo(VIEW_TYPE_MOVIE)
+        expectThat(result).isEqualTo(VIEW_TYPE_MOVIE)
     }
 
     @Test
@@ -118,7 +118,7 @@ class MoviesAdapterRobolectricTest {
 
         val result = testedClass.getItemViewType(items.size)
 
-        assertThat(result).isEqualTo(VIEW_TYPE_MOVIE)
+        expectThat(result).isEqualTo(VIEW_TYPE_MOVIE)
     }
 
     @Test
@@ -127,7 +127,7 @@ class MoviesAdapterRobolectricTest {
 
         val result = testedClass.getItemViewType(items.size)
 
-        assertThat(result).isEqualTo(VIEW_TYPE_PROGRESS)
+        expectThat(result).isEqualTo(VIEW_TYPE_PROGRESS)
     }
 
     @Test
@@ -136,7 +136,7 @@ class MoviesAdapterRobolectricTest {
 
         val result = testedClass.getItemViewType(items.size)
 
-        assertThat(result).isEqualTo(VIEW_TYPE_ERROR)
+        expectThat(result).isEqualTo(VIEW_TYPE_ERROR)
     }
 
 }
