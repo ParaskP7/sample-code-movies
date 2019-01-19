@@ -60,7 +60,7 @@ Below is a list of goodies that are being showcased:
     1. [JUnit](https://github.com/junit-team/junit4) ```(A programmer-oriented testing framework for Java)```
     2. [Strikt](https://strikt.io) ```(Strikt is an assertion library for Kotlin intended for use with a test runner such as 
     JUnit or Spek)```
-    3. [Mockito Kotlin](https://github.com/nhaarman/mockito-kotlin) ```(Using Mockito with Kotlin)```
+    3. [MockK](https://mockk.io) ```(MockK is a mocking library for Kotlin)```
     4. [Robolectric](https://github.com/robolectric/robolectric) ```(Android Unit Testing Framework)```
 6. Debug
     1. [LeakCanary](https://github.com/square/leakcanary) ```(A memory leak detection library for Android and Java)```
