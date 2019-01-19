@@ -183,7 +183,7 @@ and library enhancements:
 08. **![#2cb42c](https://placehold.it/15/2cb42c/000000?text=+) `DONE`** Replace AssertJ with Strikt.
     For more info see [Strikt](https://strikt.io) ```(Strikt is an assertion library for Kotlin intended for use with a 
     test runner such as JUnit or Spek)```
-09. **![#ffff00](https://placehold.it/15/ffff00/000000?text=+) `IN PROGRESS`** Replace Mockito Kotlin with MockK.
+09. **![#2cb42c](https://placehold.it/15/2cb42c/000000?text=+) `DONE`** Replace Mockito Kotlin with MockK.
     For more info see [MockK](https://mockk.io) ```(MockK is a mocking library for Kotlin)```
 10. Upgrade JUnit4 to SPEK Framework and JUnit5. For more info, see [SPEK](https://spekframework.org) ```(A specification 
     framework for Kotlin)``` and [JUnit5](https://junit.org/junit5) ```(JUnit 5 is the next generation of JUnit)```
