@@ -23,15 +23,13 @@ class MoviesActivityViewModel constructor(
         if (paginationData.isEmpty()) loadMovies(year, month) else moviesObservable.postValue(paginationData)
     }
 
-    fun loadMovies(year: Int? = null, month: Int? = null, page: Int? = null) {
-        uiScope.launch {
-            try {
-                statusObservable.postValue(AdapterStatus.LOADING)
-                val movies = loadMoviesUseCase.execute(LoadMoviesUseCase.Params(year, month, page))
-                onLoadMoviesSuccess(movies)
-            } catch (error: LoadMoviesUseCase.Error) {
-                onLoadMoviesError(error)
-            }
+    fun loadMovies(year: Int? = null, month: Int? = null, page: Int? = null) = uiScope.launch {
+        statusObservable.postValue(AdapterStatus.LOADING)
+        try {
+            val movies = loadMoviesUseCase.execute(LoadMoviesUseCase.Params(year, month, page))
+            onLoadMoviesSuccess(movies)
+        } catch (error: LoadMoviesUseCase.Error) {
+            onLoadMoviesError(error)
         }
     }
 
