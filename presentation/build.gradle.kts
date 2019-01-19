@@ -201,9 +201,18 @@ fun DependencyHandlerScope.testImplementationRobolectric() {
 /* DEPENDENCIES - ANDROID TEST IMPLEMENTATION */
 
 fun DependencyHandlerScope.androidTestImplementation() {
+    androidTestImplementationTest()
+    androidTestImplementationMock()
+}
+
+fun DependencyHandlerScope.androidTestImplementationTest() {
     androidTestImplementation(Deps.Android.Test.CORE)
     androidTestImplementation(Deps.Android.Test.J_UNIT)
     androidTestImplementation(Deps.Android.Test.ESPRESSO)
+}
+
+fun DependencyHandlerScope.androidTestImplementationMock() {
+    androidTestImplementation(Deps.Test.STRIKT)
 }
 
 /* DEPENDENCIES - PLUGINS */
