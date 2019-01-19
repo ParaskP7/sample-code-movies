@@ -1,7 +1,10 @@
 package io.petros.movies.presentation.feature.movies.navigator
 
-import com.nhaarman.mockitokotlin2.mock
-import com.nhaarman.mockitokotlin2.verify
+import io.mockk.Runs
+import io.mockk.every
+import io.mockk.just
+import io.mockk.mockk
+import io.mockk.verify
 import io.petros.movies.presentation.feature.movie.navigator.MovieDetailsLauncher
 import io.petros.movies.presentation.feature.movies.view.SharedElementMovie
 import io.petros.movies.test.domain.TestMoviesProvider.Companion.provideMovie
@@ -13,7 +16,7 @@ class MoviesActivityNavigatorTest {
     private val movie = provideMovie()
 
     private lateinit var testedClass: MoviesActivityNavigator
-    private val movieDetailsLauncherMock = mock<MovieDetailsLauncher>()
+    private val movieDetailsLauncherMock = mockk<MovieDetailsLauncher>()
 
     @Before
     fun setUp() {
@@ -22,11 +25,12 @@ class MoviesActivityNavigatorTest {
 
     @Test
     fun `When navigating from movies activity, then movie details activity launches`() {
-        val sharedElementMovie = SharedElementMovie(movie, mock())
+        val sharedElementMovie = SharedElementMovie(movie, mockk())
+        every { movieDetailsLauncherMock.launch(sharedElementMovie) } just Runs
 
         testedClass.navigate(sharedElementMovie)
 
-        verify(movieDetailsLauncherMock).launch(sharedElementMovie)
+        verify { movieDetailsLauncherMock.launch(sharedElementMovie) }
     }
 
 }

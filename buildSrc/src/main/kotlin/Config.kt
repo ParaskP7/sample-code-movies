@@ -36,7 +36,8 @@ object Config {
         const val FILTERS = ".*/${Folders.Source.TEST}/.*" + Utils.COMMA +
                 ".*/${Folders.Source.ROBOLECTRIC_TEST}/.*" + Utils.COMMA +
                 ".*/${Folders.Source.ANDROID_TEST}/.*" + Utils.COMMA +
-                ".*/${Folders.Source.RESOURCES}/.*"
+                ".*/${Folders.Source.RESOURCES}/.*" + Utils.COMMA +
+                ".*/${Files.Kotlin.Extension.KOTLIN_EXTENSIONS}"
 
     }
 

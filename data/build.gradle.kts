@@ -110,7 +110,7 @@ fun DependencyHandlerScope.testImplementationTest() {
 }
 
 fun DependencyHandlerScope.testImplementationMock() {
-    testImplementation(Deps.Mock.MOCKITO_KOTLIN)
+    testImplementation(Deps.Mock.MOCK_K)
 }
 
 /* DEPENDENCIES - PLUGINS */

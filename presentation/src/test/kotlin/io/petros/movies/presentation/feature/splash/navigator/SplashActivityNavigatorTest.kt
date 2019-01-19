@@ -1,7 +1,10 @@
 package io.petros.movies.presentation.feature.splash.navigator
 
-import com.nhaarman.mockitokotlin2.mock
-import com.nhaarman.mockitokotlin2.verify
+import io.mockk.Runs
+import io.mockk.every
+import io.mockk.just
+import io.mockk.mockk
+import io.mockk.verify
 import io.petros.movies.presentation.feature.movies.navigator.MoviesLauncher
 import org.junit.Before
 import org.junit.Test
@@ -9,7 +12,7 @@ import org.junit.Test
 class SplashActivityNavigatorTest {
 
     private lateinit var testedClass: SplashActivityNavigator
-    private val moviesLauncherMock = mock<MoviesLauncher>()
+    private val moviesLauncherMock = mockk<MoviesLauncher>()
 
     @Before
     fun setUp() {
@@ -18,16 +21,22 @@ class SplashActivityNavigatorTest {
 
     @Test
     fun `When navigating from splash activity, then movies activity launches`() {
+        every { moviesLauncherMock.launch() } just Runs
+        every { moviesLauncherMock.finish() } just Runs
+
         testedClass.navigate()
 
-        verify(moviesLauncherMock).launch()
+        verify { moviesLauncherMock.launch() }
     }
 
     @Test
     fun `When navigating from splash activity, then splash activity finishes`() {
+        every { moviesLauncherMock.launch() } just Runs
+        every { moviesLauncherMock.finish() } just Runs
+
         testedClass.navigate()
 
-        verify(moviesLauncherMock).finish()
+        verify { moviesLauncherMock.finish() }
     }
 
 }

@@ -2,15 +2,19 @@ package io.petros.movies.presentation.feature.movie.navigator
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
-import com.nhaarman.mockitokotlin2.mock
-import com.nhaarman.mockitokotlin2.verify
+import io.mockk.Runs
+import io.mockk.every
+import io.mockk.just
+import io.mockk.mockk
+import io.mockk.slot
+import io.mockk.verify
+import io.petros.movies.domain.empty
 import io.petros.movies.presentation.feature.movie.MovieDetailsActivity
 import io.petros.movies.presentation.feature.movie.navigator.MovieDetailsActivityLauncher.Companion.getMovie
 import io.petros.movies.test.domain.TestMoviesProvider.Companion.provideMovie
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.mockito.ArgumentCaptor
 import org.robolectric.RobolectricTestRunner
 import strikt.api.expect
 import strikt.assertions.isEqualTo
@@ -20,10 +24,10 @@ class MovieDetailsActivityLauncherRobolectricTest {
 
     private val movie = provideMovie()
 
-    private val intentCaptor = ArgumentCaptor.forClass(Intent::class.java)
+    private val slot = slot<Intent>()
 
     private lateinit var testedClass: MovieDetailsActivityLauncher
-    private var appCompatActivityMock = mock<AppCompatActivity>()
+    private var appCompatActivityMock = mockk<AppCompatActivity>()
 
     @Before
     fun setUp() {
@@ -32,12 +36,15 @@ class MovieDetailsActivityLauncherRobolectricTest {
 
     @Test
     fun `When launch is called, then current activity starts target movies activity`() {
+        every { appCompatActivityMock.packageName } returns empty()
+        every { appCompatActivityMock.startActivity(any()) } just Runs
+
         testedClass.launch(movie)
 
-        verify(appCompatActivityMock).startActivity(intentCaptor.capture())
+        verify { appCompatActivityMock.startActivity(capture(slot)) }
         expect {
-            that(intentCaptor.value?.component?.className).isEqualTo(MovieDetailsActivity::class.java.name)
-            that(intentCaptor.value?.let { getMovie(it) }).isEqualTo(movie)
+            that(slot.captured.component?.className).isEqualTo(MovieDetailsActivity::class.java.name)
+            that(getMovie(slot.captured)).isEqualTo(movie)
         }
     }
 

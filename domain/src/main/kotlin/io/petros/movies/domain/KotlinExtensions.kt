@@ -7,6 +7,9 @@ import java.util.*
 /* SINGLE CHARACTER */
 
 @Suppress("FunctionOnlyReturningConstant")
+fun empty() = ""
+
+@Suppress("FunctionOnlyReturningConstant")
 fun space() = " "
 
 @Suppress("FunctionOnlyReturningConstant")

@@ -1,9 +1,11 @@
 package io.petros.movies.presentation.feature.movies.list
 
 import androidx.recyclerview.widget.RecyclerView
-import com.nhaarman.mockitokotlin2.mock
-import com.nhaarman.mockitokotlin2.verify
-import com.nhaarman.mockitokotlin2.verifyZeroInteractions
+import io.mockk.Runs
+import io.mockk.every
+import io.mockk.just
+import io.mockk.mockk
+import io.mockk.verify
 import io.petros.movies.presentation.RobolectricTestProvider.Companion.provideContext
 import io.petros.movies.presentation.feature.common.list.adapter.AdapterStatus
 import io.petros.movies.presentation.feature.common.list.holder.ErrorViewHolder
@@ -32,7 +34,7 @@ class MoviesAdapterRobolectricTest {
     @Before
     fun setUp() {
         testedClass = MoviesAdapter(ArrayList(items))
-        testedClass.callback = mock()
+        testedClass.callback = mockk()
     }
 
     /* STATUS */
@@ -55,7 +57,7 @@ class MoviesAdapterRobolectricTest {
     fun `When creating a view holder for a progress item, then the correct view holder is returned`() {
         testedClass.onAttachedToRecyclerView(recyclerView)
 
-        val viewHolder = testedClass.onCreateViewHolder(mock(), VIEW_TYPE_PROGRESS)
+        val viewHolder = testedClass.onCreateViewHolder(mockk(), VIEW_TYPE_PROGRESS)
 
         expect { that(viewHolder.javaClass.name).isEqualTo(ProgressViewHolder::class.java.name) }
     }
@@ -64,7 +66,7 @@ class MoviesAdapterRobolectricTest {
     fun `When creating a view holder for a movie item, then the correct view holder is returned`() {
         testedClass.onAttachedToRecyclerView(recyclerView)
 
-        val viewHolder = testedClass.onCreateViewHolder(mock(), VIEW_TYPE_MOVIE)
+        val viewHolder = testedClass.onCreateViewHolder(mockk(), VIEW_TYPE_MOVIE)
 
         expect { that(viewHolder.javaClass.name).isEqualTo(MovieViewHolder::class.java.name) }
     }
@@ -73,7 +75,7 @@ class MoviesAdapterRobolectricTest {
     fun `When creating a view holder for an error item, then the correct view holder is returned`() {
         testedClass.onAttachedToRecyclerView(recyclerView)
 
-        val viewHolder = testedClass.onCreateViewHolder(mock(), VIEW_TYPE_ERROR)
+        val viewHolder = testedClass.onCreateViewHolder(mockk(), VIEW_TYPE_ERROR)
 
         expect { that(viewHolder.javaClass.name).isEqualTo(ErrorViewHolder::class.java.name) }
     }
@@ -81,26 +83,27 @@ class MoviesAdapterRobolectricTest {
     @Test
     fun `Given a movie view type, when binding a view holder, then a movie item is bind`() {
         testedClass.onAttachedToRecyclerView(recyclerView)
-        testedClass.onCreateViewHolder(mock(), VIEW_TYPE_MOVIE)
+        testedClass.onCreateViewHolder(mockk(), VIEW_TYPE_MOVIE)
         val position = 1
-        val viewHolderMock = mock<MovieViewHolder>()
+        val viewHolderMock = mockk<MovieViewHolder>()
+        every { viewHolderMock.bind(any()) } just Runs
 
         testedClass.onBindViewHolder(viewHolderMock, position)
 
-        verify(viewHolderMock).bind(items[position])
+        verify { viewHolderMock.bind(items[position]) }
     }
 
     @Test
     fun `Given a non-movie view type, when binding a view holder, then a movie item is not bind`() {
         testedClass.onAttachedToRecyclerView(recyclerView)
-        testedClass.onCreateViewHolder(mock(), VIEW_TYPE_PROGRESS)
+        testedClass.onCreateViewHolder(mockk(), VIEW_TYPE_PROGRESS)
         testedClass.status = AdapterStatus.LOADING
         val position = items.size
-        val viewHolderMock = mock<MovieViewHolder>()
+        val viewHolderMock = mockk<MovieViewHolder>()
 
         testedClass.onBindViewHolder(viewHolderMock, position)
 
-        verifyZeroInteractions(viewHolderMock)
+        verify(exactly = 0) { viewHolderMock.bind(any()) }
     }
 
     /* NAVIGATION */

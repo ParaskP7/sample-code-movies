@@ -1,8 +1,8 @@
 package io.petros.movies.domain.interactor.movie
 
-import com.nhaarman.mockitokotlin2.mock
-import com.nhaarman.mockitokotlin2.verify
-import com.nhaarman.mockitokotlin2.whenever
+import io.mockk.coEvery
+import io.mockk.coVerify
+import io.mockk.mockk
 import io.petros.movies.domain.repository.movie.MoviesRepository
 import io.petros.movies.test.domain.TestMoviesProvider.Companion.MOVIE_MONTH
 import io.petros.movies.test.domain.TestMoviesProvider.Companion.MOVIE_YEAR
@@ -21,7 +21,7 @@ class LoadMoviesUseCaseTest {
     private val moviesResultPage = provideMoviesResultPage()
 
     private lateinit var testedClass: LoadMoviesUseCase
-    private val moviesRepositoryMock = mock<MoviesRepository>()
+    private val moviesRepositoryMock = mockk<MoviesRepository>()
 
     @Before
     fun setUp() {
@@ -29,27 +29,21 @@ class LoadMoviesUseCaseTest {
     }
 
     @Test
-    fun `When load movies use case is build, then movies repository triggers load movies`() {
-        runBlocking {
-            whenever(moviesRepositoryMock.loadMovies(MOVIE_YEAR, MOVIE_MONTH, NEXT_PAGE))
-                .thenReturn(moviesResultPage)
+    fun `When load movies use case is build, then movies repository triggers load movies`() = runBlocking {
+        coEvery { moviesRepositoryMock.loadMovies(MOVIE_YEAR, MOVIE_MONTH, NEXT_PAGE) } returns moviesResultPage
 
-            testedClass.execute(params)
+        testedClass.execute(params)
 
-            verify(moviesRepositoryMock).loadMovies(MOVIE_YEAR, MOVIE_MONTH, NEXT_PAGE)
-        }
+        coVerify { moviesRepositoryMock.loadMovies(MOVIE_YEAR, MOVIE_MONTH, NEXT_PAGE) }
     }
 
     @Test
-    fun `When load movies returns, then the movies result page is the expected one`() {
-        runBlocking {
-            whenever(moviesRepositoryMock.loadMovies(MOVIE_YEAR, MOVIE_MONTH, NEXT_PAGE))
-                .thenReturn(moviesResultPage)
+    fun `When load movies returns, then the movies result page is the expected one`() = runBlocking {
+        coEvery { moviesRepositoryMock.loadMovies(MOVIE_YEAR, MOVIE_MONTH, NEXT_PAGE) } returns moviesResultPage
 
-            val result = testedClass.execute(params)
+        val result = testedClass.execute(params)
 
-            expect { that(result).isEqualTo(moviesResultPage) }
-        }
+        expect { that(result).isEqualTo(moviesResultPage) }
     }
 
 }

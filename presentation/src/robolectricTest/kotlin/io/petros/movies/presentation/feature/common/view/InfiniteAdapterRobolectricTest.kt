@@ -2,7 +2,7 @@ package io.petros.movies.presentation.feature.common.view
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.nhaarman.mockitokotlin2.mock
+import io.mockk.mockk
 import io.petros.movies.domain.model.common.PaginationData
 import io.petros.movies.domain.model.movie.Movie
 import io.petros.movies.domain.model.movie.MoviesResultPage
@@ -34,7 +34,7 @@ class InfiniteAdapterRobolectricTest {
         testedClass = object : InfiniteAdapter<Movie>() {
             override fun isLoading() = false
 
-            override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = mock<RecyclerView.ViewHolder>()
+            override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = mockk<RecyclerView.ViewHolder>()
 
             override fun getItemCount() = 0
 

@@ -1,7 +1,10 @@
 package io.petros.movies.presentation.feature.movies.view
 
-import com.nhaarman.mockitokotlin2.mock
-import com.nhaarman.mockitokotlin2.verify
+import io.mockk.Runs
+import io.mockk.every
+import io.mockk.just
+import io.mockk.mockk
+import io.mockk.verify
 import io.petros.movies.presentation.RobolectricTestProvider.Companion.provideContext
 import io.petros.movies.presentation.feature.movies.listener.MovieCallback
 import io.petros.movies.test.domain.TestMoviesProvider.Companion.provideMovie
@@ -20,7 +23,7 @@ class MovieItemViewRobolectricTest {
 
     private val movie = provideMovie()
 
-    private val callbackMock = mock<MovieCallback>()
+    private val callbackMock = mockk<MovieCallback>()
 
     private lateinit var testedClass: MovieItemView
     private val context = provideContext()
@@ -63,11 +66,12 @@ class MovieItemViewRobolectricTest {
     @Test
     fun `When movie callback is bind, then the callback's on click event is triggered`() {
         testedClass.bindCallback(movie, callbackMock)
+        val sharedElementMovie = SharedElementMovie(movie, testedClass.iv_movie_backdrop)
+        every { callbackMock.onClick(sharedElementMovie) } just Runs
 
         testedClass.performClick()
 
-        val sharedElementMovie = SharedElementMovie(movie, testedClass.iv_movie_backdrop)
-        verify(callbackMock).onClick(sharedElementMovie)
+        verify { callbackMock.onClick(sharedElementMovie) }
     }
 
 }
