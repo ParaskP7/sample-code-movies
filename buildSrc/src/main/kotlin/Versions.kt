@@ -73,7 +73,6 @@ object Versions {
 
     object Net {
 
-        const val GSON = "2.8.5"
         const val OK_HTTP = "3.12.1"
 
     }

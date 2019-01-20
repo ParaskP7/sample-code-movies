@@ -144,7 +144,6 @@ fun DependencyHandlerScope.implementationDi() {
 }
 
 fun DependencyHandlerScope.implementationNet() {
-    implementation(Deps.Net.GSON)
     implementation(Deps.Net.OK_HTTP_LOGGING)
 }
 

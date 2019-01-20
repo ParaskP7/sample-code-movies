@@ -109,7 +109,6 @@ object Deps {
 
         }
 
-        val GSON = "com.google.code.gson:gson:${Versions.Net.GSON}"
         val OK_HTTP_LOGGING = "com.squareup.okhttp3:logging-interceptor:${Versions.Net.OK_HTTP}"
 
     }
