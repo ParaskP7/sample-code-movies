@@ -106,8 +106,6 @@ fun DependencyHandlerScope.implementation() {
     implementationAndroidKtx()
     implementationAndroidArch()
     implementationDi()
-    implementationNet()
-    implementationRetrofit()
     implementationGlide()
     implementationUtil()
     implementationLog()
@@ -141,14 +139,6 @@ fun DependencyHandlerScope.implementationAndroidArch() {
 fun DependencyHandlerScope.implementationDi() {
     implementation(Deps.Di.Koin.Android.ANDROID)
     implementation(Deps.Di.Koin.Android.VIEW_MODEL)
-}
-
-fun DependencyHandlerScope.implementationNet() {
-    implementation(Deps.Net.OK_HTTP_LOGGING)
-}
-
-fun DependencyHandlerScope.implementationRetrofit() {
-    implementation(Deps.Net.Rest.RETROFIT)
 }
 
 fun DependencyHandlerScope.implementationGlide() {
