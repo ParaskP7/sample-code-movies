@@ -191,13 +191,15 @@ fun CompileOptions.compileOptions() {
 fun NamedDomainObjectContainer<AndroidSourceSet>.sourceSets() {
     named(Sources.MAIN) {
         java.setSrcDirs(arrayListOf(Sources.Main.KOTLIN))
+        resources.setSrcDirs(arrayListOf(Sources.Main.RESOURCES))
     }
     named(Sources.TEST) {
-        java.setSrcDirs(arrayListOf(Sources.Test.KOTLIN, Sources.Test.ROBOLECTRIC))
-        resources.setSrcDirs(arrayListOf(Sources.Test.RESOURCES))
+        java.setSrcDirs(arrayListOf(Sources.Test.KOTLIN, Sources.Robolectric.KOTLIN))
+        resources.setSrcDirs(arrayListOf(Sources.Test.RESOURCES, Sources.Robolectric.RESOURCES))
     }
     named(Sources.ANDROID_TEST) {
         java.setSrcDirs(arrayListOf(Sources.Android.Test.KOTLIN))
+        resources.setSrcDirs(arrayListOf(Sources.Android.Test.RESOURCES))
     }
 }
 

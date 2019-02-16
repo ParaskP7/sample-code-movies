@@ -7,6 +7,7 @@ object Sources {
     object Main {
 
         const val KOTLIN = "${Folders.Source.SRC}/${Folders.Source.MAIN}/${Folders.Source.KOTLIN}"
+        const val RESOURCES = "${Folders.Source.SRC}/${Folders.Source.MAIN}/${Folders.Source.RESOURCES}"
 
     }
 
@@ -14,7 +15,13 @@ object Sources {
 
         const val KOTLIN = "${Folders.Source.SRC}/${Folders.Source.TEST}/${Folders.Source.KOTLIN}"
         const val RESOURCES = "${Folders.Source.SRC}/${Folders.Source.TEST}/${Folders.Source.RESOURCES}"
-        const val ROBOLECTRIC = "${Folders.Source.SRC}/${Folders.Source.ROBOLECTRIC_TEST}/${Folders.Source.KOTLIN}"
+
+    }
+
+    object Robolectric {
+
+        const val KOTLIN = "${Folders.Source.SRC}/${Folders.Source.ROBOLECTRIC_TEST}/${Folders.Source.KOTLIN}"
+        const val RESOURCES = "${Folders.Source.SRC}/${Folders.Source.ROBOLECTRIC_TEST}/${Folders.Source.RESOURCES}"
 
     }
 
@@ -23,6 +30,7 @@ object Sources {
         object Test {
 
             const val KOTLIN = "${Folders.Source.SRC}/${Folders.Source.ANDROID_TEST}/${Folders.Source.KOTLIN}"
+            const val RESOURCES = "${Folders.Source.SRC}/${Folders.Source.ANDROID_TEST}/${Folders.Source.RESOURCES}"
 
         }
 

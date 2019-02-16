@@ -6,7 +6,7 @@ import androidx.annotation.DimenRes
 import androidx.annotation.IntegerRes
 import androidx.annotation.StringRes
 
-/* RESOURCES */
+/* RES */
 
 fun Context.getLong(@IntegerRes id: Int): Long = resources.getInteger(id).toLong()
 

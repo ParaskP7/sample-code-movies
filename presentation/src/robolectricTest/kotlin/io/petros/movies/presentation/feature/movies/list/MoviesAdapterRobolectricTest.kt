@@ -1,9 +1,6 @@
 package io.petros.movies.presentation.feature.movies.list
 
 import androidx.recyclerview.widget.RecyclerView
-import io.mockk.Runs
-import io.mockk.every
-import io.mockk.just
 import io.mockk.mockk
 import io.mockk.verify
 import io.petros.movies.presentation.RobolectricTestProvider.Companion.provideContext
@@ -86,7 +83,6 @@ class MoviesAdapterRobolectricTest {
         testedClass.onCreateViewHolder(mockk(), VIEW_TYPE_MOVIE)
         val position = 1
         val viewHolderMock = mockk<MovieViewHolder>()
-        every { viewHolderMock.bind(any()) } just Runs
 
         testedClass.onBindViewHolder(viewHolderMock, position)
 

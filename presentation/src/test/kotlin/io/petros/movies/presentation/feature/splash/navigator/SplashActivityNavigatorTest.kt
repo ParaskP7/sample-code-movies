@@ -1,8 +1,5 @@
 package io.petros.movies.presentation.feature.splash.navigator
 
-import io.mockk.Runs
-import io.mockk.every
-import io.mockk.just
 import io.mockk.mockk
 import io.mockk.verify
 import io.petros.movies.presentation.feature.movies.navigator.MoviesLauncher
@@ -21,9 +18,6 @@ class SplashActivityNavigatorTest {
 
     @Test
     fun `When navigating from splash activity, then movies activity launches`() {
-        every { moviesLauncherMock.launch() } just Runs
-        every { moviesLauncherMock.finish() } just Runs
-
         testedClass.navigate()
 
         verify { moviesLauncherMock.launch() }
@@ -31,9 +25,6 @@ class SplashActivityNavigatorTest {
 
     @Test
     fun `When navigating from splash activity, then splash activity finishes`() {
-        every { moviesLauncherMock.launch() } just Runs
-        every { moviesLauncherMock.finish() } just Runs
-
         testedClass.navigate()
 
         verify { moviesLauncherMock.finish() }

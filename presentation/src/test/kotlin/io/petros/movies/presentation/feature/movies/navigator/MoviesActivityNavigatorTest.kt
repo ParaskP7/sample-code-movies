@@ -1,8 +1,5 @@
 package io.petros.movies.presentation.feature.movies.navigator
 
-import io.mockk.Runs
-import io.mockk.every
-import io.mockk.just
 import io.mockk.mockk
 import io.mockk.verify
 import io.petros.movies.presentation.feature.movie.navigator.MovieDetailsLauncher
@@ -26,7 +23,6 @@ class MoviesActivityNavigatorTest {
     @Test
     fun `When navigating from movies activity, then movie details activity launches`() {
         val sharedElementMovie = SharedElementMovie(movie, mockk())
-        every { movieDetailsLauncherMock.launch(sharedElementMovie) } just Runs
 
         testedClass.navigate(sharedElementMovie)
 

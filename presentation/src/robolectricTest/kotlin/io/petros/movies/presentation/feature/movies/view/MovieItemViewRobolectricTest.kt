@@ -1,8 +1,5 @@
 package io.petros.movies.presentation.feature.movies.view
 
-import io.mockk.Runs
-import io.mockk.every
-import io.mockk.just
 import io.mockk.mockk
 import io.mockk.verify
 import io.petros.movies.presentation.RobolectricTestProvider.Companion.provideContext
@@ -67,7 +64,6 @@ class MovieItemViewRobolectricTest {
     fun `When movie callback is bind, then the callback's on click event is triggered`() {
         testedClass.bindCallback(movie, callbackMock)
         val sharedElementMovie = SharedElementMovie(movie, testedClass.iv_movie_backdrop)
-        every { callbackMock.onClick(sharedElementMovie) } just Runs
 
         testedClass.performClick()
 

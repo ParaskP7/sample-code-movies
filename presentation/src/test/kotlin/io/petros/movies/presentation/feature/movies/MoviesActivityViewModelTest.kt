@@ -2,11 +2,8 @@ package io.petros.movies.presentation.feature.movies
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Observer
-import io.mockk.Runs
 import io.mockk.coEvery
 import io.mockk.coVerify
-import io.mockk.every
-import io.mockk.just
 import io.mockk.mockk
 import io.mockk.verify
 import io.petros.movies.domain.interactor.movie.LoadMoviesUseCase
@@ -50,19 +47,12 @@ class MoviesActivityViewModelTest {
         testedClass.uiScope = CoroutineScope(Dispatchers.Unconfined)
         testedClass.statusObservable.observeForever(statusObservableMock)
         testedClass.moviesObservable.observeForever(moviesResultPageObservableMock)
-        setUpMocks()
-    }
-
-    private fun setUpMocks() {
-        every { statusObservableMock.onChanged(any()) } just Runs
-        every { moviesResultPageObservableMock.onChanged(any()) } just Runs
     }
 
     @Test
     fun `Given empty pagination data, when load movies or restore, then a loading status is posted`() {
         testedClass.paginationData.clear()
         expect { that(testedClass.paginationData.isEmpty()).isTrue() }
-        coEvery { loadMoviesUseCaseMock.execute(any()) } returns moviesResultPage
 
         testedClass.loadMoviesOrRestore()
 
@@ -73,7 +63,6 @@ class MoviesActivityViewModelTest {
     fun `Given empty pagination data, when load movies or restore, then load movies is triggered`() {
         testedClass.paginationData.clear()
         expect { that(testedClass.paginationData.isEmpty()).isTrue() }
-        coEvery { loadMoviesUseCaseMock.execute(any()) } returns moviesResultPage
 
         testedClass.loadMoviesOrRestore()
 
@@ -92,8 +81,6 @@ class MoviesActivityViewModelTest {
 
     @Test
     fun `When load movies is triggered, then a loading status is posted`() {
-        coEvery { loadMoviesUseCaseMock.execute(any()) } returns moviesResultPage
-
         testedClass.loadMovies()
 
         verify { statusObservableMock.onChanged(AdapterStatus.LOADING) }
@@ -101,10 +88,6 @@ class MoviesActivityViewModelTest {
 
     @Test
     fun `When load movies is triggered, then load movies use case executes`() {
-        coEvery {
-            loadMoviesUseCaseMock.execute(LoadMoviesUseCase.Params(null, null, null))
-        } returns moviesResultPage
-
         testedClass.loadMovies()
 
         coVerify { loadMoviesUseCaseMock.execute(LoadMoviesUseCase.Params(null, null, null)) }
@@ -112,10 +95,6 @@ class MoviesActivityViewModelTest {
 
     @Test
     fun `Given a movie date, when load movies, then load movies use case executes for that date`() {
-        coEvery {
-            loadMoviesUseCaseMock.execute(LoadMoviesUseCase.Params(MOVIE_YEAR, MOVIE_MONTH, NEXT_PAGE))
-        } returns moviesResultPage
-
         testedClass.loadMovies(MOVIE_YEAR, MOVIE_MONTH, NEXT_PAGE)
 
         coVerify { loadMoviesUseCaseMock.execute(LoadMoviesUseCase.Params(MOVIE_YEAR, MOVIE_MONTH, NEXT_PAGE)) }

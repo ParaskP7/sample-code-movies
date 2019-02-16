@@ -1,8 +1,6 @@
 package io.petros.movies.presentation.feature.common.view
 
-import io.mockk.Runs
 import io.mockk.every
-import io.mockk.just
 import io.mockk.mockk
 import io.mockk.verify
 import io.petros.movies.domain.model.movie.Movie
@@ -26,21 +24,12 @@ class InfiniteRecyclerViewRobolectricTest {
     @Before
     fun setUp() {
         testedClass = InfiniteRecyclerView(context)
-        setUpMocks()
         testedClass.adapter = adapterMock
         testedClass.listener = listenerMock
     }
 
-    private fun setUpMocks() {
-        every { adapterMock.registerAdapterDataObserver(any()) } just Runs
-        every { adapterMock.onAttachedToRecyclerView(any()) } just Runs
-        every { adapterMock.hasStableIds() } returns true
-    }
-
     @Test
     fun `When requesting next page, then adapter gets asked for the page`() {
-        every { adapterMock.nextPage() } returns NEXT_PAGE
-
         testedClass.nextPage()
 
         verify { adapterMock.nextPage() }
@@ -49,7 +38,6 @@ class InfiniteRecyclerViewRobolectricTest {
     @Test
     fun `When load more is triggered, then infinite scrolling listener's load data is triggered for next page`() {
         every { adapterMock.nextPage() } returns NEXT_PAGE
-        every { listenerMock.loadData(NEXT_PAGE) } just Runs
 
         testedClass.loadMore()
 
@@ -58,8 +46,6 @@ class InfiniteRecyclerViewRobolectricTest {
 
     @Test
     fun `When requesting loading status, then adapter gets asked for the loading status`() {
-        every { adapterMock.isLoading() } returns true
-
         testedClass.isLoading()
 
         verify { adapterMock.isLoading() }
