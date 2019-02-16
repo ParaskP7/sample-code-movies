@@ -190,15 +190,15 @@ and library enhancements:
     and [JUnit5](https://junit.org/junit5) ```(JUnit 5 is the next generation of JUnit)```
 11. Add Code Coverage Reports for Tests with Jacoco. For more info see [Jacoco](https://github.com/jacoco/jacoco) 
     ```(Java Code Coverage Library)```
-12. Modularize the App Horizontally by Features. To get an Understanding of Modularization and how to Apply it to any Android 
-    project, Start With this Article 
+12. Modularize the App Horizontally by Features. To get an understanding of Modularization and how to it applies to an 
+    Android project, start with this Article 
     [Modularization](https://medium.com/google-developer-experts/modularizing-android-applications-9e2d18f244a0) ```(To take 
     advantage of new distribution features (Instant apps, app bundles) from Google, or even just create a clear separation of 
     concerns to make our project easier to work with— modularizing our applications can help us to achieve all of these 
     things)```
 13. Add KtLint as an extra Static Code Analysis Tool. For more info see [KtLint](https://github.com/shyiko/ktlint) ```(An 
     anti-bikeshedding Kotlin linter with built-in formatter )```
-14. Enhance MVVM with MVI. To get an Understanding of MVI and how it Applies to MVVM (or MVP), Start With this Article
+14. Enhance MVVM with MVI. To get an understanding of MVI and how it applies to MVVM (or MVP), start with this Article
     [MVI](http://hannesdorfmann.com/android/model-view-intent) ```(Model-View_Intent, is an architecture enhancment that 
     tries to solve the state problem, which most complex application have, especially when the screen complexity grows)```
 15. Add Offline Support with Room. For more info, see [Room](https://developer.android.com/topic/libraries/architecture/room) ```
