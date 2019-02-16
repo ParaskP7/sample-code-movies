@@ -20,7 +20,7 @@ object Versions {
 
     object Kotlin {
 
-        const val COROUTINES = "1.1.0"
+        const val COROUTINES = "1.1.1"
 
     }
 
