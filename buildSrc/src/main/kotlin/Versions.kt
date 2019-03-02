@@ -86,7 +86,7 @@ object Versions {
 
     object Image {
 
-        const val GLIDE = "4.8.0"
+        const val GLIDE = "4.9.0"
 
     }
 
