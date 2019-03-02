@@ -107,7 +107,7 @@ object Versions {
     object Test {
 
         const val J_UNIT = "4.12"
-        const val STRIKT = "0.17.2"
+        const val STRIKT = "0.17.3"
 
     }
 
