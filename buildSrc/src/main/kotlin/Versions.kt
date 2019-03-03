@@ -106,6 +106,7 @@ object Versions {
 
     object Test {
 
+        const val SPEK = "2.0.1"
         const val J_UNIT = "4.12"
         const val STRIKT = "0.17.3"
 
