@@ -48,7 +48,8 @@ fun DependencyHandlerScope.testImplementation() {
 }
 
 fun DependencyHandlerScope.testImplementationTest() {
-    testImplementation(Deps.Test.J_UNIT)
+    testImplementation(Deps.Test.Spek.DSL)
+    testImplementation(Deps.Test.Spek.J_UNIT)
     testImplementation(Deps.Test.STRIKT)
 }
 

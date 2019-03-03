@@ -123,6 +123,7 @@ fun JavaPluginExtension.java() {
 }
 
 fun Test.testLogging() {
+    useJUnitPlatform { includeEngines(Tests.JUnit.Engine.SPEK) }
     testLogging {
         events(*Logs.events)
         setExceptionFormat(Logs.EXCEPTION_FORMAT)
