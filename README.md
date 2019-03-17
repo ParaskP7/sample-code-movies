@@ -185,7 +185,7 @@ and library enhancements:
     test runner such as JUnit or Spek)```
 09. **![#2cb42c](https://placehold.it/15/2cb42c/000000?text=+) `DONE`** Replace Mockito Kotlin with MockK.
     For more info see [MockK](https://mockk.io) ```(MockK is a mocking library for Kotlin)```
-10. **![#ffff00](https://placehold.it/15/ffff00/000000?text=+) `IN PROGRESS`** Upgrade JUnit4 to SPEK Framework and JUnit5. 
+10. **![#2cb42c](https://placehold.it/15/2cb42c/000000?text=+) `DONE`** Upgrade JUnit4 to SPEK Framework and JUnit5. 
     For more info, see [SPEK](https://spekframework.org) ```(A specification framework for Kotlin)``` 
     and [JUnit5](https://junit.org/junit5) ```(JUnit 5 is the next generation of JUnit)```
 11. Add Code Coverage Reports for Tests with Jacoco. For more info see [Jacoco](https://github.com/jacoco/jacoco) 
