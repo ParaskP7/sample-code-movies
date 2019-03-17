@@ -43,13 +43,18 @@ fun DependencyHandlerScope.testProjectImplementation() {
 /* DEPENDENCIES - TEST IMPLEMENTATION */
 
 fun DependencyHandlerScope.testImplementation() {
+    testImplementationSpek()
     testImplementationTest()
     testImplementationMock()
 }
 
-fun DependencyHandlerScope.testImplementationTest() {
+fun DependencyHandlerScope.testImplementationSpek() {
     testImplementation(Deps.Test.Spek.DSL)
     testImplementation(Deps.Test.Spek.J_UNIT)
+    testRuntimeOnly(Deps.Kotlin.KOTLIN_REFLECT)
+}
+
+fun DependencyHandlerScope.testImplementationTest() {
     testImplementation(Deps.Test.STRIKT)
 }
 

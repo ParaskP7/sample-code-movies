@@ -5,6 +5,7 @@ object Logs {
     const val EXCEPTION_FORMAT = "full"
 
     val events = arrayOf(
+        TestLogEvent.STARTED,
         TestLogEvent.PASSED,
         TestLogEvent.SKIPPED,
         TestLogEvent.FAILED,

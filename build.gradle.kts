@@ -63,7 +63,10 @@ subprojects {
     plugins.withType(KotlinPlugin::class) {
         log(PluginIds.Kotlin.KOTLIN)
         java { java() }
-        tasks.getByName<Test>(Tasks.TEST) { testLogging() }
+        tasks.getByName<Test>(Tasks.TEST) {
+            testLogging()
+            testJUnit5()
+        }
     }
     plugins.withType(KotlinKaptPlugin::class) {
         log(PluginIds.Kotlin.KAPT)
@@ -135,11 +138,14 @@ fun JavaPluginExtension.java() {
 }
 
 fun Test.testLogging() {
-    useJUnitPlatform { includeEngines(Tests.JUnit.Engine.SPEK) }
     testLogging {
         events(*Logs.events)
         setExceptionFormat(Logs.EXCEPTION_FORMAT)
     }
+}
+
+fun Test.testJUnit5() {
+    useJUnitPlatform { includeEngines(Tests.JUnit.Engine.SPEK) }
 }
 
 fun KaptExtension.kapt() {
