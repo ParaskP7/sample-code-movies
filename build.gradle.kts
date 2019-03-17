@@ -1,6 +1,7 @@
 import com.android.build.gradle.api.AndroidSourceSet
 import com.android.build.gradle.AppExtension
 import com.android.build.gradle.AppPlugin as AndroidApplicationPlugin
+import com.android.build.gradle.BaseExtension
 import com.android.build.gradle.internal.CompileOptions
 import com.android.build.gradle.internal.dsl.DefaultConfig
 import com.android.build.gradle.internal.dsl.LintOptions
@@ -12,6 +13,9 @@ import com.getkeepsafe.dexcount.DexMethodCountExtension
 import com.getkeepsafe.dexcount.DexMethodCountPlugin as DexcountPlugin
 
 import com.github.benmanes.gradle.versions.VersionsPlugin
+
+import de.mannodermaus.gradle.plugins.junit5.AndroidJUnitPlatformPlugin
+import de.mannodermaus.gradle.plugins.junit5.junitPlatform
 
 import io.gitlab.arturbosch.detekt.detekt
 import io.gitlab.arturbosch.detekt.DetektPlugin
@@ -39,6 +43,7 @@ buildscript {
         classpath(Deps.Plugin.VERSIONS)
         classpath(Deps.Plugin.DEXCOUNT)
         classpath(Deps.Plugin.DETEKT)
+        classpath(Deps.Plugin.ANDROID_J_UNIT_5)
     }
 }
 
@@ -90,6 +95,10 @@ subprojects {
         log(PluginIds.Dependency.VERSIONS)
         apply(Config.Gradle.DEPENDENCY_UPDATES)
     }
+    plugins.withType(AndroidJUnitPlatformPlugin::class) {
+        log(PluginIds.Test.Android.J_UNIT_5)
+        androidBase { androidBase() }
+    }
 }
 
 /* *********************************************************************************************************************** */
@@ -105,6 +114,9 @@ fun Project.java(configure: JavaPluginExtension.() -> Unit) =
 
 fun Project.kapt(configure: KaptExtension.() -> Unit) =
     extensions.configure(KaptExtension::class.java, configure)
+
+fun Project.androidBase(configure: BaseExtension.() -> Unit) =
+    extensions.configure(BaseExtension::class.java, configure)
 
 fun Project.androidLibrary(configure: LibraryExtension.() -> Unit) =
     extensions.configure(LibraryExtension::class.java, configure)
@@ -132,6 +144,10 @@ fun Test.testLogging() {
 
 fun KaptExtension.kapt() {
     useBuildCache = true
+}
+
+fun BaseExtension.androidBase() {
+    testOptions { testOptionsJUnit5() }
 }
 
 fun LibraryExtension.androidLibrary() {
@@ -210,6 +226,10 @@ fun TestOptions.testOptions() {
             (this as Test).also { testLogging() }
         }, this))
     }
+}
+
+fun TestOptions.testOptionsJUnit5() {
+    junitPlatform { filters { includeEngines(Tests.JUnit.Engine.SPEK) } }
 }
 
 fun LintOptions.lintOptions() {

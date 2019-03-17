@@ -13,6 +13,7 @@ plugins {
     id(PluginIds.Kotlin.KAPT)
     id(PluginIds.Quality.DETEKT)
     id(PluginIds.Dependency.VERSIONS)
+    id(PluginIds.Test.Android.J_UNIT_5)
 }
 
 /* ANDROID */
@@ -104,7 +105,8 @@ fun DependencyHandlerScope.testImplementation() {
 }
 
 fun DependencyHandlerScope.testImplementationTest() {
-    testImplementation(Deps.Test.J_UNIT)
+    testImplementation(Deps.Test.Spek.DSL)
+    testImplementation(Deps.Test.Spek.J_UNIT)
     testImplementation(Deps.Test.STRIKT)
 }
 

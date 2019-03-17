@@ -7,6 +7,7 @@ object Versions {
         const val VERSIONS = "0.21.0"
         const val DEXCOUNT = "0.8.5"
         const val DETEKT = "1.0.0-RC14"
+        const val ANDROID_J_UNIT_5 = "1.3.2.0"
 
     }
 

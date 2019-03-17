@@ -34,4 +34,14 @@ object PluginIds {
 
     }
 
+    object Test {
+
+        object Android {
+
+            const val J_UNIT_5 = "de.mannodermaus.android-junit5"
+
+        }
+
+    }
+
 }
