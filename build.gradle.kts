@@ -157,7 +157,7 @@ fun BaseExtension.androidBase() {
 }
 
 fun LibraryExtension.androidLibrary() {
-    compileSdkVersion(Android.Sdk.COMPLIE)
+    compileSdkVersion(Android.Sdk.COMPILE)
     testOptions.unitTests.isIncludeAndroidResources = true
     defaultConfig { defaultConfig() }
     compileOptions { compileOptions() }
@@ -167,7 +167,7 @@ fun LibraryExtension.androidLibrary() {
 }
 
 fun AppExtension.androidApplication() {
-    compileSdkVersion(Android.Sdk.COMPLIE)
+    compileSdkVersion(Android.Sdk.COMPILE)
     testOptions.unitTests.isIncludeAndroidResources = true
     defaultConfig { defaultConfig() }
     compileOptions { compileOptions() }

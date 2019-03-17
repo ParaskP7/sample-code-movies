@@ -4,7 +4,7 @@ object Android {
 
         const val MIN = 21
         const val TARGET = 28
-        const val COMPLIE = 28
+        const val COMPILE = 28
 
     }
 
