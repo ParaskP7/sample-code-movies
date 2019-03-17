@@ -114,7 +114,7 @@ object Versions {
 
     object Mock {
 
-        const val MOCK_K = "1.9.1"
+        const val MOCK_K = "1.9.2"
 
     }
 
