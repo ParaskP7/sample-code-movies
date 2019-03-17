@@ -145,7 +145,7 @@ fun Test.testLogging() {
 }
 
 fun Test.testJUnit5() {
-    useJUnitPlatform { includeEngines(Tests.JUnit.Engine.SPEK) }
+    useJUnitPlatform { includeEngines(Tests.JUnit.Engine.Spek.SPEK) }
 }
 
 fun KaptExtension.kapt() {
@@ -235,7 +235,7 @@ fun TestOptions.testOptions() {
 }
 
 fun TestOptions.testOptionsJUnit5() {
-    junitPlatform { filters { includeEngines(Tests.JUnit.Engine.SPEK) } }
+    junitPlatform { filters { includeEngines(Tests.JUnit.Engine.JUnit.VINTAGE, Tests.JUnit.Engine.Spek.SPEK) } }
 }
 
 fun LintOptions.lintOptions() {

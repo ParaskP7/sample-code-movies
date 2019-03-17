@@ -15,6 +15,7 @@ plugins {
     id(PluginIds.Kotlin.KAPT)
     id(PluginIds.Quality.DETEKT)
     id(PluginIds.Dependency.VERSIONS)
+    id(PluginIds.Test.Android.J_UNIT_5)
 }
 
 /* ANDROID */
@@ -163,14 +164,26 @@ fun DependencyHandlerScope.testProjectImplementation() {
 /* DEPENDENCIES - TEST IMPLEMENTATION */
 
 fun DependencyHandlerScope.testImplementation() {
+    testImplementationSpek()
+    testImplementationJUnit()
     testImplementationTest()
     testImplementationMock()
     testImplementationAndroidArch()
     testImplementationRobolectric()
 }
 
+fun DependencyHandlerScope.testImplementationSpek() {
+    testImplementation(Deps.Test.Spek.DSL)
+    testImplementation(Deps.Test.Spek.J_UNIT)
+    testRuntimeOnly(Deps.Kotlin.KOTLIN_REFLECT)
+}
+
+fun DependencyHandlerScope.testImplementationJUnit() {
+    testImplementation(Deps.Test.JUnit.J_UNIT)
+    testRuntimeOnly(Deps.Test.JUnit.J_UNIT_VINTAGE)
+}
+
 fun DependencyHandlerScope.testImplementationTest() {
-    testImplementation(Deps.Test.J_UNIT)
     testImplementation(Deps.Test.STRIKT)
 }
 

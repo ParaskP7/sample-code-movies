@@ -140,12 +140,18 @@ object Deps {
 
         object Spek {
 
-            val DSL = "org.spekframework.spek2:spek-dsl-jvm:${Versions.Test.SPEK}"
-            val J_UNIT = "org.spekframework.spek2:spek-runner-junit5:${Versions.Test.SPEK}"
+            val DSL = "org.spekframework.spek2:spek-dsl-jvm:${Versions.Test.Spek.SPEK}"
+            val J_UNIT = "org.spekframework.spek2:spek-runner-junit5:${Versions.Test.Spek.SPEK}"
 
         }
 
-        val J_UNIT = "junit:junit:${Versions.Test.J_UNIT}"
+        object JUnit {
+
+            val J_UNIT = "junit:junit:${Versions.Test.JUnit.J_UNIT}"
+            val J_UNIT_VINTAGE = "org.junit.vintage:junit-vintage-engine:${Versions.Test.JUnit.VINTAGE}"
+
+        }
+
         val STRIKT = "io.strikt:strikt-core:${Versions.Test.STRIKT}"
 
     }
