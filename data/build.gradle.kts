@@ -12,7 +12,6 @@ plugins {
     id(PluginIds.Kotlin.Android.EXTENSIONS)
     id(PluginIds.Kotlin.KAPT)
     // TODO: Re-add Detekt plugin.
-    id(PluginIds.Dependency.VERSIONS)
     id(PluginIds.Test.Android.J_UNIT_5)
 }
 

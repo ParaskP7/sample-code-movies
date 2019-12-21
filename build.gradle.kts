@@ -12,8 +12,6 @@ import com.android.build.gradle.LibraryPlugin as AndroidLibraryPlugin
 import com.getkeepsafe.dexcount.DexMethodCountExtension
 import com.getkeepsafe.dexcount.DexMethodCountPlugin as DexcountPlugin
 
-import com.github.benmanes.gradle.versions.VersionsPlugin
-
 import de.mannodermaus.gradle.plugins.junit5.AndroidJUnitPlatformPlugin
 import de.mannodermaus.gradle.plugins.junit5.junitPlatform
 
@@ -36,7 +34,6 @@ buildscript {
     dependencies {
         classpath(Deps.Plugin.ANDROID)
         classpath(Deps.Plugin.KOTLIN)
-        classpath(Deps.Plugin.VERSIONS)
         classpath(Deps.Plugin.DEXCOUNT)
         // TODO: Re-add Detekt plugin.
         classpath(Deps.Plugin.ANDROID_J_UNIT_5)
@@ -87,10 +84,6 @@ subprojects {
         dexcount { dexcount() }
     }
     // TODO: Re-add Detekt plugin.
-    plugins.withType(VersionsPlugin::class) {
-        log(PluginIds.Dependency.VERSIONS)
-        apply(Config.Gradle.DEPENDENCY_UPDATES)
-    }
     plugins.withType(AndroidJUnitPlatformPlugin::class) {
         log(PluginIds.Test.Android.J_UNIT_5)
         androidBase { androidBase() }

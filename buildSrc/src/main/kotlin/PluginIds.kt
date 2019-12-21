@@ -28,12 +28,6 @@ object PluginIds {
 
     }
 
-    object Dependency {
-
-        const val VERSIONS = "com.github.ben-manes.versions"
-
-    }
-
     object Test {
 
         object Android {

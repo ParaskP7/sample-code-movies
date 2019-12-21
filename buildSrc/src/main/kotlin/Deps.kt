@@ -5,7 +5,6 @@ object Deps {
 
         val ANDROID = "com.android.tools.build:gradle:${Versions.Plugin.ANDROID}"
         val KOTLIN = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.Plugin.KOTLIN}"
-        val VERSIONS = "com.github.ben-manes:gradle-versions-plugin:${Versions.Plugin.VERSIONS}"
         val DEXCOUNT = "com.getkeepsafe.dexcount:dexcount-gradle-plugin:${Versions.Plugin.DEXCOUNT}"
         // TODO: Re-add Detekt plugin.
         val ANDROID_J_UNIT_5 = "de.mannodermaus.gradle.plugins:android-junit5:${Versions.Plugin.ANDROID_J_UNIT_5}"

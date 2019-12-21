@@ -4,7 +4,6 @@ plugins {
     id(PluginIds.Kotlin.KOTLIN)
     id(PluginIds.Kotlin.KAPT)
     // TODO: Re-add Detekt plugin.
-    id(PluginIds.Dependency.VERSIONS)
 }
 
 /* DEPENDENCIES */

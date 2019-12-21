@@ -1,11 +1,5 @@
 object Files {
 
-    object Gradle {
-
-        const val DEPENDENCY_UPDATES = "dependency_updates.gradle"
-
-    }
-
     object Yml {
 
         // TODO: Re-add Detekt plugin.

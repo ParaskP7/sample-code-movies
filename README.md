@@ -68,9 +68,7 @@ Below is a list of goodies that are being showcased:
     detects things you might be doing by accident and brings them to your attention so you can fix them)```
 7. Build
     1. [Gradle Kotlin DSL](https://github.com/gradle/kotlin-dsl) ```(Kotlin language support for Gradle build scripts)```
-    2. [Gradle Versions](https://github.com/ben-manes/gradle-versions-plugin) ```(Gradle plugin to discover dependency
-    updates)```
-    3. [Dexcount Gradle](https://github.com/KeepSafe/dexcount-gradle-plugin) ```(A Gradle plugin to report the number of
+    2. [Dexcount Gradle](https://github.com/KeepSafe/dexcount-gradle-plugin) ```(A Gradle plugin to report the number of
     method references in your APK on every build)```
 
 # Screenshots
