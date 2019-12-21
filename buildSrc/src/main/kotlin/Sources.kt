@@ -6,22 +6,28 @@ object Sources {
 
     object Main {
 
-        const val KOTLIN = "${Folders.Source.SRC}/${Folders.Source.MAIN}/${Folders.Source.KOTLIN}"
-        const val RESOURCES = "${Folders.Source.SRC}/${Folders.Source.MAIN}/${Folders.Source.RESOURCES}"
+        const val KOTLIN = "${Folders.Source.SRC}/${Folders.Source.MAIN}/" +
+                Folders.Source.Subfolder.KOTLIN
+        const val RESOURCES = "${Folders.Source.SRC}/${Folders.Source.MAIN}/" +
+                Folders.Source.Subfolder.RESOURCES
 
     }
 
     object Test {
 
-        const val KOTLIN = "${Folders.Source.SRC}/${Folders.Source.TEST}/${Folders.Source.KOTLIN}"
-        const val RESOURCES = "${Folders.Source.SRC}/${Folders.Source.TEST}/${Folders.Source.RESOURCES}"
+        const val KOTLIN = "${Folders.Source.SRC}/${Folders.Source.TEST}/" +
+                Folders.Source.Subfolder.KOTLIN
+        const val RESOURCES = "${Folders.Source.SRC}/${Folders.Source.TEST}/" +
+                Folders.Source.Subfolder.RESOURCES
 
     }
 
     object Robolectric {
 
-        const val KOTLIN = "${Folders.Source.SRC}/${Folders.Source.ROBOLECTRIC_TEST}/${Folders.Source.KOTLIN}"
-        const val RESOURCES = "${Folders.Source.SRC}/${Folders.Source.ROBOLECTRIC_TEST}/${Folders.Source.RESOURCES}"
+        const val KOTLIN = "${Folders.Source.SRC}/${Folders.Source.ROBOLECTRIC_TEST}/" +
+                Folders.Source.Subfolder.KOTLIN
+        const val RESOURCES = "${Folders.Source.SRC}/${Folders.Source.ROBOLECTRIC_TEST}/" +
+                Folders.Source.Subfolder.RESOURCES
 
     }
 
@@ -29,8 +35,10 @@ object Sources {
 
         object Test {
 
-            const val KOTLIN = "${Folders.Source.SRC}/${Folders.Source.ANDROID_TEST}/${Folders.Source.KOTLIN}"
-            const val RESOURCES = "${Folders.Source.SRC}/${Folders.Source.ANDROID_TEST}/${Folders.Source.RESOURCES}"
+            const val KOTLIN = "${Folders.Source.SRC}/${Folders.Source.ANDROID_TEST}/" +
+                    Folders.Source.Subfolder.KOTLIN
+            const val RESOURCES = "${Folders.Source.SRC}/${Folders.Source.ANDROID_TEST}/" +
+                    Folders.Source.Subfolder.RESOURCES
 
         }
 

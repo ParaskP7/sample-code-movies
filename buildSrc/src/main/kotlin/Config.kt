@@ -1,7 +1,7 @@
 object Config {
 
-    private const val KEYS_DIRECTORY = "${Folders.PARENT}/${Folders.Config.CONFIG}/${Folders.Config.KEYS}"
-    private const val QUALITY_DIRECTORY = "${Folders.Config.CONFIG}/${Folders.Config.QUALITY}"
+    private const val KEYS_DIRECTORY = "${Folders.PARENT}/${Folders.Config.CONFIG}/${Folders.Config.Subfolder.KEYS}"
+    private const val QUALITY_DIRECTORY = "${Folders.Config.CONFIG}/${Folders.Config.Subfolder.QUALITY}"
 
     object Dexcount {
 
