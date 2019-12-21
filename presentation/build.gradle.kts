@@ -9,7 +9,6 @@ import org.jetbrains.kotlin.gradle.plugin.KaptExtension
 
 plugins {
     id(PluginIds.Android.APPLICATION)
-    id(PluginIds.Android.DEXCOUNT)
     id(PluginIds.Kotlin.Android.ANDROID)
     id(PluginIds.Kotlin.Android.EXTENSIONS)
     id(PluginIds.Kotlin.KAPT)

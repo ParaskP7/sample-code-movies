@@ -18,7 +18,6 @@ object PluginIds {
 
         const val APPLICATION = "com.android.application"
         const val LIBRARY = "com.android.library"
-        const val DEXCOUNT = "com.getkeepsafe.dexcount"
 
     }
 

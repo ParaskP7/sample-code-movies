@@ -3,13 +3,6 @@ object Config {
     private const val KEYS_DIRECTORY = "${Folders.PARENT}/${Folders.Config.CONFIG}/${Folders.Config.Subfolder.KEYS}"
     private const val QUALITY_DIRECTORY = "${Folders.Config.CONFIG}/${Folders.Config.Subfolder.QUALITY}"
 
-    object Dexcount {
-
-        const val FORMAT = "list"
-        const val MAX_METHOD_COUNT = 60000
-
-    }
-
     object Lint {
 
         const val CONFIG_FILE_PATH = "${QUALITY_DIRECTORY}/${Files.Xml.LINT}"

@@ -7,7 +7,6 @@ import java.util.Properties
 
 plugins {
     id(PluginIds.Android.LIBRARY)
-    id(PluginIds.Android.DEXCOUNT)
     id(PluginIds.Kotlin.Android.ANDROID)
     id(PluginIds.Kotlin.Android.EXTENSIONS)
     id(PluginIds.Kotlin.KAPT)

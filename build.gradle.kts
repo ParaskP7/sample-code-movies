@@ -9,9 +9,6 @@ import com.android.build.gradle.internal.dsl.TestOptions
 import com.android.build.gradle.LibraryExtension
 import com.android.build.gradle.LibraryPlugin as AndroidLibraryPlugin
 
-import com.getkeepsafe.dexcount.DexMethodCountExtension
-import com.getkeepsafe.dexcount.DexMethodCountPlugin as DexcountPlugin
-
 import de.mannodermaus.gradle.plugins.junit5.AndroidJUnitPlatformPlugin
 import de.mannodermaus.gradle.plugins.junit5.junitPlatform
 
@@ -34,7 +31,6 @@ buildscript {
     dependencies {
         classpath(Deps.Plugin.ANDROID)
         classpath(Deps.Plugin.KOTLIN)
-        classpath(Deps.Plugin.DEXCOUNT)
         // TODO: Re-add Detekt plugin.
         classpath(Deps.Plugin.ANDROID_J_UNIT_5)
     }
@@ -79,10 +75,6 @@ subprojects {
         log(PluginIds.Android.APPLICATION)
         androidApplication { androidApplication() }
     }
-    plugins.withType(DexcountPlugin::class) {
-        log(PluginIds.Android.DEXCOUNT)
-        dexcount { dexcount() }
-    }
     // TODO: Re-add Detekt plugin.
     plugins.withType(AndroidJUnitPlatformPlugin::class) {
         log(PluginIds.Test.Android.J_UNIT_5)
@@ -112,9 +104,6 @@ fun Project.androidLibrary(configure: LibraryExtension.() -> Unit) =
 
 fun Project.androidApplication(configure: AppExtension.() -> Unit) =
     extensions.configure(AppExtension::class.java, configure)
-
-fun Project.dexcount(configure: DexMethodCountExtension.() -> Unit) =
-    extensions.configure(DexMethodCountExtension::class.java, configure)
 
 /* CONFIGURATION EXTENSION FUNCTIONS */
 
@@ -160,21 +149,6 @@ fun AppExtension.androidApplication() {
     sourceSets { sourceSets() }
     testOptions { testOptions() }
     lintOptions { lintOptions() }
-}
-
-fun DexMethodCountExtension.dexcount() {
-    format = Config.Dexcount.FORMAT
-    includeClasses = true
-    includeClassCount = true
-    includeFieldCount = true
-    includeTotalMethodCount = true
-    orderByMethodCount = false
-    verbose = false
-    maxTreeDepth = Integer.MAX_VALUE
-    teamCityIntegration = false
-    teamCitySlug = null
-    runOnEachPackage = true
-    maxMethodCount = Config.Dexcount.MAX_METHOD_COUNT
 }
 
 /* CONFIGURATION EXTENSION FUNCTIONS - ANDROID */
