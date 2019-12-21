@@ -30,16 +30,7 @@ object Config {
 
     }
 
-    object Detekt {
-
-        const val CONFIG_FILE_PATH = "${QUALITY_DIRECTORY}/${Files.Yml.DETEKT}"
-        const val FILTERS = ".*/${Folders.Source.TEST}/.*" + Utils.COMMA +
-                ".*/${Folders.Source.ROBOLECTRIC_TEST}/.*" + Utils.COMMA +
-                ".*/${Folders.Source.ANDROID_TEST}/.*" + Utils.COMMA +
-                ".*/${Folders.Source.RESOURCES}/.*" + Utils.COMMA +
-                ".*/${Files.Kotlin.Extension.KOTLIN_EXTENSIONS}"
-
-    }
+    // TODO: Re-add Detekt plugin.
 
     object Keys {
 

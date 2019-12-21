@@ -17,10 +17,6 @@ import com.github.benmanes.gradle.versions.VersionsPlugin
 import de.mannodermaus.gradle.plugins.junit5.AndroidJUnitPlatformPlugin
 import de.mannodermaus.gradle.plugins.junit5.junitPlatform
 
-import io.gitlab.arturbosch.detekt.detekt
-import io.gitlab.arturbosch.detekt.DetektPlugin
-import io.gitlab.arturbosch.detekt.extensions.DetektExtension
-
 import org.gradle.api.Project
 
 import org.jetbrains.kotlin.gradle.internal.AndroidExtensionsSubpluginIndicator as KotlinAndroidExtensionsPlugin
@@ -42,7 +38,7 @@ buildscript {
         classpath(Deps.Plugin.KOTLIN)
         classpath(Deps.Plugin.VERSIONS)
         classpath(Deps.Plugin.DEXCOUNT)
-        classpath(Deps.Plugin.DETEKT)
+        // TODO: Re-add Detekt plugin.
         classpath(Deps.Plugin.ANDROID_J_UNIT_5)
     }
 }
@@ -90,10 +86,7 @@ subprojects {
         log(PluginIds.Android.DEXCOUNT)
         dexcount { dexcount() }
     }
-    plugins.withType(DetektPlugin::class) {
-        log(PluginIds.Quality.DETEKT)
-        detekt { detekt() }
-    }
+    // TODO: Re-add Detekt plugin.
     plugins.withType(VersionsPlugin::class) {
         log(PluginIds.Dependency.VERSIONS)
         apply(Config.Gradle.DEPENDENCY_UPDATES)
@@ -189,14 +182,6 @@ fun DexMethodCountExtension.dexcount() {
     teamCitySlug = null
     runOnEachPackage = true
     maxMethodCount = Config.Dexcount.MAX_METHOD_COUNT
-}
-
-fun DetektExtension.detekt() {
-    toolVersion = Versions.Plugin.DETEKT
-    config = files(Config.Detekt.CONFIG_FILE_PATH)
-    filters = Config.Detekt.FILTERS
-    disableDefaultRuleSets = false
-    parallel = true
 }
 
 /* CONFIGURATION EXTENSION FUNCTIONS - ANDROID */

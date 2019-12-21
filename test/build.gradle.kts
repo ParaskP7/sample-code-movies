@@ -3,7 +3,7 @@
 plugins {
     id(PluginIds.Kotlin.KOTLIN)
     id(PluginIds.Kotlin.KAPT)
-    id(PluginIds.Quality.DETEKT)
+    // TODO: Re-add Detekt plugin.
     id(PluginIds.Dependency.VERSIONS)
 }
 
@@ -12,7 +12,6 @@ plugins {
 dependencies {
     projectImplementation()
     implementation()
-    plugins()
 }
 
 /* *********************************************************************************************************************** */
@@ -31,10 +30,4 @@ fun DependencyHandlerScope.implementation() {
 
 fun DependencyHandlerScope.implementationKotlin() {
     implementation(Deps.Kotlin.KOTLIN)
-}
-
-/* DEPENDENCIES - PLUGINS */
-
-fun DependencyHandlerScope.plugins() {
-    detektPlugins(Deps.Plugin.DETEKT_FORMATTING)
 }
