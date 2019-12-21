@@ -1,3 +1,4 @@
+@Suppress("MayBeConstant", "MemberVisibilityCanBePrivate")
 object Deps {
 
     object Plugin {
