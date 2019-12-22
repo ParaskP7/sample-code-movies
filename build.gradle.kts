@@ -51,6 +51,12 @@ allprojects {
 /* PROJECT PLUGINS CONFIGURATION */
 
 subprojects {
+    subprojectsPlugins()
+    subprojectsTasks()
+}
+
+
+fun Project.subprojectsPlugins() {
     plugins.withType(KotlinPlugin::class) {
         log(PluginIds.Kotlin.KOTLIN)
         java { java() }
@@ -82,7 +88,9 @@ subprojects {
         log(PluginIds.Test.Android.J_UNIT_5)
         androidBase { androidBase() }
     }
+}
 
+fun Project.subprojectsTasks() {
     tasks.withType<KotlinCompile>().configureEach {
         kotlinOptions { kotlinOptions() }
     }
@@ -207,6 +215,12 @@ fun LintOptions.lintOptions() {
     xmlReport = true
     disable(*Config.Lint.disabledIssues)
 }
+
+/* *********************************************************************************************************************** */
+
+/* TASKS EXTENSION FUNCTIONS */
+
+/* CONFIGURATION EXTENSION FUNCTIONS - KOTLIN */
 
 fun KotlinJvmOptions.kotlinOptions() {
     allWarningsAsErrors = true
