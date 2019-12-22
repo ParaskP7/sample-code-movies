@@ -14,11 +14,13 @@ import de.mannodermaus.gradle.plugins.junit5.junitPlatform
 
 import org.gradle.api.Project
 
+import org.jetbrains.kotlin.gradle.dsl.KotlinJvmOptions
 import org.jetbrains.kotlin.gradle.internal.AndroidExtensionsSubpluginIndicator as KotlinAndroidExtensionsPlugin
 import org.jetbrains.kotlin.gradle.internal.Kapt3GradleSubplugin as KotlinKaptPlugin
 import org.jetbrains.kotlin.gradle.plugin.KaptExtension
 import org.jetbrains.kotlin.gradle.plugin.KotlinAndroidPluginWrapper as KotlinAndroidPlugin
 import org.jetbrains.kotlin.gradle.plugin.KotlinPluginWrapper as KotlinPlugin
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 /* BUILD SCRIPT */
 
@@ -79,6 +81,10 @@ subprojects {
     plugins.withType(AndroidJUnitPlatformPlugin::class) {
         log(PluginIds.Test.Android.J_UNIT_5)
         androidBase { androidBase() }
+    }
+
+    tasks.withType<KotlinCompile>().configureEach {
+        kotlinOptions { kotlinOptions() }
     }
 }
 
@@ -200,4 +206,8 @@ fun LintOptions.lintOptions() {
     htmlReport = true
     xmlReport = true
     disable(*Config.Lint.disabledIssues)
+}
+
+fun KotlinJvmOptions.kotlinOptions() {
+    allWarningsAsErrors = true
 }
