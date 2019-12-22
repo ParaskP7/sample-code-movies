@@ -130,6 +130,23 @@ fun Test.testLogging() {
     testLogging {
         events(*Logs.events)
         setExceptionFormat(Logs.EXCEPTION_FORMAT)
+        debug {
+            events(*Logs.debugEvents)
+            setExceptionFormat(Logs.DEBUG_EXCEPTION_FORMAT)
+        }
+        showExceptions = true
+        showCauses = true
+        showStackTraces = true
+        info.events = debug.events
+        info.exceptionFormat = debug.exceptionFormat
+        addTestListener(object : TestListener {
+            override fun beforeSuite(desc: TestDescriptor) {}
+            override fun beforeTest(desc: TestDescriptor) {}
+            override fun afterTest(desc: TestDescriptor, result: TestResult) {}
+            override fun afterSuite(desc: TestDescriptor, result: TestResult) {
+                if (desc.parent != null) println(Logs.testConsoleOutput(result))
+            }
+        })
     }
 }
 
