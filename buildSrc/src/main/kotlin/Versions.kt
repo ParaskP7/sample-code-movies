@@ -3,7 +3,7 @@ object Versions {
     object Plugin {
 
         const val ANDROID = "4.0.0-alpha07"
-        const val KOTLIN = "1.3.31"
+        const val KOTLIN = "1.3.61"
         // TODO: Re-add Detekt plugin.
         const val ANDROID_J_UNIT_5 = "1.4.0.0"
 
