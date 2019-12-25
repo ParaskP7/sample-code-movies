@@ -7,7 +7,6 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.OnLifecycleEvent
 import androidx.lifecycle.ProcessLifecycleOwner
-import com.squareup.leakcanary.LeakCanary
 import io.petros.movies.BuildConfig
 import io.petros.movies.R
 import io.petros.movies.data.di.koin.networkModule
@@ -23,21 +22,11 @@ class App : Application(), LifecycleObserver {
 
     override fun onCreate() {
         super.onCreate()
-        if (!initLeakCanary()) return
         initKoin()
         initLogging()
         initStrictMode()
         initLifecycleObserver()
         Timber.i("${getString(R.string.app_name)} created.")
-    }
-
-    private fun initLeakCanary(): Boolean {
-        return if (LeakCanary.isInAnalyzerProcess(this)) {
-            false
-        } else {
-            LeakCanary.install(this)
-            true
-        }
     }
 
     private fun initKoin() {

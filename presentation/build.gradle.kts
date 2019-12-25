@@ -1,9 +1,6 @@
-import com.android.build.gradle.internal.dsl.BaseAppModuleExtension
+import com.android.build.gradle.ProguardFiles.getDefaultProguardFile
 import com.android.build.gradle.internal.dsl.BuildType
 import com.android.build.gradle.internal.dsl.DefaultConfig
-import com.android.build.gradle.ProguardFiles.getDefaultProguardFile
-
-import org.jetbrains.kotlin.gradle.plugin.KaptExtension
 
 /* PLUGINS */
 
@@ -23,17 +20,11 @@ android {
     buildTypes { buildTypes() }
 }
 
-/* CONFIGURATIONS */
-
-configurations.all {
-    leakCanary()
-}
-
 /* DEPENDENCIES */
 
 dependencies {
     projectImplementation()
-    buildTypeImplementation()
+    debugImplementation()
     implementation()
     testProjectImplementation()
     testImplementation()
@@ -63,20 +54,6 @@ fun NamedDomainObjectContainer<BuildType>.buildTypes() {
     }
 }
 
-/* CONFIGURATION EXTENSION FUNCTIONS - LEAK CANARY */
-
-fun org.gradle.api.artifacts.Configuration.leakCanary() {
-    if (name.contains(Configuration.Test.UNIT_TEST) || name.contains(Configuration.Test.ANDROID_TEST)) {
-        resolutionStrategy {
-            eachDependency {
-                if (requested.group == Deps.LeakCanary.GROUP && requested.name == Deps.LeakCanary.NAME) {
-                    useTarget(Deps.LeakCanary.RELEASE)
-                }
-            }
-        }
-    }
-}
-
 /* DEPENDENCIES - PROJECT IMPLEMENTATION */
 
 fun DependencyHandlerScope.projectImplementation() {
@@ -86,13 +63,8 @@ fun DependencyHandlerScope.projectImplementation() {
 
 /* DEPENDENCIES - BUILD TYPE IMPLEMENTATION */
 
-fun DependencyHandlerScope.buildTypeImplementation() {
-    buildTypeImplementationLeakCanary()
-}
-
-fun DependencyHandlerScope.buildTypeImplementationLeakCanary() {
-    debugImplementation(Deps.LeakCanary.DEBUG)
-    releaseImplementation(Deps.LeakCanary.RELEASE)
+fun DependencyHandlerScope.debugImplementation() {
+    debugImplementation(Deps.LeakCanary.LEAK_CANARY)
 }
 
 /* DEPENDENCIES - IMPLEMENTATION */
