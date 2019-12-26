@@ -118,7 +118,11 @@ object Deps {
 
         }
 
-        val OK_HTTP_LOGGING = "com.squareup.okhttp3:logging-interceptor:${Versions.Net.OK_HTTP}"
+        object OkHttp {
+
+            val OK_HTTP_LOGGING = "com.squareup.okhttp3:logging-interceptor:${Versions.Net.OkHttp.OK_HTTP}"
+
+        }
 
     }
 

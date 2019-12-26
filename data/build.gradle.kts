@@ -75,7 +75,7 @@ fun DependencyHandlerScope.implementationDi() {
 }
 
 fun DependencyHandlerScope.implementationNet() {
-    implementation(Deps.Net.OK_HTTP_LOGGING)
+    implementation(Deps.Net.OkHttp.OK_HTTP_LOGGING)
 }
 
 fun DependencyHandlerScope.implementationRetrofit() {
