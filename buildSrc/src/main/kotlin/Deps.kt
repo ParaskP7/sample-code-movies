@@ -145,7 +145,11 @@ object Deps {
 
         }
 
-        val STRIKT = "io.strikt:strikt-core:${Versions.Test.STRIKT}"
+        object Assert {
+
+            val STRIKT = "io.strikt:strikt-core:${Versions.Test.Assert.STRIKT}"
+
+        }
 
     }
 

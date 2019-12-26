@@ -153,7 +153,7 @@ fun DependencyHandlerScope.testImplementationJUnit() {
 }
 
 fun DependencyHandlerScope.testImplementationTest() {
-    testImplementation(Deps.Test.STRIKT)
+    testImplementation(Deps.Test.Assert.STRIKT)
 }
 
 fun DependencyHandlerScope.testImplementationMock() {
@@ -183,5 +183,5 @@ fun DependencyHandlerScope.androidTestImplementationTest() {
 }
 
 fun DependencyHandlerScope.androidTestImplementationMock() {
-    androidTestImplementation(Deps.Test.STRIKT)
+    androidTestImplementation(Deps.Test.Assert.STRIKT)
 }

@@ -53,7 +53,7 @@ fun DependencyHandlerScope.testImplementationSpek() {
 }
 
 fun DependencyHandlerScope.testImplementationTest() {
-    testImplementation(Deps.Test.STRIKT)
+    testImplementation(Deps.Test.Assert.STRIKT)
 }
 
 fun DependencyHandlerScope.testImplementationMock() {
