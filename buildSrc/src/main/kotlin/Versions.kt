@@ -87,6 +87,7 @@ object Versions {
 
     object Net {
 
+        // Release: https://github.com/square/okhttp/releases
         const val OK_HTTP = "4.2.2"
 
     }
