@@ -108,6 +108,7 @@ object Versions {
 
     object Util {
 
+        // Release: https://mvnrepository.com/artifact/com.whiteelephant/monthandyearpicker
         const val MONTH_YEAR_PICKER = "1.3.0"
 
     }
