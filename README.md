@@ -185,8 +185,7 @@ and library enhancements:
     For more info, see [SPEK](https://spekframework.org) ```(A specification framework for Kotlin)``` 
     and [JUnit5](https://junit.org/junit5) ```(JUnit 5 is the next generation of JUnit)```
 11. Support Android 10 (Target SDK 29). For more info, see [Android 10](https://developer.android.com/about/versions/10)
-    ```(Build app experiences with dark theme and gesture navigation. Support new protections for user privacy and
-    security)```
+    ```(Build app experiences with dark theme and gesture navigation. Support new protections for user privacy and security)```
 12. Re-add Detekt Plugin. For more info, see [Detekt](https://arturbosch.github.io/detekt) ```(Static code analysis for
     Kotlin)```
 13. Find new Versions Plugin. For example, see [Gradle Versions Plugin](https://github.com/ben-manes/gradle-versions-plugin)
