@@ -140,7 +140,7 @@ object Versions {
 
         }
 
-        const val STRIKT = "0.19.2"
+        const val STRIKT = "0.23.2"
 
     }
 
