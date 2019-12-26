@@ -126,6 +126,7 @@ object Versions {
 
         object Spek {
 
+            // Release: https://github.com/spekframework/spek/releases
             const val SPEK = "2.0.9"
 
         }
