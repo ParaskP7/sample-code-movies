@@ -197,9 +197,9 @@ and library enhancements:
     to more easily write code that interacts with views. Once view binding is enabled in a module, it generates a binding
     class for each XML layout file present in that module. An instance of a binding class contains direct references to all
     views that have an ID in the corresponding layout)```
-16. Add Jetpack Compose. For more info see [Jetpack Compose](https://developer.android.com/jetpack/compose)
-    ```(Jetpack Compose simplifies and accelerates UI development on Android. Quickly bring your app to life with less code,
-    powerful tools, and intuitive Kotlin APIs)```
+16. Add Jetpack Compose. For more info see [Jetpack Compose](https://developer.android.com/jetpack/compose) ```(Jetpack
+    Compose simplifies and accelerates UI development on Android. Quickly bring your app to life with less code, powerful
+    tools, and intuitive Kotlin APIs)```
 17. Add Bitrise CI. For more info see [Bitrise](https://www.bitrise.io)
     ```(Continuous Integration and Continuous Delivery for mobile apps)```
 18. Add Support for Dark Theme. For more info see [Dark Theme](https://developer.android.com/guide/topics/ui/look-and-feel/darktheme)
