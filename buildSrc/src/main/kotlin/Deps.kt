@@ -111,16 +111,16 @@ object Deps {
 
     object Net {
 
+        object OkHttp {
+
+            val OK_HTTP_LOGGING = "com.squareup.okhttp3:logging-interceptor:${Versions.Net.OkHttp.OK_HTTP}"
+
+        }
+
         object Rest {
 
             val RETROFIT = "com.squareup.retrofit2:retrofit:${Versions.Rest.RETROFIT}"
             val RETROFIT_GSON = "com.squareup.retrofit2:converter-gson:${Versions.Rest.RETROFIT}"
-
-        }
-
-        object OkHttp {
-
-            val OK_HTTP_LOGGING = "com.squareup.okhttp3:logging-interceptor:${Versions.Net.OkHttp.OK_HTTP}"
 
         }
 
