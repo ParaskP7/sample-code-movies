@@ -61,16 +61,16 @@ object Deps {
 
         object Arch {
 
-            object Test {
-
-                val CORE_TESTING = "androidx.arch.core:core-testing:${Versions.Android.Arch.Test.CORE_TESTING}"
-
-            }
-
             object Core {
 
                 val LIFECYCLE_EXTENSIONS =
                     "androidx.lifecycle:lifecycle-extensions:${Versions.Android.Arch.Core.LIFECYCLE_EXTENSIONS}"
+
+            }
+
+            object Test {
+
+                val CORE_TESTING = "androidx.arch.core:core-testing:${Versions.Android.Arch.Test.CORE_TESTING}"
 
             }
 

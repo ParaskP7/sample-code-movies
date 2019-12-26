@@ -59,17 +59,17 @@ object Versions {
 
         object Arch {
 
-            object Test {
-
-                // Release: https://developer.android.com/jetpack/androidx/releases/arch
-                const val CORE_TESTING = "2.1.0"
-
-            }
-
             object Core {
 
                 // Release: https://developer.android.com/jetpack/androidx/releases/lifecycle
                 const val LIFECYCLE_EXTENSIONS = "2.1.0"
+
+            }
+
+            object Test {
+
+                // Release: https://developer.android.com/jetpack/androidx/releases/arch
+                const val CORE_TESTING = "2.1.0"
 
             }
 
