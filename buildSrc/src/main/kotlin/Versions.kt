@@ -115,6 +115,7 @@ object Versions {
 
     object Log {
 
+        // Release: https://github.com/JakeWharton/timber/releases
         const val TIMBER = "4.7.1"
 
     }
