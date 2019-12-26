@@ -147,6 +147,7 @@ object Versions {
 
     object Mock {
 
+        // Release: https://github.com/mockk/mockk/releases
         const val MOCK_K = "1.9.3"
 
     }
