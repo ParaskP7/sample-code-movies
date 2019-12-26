@@ -58,11 +58,10 @@ object Versions {
 
         }
 
+        // Release: https://developer.android.com/jetpack/androidx/releases/test
         object Test {
 
-            // Release: https://developer.android.com/jetpack/androidx/releases/test
             const val TEST_CORE = "1.2.0"
-            // Release: N/A - Find in Google's Maven Repository (https://maven.google.com/web/index.html)
             const val TEST_J_UNIT = "1.1.1"
             const val TEST_ESPRESSO = "3.1.1"
 
