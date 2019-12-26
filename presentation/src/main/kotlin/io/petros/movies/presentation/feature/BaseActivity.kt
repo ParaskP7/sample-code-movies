@@ -48,7 +48,7 @@ abstract class BaseActivity : AppCompatActivity() {
         Timber.v("${javaClass.simpleName} resumed.")
     }
 
-    override fun onConfigurationChanged(newConfig: Configuration?) {
+    override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)
         Timber.v("${javaClass.simpleName} new config. [Config: $newConfig]")
     }

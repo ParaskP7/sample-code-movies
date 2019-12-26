@@ -67,7 +67,7 @@ object Versions {
 
         }
 
-        const val APP_COMPAT = "1.0.2"
+        const val APP_COMPAT = "1.1.0"
         const val RECYCLER_VIEW = "1.0.0"
         const val CARD_VIEW = "1.0.0"
         const val CONSTRAINT_LAYOUT = "1.1.3"
