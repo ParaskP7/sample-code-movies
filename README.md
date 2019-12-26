@@ -204,10 +204,10 @@ and library enhancements:
     ```(Continuous Integration and Continuous Delivery for mobile apps)```
 18. Add Support for Dark Theme. For more info see [Dark Theme](https://developer.android.com/guide/topics/ui/look-and-feel/darktheme)
     ```(Dark theme is available in Android 10 (API level 29) and higher)```
-19. Add Jetpack Benchmark. For more info see [Jetpack Benchmark](https://developer.android.com/studio/profile/benchmark)
-    ```(The Jetpack Benchmark library allows you to quickly benchmark your Kotlin-based or Java-based code from within
-    Android Studio. The library handles warmup, measures your code performance, and outputs benchmarking results to the
-    Android Studio console)```
+19. Add Jetpack Benchmark. For more info see
+    [Jetpack Benchmark](https://developer.android.com/studio/profile/benchmark) ```(The Jetpack Benchmark library allows you
+    to quickly benchmark your Kotlin-based or Java-based code from within Android Studio. The library handles warmup,
+    measures your code performance, and outputs benchmarking results to the Android Studio console)```
 20. Add Code Coverage Reports for Tests with Jacoco. For more info see [Jacoco](https://github.com/jacoco/jacoco)
     ```(Java Code Coverage Library)```
 21. Modularize the App Horizontally by Features. To get an understanding of Modularization and how to it applies to an
