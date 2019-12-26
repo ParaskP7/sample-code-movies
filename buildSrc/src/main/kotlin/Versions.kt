@@ -41,11 +41,11 @@ object Versions {
 
             object Test {
 
-                const val CORE_TESTING = "2.0.0"
+                const val CORE_TESTING = "2.1.0"
 
             }
 
-            const val LIFECYCLE_EXTENSIONS = "2.0.0"
+            const val LIFECYCLE_EXTENSIONS = "2.1.0"
 
         }
 
