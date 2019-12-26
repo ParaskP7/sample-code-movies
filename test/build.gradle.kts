@@ -28,5 +28,5 @@ fun DependencyHandlerScope.implementation() {
 }
 
 fun DependencyHandlerScope.implementationKotlin() {
-    implementation(Deps.Kotlin.KOTLIN)
+    implementation(Deps.Kotlin.Core.KOTLIN)
 }

@@ -24,7 +24,7 @@ fun DependencyHandlerScope.implementation() {
 }
 
 fun DependencyHandlerScope.implementationKotlin() {
-    implementation(Deps.Kotlin.KOTLIN)
+    implementation(Deps.Kotlin.Core.KOTLIN)
     implementation(Deps.Kotlin.Coroutines.CORE)
 }
 
@@ -49,7 +49,7 @@ fun DependencyHandlerScope.testImplementation() {
 fun DependencyHandlerScope.testImplementationSpek() {
     testImplementation(Deps.Test.Spek.DSL)
     testImplementation(Deps.Test.Spek.J_UNIT)
-    testRuntimeOnly(Deps.Kotlin.KOTLIN_REFLECT)
+    testRuntimeOnly(Deps.Kotlin.Core.KOTLIN_REFLECT)
 }
 
 fun DependencyHandlerScope.testImplementationTest() {
