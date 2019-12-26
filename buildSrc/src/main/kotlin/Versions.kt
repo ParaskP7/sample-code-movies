@@ -87,7 +87,7 @@ object Versions {
 
     object Net {
 
-        const val OK_HTTP = "3.14.0"
+        const val OK_HTTP = "4.2.2"
 
     }
 
