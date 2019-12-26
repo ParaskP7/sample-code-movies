@@ -2,7 +2,6 @@ package io.petros.movies.data.di.koin
 
 import android.content.Context
 import com.google.gson.Gson
-import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import io.petros.movies.data.BuildConfig
 import io.petros.movies.data.R
 import io.petros.movies.data.getLong
@@ -49,7 +48,6 @@ private fun retrofit(
     return Retrofit.Builder()
         .baseUrl(context.getString(R.string.rest_themoviedb_url))
         .addConverterFactory(GsonConverterFactory.create(gson))
-        .addCallAdapterFactory(CoroutineCallAdapterFactory())
         .client(httpClient)
         .build()
 }

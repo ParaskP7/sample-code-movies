@@ -16,7 +16,7 @@ class RestClient constructor(
             releaseDateGte(year, month),
             releaseDateLte(year, month),
             page
-        ).let { it.await().toMoviesResultPage(context) }
+        ).toMoviesResultPage(context)
     }
 
 }

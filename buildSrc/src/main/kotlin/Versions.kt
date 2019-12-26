@@ -94,8 +94,7 @@ object Versions {
 
     object Rest {
 
-        const val RETROFIT = "2.5.0"
-        const val RETROFIT_COROUTINES = "0.9.2"
+        const val RETROFIT = "2.6.3"
 
     }
 

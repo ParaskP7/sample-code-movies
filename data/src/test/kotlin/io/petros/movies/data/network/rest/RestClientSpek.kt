@@ -7,7 +7,6 @@ import io.petros.movies.data.network.rest.response.movie.MoviesResultPageRaw
 import io.petros.movies.test.domain.TestMoviesProvider.Companion.MOVIE_MONTH
 import io.petros.movies.test.domain.TestMoviesProvider.Companion.MOVIE_YEAR
 import io.petros.movies.test.domain.TestMoviesProvider.Companion.NEXT_PAGE
-import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.runBlocking
 import org.spekframework.spek2.Spek
 import org.spekframework.spek2.style.gherkin.Feature
@@ -18,7 +17,7 @@ private const val RELEASE_DATE_LTE = "2018-08-31"
 @Suppress("DeferredResultUnused")
 class RestClientSpek : Spek({
 
-    val moviesResponse = CompletableDeferred(MoviesResultPageRaw(0, 1, emptyList()))
+    val moviesResponse = MoviesResultPageRaw(0, 1, emptyList())
     val restApiMock = mockk<RestApi>()
     coEvery { restApiMock.loadMovies(RELEASE_DATE_GTE, RELEASE_DATE_LTE, NEXT_PAGE) } returns moviesResponse
 

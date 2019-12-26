@@ -101,7 +101,6 @@ object Deps {
 
             val RETROFIT = "com.squareup.retrofit2:retrofit:${Versions.Rest.RETROFIT}"
             val RETROFIT_GSON = "com.squareup.retrofit2:converter-gson:${Versions.Rest.RETROFIT}"
-            val RETROFIT_COROUTINES = "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:${Versions.Rest.RETROFIT_COROUTINES}"
 
         }
 

@@ -1,7 +1,6 @@
 import com.android.build.gradle.internal.dsl.BuildType
-
 import java.io.FileInputStream
-import java.util.Properties
+import java.util.*
 
 /* PLUGINS */
 
@@ -82,7 +81,6 @@ fun DependencyHandlerScope.implementationNet() {
 fun DependencyHandlerScope.implementationRetrofit() {
     implementation(Deps.Net.Rest.RETROFIT)
     implementation(Deps.Net.Rest.RETROFIT_GSON)
-    implementation(Deps.Net.Rest.RETROFIT_COROUTINES)
 }
 
 fun DependencyHandlerScope.implementationLog() {
