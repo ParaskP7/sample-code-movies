@@ -154,6 +154,7 @@ object Versions {
 
     object Robolectric {
 
+        // Release: https://github.com/robolectric/robolectric/releases
         const val ROBOLECTRIC = "4.3.1"
 
     }
