@@ -140,6 +140,7 @@ object Versions {
 
         }
 
+        // Release: https://github.com/robfletcher/strikt/releases
         const val STRIKT = "0.23.2"
 
     }
