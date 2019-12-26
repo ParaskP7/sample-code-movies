@@ -67,8 +67,12 @@ object Deps {
 
             }
 
-            val LIFECYCLE_EXTENSIONS =
-                "androidx.lifecycle:lifecycle-extensions:${Versions.Android.Arch.LIFECYCLE_EXTENSIONS}"
+            object Core {
+
+                val LIFECYCLE_EXTENSIONS =
+                    "androidx.lifecycle:lifecycle-extensions:${Versions.Android.Arch.Core.LIFECYCLE_EXTENSIONS}"
+
+            }
 
         }
 
