@@ -14,7 +14,9 @@ import io.petros.movies.data.di.koin.repositoriesModule
 import io.petros.movies.domain.di.koin.useCasesModule
 import io.petros.movies.presentation.di.koin.appModule
 import io.petros.movies.presentation.di.koin.navigatorModule
-import org.koin.android.ext.android.startKoin
+import org.koin.android.ext.koin.androidContext
+import org.koin.android.ext.koin.androidLogger
+import org.koin.core.context.startKoin
 import timber.log.Timber
 
 @Suppress("TooManyFunctions")
@@ -30,15 +32,17 @@ class App : Application(), LifecycleObserver {
     }
 
     private fun initKoin() {
-        startKoin(
-            this, listOf(
-                appModule,
-                navigatorModule,
-                useCasesModule,
-                repositoriesModule,
-                networkModule
+        startKoin {
+            androidLogger()
+            androidContext(this@App)
+            modules(
+                appModule +
+                        navigatorModule +
+                        useCasesModule +
+                        repositoriesModule +
+                        networkModule
             )
-        )
+        }
     }
 
     private fun initLogging() {

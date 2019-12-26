@@ -80,7 +80,7 @@ object Versions {
 
     object Di {
 
-        const val KOIN = "1.0.2"
+        const val KOIN = "2.0.1"
 
     }
 

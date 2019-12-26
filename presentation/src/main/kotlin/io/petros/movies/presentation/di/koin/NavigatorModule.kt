@@ -7,7 +7,7 @@ import io.petros.movies.presentation.feature.movies.navigator.MoviesActivityNavi
 import io.petros.movies.presentation.feature.movies.navigator.MoviesNavigator
 import io.petros.movies.presentation.feature.splash.navigator.SplashActivityNavigator
 import io.petros.movies.presentation.feature.splash.navigator.SplashNavigator
-import org.koin.dsl.module.module
+import org.koin.dsl.module
 
 val navigatorModule = module {
     factory<SplashNavigator> { (activity: AppCompatActivity) ->
