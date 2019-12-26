@@ -51,7 +51,7 @@ object Versions {
 
         object Test {
 
-            const val TEST_CORE = "1.1.0"
+            const val TEST_CORE = "1.2.0"
             const val TEST_J_UNIT = "1.1.0"
             const val TEST_ESPRESSO = "3.1.1"
 
