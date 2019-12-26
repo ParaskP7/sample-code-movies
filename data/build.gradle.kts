@@ -67,7 +67,7 @@ fun DependencyHandlerScope.implementationKotlin() {
 }
 
 fun DependencyHandlerScope.implementationAndroid() {
-    implementation(Deps.Android.APP_COMPAT)
+    implementation(Deps.Android.Core.APP_COMPAT)
 }
 
 fun DependencyHandlerScope.implementationDi() {

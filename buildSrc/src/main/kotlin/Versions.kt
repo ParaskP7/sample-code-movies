@@ -71,14 +71,18 @@ object Versions {
 
         }
 
-        // Release: https://developer.android.com/jetpack/androidx/releases/appcompat
-        const val APP_COMPAT = "1.1.0"
-        // Release: https://developer.android.com/jetpack/androidx/releases/recyclerview
-        const val RECYCLER_VIEW = "1.1.0"
-        // Release: https://developer.android.com/jetpack/androidx/releases/cardview
-        const val CARD_VIEW = "1.0.0"
-        // Release: https://developer.android.com/jetpack/androidx/releases/constraintlayout
-        const val CONSTRAINT_LAYOUT = "1.1.3"
+        object Core {
+
+            // Release: https://developer.android.com/jetpack/androidx/releases/appcompat
+            const val APP_COMPAT = "1.1.0"
+            // Release: https://developer.android.com/jetpack/androidx/releases/recyclerview
+            const val RECYCLER_VIEW = "1.1.0"
+            // Release: https://developer.android.com/jetpack/androidx/releases/cardview
+            const val CARD_VIEW = "1.0.0"
+            // Release: https://developer.android.com/jetpack/androidx/releases/constraintlayout
+            const val CONSTRAINT_LAYOUT = "1.1.3"
+
+        }
 
     }
 

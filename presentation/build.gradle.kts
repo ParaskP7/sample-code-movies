@@ -72,7 +72,7 @@ fun DependencyHandlerScope.debugImplementation() {
 fun DependencyHandlerScope.implementation() {
     implementationKotlin()
     implementationMaterial()
-    implementationAndroid()
+    implementationAndroidCore()
     implementationAndroidKtx()
     implementationAndroidArch()
     implementationDi()
@@ -91,11 +91,11 @@ fun DependencyHandlerScope.implementationMaterial() {
     implementation(Deps.Material.MATERIAL)
 }
 
-fun DependencyHandlerScope.implementationAndroid() {
-    implementation(Deps.Android.APP_COMPAT)
-    implementation(Deps.Android.RECYCLER_VIEW)
-    implementation(Deps.Android.CARD_VIEW)
-    implementation(Deps.Android.CONSTRAINT_LAYOUT)
+fun DependencyHandlerScope.implementationAndroidCore() {
+    implementation(Deps.Android.Core.APP_COMPAT)
+    implementation(Deps.Android.Core.RECYCLER_VIEW)
+    implementation(Deps.Android.Core.CARD_VIEW)
+    implementation(Deps.Android.Core.CONSTRAINT_LAYOUT)
 }
 
 fun DependencyHandlerScope.implementationAndroidKtx() {
