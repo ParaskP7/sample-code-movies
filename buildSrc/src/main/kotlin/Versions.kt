@@ -110,12 +110,12 @@ object Versions {
 
         }
 
-    }
+        object Rest {
 
-    object Rest {
+            // Release: https://github.com/square/retrofit/releases
+            const val RETROFIT = "2.6.3"
 
-        // Release: https://github.com/square/retrofit/releases
-        const val RETROFIT = "2.6.3"
+        }
 
     }
 

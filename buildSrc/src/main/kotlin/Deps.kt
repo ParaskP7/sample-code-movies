@@ -119,8 +119,8 @@ object Deps {
 
         object Rest {
 
-            val RETROFIT = "com.squareup.retrofit2:retrofit:${Versions.Rest.RETROFIT}"
-            val RETROFIT_GSON = "com.squareup.retrofit2:converter-gson:${Versions.Rest.RETROFIT}"
+            val RETROFIT = "com.squareup.retrofit2:retrofit:${Versions.Net.Rest.RETROFIT}"
+            val RETROFIT_GSON = "com.squareup.retrofit2:converter-gson:${Versions.Net.Rest.RETROFIT}"
 
         }
 
