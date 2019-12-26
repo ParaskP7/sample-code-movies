@@ -2,15 +2,19 @@ object Versions {
 
     object Plugin {
 
+        // Release: https://androidstudio.googleblog.com
         const val ANDROID = "4.0.0-alpha07"
+        // Release: https://blog.jetbrains.com/kotlin/category/releases
         const val KOTLIN = "1.3.61"
         // TODO: Re-add Detekt plugin.
+        // Release: https://github.com/mannodermaus/android-junit5/releases
         const val ANDROID_J_UNIT_5 = "1.5.2.0"
 
     }
 
     object LeakCanary {
 
+        // Release: https://github.com/square/leakcanary/releases
         const val LEAK_CANARY = "2.0"
 
     }
@@ -19,12 +23,14 @@ object Versions {
 
     object Kotlin {
 
+        // Release: https://github.com/Kotlin/kotlinx.coroutines/releases
         const val COROUTINES = "1.3.3"
 
     }
 
     object Material {
 
+        // Release: https://github.com/material-components/material-components-android/releases
         const val MATERIAL = "1.0.0"
 
     }
@@ -33,6 +39,7 @@ object Versions {
 
         object Ktx {
 
+            // Release: https://developer.android.com/jetpack/androidx/releases/core
             const val CORE = "1.1.0"
 
         }
@@ -41,17 +48,21 @@ object Versions {
 
             object Test {
 
+                // Release: https://developer.android.com/jetpack/androidx/releases/arch
                 const val CORE_TESTING = "2.1.0"
 
             }
 
+            // Release: https://developer.android.com/jetpack/androidx/releases/lifecycle
             const val LIFECYCLE_EXTENSIONS = "2.1.0"
 
         }
 
         object Test {
 
+            // Release: https://developer.android.com/jetpack/androidx/releases/test
             const val TEST_CORE = "1.2.0"
+            // Release: N/A - Find in Google's Maven Repository (https://maven.google.com/web/index.html)
             const val TEST_J_UNIT = "1.1.0"
             const val TEST_ESPRESSO = "3.1.1"
 
@@ -114,6 +125,7 @@ object Versions {
         object JUnit {
 
             const val J_UNIT = "4.12"
+            // Release: https://github.com/junit-team/junit5/releases
             const val VINTAGE = "5.5.2"
 
         }
