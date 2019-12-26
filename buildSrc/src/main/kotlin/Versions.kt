@@ -37,6 +37,19 @@ object Versions {
 
     object Android {
 
+        object Core {
+
+            // Release: https://developer.android.com/jetpack/androidx/releases/appcompat
+            const val APP_COMPAT = "1.1.0"
+            // Release: https://developer.android.com/jetpack/androidx/releases/recyclerview
+            const val RECYCLER_VIEW = "1.1.0"
+            // Release: https://developer.android.com/jetpack/androidx/releases/cardview
+            const val CARD_VIEW = "1.0.0"
+            // Release: https://developer.android.com/jetpack/androidx/releases/constraintlayout
+            const val CONSTRAINT_LAYOUT = "1.1.3"
+
+        }
+
         object Ktx {
 
             // Release: https://developer.android.com/jetpack/androidx/releases/core
@@ -68,19 +81,6 @@ object Versions {
             const val ESPRESSO = "3.2.0"
             // Release: https://github.com/robolectric/robolectric/releases
             const val ROBOLECTRIC = "4.3.1"
-
-        }
-
-        object Core {
-
-            // Release: https://developer.android.com/jetpack/androidx/releases/appcompat
-            const val APP_COMPAT = "1.1.0"
-            // Release: https://developer.android.com/jetpack/androidx/releases/recyclerview
-            const val RECYCLER_VIEW = "1.1.0"
-            // Release: https://developer.android.com/jetpack/androidx/releases/cardview
-            const val CARD_VIEW = "1.0.0"
-            // Release: https://developer.android.com/jetpack/androidx/releases/constraintlayout
-            const val CONSTRAINT_LAYOUT = "1.1.3"
 
         }
 

@@ -40,6 +40,15 @@ object Deps {
 
     object Android {
 
+        object Core {
+
+            val APP_COMPAT = "androidx.appcompat:appcompat:${Versions.Android.Core.APP_COMPAT}"
+            val RECYCLER_VIEW = "androidx.recyclerview:recyclerview:${Versions.Android.Core.RECYCLER_VIEW}"
+            val CARD_VIEW = "androidx.cardview:cardview:${Versions.Android.Core.CARD_VIEW}"
+            val CONSTRAINT_LAYOUT = "androidx.constraintlayout:constraintlayout:${Versions.Android.Core.CONSTRAINT_LAYOUT}"
+
+        }
+
         object Ktx {
 
             val CORE = "androidx.core:core-ktx:${Versions.Android.Ktx.CORE}"
@@ -68,16 +77,6 @@ object Deps {
             val ROBOLECTRIC = "org.robolectric:robolectric:${Versions.Android.Test.ROBOLECTRIC}"
 
         }
-
-        object Core {
-
-            val APP_COMPAT = "androidx.appcompat:appcompat:${Versions.Android.Core.APP_COMPAT}"
-            val RECYCLER_VIEW = "androidx.recyclerview:recyclerview:${Versions.Android.Core.RECYCLER_VIEW}"
-            val CARD_VIEW = "androidx.cardview:cardview:${Versions.Android.Core.CARD_VIEW}"
-            val CONSTRAINT_LAYOUT = "androidx.constraintlayout:constraintlayout:${Versions.Android.Core.CONSTRAINT_LAYOUT}"
-
-        }
-
 
     }
 
