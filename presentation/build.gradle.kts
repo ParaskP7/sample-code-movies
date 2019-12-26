@@ -157,7 +157,7 @@ fun DependencyHandlerScope.testImplementationTest() {
 }
 
 fun DependencyHandlerScope.testImplementationMock() {
-    testImplementation(Deps.Mock.MOCK_K)
+    testImplementation(Deps.Test.Mock.MOCK_K)
 }
 
 fun DependencyHandlerScope.testImplementationAndroidArch() {

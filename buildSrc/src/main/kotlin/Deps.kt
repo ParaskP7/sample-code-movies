@@ -151,11 +151,11 @@ object Deps {
 
         }
 
-    }
+        object Mock {
 
-    object Mock {
+            val MOCK_K = "io.mockk:mockk:${Versions.Test.Mock.MOCK_K}"
 
-        val MOCK_K = "io.mockk:mockk:${Versions.Mock.MOCK_K}"
+        }
 
     }
 
