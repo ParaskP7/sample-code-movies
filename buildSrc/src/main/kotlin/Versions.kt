@@ -126,7 +126,7 @@ object Versions {
 
         object Spek {
 
-            const val SPEK = "2.0.1"
+            const val SPEK = "2.0.9"
 
         }
 
