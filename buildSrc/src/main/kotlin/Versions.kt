@@ -80,6 +80,7 @@ object Versions {
 
     object Di {
 
+        // Release: https://github.com/InsertKoinIO/koin/releases
         const val KOIN = "2.0.1"
 
     }
