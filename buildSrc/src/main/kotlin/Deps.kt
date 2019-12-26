@@ -94,14 +94,14 @@ object Deps {
 
             object Kotlin {
 
-                val CORE = "org.koin:koin-core:${Versions.Di.KOIN}"
+                val CORE = "org.koin:koin-core:${Versions.Di.Koin.KOIN}"
 
             }
 
             object Android {
 
-                val ANDROID = "org.koin:koin-android:${Versions.Di.KOIN}"
-                val VIEW_MODEL = "org.koin:koin-androidx-viewmodel:${Versions.Di.KOIN}"
+                val ANDROID = "org.koin:koin-android:${Versions.Di.Koin.KOIN}"
+                val VIEW_MODEL = "org.koin:koin-androidx-viewmodel:${Versions.Di.Koin.KOIN}"
 
             }
 
