@@ -65,6 +65,9 @@ object Versions {
             const val TEST_J_UNIT = "1.1.1"
             const val TEST_ESPRESSO = "3.2.0"
 
+            // Release: https://github.com/robolectric/robolectric/releases
+            const val ROBOLECTRIC = "4.3.1"
+
         }
 
         // Release: https://developer.android.com/jetpack/androidx/releases/appcompat
@@ -153,13 +156,6 @@ object Versions {
             const val MOCK_K = "1.9.3"
 
         }
-
-    }
-
-    object Robolectric {
-
-        // Release: https://github.com/robolectric/robolectric/releases
-        const val ROBOLECTRIC = "4.3.1"
 
     }
 

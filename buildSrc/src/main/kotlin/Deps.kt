@@ -65,6 +65,8 @@ object Deps {
             val J_UNIT = "androidx.test.ext:junit:${Versions.Android.Test.TEST_J_UNIT}"
             val ESPRESSO = "androidx.test.espresso:espresso-core:${Versions.Android.Test.TEST_ESPRESSO}"
 
+            val ROBOLECTRIC = "org.robolectric:robolectric:${Versions.Android.Test.ROBOLECTRIC}"
+
         }
 
         val APP_COMPAT = "androidx.appcompat:appcompat:${Versions.Android.APP_COMPAT}"
@@ -156,12 +158,6 @@ object Deps {
             val MOCK_K = "io.mockk:mockk:${Versions.Test.Mock.MOCK_K}"
 
         }
-
-    }
-
-    object Robolectric {
-
-        val ROBOLECTRIC = "org.robolectric:robolectric:${Versions.Robolectric.ROBOLECTRIC}"
 
     }
 

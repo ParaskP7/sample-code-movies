@@ -166,7 +166,7 @@ fun DependencyHandlerScope.testImplementationAndroidArch() {
 
 fun DependencyHandlerScope.testImplementationRobolectric() {
     testImplementation(Deps.Android.Test.CORE)
-    testImplementation(Deps.Robolectric.ROBOLECTRIC)
+    testImplementation(Deps.Android.Test.ROBOLECTRIC)
 }
 
 /* DEPENDENCIES - ANDROID TEST IMPLEMENTATION */
