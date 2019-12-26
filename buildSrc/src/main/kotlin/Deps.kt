@@ -128,8 +128,12 @@ object Deps {
 
     object Image {
 
-        val GLIDE = "com.github.bumptech.glide:glide:${Versions.Image.GLIDE}"
-        val GLIDE_COMPILER = "com.github.bumptech.glide:compiler:${Versions.Image.GLIDE}"
+        object Glide {
+
+            val GLIDE = "com.github.bumptech.glide:glide:${Versions.Image.Glide.GLIDE}"
+            val GLIDE_COMPILER = "com.github.bumptech.glide:compiler:${Versions.Image.Glide.GLIDE}"
+
+        }
 
     }
 

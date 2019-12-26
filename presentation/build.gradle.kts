@@ -112,8 +112,8 @@ fun DependencyHandlerScope.implementationDi() {
 }
 
 fun DependencyHandlerScope.implementationGlide() {
-    implementation(Deps.Image.GLIDE)
-    kapt(Deps.Image.GLIDE_COMPILER)
+    implementation(Deps.Image.Glide.GLIDE)
+    kapt(Deps.Image.Glide.GLIDE_COMPILER)
 }
 
 fun DependencyHandlerScope.implementationUtil() {
