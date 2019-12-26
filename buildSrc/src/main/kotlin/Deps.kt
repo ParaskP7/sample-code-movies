@@ -61,9 +61,9 @@ object Deps {
 
         object Test {
 
-            val CORE = "androidx.test:core:${Versions.Android.Test.TEST_CORE}"
-            val J_UNIT = "androidx.test.ext:junit:${Versions.Android.Test.TEST_J_UNIT}"
-            val ESPRESSO = "androidx.test.espresso:espresso-core:${Versions.Android.Test.TEST_ESPRESSO}"
+            val CORE = "androidx.test:core:${Versions.Android.Test.CORE}"
+            val J_UNIT = "androidx.test.ext:junit:${Versions.Android.Test.J_UNIT}"
+            val ESPRESSO = "androidx.test.espresso:espresso-core:${Versions.Android.Test.ESPRESSO}"
 
             val ROBOLECTRIC = "org.robolectric:robolectric:${Versions.Android.Test.ROBOLECTRIC}"
 

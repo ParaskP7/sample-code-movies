@@ -61,9 +61,9 @@ object Versions {
         object Test {
 
             // Release: https://developer.android.com/jetpack/androidx/releases/test
-            const val TEST_CORE = "1.2.0"
-            const val TEST_J_UNIT = "1.1.1"
-            const val TEST_ESPRESSO = "3.2.0"
+            const val CORE = "1.2.0"
+            const val J_UNIT = "1.1.1"
+            const val ESPRESSO = "3.2.0"
 
             // Release: https://github.com/robolectric/robolectric/releases
             const val ROBOLECTRIC = "4.3.1"
