@@ -33,7 +33,7 @@ object Versions {
 
         object Ktx {
 
-            const val CORE = "1.0.1"
+            const val CORE = "1.1.0"
 
         }
 
