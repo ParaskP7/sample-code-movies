@@ -101,6 +101,7 @@ object Versions {
 
     object Image {
 
+        // Release: https://github.com/bumptech/glide/releases
         const val GLIDE = "4.10.0"
 
     }
