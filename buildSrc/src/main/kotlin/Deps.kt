@@ -20,17 +20,17 @@ object Deps {
 
     object Kotlin {
 
-        object Coroutines {
-
-            val CORE = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.Kotlin.COROUTINES}"
-            val ANDROID = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.Kotlin.COROUTINES}"
-
-        }
-
         object Core {
 
             val KOTLIN = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${Versions.Plugin.KOTLIN}"
             val KOTLIN_REFLECT = "org.jetbrains.kotlin:kotlin-reflect:${Versions.Plugin.KOTLIN}"
+
+        }
+
+        object Coroutines {
+
+            val CORE = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.Kotlin.COROUTINES}"
+            val ANDROID = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.Kotlin.COROUTINES}"
 
         }
 
