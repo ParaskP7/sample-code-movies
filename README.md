@@ -185,7 +185,7 @@ and library enhancements:
     ```(A specification framework for Kotlin)``` 
     and [JUnit5](https://junit.org/junit5) 
     ```(JUnit 5 is the next generation of JUnit)```
-11. **![#ffff00](https://placehold.it/15/ffff00/000000?text=+) `IN PROGRESS`** Support Android 10 (Target SDK 29). 
+11. **![#2cb42c](https://placehold.it/15/2cb42c/000000?text=+) `DONE`** Support Android 10 (Target SDK 29). 
     For more info, see [Android 10](https://developer.android.com/about/versions/10)
     ```(Build app experiences with dark theme and gesture navigation. Support new protections for user privacy and security)```
 12. Re-add Detekt Plugin.
