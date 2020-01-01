@@ -70,11 +70,13 @@ class MoviesToolbar : AppBarLayout { // MRT
 
     /* SHOW/HIDE */
 
+    @Suppress("MemberVisibilityCanBePrivate")
     fun showYear() {
         tv_filter_year.isInvisible = false
         tv_filter_year.text = context.getString(R.string.toolbar_movies_filter_year)
     }
 
+    @Suppress("MemberVisibilityCanBePrivate")
     fun hideYear() {
         tv_filter_year.isInvisible = true
         tv_filter_year.text = context.getString(R.string.toolbar_movies_filter_year)
@@ -85,6 +87,7 @@ class MoviesToolbar : AppBarLayout { // MRT
         tv_filter_month.text = context.getString(R.string.toolbar_movies_filter_month)
     }
 
+    @Suppress("MemberVisibilityCanBePrivate")
     fun hideMonth() {
         tv_filter_month.isInvisible = true
         tv_filter_month.text = context.getString(R.string.toolbar_movies_filter_month)
