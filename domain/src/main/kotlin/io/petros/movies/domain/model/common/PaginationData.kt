@@ -1,6 +1,6 @@
 package io.petros.movies.domain.model.common
 
-@Suppress("DataClassContainsFunctions", "UnnecessaryAbstractClass")
+@Suppress("DataClassContainsFunctions", "UnnecessaryAbstractClass", "DataClassShouldBeImmutable")
 data class PaginationData<T>(
     private val allPageItems: ArrayList<T> = arrayListOf(),
     private var latestPage: InfiniteScrollPage<T>? = null,
