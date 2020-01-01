@@ -390,7 +390,7 @@ performance:
 potential-bugs:
   active: true
   Deprecation:
-    active: false
+    active: true
   DuplicateCaseInWhenExpression:
     active: true
   EqualsAlwaysReturnsTrueOrFalse:
@@ -400,9 +400,9 @@ potential-bugs:
   ExplicitGarbageCollectionCall:
     active: true
   HasPlatformType:
-    active: false
+    active: true
   ImplicitDefaultLocale:
-    active: false
+    active: true
   InvalidRange:
     active: true
   IteratorHasNextCallsNextMethod:
@@ -415,7 +415,7 @@ potential-bugs:
     excludeAnnotatedProperties: ""
     ignoreOnClassesPattern: ""
   MapGetWithNotNullAssertionOperator:
-    active: false
+    active: true
   MissingWhenCase:
     active: true
   RedundantElseInWhen:
