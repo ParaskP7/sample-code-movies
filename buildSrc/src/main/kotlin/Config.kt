@@ -16,7 +16,11 @@ object Config {
 
     }
 
-    // TODO: Re-add Detekt plugin.
+    object Detekt {
+
+        const val CONFIG_FILE_PATH = "${QUALITY_DIRECTORY}/${Files.Yml.DETEKT}"
+
+    }
 
     object Keys {
 

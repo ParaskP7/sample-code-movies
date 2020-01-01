@@ -12,6 +12,10 @@ import com.android.build.gradle.LibraryPlugin as AndroidLibraryPlugin
 import de.mannodermaus.gradle.plugins.junit5.AndroidJUnitPlatformPlugin
 import de.mannodermaus.gradle.plugins.junit5.junitPlatform
 
+import io.gitlab.arturbosch.detekt.detekt
+import io.gitlab.arturbosch.detekt.DetektPlugin
+import io.gitlab.arturbosch.detekt.extensions.DetektExtension
+
 import org.gradle.api.Project
 
 import org.jetbrains.kotlin.gradle.dsl.KotlinJvmOptions
@@ -33,7 +37,7 @@ buildscript {
     dependencies {
         classpath(Deps.Plugin.ANDROID)
         classpath(Deps.Plugin.KOTLIN)
-        // TODO: Re-add Detekt plugin.
+        classpath(Deps.Plugin.DETEKT)
         classpath(Deps.Plugin.ANDROID_J_UNIT_5)
     }
 }
@@ -83,7 +87,10 @@ fun Project.subprojectsPlugins() {
         log(PluginIds.Android.APPLICATION)
         androidApplication { androidApplication() }
     }
-    // TODO: Re-add Detekt plugin.
+    plugins.withType(DetektPlugin::class) {
+        log(PluginIds.Quality.DETEKT)
+        detekt { detekt() }
+    }
     plugins.withType(AndroidJUnitPlatformPlugin::class) {
         log(PluginIds.Test.Android.J_UNIT_5)
         androidBase { androidBase() }
@@ -180,6 +187,21 @@ fun AppExtension.androidApplication() {
     sourceSets { sourceSets() }
     testOptions { testOptions() }
     lintOptions { lintOptions() }
+}
+
+fun DetektExtension.detekt() {
+    toolVersion = Versions.Plugin.DETEKT
+    parallel = false
+    config = files(Config.Detekt.CONFIG_FILE_PATH)
+    buildUponDefaultConfig = false
+    disableDefaultRuleSets = false
+    debug = false
+    ignoreFailures = false
+    reports {
+        html.enabled = true
+        xml.enabled = true
+        txt.enabled = true
+    }
 }
 
 /* CONFIGURATION EXTENSION FUNCTIONS - ANDROID */

@@ -55,7 +55,7 @@ Below is a list of goodies that are being showcased:
     1. [Android Lint](https://developer.android.com/studio/write/lint.html) ```(The lint tool checks your Android project 
     source files for potential bugs and optimization improvements for correctness, security, performance, usability, 
     accessibility, and internationalization)```
-    2. [Detekt - TEMPORARY REMOVED](https://github.com/arturbosch/detekt) ```(Static code analysis for Kotlin)```
+    2. [Detekt](https://github.com/arturbosch/detekt) ```(Static code analysis for Kotlin)```
 5. Tests
     1. [JUnit](https://github.com/junit-team/junit4) ```(A programmer-oriented testing framework for Java)```
     2. [Strikt](https://strikt.io) ```(Strikt is an assertion library for Kotlin intended for use with a test runner such as 
@@ -126,7 +126,7 @@ gradlew check -x test
 
 Or if you want to be more specific, run the below commands to run the code quality tool or your choice (in isolation):
 ```
-gradlew detekt (TEMPORARY REMOVED)
+gradlew detekt
 gradlew lintDebug
 ```
 

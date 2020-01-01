@@ -9,7 +9,7 @@ plugins {
     id(PluginIds.Kotlin.Android.ANDROID)
     id(PluginIds.Kotlin.Android.EXTENSIONS)
     id(PluginIds.Kotlin.KAPT)
-    // TODO: Re-add Detekt plugin.
+    id(PluginIds.Quality.DETEKT)
     id(PluginIds.Test.Android.J_UNIT_5)
 }
 
@@ -29,6 +29,7 @@ dependencies {
     testProjectImplementation()
     testImplementation()
     androidTestImplementation()
+    plugins()
 }
 
 /* *********************************************************************************************************************** */
@@ -184,4 +185,10 @@ fun DependencyHandlerScope.androidTestImplementationTest() {
 
 fun DependencyHandlerScope.androidTestImplementationMock() {
     androidTestImplementation(Deps.Test.Assert.STRIKT)
+}
+
+/* DEPENDENCIES - PLUGINS */
+
+fun DependencyHandlerScope.plugins() {
+    detektPlugins(Deps.Plugin.DETEKT_FORMATTING)
 }

@@ -23,7 +23,7 @@ object PluginIds {
 
     object Quality {
 
-        // TODO: Re-add Detekt plugin.
+        const val DETEKT = "io.gitlab.arturbosch.detekt"
 
     }
 

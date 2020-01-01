@@ -3,7 +3,7 @@
 plugins {
     id(PluginIds.Kotlin.KOTLIN)
     id(PluginIds.Kotlin.KAPT)
-    // TODO: Re-add Detekt plugin.
+    id(PluginIds.Quality.DETEKT)
 }
 
 /* DEPENDENCIES */
@@ -12,6 +12,7 @@ dependencies {
     implementation()
     testProjectImplementation()
     testImplementation()
+    plugins()
 }
 
 /* *********************************************************************************************************************** */
@@ -58,4 +59,10 @@ fun DependencyHandlerScope.testImplementationTest() {
 
 fun DependencyHandlerScope.testImplementationMock() {
     testImplementation(Deps.Test.Mock.MOCK_K)
+}
+
+/* DEPENDENCIES - PLUGINS */
+
+fun DependencyHandlerScope.plugins() {
+    detektPlugins(Deps.Plugin.DETEKT_FORMATTING)
 }

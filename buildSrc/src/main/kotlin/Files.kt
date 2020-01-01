@@ -2,7 +2,7 @@ object Files {
 
     object Yml {
 
-        // TODO: Re-add Detekt plugin.
+        const val DETEKT = "detekt.yml"
 
     }
 
