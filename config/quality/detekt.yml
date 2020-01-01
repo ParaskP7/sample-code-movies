@@ -445,7 +445,7 @@ style:
   EqualsNullCall:
     active: true
   EqualsOnSignatureLine:
-    active: false
+    active: true
   ExplicitItLambdaParameter:
     active: true
   ExpressionBodySyntax:
@@ -460,10 +460,10 @@ style:
     imports: ''
     forbiddenPatterns: ""
   ForbiddenMethodCall:
-    active: false
+    active: true
     methods: ''
   ForbiddenPublicDataClass:
-    active: false
+    active: true
     ignorePackages: '*.internal,*.internal.*'
   ForbiddenVoid:
     active: true
@@ -521,7 +521,7 @@ style:
   ProtectedMemberInFinalClass:
     active: true
   RedundantExplicitType:
-    active: false
+    active: true
   RedundantVisibilityModifierRule:
     active: true
   ReturnCount:
@@ -543,13 +543,13 @@ style:
   TrailingWhitespace:
     active: true
   UnderscoresInNumericLiterals:
-    active: false
+    active: true
     acceptableDecimalLength: 5
   UnnecessaryAbstractClass:
     active: true
     excludeAnnotatedClasses: "dagger.Module"
   UnnecessaryAnnotationUseSiteTarget:
-    active: false
+    active: true
   UnnecessaryApply:
     active: true
   UnnecessaryInheritance:
@@ -568,9 +568,9 @@ style:
     active: true
     allowedNames: "(_|ignored|expected|serialVersionUID)"
   UseArrayLiteralsInAnnotations:
-    active: false
+    active: true
   UseCheckOrError:
-    active: false
+    active: true
   UseDataClass:
     active: true
     excludeAnnotatedClasses: ""
@@ -578,7 +578,7 @@ style:
   UseIfInsteadOfWhen:
     active: false
   UseRequire:
-    active: false
+    active: true
   UselessCallOnNotNull:
     active: true
   UtilityClassWithPublicConstructor:
