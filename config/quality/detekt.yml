@@ -436,9 +436,9 @@ potential-bugs:
 style:
   active: true
   CollapsibleIfStatements:
-    active: false
+    active: true
   DataClassContainsFunctions:
-    active: false
+    active: true
     conversionFunctionPrefix: 'to'
   DataClassShouldBeImmutable:
     active: false
@@ -447,16 +447,16 @@ style:
   EqualsOnSignatureLine:
     active: false
   ExplicitItLambdaParameter:
-    active: false
+    active: true
   ExpressionBodySyntax:
-    active: false
+    active: true
     includeLineWrapping: false
   ForbiddenComment:
     active: true
     values: 'TODO:,FIXME:,STOPSHIP:'
     allowedPatterns: ""
   ForbiddenImport:
-    active: false
+    active: true
     imports: ''
     forbiddenPatterns: ""
   ForbiddenMethodCall:
@@ -466,7 +466,7 @@ style:
     active: false
     ignorePackages: '*.internal,*.internal.*'
   ForbiddenVoid:
-    active: false
+    active: true
     ignoreOverridden: false
     ignoreUsageInGenerics: false
   FunctionOnlyReturningConstant:
@@ -493,10 +493,10 @@ style:
     ignoreEnums: false
     ignoreRanges: false
   MandatoryBracesIfStatements:
-    active: false
+    active: true
   MaxLineLength:
     active: true
-    maxLineLength: 120
+    maxLineLength: 125
     excludePackageStatements: true
     excludeImportStatements: true
     excludeCommentStatements: false
@@ -505,25 +505,25 @@ style:
   ModifierOrder:
     active: true
   NestedClassesVisibility:
-    active: false
+    active: true
   NewLineAtEndOfFile:
     active: true
   NoTabs:
-    active: false
+    active: true
   OptionalAbstractKeyword:
     active: true
   OptionalUnit:
-    active: false
+    active: true
   OptionalWhenBraces:
-    active: false
+    active: true
   PreferToOverPairSyntax:
-    active: false
+    active: true
   ProtectedMemberInFinalClass:
     active: true
   RedundantExplicitType:
     active: false
   RedundantVisibilityModifierRule:
-    active: false
+    active: true
   ReturnCount:
     active: true
     max: 2
@@ -534,14 +534,14 @@ style:
   SafeCast:
     active: true
   SerialVersionUIDInSerializableClass:
-    active: false
+    active: true
   SpacingBetweenPackageAndImports:
-    active: false
+    active: true
   ThrowsCount:
     active: true
     max: 2
   TrailingWhitespace:
-    active: false
+    active: true
   UnderscoresInNumericLiterals:
     active: false
     acceptableDecimalLength: 5
@@ -551,28 +551,28 @@ style:
   UnnecessaryAnnotationUseSiteTarget:
     active: false
   UnnecessaryApply:
-    active: false
+    active: true
   UnnecessaryInheritance:
     active: true
   UnnecessaryLet:
-    active: false
+    active: true
   UnnecessaryParentheses:
-    active: false
+    active: true
   UntilInsteadOfRangeTo:
-    active: false
+    active: true
   UnusedImports:
-    active: false
+    active: true
   UnusedPrivateClass:
     active: true
   UnusedPrivateMember:
-    active: false
+    active: true
     allowedNames: "(_|ignored|expected|serialVersionUID)"
   UseArrayLiteralsInAnnotations:
     active: false
   UseCheckOrError:
     active: false
   UseDataClass:
-    active: false
+    active: true
     excludeAnnotatedClasses: ""
     allowVars: false
   UseIfInsteadOfWhen:
@@ -584,7 +584,7 @@ style:
   UtilityClassWithPublicConstructor:
     active: true
   VarCouldBeVal:
-    active: false
+    active: true
   WildcardImport:
     active: true
     excludes: "**/test/**,**/androidTest/**,**/*.Test.kt,**/*.Spec.kt,**/*.Spek.kt"
