@@ -20,6 +20,7 @@ enum class MonthOfYear(
     DECEMBER(11, "December"),
     UNKNOWN_MONTH(null, "Month");
 
+    @Suppress("RemoveRedundantQualifierName")
     companion object {
 
         fun from(month: Int) = MonthOfYear.values().firstOrNull { it.month == month } ?: UNKNOWN_MONTH
