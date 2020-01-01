@@ -59,9 +59,9 @@ complexity:
     active: true
     threshold: 4
   ComplexInterface:
-    active: false
+    active: true
     threshold: 10
-    includeStaticDeclarations: false
+    includeStaticDeclarations: true
   ComplexMethod:
     active: true
     threshold: 15
@@ -70,7 +70,7 @@ complexity:
     ignoreNestingFunctions: false
     nestingFunctions: run,let,apply,with,also,use,forEach,isNotNull,ifNull
   LabeledExpression:
-    active: false
+    active: true
     ignoredLabels: ""
   LargeClass:
     active: true
@@ -83,13 +83,13 @@ complexity:
     threshold: 6
     ignoreDefaultParameters: false
   MethodOverloading:
-    active: false
+    active: true
     threshold: 6
   NestedBlockDepth:
     active: true
     threshold: 4
   StringLiteralDuplication:
-    active: false
+    active: true
     excludes: "**/test/**,**/androidTest/**,**/*.Test.kt,**/*.Spec.kt,**/*.Spek.kt"
     threshold: 3
     ignoreAnnotation: true
