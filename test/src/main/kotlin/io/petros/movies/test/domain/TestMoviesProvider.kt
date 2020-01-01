@@ -20,6 +20,7 @@ class TestMoviesProvider {
         private const val OVERVIEW = "OVERVIEW"
         private const val BACKDROP = "BACKDROP"
 
+        @Suppress("LongParameterList")
         fun provideMovie(
             id: Int = ID,
             title: String = TITLE,
