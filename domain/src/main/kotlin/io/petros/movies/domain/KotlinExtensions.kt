@@ -32,6 +32,8 @@ fun Int.withParentheses() = leftParentheses() + this + rightParentheses()
 
 /* DATE */
 
+private const val SIMPLE_DATE_FORMAT_PATTERN = "MMMM"
+
 @Suppress("SwallowedException")
 fun String.toDate(dateFormat: String): Date {
     try {
@@ -50,6 +52,6 @@ fun Date.toYear(): Int {
 fun Date.toMonth(): String {
     val calendar = Calendar.getInstance()
     calendar.time = this
-    val monthDate = SimpleDateFormat("MMMM", Locale.US)
+    val monthDate = SimpleDateFormat(SIMPLE_DATE_FORMAT_PATTERN, Locale.US)
     return monthDate.format(calendar.time)
 }
