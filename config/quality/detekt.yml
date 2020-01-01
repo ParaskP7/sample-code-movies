@@ -304,7 +304,7 @@ naming:
     excludes: "**/test/**,**/androidTest/**,**/*.Test.kt,**/*.Spec.kt,**/*.Spek.kt"
     parameterPattern: '[a-z][A-Za-z0-9]*'
     privateParameterPattern: '[a-z][A-Za-z0-9]*'
-    excludeClassPattern: '$^'
+    excludeClassPattern: '.*Raw'
     ignoreOverridden: true
   EnumNaming:
     active: true
