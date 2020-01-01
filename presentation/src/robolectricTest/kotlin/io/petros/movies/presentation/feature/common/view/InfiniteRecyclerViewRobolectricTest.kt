@@ -5,7 +5,7 @@ import io.mockk.mockk
 import io.mockk.verify
 import io.petros.movies.domain.model.movie.Movie
 import io.petros.movies.presentation.RobolectricTestProvider.Companion.provideContext
-import io.petros.movies.test.domain.TestMoviesProvider.Companion.NEXT_PAGE
+import io.petros.movies.test.domain.NEXT_PAGE
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith

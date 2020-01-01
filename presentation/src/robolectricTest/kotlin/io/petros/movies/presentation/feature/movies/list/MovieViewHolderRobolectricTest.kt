@@ -4,7 +4,7 @@ import io.mockk.mockk
 import io.mockk.verify
 import io.petros.movies.presentation.feature.movies.listener.MovieCallback
 import io.petros.movies.presentation.feature.movies.view.MovieItemView
-import io.petros.movies.test.domain.TestMoviesProvider.Companion.provideMovie
+import io.petros.movies.test.domain.provideMovie
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith

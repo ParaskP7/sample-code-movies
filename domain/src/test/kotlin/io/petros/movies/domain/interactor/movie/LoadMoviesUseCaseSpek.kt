@@ -6,10 +6,10 @@ import io.mockk.mockk
 import io.petros.movies.domain.interactor.movie.LoadMoviesUseCase.Params
 import io.petros.movies.domain.model.movie.MoviesResultPage
 import io.petros.movies.domain.repository.movie.MoviesRepository
-import io.petros.movies.test.domain.TestMoviesProvider.Companion.MOVIE_MONTH
-import io.petros.movies.test.domain.TestMoviesProvider.Companion.MOVIE_YEAR
-import io.petros.movies.test.domain.TestMoviesProvider.Companion.NEXT_PAGE
-import io.petros.movies.test.domain.TestMoviesProvider.Companion.provideMoviesResultPage
+import io.petros.movies.test.domain.MOVIE_MONTH
+import io.petros.movies.test.domain.MOVIE_YEAR
+import io.petros.movies.test.domain.NEXT_PAGE
+import io.petros.movies.test.domain.provideMoviesResultPage
 import kotlinx.coroutines.runBlocking
 import org.spekframework.spek2.Spek
 import org.spekframework.spek2.style.gherkin.Feature

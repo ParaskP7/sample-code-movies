@@ -7,8 +7,8 @@ import io.petros.movies.domain.model.common.PaginationData
 import io.petros.movies.domain.model.movie.Movie
 import io.petros.movies.domain.model.movie.MoviesResultPage
 import io.petros.movies.presentation.RobolectricTestProvider.Companion.provideContext
-import io.petros.movies.test.domain.TestMoviesProvider.Companion.NEXT_PAGE
-import io.petros.movies.test.domain.TestMoviesProvider.Companion.provideMovie
+import io.petros.movies.test.domain.NEXT_PAGE
+import io.petros.movies.test.domain.provideMovie
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith

@@ -4,7 +4,7 @@ import io.mockk.mockk
 import io.mockk.verify
 import io.petros.movies.presentation.RobolectricTestProvider.Companion.provideContext
 import io.petros.movies.presentation.feature.movies.listener.MovieCallback
-import io.petros.movies.test.domain.TestMoviesProvider.Companion.provideMovie
+import io.petros.movies.test.domain.provideMovie
 import kotlinx.android.synthetic.main.item_movie.view.*
 import org.junit.Before
 import org.junit.Test

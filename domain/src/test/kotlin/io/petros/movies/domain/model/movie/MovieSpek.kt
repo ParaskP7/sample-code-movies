@@ -1,6 +1,6 @@
 package io.petros.movies.domain.model.movie
 
-import io.petros.movies.test.domain.TestMoviesProvider.Companion.provideMovie
+import io.petros.movies.test.domain.provideMovie
 import org.spekframework.spek2.Spek
 import org.spekframework.spek2.style.gherkin.Feature
 import strikt.api.expect

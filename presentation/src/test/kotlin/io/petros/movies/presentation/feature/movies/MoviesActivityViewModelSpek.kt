@@ -10,11 +10,11 @@ import io.petros.movies.domain.model.common.PaginationData
 import io.petros.movies.domain.model.movie.Movie
 import io.petros.movies.presentation.ViewModelSpek
 import io.petros.movies.presentation.feature.common.list.adapter.AdapterStatus
-import io.petros.movies.test.domain.TestMoviesProvider.Companion.MOVIE_MONTH
-import io.petros.movies.test.domain.TestMoviesProvider.Companion.MOVIE_YEAR
-import io.petros.movies.test.domain.TestMoviesProvider.Companion.NEXT_PAGE
-import io.petros.movies.test.domain.TestMoviesProvider.Companion.provideMovie
-import io.petros.movies.test.domain.TestMoviesProvider.Companion.provideMoviesResultPage
+import io.petros.movies.test.domain.MOVIE_MONTH
+import io.petros.movies.test.domain.MOVIE_YEAR
+import io.petros.movies.test.domain.NEXT_PAGE
+import io.petros.movies.test.domain.provideMovie
+import io.petros.movies.test.domain.provideMoviesResultPage
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi

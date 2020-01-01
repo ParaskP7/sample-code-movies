@@ -7,7 +7,7 @@ import io.mockk.slot
 import io.mockk.verify
 import io.petros.movies.presentation.feature.movie.MovieDetailsActivity
 import io.petros.movies.presentation.feature.movie.navigator.MovieDetailsActivityLauncher.Companion.getMovie
-import io.petros.movies.test.domain.TestMoviesProvider.Companion.provideMovie
+import io.petros.movies.test.domain.provideMovie
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
