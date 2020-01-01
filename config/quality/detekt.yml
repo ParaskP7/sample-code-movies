@@ -315,11 +315,11 @@ naming:
     excludes: "**/test/**,**/androidTest/**,**/*.Test.kt,**/*.Spec.kt,**/*.Spek.kt"
     forbiddenName: ''
   FunctionMaxLength:
-    active: false
+    active: true
     excludes: "**/test/**,**/androidTest/**,**/*.Test.kt,**/*.Spec.kt,**/*.Spek.kt"
     maximumFunctionNameLength: 30
   FunctionMinLength:
-    active: false
+    active: true
     excludes: "**/test/**,**/androidTest/**,**/*.Test.kt,**/*.Spec.kt,**/*.Spek.kt"
     minimumFunctionNameLength: 3
   FunctionNaming:
@@ -359,11 +359,11 @@ naming:
     propertyPattern: '[A-Za-z][_A-Za-z0-9]*'
     privatePropertyPattern: '_?[A-Za-z][_A-Za-z0-9]*'
   VariableMaxLength:
-    active: false
+    active: true
     excludes: "**/test/**,**/androidTest/**,**/*.Test.kt,**/*.Spec.kt,**/*.Spek.kt"
     maximumVariableNameLength: 64
   VariableMinLength:
-    active: false
+    active: true
     excludes: "**/test/**,**/androidTest/**,**/*.Test.kt,**/*.Spec.kt,**/*.Spek.kt"
     minimumVariableNameLength: 1
   VariableNaming:
