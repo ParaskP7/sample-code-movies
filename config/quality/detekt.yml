@@ -193,7 +193,7 @@ exceptions:
 
 formatting:
   active: true
-  android: false
+  android: true
   autoCorrect: true
   AnnotationOnSeparateLine:
     active: false
@@ -213,13 +213,13 @@ formatting:
     active: false
     autoCorrect: true
   Indentation:
-    active: false
+    active: true
     autoCorrect: true
     indentSize: 4
     continuationIndentSize: 4
   MaximumLineLength:
     active: true
-    maxLineLength: 120
+    maxLineLength: 125
   ModifierOrdering:
     active: true
     autoCorrect: true
@@ -227,7 +227,7 @@ formatting:
     active: true
     autoCorrect: true
   NoBlankLineBeforeRbrace:
-    active: true
+    active: false
     autoCorrect: true
   NoConsecutiveBlankLines:
     active: true
