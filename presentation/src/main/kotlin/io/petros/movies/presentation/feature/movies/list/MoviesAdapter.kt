@@ -1,5 +1,6 @@
 package io.petros.movies.presentation.feature.movies.list
 
+import android.content.Context
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import io.petros.movies.R
@@ -44,16 +45,15 @@ class MoviesAdapter(items: ArrayList<Movie> = arrayListOf()) : InfiniteAdapter<M
 
     /* ITEM VIEW HOLDER */
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        context?.let { context ->
-            return when (viewType) {
-                VIEW_TYPE_PROGRESS -> ProgressViewHolder(ProgressItemView(context))
-                VIEW_TYPE_MOVIE -> MovieViewHolder(MovieItemView(context), callback)
-                VIEW_TYPE_ERROR -> ErrorViewHolder(ErrorItemView(context)) { context.toast(R.string.retry_loading) }
-                else -> throw IllegalArgumentException("View type out of range. [View Type: $viewType]")
-            }
-        }
-        throw IllegalArgumentException("Context not initialised.")
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
+        context?.let { onCreateViewHolderWithContext(viewType, it) }
+            ?: throw IllegalArgumentException("Context not initialised.")
+
+    private fun onCreateViewHolderWithContext(viewType: Int, context: Context) = when (viewType) {
+        VIEW_TYPE_PROGRESS -> ProgressViewHolder(ProgressItemView(context))
+        VIEW_TYPE_MOVIE -> MovieViewHolder(MovieItemView(context), callback)
+        VIEW_TYPE_ERROR -> ErrorViewHolder(ErrorItemView(context)) { context.toast(R.string.retry_loading) }
+        else -> throw IllegalArgumentException("View type out of range. [View Type: $viewType]")
     }
 
     @Suppress("UnsafeCast")
@@ -65,15 +65,13 @@ class MoviesAdapter(items: ArrayList<Movie> = arrayListOf()) : InfiniteAdapter<M
 
     /* NAVIGATION */
 
-    override fun getItemViewType(position: Int): Int {
-        return when {
-            isAtLastPosition(position) -> when (status) {
-                AdapterStatus.IDLE -> VIEW_TYPE_MOVIE
-                AdapterStatus.LOADING -> VIEW_TYPE_PROGRESS
-                AdapterStatus.ERROR -> VIEW_TYPE_ERROR
-            }
-            else -> VIEW_TYPE_MOVIE
-        }
+    override fun getItemViewType(position: Int) =
+        if (isAtLastPosition(position)) getItemViewTypeAtLastPosition() else VIEW_TYPE_MOVIE
+
+    private fun getItemViewTypeAtLastPosition() = when (status) {
+        AdapterStatus.IDLE -> VIEW_TYPE_MOVIE
+        AdapterStatus.LOADING -> VIEW_TYPE_PROGRESS
+        AdapterStatus.ERROR -> VIEW_TYPE_ERROR
     }
 
     private fun isAtLastPosition(position: Int) = position == Math.max(itemCount - 1, 0)
