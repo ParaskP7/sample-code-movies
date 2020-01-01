@@ -14,6 +14,7 @@ import io.petros.movies.presentation.feature.common.list.item.ProgressItemView
 import io.petros.movies.presentation.feature.common.view.InfiniteAdapter
 import io.petros.movies.presentation.feature.movies.listener.MovieCallback
 import io.petros.movies.presentation.feature.movies.view.MovieItemView
+import kotlin.math.max
 
 class MoviesAdapter(items: ArrayList<Movie> = arrayListOf()) : InfiniteAdapter<Movie>(items) {
 
@@ -74,6 +75,6 @@ class MoviesAdapter(items: ArrayList<Movie> = arrayListOf()) : InfiniteAdapter<M
         AdapterStatus.ERROR -> VIEW_TYPE_ERROR
     }
 
-    private fun isAtLastPosition(position: Int) = position == Math.max(itemCount - 1, 0)
+    private fun isAtLastPosition(position: Int) = position == max(itemCount - 1, 0)
 
 }
