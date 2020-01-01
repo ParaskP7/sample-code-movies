@@ -7,8 +7,8 @@ object App {
         private const val PATCH = 0
         private const val BUILD = 0
 
-        const val CODE = Version.MAJOR * 10000 + Version.MINOR * 1000 + Version.PATCH * 100 + Version.BUILD
-        const val NAME = "${Version.MAJOR}.${Version.MINOR}.${Version.PATCH}"
+        const val CODE = MAJOR * 10000 + MINOR * 1000 + PATCH * 100 + BUILD
+        const val NAME = "${MAJOR}.${MINOR}.${PATCH}"
 
     }
 
