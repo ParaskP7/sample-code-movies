@@ -30,14 +30,4 @@ object Files {
 
     }
 
-    object Kotlin {
-
-        object Extension {
-
-            const val KOTLIN_EXTENSIONS = "KotlinExtensions.kt"
-
-        }
-
-    }
-
 }
