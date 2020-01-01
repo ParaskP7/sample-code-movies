@@ -2,6 +2,7 @@ package io.petros.movies.presentation.feature.common.view
 
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import kotlin.math.max
 
 class InfiniteScrollListener(
     private val layoutManager: LinearLayoutManager,
@@ -19,7 +20,7 @@ class InfiniteScrollListener(
 
     private fun updatePageSize() {
         currentItemsCount = layoutManager.itemCount
-        if (currentItemsCount > previousItemsCount) pageSize = Math.max(pageSize, currentItemsCount - previousItemsCount)
+        if (currentItemsCount > previousItemsCount) pageSize = max(pageSize, currentItemsCount - previousItemsCount)
         previousItemsCount = currentItemsCount
     }
 
