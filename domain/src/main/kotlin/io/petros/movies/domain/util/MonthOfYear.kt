@@ -22,15 +22,9 @@ enum class MonthOfYear(
 
     companion object {
 
-        fun from(month: Int): MonthOfYear {
-            MonthOfYear.values().forEach { if (it.month == month) return it }
-            return UNKNOWN_MONTH
-        }
+        fun from(month: Int) = MonthOfYear.values().firstOrNull { it.month == month } ?: UNKNOWN_MONTH
 
-        fun from(monthName: CharSequence): MonthOfYear {
-            MonthOfYear.values().forEach { if (it.monthName == monthName) return it }
-            return UNKNOWN_MONTH
-        }
+        fun from(monthName: CharSequence) = MonthOfYear.values().firstOrNull { it.monthName == monthName } ?: UNKNOWN_MONTH
 
     }
 
