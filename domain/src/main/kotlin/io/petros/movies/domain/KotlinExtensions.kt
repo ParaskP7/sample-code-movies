@@ -1,3 +1,5 @@
+@file:Suppress("unused")
+
 package io.petros.movies.domain
 
 import java.text.ParseException
