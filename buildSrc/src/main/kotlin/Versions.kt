@@ -3,7 +3,7 @@ object Versions {
     object Plugin {
 
         // Release: https://androidstudio.googleblog.com
-        const val ANDROID = "4.0.0-alpha07"
+        const val ANDROID = "4.0.0-alpha08"
         // Release: https://blog.jetbrains.com/kotlin/category/releases
         const val KOTLIN = "1.3.61"
         // Release: https://github.com/arturbosch/detekt/releases

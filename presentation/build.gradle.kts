@@ -51,7 +51,7 @@ fun NamedDomainObjectContainer<BuildType>.buildTypes() {
     }
     named(Android.BuildTypes.RELEASE) {
         isMinifyEnabled = false
-        proguardFiles(getDefaultProguardFile(Files.Txt.PROGUARD_ANDROID, project), Files.Pro.PROGUARD_RULES)
+        proguardFiles(getDefaultProguardFile(Files.Txt.PROGUARD_ANDROID, layout), Files.Pro.PROGUARD_RULES)
     }
 }
 
