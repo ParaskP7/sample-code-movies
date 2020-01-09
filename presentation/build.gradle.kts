@@ -104,7 +104,9 @@ fun DependencyHandlerScope.implementationAndroidKtx() {
 }
 
 fun DependencyHandlerScope.implementationAndroidArch() {
-    implementation(Deps.Android.Arch.Core.LIFECYCLE_EXTENSIONS)
+    implementation(Deps.Android.Arch.Core.Lifecycle.LIVE_DATA)
+    implementation(Deps.Android.Arch.Core.Lifecycle.VIEW_MODEL)
+    implementation(Deps.Android.Arch.Core.Lifecycle.PROCESS)
 }
 
 fun DependencyHandlerScope.implementationDi() {

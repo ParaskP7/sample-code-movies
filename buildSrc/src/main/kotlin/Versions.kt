@@ -62,8 +62,12 @@ object Versions {
 
             object Core {
 
-                // Release: https://developer.android.com/jetpack/androidx/releases/lifecycle
-                const val LIFECYCLE_EXTENSIONS = "2.1.0"
+                object Lifecycle {
+
+                    // Release: https://developer.android.com/jetpack/androidx/releases/lifecycle
+                    const val EXTENSIONS = "2.1.0"
+
+                }
 
             }
 

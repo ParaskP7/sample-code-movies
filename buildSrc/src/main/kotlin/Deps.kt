@@ -64,8 +64,16 @@ object Deps {
 
             object Core {
 
-                val LIFECYCLE_EXTENSIONS =
-                    "androidx.lifecycle:lifecycle-extensions:${Versions.Android.Arch.Core.LIFECYCLE_EXTENSIONS}"
+                object Lifecycle {
+
+                    val LIVE_DATA =
+                        "androidx.lifecycle:lifecycle-livedata:${Versions.Android.Arch.Core.Lifecycle.EXTENSIONS}"
+                    val VIEW_MODEL =
+                        "androidx.lifecycle:lifecycle-viewmodel:${Versions.Android.Arch.Core.Lifecycle.EXTENSIONS}"
+                    val PROCESS =
+                        "androidx.lifecycle:lifecycle-process:${Versions.Android.Arch.Core.Lifecycle.EXTENSIONS}"
+
+                }
 
             }
 
