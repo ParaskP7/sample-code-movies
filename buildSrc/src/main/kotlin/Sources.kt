@@ -22,6 +22,15 @@ object Sources {
 
     }
 
+    object Spek {
+
+        const val KOTLIN = "${Folders.Source.SRC}/${Folders.Source.SPEK_TEST}/" +
+                Folders.Source.Subfolder.KOTLIN
+        const val RESOURCES = "${Folders.Source.SRC}/${Folders.Source.SPEK_TEST}/" +
+                Folders.Source.Subfolder.RESOURCES
+
+    }
+
     object Robolectric {
 
         const val KOTLIN = "${Folders.Source.SRC}/${Folders.Source.ROBOLECTRIC_TEST}/" +

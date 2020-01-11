@@ -64,6 +64,16 @@ fun Project.subprojectsPlugins() {
     plugins.withType(KotlinPlugin::class) {
         log(PluginIds.Kotlin.KOTLIN)
         java { java() }
+        configure<SourceSetContainer> {
+            named(Sources.MAIN) {
+                java.setSrcDirs(arrayListOf(Sources.Main.KOTLIN))
+                resources.setSrcDirs(arrayListOf(Sources.Main.RESOURCES))
+            }
+            named(Sources.TEST) {
+                java.setSrcDirs(arrayListOf(Sources.Test.KOTLIN, Sources.Spek.KOTLIN, Sources.Robolectric.KOTLIN))
+                resources.setSrcDirs(arrayListOf(Sources.Test.RESOURCES, Sources.Spek.RESOURCES, Sources.Robolectric.RESOURCES))
+            }
+        }
         tasks.getByName<Test>(Tasks.TEST) {
             testLogging()
             testJUnit5()
@@ -222,8 +232,8 @@ fun NamedDomainObjectContainer<AndroidSourceSet>.sourceSets() {
         resources.setSrcDirs(arrayListOf(Sources.Main.RESOURCES))
     }
     named(Sources.TEST) {
-        java.setSrcDirs(arrayListOf(Sources.Test.KOTLIN, Sources.Robolectric.KOTLIN))
-        resources.setSrcDirs(arrayListOf(Sources.Test.RESOURCES, Sources.Robolectric.RESOURCES))
+        java.setSrcDirs(arrayListOf(Sources.Test.KOTLIN, Sources.Spek.KOTLIN, Sources.Robolectric.KOTLIN))
+        resources.setSrcDirs(arrayListOf(Sources.Test.RESOURCES, Sources.Spek.RESOURCES, Sources.Robolectric.RESOURCES))
     }
     named(Sources.ANDROID_TEST) {
         java.setSrcDirs(arrayListOf(Sources.Android.Test.KOTLIN))

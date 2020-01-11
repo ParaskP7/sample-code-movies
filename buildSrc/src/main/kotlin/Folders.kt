@@ -21,6 +21,7 @@ object Folders {
 
         const val MAIN = "main"
         const val TEST = "test"
+        const val SPEK_TEST = "spekTest"
         const val ROBOLECTRIC_TEST = "robolectricTest"
         const val ANDROID_TEST = "androidTest"
 
