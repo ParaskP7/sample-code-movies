@@ -33,13 +33,13 @@ object PaginationDataSpek : Spek({
             When("adding a page") {
                 testedClass.addPage(MoviesResultPage(NEXT_PAGE, firstPageItems))
             }
-            Then("the pagination items are the expected one") {
+            Then("the items are the expected one") {
                 expect { that(testedClass.items()).isEqualTo(firstPageItems) }
             }
-            Then("the pagination latest items are the expected one") {
+            Then("the latest items are the expected one") {
                 expect { that(testedClass.latestItems()).isEqualTo(firstPageItems) }
             }
-            Then("the pagination next page is the expected one") {
+            Then("the next page is the expected one") {
                 expect { that(testedClass.nextPage()).isEqualTo(NEXT_PAGE) }
             }
         }
@@ -61,7 +61,7 @@ object PaginationDataSpek : Spek({
         }
         Scenario("is first page") {
             var result = false
-            Given("a single paged data") {
+            Given("a single page") {
                 testedClass.addPage(MoviesResultPage(NEXT_PAGE, firstPageItems))
             }
             When("checking if it is the first page") {
@@ -72,7 +72,7 @@ object PaginationDataSpek : Spek({
             }
         }
         Scenario("add page") {
-            Given("a single paged data") {
+            Given("a single page") {
                 testedClass.addPage(MoviesResultPage(NEXT_PAGE, firstPageItems))
             }
             When("adding a page") {
@@ -93,7 +93,7 @@ object PaginationDataSpek : Spek({
     Feature("Pagination data with multiple pages") {
         val testedClass by memoized { PaginationData<Movie>() }
         Scenario("is first page") {
-            Given("a multi paged data") {
+            Given("a multi page") {
                 testedClass.addPage(MoviesResultPage(NEXT_PAGE, firstPageItems))
                 testedClass.addPage(MoviesResultPage(NEXT_PAGE + 1, secondPageItems))
             }
@@ -106,7 +106,7 @@ object PaginationDataSpek : Spek({
             }
         }
         Scenario("clear") {
-            Given("a multi paged data") {
+            Given("a multi page") {
                 testedClass.addPage(MoviesResultPage(NEXT_PAGE, firstPageItems))
                 testedClass.addPage(MoviesResultPage(NEXT_PAGE + 1, secondPageItems))
             }
@@ -116,7 +116,7 @@ object PaginationDataSpek : Spek({
             Then("the data gets emptied") {
                 expect { that(testedClass.isEmpty()).isTrue() }
             }
-            Then("the items are null") {
+            Then("the items are empty") {
                 expect { that(testedClass.items()).isEmpty() }
             }
             Then("the latest items are null") {

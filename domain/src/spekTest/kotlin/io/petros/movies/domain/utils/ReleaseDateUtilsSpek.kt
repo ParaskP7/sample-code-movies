@@ -10,7 +10,7 @@ import strikt.assertions.isNull
 
 object ReleaseDateUtilsSpek : Spek({
 
-    Feature("Release date utils without a year") {
+    Feature("Release date utils with no year") {
         Scenario("greater than or equal") {
             var result: String? = null
             When("converting to release date") {
@@ -31,7 +31,7 @@ object ReleaseDateUtilsSpek : Spek({
         }
     }
 
-    Feature("Release date utils with a year but no month") {
+    Feature("Release date utils with year but no month") {
         Scenario("greater than or equal") {
             var result: String? = null
             When("converting to release date") {
@@ -52,7 +52,7 @@ object ReleaseDateUtilsSpek : Spek({
         }
     }
 
-    Feature("Release date utils with a year and a month") {
+    Feature("Release date utils with year and month") {
         Scenario("greater than or equal") {
             var result: String? = null
             When("converting to release date") {
