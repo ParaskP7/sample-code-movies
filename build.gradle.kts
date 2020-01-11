@@ -63,14 +63,8 @@ fun Project.subprojectsPlugins() {
     plugins.withType(KotlinPlugin::class) {
         log(PluginIds.Kotlin.KOTLIN)
         java { java() }
-        configure<SourceSetContainer> {
-            mainSourceSetContainer()
-            testSourceSetContainer()
-        }
-        tasks.getByName<Test>(Tasks.TEST) {
-            testLogging()
-            testJUnit5()
-        }
+        sourceSets()
+        testOptions()
     }
     plugins.withType(KotlinKaptPlugin::class) {
         log(PluginIds.Kotlin.KAPT)
@@ -116,6 +110,20 @@ fun Project.log(pluginId: String) {
 
 fun Project.java(configure: JavaPluginExtension.() -> Unit) =
     extensions.configure(JavaPluginExtension::class.java, configure)
+
+fun Project.sourceSets() {
+    configure<SourceSetContainer> {
+        mainSourceSetContainer()
+        testSourceSetContainer()
+    }
+}
+
+fun Project.testOptions() {
+    tasks.getByName<Test>(Tasks.TEST) {
+        testLogging()
+        testJUnit5()
+    }
+}
 
 fun Project.kapt(configure: KaptExtension.() -> Unit) =
     extensions.configure(KaptExtension::class.java, configure)
