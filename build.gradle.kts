@@ -169,7 +169,7 @@ fun Test.testLogging() {
 }
 
 fun Test.testJUnit5() {
-    useJUnitPlatform { includeEngines(Tests.Engine.Spek.SPEK) }
+    useJUnitPlatform { includeEngines(Tests.Engine.JUnit.VINTAGE, Tests.Engine.Spek.SPEK) }
 }
 
 fun KaptExtension.kapt() {
