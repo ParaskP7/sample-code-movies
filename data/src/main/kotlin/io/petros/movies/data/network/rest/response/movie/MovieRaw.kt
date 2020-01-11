@@ -2,8 +2,8 @@ package io.petros.movies.data.network.rest.response.movie
 
 import android.content.Context
 import io.petros.movies.data.R
+import io.petros.movies.domain.extensions.toDate
 import io.petros.movies.domain.model.movie.Movie
-import io.petros.movies.domain.toDate
 import io.petros.movies.domain.util.MOVIE_DATE_FORMAT
 
 data class MovieRaw(

@@ -1,6 +1,6 @@
 @file:Suppress("unused")
 
-package io.petros.movies.domain
+package io.petros.movies.domain.extensions
 
 import java.text.ParseException
 import java.text.SimpleDateFormat

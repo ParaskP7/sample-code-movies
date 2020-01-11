@@ -1,4 +1,4 @@
-package io.petros.movies.data
+package io.petros.movies.data.extensions
 
 import android.content.Context
 import android.widget.Toast

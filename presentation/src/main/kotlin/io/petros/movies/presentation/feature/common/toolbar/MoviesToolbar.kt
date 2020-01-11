@@ -8,7 +8,7 @@ import androidx.core.view.isVisible
 import com.google.android.material.appbar.AppBarLayout
 import io.petros.movies.R
 import io.petros.movies.domain.util.MonthOfYear
-import io.petros.movies.presentation.inflate
+import io.petros.movies.presentation.extensions.inflate
 import kotlinx.android.synthetic.main.toolbar_movies.view.*
 import timber.log.Timber
 

@@ -4,7 +4,7 @@ import android.content.Context
 import android.util.AttributeSet
 import com.google.android.material.appbar.AppBarLayout
 import io.petros.movies.R
-import io.petros.movies.presentation.inflate
+import io.petros.movies.presentation.extensions.inflate
 
 class MovieDetailsToolbar : AppBarLayout {
 

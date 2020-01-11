@@ -4,7 +4,7 @@ import android.content.Context
 import com.google.gson.Gson
 import io.petros.movies.data.BuildConfig
 import io.petros.movies.data.R
-import io.petros.movies.data.getLong
+import io.petros.movies.data.extensions.getLong
 import io.petros.movies.data.network.WebService
 import io.petros.movies.data.network.rest.RestApi
 import io.petros.movies.data.network.rest.RestClient

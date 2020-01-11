@@ -5,11 +5,11 @@ import android.util.AttributeSet
 import android.view.ViewGroup
 import androidx.cardview.widget.CardView
 import io.petros.movies.R
-import io.petros.movies.data.getDimension
+import io.petros.movies.data.extensions.getDimension
 import io.petros.movies.domain.model.movie.Movie
-import io.petros.movies.presentation.displayImage
+import io.petros.movies.presentation.extensions.displayImage
+import io.petros.movies.presentation.extensions.inflate
 import io.petros.movies.presentation.feature.movies.listener.MovieCallback
-import io.petros.movies.presentation.inflate
 import kotlinx.android.synthetic.main.item_movie.view.*
 
 class MovieItemView : CardView {

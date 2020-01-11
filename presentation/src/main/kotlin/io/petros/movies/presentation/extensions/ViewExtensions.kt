@@ -1,4 +1,4 @@
-package io.petros.movies.presentation
+package io.petros.movies.presentation.extensions
 
 import android.view.View
 import android.view.ViewGroup

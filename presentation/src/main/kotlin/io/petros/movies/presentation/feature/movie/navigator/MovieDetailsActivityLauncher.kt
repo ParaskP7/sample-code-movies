@@ -7,9 +7,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityOptionsCompat
 import io.petros.movies.R
 import io.petros.movies.domain.model.movie.Movie
+import io.petros.movies.presentation.extensions.getExtraName
 import io.petros.movies.presentation.feature.movie.MovieDetailsActivity
 import io.petros.movies.presentation.feature.movies.view.SharedElementMovie
-import io.petros.movies.presentation.getExtraName
 
 class MovieDetailsActivityLauncher constructor(
     private val activity: AppCompatActivity
