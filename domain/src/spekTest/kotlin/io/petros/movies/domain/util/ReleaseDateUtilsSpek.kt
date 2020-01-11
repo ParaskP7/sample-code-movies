@@ -1,7 +1,5 @@
-package io.petros.movies.domain
+package io.petros.movies.domain.util
 
-import io.petros.movies.domain.util.releaseDateGte
-import io.petros.movies.domain.util.releaseDateLte
 import io.petros.movies.test.domain.MOVIE_MONTH
 import io.petros.movies.test.domain.MOVIE_YEAR
 import org.spekframework.spek2.Spek

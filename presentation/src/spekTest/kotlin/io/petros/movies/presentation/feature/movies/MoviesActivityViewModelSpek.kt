@@ -8,8 +8,8 @@ import io.mockk.verify
 import io.petros.movies.domain.interactor.movie.LoadMoviesUseCase
 import io.petros.movies.domain.model.common.PaginationData
 import io.petros.movies.domain.model.movie.Movie
-import io.petros.movies.presentation.ViewModelSpek
 import io.petros.movies.presentation.feature.common.list.adapter.AdapterStatus
+import io.petros.movies.presentation.utils.ViewModelSpek
 import io.petros.movies.test.domain.MOVIE_MONTH
 import io.petros.movies.test.domain.MOVIE_YEAR
 import io.petros.movies.test.domain.NEXT_PAGE

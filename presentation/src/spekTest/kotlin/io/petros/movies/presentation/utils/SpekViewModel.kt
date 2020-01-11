@@ -1,4 +1,4 @@
-package io.petros.movies.presentation
+package io.petros.movies.presentation.utils
 
 import androidx.arch.core.executor.ArchTaskExecutor
 import androidx.arch.core.executor.TaskExecutor
