@@ -43,6 +43,7 @@ fun DependencyHandlerScope.testProjectImplementation() {
 
 fun DependencyHandlerScope.testImplementation() {
     testImplementationSpek()
+    testImplementationJUnit()
     testImplementationTest()
     testImplementationMock()
 }
@@ -51,6 +52,11 @@ fun DependencyHandlerScope.testImplementationSpek() {
     testImplementation(Deps.Test.Spek.DSL)
     testImplementation(Deps.Test.Spek.J_UNIT)
     testRuntimeOnly(Deps.Kotlin.Core.KOTLIN_REFLECT)
+}
+
+fun DependencyHandlerScope.testImplementationJUnit() {
+    testImplementation(Deps.Test.JUnit.J_UNIT)
+    testRuntimeOnly(Deps.Test.JUnit.J_UNIT_VINTAGE)
 }
 
 fun DependencyHandlerScope.testImplementationTest() {
