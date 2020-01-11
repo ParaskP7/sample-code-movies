@@ -59,7 +59,6 @@ subprojects {
     subprojectsTasks()
 }
 
-
 fun Project.subprojectsPlugins() {
     plugins.withType(KotlinPlugin::class) {
         log(PluginIds.Kotlin.KOTLIN)
