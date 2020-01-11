@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package io.petros.movies.presentation.utils
+package io.petros.movies.test.utils
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi

@@ -26,10 +26,17 @@ fun DependencyHandlerScope.projectImplementation() {
 
 fun DependencyHandlerScope.implementation() {
     implementationKotlin()
+    implementationJUnit()
 }
 
 fun DependencyHandlerScope.implementationKotlin() {
     implementation(Deps.Kotlin.Core.KOTLIN)
+    implementation(Deps.Kotlin.Coroutines.CORE)
+    implementation(Deps.Kotlin.Coroutines.Test.TEST)
+}
+
+fun DependencyHandlerScope.implementationJUnit() {
+    implementation(Deps.Test.JUnit.J_UNIT)
 }
 
 /* DEPENDENCIES - PLUGINS */
