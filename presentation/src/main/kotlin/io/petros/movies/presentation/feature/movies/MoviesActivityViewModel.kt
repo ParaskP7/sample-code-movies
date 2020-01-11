@@ -1,18 +1,19 @@
 package io.petros.movies.presentation.feature.movies
 
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import io.petros.movies.domain.interactor.movie.LoadMoviesUseCase
 import io.petros.movies.domain.model.common.PaginationData
 import io.petros.movies.domain.model.movie.Movie
 import io.petros.movies.domain.model.movie.MoviesResultPage
-import io.petros.movies.presentation.feature.BaseViewModel
 import io.petros.movies.presentation.feature.common.list.adapter.AdapterStatus
 import kotlinx.coroutines.launch
 import timber.log.Timber
 
 class MoviesActivityViewModel constructor(
     private val loadMoviesUseCase: LoadMoviesUseCase
-) : BaseViewModel() {
+) : ViewModel() {
 
     val statusObservable = MutableLiveData<AdapterStatus>()
     val moviesObservable = MutableLiveData<PaginationData<Movie>>()
@@ -23,7 +24,7 @@ class MoviesActivityViewModel constructor(
         if (paginationData.isEmpty()) loadMovies(year, month) else moviesObservable.postValue(paginationData)
     }
 
-    fun loadMovies(year: Int? = null, month: Int? = null, page: Int? = null) = uiScope.launch {
+    fun loadMovies(year: Int? = null, month: Int? = null, page: Int? = null) = viewModelScope.launch {
         statusObservable.postValue(AdapterStatus.LOADING)
         try {
             val movies = loadMoviesUseCase.execute(LoadMoviesUseCase.Params(year, month, page))

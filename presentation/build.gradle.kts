@@ -106,6 +106,7 @@ fun DependencyHandlerScope.implementationAndroidKtx() {
 fun DependencyHandlerScope.implementationAndroidArch() {
     implementation(Deps.Android.Arch.Core.Lifecycle.LIVE_DATA)
     implementation(Deps.Android.Arch.Core.Lifecycle.VIEW_MODEL)
+    implementation(Deps.Android.Arch.Core.Lifecycle.VIEW_MODEL_KTX)
     implementation(Deps.Android.Arch.Core.Lifecycle.PROCESS)
 }
 
@@ -136,12 +137,17 @@ fun DependencyHandlerScope.testProjectImplementation() {
 /* DEPENDENCIES - TEST IMPLEMENTATION */
 
 fun DependencyHandlerScope.testImplementation() {
+    testImplementationKotlin()
     testImplementationSpek()
     testImplementationJUnit()
     testImplementationTest()
     testImplementationMock()
     testImplementationAndroidArch()
     testImplementationRobolectric()
+}
+
+fun DependencyHandlerScope.testImplementationKotlin() {
+    testImplementation(Deps.Kotlin.Coroutines.Test.TEST)
 }
 
 fun DependencyHandlerScope.testImplementationSpek() {

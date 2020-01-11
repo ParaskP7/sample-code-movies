@@ -33,6 +33,12 @@ object Deps {
             val CORE = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.Kotlin.COROUTINES}"
             val ANDROID = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.Kotlin.COROUTINES}"
 
+            object Test {
+
+                val TEST = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.Kotlin.COROUTINES}"
+
+            }
+
         }
 
     }
@@ -70,6 +76,8 @@ object Deps {
                         "androidx.lifecycle:lifecycle-livedata:${Versions.Android.Arch.Core.Lifecycle.EXTENSIONS}"
                     val VIEW_MODEL =
                         "androidx.lifecycle:lifecycle-viewmodel:${Versions.Android.Arch.Core.Lifecycle.EXTENSIONS}"
+                    val VIEW_MODEL_KTX =
+                        "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.Android.Arch.Core.Lifecycle.EXTENSIONS}"
                     val PROCESS =
                         "androidx.lifecycle:lifecycle-process:${Versions.Android.Arch.Core.Lifecycle.EXTENSIONS}"
 

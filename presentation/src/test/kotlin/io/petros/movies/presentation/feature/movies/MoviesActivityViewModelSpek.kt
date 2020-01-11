@@ -15,8 +15,6 @@ import io.petros.movies.test.domain.MOVIE_YEAR
 import io.petros.movies.test.domain.NEXT_PAGE
 import io.petros.movies.test.domain.provideMovie
 import io.petros.movies.test.domain.provideMoviesResultPage
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.spekframework.spek2.style.gherkin.Feature
 import strikt.api.expect
@@ -27,7 +25,6 @@ private val moviesResultPageObservableMock = mockk<Observer<PaginationData<Movie
 
 @ExperimentalCoroutinesApi
 private fun setupViewModel(testedClass: MoviesActivityViewModel) {
-    testedClass.uiScope = CoroutineScope(Dispatchers.Unconfined)
     testedClass.statusObservable.observeForever(statusObservableMock)
     testedClass.moviesObservable.observeForever(moviesResultPageObservableMock)
 }
