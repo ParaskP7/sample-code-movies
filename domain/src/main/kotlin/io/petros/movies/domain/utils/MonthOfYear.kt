@@ -1,4 +1,4 @@
-package io.petros.movies.domain.util
+package io.petros.movies.domain.utils
 
 @Suppress("MagicNumber")
 enum class MonthOfYear(

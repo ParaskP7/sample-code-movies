@@ -1,4 +1,4 @@
-package io.petros.movies.domain.util
+package io.petros.movies.domain.utils
 
 import java.text.SimpleDateFormat
 import java.util.*

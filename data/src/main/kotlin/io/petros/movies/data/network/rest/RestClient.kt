@@ -3,8 +3,8 @@ package io.petros.movies.data.network.rest
 import android.content.Context
 import io.petros.movies.data.network.WebService
 import io.petros.movies.domain.model.movie.MoviesResultPage
-import io.petros.movies.domain.util.releaseDateGte
-import io.petros.movies.domain.util.releaseDateLte
+import io.petros.movies.domain.utils.releaseDateGte
+import io.petros.movies.domain.utils.releaseDateLte
 
 class RestClient constructor(
     private val context: Context,

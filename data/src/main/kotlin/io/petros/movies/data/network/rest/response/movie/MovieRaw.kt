@@ -4,7 +4,7 @@ import android.content.Context
 import io.petros.movies.data.R
 import io.petros.movies.domain.extensions.toDate
 import io.petros.movies.domain.model.movie.Movie
-import io.petros.movies.domain.util.MOVIE_DATE_FORMAT
+import io.petros.movies.domain.utils.MOVIE_DATE_FORMAT
 
 data class MovieRaw(
     private val vote_count: Int,
