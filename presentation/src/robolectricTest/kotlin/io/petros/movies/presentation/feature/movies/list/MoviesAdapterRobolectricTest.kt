@@ -3,13 +3,13 @@ package io.petros.movies.presentation.feature.movies.list
 import androidx.recyclerview.widget.RecyclerView
 import io.mockk.mockk
 import io.mockk.verify
-import io.petros.movies.presentation.RobolectricTestProvider.Companion.provideContext
 import io.petros.movies.presentation.feature.common.list.adapter.AdapterStatus
 import io.petros.movies.presentation.feature.common.list.holder.ErrorViewHolder
 import io.petros.movies.presentation.feature.common.list.holder.ProgressViewHolder
 import io.petros.movies.presentation.feature.movies.list.MoviesAdapter.Companion.VIEW_TYPE_ERROR
 import io.petros.movies.presentation.feature.movies.list.MoviesAdapter.Companion.VIEW_TYPE_MOVIE
 import io.petros.movies.presentation.feature.movies.list.MoviesAdapter.Companion.VIEW_TYPE_PROGRESS
+import io.petros.movies.presentation.utils.RobolectricTestProvider.Companion.provideContext
 import io.petros.movies.test.domain.provideMovie
 import org.junit.Before
 import org.junit.Test

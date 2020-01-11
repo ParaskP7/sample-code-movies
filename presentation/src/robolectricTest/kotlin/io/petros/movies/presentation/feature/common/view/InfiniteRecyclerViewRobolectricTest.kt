@@ -4,7 +4,7 @@ import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
 import io.petros.movies.domain.model.movie.Movie
-import io.petros.movies.presentation.RobolectricTestProvider.Companion.provideContext
+import io.petros.movies.presentation.utils.RobolectricTestProvider.Companion.provideContext
 import io.petros.movies.test.domain.NEXT_PAGE
 import org.junit.Before
 import org.junit.Test

@@ -6,7 +6,7 @@ import io.mockk.mockk
 import io.petros.movies.domain.model.common.PaginationData
 import io.petros.movies.domain.model.movie.Movie
 import io.petros.movies.domain.model.movie.MoviesResultPage
-import io.petros.movies.presentation.RobolectricTestProvider.Companion.provideContext
+import io.petros.movies.presentation.utils.RobolectricTestProvider.Companion.provideContext
 import io.petros.movies.test.domain.NEXT_PAGE
 import io.petros.movies.test.domain.provideMovie
 import org.junit.Before
