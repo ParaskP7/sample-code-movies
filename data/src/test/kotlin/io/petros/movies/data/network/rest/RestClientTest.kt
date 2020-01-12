@@ -7,10 +7,14 @@ import io.petros.movies.data.network.rest.response.movie.MoviesResultPageRaw
 import io.petros.movies.test.domain.MOVIE_MONTH
 import io.petros.movies.test.domain.MOVIE_YEAR
 import io.petros.movies.test.domain.NEXT_PAGE
+import io.petros.movies.test.utils.MainCoroutineScopeRule
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.runBlocking
 import org.junit.Before
+import org.junit.Rule
 import org.junit.Test
 
+@ExperimentalCoroutinesApi
 @Suppress("DeferredResultUnused")
 class RestClientTest {
 
@@ -20,6 +24,8 @@ class RestClientTest {
         private const val RELEASE_DATE_LTE = "2018-08-31"
 
     }
+
+    @get:Rule val coroutineScope = MainCoroutineScopeRule()
 
     private val moviesResponse = MoviesResultPageRaw(0, 1, emptyList())
 

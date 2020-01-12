@@ -8,13 +8,19 @@ import io.petros.movies.test.domain.MOVIE_MONTH
 import io.petros.movies.test.domain.MOVIE_YEAR
 import io.petros.movies.test.domain.NEXT_PAGE
 import io.petros.movies.test.domain.provideMoviesResultPage
+import io.petros.movies.test.utils.MainCoroutineScopeRule
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.runBlocking
 import org.junit.Before
+import org.junit.Rule
 import org.junit.Test
 import strikt.api.expect
 import strikt.assertions.isEqualTo
 
+@ExperimentalCoroutinesApi
 class LoadMoviesUseCaseTest {
+
+    @get:Rule val coroutineScope = MainCoroutineScopeRule()
 
     private val params = LoadMoviesUseCase.Params(MOVIE_YEAR, MOVIE_MONTH, NEXT_PAGE)
 

@@ -6,11 +6,17 @@ import io.petros.movies.data.network.WebService
 import io.petros.movies.test.domain.MOVIE_MONTH
 import io.petros.movies.test.domain.MOVIE_YEAR
 import io.petros.movies.test.domain.NEXT_PAGE
+import io.petros.movies.test.utils.MainCoroutineScopeRule
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.runBlocking
 import org.junit.Before
+import org.junit.Rule
 import org.junit.Test
 
+@ExperimentalCoroutinesApi
 class MoviesRepositoryImplTest {
+
+    @get:Rule val coroutineScope = MainCoroutineScopeRule()
 
     private lateinit var testedClass: MoviesRepositoryImpl
     private val webServiceMock = mockk<WebService>()
