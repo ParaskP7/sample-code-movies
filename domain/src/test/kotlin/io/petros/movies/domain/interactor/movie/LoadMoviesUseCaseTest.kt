@@ -10,7 +10,8 @@ import io.petros.movies.test.domain.NEXT_PAGE
 import io.petros.movies.test.domain.provideMoviesResultPage
 import io.petros.movies.test.utils.MainCoroutineScopeRule
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -35,21 +36,23 @@ class LoadMoviesUseCaseTest {
     }
 
     @Test
-    fun `when executing the use case, then the repository triggers load movies`() = runBlocking {
+    fun `when executing the use case, then the repository triggers load movies`() = coroutineScope.runBlockingTest {
         coEvery { moviesRepositoryMock.loadMovies(MOVIE_YEAR, MOVIE_MONTH, NEXT_PAGE) } returns moviesResultPage
 
-        testedClass.execute(params)
+        coroutineScope.launch { testedClass.execute(params) }
 
         coVerify { moviesRepositoryMock.loadMovies(MOVIE_YEAR, MOVIE_MONTH, NEXT_PAGE) }
     }
 
     @Test
-    fun `when executing the use case, then the movies result page is the expected one`() = runBlocking {
+    fun `when executing the use case, then the movies result page is the expected one`() = coroutineScope.runBlockingTest {
         coEvery { moviesRepositoryMock.loadMovies(MOVIE_YEAR, MOVIE_MONTH, NEXT_PAGE) } returns moviesResultPage
 
-        val result = testedClass.execute(params)
+        coroutineScope.launch {
+            val result = testedClass.execute(params)
 
-        expect { that(result).isEqualTo(moviesResultPage) }
+            expect { that(result).isEqualTo(moviesResultPage) }
+        }
     }
 
 }
