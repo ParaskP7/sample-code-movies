@@ -11,7 +11,7 @@ import org.spekframework.spek2.Spek
 import org.spekframework.spek2.dsl.Root
 
 @ExperimentalCoroutinesApi
-abstract class ViewModelSpek(
+open class ViewModelSpek(
     val viewModelRoot: Root.() -> Unit,
     private val dispatcher: TestCoroutineDispatcher = TestCoroutineDispatcher()
 ) : Spek({
