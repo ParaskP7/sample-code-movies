@@ -48,69 +48,21 @@ class MoviesActivityViewModelTest {
     }
 
     @Test
-    fun `Given empty pagination data, when load movies or restore, then a loading status is posted`() {
-        testedClass.paginationData.clear()
-        expect { that(testedClass.paginationData.isEmpty()).isTrue() }
-
-        testedClass.loadMoviesOrRestore()
-
-        coVerify { statusObservableMock.onChanged(AdapterStatus.LOADING) }
-    }
-
-    @Test
-    fun `Given empty pagination data, when load movies or restore, then load movies is triggered`() {
-        testedClass.paginationData.clear()
-        expect { that(testedClass.paginationData.isEmpty()).isTrue() }
-
-        testedClass.loadMoviesOrRestore()
-
-        coVerify { loadMoviesUseCaseMock.execute(LoadMoviesUseCase.Params(null, null, null)) }
-    }
-
-    @Test
-    fun `Given pagination data, when load movies or restore is triggered, then restore is triggered`() {
-        testedClass.paginationData.addPage(previousMoviesResultPage)
-        expect { that(testedClass.paginationData.isEmpty()).isFalse() }
-
-        testedClass.loadMoviesOrRestore()
-
-        verify { moviesResultPageObservableMock.onChanged(testedClass.paginationData) }
-    }
-
-    @Test
-    fun `When load movies is triggered, then a loading status is posted`() {
+    fun `When loading movies, then a loading status is posted`() {
         testedClass.loadMovies()
 
         verify { statusObservableMock.onChanged(AdapterStatus.LOADING) }
     }
 
     @Test
-    fun `When load movies is triggered, then load movies use case executes`() {
-        testedClass.loadMovies()
-
-        coVerify { loadMoviesUseCaseMock.execute(LoadMoviesUseCase.Params(null, null, null)) }
-    }
-
-    @Test
-    fun `Given a movie date, when load movies, then load movies use case executes for that date`() {
+    fun `When loading movies, then the load movies use case executes`() {
         testedClass.loadMovies(MOVIE_YEAR, MOVIE_MONTH, NEXT_PAGE)
 
         coVerify { loadMoviesUseCaseMock.execute(LoadMoviesUseCase.Params(MOVIE_YEAR, MOVIE_MONTH, NEXT_PAGE)) }
     }
 
     @Test
-    fun `When reload movies, then existing pagination data gets cleared before triggering new load`() {
-        testedClass.paginationData.addPage(previousMoviesResultPage)
-        expect { that(testedClass.paginationData.items().size).isEqualTo(previousMoviesResultPage.movies.size) }
-        coEvery { loadMoviesUseCaseMock.execute(any()) } returns moviesResultPage
-
-        testedClass.reloadMovies(MOVIE_YEAR, MOVIE_MONTH)
-
-        expect { that(testedClass.paginationData.items().size).isEqualTo(moviesResultPage.movies.size) }
-    }
-
-    @Test
-    fun `When load movies succeeds, then an idle status is posted`() {
+    fun `When loading movies succeeds, then an idle status is posted`() {
         coEvery { loadMoviesUseCaseMock.execute(any()) } returns moviesResultPage
 
         testedClass.loadMovies()
@@ -119,7 +71,7 @@ class MoviesActivityViewModelTest {
     }
 
     @Test
-    fun `When load movies succeeds, then the updated movies pagination data is posted`() {
+    fun `When load movies succeeds, then a page is posted`() {
         coEvery { loadMoviesUseCaseMock.execute(any()) } returns moviesResultPage
 
         testedClass.loadMovies()
@@ -137,12 +89,62 @@ class MoviesActivityViewModelTest {
     }
 
     @Test
-    fun `When load movies fails, then a null movies pagination data is not posted`() {
+    fun `When load movies fails, then a null page is posted`() {
         coEvery { loadMoviesUseCaseMock.execute(any()) } answers { throw LoadMoviesUseCase.Error(Exception()) }
 
         testedClass.loadMovies()
 
         coVerify { moviesResultPageObservableMock.onChanged(null) }
+    }
+
+    @Test
+    fun `Given no page, when loading movies or restoring, then a loading status is posted`() {
+        testedClass.paginationData.clear()
+        expect { that(testedClass.paginationData.isEmpty()).isTrue() }
+
+        testedClass.loadMoviesOrRestore()
+
+        coVerify { statusObservableMock.onChanged(AdapterStatus.LOADING) }
+    }
+
+    @Test
+    fun `Given no page, when loading movies or restoring, then the load movies use case executes`() {
+        testedClass.paginationData.clear()
+        expect { that(testedClass.paginationData.isEmpty()).isTrue() }
+
+        testedClass.loadMoviesOrRestore()
+
+        coVerify { loadMoviesUseCaseMock.execute(LoadMoviesUseCase.Params(null, null, null)) }
+    }
+
+    @Test
+    fun `Given a page, when loading movies or restoring, then restore is triggered`() {
+        testedClass.paginationData.addPage(previousMoviesResultPage)
+        expect { that(testedClass.paginationData.isEmpty()).isFalse() }
+
+        testedClass.loadMoviesOrRestore()
+
+        verify { moviesResultPageObservableMock.onChanged(testedClass.paginationData) }
+    }
+
+    @Test
+    fun `given a page, when reloading movies, then existing data gets cleared`() {
+        testedClass.paginationData.addPage(previousMoviesResultPage)
+        coEvery { loadMoviesUseCaseMock.execute(any()) } returns moviesResultPage
+
+        testedClass.reloadMovies(MOVIE_YEAR, MOVIE_MONTH)
+
+        expect { that(testedClass.paginationData.items().size).isEqualTo(moviesResultPage.movies.size) }
+    }
+
+    @Test
+    fun `given a page, when reloading movies, then a new load of movies is triggered`() {
+        testedClass.paginationData.addPage(previousMoviesResultPage)
+        coEvery { loadMoviesUseCaseMock.execute(any()) } returns moviesResultPage
+
+        testedClass.reloadMovies(MOVIE_YEAR, MOVIE_MONTH)
+
+        coVerify { loadMoviesUseCaseMock.execute(LoadMoviesUseCase.Params(MOVIE_YEAR, MOVIE_MONTH, null)) }
     }
 
 }
