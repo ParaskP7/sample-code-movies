@@ -25,14 +25,14 @@ class MovieViewHolderRobolectricTest {
     }
 
     @Test
-    fun `When the view holder binds a movie, then the item view is bind with a movie`() {
+    fun `when the view holder binds a movie, then the item view is bind with a movie`() {
         testedClass.bind(movie)
 
         verify { itemViewMock.bind(movie) }
     }
 
     @Test
-    fun `When the view holder binds a movie, then the item view is bind with a movie callback`() {
+    fun `when the view holder binds a movie, then the item view is bind with a movie callback`() {
         testedClass.bind(movie)
 
         verify { itemViewMock.bindCallback(movie, callbackMock) }

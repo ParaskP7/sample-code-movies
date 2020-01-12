@@ -29,7 +29,7 @@ class LoadMoviesUseCaseTest {
     }
 
     @Test
-    fun `When executing the use case, then the repository triggers load movies`() = runBlocking {
+    fun `when executing the use case, then the repository triggers load movies`() = runBlocking {
         coEvery { moviesRepositoryMock.loadMovies(MOVIE_YEAR, MOVIE_MONTH, NEXT_PAGE) } returns moviesResultPage
 
         testedClass.execute(params)
@@ -38,7 +38,7 @@ class LoadMoviesUseCaseTest {
     }
 
     @Test
-    fun `When executing the use case, then the movies result page is the expected one`() = runBlocking {
+    fun `when executing the use case, then the movies result page is the expected one`() = runBlocking {
         coEvery { moviesRepositoryMock.loadMovies(MOVIE_YEAR, MOVIE_MONTH, NEXT_PAGE) } returns moviesResultPage
 
         val result = testedClass.execute(params)

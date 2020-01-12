@@ -31,7 +31,7 @@ class MovieDetailsActivityLauncherRobolectricTest {
     }
 
     @Test
-    fun `When launch is called, then current activity starts target movies activity`() {
+    fun `when launch is called, then current activity starts target movies activity`() {
         testedClass.launch(movie)
 
         verify { appCompatActivityMock.startActivity(capture(slot)) }

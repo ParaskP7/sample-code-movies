@@ -32,7 +32,7 @@ class RestClientTest {
     }
 
     @Test
-    fun `When load movies is triggered, then rest api triggers load movies`() = runBlocking {
+    fun `when load movies is triggered, then rest api triggers load movies`() = runBlocking {
         coEvery { restApiMock.loadMovies(RELEASE_DATE_GTE, RELEASE_DATE_LTE, NEXT_PAGE) } returns moviesResponse
 
         testedClass.loadMovies(MOVIE_YEAR, MOVIE_MONTH, NEXT_PAGE)

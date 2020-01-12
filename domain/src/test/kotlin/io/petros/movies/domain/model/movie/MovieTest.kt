@@ -16,12 +16,12 @@ class MovieTest {
     }
 
     @Test
-    fun `When release date string is constructed, then it is the expected one`() {
+    fun `when release date string is constructed, then it is the expected one`() {
         expect { that(testedClass.releaseDate()).isEqualTo("2018 (September)") }
     }
 
     @Test
-    fun `When vote string is constructed, then it is the expected one`() {
+    fun `when vote string is constructed, then it is the expected one`() {
         expect { that(testedClass.vote()).isEqualTo("10.0 ★ (100)") }
     }
 

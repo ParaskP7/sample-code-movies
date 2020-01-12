@@ -21,7 +21,7 @@ class MoviesRepositoryImplTest {
     }
 
     @Test
-    fun `When load movies is triggered, then web service triggers load movies`() = runBlocking {
+    fun `when load movies is triggered, then web service triggers load movies`() = runBlocking {
         testedClass.loadMovies(MOVIE_YEAR, MOVIE_MONTH, NEXT_PAGE)
 
         coVerify { webServiceMock.loadMovies(MOVIE_YEAR, MOVIE_MONTH, NEXT_PAGE) }

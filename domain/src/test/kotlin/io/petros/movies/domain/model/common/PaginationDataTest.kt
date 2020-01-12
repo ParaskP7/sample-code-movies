@@ -26,47 +26,47 @@ class PaginationDataTest {
     }
 
     @Test
-    fun `Given no pages, when checking if it is empty, then the return value is true`() {
+    fun `given no pages, when checking if it is empty, then the return value is true`() {
         expect { that(testedClass.isEmpty()).isTrue() }
     }
 
     @Test
-    fun `Given no pages, when adding a page, then the items are the expected one`() {
+    fun `given no pages, when adding a page, then the items are the expected one`() {
         testedClass.addPage(MoviesResultPage(NEXT_PAGE, firstPageItems))
 
         expect { that(testedClass.items()).isEqualTo(firstPageItems) }
     }
 
     @Test
-    fun `Given no pages, when adding a page, then the latest items are the expected one`() {
+    fun `given no pages, when adding a page, then the latest items are the expected one`() {
         testedClass.addPage(MoviesResultPage(NEXT_PAGE, firstPageItems))
 
         expect { that(testedClass.latestItems()).isEqualTo(firstPageItems) }
     }
 
     @Test
-    fun `Given no pages, when adding a page, then the next page is the expected one`() {
+    fun `given no pages, when adding a page, then the next page is the expected one`() {
         testedClass.addPage(MoviesResultPage(NEXT_PAGE, firstPageItems))
 
         expect { that(testedClass.nextPage()).isEqualTo(NEXT_PAGE) }
     }
 
     @Test
-    fun `Given a single page, when checking if it is empty, then the return value is false`() {
+    fun `given a single page, when checking if it is empty, then the return value is false`() {
         testedClass.addPage(MoviesResultPage(NEXT_PAGE, firstPageItems))
 
         expect { that(testedClass.isEmpty()).isFalse() }
     }
 
     @Test
-    fun `Given a single page, when checking if it is the first page, then the return value is true`() {
+    fun `given a single page, when checking if it is the first page, then the return value is true`() {
         testedClass.addPage(MoviesResultPage(NEXT_PAGE, firstPageItems))
 
         expect { that(testedClass.isFirstPage()).isTrue() }
     }
 
     @Test
-    fun `Given a single page, when adding a page, then the items are the expected one`() {
+    fun `given a single page, when adding a page, then the items are the expected one`() {
         testedClass.addPage(MoviesResultPage(NEXT_PAGE, firstPageItems))
         testedClass.addPage(MoviesResultPage(NEXT_PAGE + 1, secondPageItems))
 
@@ -74,7 +74,7 @@ class PaginationDataTest {
     }
 
     @Test
-    fun `Given a single page, when adding a page, then the latest items are the expected one`() {
+    fun `given a single page, when adding a page, then the latest items are the expected one`() {
         testedClass.addPage(MoviesResultPage(NEXT_PAGE, firstPageItems))
         testedClass.addPage(MoviesResultPage(NEXT_PAGE + 1, secondPageItems))
 
@@ -82,7 +82,7 @@ class PaginationDataTest {
     }
 
     @Test
-    fun `Given a single page, when adding a page, then the next page is the expected one`() {
+    fun `given a single page, when adding a page, then the next page is the expected one`() {
         testedClass.addPage(MoviesResultPage(NEXT_PAGE, firstPageItems))
         testedClass.addPage(MoviesResultPage(NEXT_PAGE + 1, secondPageItems))
 
@@ -90,7 +90,7 @@ class PaginationDataTest {
     }
 
     @Test
-    fun `Given a multi page, when checking it is the first page, then the return value is false`() {
+    fun `given a multi page, when checking it is the first page, then the return value is false`() {
         testedClass.addPage(MoviesResultPage(NEXT_PAGE, firstPageItems))
         testedClass.addPage(MoviesResultPage(NEXT_PAGE, secondPageItems))
 
@@ -98,7 +98,7 @@ class PaginationDataTest {
     }
 
     @Test
-    fun `Given a multi page, when clearing the pages, then data gets emptied`() {
+    fun `given a multi page, when clearing the pages, then data gets emptied`() {
         testedClass.addPage(MoviesResultPage(NEXT_PAGE, firstPageItems))
         testedClass.addPage(MoviesResultPage(NEXT_PAGE, secondPageItems))
 
@@ -108,7 +108,7 @@ class PaginationDataTest {
     }
 
     @Test
-    fun `Given a multi page, when clearing the pages, then items are empty`() {
+    fun `given a multi page, when clearing the pages, then items are empty`() {
         testedClass.addPage(MoviesResultPage(NEXT_PAGE, firstPageItems))
         testedClass.addPage(MoviesResultPage(NEXT_PAGE, secondPageItems))
 
@@ -118,7 +118,7 @@ class PaginationDataTest {
     }
 
     @Test
-    fun `Given a multi page, when clearing the pages, then latest items are null`() {
+    fun `given a multi page, when clearing the pages, then latest items are null`() {
         testedClass.addPage(MoviesResultPage(NEXT_PAGE, firstPageItems))
         testedClass.addPage(MoviesResultPage(NEXT_PAGE, secondPageItems))
 
@@ -128,7 +128,7 @@ class PaginationDataTest {
     }
 
     @Test
-    fun `Given a multi page, when clearing the pages, then next page is null`() {
+    fun `given a multi page, when clearing the pages, then next page is null`() {
         testedClass.addPage(MoviesResultPage(NEXT_PAGE, firstPageItems))
         testedClass.addPage(MoviesResultPage(NEXT_PAGE, secondPageItems))
 

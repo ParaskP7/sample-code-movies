@@ -29,14 +29,14 @@ class InfiniteRecyclerViewRobolectricTest {
     }
 
     @Test
-    fun `When requesting next page, then adapter gets asked for the page`() {
+    fun `when requesting next page, then adapter gets asked for the page`() {
         testedClass.nextPage()
 
         verify { adapterMock.nextPage() }
     }
 
     @Test
-    fun `When load more is triggered, then infinite scrolling listener's load data is triggered for next page`() {
+    fun `when load more is triggered, then infinite scrolling listener's load data is triggered for next page`() {
         every { adapterMock.nextPage() } returns NEXT_PAGE
 
         testedClass.loadMore()
@@ -45,7 +45,7 @@ class InfiniteRecyclerViewRobolectricTest {
     }
 
     @Test
-    fun `When requesting loading status, then adapter gets asked for the loading status`() {
+    fun `when requesting loading status, then adapter gets asked for the loading status`() {
         testedClass.isLoading()
 
         verify { adapterMock.isLoading() }

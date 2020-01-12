@@ -17,14 +17,14 @@ class SplashActivityNavigatorTest {
     }
 
     @Test
-    fun `When navigating from splash activity, then movies activity launches`() {
+    fun `when navigating from splash activity, then movies activity launches`() {
         testedClass.navigate()
 
         verify { moviesLauncherMock.launch() }
     }
 
     @Test
-    fun `When navigating from splash activity, then splash activity finishes`() {
+    fun `when navigating from splash activity, then splash activity finishes`() {
         testedClass.navigate()
 
         verify { moviesLauncherMock.finish() }

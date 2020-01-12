@@ -37,21 +37,21 @@ class MoviesAdapterRobolectricTest {
     /* STATUS */
 
     @Test
-    fun `When adapter is set, then status is idle`() {
+    fun `when adapter is set, then status is idle`() {
         expect { that(testedClass.status).isEqualTo(AdapterStatus.IDLE) }
     }
 
     /* ITEMS */
 
     @Test
-    fun `When adapter is set, then all items are used`() {
+    fun `when adapter is set, then all items are used`() {
         expect { that(testedClass.itemCount).isEqualTo(items.size) }
     }
 
     /* VIEW HOLDER */
 
     @Test
-    fun `When creating a view holder for a progress item, then the correct view holder is returned`() {
+    fun `when creating a view holder for a progress item, then the correct view holder is returned`() {
         testedClass.onAttachedToRecyclerView(recyclerView)
 
         val viewHolder = testedClass.onCreateViewHolder(mockk(), VIEW_TYPE_PROGRESS)
@@ -60,7 +60,7 @@ class MoviesAdapterRobolectricTest {
     }
 
     @Test
-    fun `When creating a view holder for a movie item, then the correct view holder is returned`() {
+    fun `when creating a view holder for a movie item, then the correct view holder is returned`() {
         testedClass.onAttachedToRecyclerView(recyclerView)
 
         val viewHolder = testedClass.onCreateViewHolder(mockk(), VIEW_TYPE_MOVIE)
@@ -69,7 +69,7 @@ class MoviesAdapterRobolectricTest {
     }
 
     @Test
-    fun `When creating a view holder for an error item, then the correct view holder is returned`() {
+    fun `when creating a view holder for an error item, then the correct view holder is returned`() {
         testedClass.onAttachedToRecyclerView(recyclerView)
 
         val viewHolder = testedClass.onCreateViewHolder(mockk(), VIEW_TYPE_ERROR)
@@ -78,7 +78,7 @@ class MoviesAdapterRobolectricTest {
     }
 
     @Test
-    fun `Given a movie view type, when binding a view holder, then a movie item is bind`() {
+    fun `given a movie view type, when binding a view holder, then a movie item is bind`() {
         testedClass.onAttachedToRecyclerView(recyclerView)
         testedClass.onCreateViewHolder(mockk(), VIEW_TYPE_MOVIE)
         val position = 1
@@ -90,7 +90,7 @@ class MoviesAdapterRobolectricTest {
     }
 
     @Test
-    fun `Given a non-movie view type, when binding a view holder, then a movie item is not bind`() {
+    fun `given a non-movie view type, when binding a view holder, then a movie item is not bind`() {
         testedClass.onAttachedToRecyclerView(recyclerView)
         testedClass.onCreateViewHolder(mockk(), VIEW_TYPE_PROGRESS)
         testedClass.status = AdapterStatus.LOADING
@@ -105,14 +105,14 @@ class MoviesAdapterRobolectricTest {
     /* NAVIGATION */
 
     @Test
-    fun `When getting the item view type of a movie item, then a movie view type is returned`() {
+    fun `when getting the item view type of a movie item, then a movie view type is returned`() {
         val result = testedClass.getItemViewType(1)
 
         expect { that(result).isEqualTo(VIEW_TYPE_MOVIE) }
     }
 
     @Test
-    fun `Given at last position and idle, when getting the item view type, then a movie item view type is returned`() {
+    fun `given at last position and idle, when getting the item view type, then a movie item view type is returned`() {
         testedClass.status = AdapterStatus.IDLE
 
         val result = testedClass.getItemViewType(items.size)
@@ -121,7 +121,7 @@ class MoviesAdapterRobolectricTest {
     }
 
     @Test
-    fun `Given at last position and loading, when getting the item view type, then a progress view type is returned`() {
+    fun `given at last position and loading, when getting the item view type, then a progress view type is returned`() {
         testedClass.status = AdapterStatus.LOADING
 
         val result = testedClass.getItemViewType(items.size)
@@ -130,7 +130,7 @@ class MoviesAdapterRobolectricTest {
     }
 
     @Test
-    fun `Given at last position and error, when getting the item view type, then an error view type is returned`() {
+    fun `given at last position and error, when getting the item view type, then an error view type is returned`() {
         testedClass.status = AdapterStatus.ERROR
 
         val result = testedClass.getItemViewType(items.size)

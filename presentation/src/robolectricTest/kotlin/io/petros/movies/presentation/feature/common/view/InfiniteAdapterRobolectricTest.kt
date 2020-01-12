@@ -45,7 +45,7 @@ class InfiniteAdapterRobolectricTest {
     /* CONTEXT */
 
     @Test
-    fun `When attaching to recycler view, then context is set`() {
+    fun `when attaching to recycler view, then context is set`() {
         expect { that(testedClass.context).isNull() }
 
         testedClass.onAttachedToRecyclerView(recyclerView)
@@ -54,7 +54,7 @@ class InfiniteAdapterRobolectricTest {
     }
 
     @Test
-    fun `When detaching from recycler view, then context is unset`() {
+    fun `when detaching from recycler view, then context is unset`() {
         testedClass.onAttachedToRecyclerView(recyclerView)
         expect { that(testedClass.context).isEqualTo(context) }
 
@@ -66,7 +66,7 @@ class InfiniteAdapterRobolectricTest {
     /* ITEMS */
 
     @Test
-    fun `Given first page load, when setting items to adapter, then the first page items are set`() {
+    fun `given first page load, when setting items to adapter, then the first page items are set`() {
         expect { that(testedClass.items()).isEqualTo(emptyList()) }
 
         testedClass.setItems(PaginationData<Movie>().addPage(MoviesResultPage(NEXT_PAGE, firstPageItems)))
@@ -75,7 +75,7 @@ class InfiniteAdapterRobolectricTest {
     }
 
     @Test
-    fun `Given second page load, when setting items to adapter, then new items are appended on the current items`() {
+    fun `given second page load, when setting items to adapter, then new items are appended on the current items`() {
         val paginationData = PaginationData<Movie>()
         paginationData.addPage(MoviesResultPage(NEXT_PAGE, firstPageItems))
         testedClass.setItems(paginationData)
@@ -88,7 +88,7 @@ class InfiniteAdapterRobolectricTest {
     }
 
     @Test
-    fun `Given another page reload, when setting items to adapter, then this another page items are reloaded`() {
+    fun `given another page reload, when setting items to adapter, then this another page items are reloaded`() {
         testedClass.setItems(PaginationData<Movie>().addPage(MoviesResultPage(NEXT_PAGE, firstPageItems)))
         expect { that(testedClass.items()).isEqualTo(firstPageItems) }
 
@@ -98,7 +98,7 @@ class InfiniteAdapterRobolectricTest {
     }
 
     @Test
-    fun `Given page restore, when setting items to adapter, then all page items are restored`() {
+    fun `given page restore, when setting items to adapter, then all page items are restored`() {
         val paginationData = PaginationData<Movie>()
         paginationData.addPage(MoviesResultPage(NEXT_PAGE, firstPageItems))
         testedClass.setItems(paginationData)

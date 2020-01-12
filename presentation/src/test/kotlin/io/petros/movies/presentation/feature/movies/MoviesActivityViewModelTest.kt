@@ -48,21 +48,21 @@ class MoviesActivityViewModelTest {
     }
 
     @Test
-    fun `When loading movies, then a loading status is posted`() {
+    fun `when loading movies, then a loading status is posted`() {
         testedClass.loadMovies()
 
         verify { statusObservableMock.onChanged(AdapterStatus.LOADING) }
     }
 
     @Test
-    fun `When loading movies, then the load movies use case executes`() {
+    fun `when loading movies, then the load movies use case executes`() {
         testedClass.loadMovies(MOVIE_YEAR, MOVIE_MONTH, NEXT_PAGE)
 
         coVerify { loadMoviesUseCaseMock.execute(LoadMoviesUseCase.Params(MOVIE_YEAR, MOVIE_MONTH, NEXT_PAGE)) }
     }
 
     @Test
-    fun `When loading movies succeeds, then an idle status is posted`() {
+    fun `when loading movies succeeds, then an idle status is posted`() {
         coEvery { loadMoviesUseCaseMock.execute(any()) } returns moviesResultPage
 
         testedClass.loadMovies()
@@ -71,7 +71,7 @@ class MoviesActivityViewModelTest {
     }
 
     @Test
-    fun `When load movies succeeds, then a page is posted`() {
+    fun `when load movies succeeds, then a page is posted`() {
         coEvery { loadMoviesUseCaseMock.execute(any()) } returns moviesResultPage
 
         testedClass.loadMovies()
@@ -80,7 +80,7 @@ class MoviesActivityViewModelTest {
     }
 
     @Test
-    fun `When load movies fails, then an error status is posted`() {
+    fun `when load movies fails, then an error status is posted`() {
         coEvery { loadMoviesUseCaseMock.execute(any()) } answers { throw LoadMoviesUseCase.Error(Exception()) }
 
         testedClass.loadMovies()
@@ -89,7 +89,7 @@ class MoviesActivityViewModelTest {
     }
 
     @Test
-    fun `When load movies fails, then a null page is posted`() {
+    fun `when load movies fails, then a null page is posted`() {
         coEvery { loadMoviesUseCaseMock.execute(any()) } answers { throw LoadMoviesUseCase.Error(Exception()) }
 
         testedClass.loadMovies()
@@ -98,7 +98,7 @@ class MoviesActivityViewModelTest {
     }
 
     @Test
-    fun `Given no page, when loading movies or restoring, then a loading status is posted`() {
+    fun `given no page, when loading movies or restoring, then a loading status is posted`() {
         testedClass.paginationData.clear()
         expect { that(testedClass.paginationData.isEmpty()).isTrue() }
 
@@ -108,7 +108,7 @@ class MoviesActivityViewModelTest {
     }
 
     @Test
-    fun `Given no page, when loading movies or restoring, then the load movies use case executes`() {
+    fun `given no page, when loading movies or restoring, then the load movies use case executes`() {
         testedClass.paginationData.clear()
         expect { that(testedClass.paginationData.isEmpty()).isTrue() }
 
@@ -118,7 +118,7 @@ class MoviesActivityViewModelTest {
     }
 
     @Test
-    fun `Given a page, when loading movies or restoring, then restore is triggered`() {
+    fun `given a page, when loading movies or restoring, then restore is triggered`() {
         testedClass.paginationData.addPage(previousMoviesResultPage)
         expect { that(testedClass.paginationData.isEmpty()).isFalse() }
 

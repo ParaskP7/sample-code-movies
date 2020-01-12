@@ -31,7 +31,7 @@ class MovieItemViewRobolectricTest {
     }
 
     @Test
-    fun `When movie is bind, then the movie backdrop is set`() {
+    fun `when movie is bind, then the movie backdrop is set`() {
         expect { that(testedClass.iv_movie_backdrop.drawable).isNull() }
 
         testedClass.bind(movie)
@@ -40,28 +40,28 @@ class MovieItemViewRobolectricTest {
     }
 
     @Test
-    fun `When movie is bind, then the movie title is set`() {
+    fun `when movie is bind, then the movie title is set`() {
         testedClass.bind(movie)
 
         expect { that(testedClass.tv_movie_title.text).isEqualTo(movie.title) }
     }
 
     @Test
-    fun `When movie is bind, then the movie release date is set`() {
+    fun `when movie is bind, then the movie release date is set`() {
         testedClass.bind(movie)
 
         expect { that(testedClass.tv_movie_release_date.text).isEqualTo(movie.releaseDate()) }
     }
 
     @Test
-    fun `When movie is bind, then the movie vote is set`() {
+    fun `when movie is bind, then the movie vote is set`() {
         testedClass.bind(movie)
 
         expect { that(testedClass.tv_movie_vote.text).isEqualTo(movie.vote()) }
     }
 
     @Test
-    fun `When movie callback is bind, then the callback's on click event is triggered`() {
+    fun `when movie callback is bind, then the callback's on click event is triggered`() {
         testedClass.bindCallback(movie, callbackMock)
         val sharedElementMovie = SharedElementMovie(movie, testedClass.iv_movie_backdrop)
 
