@@ -62,7 +62,7 @@ import org.junit.runner.Description
  * @param dispatcher if provided, this [TestCoroutineDispatcher] will be used.
  */
 @ExperimentalCoroutinesApi
-@Suppress("KDocUnresolvedReference")
+@Suppress("KDocUnresolvedReference", "MemberVisibilityCanBePrivate")
 class MainCoroutineScopeRule(val dispatcher: TestCoroutineDispatcher = TestCoroutineDispatcher()) :
     TestWatcher(),
     TestCoroutineScope by TestCoroutineScope(dispatcher) {
