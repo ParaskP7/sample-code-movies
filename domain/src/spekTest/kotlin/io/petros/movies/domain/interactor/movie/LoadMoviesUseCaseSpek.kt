@@ -10,13 +10,15 @@ import io.petros.movies.test.domain.MOVIE_MONTH
 import io.petros.movies.test.domain.MOVIE_YEAR
 import io.petros.movies.test.domain.NEXT_PAGE
 import io.petros.movies.test.domain.provideMoviesResultPage
+import io.petros.movies.test.utils.CoroutineSpek
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.runBlocking
-import org.spekframework.spek2.Spek
 import org.spekframework.spek2.style.gherkin.Feature
 import strikt.api.expect
 import strikt.assertions.isEqualTo
 
-object LoadMoviesUseCaseSpek : Spek({
+@ExperimentalCoroutinesApi
+object LoadMoviesUseCaseSpek : CoroutineSpek({
 
     val moviesResultPage = provideMoviesResultPage()
     val moviesRepositoryMock = mockk<MoviesRepository>()

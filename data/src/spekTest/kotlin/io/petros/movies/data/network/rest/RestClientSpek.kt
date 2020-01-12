@@ -7,14 +7,16 @@ import io.petros.movies.data.network.rest.response.movie.MoviesResultPageRaw
 import io.petros.movies.test.domain.MOVIE_MONTH
 import io.petros.movies.test.domain.MOVIE_YEAR
 import io.petros.movies.test.domain.NEXT_PAGE
+import io.petros.movies.test.utils.CoroutineSpek
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.runBlocking
-import org.spekframework.spek2.Spek
 import org.spekframework.spek2.style.gherkin.Feature
 
 private const val RELEASE_DATE_GTE = "2018-08-01"
 private const val RELEASE_DATE_LTE = "2018-08-31"
 
-class RestClientSpek : Spek({
+@ExperimentalCoroutinesApi
+class RestClientSpek : CoroutineSpek({
 
     val moviesResponse = MoviesResultPageRaw(0, 1, emptyList())
     val restApiMock = mockk<RestApi>()

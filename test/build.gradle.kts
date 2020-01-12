@@ -26,6 +26,7 @@ fun DependencyHandlerScope.projectImplementation() {
 
 fun DependencyHandlerScope.implementation() {
     implementationKotlin()
+    implementationSpek()
     implementationJUnit()
 }
 
@@ -35,8 +36,15 @@ fun DependencyHandlerScope.implementationKotlin() {
     implementation(Deps.Kotlin.Coroutines.Test.TEST)
 }
 
+fun DependencyHandlerScope.implementationSpek() {
+    implementation(Deps.Test.Spek.DSL)
+    implementation(Deps.Test.Spek.J_UNIT)
+    runtimeOnly(Deps.Kotlin.Core.KOTLIN_REFLECT)
+}
+
 fun DependencyHandlerScope.implementationJUnit() {
     implementation(Deps.Test.JUnit.J_UNIT)
+    runtimeOnly(Deps.Test.JUnit.J_UNIT_VINTAGE)
 }
 
 /* DEPENDENCIES - PLUGINS */
