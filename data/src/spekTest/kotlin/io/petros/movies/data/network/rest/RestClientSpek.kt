@@ -14,7 +14,6 @@ import org.spekframework.spek2.style.gherkin.Feature
 private const val RELEASE_DATE_GTE = "2018-08-01"
 private const val RELEASE_DATE_LTE = "2018-08-31"
 
-@Suppress("DeferredResultUnused")
 class RestClientSpek : Spek({
 
     val moviesResponse = MoviesResultPageRaw(0, 1, emptyList())
