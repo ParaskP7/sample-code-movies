@@ -1,7 +1,5 @@
 package io.petros.movies.data.network.rest.response.movie
 
-import android.content.Context
-import io.petros.movies.data.R
 import io.petros.movies.domain.extensions.toDate
 import io.petros.movies.domain.model.movie.Movie
 import io.petros.movies.domain.utils.MOVIE_DATE_FORMAT
@@ -16,7 +14,13 @@ data class MovieRaw(
     private val release_date: String
 ) { // MIT
 
-    fun toMovie(context: Context): Movie {
+    companion object {
+
+        private const val IMAGE_URL_PREFIX = "http://image.tmdb.org/t/p/w500"
+
+    }
+
+    fun toMovie(): Movie {
         return Movie(
             id = id,
             title = title,
@@ -24,7 +28,7 @@ data class MovieRaw(
             voteAverage = vote_average,
             voteCount = vote_count,
             overview = overview,
-            backdrop = backdrop_path?.let { context.getString(R.string.rest_themoviedb_image_url) + it }
+            backdrop = backdrop_path?.let { IMAGE_URL_PREFIX + it }
         )
     }
 

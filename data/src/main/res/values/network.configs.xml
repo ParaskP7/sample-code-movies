@@ -6,6 +6,5 @@
 
     <!-- The Movie DB -->
     <string name="rest_themoviedb_url">https://api.themoviedb.org/</string>
-    <string name="rest_themoviedb_image_url">http://image.tmdb.org/t/p/w500</string>
 
 </resources>

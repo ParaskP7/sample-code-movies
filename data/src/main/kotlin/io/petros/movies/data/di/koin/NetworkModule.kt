@@ -21,7 +21,7 @@ val networkModule = module {
     single { okHttpClient(get(), get()) }
     single { retrofit(get(), get(), get()) }
     single { restApi(get()) }
-    single<WebService> { RestClient(get(), get()) }
+    single<WebService> { RestClient(get()) }
 }
 
 private fun httpLoggingInterceptor(): HttpLoggingInterceptor {

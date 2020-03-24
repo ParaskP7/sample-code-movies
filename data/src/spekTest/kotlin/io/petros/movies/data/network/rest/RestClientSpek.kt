@@ -23,7 +23,7 @@ class RestClientSpek : CoroutineSpek({
     coEvery { restApiMock.loadMovies(RELEASE_DATE_GTE, RELEASE_DATE_LTE, NEXT_PAGE) } returns moviesResponse
 
     Feature("Rest client for movies") {
-        val testedClass by memoized { RestClient(mockk(), restApiMock) }
+        val testedClass by memoized { RestClient(restApiMock) }
         Scenario("loading movies") {
             When("load movies is triggered") {
                 runBlocking { testedClass.loadMovies(MOVIE_YEAR, MOVIE_MONTH, NEXT_PAGE) }

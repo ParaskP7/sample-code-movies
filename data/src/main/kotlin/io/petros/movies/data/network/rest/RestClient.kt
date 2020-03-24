@@ -1,6 +1,5 @@
 package io.petros.movies.data.network.rest
 
-import android.content.Context
 import io.petros.movies.data.network.WebService
 import io.petros.movies.domain.interactor.movie.LoadMoviesUseCase
 import io.petros.movies.domain.model.movie.MoviesResultPage
@@ -9,8 +8,7 @@ import io.petros.movies.domain.utils.releaseDateLte
 import java.net.ConnectException
 import java.net.UnknownHostException
 
-class RestClient constructor(
-    private val context: Context,
+class RestClient(
     private val restApi: RestApi
 ) : WebService {
 
@@ -21,7 +19,7 @@ class RestClient constructor(
                 releaseDateGte(year, month),
                 releaseDateLte(year, month),
                 page
-            ).toMoviesResultPage(context)
+            ).toMoviesResultPage()
         } catch (e: Exception) {
             when (e) {
                 is UnknownHostException -> throw LoadMoviesUseCase.Error(e)
