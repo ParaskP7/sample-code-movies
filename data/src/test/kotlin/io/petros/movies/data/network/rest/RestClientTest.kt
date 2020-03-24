@@ -8,12 +8,15 @@ import io.petros.movies.domain.interactor.movie.LoadMoviesUseCase
 import io.petros.movies.test.domain.MOVIE_MONTH
 import io.petros.movies.test.domain.MOVIE_YEAR
 import io.petros.movies.test.domain.NEXT_PAGE
+import io.petros.movies.test.domain.provideMoviesResultPage
 import io.petros.movies.test.utils.MainCoroutineScopeRule
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
+import strikt.api.expect
+import strikt.assertions.isEqualTo
 import java.net.ConnectException
 import java.net.UnknownHostException
 
@@ -31,6 +34,7 @@ class RestClientTest {
     @get:Rule val coroutineScope = MainCoroutineScopeRule()
 
     private val moviesResponse = MoviesResultPageRaw(0, 1, emptyList())
+    private val movies = provideMoviesResultPage(1, emptyList())
 
     private lateinit var testedClass: RestClient
     private val restApiMock = mockk<RestApi>()
@@ -47,6 +51,15 @@ class RestClientTest {
         testedClass.loadMovies(MOVIE_YEAR, MOVIE_MONTH, NEXT_PAGE)
 
         coVerify { restApiMock.loadMovies(RELEASE_DATE_GTE, RELEASE_DATE_LTE, NEXT_PAGE) }
+    }
+
+    @Test
+    fun `when load movies is triggered, then the movies result page is the expected one`() = coroutineScope.runBlockingTest {
+        coEvery { restApiMock.loadMovies(RELEASE_DATE_GTE, RELEASE_DATE_LTE, NEXT_PAGE) } returns moviesResponse
+
+        val result = testedClass.loadMovies(MOVIE_YEAR, MOVIE_MONTH, NEXT_PAGE)
+
+        expect { that(result).isEqualTo(movies) }
     }
 
     @Test(expected = LoadMoviesUseCase.Error::class)
