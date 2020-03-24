@@ -82,6 +82,10 @@ class MoviesActivity : BaseActivity(), InfiniteRecyclerView.Listener, MoviesTool
         moviesNavigator.navigate(movie)
     }
 
+    override fun onErrorClick() {
+        loadDataOrRestore()
+    }
+
     /* CALLBACK */
 
     override fun onCloseClicked() {

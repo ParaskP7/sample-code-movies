@@ -3,7 +3,10 @@
 <resources>
 
     <!-- State -->
-    <string name="error_loading">Please try again</string>
-    <string name="retry_loading">Please retry loading</string>
+    <string name="error_loading">
+        Oops, we encountered an error while loading your movies…\n
+        \n
+        Please click here to try again!
+    </string>
 
 </resources>

@@ -4,6 +4,7 @@ import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.mockk
 import io.petros.movies.data.network.rest.response.movie.MoviesResultPageRaw
+import io.petros.movies.domain.interactor.movie.LoadMoviesUseCase
 import io.petros.movies.test.domain.MOVIE_MONTH
 import io.petros.movies.test.domain.MOVIE_YEAR
 import io.petros.movies.test.domain.NEXT_PAGE
@@ -13,6 +14,8 @@ import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
+import java.net.ConnectException
+import java.net.UnknownHostException
 
 @ExperimentalCoroutinesApi
 @Suppress("DeferredResultUnused")
@@ -45,5 +48,29 @@ class RestClientTest {
 
         coVerify { restApiMock.loadMovies(RELEASE_DATE_GTE, RELEASE_DATE_LTE, NEXT_PAGE) }
     }
+
+    @Test(expected = LoadMoviesUseCase.Error::class)
+    fun `given unknown host exception, when load movies is triggered, then throw load movies use case error`() =
+        coroutineScope.runBlockingTest {
+            coEvery { restApiMock.loadMovies(RELEASE_DATE_GTE, RELEASE_DATE_LTE, NEXT_PAGE) } throws UnknownHostException()
+
+            testedClass.loadMovies(MOVIE_YEAR, MOVIE_MONTH, NEXT_PAGE)
+        }
+
+    @Test(expected = LoadMoviesUseCase.Error::class)
+    fun `given connect exception, when load movies is triggered, then throw load movies use case error`() =
+        coroutineScope.runBlockingTest {
+            coEvery { restApiMock.loadMovies(RELEASE_DATE_GTE, RELEASE_DATE_LTE, NEXT_PAGE) } throws ConnectException()
+
+            testedClass.loadMovies(MOVIE_YEAR, MOVIE_MONTH, NEXT_PAGE)
+        }
+
+    @Test(expected = Exception::class)
+    fun `given exception, when load movies is triggered, then throw load movies use case error`() =
+        coroutineScope.runBlockingTest {
+            coEvery { restApiMock.loadMovies(RELEASE_DATE_GTE, RELEASE_DATE_LTE, NEXT_PAGE) } throws Exception()
+
+            testedClass.loadMovies(MOVIE_YEAR, MOVIE_MONTH, NEXT_PAGE)
+        }
 
 }

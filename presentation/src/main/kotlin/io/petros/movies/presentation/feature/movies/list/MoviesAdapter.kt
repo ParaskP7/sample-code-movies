@@ -3,8 +3,6 @@ package io.petros.movies.presentation.feature.movies.list
 import android.content.Context
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import io.petros.movies.R
-import io.petros.movies.data.extensions.toast
 import io.petros.movies.domain.model.movie.Movie
 import io.petros.movies.presentation.feature.common.list.adapter.AdapterStatus
 import io.petros.movies.presentation.feature.common.list.holder.ErrorViewHolder
@@ -53,7 +51,7 @@ class MoviesAdapter(items: ArrayList<Movie> = arrayListOf()) : InfiniteAdapter<M
     private fun onCreateViewHolderWithContext(viewType: Int, context: Context) = when (viewType) {
         VIEW_TYPE_PROGRESS -> ProgressViewHolder(ProgressItemView(context))
         VIEW_TYPE_MOVIE -> MovieViewHolder(MovieItemView(context), callback)
-        VIEW_TYPE_ERROR -> ErrorViewHolder(ErrorItemView(context)) { context.toast(R.string.retry_loading) }
+        VIEW_TYPE_ERROR -> ErrorViewHolder(ErrorItemView(context)) { callback.onErrorClick() }
         else -> throw IllegalArgumentException("View type out of range. [View Type: $viewType]")
     }
 
