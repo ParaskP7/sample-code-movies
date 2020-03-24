@@ -1,9 +1,6 @@
-package io.petros.movies.presentation.extensions
+package io.petros.movies.android_utils
 
 import android.os.StrictMode
-import io.petros.movies.BuildConfig
-
-// TODO: Move file to `android-utils` module
 
 /* DISK */
 

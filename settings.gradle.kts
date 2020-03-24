@@ -1,3 +1,3 @@
 /* MODULES */
 
-include(":utils", ":domain", ":network", ":data", ":presentation", ":test")
+include(":utils", ":android-utils", ":domain", ":network", ":data", ":presentation", ":test")

@@ -1,12 +1,10 @@
-package io.petros.movies.data.extensions
+package io.petros.movies.android_utils
 
 import android.content.Context
 import android.widget.Toast
 import androidx.annotation.DimenRes
 import androidx.annotation.IntegerRes
 import androidx.annotation.StringRes
-
-// TODO: Move file to `android-utils` module
 
 /* RES */
 

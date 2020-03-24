@@ -5,7 +5,7 @@ import android.util.AttributeSet
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import io.petros.movies.R
-import io.petros.movies.presentation.extensions.inflate
+import io.petros.movies.android_utils.inflate
 
 class ProgressItemView : FrameLayout {
 
