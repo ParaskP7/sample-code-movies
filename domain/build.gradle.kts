@@ -2,7 +2,6 @@
 
 plugins {
     id(PluginIds.Kotlin.KOTLIN)
-    id(PluginIds.Kotlin.KAPT)
     id(PluginIds.Quality.DETEKT)
 }
 

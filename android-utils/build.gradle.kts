@@ -3,7 +3,6 @@
 plugins {
     id(PluginIds.Android.LIBRARY)
     id(PluginIds.Kotlin.Android.ANDROID)
-    id(PluginIds.Kotlin.KAPT)
     id(PluginIds.Quality.DETEKT)
 }
 
