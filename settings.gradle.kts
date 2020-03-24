@@ -1,3 +1,3 @@
 /* MODULES */
 
-include(":domain", ":network", ":data", ":presentation", ":test")
+include(":utils", ":domain", ":network", ":data", ":presentation", ":test")

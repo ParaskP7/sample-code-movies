@@ -1,8 +1,8 @@
 package io.petros.movies.network.raw.movie
 
-import io.petros.movies.domain.extensions.toDate
 import io.petros.movies.domain.model.movie.Movie
-import io.petros.movies.domain.utils.MOVIE_DATE_FORMAT
+import io.petros.movies.utils.MOVIE_DATE_FORMAT
+import io.petros.movies.utils.toDate
 
 data class MovieRaw(
     private val vote_count: Int,

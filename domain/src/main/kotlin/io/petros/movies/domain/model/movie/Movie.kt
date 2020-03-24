@@ -1,10 +1,10 @@
 package io.petros.movies.domain.model.movie
 
-import io.petros.movies.domain.extensions.space
-import io.petros.movies.domain.extensions.star
-import io.petros.movies.domain.extensions.toMonth
-import io.petros.movies.domain.extensions.toYear
-import io.petros.movies.domain.extensions.withParentheses
+import io.petros.movies.utils.space
+import io.petros.movies.utils.star
+import io.petros.movies.utils.toMonth
+import io.petros.movies.utils.toYear
+import io.petros.movies.utils.withParentheses
 import java.io.Serializable
 import java.util.*
 

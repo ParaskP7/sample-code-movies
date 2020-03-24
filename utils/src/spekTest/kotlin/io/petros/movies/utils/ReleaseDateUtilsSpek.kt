@@ -1,4 +1,4 @@
-package io.petros.movies.domain.utils
+package io.petros.movies.utils
 
 import io.petros.movies.test.domain.MOVIE_MONTH
 import io.petros.movies.test.domain.MOVIE_YEAR

@@ -9,7 +9,6 @@ plugins {
 /* DEPENDENCIES */
 
 dependencies {
-    projectImplementation()
     implementation()
     testProjectImplementation()
     testImplementation()
@@ -18,26 +17,14 @@ dependencies {
 
 /* *********************************************************************************************************************** */
 
-/* DEPENDENCIES - PROJECT IMPLEMENTATION */
-
-fun DependencyHandlerScope.projectImplementation() {
-    implementation(project(Project.Implementation.UTILS))
-}
-
 /* DEPENDENCIES - IMPLEMENTATION */
 
 fun DependencyHandlerScope.implementation() {
     implementationKotlin()
-    implementationDi()
 }
 
 fun DependencyHandlerScope.implementationKotlin() {
     implementation(Deps.Kotlin.Core.KOTLIN)
-    implementation(Deps.Kotlin.Coroutines.CORE)
-}
-
-fun DependencyHandlerScope.implementationDi() {
-    implementation(Deps.Di.Koin.Kotlin.CORE)
 }
 
 /* DEPENDENCIES - TEST PROJECT IMPLEMENTATION */

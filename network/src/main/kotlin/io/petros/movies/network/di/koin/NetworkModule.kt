@@ -4,6 +4,7 @@ import com.google.gson.Gson
 import io.petros.movies.network.WebService
 import io.petros.movies.network.rest.RestApi
 import io.petros.movies.network.rest.RestClient
+import io.petros.movies.utils.toMillis
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.dsl.module
@@ -50,9 +51,3 @@ private fun retrofit(
 }
 
 private fun restApi(retrofit: Retrofit): RestApi = retrofit.create(RestApi::class.java)
-
-// TODO: Move constant and function below to `utils` module
-
-private const val ONE_SEC_IN_MILLS: Long = 1000L
-
-fun toMillis(seconds: Int) = seconds * ONE_SEC_IN_MILLS

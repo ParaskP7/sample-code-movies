@@ -1,6 +1,6 @@
 package io.petros.movies.presentation.extensions
 
-import io.petros.movies.domain.extensions.colon
+import io.petros.movies.utils.colon
 
 // TODO: Move file to `android-utils` module
 

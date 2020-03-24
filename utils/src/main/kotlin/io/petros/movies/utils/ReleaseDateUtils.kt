@@ -1,9 +1,7 @@
-package io.petros.movies.domain.utils
+package io.petros.movies.utils
 
 import java.text.SimpleDateFormat
 import java.util.*
-
-// TODO: Move file to `utils` module
 
 const val MOVIE_DATE_FORMAT = "yyyy-MM-dd"
 

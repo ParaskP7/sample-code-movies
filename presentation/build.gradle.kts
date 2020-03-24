@@ -58,6 +58,7 @@ fun NamedDomainObjectContainer<BuildType>.buildTypes() {
 /* DEPENDENCIES - PROJECT IMPLEMENTATION */
 
 fun DependencyHandlerScope.projectImplementation() {
+    implementation(project(Project.Implementation.UTILS))
     implementation(project(Project.Implementation.DOMAIN))
     implementation(project(Project.Implementation.DATA))
 }

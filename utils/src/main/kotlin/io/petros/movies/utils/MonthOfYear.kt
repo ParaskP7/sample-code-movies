@@ -1,6 +1,4 @@
-package io.petros.movies.domain.utils
-
-// TODO: Move enum to `utils` module
+package io.petros.movies.utils
 
 @Suppress("MagicNumber")
 enum class MonthOfYear(

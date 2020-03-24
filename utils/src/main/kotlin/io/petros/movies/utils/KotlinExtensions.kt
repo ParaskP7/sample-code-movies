@@ -1,12 +1,10 @@
 @file:Suppress("unused")
 
-package io.petros.movies.domain.extensions
+package io.petros.movies.utils
 
 import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.*
-
-// TODO: Move file to `utils` module
 
 /* SINGLE CHARACTER */
 
@@ -33,6 +31,12 @@ fun colon() = ":"
 fun String.withParentheses() = leftParentheses() + this + rightParentheses()
 
 fun Int.withParentheses() = leftParentheses() + this + rightParentheses()
+
+/* TIME */
+
+private const val ONE_SEC_IN_MILLS: Long = 1000L
+
+fun toMillis(seconds: Int) = seconds * ONE_SEC_IN_MILLS
 
 /* DATE */
 
