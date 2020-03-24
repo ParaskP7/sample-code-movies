@@ -79,7 +79,7 @@ class RestClientTest {
         }
 
     @Test(expected = Exception::class)
-    fun `given exception, when load movies is triggered, then throw load movies use case error`() =
+    fun `given exception, when load movies is triggered, then throw exception`() =
         coroutineScope.runBlockingTest {
             coEvery { restApiMock.loadMovies(RELEASE_DATE_GTE, RELEASE_DATE_LTE, NEXT_PAGE) } throws Exception()
 
