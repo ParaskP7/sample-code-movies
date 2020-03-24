@@ -1,4 +1,4 @@
-package io.petros.movies.presentation.extensions
+package io.petros.movies.presentation.image.glide
 
 import android.widget.ImageView
 import androidx.core.content.ContextCompat

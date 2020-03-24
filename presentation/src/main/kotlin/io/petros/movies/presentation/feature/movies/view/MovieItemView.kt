@@ -8,8 +8,8 @@ import io.petros.movies.R
 import io.petros.movies.android_utils.getDimension
 import io.petros.movies.android_utils.inflate
 import io.petros.movies.domain.model.movie.Movie
-import io.petros.movies.presentation.extensions.displayImage
 import io.petros.movies.presentation.feature.movies.listener.MovieCallback
+import io.petros.movies.presentation.image.glide.displayImage
 import kotlinx.android.synthetic.main.item_movie.view.*
 
 class MovieItemView : CardView {
