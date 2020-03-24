@@ -1,5 +1,7 @@
 package io.petros.movies.domain.utils
 
+// TODO: Move enum to `utils` module
+
 @Suppress("MagicNumber")
 enum class MonthOfYear(
     val month: Int?,

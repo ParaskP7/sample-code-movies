@@ -11,11 +11,9 @@ import androidx.lifecycle.OnLifecycleEvent
 import androidx.lifecycle.ProcessLifecycleOwner
 import io.petros.movies.BuildConfig
 import io.petros.movies.R
-import io.petros.movies.data.di.koin.networkModule
-import io.petros.movies.data.di.koin.repositoriesModule
-import io.petros.movies.domain.di.koin.useCasesModule
-import io.petros.movies.presentation.di.koin.appModule
-import io.petros.movies.presentation.di.koin.navigatorModule
+import io.petros.movies.data.di.koin.dataModule
+import io.petros.movies.domain.di.koin.domainModule
+import io.petros.movies.presentation.di.koin.presentationModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -37,13 +35,7 @@ class App : Application(), LifecycleObserver {
         startKoin {
             androidLogger()
             androidContext(this@App)
-            modules(
-                appModule +
-                        navigatorModule +
-                        useCasesModule +
-                        repositoriesModule +
-                        networkModule
-            )
+            modules(presentationModule + dataModule + domainModule)
         }
     }
 

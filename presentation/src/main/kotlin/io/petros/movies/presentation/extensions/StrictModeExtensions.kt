@@ -3,6 +3,8 @@ package io.petros.movies.presentation.extensions
 import android.os.StrictMode
 import io.petros.movies.BuildConfig
 
+// TODO: Move file to `android-utils` module
+
 /* DISK */
 
 private const val PREFIX_SPEK = "org.spekframework."

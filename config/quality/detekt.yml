@@ -454,7 +454,7 @@ style:
   ForbiddenComment:
     active: true
     values: 'TODO:,FIXME:,STOPSHIP:'
-    allowedPatterns: ""
+    allowedPatterns: "TODO:"
   ForbiddenImport:
     active: true
     imports: ''
