@@ -234,11 +234,7 @@ fun NamedDomainObjectContainer<AndroidSourceSet>.sourceSets() {
 }
 
 fun TestOptions.testOptions() {
-    unitTests.apply {
-        all(KotlinClosure1<Any, Test>({
-            (this as Test).also { testLogging() }
-        }, this))
-    }
+    unitTests.all { test: Test -> test.testLogging() }
 }
 
 fun TestOptions.testOptionsJUnit5() {

@@ -10,7 +10,7 @@ plugins {
     id(PluginIds.Kotlin.Android.EXTENSIONS)
     id(PluginIds.Kotlin.KAPT)
     id(PluginIds.Quality.DETEKT)
-    id(PluginIds.Test.Android.J_UNIT_5)
+//    id(PluginIds.Test.Android.J_UNIT_5) // TODO: Update JUnit5 plugin and check again
 }
 
 /* ANDROID */
