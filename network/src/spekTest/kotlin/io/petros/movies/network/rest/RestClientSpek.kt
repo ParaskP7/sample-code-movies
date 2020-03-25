@@ -29,6 +29,7 @@ class RestClientSpek : CoroutineSpek({
     val movies = provideMoviesResultPage(1, emptyList())
     val restApiMock = mockk<RestApi>()
 
+    @Suppress("StringLiteralDuplication")
     Feature("Rest client for movies") {
         val testedClass by memoized { RestClient(restApiMock) }
         Scenario("loading movies") {
