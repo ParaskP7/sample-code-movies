@@ -33,7 +33,7 @@ class InfiniteAdapterRobolectricTest {
 
         override fun getItemCount() = 0
 
-        override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {}
+        override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) = Unit
     }
 
     /* CONTEXT */
