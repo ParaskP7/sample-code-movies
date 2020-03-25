@@ -6,7 +6,8 @@ object Versions {
         const val ANDROID = "4.1.0-alpha04"
 
         // Release: https://blog.jetbrains.com/kotlin/category/releases
-        const val KOTLIN = "1.3.61"
+        const val KOTLIN = "1.3.71"
+
         // Release: https://github.com/arturbosch/detekt/releases
         const val DETEKT = "1.3.1"
         // Release: https://github.com/mannodermaus/android-junit5/releases
