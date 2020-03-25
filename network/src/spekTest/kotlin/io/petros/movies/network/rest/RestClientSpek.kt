@@ -49,6 +49,7 @@ class RestClientSpek : CoroutineSpek({
         }
     }
 
+    @Suppress("TooGenericExceptionCaught")
     Feature("Rest client for movies with unknown hosts exception") {
         val testedClass by memoized { RestClient(restApiMock) }
         Scenario("loading movies") {
@@ -68,6 +69,7 @@ class RestClientSpek : CoroutineSpek({
         }
     }
 
+    @Suppress("TooGenericExceptionCaught")
     Feature("Rest client for movies with connect exception") {
         val testedClass by memoized { RestClient(restApiMock) }
         Scenario("loading movies") {
@@ -87,6 +89,7 @@ class RestClientSpek : CoroutineSpek({
         }
     }
 
+    @Suppress("TooGenericExceptionCaught")
     Feature("Rest client for movies with exception") {
         val testedClass by memoized { RestClient(restApiMock) }
         Scenario("loading movies") {
