@@ -9,7 +9,7 @@ object Versions {
         const val KOTLIN = "1.3.71"
 
         // Release: https://github.com/arturbosch/detekt/releases
-        const val DETEKT = "1.3.1"
+        const val DETEKT = "1.7.0"
 
         // Release: https://github.com/mannodermaus/android-junit5/releases
         const val ANDROID_J_UNIT_5 = "1.5.2.0"
