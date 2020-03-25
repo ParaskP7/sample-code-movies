@@ -21,7 +21,7 @@ class MoviesActivityNavigatorTest {
     }
 
     @Test
-    fun `given a shared element movie, when navigating from movies activity, then movie details activity launches with a shared element movie`() {
+    fun `given shared element movie, when navigating from movies activity, then movie details activity launches with it`() {
         val sharedElementMovie = SharedElementMovie(movie, mockk())
 
         testedClass.navigate(sharedElementMovie)
