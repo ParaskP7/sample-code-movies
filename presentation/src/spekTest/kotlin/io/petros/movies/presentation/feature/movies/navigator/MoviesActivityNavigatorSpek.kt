@@ -16,15 +16,15 @@ class MoviesActivityNavigatorSpek : Spek({
     Feature("Movies activity navigator") {
         val testedClass by memoized { MoviesActivityNavigator(movieDetailsLauncherMock) }
         Scenario("navigating from movies") {
-            lateinit var sharedElementMovie: SharedElementMovie
+            var sharedElementMovie: SharedElementMovie? = null
             Given("shared element movie") {
                 sharedElementMovie = SharedElementMovie(movie, mockk())
             }
             When("navigating from movies activity") {
-                testedClass.navigate(sharedElementMovie)
+                sharedElementMovie?.let { testedClass.navigate(it) }
             }
             Then("movie details activity launches with it") {
-                verify { movieDetailsLauncherMock.launch(sharedElementMovie) }
+                sharedElementMovie?.let { verify { movieDetailsLauncherMock.launch(it) } }
             }
         }
     }

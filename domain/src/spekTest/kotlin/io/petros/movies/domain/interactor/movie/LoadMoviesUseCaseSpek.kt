@@ -27,7 +27,7 @@ object LoadMoviesUseCaseSpek : CoroutineSpek({
     Feature("Load movies use case") {
         val testedClass by memoized { LoadMoviesUseCase(moviesRepositoryMock) }
         Scenario("execute") {
-            lateinit var result: MoviesResultPage
+            var result: MoviesResultPage? = null
             When("executing the use case") {
                 result = runBlocking { testedClass.execute(Params(MOVIE_YEAR, MOVIE_MONTH, NEXT_PAGE)) }
             }

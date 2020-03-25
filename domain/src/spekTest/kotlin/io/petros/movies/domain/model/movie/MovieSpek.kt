@@ -11,7 +11,7 @@ object MovieSpek : Spek({
     Feature("Movie") {
         val testedClass by memoized { provideMovie() }
         Scenario("release date") {
-            lateinit var result: String
+            var result: String? = null
             When("release date string is constructed") {
                 result = testedClass.releaseDate()
             }
@@ -20,7 +20,7 @@ object MovieSpek : Spek({
             }
         }
         Scenario("vote") {
-            lateinit var result: String
+            var result: String? = null
             When("vote string is constructed") {
                 result = testedClass.vote()
             }

@@ -33,7 +33,7 @@ class RestClientSpek : CoroutineSpek({
     Feature("Rest client for movies") {
         val testedClass by memoized { RestClient(restApiMock) }
         Scenario("loading movies") {
-            lateinit var result: MoviesResultPage
+            var result: MoviesResultPage? = null
             Given("movies response") {
                 coEvery { restApiMock.loadMovies(RELEASE_DATE_GTE, RELEASE_DATE_LTE, NEXT_PAGE) } returns moviesResponse
             }
