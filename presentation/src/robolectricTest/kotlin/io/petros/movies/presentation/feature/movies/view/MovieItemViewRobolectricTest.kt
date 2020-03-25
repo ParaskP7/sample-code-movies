@@ -6,7 +6,6 @@ import io.petros.movies.presentation.feature.movies.listener.MovieCallback
 import io.petros.movies.presentation.utils.RobolectricTestProvider.Companion.provideContext
 import io.petros.movies.test.domain.provideMovie
 import kotlinx.android.synthetic.main.item_movie.view.*
-import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
@@ -22,13 +21,8 @@ class MovieItemViewRobolectricTest {
 
     private val callbackMock = mockk<MovieCallback>()
 
-    private lateinit var testedClass: MovieItemView
     private val context = provideContext()
-
-    @Before
-    fun setUp() {
-        testedClass = MovieItemView(context)
-    }
+    private val testedClass = MovieItemView(context)
 
     @Test
     fun `when movie is bind, then the movie backdrop is set`() {

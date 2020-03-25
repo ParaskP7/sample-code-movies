@@ -6,7 +6,6 @@ import io.mockk.verify
 import io.petros.movies.domain.model.movie.Movie
 import io.petros.movies.presentation.utils.RobolectricTestProvider.Companion.provideContext
 import io.petros.movies.test.domain.NEXT_PAGE
-import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
@@ -18,14 +17,10 @@ class InfiniteRecyclerViewRobolectricTest {
 
     private var adapterMock = mockk<InfiniteAdapter<Movie>>()
 
-    private lateinit var testedClass: InfiniteRecyclerView
     private var listenerMock = mockk<InfiniteRecyclerView.Listener>()
-
-    @Before
-    fun setUp() {
-        testedClass = InfiniteRecyclerView(context)
-        testedClass.adapter = adapterMock
-        testedClass.listener = listenerMock
+    private val testedClass = InfiniteRecyclerView(context).also {
+        it.adapter = adapterMock
+        it.listener = listenerMock
     }
 
     @Test

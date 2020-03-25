@@ -6,7 +6,6 @@ import io.mockk.mockk
 import io.mockk.slot
 import io.mockk.verify
 import io.petros.movies.presentation.feature.movies.MoviesActivity
-import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
@@ -18,13 +17,8 @@ class MoviesActivityLauncherRobolectricTest {
 
     private val slot = slot<Intent>()
 
-    private lateinit var testedClass: MoviesActivityLauncher
     private var appCompatActivityMock = mockk<AppCompatActivity>()
-
-    @Before
-    fun setUp() {
-        testedClass = MoviesActivityLauncher(appCompatActivityMock)
-    }
+    private val testedClass = MoviesActivityLauncher(appCompatActivityMock)
 
     @Test
     fun `when launch is called, then current activity starts target movies activity`() {

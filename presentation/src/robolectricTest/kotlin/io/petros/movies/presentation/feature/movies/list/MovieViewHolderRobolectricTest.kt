@@ -5,7 +5,6 @@ import io.mockk.verify
 import io.petros.movies.presentation.feature.movies.listener.MovieCallback
 import io.petros.movies.presentation.feature.movies.view.MovieItemView
 import io.petros.movies.test.domain.provideMovie
-import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
@@ -15,14 +14,9 @@ class MovieViewHolderRobolectricTest {
 
     private val movie = provideMovie()
 
-    private lateinit var testedClass: MovieViewHolder
     private val itemViewMock = mockk<MovieItemView>()
     private val callbackMock = mockk<MovieCallback>()
-
-    @Before
-    fun setUp() {
-        testedClass = MovieViewHolder(itemViewMock, callbackMock)
-    }
+    private val testedClass = MovieViewHolder(itemViewMock, callbackMock)
 
     @Test
     fun `when the view holder binds a movie, then the item view is bind with a movie`() {

@@ -9,7 +9,6 @@ import io.petros.movies.domain.model.movie.MoviesResultPage
 import io.petros.movies.presentation.utils.RobolectricTestProvider.Companion.provideContext
 import io.petros.movies.test.domain.NEXT_PAGE
 import io.petros.movies.test.domain.provideMovie
-import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
@@ -27,19 +26,14 @@ class InfiniteAdapterRobolectricTest {
     private val secondPageItems = listOf(provideMovie(id = 4), provideMovie(id = 5), provideMovie(id = 6))
     private val anotherPageItems = listOf(provideMovie(id = 7), provideMovie(id = 8), provideMovie(id = 9))
 
-    private lateinit var testedClass: InfiniteAdapter<Movie>
+    private val testedClass = object : InfiniteAdapter<Movie>() {
+        override fun isLoading() = false
 
-    @Before
-    fun setUp() {
-        testedClass = object : InfiniteAdapter<Movie>() {
-            override fun isLoading() = false
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = mockk<RecyclerView.ViewHolder>()
 
-            override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = mockk<RecyclerView.ViewHolder>()
+        override fun getItemCount() = 0
 
-            override fun getItemCount() = 0
-
-            override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {}
-        }
+        override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {}
     }
 
     /* CONTEXT */

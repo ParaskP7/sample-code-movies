@@ -11,7 +11,6 @@ import io.petros.movies.presentation.feature.movies.list.MoviesAdapter.Companion
 import io.petros.movies.presentation.feature.movies.list.MoviesAdapter.Companion.VIEW_TYPE_PROGRESS
 import io.petros.movies.presentation.utils.RobolectricTestProvider.Companion.provideContext
 import io.petros.movies.test.domain.provideMovie
-import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
@@ -26,12 +25,8 @@ class MoviesAdapterRobolectricTest {
 
     private val items = listOf(provideMovie(id = 1), provideMovie(id = 2), provideMovie(id = 3))
 
-    private lateinit var testedClass: MoviesAdapter
-
-    @Before
-    fun setUp() {
-        testedClass = MoviesAdapter(ArrayList(items))
-        testedClass.callback = mockk()
+    private val testedClass = MoviesAdapter(ArrayList(items)).also {
+        it.callback = mockk()
     }
 
     /* STATUS */

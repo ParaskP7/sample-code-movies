@@ -8,7 +8,6 @@ import io.mockk.verify
 import io.petros.movies.presentation.feature.movie.MovieDetailsActivity
 import io.petros.movies.presentation.feature.movie.navigator.MovieDetailsActivityLauncher.Companion.getMovie
 import io.petros.movies.test.domain.provideMovie
-import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
@@ -22,13 +21,8 @@ class MovieDetailsActivityLauncherRobolectricTest {
 
     private val slot = slot<Intent>()
 
-    private lateinit var testedClass: MovieDetailsActivityLauncher
     private var appCompatActivityMock = mockk<AppCompatActivity>()
-
-    @Before
-    fun setUp() {
-        testedClass = MovieDetailsActivityLauncher(appCompatActivityMock)
-    }
+    private val testedClass = MovieDetailsActivityLauncher(appCompatActivityMock)
 
     @Test
     fun `when launch is called, then current activity starts target movies activity`() {
