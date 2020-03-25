@@ -431,7 +431,7 @@ potential-bugs:
     active: true
   LateinitUsage:
     active: true
-    excludes: '**/test/**,**/spekTest/**,**/robolectricTest/**,**/androidTest/**,**/*.Test.kt,**/*.Spec.kt,**/*.Spek.kt'
+    excludes: ''
     excludeAnnotatedProperties: ''
     ignoreOnClassesPattern: ''
   MapGetWithNotNullAssertionOperator:
