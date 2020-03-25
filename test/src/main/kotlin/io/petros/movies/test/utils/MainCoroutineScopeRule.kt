@@ -26,7 +26,7 @@ import org.junit.rules.TestWatcher
 import org.junit.runner.Description
 
 /**
- * MainCoroutineRule installs a TestCoroutineDispatcher for Disptachers.Main.
+ * MainCoroutineRule installs a TestCoroutineDispatcher for Dispatchers.Main.
  *
  * Since it extends TestCoroutineScope, you can directly launch coroutines on the MainCoroutineRule
  * as a [CoroutineScope]:
