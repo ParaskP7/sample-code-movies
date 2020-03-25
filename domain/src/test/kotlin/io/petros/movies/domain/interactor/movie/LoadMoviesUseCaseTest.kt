@@ -11,7 +11,6 @@ import io.petros.movies.test.domain.provideMoviesResultPage
 import io.petros.movies.test.utils.MainCoroutineScopeRule
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
-import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import strikt.api.expect
@@ -26,13 +25,8 @@ class LoadMoviesUseCaseTest {
 
     private val moviesResultPage = provideMoviesResultPage()
 
-    private lateinit var testedClass: LoadMoviesUseCase
     private val moviesRepositoryMock = mockk<MoviesRepository>()
-
-    @Before
-    fun setUp() {
-        testedClass = LoadMoviesUseCase(moviesRepositoryMock)
-    }
+    private val testedClass = LoadMoviesUseCase(moviesRepositoryMock)
 
     @Test
     fun `when executing the use case, then the repository triggers load movies`() = coroutineScope.runBlockingTest {

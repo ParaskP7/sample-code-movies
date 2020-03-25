@@ -9,7 +9,6 @@ import io.petros.movies.test.domain.NEXT_PAGE
 import io.petros.movies.test.utils.MainCoroutineScopeRule
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
-import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 
@@ -18,13 +17,8 @@ class MoviesRepositoryImplTest {
 
     @get:Rule val coroutineScope = MainCoroutineScopeRule()
 
-    private lateinit var testedClass: MoviesRepositoryImpl
     private val webServiceMock = mockk<WebService>()
-
-    @Before
-    fun setUp() {
-        testedClass = MoviesRepositoryImpl(webServiceMock)
-    }
+    private val testedClass = MoviesRepositoryImpl(webServiceMock)
 
     @Test
     fun `when load movies is triggered, then web service triggers load movies`() = coroutineScope.runBlockingTest {

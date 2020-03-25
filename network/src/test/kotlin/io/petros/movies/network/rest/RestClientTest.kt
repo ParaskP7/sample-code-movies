@@ -12,7 +12,6 @@ import io.petros.movies.test.domain.provideMoviesResultPage
 import io.petros.movies.test.utils.MainCoroutineScopeRule
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
-import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import strikt.api.expect
@@ -36,13 +35,8 @@ class RestClientTest {
     private val moviesResponse = MoviesResultPageRaw(0, 1, emptyList())
     private val movies = provideMoviesResultPage(1, emptyList())
 
-    private lateinit var testedClass: RestClient
     private val restApiMock = mockk<RestApi>()
-
-    @Before
-    fun setUp() {
-        testedClass = RestClient(restApiMock)
-    }
+    private val testedClass = RestClient(restApiMock)
 
     @Test
     fun `when load movies is triggered, then rest api triggers load movies`() = coroutineScope.runBlockingTest {
