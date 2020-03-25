@@ -1,3 +1,5 @@
+@file:Suppress("all")
+
 /* UTIL MODULES */
 
 include(":utils")

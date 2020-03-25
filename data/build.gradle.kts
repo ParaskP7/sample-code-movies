@@ -1,3 +1,5 @@
+@file:Suppress("all")
+
 import com.android.build.gradle.internal.dsl.BuildType
 import java.io.FileInputStream
 import java.util.*

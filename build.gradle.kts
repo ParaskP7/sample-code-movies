@@ -1,3 +1,5 @@
+@file:Suppress("all")
+
 import com.android.build.gradle.api.AndroidSourceSet
 import com.android.build.gradle.AppExtension
 import com.android.build.gradle.AppPlugin as AndroidApplicationPlugin
