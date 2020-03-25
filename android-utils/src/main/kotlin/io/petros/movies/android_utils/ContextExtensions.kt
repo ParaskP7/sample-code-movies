@@ -1,3 +1,5 @@
+@file:Suppress("unused")
+
 package io.petros.movies.android_utils
 
 import android.content.Context
