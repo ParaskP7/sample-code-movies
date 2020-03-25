@@ -22,8 +22,7 @@ class MoviesAdapter(items: ArrayList<Movie> = arrayListOf()) : InfiniteAdapter<M
         internal const val VIEW_TYPE_ERROR = 101
     }
 
-    @Suppress("LateinitUsage")
-    lateinit var callback: MovieCallback
+    var callback: MovieCallback? = null
 
     var status = AdapterStatus.IDLE
         set(value) {
@@ -51,7 +50,7 @@ class MoviesAdapter(items: ArrayList<Movie> = arrayListOf()) : InfiniteAdapter<M
     private fun onCreateViewHolderWithContext(viewType: Int, context: Context) = when (viewType) {
         VIEW_TYPE_PROGRESS -> ProgressViewHolder(ProgressItemView(context))
         VIEW_TYPE_MOVIE -> MovieViewHolder(MovieItemView(context), callback)
-        VIEW_TYPE_ERROR -> ErrorViewHolder(ErrorItemView(context)) { callback.onErrorClick() }
+        VIEW_TYPE_ERROR -> ErrorViewHolder(ErrorItemView(context)) { callback?.onErrorClick() }
         else -> throw IllegalArgumentException("View type out of range. [View Type: $viewType]")
     }
 

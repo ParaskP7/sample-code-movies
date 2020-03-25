@@ -27,8 +27,7 @@ class MoviesToolbar : AppBarLayout { // MRT
 
     constructor(ctx: Context, attrs: AttributeSet) : super(ctx, attrs)
 
-    @Suppress("LateinitUsage")
-    lateinit var callback: MoviesToolbarCallback
+    var callback: MoviesToolbarCallback? = null
 
     init {
         inflate(R.layout.toolbar_movies)
@@ -57,15 +56,15 @@ class MoviesToolbar : AppBarLayout { // MRT
         iv_filter_icon.isVisible = true
         hideYear()
         hideMonth()
-        callback.onCloseClicked()
+        callback?.onCloseClicked()
     }
 
     private fun initYearFilter() {
-        tv_filter_year.setOnClickListener { callback.onYearClicked() }
+        tv_filter_year.setOnClickListener { callback?.onYearClicked() }
     }
 
     private fun initMonthFilter() {
-        tv_filter_month.setOnClickListener { callback.onMonthClicked() }
+        tv_filter_month.setOnClickListener { callback?.onMonthClicked() }
     }
 
     /* SHOW/HIDE */

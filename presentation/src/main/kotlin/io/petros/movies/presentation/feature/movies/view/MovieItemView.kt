@@ -44,9 +44,9 @@ class MovieItemView : CardView {
         tv_movie_vote.text = movie.vote()
     }
 
-    fun bindCallback(movie: Movie, callback: MovieCallback) {
+    fun bindCallback(movie: Movie, callback: MovieCallback?) {
         val sharedElementMovie = SharedElementMovie(movie, iv_movie_backdrop)
-        setOnClickListener { callback.onClick(sharedElementMovie) }
+        setOnClickListener { callback?.onClick(sharedElementMovie) }
     }
 
 }
