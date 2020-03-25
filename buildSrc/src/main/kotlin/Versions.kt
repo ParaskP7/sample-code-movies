@@ -10,6 +10,7 @@ object Versions {
 
         // Release: https://github.com/arturbosch/detekt/releases
         const val DETEKT = "1.3.1"
+
         // Release: https://github.com/mannodermaus/android-junit5/releases
         const val ANDROID_J_UNIT_5 = "1.5.2.0"
 
@@ -44,10 +45,13 @@ object Versions {
 
             // Release: https://developer.android.com/jetpack/androidx/releases/appcompat
             const val APP_COMPAT = "1.1.0"
+
             // Release: https://developer.android.com/jetpack/androidx/releases/recyclerview
             const val RECYCLER_VIEW = "1.1.0"
+
             // Release: https://developer.android.com/jetpack/androidx/releases/cardview
             const val CARD_VIEW = "1.0.0"
+
             // Release: https://developer.android.com/jetpack/androidx/releases/constraintlayout
             const val CONSTRAINT_LAYOUT = "1.1.3"
 
@@ -86,10 +90,13 @@ object Versions {
 
             // Release: https://developer.android.com/jetpack/androidx/releases/test
             const val CORE = "1.2.0"
+
             // Release: https://developer.android.com/jetpack/androidx/releases/test
             const val J_UNIT = "1.1.1"
+
             // Release: https://developer.android.com/jetpack/androidx/releases/test
             const val ESPRESSO = "3.2.0"
+
             // Release: https://github.com/robolectric/robolectric/releases
             const val ROBOLECTRIC = "4.3.1"
 
@@ -166,6 +173,7 @@ object Versions {
 
             // Release: https://github.com/junit-team/junit4/releases
             const val J_UNIT = "4.12"
+
             // Release: https://github.com/junit-team/junit5/releases
             const val VINTAGE = "5.5.2"
 
