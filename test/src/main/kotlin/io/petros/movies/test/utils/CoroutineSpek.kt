@@ -9,7 +9,7 @@ import org.spekframework.spek2.Spek
 import org.spekframework.spek2.dsl.Root
 
 @ExperimentalCoroutinesApi
-open class CoroutineSpek(
+abstract class CoroutineSpek(
     val testRoot: Root.() -> Unit,
     private val dispatcher: TestCoroutineDispatcher = TestCoroutineDispatcher()
 ) : Spek({
