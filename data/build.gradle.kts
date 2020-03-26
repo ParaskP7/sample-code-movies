@@ -95,13 +95,13 @@ fun DependencyHandlerScope.testImplementationKotlin() {
 
 fun DependencyHandlerScope.testImplementationSpek() {
     testImplementation(Deps.Test.Spek.DSL)
-    testImplementation(Deps.Test.Spek.J_UNIT)
+    testImplementation(Deps.Test.Spek.J_UNIT_5)
     testRuntimeOnly(Deps.Kotlin.Core.KOTLIN_REFLECT)
 }
 
 fun DependencyHandlerScope.testImplementationJUnit() {
-    testImplementation(Deps.Test.JUnit.J_UNIT)
-    testRuntimeOnly(Deps.Test.JUnit.J_UNIT_VINTAGE)
+    testImplementation(Deps.Test.JUnit.J_UNIT_4)
+    testRuntimeOnly(Deps.Test.JUnit.J_UNIT_5)
 }
 
 fun DependencyHandlerScope.testImplementationTest() {

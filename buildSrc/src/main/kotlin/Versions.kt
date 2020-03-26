@@ -179,10 +179,10 @@ object Versions {
         object JUnit {
 
             // Release: https://github.com/junit-team/junit4/releases
-            const val J_UNIT = "4.12"
+            const val J_UNIT_4 = "4.12"
 
             // Release: https://github.com/junit-team/junit5/releases
-            const val VINTAGE = "5.6.1"
+            const val J_UNIT_5 = "5.6.1"
 
         }
 

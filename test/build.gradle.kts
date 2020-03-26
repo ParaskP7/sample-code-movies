@@ -39,13 +39,13 @@ fun DependencyHandlerScope.implementationKotlin() {
 
 fun DependencyHandlerScope.implementationSpek() {
     implementation(Deps.Test.Spek.DSL)
-    implementation(Deps.Test.Spek.J_UNIT)
+    implementation(Deps.Test.Spek.J_UNIT_5)
     runtimeOnly(Deps.Kotlin.Core.KOTLIN_REFLECT)
 }
 
 fun DependencyHandlerScope.implementationJUnit() {
-    implementation(Deps.Test.JUnit.J_UNIT)
-    runtimeOnly(Deps.Test.JUnit.J_UNIT_VINTAGE)
+    implementation(Deps.Test.JUnit.J_UNIT_4)
+    runtimeOnly(Deps.Test.JUnit.J_UNIT_5)
 }
 
 /* DEPENDENCIES - PLUGINS */
