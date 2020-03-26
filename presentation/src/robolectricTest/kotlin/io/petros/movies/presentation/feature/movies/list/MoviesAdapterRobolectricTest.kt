@@ -9,7 +9,7 @@ import io.petros.movies.presentation.feature.common.list.holder.ProgressViewHold
 import io.petros.movies.presentation.feature.movies.list.MoviesAdapter.Companion.VIEW_TYPE_ERROR
 import io.petros.movies.presentation.feature.movies.list.MoviesAdapter.Companion.VIEW_TYPE_MOVIE
 import io.petros.movies.presentation.feature.movies.list.MoviesAdapter.Companion.VIEW_TYPE_PROGRESS
-import io.petros.movies.presentation.utils.RobolectricTestProvider.Companion.provideContext
+import io.petros.movies.presentation.utils.RobolectricTestProvider.provideContext
 import io.petros.movies.test.domain.provideMovie
 import org.junit.Test
 import org.junit.runner.RunWith

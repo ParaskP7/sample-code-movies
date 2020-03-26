@@ -3,12 +3,8 @@ package io.petros.movies.presentation.utils
 import androidx.test.core.app.ApplicationProvider
 import io.petros.movies.presentation.TestApp
 
-class RobolectricTestProvider {
+object RobolectricTestProvider {
 
-    companion object {
-
-        internal fun provideContext() = ApplicationProvider.getApplicationContext<TestApp>()
-
-    }
+    internal fun provideContext() = ApplicationProvider.getApplicationContext<TestApp>()
 
 }
