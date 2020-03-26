@@ -6,23 +6,23 @@ object Versions {
     object Plugin {
 
         // Releases: https://androidstudio.googleblog.com
-        const val ANDROID = "4.1.0-alpha04"
+        const val ANDROID = "4.1.0-alpha04" // Released: 24-03-20
 
         // Releases: https://blog.jetbrains.com/kotlin/category/releases
-        const val KOTLIN = "1.3.71"
+        const val KOTLIN = "1.3.71" // Released: 23-03-20
 
         // Releases: https://github.com/arturbosch/detekt/releases
-        const val DETEKT = "1.7.0"
+        const val DETEKT = "1.7.0" // Released: 22-03-20
 
         // Releases: https://github.com/mannodermaus/android-junit5/releases
-        const val ANDROID_J_UNIT_5 = "1.6.0.0"
+        const val ANDROID_J_UNIT_5 = "1.6.0.0" // Released: 28-02-20
 
     }
 
     object LeakCanary {
 
         // Releases: https://github.com/square/leakcanary/releases
-        const val LEAK_CANARY = "2.2"
+        const val LEAK_CANARY = "2.2" // Released: 06-02-20
 
     }
 
@@ -31,7 +31,7 @@ object Versions {
     object Kotlin {
 
         // Releases: https://github.com/Kotlin/kotlinx.coroutines/releases
-        const val COROUTINES = "1.3.5"
+        const val COROUTINES = "1.3.5" // Released: 17-03-20
 
     }
 
