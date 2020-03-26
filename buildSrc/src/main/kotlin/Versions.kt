@@ -84,7 +84,7 @@ object Versions {
             object Test {
 
                 // Releases: https://developer.android.com/jetpack/androidx/releases/arch
-                const val CORE_TESTING = "2.1.0"
+                const val CORE_TESTING = "2.1.0" // Released: 05-09-19
 
             }
 
@@ -93,16 +93,16 @@ object Versions {
         object Test {
 
             // Releases: https://developer.android.com/jetpack/androidx/releases/test
-            const val CORE = "1.2.0"
+            const val CORE = "1.2.0" // Released: 29-03-19
 
             // Releases: https://developer.android.com/jetpack/androidx/releases/test
-            const val J_UNIT = "1.1.1"
+            const val J_UNIT = "1.1.1" // Released: 29-03-19
 
             // Releases: https://developer.android.com/jetpack/androidx/releases/test
-            const val ESPRESSO = "3.2.0"
+            const val ESPRESSO = "3.2.0" // Released: 29-03-19
 
             // Releases: https://github.com/robolectric/robolectric/releases
-            const val ROBOLECTRIC = "4.3.1"
+            const val ROBOLECTRIC = "4.3.1" // Released: 14-10-19
 
         }
 
