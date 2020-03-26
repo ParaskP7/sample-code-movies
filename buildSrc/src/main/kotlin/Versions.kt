@@ -48,10 +48,10 @@ object Versions {
         object Core {
 
             // Releases: https://developer.android.com/jetpack/androidx/releases/appcompat
-            const val APP_COMPAT = "1.1.0" // Released: 04-03-20
+            const val APP_COMPAT = "1.1.0" // Released: 05-11-19
 
             // Releases: https://developer.android.com/jetpack/androidx/releases/recyclerview
-            const val RECYCLER_VIEW = "1.1.0" // Released: 05-02-20
+            const val RECYCLER_VIEW = "1.1.0" // Released: 20-11-19
 
             // Releases: https://developer.android.com/jetpack/androidx/releases/cardview
             const val CARD_VIEW = "1.0.0" // Released: 21-09-18
@@ -64,7 +64,7 @@ object Versions {
         object Ktx {
 
             // Releases: https://developer.android.com/jetpack/androidx/releases/core
-            const val CORE = "1.2.0" // Released: 04-03-20
+            const val CORE = "1.2.0" // Released: 05-02-20
 
         }
 
