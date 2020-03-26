@@ -299,6 +299,7 @@ fun NamedDomainObjectContainer<AndroidSourceSet>.androidTestSourceSetContainer()
     }
 }
 
+@Suppress("FunctionMaxLength")
 fun NamedDomainObjectContainer<AndroidSourceSet>.androidAndroidTestSourceSetContainer() {
     named(Sources.ANDROID_TEST) {
         java.setSrcDirs(arrayListOf(Sources.Android.Test.KOTLIN))
