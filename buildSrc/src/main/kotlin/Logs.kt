@@ -53,7 +53,7 @@ object Logs {
         val endItem = "$SPACE$SPACE$PIPE"
         val repeatLength = startItem.length + output.length + endItem.length
         var dashes = EMPTY
-        for (i in 1..repeatLength) dashes += DASH
+        repeat(repeatLength) { dashes += DASH }
         return "$NEW_LINE$dashes$NEW_LINE$startItem$output$endItem$NEW_LINE$dashes"
     }
 
