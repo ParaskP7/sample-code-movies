@@ -34,7 +34,7 @@ fun Int.withParentheses() = leftParentheses() + this + rightParentheses()
 
 /* TIME */
 
-private const val ONE_SEC_IN_MILLS: Long = 1000L
+private const val ONE_SEC_IN_MILLS: Long = 1_000L
 
 fun toMillis(seconds: Int) = seconds * ONE_SEC_IN_MILLS
 
