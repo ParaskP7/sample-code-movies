@@ -32,14 +32,12 @@ class RestClientTest {
 
     @get:Rule val coroutineScope = MainCoroutineScopeRule()
 
-    private val moviesResponse = MoviesResultPageRaw(0, 1, emptyList())
-    private val movies = moviesResultPage(1, emptyList())
-
     private val restApiMock = mockk<RestApi>()
     private val testedClass = RestClient(restApiMock)
 
     @Test
     fun `when load movies is triggered, then rest api triggers load movies`() = coroutineScope.runBlockingTest {
+        val moviesResponse = MoviesResultPageRaw(0, 1, emptyList())
         coEvery { restApiMock.loadMovies(RELEASE_DATE_GTE, RELEASE_DATE_LTE, NEXT_PAGE) } returns moviesResponse
 
         testedClass.loadMovies(MOVIE_YEAR, MOVIE_MONTH, NEXT_PAGE)
@@ -49,6 +47,8 @@ class RestClientTest {
 
     @Test
     fun `when load movies is triggered, then the movies result page is the expected one`() = coroutineScope.runBlockingTest {
+        val moviesResponse = MoviesResultPageRaw(0, 1, emptyList())
+        val movies = moviesResultPage(1, emptyList())
         coEvery { restApiMock.loadMovies(RELEASE_DATE_GTE, RELEASE_DATE_LTE, NEXT_PAGE) } returns moviesResponse
 
         val result = testedClass.loadMovies(MOVIE_YEAR, MOVIE_MONTH, NEXT_PAGE)

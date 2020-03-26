@@ -25,14 +25,14 @@ private const val RELEASE_DATE_LTE = "2018-08-31"
 @ExperimentalCoroutinesApi
 class RestClientSpek : CoroutineSpek({
 
-    val moviesResponse = MoviesResultPageRaw(0, 1, emptyList())
-    val movies = moviesResultPage(1, emptyList())
     val restApiMock = mockk<RestApi>()
 
     @Suppress("StringLiteralDuplication")
     Feature("Rest client for movies") {
         val testedClass by memoized { RestClient(restApiMock) }
         Scenario("loading movies") {
+            val moviesResponse = MoviesResultPageRaw(0, 1, emptyList())
+            val movies = moviesResultPage(1, emptyList())
             var result: MoviesResultPage? = null
             Given("movies response") {
                 coEvery { restApiMock.loadMovies(RELEASE_DATE_GTE, RELEASE_DATE_LTE, NEXT_PAGE) } returns moviesResponse
