@@ -3,8 +3,8 @@ package io.petros.movies.presentation.feature.movies.view
 import io.mockk.mockk
 import io.mockk.verify
 import io.petros.movies.presentation.feature.movies.listener.MovieCallback
-import io.petros.movies.presentation.utils.RobolectricTestProvider.provideContext
-import io.petros.movies.test.domain.provideMovie
+import io.petros.movies.presentation.utils.RobolectricTestProvider.context
+import io.petros.movies.test.domain.movie
 import kotlinx.android.synthetic.main.item_movie.view.*
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -17,11 +17,11 @@ import strikt.assertions.isNull
 @RunWith(RobolectricTestRunner::class)
 class MovieItemViewRobolectricTest {
 
-    private val movie = provideMovie()
+    private val movie = movie()
 
     private val callbackMock = mockk<MovieCallback>()
 
-    private val context = provideContext()
+    private val context = context()
     private val testedClass = MovieItemView(context)
 
     @Test

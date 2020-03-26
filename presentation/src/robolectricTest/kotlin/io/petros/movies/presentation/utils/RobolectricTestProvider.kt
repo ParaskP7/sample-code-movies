@@ -5,6 +5,6 @@ import io.petros.movies.presentation.TestApp
 
 object RobolectricTestProvider {
 
-    internal fun provideContext() = ApplicationProvider.getApplicationContext<TestApp>()
+    internal fun context() = ApplicationProvider.getApplicationContext<TestApp>()
 
 }

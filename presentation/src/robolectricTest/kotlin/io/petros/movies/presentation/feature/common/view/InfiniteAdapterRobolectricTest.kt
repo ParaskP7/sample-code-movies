@@ -6,9 +6,9 @@ import io.mockk.mockk
 import io.petros.movies.domain.model.common.PaginationData
 import io.petros.movies.domain.model.movie.Movie
 import io.petros.movies.domain.model.movie.MoviesResultPage
-import io.petros.movies.presentation.utils.RobolectricTestProvider.provideContext
+import io.petros.movies.presentation.utils.RobolectricTestProvider.context
 import io.petros.movies.test.domain.NEXT_PAGE
-import io.petros.movies.test.domain.provideMovie
+import io.petros.movies.test.domain.movie
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
@@ -19,12 +19,12 @@ import strikt.assertions.isNull
 @RunWith(RobolectricTestRunner::class)
 class InfiniteAdapterRobolectricTest {
 
-    private val context = provideContext()
+    private val context = context()
     private val recyclerView = RecyclerView(context)
 
-    private val firstPageItems = listOf(provideMovie(id = 1), provideMovie(id = 2), provideMovie(id = 3))
-    private val secondPageItems = listOf(provideMovie(id = 4), provideMovie(id = 5), provideMovie(id = 6))
-    private val anotherPageItems = listOf(provideMovie(id = 7), provideMovie(id = 8), provideMovie(id = 9))
+    private val firstPageItems = listOf(movie(id = 1), movie(id = 2), movie(id = 3))
+    private val secondPageItems = listOf(movie(id = 4), movie(id = 5), movie(id = 6))
+    private val anotherPageItems = listOf(movie(id = 7), movie(id = 8), movie(id = 9))
 
     private val testedClass = object : InfiniteAdapter<Movie>() {
         override fun isLoading() = false

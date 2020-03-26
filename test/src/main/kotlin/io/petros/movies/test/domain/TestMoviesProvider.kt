@@ -17,7 +17,7 @@ private const val OVERVIEW = "OVERVIEW"
 private const val BACKDROP = "BACKDROP"
 
 @Suppress("LongParameterList")
-fun provideMovie(
+fun movie(
     id: Int = ID,
     title: String = TITLE,
     releaseDate: Date = RELEASE_DATE,
@@ -37,9 +37,9 @@ fun provideMovie(
     )
 }
 
-fun provideMoviesResultPage(
+fun moviesResultPage(
     nextPage: Int = NEXT_PAGE,
-    movies: List<Movie> = arrayListOf(provideMovie(), provideMovie(), provideMovie())
+    movies: List<Movie> = arrayListOf(movie(), movie(), movie())
 ): MoviesResultPage {
     return MoviesResultPage(
         nextPage,

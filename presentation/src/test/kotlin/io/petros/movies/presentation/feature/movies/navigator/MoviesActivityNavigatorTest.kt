@@ -4,12 +4,12 @@ import io.mockk.mockk
 import io.mockk.verify
 import io.petros.movies.presentation.feature.movie.navigator.MovieDetailsLauncher
 import io.petros.movies.presentation.feature.movies.view.SharedElementMovie
-import io.petros.movies.test.domain.provideMovie
+import io.petros.movies.test.domain.movie
 import org.junit.Test
 
 class MoviesActivityNavigatorTest {
 
-    private val movie = provideMovie()
+    private val movie = movie()
 
     private val movieDetailsLauncherMock = mockk<MovieDetailsLauncher>()
     private val testedClass = MoviesActivityNavigator(movieDetailsLauncherMock)

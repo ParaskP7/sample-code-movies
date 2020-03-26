@@ -4,13 +4,13 @@ import io.mockk.mockk
 import io.mockk.verify
 import io.petros.movies.presentation.feature.movie.navigator.MovieDetailsLauncher
 import io.petros.movies.presentation.feature.movies.view.SharedElementMovie
-import io.petros.movies.test.domain.provideMovie
+import io.petros.movies.test.domain.movie
 import org.spekframework.spek2.Spek
 import org.spekframework.spek2.style.gherkin.Feature
 
 class MoviesActivityNavigatorSpek : Spek({
 
-    val movie = provideMovie()
+    val movie = movie()
     val movieDetailsLauncherMock = mockk<MovieDetailsLauncher>()
 
     Feature("Movies activity navigator") {

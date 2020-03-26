@@ -3,7 +3,7 @@ package io.petros.movies.domain.model.common
 import io.petros.movies.domain.model.movie.Movie
 import io.petros.movies.domain.model.movie.MoviesResultPage
 import io.petros.movies.test.domain.NEXT_PAGE
-import io.petros.movies.test.domain.provideMovie
+import io.petros.movies.test.domain.movie
 import org.spekframework.spek2.Spek
 import org.spekframework.spek2.style.gherkin.Feature
 import strikt.api.expect
@@ -15,8 +15,8 @@ import strikt.assertions.isTrue
 
 object PaginationDataSpek : Spek({
 
-    val firstPageItems = listOf(provideMovie(id = 1), provideMovie(id = 2), provideMovie(id = 3))
-    val secondPageItems = listOf(provideMovie(id = 4), provideMovie(id = 5), provideMovie(id = 6))
+    val firstPageItems = listOf(movie(id = 1), movie(id = 2), movie(id = 3))
+    val secondPageItems = listOf(movie(id = 4), movie(id = 5), movie(id = 6))
 
     Feature("Pagination date with no pages") {
         val testedClass by memoized { PaginationData<Movie>() }

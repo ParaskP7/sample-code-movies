@@ -9,7 +9,7 @@ import io.petros.movies.domain.repository.movie.MoviesRepository
 import io.petros.movies.test.domain.MOVIE_MONTH
 import io.petros.movies.test.domain.MOVIE_YEAR
 import io.petros.movies.test.domain.NEXT_PAGE
-import io.petros.movies.test.domain.provideMoviesResultPage
+import io.petros.movies.test.domain.moviesResultPage
 import io.petros.movies.test.utils.CoroutineSpek
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.runBlocking
@@ -20,7 +20,7 @@ import strikt.assertions.isEqualTo
 @ExperimentalCoroutinesApi
 object LoadMoviesUseCaseSpek : CoroutineSpek({
 
-    val moviesResultPage = provideMoviesResultPage()
+    val moviesResultPage = moviesResultPage()
     val moviesRepositoryMock = mockk<MoviesRepository>()
     coEvery { moviesRepositoryMock.loadMovies(MOVIE_YEAR, MOVIE_MONTH, NEXT_PAGE) } returns moviesResultPage
 

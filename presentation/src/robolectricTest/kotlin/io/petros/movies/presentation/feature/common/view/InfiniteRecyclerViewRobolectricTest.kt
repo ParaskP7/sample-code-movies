@@ -4,7 +4,7 @@ import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
 import io.petros.movies.domain.model.movie.Movie
-import io.petros.movies.presentation.utils.RobolectricTestProvider.provideContext
+import io.petros.movies.presentation.utils.RobolectricTestProvider.context
 import io.petros.movies.test.domain.NEXT_PAGE
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -13,7 +13,7 @@ import org.robolectric.RobolectricTestRunner
 @RunWith(RobolectricTestRunner::class)
 class InfiniteRecyclerViewRobolectricTest {
 
-    private val context = provideContext()
+    private val context = context()
 
     private var adapterMock = mockk<InfiniteAdapter<Movie>>()
 

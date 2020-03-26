@@ -7,7 +7,7 @@ import io.mockk.slot
 import io.mockk.verify
 import io.petros.movies.presentation.feature.movie.MovieDetailsActivity
 import io.petros.movies.presentation.feature.movie.navigator.MovieDetailsActivityLauncher.Companion.getMovie
-import io.petros.movies.test.domain.provideMovie
+import io.petros.movies.test.domain.movie
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
@@ -17,7 +17,7 @@ import strikt.assertions.isEqualTo
 @RunWith(RobolectricTestRunner::class)
 class MovieDetailsActivityLauncherRobolectricTest {
 
-    private val movie = provideMovie()
+    private val movie = movie()
 
     private val slot = slot<Intent>()
 

@@ -13,8 +13,8 @@ import io.petros.movies.presentation.feature.common.list.adapter.AdapterStatus
 import io.petros.movies.test.domain.MOVIE_MONTH
 import io.petros.movies.test.domain.MOVIE_YEAR
 import io.petros.movies.test.domain.NEXT_PAGE
-import io.petros.movies.test.domain.provideMovie
-import io.petros.movies.test.domain.provideMoviesResultPage
+import io.petros.movies.test.domain.movie
+import io.petros.movies.test.domain.moviesResultPage
 import io.petros.movies.test.utils.MainCoroutineScopeRule
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.junit.Before
@@ -31,8 +31,8 @@ class MoviesActivityViewModelTest {
     @get:Rule val coroutineScope = MainCoroutineScopeRule()
     @get:Rule val rule = InstantTaskExecutorRule()
 
-    private val previousMoviesResultPage = provideMoviesResultPage(NEXT_PAGE, listOf(provideMovie(), provideMovie()))
-    private val moviesResultPage = provideMoviesResultPage()
+    private val previousMoviesResultPage = moviesResultPage(NEXT_PAGE, listOf(movie(), movie()))
+    private val moviesResultPage = moviesResultPage()
 
     @Suppress("LateinitUsage") private lateinit var testedClass: MoviesActivityViewModel
     private val loadMoviesUseCaseMock = mockk<LoadMoviesUseCase>()

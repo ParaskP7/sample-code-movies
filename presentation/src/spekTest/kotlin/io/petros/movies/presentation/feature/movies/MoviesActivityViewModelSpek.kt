@@ -13,8 +13,8 @@ import io.petros.movies.presentation.utils.ViewModelSpek
 import io.petros.movies.test.domain.MOVIE_MONTH
 import io.petros.movies.test.domain.MOVIE_YEAR
 import io.petros.movies.test.domain.NEXT_PAGE
-import io.petros.movies.test.domain.provideMovie
-import io.petros.movies.test.domain.provideMoviesResultPage
+import io.petros.movies.test.domain.movie
+import io.petros.movies.test.domain.moviesResultPage
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.spekframework.spek2.style.gherkin.Feature
 import strikt.api.expect
@@ -32,8 +32,8 @@ private fun setupViewModel(testedClass: MoviesActivityViewModel) {
 @ExperimentalCoroutinesApi
 class MoviesActivityViewModelSpek : ViewModelSpek({
 
-    val previousMoviesResultPage = provideMoviesResultPage(NEXT_PAGE, listOf(provideMovie(), provideMovie()))
-    val moviesResultPage = provideMoviesResultPage()
+    val previousMoviesResultPage = moviesResultPage(NEXT_PAGE, listOf(movie(), movie()))
+    val moviesResultPage = moviesResultPage()
     val loadMoviesUseCaseMock = mockk<LoadMoviesUseCase>()
 
     Feature("Movies activity view model") {

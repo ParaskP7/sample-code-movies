@@ -1,6 +1,6 @@
 package io.petros.movies.domain.model.movie
 
-import io.petros.movies.test.domain.provideMovie
+import io.petros.movies.test.domain.movie
 import org.spekframework.spek2.Spek
 import org.spekframework.spek2.style.gherkin.Feature
 import strikt.api.expect
@@ -9,7 +9,7 @@ import strikt.assertions.isEqualTo
 object MovieSpek : Spek({
 
     Feature("Movie") {
-        val testedClass by memoized { provideMovie() }
+        val testedClass by memoized { movie() }
         Scenario("release date") {
             var result: String? = null
             When("release date string is constructed") {

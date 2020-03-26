@@ -8,7 +8,7 @@ import io.petros.movies.network.raw.movie.MoviesResultPageRaw
 import io.petros.movies.test.domain.MOVIE_MONTH
 import io.petros.movies.test.domain.MOVIE_YEAR
 import io.petros.movies.test.domain.NEXT_PAGE
-import io.petros.movies.test.domain.provideMoviesResultPage
+import io.petros.movies.test.domain.moviesResultPage
 import io.petros.movies.test.utils.MainCoroutineScopeRule
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
@@ -33,7 +33,7 @@ class RestClientTest {
     @get:Rule val coroutineScope = MainCoroutineScopeRule()
 
     private val moviesResponse = MoviesResultPageRaw(0, 1, emptyList())
-    private val movies = provideMoviesResultPage(1, emptyList())
+    private val movies = moviesResultPage(1, emptyList())
 
     private val restApiMock = mockk<RestApi>()
     private val testedClass = RestClient(restApiMock)

@@ -4,7 +4,7 @@ import io.mockk.mockk
 import io.mockk.verify
 import io.petros.movies.presentation.feature.movies.listener.MovieCallback
 import io.petros.movies.presentation.feature.movies.view.MovieItemView
-import io.petros.movies.test.domain.provideMovie
+import io.petros.movies.test.domain.movie
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
@@ -12,7 +12,7 @@ import org.robolectric.RobolectricTestRunner
 @RunWith(RobolectricTestRunner::class)
 class MovieViewHolderRobolectricTest {
 
-    private val movie = provideMovie()
+    private val movie = movie()
 
     private val itemViewMock = mockk<MovieItemView>()
     private val callbackMock = mockk<MovieCallback>()

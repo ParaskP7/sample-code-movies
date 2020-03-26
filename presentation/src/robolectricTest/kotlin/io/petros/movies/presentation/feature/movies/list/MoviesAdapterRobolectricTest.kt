@@ -9,8 +9,8 @@ import io.petros.movies.presentation.feature.common.list.holder.ProgressViewHold
 import io.petros.movies.presentation.feature.movies.list.MoviesAdapter.Companion.VIEW_TYPE_ERROR
 import io.petros.movies.presentation.feature.movies.list.MoviesAdapter.Companion.VIEW_TYPE_MOVIE
 import io.petros.movies.presentation.feature.movies.list.MoviesAdapter.Companion.VIEW_TYPE_PROGRESS
-import io.petros.movies.presentation.utils.RobolectricTestProvider.provideContext
-import io.petros.movies.test.domain.provideMovie
+import io.petros.movies.presentation.utils.RobolectricTestProvider.context
+import io.petros.movies.test.domain.movie
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
@@ -20,10 +20,10 @@ import strikt.assertions.isEqualTo
 @RunWith(RobolectricTestRunner::class)
 class MoviesAdapterRobolectricTest {
 
-    private val context = provideContext()
+    private val context = context()
     private val recyclerView = RecyclerView(context)
 
-    private val items = listOf(provideMovie(id = 1), provideMovie(id = 2), provideMovie(id = 3))
+    private val items = listOf(movie(id = 1), movie(id = 2), movie(id = 3))
 
     private val testedClass = MoviesAdapter(ArrayList(items)).also {
         it.callback = mockk()

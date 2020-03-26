@@ -9,7 +9,7 @@ import io.petros.movies.network.raw.movie.MoviesResultPageRaw
 import io.petros.movies.test.domain.MOVIE_MONTH
 import io.petros.movies.test.domain.MOVIE_YEAR
 import io.petros.movies.test.domain.NEXT_PAGE
-import io.petros.movies.test.domain.provideMoviesResultPage
+import io.petros.movies.test.domain.moviesResultPage
 import io.petros.movies.test.utils.CoroutineSpek
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.runBlocking
@@ -26,7 +26,7 @@ private const val RELEASE_DATE_LTE = "2018-08-31"
 class RestClientSpek : CoroutineSpek({
 
     val moviesResponse = MoviesResultPageRaw(0, 1, emptyList())
-    val movies = provideMoviesResultPage(1, emptyList())
+    val movies = moviesResultPage(1, emptyList())
     val restApiMock = mockk<RestApi>()
 
     @Suppress("StringLiteralDuplication")
