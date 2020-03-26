@@ -146,6 +146,7 @@ fun JavaPluginExtension.java() {
     targetCompatibility = Java.version
 }
 
+@Suppress("SpreadOperator")
 fun Test.testLogging() {
     testLogging {
         events(*Logs.events)
@@ -243,6 +244,7 @@ fun TestOptions.testOptionsJUnit5() {
     junitPlatform { filters { includeEngines(Tests.Engine.JUnit.VINTAGE, Tests.Engine.Spek.SPEK) } }
 }
 
+@Suppress("SpreadOperator")
 fun LintOptions.lintOptions() {
     isAbortOnError = true
     isCheckAllWarnings = true
