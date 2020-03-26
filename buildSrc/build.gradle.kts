@@ -1,4 +1,4 @@
-@file:Suppress("all")
+@file:Suppress("InvalidPackageDeclaration")
 
 /* PLUGINS */
 

@@ -1,4 +1,4 @@
-@file:Suppress("all")
+@file:Suppress("InvalidPackageDeclaration")
 
 import com.android.build.gradle.api.AndroidSourceSet
 import com.android.build.gradle.AppExtension

@@ -1,4 +1,4 @@
-@file:Suppress("all")
+@file:Suppress("InvalidPackageDeclaration")
 
 import com.android.build.gradle.internal.dsl.BuildType
 import java.io.FileInputStream
