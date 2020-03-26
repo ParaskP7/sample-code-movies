@@ -10,7 +10,7 @@ object App {
         private const val BUILD = 0
 
         const val CODE = MAJOR * 10000 + MINOR * 1000 + PATCH * 100 + BUILD
-        const val NAME = "${MAJOR}.${MINOR}.${PATCH}"
+        const val NAME = "$MAJOR.$MINOR.$PATCH"
 
     }
 

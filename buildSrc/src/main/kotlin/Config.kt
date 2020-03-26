@@ -7,7 +7,7 @@ object Config {
 
     object Lint {
 
-        const val CONFIG_FILE_PATH = "${QUALITY_DIRECTORY}/${Files.Xml.LINT}"
+        const val CONFIG_FILE_PATH = "$QUALITY_DIRECTORY/${Files.Xml.LINT}"
 
         val disabledIssues = arrayOf(
             "MissingRegistered", // Because of UAST
@@ -20,7 +20,7 @@ object Config {
 
     object Detekt {
 
-        const val CONFIG_FILE_PATH = "${QUALITY_DIRECTORY}/${Files.Yml.DETEKT}"
+        const val CONFIG_FILE_PATH = "$QUALITY_DIRECTORY/${Files.Yml.DETEKT}"
 
     }
 
@@ -28,7 +28,7 @@ object Config {
 
         object TheMoviesDb {
 
-            const val API_FILE_PATH = "${KEYS_DIRECTORY}/${Files.Properties.THEMOVIEDB_API}"
+            const val API_FILE_PATH = "$KEYS_DIRECTORY/${Files.Properties.THEMOVIEDB_API}"
             const val API_KEY_CONST = "THEMOVIEDB_API_KEY"
 
         }
