@@ -16,6 +16,16 @@ private const val VOTE_COUNT = 100
 private const val OVERVIEW = "OVERVIEW"
 private const val BACKDROP = "BACKDROP"
 
+fun moviesResultPage(
+    nextPage: Int = NEXT_PAGE,
+    movies: List<Movie> = arrayListOf(movie(), movie(), movie())
+): MoviesResultPage {
+    return MoviesResultPage(
+        nextPage,
+        movies
+    )
+}
+
 @Suppress("LongParameterList")
 fun movie(
     id: Int = ID,
@@ -34,15 +44,5 @@ fun movie(
         voteCount,
         overview,
         backdrop
-    )
-}
-
-fun moviesResultPage(
-    nextPage: Int = NEXT_PAGE,
-    movies: List<Movie> = arrayListOf(movie(), movie(), movie())
-): MoviesResultPage {
-    return MoviesResultPage(
-        nextPage,
-        movies
     )
 }
