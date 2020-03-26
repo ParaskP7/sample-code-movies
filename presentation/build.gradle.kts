@@ -1,4 +1,4 @@
-@file:Suppress("InvalidPackageDeclaration")
+@file:Suppress("InvalidPackageDeclaration", "ForbiddenComment")
 
 import com.android.build.gradle.ProguardFiles.getDefaultProguardFile
 import com.android.build.gradle.internal.dsl.BuildType
@@ -12,7 +12,7 @@ plugins {
     id(PluginIds.Kotlin.Android.EXTENSIONS)
     id(PluginIds.Kotlin.KAPT) // This plugin is required because of Glide.
     id(PluginIds.Quality.DETEKT)
-//    id(PluginIds.Test.Android.J_UNIT_5) // TODO: Update JUnit5 plugin and check again
+    // id(PluginIds.Test.Android.J_UNIT_5)  // FIXME: Failed to notify project evaluation listener.
 }
 
 /* ANDROID */

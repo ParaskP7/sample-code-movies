@@ -14,7 +14,7 @@ object Versions {
         const val DETEKT = "1.7.0"
 
         // Release: https://github.com/mannodermaus/android-junit5/releases
-        const val ANDROID_J_UNIT_5 = "1.5.2.0"
+        const val ANDROID_J_UNIT_5 = "1.6.0.0"
 
     }
 
@@ -182,7 +182,7 @@ object Versions {
             const val J_UNIT = "4.12"
 
             // Release: https://github.com/junit-team/junit5/releases
-            const val VINTAGE = "5.5.2"
+            const val VINTAGE = "5.6.1"
 
         }
 

@@ -1,4 +1,4 @@
-@file:Suppress("InvalidPackageDeclaration")
+@file:Suppress("InvalidPackageDeclaration", "ForbiddenComment")
 
 import com.android.build.gradle.internal.dsl.BuildType
 import java.io.FileInputStream
@@ -10,7 +10,7 @@ plugins {
     id(PluginIds.Android.LIBRARY)
     id(PluginIds.Kotlin.Android.ANDROID)
     id(PluginIds.Quality.DETEKT)
-//    id(PluginIds.Test.Android.J_UNIT_5) // TODO: Update JUnit5 plugin and check again
+    // id(PluginIds.Test.Android.J_UNIT_5) // FIXME: Failed to notify project evaluation listener.
 }
 
 /* ANDROID */
