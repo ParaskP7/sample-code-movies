@@ -161,9 +161,9 @@ fun Test.testLogging() {
         info.events = debug.events
         info.exceptionFormat = debug.exceptionFormat
         addTestListener(object : TestListener {
-            override fun beforeSuite(desc: TestDescriptor) {}
-            override fun beforeTest(desc: TestDescriptor) {}
-            override fun afterTest(desc: TestDescriptor, result: TestResult) {}
+            override fun beforeSuite(desc: TestDescriptor) = Unit
+            override fun beforeTest(desc: TestDescriptor) = Unit
+            override fun afterTest(desc: TestDescriptor, result: TestResult) = Unit
             override fun afterSuite(desc: TestDescriptor, result: TestResult) {
                 if (desc.parent != null) println(Logs.testConsoleOutput(result))
             }
