@@ -1,3 +1,5 @@
+@file:Suppress("InvalidPackageDeclaration")
+
 object Sources {
 
     const val MAIN = "main"

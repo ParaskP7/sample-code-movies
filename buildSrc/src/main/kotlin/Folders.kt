@@ -1,3 +1,5 @@
+@file:Suppress("InvalidPackageDeclaration")
+
 object Folders {
 
     const val PARENT = ".."

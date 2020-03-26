@@ -1,3 +1,5 @@
+@file:Suppress("InvalidPackageDeclaration")
+
 import Utils.COLON
 import Utils.COMMA
 import Utils.DASH

@@ -1,3 +1,5 @@
+@file:Suppress("InvalidPackageDeclaration")
+
 object Versions {
 
     object Plugin {

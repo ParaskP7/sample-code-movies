@@ -1,3 +1,5 @@
+@file:Suppress("InvalidPackageDeclaration")
+
 object PluginIds {
 
     object Kotlin {

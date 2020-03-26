@@ -1,3 +1,5 @@
+@file:Suppress("InvalidPackageDeclaration")
+
 @Suppress("MayBeConstant", "MemberVisibilityCanBePrivate")
 object Deps {
 

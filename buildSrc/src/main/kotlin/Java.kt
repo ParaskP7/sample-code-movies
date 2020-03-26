@@ -1,3 +1,5 @@
+@file:Suppress("InvalidPackageDeclaration")
+
 import org.gradle.api.JavaVersion
 
 object Java {
