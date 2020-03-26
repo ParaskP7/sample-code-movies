@@ -38,7 +38,7 @@ object Logs {
     )
 
     /**
-     * An example console output is the below:
+     * An example console output is the below.
      * ---------------------------------------------------------------------
      * |  Results: SUCCESS (1255 tests, 1251 passed, 2 failed, 2 skipped)  |
      * ---------------------------------------------------------------------
