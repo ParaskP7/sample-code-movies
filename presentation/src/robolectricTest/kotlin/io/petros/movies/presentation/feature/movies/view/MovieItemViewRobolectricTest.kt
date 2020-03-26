@@ -3,7 +3,7 @@ package io.petros.movies.presentation.feature.movies.view
 import io.mockk.mockk
 import io.mockk.verify
 import io.petros.movies.presentation.feature.movies.listener.MovieCallback
-import io.petros.movies.presentation.utils.RobolectricTestProvider.context
+import io.petros.movies.presentation.utils.TestRobolectricProvider.context
 import io.petros.movies.test.domain.movie
 import kotlinx.android.synthetic.main.item_movie.view.*
 import org.junit.Test
