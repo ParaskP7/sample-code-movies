@@ -172,7 +172,7 @@ object Versions {
         object Spek {
 
             // Releases: https://github.com/spekframework/spek/releases
-            const val SPEK = "2.0.9"
+            const val SPEK = "2.0.10" // Released: 05-03-20
 
         }
 
