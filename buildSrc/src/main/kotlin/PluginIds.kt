@@ -2,6 +2,7 @@
 
 object PluginIds {
 
+    @Suppress("MemberNameEqualsClassName")
     object Kotlin {
 
         object Android {

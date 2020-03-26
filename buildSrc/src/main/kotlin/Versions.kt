@@ -34,6 +34,7 @@ object Versions {
 
     }
 
+    @Suppress("MemberNameEqualsClassName")
     object Material {
 
         // Release: https://github.com/material-components/material-components-android/releases
@@ -108,6 +109,7 @@ object Versions {
 
     object Di {
 
+        @Suppress("MemberNameEqualsClassName")
         object Koin {
 
             // Release: https://github.com/InsertKoinIO/koin/releases
@@ -137,6 +139,7 @@ object Versions {
 
     object Image {
 
+        @Suppress("MemberNameEqualsClassName")
         object Glide {
 
             // Release: https://github.com/bumptech/glide/releases
@@ -164,6 +167,7 @@ object Versions {
 
     object Test {
 
+        @Suppress("MemberNameEqualsClassName")
         object Spek {
 
             // Release: https://github.com/spekframework/spek/releases

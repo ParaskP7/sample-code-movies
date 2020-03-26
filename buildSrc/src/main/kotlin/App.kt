@@ -16,6 +16,7 @@ object App {
 
     object Debug {
 
+        @Suppress("MemberNameEqualsClassName")
         object Suffix {
 
             private const val SUFFIX = "debug"

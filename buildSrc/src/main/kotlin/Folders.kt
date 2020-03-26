@@ -4,6 +4,7 @@ object Folders {
 
     const val PARENT = ".."
 
+    @Suppress("MemberNameEqualsClassName")
     object Config {
 
         const val CONFIG = "config"

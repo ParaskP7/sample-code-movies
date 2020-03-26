@@ -4,6 +4,7 @@ object Tests {
 
     object Engine {
 
+        @Suppress("MemberNameEqualsClassName")
         object Spek {
 
             const val SPEK = "spek2"

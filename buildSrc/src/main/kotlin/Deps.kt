@@ -35,6 +35,7 @@ object Deps {
             val CORE = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.Kotlin.COROUTINES}"
             val ANDROID = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.Kotlin.COROUTINES}"
 
+            @Suppress("MemberNameEqualsClassName")
             object Test {
 
                 val TEST = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.Kotlin.COROUTINES}"
@@ -45,6 +46,7 @@ object Deps {
 
     }
 
+    @Suppress("MemberNameEqualsClassName")
     object Material {
 
         val MATERIAL = "com.google.android.material:material:${Versions.Material.MATERIAL}"
@@ -117,6 +119,7 @@ object Deps {
 
             }
 
+            @Suppress("MemberNameEqualsClassName")
             object Android {
 
                 val ANDROID = "org.koin:koin-android:${Versions.Di.Koin.KOIN}"
@@ -147,6 +150,7 @@ object Deps {
 
     object Image {
 
+        @Suppress("MemberNameEqualsClassName")
         object Glide {
 
             val GLIDE = "com.github.bumptech.glide:glide:${Versions.Image.Glide.GLIDE}"
