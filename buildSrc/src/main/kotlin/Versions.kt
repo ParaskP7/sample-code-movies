@@ -1,5 +1,6 @@
 @file:Suppress("InvalidPackageDeclaration")
 
+@Suppress("StringLiteralDuplication")
 object Versions {
 
     object Plugin {
@@ -44,7 +45,6 @@ object Versions {
 
     object Android {
 
-        @Suppress("StringLiteralDuplication")
         object Core {
 
             // Release: https://developer.android.com/jetpack/androidx/releases/appcompat
