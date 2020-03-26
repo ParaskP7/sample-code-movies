@@ -17,15 +17,14 @@ import strikt.assertions.isEqualTo
 @RunWith(RobolectricTestRunner::class)
 class MovieDetailsActivityLauncherRobolectricTest {
 
-    private val movie = movie()
-
-    private val slot = slot<Intent>()
-
     private var appCompatActivityMock = mockk<AppCompatActivity>()
     private val testedClass = MovieDetailsActivityLauncher(appCompatActivityMock)
 
     @Test
     fun `when launch is called, then current activity starts target movies activity`() {
+        val movie = movie()
+        val slot = slot<Intent>()
+
         testedClass.launch(movie)
 
         verify { appCompatActivityMock.startActivity(capture(slot)) }

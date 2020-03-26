@@ -9,13 +9,12 @@ import org.junit.Test
 
 class MoviesActivityNavigatorTest {
 
-    private val movie = movie()
-
     private val movieDetailsLauncherMock = mockk<MovieDetailsLauncher>()
     private val testedClass = MoviesActivityNavigator(movieDetailsLauncherMock)
 
     @Test
     fun `given shared element movie, when navigating from movies activity, then movie details activity launches with it`() {
+        val movie = movie()
         val sharedElementMovie = SharedElementMovie(movie, mockk())
 
         testedClass.navigate(sharedElementMovie)

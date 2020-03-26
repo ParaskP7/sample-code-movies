@@ -10,12 +10,12 @@ import org.spekframework.spek2.style.gherkin.Feature
 
 class MoviesActivityNavigatorSpek : Spek({
 
-    val movie = movie()
     val movieDetailsLauncherMock = mockk<MovieDetailsLauncher>()
 
     Feature("Movies activity navigator") {
         val testedClass by memoized { MoviesActivityNavigator(movieDetailsLauncherMock) }
         Scenario("navigating from movies") {
+            val movie = movie()
             var sharedElementMovie: SharedElementMovie? = null
             Given("shared element movie") {
                 sharedElementMovie = SharedElementMovie(movie, mockk())
