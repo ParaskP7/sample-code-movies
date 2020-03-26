@@ -21,8 +21,7 @@ class MovieItemViewRobolectricTest {
 
     private val callbackMock = mockk<MovieCallback>()
 
-    private val context = context()
-    private val testedClass = MovieItemView(context)
+    private val testedClass = MovieItemView(context())
 
     @Test
     fun `when movie is bind, then the movie backdrop is set`() {

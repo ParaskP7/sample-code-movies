@@ -20,8 +20,7 @@ import strikt.assertions.isEqualTo
 @RunWith(RobolectricTestRunner::class)
 class MoviesAdapterRobolectricTest {
 
-    private val context = context()
-    private val recyclerView = RecyclerView(context)
+    private val recyclerView = RecyclerView(context())
 
     private val items = listOf(movie(id = 1), movie(id = 2), movie(id = 3))
 

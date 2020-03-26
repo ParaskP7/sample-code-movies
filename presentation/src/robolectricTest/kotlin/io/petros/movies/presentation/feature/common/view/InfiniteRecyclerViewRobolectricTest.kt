@@ -13,12 +13,10 @@ import org.robolectric.RobolectricTestRunner
 @RunWith(RobolectricTestRunner::class)
 class InfiniteRecyclerViewRobolectricTest {
 
-    private val context = context()
-
     private var adapterMock = mockk<InfiniteAdapter<Movie>>()
 
     private var listenerMock = mockk<InfiniteRecyclerView.Listener>()
-    private val testedClass = InfiniteRecyclerView(context).also {
+    private val testedClass = InfiniteRecyclerView(context()).also {
         it.adapter = adapterMock
         it.listener = listenerMock
     }
