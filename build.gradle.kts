@@ -264,6 +264,7 @@ fun LintOptions.lintOptions() {
 /* CONFIGURATION EXTENSION FUNCTIONS - KOTLIN */
 
 fun KotlinJvmOptions.kotlinOptions() {
+    jvmTarget = Java.version.toString()
     allWarningsAsErrors = true
 }
 
