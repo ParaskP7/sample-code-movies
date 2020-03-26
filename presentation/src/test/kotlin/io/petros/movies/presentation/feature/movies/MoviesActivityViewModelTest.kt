@@ -17,6 +17,7 @@ import io.petros.movies.test.domain.provideMovie
 import io.petros.movies.test.domain.provideMoviesResultPage
 import io.petros.movies.test.utils.MainCoroutineScopeRule
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import strikt.api.expect
@@ -33,12 +34,17 @@ class MoviesActivityViewModelTest {
     private val previousMoviesResultPage = provideMoviesResultPage(NEXT_PAGE, listOf(provideMovie(), provideMovie()))
     private val moviesResultPage = provideMoviesResultPage()
 
+    @Suppress("LateinitUsage") private lateinit var testedClass: MoviesActivityViewModel
     private val loadMoviesUseCaseMock = mockk<LoadMoviesUseCase>()
     private val statusObservableMock = mockk<Observer<AdapterStatus>>()
     private val moviesResultPageObservableMock = mockk<Observer<PaginationData<Movie>>>()
-    private val testedClass = MoviesActivityViewModel(loadMoviesUseCaseMock).also {
-        it.statusObservable.observeForever(statusObservableMock)
-        it.moviesObservable.observeForever(moviesResultPageObservableMock)
+
+    @Before
+    @ExperimentalCoroutinesApi
+    fun setUp() {
+        testedClass = MoviesActivityViewModel(loadMoviesUseCaseMock)
+        testedClass.statusObservable.observeForever(statusObservableMock)
+        testedClass.moviesObservable.observeForever(moviesResultPageObservableMock)
     }
 
     @Test
