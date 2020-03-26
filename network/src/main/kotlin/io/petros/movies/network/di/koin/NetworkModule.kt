@@ -30,6 +30,7 @@ private fun httpLoggingInterceptor(): HttpLoggingInterceptor {
     return logging
 }
 
+@Suppress("ForbiddenComment")
 private fun okHttpClient(
     loggingInterceptor: HttpLoggingInterceptor
 ): OkHttpClient {
