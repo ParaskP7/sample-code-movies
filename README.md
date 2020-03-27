@@ -207,7 +207,7 @@ and library enhancements:
 13. **![#2cb42c](https://placehold.it/15/2cb42c/000000?text=+) `DONE`** Find new Versions Plugin.
     For example, see [Gradle Versions Plugin](https://github.com/ben-manes/gradle-versions-plugin)
     ```(Gradle plugin to discover dependency updates)```
-14. **![#ffff00](https://placehold.it/15/ffff00/000000?text=+) `IN PROGRESS`** Find new Dexcount Plugin.
+14. **![#ffff00](https://placehold.it/15/ff0000/000000?text=+) `PAUSED`** Find new Dexcount Plugin.
     For example, see [Dexcount Gradle Plugin](https://github.com/KeepSafe/dexcount-gradle-plugin)
     ```(A Gradle plugin to report the number of method references in your APK on every build)```
 15. Migrate to View Binding (From Kotlin Android Extensions Plugin). 
