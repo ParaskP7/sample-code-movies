@@ -68,6 +68,8 @@ Below is a list of goodies that are being showcased:
     detects things you might be doing by accident and brings them to your attention so you can fix them)```
 7. Build
     1. [Gradle Kotlin DSL](https://github.com/gradle/kotlin-dsl) ```(Kotlin language support for Gradle build scripts)```
+    2. [Gradle Versions](https://github.com/ben-manes/gradle-versions-plugin) ```(Gradle plugin to discover dependency
+    updates)```
 
 # Screenshots
 
@@ -191,7 +193,7 @@ and library enhancements:
 12. **![#2cb42c](https://placehold.it/15/2cb42c/000000?text=+) `DONE`** Re-add Detekt Plugin.
     For more info, see [Detekt](https://arturbosch.github.io/detekt) 
     ```(Static code analysis for Kotlin)```
-13. **![#ffff00](https://placehold.it/15/ffff00/000000?text=+) `IN PROGRESS`** Find new Versions Plugin.
+13. **![#2cb42c](https://placehold.it/15/2cb42c/000000?text=+) `DONE`** Find new Versions Plugin.
     For example, see [Gradle Versions Plugin](https://github.com/ben-manes/gradle-versions-plugin)
     ```(Gradle plugin to discover dependency updates)```
 14. Find new Dexcount Plugin.
