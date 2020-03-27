@@ -139,9 +139,18 @@ gradlew test
 
 Or if you want to be more specific, run the below commands to run the tests or your choice (per module):
 ```
-gradlew domain:test
-gradlew data:testDebugUnitTest
-gradlew presentation:testDebugUnitTest
+gradlew utils:test domain:test network:test
+gradlew android-utils:testDebugUnitTest data:testDebugUnitTest presentation:testDebugUnitTest
+```
+
+Run the project instrumentation tests using this command (Espresso):
+```
+gradlew connectedDebugAndroidTest
+```
+
+Use this command in order to check dependency updates for the project:
+```
+gradlew dependencyUpdates
 ```
 
 # Future
