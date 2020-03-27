@@ -11,6 +11,7 @@ plugins {
     id(PluginIds.Kotlin.Android.ANDROID)
     id(PluginIds.Quality.DETEKT)
     // id(PluginIds.Test.Android.J_UNIT_5) // FIXME: Failed to notify project evaluation listener.
+    id(PluginIds.Dependency.VERSIONS)
 }
 
 /* ANDROID */

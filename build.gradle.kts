@@ -11,6 +11,9 @@ import com.android.build.gradle.internal.dsl.TestOptions
 import com.android.build.gradle.LibraryExtension
 import com.android.build.gradle.LibraryPlugin as AndroidLibraryPlugin
 
+import com.github.benmanes.gradle.versions.VersionsPlugin
+import com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask
+
 import de.mannodermaus.gradle.plugins.junit5.AndroidJUnitPlatformPlugin
 import de.mannodermaus.gradle.plugins.junit5.junitPlatform
 
@@ -41,6 +44,7 @@ buildscript {
         classpath(Deps.Plugin.KOTLIN)
         classpath(Deps.Plugin.DETEKT)
         classpath(Deps.Plugin.ANDROID_J_UNIT_5)
+        classpath(Deps.Plugin.VERSIONS)
     }
 }
 
@@ -94,11 +98,17 @@ fun Project.subprojectsPlugins() {
         log(PluginIds.Test.Android.J_UNIT_5)
         androidBase { androidBase() }
     }
+    plugins.withType(VersionsPlugin::class) {
+        log(PluginIds.Dependency.VERSIONS)
+    }
 }
 
 fun Project.subprojectsTasks() {
     tasks.withType<KotlinCompile>().configureEach {
         kotlinOptions { kotlinOptions() }
+    }
+    tasks.withType<DependencyUpdatesTask> {
+        versionsOptions()
     }
 }
 
@@ -266,6 +276,26 @@ fun LintOptions.lintOptions() {
 fun KotlinJvmOptions.kotlinOptions() {
     jvmTarget = Java.version.toString()
     allWarningsAsErrors = true
+}
+
+/* CONFIGURATION EXTENSION FUNCTIONS - VERSIONS */
+
+fun DependencyUpdatesTask.versionsOptions() {
+    rejectVersionIf { isNonStable(candidate.version) }
+    gradleReleaseChannel = Config.Versions.GRADLE_RELEASE_CHANNEL
+    checkConstraints = false
+    checkForGradleUpdate = true
+    outputFormatter = Config.Versions.OUTPUT_FORMATTER
+    outputDir = Config.Versions.OUTPUT_DIR
+    reportfileName = Config.Versions.REPORT_FILE_NAME
+}
+
+fun isNonStable(version: String): Boolean {
+    val regex = Config.Versions.REGEX.toRegex()
+    val stableKeyword = Config.Versions.stableKeyword.any { version.toUpperCase().contains(it) }
+    val nonStableKeyword = Config.Versions.nonStableKeyword.any { version.toUpperCase().contains(it) }
+    val isStable = !nonStableKeyword && (stableKeyword || regex.matches(version))
+    return isStable.not()
 }
 
 /* *********************************************************************************************************************** */

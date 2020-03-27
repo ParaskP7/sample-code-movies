@@ -6,6 +6,7 @@ plugins {
     id(PluginIds.Android.LIBRARY)
     id(PluginIds.Kotlin.Android.ANDROID)
     id(PluginIds.Quality.DETEKT)
+    id(PluginIds.Dependency.VERSIONS)
 }
 
 /* DEPENDENCIES */
