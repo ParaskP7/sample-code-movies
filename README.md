@@ -57,11 +57,13 @@ Below is a list of goodies that are being showcased:
     accessibility, and internationalization)```
     2. [Detekt](https://github.com/arturbosch/detekt) ```(Static code analysis for Kotlin)```
 5. Tests
-    1. [JUnit](https://github.com/junit-team/junit4) ```(A programmer-oriented testing framework for Java)```
-    2. [Strikt](https://strikt.io) ```(Strikt is an assertion library for Kotlin intended for use with a test runner such as 
+    1. [JUnit4](https://junit.org/junit4) ```(A programmer-oriented testing framework for Java)```
+    2. [JUnit5](https://junit.org/junit5) ```(JUnit 5 is the next generation of JUnit)```
+    3. [Spek](https://spekframework.org) ```(A specification framework for Kotlin)```
+    4. [Strikt](https://strikt.io) ```(Strikt is an assertion library for Kotlin intended for use with a test runner such as 
     JUnit or Spek)```
-    3. [MockK](https://mockk.io) ```(MockK is a mocking library for Kotlin)```
-    4. [Robolectric](https://github.com/robolectric/robolectric) ```(Android Unit Testing Framework)```
+    5. [MockK](https://mockk.io) ```(MockK is a mocking library for Kotlin)```
+    6. [Robolectric](https://github.com/robolectric/robolectric) ```(Android Unit Testing Framework)```
 6. Debug
     1. [LeakCanary](https://github.com/square/leakcanary) ```(A memory leak detection library for Android and Java)```
     1. [Strict Mode](https://developer.android.com/reference/android/os/StrictMode) ```(StrictMode is a developer tool which 
@@ -191,8 +193,8 @@ and library enhancements:
 09. **![#2cb42c](https://placehold.it/15/2cb42c/000000?text=+) `DONE`** Replace Mockito Kotlin with MockK.
     For more info see [MockK](https://mockk.io) 
     ```(MockK is a mocking library for Kotlin)```
-10. **![#2cb42c](https://placehold.it/15/2cb42c/000000?text=+) `DONE`** Upgrade JUnit4 to SPEK Framework and JUnit5. 
-    For more info, see [SPEK](https://spekframework.org) 
+10. **![#2cb42c](https://placehold.it/15/2cb42c/000000?text=+) `DONE`** Upgrade JUnit4 to Spek Framework and JUnit5. 
+    For more info, see [Spek](https://spekframework.org) 
     ```(A specification framework for Kotlin)``` 
     and [JUnit5](https://junit.org/junit5) 
     ```(JUnit 5 is the next generation of JUnit)```
