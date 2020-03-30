@@ -11,13 +11,13 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="@dimen/toolbar_height"
-        app:layout_constraintBottom_toTopOf="@id/recycler_view"
+        app:layout_constraintBottom_toTopOf="@id/recyclerView"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
         app:layout_constraintVertical_chainStyle="packed"/>
 
     <io.petros.movies.presentation.feature.common.view.InfiniteRecyclerView
-        android:id="@+id/recycler_view"
+        android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="@dimen/item_movie_space"
