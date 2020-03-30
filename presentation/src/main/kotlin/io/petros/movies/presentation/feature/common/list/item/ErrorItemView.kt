@@ -2,10 +2,10 @@ package io.petros.movies.presentation.feature.common.list.item
 
 import android.content.Context
 import android.util.AttributeSet
+import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.FrameLayout
-import io.petros.movies.R
-import io.petros.movies.android_utils.inflate
+import io.petros.movies.databinding.ErrorItemViewBinding
 
 class ErrorItemView : FrameLayout {
 
@@ -14,7 +14,7 @@ class ErrorItemView : FrameLayout {
     constructor(ctx: Context, attrs: AttributeSet) : super(ctx, attrs)
 
     init {
-        inflate(R.layout.error_item_view)
+        ErrorItemViewBinding.inflate(LayoutInflater.from(context), this, true)
         initView()
     }
 

@@ -2,9 +2,9 @@ package io.petros.movies.presentation.feature.common.toolbar
 
 import android.content.Context
 import android.util.AttributeSet
+import android.view.LayoutInflater
 import com.google.android.material.appbar.AppBarLayout
-import io.petros.movies.R
-import io.petros.movies.android_utils.inflate
+import io.petros.movies.databinding.MovieDetailsToolbarBinding
 
 class MovieDetailsToolbar : AppBarLayout {
 
@@ -13,7 +13,7 @@ class MovieDetailsToolbar : AppBarLayout {
     constructor(ctx: Context, attrs: AttributeSet) : super(ctx, attrs)
 
     init {
-        inflate(R.layout.movie_details_toolbar)
+        MovieDetailsToolbarBinding.inflate(LayoutInflater.from(context), this)
     }
 
 }

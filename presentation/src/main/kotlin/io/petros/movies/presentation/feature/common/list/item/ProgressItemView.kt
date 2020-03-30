@@ -2,10 +2,10 @@ package io.petros.movies.presentation.feature.common.list.item
 
 import android.content.Context
 import android.util.AttributeSet
+import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.FrameLayout
-import io.petros.movies.R
-import io.petros.movies.android_utils.inflate
+import io.petros.movies.databinding.ProgressItemViewBinding
 
 class ProgressItemView : FrameLayout {
 
@@ -14,7 +14,7 @@ class ProgressItemView : FrameLayout {
     constructor(ctx: Context, attrs: AttributeSet) : super(ctx, attrs)
 
     init {
-        inflate(R.layout.progress_item_view)
+        ProgressItemViewBinding.inflate(LayoutInflater.from(context), this, true)
         initView()
     }
 
