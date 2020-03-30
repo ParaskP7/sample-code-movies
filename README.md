@@ -210,7 +210,7 @@ and library enhancements:
 14. **![#ffff00](https://placehold.it/15/ff0000/000000?text=+) `PAUSED`** Find new Dexcount Plugin.
     For example, see [Dexcount Gradle Plugin](https://github.com/KeepSafe/dexcount-gradle-plugin)
     ```(A Gradle plugin to report the number of method references in your APK on every build)```
-15. **![#ffff00](https://placehold.it/15/ffff00/000000?text=+) `IN PROGRESS`** Migrate to View Binding (From Kotlin Android Extensions Plugin). 
+15. **![#2cb42c](https://placehold.it/15/2cb42c/000000?text=+) `DONE`** Migrate to View Binding (From Kotlin Android Extensions Plugin). 
     For more info, see [View Binding](https://developer.android.com/topic/libraries/view-binding) 
     ```(View binding is a feature that allows you to more easily write code that interacts with views. Once view binding is enabled in a module, it generates a binding class for each XML layout file present in that module. An instance of a binding class contains direct references to all views that have an ID in the corresponding layout)```
 16. Add Jetpack Compose.
