@@ -9,7 +9,6 @@ import com.android.build.gradle.internal.dsl.DefaultConfig
 plugins {
     id(PluginIds.Android.APPLICATION)
     id(PluginIds.Kotlin.Android.ANDROID)
-    id(PluginIds.Kotlin.Android.EXTENSIONS)
     id(PluginIds.Kotlin.KAPT) // This plugin is required because of Glide.
     id(PluginIds.Quality.DETEKT)
     // id(PluginIds.Test.Android.J_UNIT_5)  // FIXME: Failed to notify project evaluation listener.

@@ -1,8 +1,9 @@
 package io.petros.movies.presentation.feature.movies
 
 import android.os.Bundle
+import android.view.View
 import androidx.lifecycle.Observer
-import io.petros.movies.R
+import io.petros.movies.databinding.MoviesActivityBinding
 import io.petros.movies.presentation.feature.BaseActivity
 import io.petros.movies.presentation.feature.common.picker.MovieMonthPickerFragment
 import io.petros.movies.presentation.feature.common.picker.MovieMonthPickerFragmentCallback
@@ -14,7 +15,6 @@ import io.petros.movies.presentation.feature.movies.list.MoviesAdapter
 import io.petros.movies.presentation.feature.movies.listener.MovieCallback
 import io.petros.movies.presentation.feature.movies.navigator.MoviesNavigator
 import io.petros.movies.presentation.feature.movies.view.SharedElementMovie
-import kotlinx.android.synthetic.main.movies_activity.*
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
@@ -29,6 +29,8 @@ class MoviesActivity : BaseActivity(), InfiniteRecyclerView.Listener, MoviesTool
 
     private val adapter = MoviesAdapter()
 
+    @Suppress("LateinitUsage") private lateinit var binding: MoviesActivityBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         initToolbar()
@@ -38,13 +40,13 @@ class MoviesActivity : BaseActivity(), InfiniteRecyclerView.Listener, MoviesTool
     }
 
     private fun initToolbar() {
-        toolbar.callback = this
+        binding.toolbar.callback = this
     }
 
     private fun initRecyclerView() {
         adapter.callback = this
-        recycler_view.adapter = adapter
-        recycler_view.listener = this
+        binding.recyclerView.adapter = adapter
+        binding.recyclerView.listener = this
     }
 
     /* OBSERVERS */
@@ -69,11 +71,11 @@ class MoviesActivity : BaseActivity(), InfiniteRecyclerView.Listener, MoviesTool
     /* DATA LOADING */
 
     override fun loadDataOrRestore() {
-        viewModel.loadMoviesOrRestore(toolbar.getYear(), toolbar.getMonth())
+        viewModel.loadMoviesOrRestore(binding.toolbar.getYear(), binding.toolbar.getMonth())
     }
 
     override fun loadData(page: Int?) {
-        viewModel.loadMovies(toolbar.getYear(), toolbar.getMonth(), page)
+        viewModel.loadMovies(binding.toolbar.getYear(), binding.toolbar.getMonth(), page)
     }
 
     /* NAVIGATION */
@@ -101,30 +103,33 @@ class MoviesActivity : BaseActivity(), InfiniteRecyclerView.Listener, MoviesTool
     }
 
     override fun onYearPicked(year: Int) {
-        toolbar.setYear(year)
-        toolbar.showMonth()
+        binding.toolbar.setYear(year)
+        binding.toolbar.showMonth()
         viewModel.reloadMovies(year)
     }
 
     override fun onMonthPicked(month: Int) {
-        toolbar.setMonth(month)
-        viewModel.reloadMovies(toolbar.getYear(), month)
+        binding.toolbar.setMonth(month)
+        viewModel.reloadMovies(binding.toolbar.getYear(), month)
     }
 
     /* CONFIGURATION CHANGE */
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         super.onRestoreInstanceState(savedInstanceState)
-        toolbar.onRestoreInstanceState(savedInstanceState)
+        binding.toolbar.onRestoreInstanceState(savedInstanceState)
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        toolbar.onSaveInstanceState(outState)
+        binding.toolbar.onSaveInstanceState(outState)
     }
 
     /* CONTRACT */
 
-    override fun constructContentView() = R.layout.movies_activity
+    override fun constructContentView(): View {
+        binding = MoviesActivityBinding.inflate(layoutInflater)
+        return binding.root
+    }
 
 }

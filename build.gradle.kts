@@ -9,6 +9,7 @@ import com.android.build.gradle.internal.dsl.DefaultConfig
 import com.android.build.gradle.internal.dsl.LintOptions
 import com.android.build.gradle.internal.dsl.TestOptions
 import com.android.build.gradle.LibraryExtension
+import com.android.build.gradle.api.ViewBindingOptions
 import com.android.build.gradle.LibraryPlugin as AndroidLibraryPlugin
 
 import com.github.benmanes.gradle.versions.VersionsPlugin
@@ -24,7 +25,6 @@ import io.gitlab.arturbosch.detekt.extensions.DetektExtension
 import org.gradle.api.Project
 
 import org.jetbrains.kotlin.gradle.dsl.KotlinJvmOptions
-import org.jetbrains.kotlin.gradle.internal.AndroidExtensionsSubpluginIndicator as KotlinAndroidExtensionsPlugin
 import org.jetbrains.kotlin.gradle.internal.Kapt3GradleSubplugin as KotlinKaptPlugin
 import org.jetbrains.kotlin.gradle.plugin.KaptExtension
 import org.jetbrains.kotlin.gradle.plugin.KotlinAndroidPluginWrapper as KotlinAndroidPlugin
@@ -78,9 +78,6 @@ fun Project.subprojectsPlugins() {
     }
     plugins.withType(KotlinAndroidPlugin::class) {
         log(PluginIds.Kotlin.Android.ANDROID)
-    }
-    plugins.withType(KotlinAndroidExtensionsPlugin::class) {
-        log(PluginIds.Kotlin.Android.EXTENSIONS)
     }
     plugins.withType(AndroidLibraryPlugin::class) {
         log(PluginIds.Android.LIBRARY)
@@ -201,6 +198,7 @@ fun LibraryExtension.androidLibrary() {
     sourceSets { sourceSets() }
     testOptions { testOptions() }
     lintOptions { lintOptions() }
+    viewBinding { viewBinding() }
 }
 
 fun AppExtension.androidApplication() {
@@ -211,6 +209,7 @@ fun AppExtension.androidApplication() {
     sourceSets { sourceSets() }
     testOptions { testOptions() }
     lintOptions { lintOptions() }
+    viewBinding { viewBinding() }
 }
 
 fun DetektExtension.detekt() {
@@ -265,6 +264,10 @@ fun LintOptions.lintOptions() {
     htmlReport = true
     xmlReport = true
     disable(*Config.Lint.disabledIssues)
+}
+
+fun ViewBindingOptions.viewBinding() {
+    isEnabled = true
 }
 
 /* *********************************************************************************************************************** */

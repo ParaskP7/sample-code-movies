@@ -3,13 +3,13 @@ package io.petros.movies.presentation.feature.common.toolbar
 import android.content.Context
 import android.os.Bundle
 import android.util.AttributeSet
+import android.view.LayoutInflater
 import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
 import com.google.android.material.appbar.AppBarLayout
 import io.petros.movies.R
-import io.petros.movies.android_utils.inflate
+import io.petros.movies.databinding.MoviesToolbarBinding
 import io.petros.movies.utils.MonthOfYear
-import kotlinx.android.synthetic.main.movies_toolbar.view.*
 import timber.log.Timber
 
 @Suppress("TooManyFunctions")
@@ -29,8 +29,9 @@ class MoviesToolbar : AppBarLayout { // MRT
 
     var callback: MoviesToolbarCallback? = null
 
+    private val binding = MoviesToolbarBinding.inflate(LayoutInflater.from(context), this)
+
     init {
-        inflate(R.layout.movies_toolbar)
         initFilterIcon()
         initCloseIcon()
         initYearFilter()
@@ -38,69 +39,69 @@ class MoviesToolbar : AppBarLayout { // MRT
     }
 
     private fun initFilterIcon() {
-        iv_filter_icon.setOnClickListener { onFilterIconClicked() }
+        binding.ivFilterIcon.setOnClickListener { onFilterIconClicked() }
     }
 
     private fun onFilterIconClicked() {
-        iv_filter_icon.isVisible = false
-        iv_close_icon.isVisible = true
+        binding.ivFilterIcon.isVisible = false
+        binding.ivCloseIcon.isVisible = true
         showYear()
     }
 
     private fun initCloseIcon() {
-        iv_close_icon.setOnClickListener { onCloseIconClicked() }
+        binding.ivCloseIcon.setOnClickListener { onCloseIconClicked() }
     }
 
     private fun onCloseIconClicked() {
-        iv_close_icon.isVisible = false
-        iv_filter_icon.isVisible = true
+        binding.ivCloseIcon.isVisible = false
+        binding.ivFilterIcon.isVisible = true
         hideYear()
         hideMonth()
         callback?.onCloseClicked()
     }
 
     private fun initYearFilter() {
-        tv_filter_year.setOnClickListener { callback?.onYearClicked() }
+        binding.tvFilterYear.setOnClickListener { callback?.onYearClicked() }
     }
 
     private fun initMonthFilter() {
-        tv_filter_month.setOnClickListener { callback?.onMonthClicked() }
+        binding.tvFilterMonth.setOnClickListener { callback?.onMonthClicked() }
     }
 
     /* SHOW/HIDE */
 
     @Suppress("MemberVisibilityCanBePrivate")
     fun showYear() {
-        tv_filter_year.isInvisible = false
-        tv_filter_year.text = context.getString(R.string.toolbar_movies_filter_year)
+        binding.tvFilterYear.isInvisible = false
+        binding.tvFilterYear.text = context.getString(R.string.toolbar_movies_filter_year)
     }
 
     @Suppress("MemberVisibilityCanBePrivate")
     fun hideYear() {
-        tv_filter_year.isInvisible = true
-        tv_filter_year.text = context.getString(R.string.toolbar_movies_filter_year)
+        binding.tvFilterYear.isInvisible = true
+        binding.tvFilterYear.text = context.getString(R.string.toolbar_movies_filter_year)
     }
 
     fun showMonth() {
-        tv_filter_month.isInvisible = false
-        tv_filter_month.text = context.getString(R.string.toolbar_movies_filter_month)
+        binding.tvFilterMonth.isInvisible = false
+        binding.tvFilterMonth.text = context.getString(R.string.toolbar_movies_filter_month)
     }
 
     @Suppress("MemberVisibilityCanBePrivate")
     fun hideMonth() {
-        tv_filter_month.isInvisible = true
-        tv_filter_month.text = context.getString(R.string.toolbar_movies_filter_month)
+        binding.tvFilterMonth.isInvisible = true
+        binding.tvFilterMonth.text = context.getString(R.string.toolbar_movies_filter_month)
     }
 
     /* YEAR */
 
     fun setYear(year: Int) {
-        tv_filter_year.text = year.toString()
+        binding.tvFilterYear.text = year.toString()
     }
 
     @Suppress("SwallowedException")
     fun getYear(): Int? {
-        val year = tv_filter_year.text.toString()
+        val year = binding.tvFilterYear.text.toString()
         return try {
             year.toInt()
         } catch (nfe: NumberFormatException) {
@@ -112,10 +113,10 @@ class MoviesToolbar : AppBarLayout { // MRT
     /* MONTH */
 
     fun setMonth(month: Int) {
-        tv_filter_month.text = MonthOfYear.from(month).monthName
+        binding.tvFilterMonth.text = MonthOfYear.from(month).monthName
     }
 
-    fun getMonth() = MonthOfYear.from(tv_filter_month.text).month
+    fun getMonth() = MonthOfYear.from(binding.tvFilterMonth.text).month
 
     /* CONFIGURATION CHANGE */
 
@@ -154,7 +155,7 @@ class MoviesToolbar : AppBarLayout { // MRT
     }
 
     private fun onSaveCloseIconInstanceState(outState: Bundle) {
-        outState.putBoolean(INSTANCE_STATE_KEY_CLOSE_ICON, iv_close_icon.isVisible)
+        outState.putBoolean(INSTANCE_STATE_KEY_CLOSE_ICON, binding.ivCloseIcon.isVisible)
     }
 
     private fun onSaveYearInstanceState(outState: Bundle) {

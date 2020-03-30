@@ -8,7 +8,6 @@ object PluginIds {
         object Android {
 
             const val ANDROID = "kotlin-android"
-            const val EXTENSIONS = "kotlin-android-extensions"
 
         }
 

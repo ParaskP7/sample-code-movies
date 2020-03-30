@@ -3,6 +3,7 @@ package io.petros.movies.presentation.feature
 import android.content.Intent
 import android.content.res.Configuration
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import timber.log.Timber
 
@@ -21,7 +22,7 @@ abstract class BaseActivity : AppCompatActivity() {
         constructContentView()?.let { setContentView(it) }
     }
 
-    protected abstract fun constructContentView(): Int?
+    protected abstract fun constructContentView(): View?
 
     override fun onNewIntent(intent: Intent) {
         super.onNewIntent(intent)

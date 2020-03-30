@@ -2,15 +2,16 @@ package io.petros.movies.presentation.feature.movies.view
 
 import android.content.Context
 import android.util.AttributeSet
+import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.annotation.VisibleForTesting
 import androidx.cardview.widget.CardView
 import io.petros.movies.R
 import io.petros.movies.android_utils.getDimension
-import io.petros.movies.android_utils.inflate
+import io.petros.movies.databinding.MovieItemViewBinding
 import io.petros.movies.domain.model.movie.Movie
 import io.petros.movies.presentation.feature.movies.listener.MovieCallback
 import io.petros.movies.presentation.image.glide.displayImage
-import kotlinx.android.synthetic.main.movie_item_view.view.*
 
 class MovieItemView : CardView {
 
@@ -18,8 +19,9 @@ class MovieItemView : CardView {
 
     constructor(ctx: Context, attrs: AttributeSet) : super(ctx, attrs)
 
+    @VisibleForTesting val binding = MovieItemViewBinding.inflate(LayoutInflater.from(context), this)
+
     init {
-        inflate(R.layout.movie_item_view)
         initView()
     }
 
@@ -38,14 +40,14 @@ class MovieItemView : CardView {
     }
 
     private fun bindMovie(movie: Movie) {
-        iv_movie_backdrop.displayImage(movie.backdrop)
-        tv_movie_title.text = movie.title
-        tv_movie_release_date.text = movie.releaseDate()
-        tv_movie_vote.text = movie.vote()
+        binding.ivMovieBackdrop.displayImage(movie.backdrop)
+        binding.tvMovieTitle.text = movie.title
+        binding.tvMovieReleaseDate.text = movie.releaseDate()
+        binding.tvMovieVote.text = movie.vote()
     }
 
     fun bindCallback(movie: Movie, callback: MovieCallback?) {
-        val sharedElementMovie = SharedElementMovie(movie, iv_movie_backdrop)
+        val sharedElementMovie = SharedElementMovie(movie, binding.ivMovieBackdrop)
         setOnClickListener { callback?.onClick(sharedElementMovie) }
     }
 

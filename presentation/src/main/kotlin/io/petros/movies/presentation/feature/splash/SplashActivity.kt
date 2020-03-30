@@ -1,6 +1,7 @@
 package io.petros.movies.presentation.feature.splash
 
 import android.os.Bundle
+import android.view.View
 import io.petros.movies.presentation.feature.BaseActivity
 import io.petros.movies.presentation.feature.splash.navigator.SplashNavigator
 import org.koin.android.ext.android.inject
@@ -17,6 +18,6 @@ class SplashActivity : BaseActivity() { // MET
 
     /* CONTRACT */
 
-    override fun constructContentView(): Int? = null
+    override fun constructContentView(): View? = null
 
 }
