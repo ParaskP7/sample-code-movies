@@ -213,24 +213,24 @@ and library enhancements:
 15. **![#2cb42c](https://placehold.it/15/2cb42c/000000?text=+) `DONE`** Migrate to View Binding (From Kotlin Android Extensions Plugin). 
     For more info, see [View Binding](https://developer.android.com/topic/libraries/view-binding) 
     ```(View binding is a feature that allows you to more easily write code that interacts with views. Once view binding is enabled in a module, it generates a binding class for each XML layout file present in that module. An instance of a binding class contains direct references to all views that have an ID in the corresponding layout)```
-16. Add Jetpack Compose.
-    For more info see [Jetpack Compose](https://developer.android.com/jetpack/compose)
-    ```(Jetpack Compose simplifies and accelerates UI development on Android. Quickly bring your app to life with less code, powerful tools, and intuitive Kotlin APIs)```
-17. Add Bitrise CI.
-    For more info see [Bitrise](https://www.bitrise.io)
-    ```(Continuous Integration and Continuous Delivery for mobile apps)```
-18. Add Support for Dark Theme.
-    For more info see [Dark Theme](https://developer.android.com/guide/topics/ui/look-and-feel/darktheme)
-    ```(Dark theme is available in Android 10 (API level 29) and higher)```
-19. Add Jetpack Benchmark.
-    For more info see [Jetpack Benchmark](https://developer.android.com/studio/profile/benchmark)
-    ```(The Jetpack Benchmark library allows you to quickly benchmark your Kotlin-based or Java-based code from within Android Studio. The library handles warmup, measures your code performance, and outputs benchmarking results to the Android Studio console)```
-20. Add Code Coverage Reports for Tests with Jacoco.
-    For more info see [Jacoco](https://github.com/jacoco/jacoco)
-    ```(Java Code Coverage Library)```
-21. Modularize the App Horizontally by Features.
+16. Modularize the App Horizontally by Features.
     To get an understanding of Modularization and how to it applies to an Android project, start with this Article [Modularization](https://medium.com/google-developer-experts/modularizing-android-applications-9e2d18f244a0)
     ```(To take advantage of new distribution features (Instant apps, app bundles) from Google, or even just create a clear separation of concerns to make our project easier to work with— modularizing our applications can help us to achieve all of these things)```
+17. Add Jetpack Compose.
+    For more info see [Jetpack Compose](https://developer.android.com/jetpack/compose)
+    ```(Jetpack Compose simplifies and accelerates UI development on Android. Quickly bring your app to life with less code, powerful tools, and intuitive Kotlin APIs)```
+18. Add Bitrise CI.
+    For more info see [Bitrise](https://www.bitrise.io)
+    ```(Continuous Integration and Continuous Delivery for mobile apps)```
+19. Add Support for Dark Theme.
+    For more info see [Dark Theme](https://developer.android.com/guide/topics/ui/look-and-feel/darktheme)
+    ```(Dark theme is available in Android 10 (API level 29) and higher)```
+20. Add Jetpack Benchmark.
+    For more info see [Jetpack Benchmark](https://developer.android.com/studio/profile/benchmark)
+    ```(The Jetpack Benchmark library allows you to quickly benchmark your Kotlin-based or Java-based code from within Android Studio. The library handles warmup, measures your code performance, and outputs benchmarking results to the Android Studio console)```
+21. Add Code Coverage Reports for Tests with Jacoco.
+    For more info see [Jacoco](https://github.com/jacoco/jacoco)
+    ```(Java Code Coverage Library)```
 22. Add KtLint as an extra Static Code Analysis Tool.
     For more info see [KtLint](https://github.com/shyiko/ktlint)
     ```(An anti-bikeshedding Kotlin linter with built-in formatter )```
