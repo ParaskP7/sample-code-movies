@@ -14,7 +14,7 @@ class ErrorItemView : FrameLayout {
     constructor(ctx: Context, attrs: AttributeSet) : super(ctx, attrs)
 
     init {
-        inflate(R.layout.item_error)
+        inflate(R.layout.error_item_view)
         initView()
     }
 

@@ -6,7 +6,7 @@ import io.petros.movies.domain.model.movie.Movie
 import io.petros.movies.presentation.feature.BaseActivity
 import io.petros.movies.presentation.feature.movie.navigator.MovieDetailsActivityLauncher.Companion.getMovie
 import io.petros.movies.presentation.image.glide.displayImage
-import kotlinx.android.synthetic.main.activity_movie_details.*
+import kotlinx.android.synthetic.main.movie_details_activity.*
 
 class MovieDetailsActivity : BaseActivity() { // MET
 
@@ -27,6 +27,6 @@ class MovieDetailsActivity : BaseActivity() { // MET
 
     /* CONTRACT */
 
-    override fun constructContentView() = R.layout.activity_movie_details
+    override fun constructContentView() = R.layout.movie_details_activity
 
 }

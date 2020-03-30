@@ -14,7 +14,7 @@ class ProgressItemView : FrameLayout {
     constructor(ctx: Context, attrs: AttributeSet) : super(ctx, attrs)
 
     init {
-        inflate(R.layout.item_progress)
+        inflate(R.layout.progress_item_view)
         initView()
     }
 

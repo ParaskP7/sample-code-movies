@@ -10,7 +10,7 @@ import io.petros.movies.android_utils.inflate
 import io.petros.movies.domain.model.movie.Movie
 import io.petros.movies.presentation.feature.movies.listener.MovieCallback
 import io.petros.movies.presentation.image.glide.displayImage
-import kotlinx.android.synthetic.main.item_movie.view.*
+import kotlinx.android.synthetic.main.movie_item_view.view.*
 
 class MovieItemView : CardView {
 
@@ -19,7 +19,7 @@ class MovieItemView : CardView {
     constructor(ctx: Context, attrs: AttributeSet) : super(ctx, attrs)
 
     init {
-        inflate(R.layout.item_movie)
+        inflate(R.layout.movie_item_view)
         initView()
     }
 

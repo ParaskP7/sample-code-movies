@@ -14,7 +14,7 @@ import io.petros.movies.presentation.feature.movies.list.MoviesAdapter
 import io.petros.movies.presentation.feature.movies.listener.MovieCallback
 import io.petros.movies.presentation.feature.movies.navigator.MoviesNavigator
 import io.petros.movies.presentation.feature.movies.view.SharedElementMovie
-import kotlinx.android.synthetic.main.activity_movies.*
+import kotlinx.android.synthetic.main.movies_activity.*
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
@@ -125,6 +125,6 @@ class MoviesActivity : BaseActivity(), InfiniteRecyclerView.Listener, MoviesTool
 
     /* CONTRACT */
 
-    override fun constructContentView() = R.layout.activity_movies
+    override fun constructContentView() = R.layout.movies_activity
 
 }

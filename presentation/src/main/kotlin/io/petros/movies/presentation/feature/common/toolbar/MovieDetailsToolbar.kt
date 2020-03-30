@@ -13,7 +13,7 @@ class MovieDetailsToolbar : AppBarLayout {
     constructor(ctx: Context, attrs: AttributeSet) : super(ctx, attrs)
 
     init {
-        inflate(R.layout.toolbar_movie_details)
+        inflate(R.layout.movie_details_toolbar)
     }
 
 }

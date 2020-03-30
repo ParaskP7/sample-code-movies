@@ -5,7 +5,7 @@ import io.mockk.verify
 import io.petros.movies.presentation.feature.movies.listener.MovieCallback
 import io.petros.movies.presentation.utils.TestRobolectricProvider.context
 import io.petros.movies.test.domain.movie
-import kotlinx.android.synthetic.main.item_movie.view.*
+import kotlinx.android.synthetic.main.movie_item_view.view.*
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner

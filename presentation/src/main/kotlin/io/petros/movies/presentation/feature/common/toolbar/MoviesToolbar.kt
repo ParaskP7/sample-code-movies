@@ -9,7 +9,7 @@ import com.google.android.material.appbar.AppBarLayout
 import io.petros.movies.R
 import io.petros.movies.android_utils.inflate
 import io.petros.movies.utils.MonthOfYear
-import kotlinx.android.synthetic.main.toolbar_movies.view.*
+import kotlinx.android.synthetic.main.movies_toolbar.view.*
 import timber.log.Timber
 
 @Suppress("TooManyFunctions")
@@ -30,7 +30,7 @@ class MoviesToolbar : AppBarLayout { // MRT
     var callback: MoviesToolbarCallback? = null
 
     init {
-        inflate(R.layout.toolbar_movies)
+        inflate(R.layout.movies_toolbar)
         initFilterIcon()
         initCloseIcon()
         initYearFilter()
