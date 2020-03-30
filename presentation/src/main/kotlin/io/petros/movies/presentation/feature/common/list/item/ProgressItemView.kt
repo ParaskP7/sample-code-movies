@@ -14,7 +14,7 @@ class ProgressItemView : FrameLayout {
     constructor(ctx: Context, attrs: AttributeSet) : super(ctx, attrs)
 
     init {
-        ProgressItemViewBinding.inflate(LayoutInflater.from(context), this, true)
+        ProgressItemViewBinding.inflate(LayoutInflater.from(context), this)
         initView()
     }
 

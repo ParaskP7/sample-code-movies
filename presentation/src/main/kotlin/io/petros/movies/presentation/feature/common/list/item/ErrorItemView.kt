@@ -14,7 +14,7 @@ class ErrorItemView : FrameLayout {
     constructor(ctx: Context, attrs: AttributeSet) : super(ctx, attrs)
 
     init {
-        ErrorItemViewBinding.inflate(LayoutInflater.from(context), this, true)
+        ErrorItemViewBinding.inflate(LayoutInflater.from(context), this)
         initView()
     }
 
