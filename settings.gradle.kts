@@ -8,6 +8,7 @@ include(":android-utils")
 /* TEST MODULES */
 
 include(":test")
+include(":android-test")
 
 /* DOMAIN MODULES */
 
@@ -21,3 +22,11 @@ include(":data")
 /* PRESENTATION MODULES */
 
 include(":presentation")
+include(":core")
+
+/* FEATURE MODULES */
+
+include(":feature:splash")
+include(":feature:movies")
+include(":feature:picker")
+include(":feature:movie-details")

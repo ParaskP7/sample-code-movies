@@ -19,7 +19,7 @@
         tools:replace="android:allowBackup">
 
         <activity
-            android:name=".presentation.feature.splash.SplashActivity"
+            android:name=".splash.SplashActivity"
             android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -27,9 +27,9 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".presentation.feature.movies.MoviesActivity"/>
+        <activity android:name=".movies.MoviesActivity" />
 
-        <activity android:name=".presentation.feature.movie.MovieDetailsActivity"/>
+        <activity android:name=".movie_details.MovieDetailsActivity" />
 
     </application>
 

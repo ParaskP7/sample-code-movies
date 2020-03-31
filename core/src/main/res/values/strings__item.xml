@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+    <string name="error_loading">
+        Oops, we encountered an error while loading your movies…\n
+        \n
+        Please click here to try again!
+    </string>
+
+</resources>

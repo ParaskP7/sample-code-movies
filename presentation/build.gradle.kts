@@ -9,7 +9,6 @@ import com.android.build.gradle.internal.dsl.DefaultConfig
 plugins {
     id(PluginIds.Android.APPLICATION)
     id(PluginIds.Kotlin.Android.ANDROID)
-    id(PluginIds.Kotlin.KAPT) // This plugin is required because of Glide.
     id(PluginIds.Quality.DETEKT)
     // id(PluginIds.Test.Android.J_UNIT_5)  // FIXME: Failed to notify project evaluation listener.
     id(PluginIds.Dependency.VERSIONS)
@@ -29,7 +28,6 @@ dependencies {
     debugImplementation()
     implementation()
     testProjectImplementation()
-    testImplementation()
     androidTestImplementation()
     plugins()
 }
@@ -64,6 +62,10 @@ fun DependencyHandlerScope.projectImplementation() {
     implementation(project(Project.Implementation.ANDROID_UTILS))
     implementation(project(Project.Implementation.DOMAIN))
     implementation(project(Project.Implementation.DATA))
+    implementation(project(Project.Implementation.CORE))
+    implementation(project(Project.Implementation.SPLASH))
+    implementation(project(Project.Implementation.MOVIES))
+    implementation(project(Project.Implementation.MOVIE_DETAILS))
 }
 
 /* DEPENDENCIES - BUILD TYPE IMPLEMENTATION */
@@ -76,56 +78,27 @@ fun DependencyHandlerScope.debugImplementation() {
 
 fun DependencyHandlerScope.implementation() {
     implementationKotlin()
-    implementationMaterial()
     implementationAndroidCore()
-    implementationAndroidKtx()
     implementationAndroidArch()
     implementationDi()
-    implementationGlide()
-    implementationUtil()
     implementationLog()
 }
 
 fun DependencyHandlerScope.implementationKotlin() {
     implementation(Deps.Kotlin.Core.KOTLIN)
-    implementation(Deps.Kotlin.Coroutines.CORE)
-    implementation(Deps.Kotlin.Coroutines.ANDROID)
-}
-
-fun DependencyHandlerScope.implementationMaterial() {
-    implementation(Deps.Material.MATERIAL)
 }
 
 fun DependencyHandlerScope.implementationAndroidCore() {
     implementation(Deps.Android.Core.APP_COMPAT)
-    implementation(Deps.Android.Core.RECYCLER_VIEW)
-    implementation(Deps.Android.Core.CARD_VIEW)
-    implementation(Deps.Android.Core.CONSTRAINT_LAYOUT)
-}
-
-fun DependencyHandlerScope.implementationAndroidKtx() {
-    implementation(Deps.Android.Ktx.CORE)
 }
 
 fun DependencyHandlerScope.implementationAndroidArch() {
-    implementation(Deps.Android.Arch.Core.Lifecycle.LIVE_DATA)
-    implementation(Deps.Android.Arch.Core.Lifecycle.VIEW_MODEL)
-    implementation(Deps.Android.Arch.Core.Lifecycle.VIEW_MODEL_KTX)
     implementation(Deps.Android.Arch.Core.Lifecycle.PROCESS)
 }
 
 fun DependencyHandlerScope.implementationDi() {
     implementation(Deps.Di.Koin.Android.ANDROID)
     implementation(Deps.Di.Koin.Android.VIEW_MODEL)
-}
-
-fun DependencyHandlerScope.implementationGlide() {
-    implementation(Deps.Image.Glide.GLIDE)
-    kapt(Deps.Image.Glide.GLIDE_COMPILER)
-}
-
-fun DependencyHandlerScope.implementationUtil() {
-    implementation(Deps.Util.MONTH_YEAR_PICKER)
 }
 
 fun DependencyHandlerScope.implementationLog() {
@@ -136,50 +109,6 @@ fun DependencyHandlerScope.implementationLog() {
 
 fun DependencyHandlerScope.testProjectImplementation() {
     testImplementation(project(Project.TestImplementation.TEST))
-}
-
-/* DEPENDENCIES - TEST IMPLEMENTATION */
-
-fun DependencyHandlerScope.testImplementation() {
-    testImplementationKotlin()
-    testImplementationSpek()
-    testImplementationJUnit()
-    testImplementationTest()
-    testImplementationMock()
-    testImplementationAndroidArch()
-    testImplementationRobolectric()
-}
-
-fun DependencyHandlerScope.testImplementationKotlin() {
-    testImplementation(Deps.Kotlin.Coroutines.Test.TEST)
-}
-
-fun DependencyHandlerScope.testImplementationSpek() {
-    testImplementation(Deps.Test.Spek.DSL)
-    testImplementation(Deps.Test.Spek.J_UNIT_5)
-    testRuntimeOnly(Deps.Kotlin.Core.KOTLIN_REFLECT)
-}
-
-fun DependencyHandlerScope.testImplementationJUnit() {
-    testImplementation(Deps.Test.JUnit.J_UNIT_4)
-    testRuntimeOnly(Deps.Test.JUnit.J_UNIT_5)
-}
-
-fun DependencyHandlerScope.testImplementationTest() {
-    testImplementation(Deps.Test.Assert.STRIKT)
-}
-
-fun DependencyHandlerScope.testImplementationMock() {
-    testImplementation(Deps.Test.Mock.MOCK_K)
-}
-
-fun DependencyHandlerScope.testImplementationAndroidArch() {
-    testImplementation(Deps.Android.Arch.Test.CORE_TESTING)
-}
-
-fun DependencyHandlerScope.testImplementationRobolectric() {
-    testImplementation(Deps.Android.Test.CORE)
-    testImplementation(Deps.Android.Test.ROBOLECTRIC)
 }
 
 /* DEPENDENCIES - ANDROID TEST IMPLEMENTATION */

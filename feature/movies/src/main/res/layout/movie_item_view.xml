@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/ivMovieBackdrop"
+            style="@style/ItemMovieBackdropImageView"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/item_movie_backdrop_height"
+            android:transitionName="@string/movie_backdrop_shared_element"
+            app:layout_constraintBottom_toTopOf="@id/llMovieDetails"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription"
+            tools:src="@android:color/darker_gray" />
+
+        <TextView
+            android:id="@+id/tvMovieTitle"
+            style="@style/ItemMovieTitleTextView"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/item_movie_backdrop_height"
+            app:layout_constraintBottom_toBottomOf="@id/ivMovieBackdrop"
+            app:layout_constraintTop_toTopOf="@id/ivMovieBackdrop"
+            tools:text="Avengers: Infinity War" />
+
+        <LinearLayout
+            android:id="@+id/llMovieDetails"
+            style="@style/ItemMovieLinearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvMovieTitle">
+
+            <TextView
+                android:id="@+id/tvMovieReleaseDate"
+                style="@style/ItemMovieDetailsTextView.Left"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                tools:text="2018 (April)" />
+
+            <TextView
+                android:id="@+id/tvMovieVote"
+                style="@style/ItemMovieDetailsTextView.Right"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                tools:text="8.3 ★ (7651)"/>
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</merge>

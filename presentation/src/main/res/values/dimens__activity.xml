@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-
-<resources>
-
-    <!-- Movie details dimensions and properties. -->
-    <dimen name="activity_movie_details_backdrop_height">250dp</dimen>
-
-</resources>

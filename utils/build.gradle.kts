@@ -38,15 +38,10 @@ fun DependencyHandlerScope.testProjectImplementation() {
 /* DEPENDENCIES - TEST IMPLEMENTATION */
 
 fun DependencyHandlerScope.testImplementation() {
-    testImplementationKotlin()
     testImplementationSpek()
     testImplementationJUnit()
     testImplementationTest()
     testImplementationMock()
-}
-
-fun DependencyHandlerScope.testImplementationKotlin() {
-    testImplementation(Deps.Kotlin.Coroutines.Test.TEST)
 }
 
 fun DependencyHandlerScope.testImplementationSpek() {

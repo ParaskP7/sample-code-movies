@@ -1,13 +1,13 @@
 package io.petros.movies.presentation.di.koin
 
 import androidx.appcompat.app.AppCompatActivity
-import io.petros.movies.presentation.feature.movie.navigator.MovieDetailsActivityLauncher
-import io.petros.movies.presentation.feature.movies.MoviesActivityViewModel
-import io.petros.movies.presentation.feature.movies.navigator.MoviesActivityLauncher
-import io.petros.movies.presentation.feature.movies.navigator.MoviesActivityNavigator
-import io.petros.movies.presentation.feature.movies.navigator.MoviesNavigator
-import io.petros.movies.presentation.feature.splash.navigator.SplashActivityNavigator
-import io.petros.movies.presentation.feature.splash.navigator.SplashNavigator
+import io.petros.movies.movie_details.navigator.MovieDetailsActivityLauncher
+import io.petros.movies.movies.MoviesActivityViewModel
+import io.petros.movies.movies.navigator.MoviesActivityLauncher
+import io.petros.movies.movies.navigator.MoviesActivityNavigator
+import io.petros.movies.movies.navigator.MoviesNavigator
+import io.petros.movies.splash.navigator.SplashActivityNavigator
+import io.petros.movies.splash.navigator.SplashNavigator
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 

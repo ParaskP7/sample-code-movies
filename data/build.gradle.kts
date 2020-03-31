@@ -57,17 +57,12 @@ fun DependencyHandlerScope.projectImplementation() {
 
 fun DependencyHandlerScope.implementation() {
     implementationKotlin()
-    implementationAndroid()
     implementationDi()
 }
 
 fun DependencyHandlerScope.implementationKotlin() {
     implementation(Deps.Kotlin.Core.KOTLIN)
     implementation(Deps.Kotlin.Coroutines.CORE)
-}
-
-fun DependencyHandlerScope.implementationAndroid() {
-    implementation(Deps.Android.Core.APP_COMPAT)
 }
 
 fun DependencyHandlerScope.implementationDi() {
