@@ -10,7 +10,6 @@ plugins {
     id(PluginIds.Android.APPLICATION)
     id(PluginIds.Kotlin.Android.ANDROID)
     id(PluginIds.Quality.DETEKT)
-    // id(PluginIds.Test.Android.J_UNIT_5)  // FIXME: Failed to notify project evaluation listener.
     id(PluginIds.Dependency.VERSIONS)
 }
 
@@ -91,7 +90,6 @@ fun DependencyHandlerScope.debugImplementation() {
 
 fun DependencyHandlerScope.implementation() {
     implementationKotlin()
-    implementationAndroidCore()
     implementationAndroidArch()
     implementationDi()
     implementationLog()
@@ -101,17 +99,12 @@ fun DependencyHandlerScope.implementationKotlin() {
     implementation(Deps.Kotlin.Core.KOTLIN)
 }
 
-fun DependencyHandlerScope.implementationAndroidCore() {
-    implementation(Deps.Android.Core.APP_COMPAT)
-}
-
 fun DependencyHandlerScope.implementationAndroidArch() {
     implementation(Deps.Android.Arch.Core.Lifecycle.PROCESS)
 }
 
 fun DependencyHandlerScope.implementationDi() {
     implementation(Deps.Di.Koin.Android.ANDROID)
-    implementation(Deps.Di.Koin.Android.VIEW_MODEL)
 }
 
 fun DependencyHandlerScope.implementationLog() {
