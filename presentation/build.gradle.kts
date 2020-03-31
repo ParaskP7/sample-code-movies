@@ -27,7 +27,6 @@ dependencies {
     projectImplementation()
     debugImplementation()
     implementation()
-    testProjectImplementation()
     androidTestImplementation()
     plugins()
 }
@@ -63,7 +62,6 @@ fun DependencyHandlerScope.projectImplementation() {
 }
 
 fun DependencyHandlerScope.kotlinProjectImplementation() {
-    implementation(project(Project.Implementation.Kotlin.UTILS))
     implementation(project(Project.Implementation.Kotlin.DOMAIN))
 }
 
@@ -73,7 +71,6 @@ fun DependencyHandlerScope.androidProjectImplementation() {
 }
 
 fun DependencyHandlerScope.androidProjectImplementationCore() {
-    implementation(project(Project.Implementation.Android.Core.ANDROID_UTILS))
     implementation(project(Project.Implementation.Android.Core.DATA))
     implementation(project(Project.Implementation.Android.Core.CORE))
 }
@@ -119,16 +116,6 @@ fun DependencyHandlerScope.implementationDi() {
 
 fun DependencyHandlerScope.implementationLog() {
     implementation(Deps.Log.TIMBER)
-}
-
-/* DEPENDENCIES - TEST PROJECT IMPLEMENTATION */
-
-fun DependencyHandlerScope.testProjectImplementation() {
-    kotlinTestProjectImplementation()
-}
-
-fun DependencyHandlerScope.kotlinTestProjectImplementation() {
-    testImplementation(project(Project.TestImplementation.Kotlin.TEST))
 }
 
 /* DEPENDENCIES - ANDROID TEST IMPLEMENTATION */
