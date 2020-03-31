@@ -2,8 +2,6 @@
 
 <resources>
 
-    <!-- Label -->
-
     <style name="ToolbarLabel">
         <item name="android:layout_gravity">center</item>
         <item name="android:paddingEnd">16dp</item>

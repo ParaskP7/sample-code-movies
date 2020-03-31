@@ -2,7 +2,6 @@
 
 <resources>
 
-    <!-- Movie -->
     <string name="dialog_picker_movie_year">Select Movie Year</string>
     <string name="dialog_picker_movie_month">Select Movie Month</string>
 
