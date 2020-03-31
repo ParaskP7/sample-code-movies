@@ -1,4 +1,4 @@
-@file:Suppress("InvalidPackageDeclaration", "ForbiddenComment")
+@file:Suppress("InvalidPackageDeclaration", "ForbiddenComment", "FunctionMaxLength")
 
 import com.android.build.gradle.ProguardFiles.getDefaultProguardFile
 import com.android.build.gradle.internal.dsl.BuildType
@@ -58,14 +58,30 @@ fun NamedDomainObjectContainer<BuildType>.buildTypes() {
 /* DEPENDENCIES - PROJECT IMPLEMENTATION */
 
 fun DependencyHandlerScope.projectImplementation() {
-    implementation(project(Project.Implementation.UTILS))
-    implementation(project(Project.Implementation.ANDROID_UTILS))
-    implementation(project(Project.Implementation.DOMAIN))
-    implementation(project(Project.Implementation.DATA))
-    implementation(project(Project.Implementation.CORE))
-    implementation(project(Project.Implementation.SPLASH))
-    implementation(project(Project.Implementation.MOVIES))
-    implementation(project(Project.Implementation.MOVIE_DETAILS))
+    kotlinProjectImplementation()
+    androidProjectImplementation()
+}
+
+fun DependencyHandlerScope.kotlinProjectImplementation() {
+    implementation(project(Project.Implementation.Kotlin.UTILS))
+    implementation(project(Project.Implementation.Kotlin.DOMAIN))
+}
+
+fun DependencyHandlerScope.androidProjectImplementation() {
+    androidProjectImplementationCore()
+    androidProjectImplementationFeature()
+}
+
+fun DependencyHandlerScope.androidProjectImplementationCore() {
+    implementation(project(Project.Implementation.Android.Core.ANDROID_UTILS))
+    implementation(project(Project.Implementation.Android.Core.DATA))
+    implementation(project(Project.Implementation.Android.Core.CORE))
+}
+
+fun DependencyHandlerScope.androidProjectImplementationFeature() {
+    implementation(project(Project.Implementation.Android.Feature.SPLASH))
+    implementation(project(Project.Implementation.Android.Feature.MOVIES))
+    implementation(project(Project.Implementation.Android.Feature.MOVIE_DETAILS))
 }
 
 /* DEPENDENCIES - BUILD TYPE IMPLEMENTATION */
@@ -108,7 +124,11 @@ fun DependencyHandlerScope.implementationLog() {
 /* DEPENDENCIES - TEST PROJECT IMPLEMENTATION */
 
 fun DependencyHandlerScope.testProjectImplementation() {
-    testImplementation(project(Project.TestImplementation.TEST))
+    kotlinTestProjectImplementation()
+}
+
+fun DependencyHandlerScope.kotlinTestProjectImplementation() {
+    testImplementation(project(Project.TestImplementation.Kotlin.TEST))
 }
 
 /* DEPENDENCIES - ANDROID TEST IMPLEMENTATION */

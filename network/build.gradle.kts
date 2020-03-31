@@ -1,4 +1,4 @@
-@file:Suppress("InvalidPackageDeclaration")
+@file:Suppress("InvalidPackageDeclaration", "FunctionMaxLength")
 
 /* PLUGINS */
 
@@ -23,8 +23,12 @@ dependencies {
 /* DEPENDENCIES - PROJECT IMPLEMENTATION */
 
 fun DependencyHandlerScope.projectImplementation() {
-    implementation(project(Project.Implementation.UTILS))
-    implementation(project(Project.Implementation.DOMAIN))
+    kotlinProjectImplementation()
+}
+
+fun DependencyHandlerScope.kotlinProjectImplementation() {
+    implementation(project(Project.Implementation.Kotlin.UTILS))
+    implementation(project(Project.Implementation.Kotlin.DOMAIN))
 }
 
 /* DEPENDENCIES - IMPLEMENTATION */
@@ -57,7 +61,11 @@ fun DependencyHandlerScope.implementationRetrofit() {
 /* DEPENDENCIES - TEST PROJECT IMPLEMENTATION */
 
 fun DependencyHandlerScope.testProjectImplementation() {
-    testImplementation(project(Project.TestImplementation.TEST))
+    kotlinTestProjectImplementation()
+}
+
+fun DependencyHandlerScope.kotlinTestProjectImplementation() {
+    testImplementation(project(Project.TestImplementation.Kotlin.TEST))
 }
 
 /* DEPENDENCIES - TEST IMPLEMENTATION */

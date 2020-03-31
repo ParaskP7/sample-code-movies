@@ -22,7 +22,11 @@ dependencies {
 /* DEPENDENCIES - PROJECT IMPLEMENTATION */
 
 fun DependencyHandlerScope.projectImplementation() {
-    implementation(project(Project.Implementation.CORE))
+    androidProjectImplementation()
+}
+
+fun DependencyHandlerScope.androidProjectImplementation() {
+    implementation(project(Project.Implementation.Android.Core.CORE))
 }
 
 /* DEPENDENCIES - IMPLEMENTATION */

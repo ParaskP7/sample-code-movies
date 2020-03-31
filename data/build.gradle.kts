@@ -49,8 +49,12 @@ fun NamedDomainObjectContainer<BuildType>.buildTypes() {
 /* DEPENDENCIES - PROJECT IMPLEMENTATION */
 
 fun DependencyHandlerScope.projectImplementation() {
-    implementation(project(Project.Implementation.DOMAIN))
-    implementation(project(Project.Implementation.NETWORK))
+    kotlinProjectImplementation()
+}
+
+fun DependencyHandlerScope.kotlinProjectImplementation() {
+    implementation(project(Project.Implementation.Kotlin.DOMAIN))
+    implementation(project(Project.Implementation.Kotlin.NETWORK))
 }
 
 /* DEPENDENCIES - IMPLEMENTATION */
@@ -72,7 +76,11 @@ fun DependencyHandlerScope.implementationDi() {
 /* DEPENDENCIES - TEST PROJECT IMPLEMENTATION */
 
 fun DependencyHandlerScope.testProjectImplementation() {
-    testImplementation(project(Project.TestImplementation.TEST))
+    kotlinTestProjectImplementation()
+}
+
+fun DependencyHandlerScope.kotlinTestProjectImplementation() {
+    testImplementation(project(Project.TestImplementation.Kotlin.TEST))
 }
 
 /* DEPENDENCIES - TEST IMPLEMENTATION */

@@ -1,4 +1,4 @@
-@file:Suppress("InvalidPackageDeclaration")
+@file:Suppress("InvalidPackageDeclaration", "FunctionMaxLength")
 
 /* PLUGINS */
 
@@ -32,7 +32,11 @@ fun DependencyHandlerScope.implementationKotlin() {
 /* DEPENDENCIES - TEST PROJECT IMPLEMENTATION */
 
 fun DependencyHandlerScope.testProjectImplementation() {
-    testImplementation(project(Project.TestImplementation.TEST))
+    kotlinTestProjectImplementation()
+}
+
+fun DependencyHandlerScope.kotlinTestProjectImplementation() {
+    testImplementation(project(Project.TestImplementation.Kotlin.TEST))
 }
 
 /* DEPENDENCIES - TEST IMPLEMENTATION */

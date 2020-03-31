@@ -23,7 +23,11 @@ dependencies {
 /* DEPENDENCIES - PROJECT IMPLEMENTATION */
 
 fun DependencyHandlerScope.projectImplementation() {
-    implementation(project(Project.Implementation.UTILS))
+    kotlinProjectImplementation()
+}
+
+fun DependencyHandlerScope.kotlinProjectImplementation() {
+    implementation(project(Project.Implementation.Kotlin.UTILS))
 }
 
 /* DEPENDENCIES - IMPLEMENTATION */
@@ -45,7 +49,11 @@ fun DependencyHandlerScope.implementationDi() {
 /* DEPENDENCIES - TEST PROJECT IMPLEMENTATION */
 
 fun DependencyHandlerScope.testProjectImplementation() {
-    testImplementation(project(Project.TestImplementation.TEST))
+    kotlinTestProjectImplementation()
+}
+
+fun DependencyHandlerScope.kotlinTestProjectImplementation() {
+    testImplementation(project(Project.TestImplementation.Kotlin.TEST))
 }
 
 /* DEPENDENCIES - TEST IMPLEMENTATION */

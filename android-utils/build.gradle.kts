@@ -22,7 +22,11 @@ dependencies {
 /* DEPENDENCIES - PROJECT IMPLEMENTATION */
 
 fun DependencyHandlerScope.projectImplementation() {
-    implementation(project(Project.Implementation.UTILS))
+    kotlinProjectImplementation()
+}
+
+fun DependencyHandlerScope.kotlinProjectImplementation() {
+    implementation(project(Project.Implementation.Kotlin.UTILS))
 }
 
 /* DEPENDENCIES - IMPLEMENTATION */

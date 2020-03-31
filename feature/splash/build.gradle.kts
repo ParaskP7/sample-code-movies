@@ -1,4 +1,4 @@
-@file:Suppress("InvalidPackageDeclaration", "ForbiddenComment")
+@file:Suppress("InvalidPackageDeclaration", "ForbiddenComment", "FunctionMaxLength")
 
 /* PLUGINS */
 
@@ -25,8 +25,20 @@ dependencies {
 /* DEPENDENCIES - PROJECT IMPLEMENTATION */
 
 fun DependencyHandlerScope.projectImplementation() {
-    implementation(project(Project.Implementation.CORE))
-    implementation(project(Project.Implementation.MOVIES))
+    androidProjectImplementation()
+}
+
+fun DependencyHandlerScope.androidProjectImplementation() {
+    androidProjectImplementationCore()
+    androidProjectImplementationFeature()
+}
+
+fun DependencyHandlerScope.androidProjectImplementationCore() {
+    implementation(project(Project.Implementation.Android.Core.CORE))
+}
+
+fun DependencyHandlerScope.androidProjectImplementationFeature() {
+    implementation(project(Project.Implementation.Android.Feature.MOVIES))
 }
 
 /* DEPENDENCIES - IMPLEMENTATION */
@@ -52,7 +64,11 @@ fun DependencyHandlerScope.implementationDi() {
 /* DEPENDENCIES - TEST PROJECT IMPLEMENTATION */
 
 fun DependencyHandlerScope.testProjectImplementation() {
-    testImplementation(project(Project.TestImplementation.TEST))
+    kotlinTestProjectImplementation()
+}
+
+fun DependencyHandlerScope.kotlinTestProjectImplementation() {
+    testImplementation(project(Project.TestImplementation.Kotlin.TEST))
 }
 
 /* DEPENDENCIES - TEST IMPLEMENTATION */
