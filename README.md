@@ -120,7 +120,7 @@ gradlew uninstallDebug | gradlew installDebug
 Or faster yet, target a specific device (in our case an emulator):
 ```
 adb -s emulator-5554 uninstall io.petros.movies | 
-adb -s emulator-5554 install presentation\build\outputs\apk\debug\presentation-debug.apk
+adb -s emulator-5554 install app\build\outputs\apk\debug\app-debug.apk
 ```
 
 Use this command in order to run the static code analysis for the project:
@@ -142,12 +142,12 @@ gradlew test
 Or if you want to be more specific, run the below commands to run the tests or your choice (per module):
 ```
 gradlew utils:test domain:test network:test
-gradlew android-utils:testDebugUnitTest data:testDebugUnitTest presentation:testDebugUnitTest
+gradlew testDebugUnitTest
 ```
 
 Run the project instrumentation tests using this command (Espresso):
 ```
-gradlew connectedDebugAndroidTest
+gradlew app:connectedDebugAndroidTest
 ```
 
 Use this command in order to check dependency updates for the project:

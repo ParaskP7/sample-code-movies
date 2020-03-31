@@ -19,9 +19,12 @@ include(":domain")
 include(":network")
 include(":data")
 
-/* PRESENTATION MODULES */
+/* APP MODULE */
 
-include(":presentation")
+include(":app")
+
+/* CORE MODULES */
+
 include(":core")
 
 /* FEATURE MODULES */

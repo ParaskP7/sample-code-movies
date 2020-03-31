@@ -1,6 +1,6 @@
 @file:Suppress("unused")
 
-package io.petros.movies.presentation
+package io.petros.movies.app
 
 import android.app.Application
 import android.os.Build
@@ -11,9 +11,9 @@ import androidx.lifecycle.OnLifecycleEvent
 import androidx.lifecycle.ProcessLifecycleOwner
 import io.petros.movies.BuildConfig
 import io.petros.movies.R
+import io.petros.movies.app.di.koin.appModule
 import io.petros.movies.data.di.koin.dataModule
 import io.petros.movies.domain.di.koin.domainModule
-import io.petros.movies.presentation.di.koin.presentationModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -35,7 +35,7 @@ class App : Application(), LifecycleObserver {
         startKoin {
             androidLogger()
             androidContext(this@App)
-            modules(presentationModule + dataModule + domainModule)
+            modules(appModule + dataModule + domainModule)
         }
     }
 
