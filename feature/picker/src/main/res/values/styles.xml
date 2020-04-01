@@ -2,6 +2,7 @@
 
 <resources xmlns:tools="http://schemas.android.com/tools" >
 
+    <!-- Do not change style name as it is being used to override 'monthandyearpicker' library's theme. -->
     <style name="MonthPickerDialogStyle" tools:ignore="UnusedResources">
         <item name="monthBgSelectedColor">@color/colorPrimary</item>
         <item name="headerBgColor">@color/colorPrimary</item>
