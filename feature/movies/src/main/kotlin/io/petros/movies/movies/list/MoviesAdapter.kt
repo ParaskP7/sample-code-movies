@@ -14,7 +14,9 @@ import io.petros.movies.movies.list.item.MovieItemCallback
 import io.petros.movies.movies.list.item.MovieItemView
 import kotlin.math.max
 
-class MoviesAdapter(items: ArrayList<Movie> = arrayListOf()) : InfiniteAdapter<Movie>(items) {
+class MoviesAdapter(
+    items: ArrayList<Movie> = arrayListOf()
+) : InfiniteAdapter<Movie>(items) {
 
     companion object {
         internal const val VIEW_TYPE_PROGRESS = 0

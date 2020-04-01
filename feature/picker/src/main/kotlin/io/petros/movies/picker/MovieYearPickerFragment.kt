@@ -7,7 +7,8 @@ import androidx.fragment.app.FragmentManager
 import com.whiteelephant.monthpicker.MonthPickerDialog
 import java.util.*
 
-class MovieYearPickerFragment : DialogFragment(), MonthPickerDialog.OnDateSetListener { // MRT
+class MovieYearPickerFragment : DialogFragment(),
+    MonthPickerDialog.OnDateSetListener { // MRT
 
     companion object {
 

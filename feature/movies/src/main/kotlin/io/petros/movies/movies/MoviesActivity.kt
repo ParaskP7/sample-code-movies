@@ -20,8 +20,12 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
 
 @Suppress("TooManyFunctions")
-class MoviesActivity : BaseActivity(), InfiniteRecyclerView.Listener, MoviesToolbarCallback,
-    MovieYearPickerFragmentCallback, MovieMonthPickerFragmentCallback, MovieItemCallback { // MET
+class MoviesActivity : BaseActivity(),
+    MoviesToolbarCallback,
+    MovieItemCallback,
+    InfiniteRecyclerView.Listener,
+    MovieYearPickerFragmentCallback,
+    MovieMonthPickerFragmentCallback { // MET
 
     private val viewModel: MoviesActivityViewModel by viewModel()
 

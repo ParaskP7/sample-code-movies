@@ -63,8 +63,9 @@ import org.junit.runner.Description
  */
 @ExperimentalCoroutinesApi
 @Suppress("KDocUnresolvedReference", "MemberVisibilityCanBePrivate")
-class MainCoroutineScopeRule(val dispatcher: TestCoroutineDispatcher = TestCoroutineDispatcher()) :
-    TestWatcher(),
+class MainCoroutineScopeRule(
+    val dispatcher: TestCoroutineDispatcher = TestCoroutineDispatcher()
+) : TestWatcher(),
     TestCoroutineScope by TestCoroutineScope(dispatcher) {
     override fun starting(description: Description?) {
         super.starting(description)

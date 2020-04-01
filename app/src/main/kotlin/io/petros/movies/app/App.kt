@@ -20,7 +20,8 @@ import org.koin.core.context.startKoin
 import timber.log.Timber
 
 @Suppress("TooManyFunctions")
-class App : Application(), LifecycleObserver {
+class App : Application(),
+    LifecycleObserver {
 
     override fun onCreate() {
         super.onCreate()

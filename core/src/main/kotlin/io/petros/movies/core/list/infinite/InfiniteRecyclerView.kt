@@ -5,7 +5,8 @@ import android.util.AttributeSet
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
-class InfiniteRecyclerView : RecyclerView, InfiniteScrollListener.Listener {
+class InfiniteRecyclerView : RecyclerView,
+    InfiniteScrollListener.Listener {
 
     var listener: Listener? = null
 
