@@ -8,4 +8,28 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <!-- Toolbar -->
+    <style name="ToolbarLabel">
+        <item name="android:layout_gravity">center</item>
+        <item name="android:paddingEnd">16dp</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <!-- Item -->
+    <style name="ItemLoadingProgressBar">
+        <item name="android:layout_gravity">center</item>
+        <item name="android:padding">@dimen/spacing_l</item>
+    </style>
+
+    <style name="ItemErrorTextView">
+        <item name="android:layout_gravity">center</item>
+        <item name="android:gravity">center</item>
+        <item name="android:padding">@dimen/spacing_l</item>
+        <item name="android:text">@string/error_loading</item>
+        <item name="android:textColor">@color/colorAccent</item>
+        <item name="android:textSize">@dimen/text_size_20</item>
+    </style>
+
 </resources>

@@ -22,4 +22,7 @@
     <dimen name="text_size_20">20sp</dimen>
     <dimen name="text_size_24">24sp</dimen>
 
+    <!-- Toolbar -->
+    <dimen name="toolbar_height">56dp</dimen>
+
 </resources>

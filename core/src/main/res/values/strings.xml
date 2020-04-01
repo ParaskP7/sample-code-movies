@@ -2,6 +2,9 @@
 
 <resources>
 
+    <string name="movie_backdrop_shared_element">movie_backdrop</string>
+
+    <!-- Item -->
     <string name="error_loading">
         Oops, we encountered an error while loading your movies…\n
         \n

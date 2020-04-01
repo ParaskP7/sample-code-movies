@@ -2,6 +2,7 @@
 
 <resources>
 
+    <!-- Item -->
     <dimen name="item_movie_backdrop_height">200dp</dimen>
     <dimen name="item_movie_margin">8dp</dimen>
     <dimen name="item_movie_space">8dp</dimen>

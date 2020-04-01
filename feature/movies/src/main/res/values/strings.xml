@@ -4,4 +4,8 @@
 
     <string name="activity_movies_name">Movies</string>
 
+    <!-- Toolbar -->
+    <string name="toolbar_movies_filter_year">Year</string>
+    <string name="toolbar_movies_filter_month">Month</string>
+
 </resources>

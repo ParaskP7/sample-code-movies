@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-
-<resources>
-
-    <string name="toolbar_movies_filter_year">Year</string>
-    <string name="toolbar_movies_filter_month">Month</string>
-
-</resources>
