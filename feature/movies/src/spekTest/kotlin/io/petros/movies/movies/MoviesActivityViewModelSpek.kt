@@ -1,4 +1,4 @@
-package io.petros.movies.splash
+package io.petros.movies.movies
 
 import androidx.lifecycle.Observer
 import io.mockk.coEvery
@@ -10,7 +10,6 @@ import io.petros.movies.core.list.AdapterStatus
 import io.petros.movies.domain.interactor.movie.LoadMoviesUseCase
 import io.petros.movies.domain.model.common.PaginationData
 import io.petros.movies.domain.model.movie.Movie
-import io.petros.movies.movies.MoviesActivityViewModel
 import io.petros.movies.test.domain.MOVIE_MONTH
 import io.petros.movies.test.domain.MOVIE_YEAR
 import io.petros.movies.test.domain.NEXT_PAGE

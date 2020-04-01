@@ -1,4 +1,4 @@
-package io.petros.movies.movies_details.navigator
+package io.petros.movies.movie_details.navigator
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -6,7 +6,6 @@ import io.mockk.mockk
 import io.mockk.slot
 import io.mockk.verify
 import io.petros.movies.movie_details.MovieDetailsActivity
-import io.petros.movies.movie_details.navigator.MovieDetailsActivityLauncher
 import io.petros.movies.movie_details.navigator.MovieDetailsActivityLauncher.Companion.getMovie
 import io.petros.movies.test.domain.movie
 import org.junit.Test
