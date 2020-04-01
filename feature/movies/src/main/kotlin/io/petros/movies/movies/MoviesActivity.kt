@@ -95,11 +95,11 @@ class MoviesActivity : BaseActivity(), InfiniteRecyclerView.Listener, MoviesTool
     }
 
     override fun onYearClicked() {
-        MovieYearPickerFragment().show(supportFragmentManager, MovieYearPickerFragment.TAG)
+        MovieYearPickerFragment().show(supportFragmentManager)
     }
 
     override fun onMonthClicked() {
-        MovieMonthPickerFragment().show(supportFragmentManager, MovieMonthPickerFragment.TAG)
+        MovieMonthPickerFragment().show(supportFragmentManager)
     }
 
     override fun onYearPicked(year: Int) {

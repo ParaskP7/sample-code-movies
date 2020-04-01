@@ -3,6 +3,7 @@ package io.petros.movies.picker
 import android.app.Dialog
 import android.os.Bundle
 import androidx.fragment.app.DialogFragment
+import androidx.fragment.app.FragmentManager
 import com.whiteelephant.monthpicker.MonthPickerDialog
 import java.util.*
 
@@ -10,7 +11,7 @@ class MovieMonthPickerFragment : DialogFragment(), MonthPickerDialog.OnDateSetLi
 
     companion object {
 
-        const val TAG = "MovieMonthPickerFragment"
+        private const val TAG = "MovieMonthPickerFragment"
 
     }
 
@@ -26,6 +27,10 @@ class MovieMonthPickerFragment : DialogFragment(), MonthPickerDialog.OnDateSetLi
 
     override fun onDateSet(selectedMonth: Int, selectedYear: Int) {
         (activity as? MovieMonthPickerFragmentCallback)?.onMonthPicked(selectedMonth)
+    }
+
+    fun show(manager: FragmentManager) {
+        show(manager, TAG)
     }
 
 }
