@@ -2,17 +2,17 @@
 
 <resources>
 
-    <style name="BackdropImageView">
+    <style name="ivBackdrop">
         <item name="android:scaleType">fitXY</item>
     </style>
 
-    <style name="TitleTextView">
+    <style name="tvTitle">
         <item name="android:padding">16dp</item>
         <item name="android:textColor">@android:color/black</item>
         <item name="android:textSize">24sp</item>
     </style>
 
-    <style name="ReleaseDateTextView">
+    <style name="tvReleaseDate">
         <item name="android:paddingBottom">2dp</item>
         <item name="android:paddingLeft">16dp</item>
         <item name="android:paddingRight">16dp</item>
@@ -20,7 +20,7 @@
         <item name="android:textSize">18sp</item>
     </style>
 
-    <style name="VoteTextView">
+    <style name="tvVote">
         <item name="android:paddingLeft">16dp</item>
         <item name="android:paddingRight">16dp</item>
         <item name="android:paddingTop">2dp</item>
@@ -28,7 +28,7 @@
         <item name="android:textSize">18sp</item>
     </style>
 
-    <style name="OverviewTextView">
+    <style name="tvOverview">
         <item name="android:padding">16dp</item>
         <item name="android:textColor">@android:color/black</item>
         <item name="android:textSize">16sp</item>

@@ -10,7 +10,7 @@
 
         <ImageView
             android:id="@+id/ivItemBackdrop"
-            style="@style/ItemBackdropImageView"
+            style="@style/ivItemBackdrop"
             android:layout_width="match_parent"
             android:layout_height="@dimen/item_movie_backdrop_height"
             android:transitionName="@string/movie_backdrop_shared_element"
@@ -21,7 +21,7 @@
 
         <TextView
             android:id="@+id/tvItemTitle"
-            style="@style/ItemTitleTextView"
+            style="@style/tvItemTitle"
             android:layout_width="match_parent"
             android:layout_height="@dimen/item_movie_backdrop_height"
             app:layout_constraintBottom_toBottomOf="@id/ivItemBackdrop"
@@ -30,7 +30,7 @@
 
         <LinearLayout
             android:id="@+id/llItemDetails"
-            style="@style/ItemDetailsLinearLayout"
+            style="@style/ctrItemDetails"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -39,7 +39,7 @@
 
             <TextView
                 android:id="@+id/tvItemReleaseDate"
-                style="@style/ItemReleaseDateTextView"
+                style="@style/tvItemReleaseDate"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -47,7 +47,7 @@
 
             <TextView
                 android:id="@+id/tvItemVote"
-                style="@style/ItemVoteTextView"
+                style="@style/tvItemVote"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"

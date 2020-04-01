@@ -3,7 +3,7 @@
 <merge xmlns:android="http://schemas.android.com/apk/res/android">
 
     <TextView
-        style="@style/ErrorItemTextView"
+        style="@style/tvErrorItem"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 

@@ -8,21 +8,21 @@
     </style>
 
     <!-- Toolbar -->
-    <style name="ToolbarFilterIconImageView">
+    <style name="ivToolbarFilterIcon">
         <item name="android:layout_gravity">center</item>
         <item name="android:paddingEnd">10dp</item>
         <item name="android:paddingStart">10dp</item>
         <item name="android:src">@drawable/ic_filter</item>
     </style>
 
-    <style name="ToolbarCloseIconImageView">
+    <style name="ivToolbarCloseIcon">
         <item name="android:layout_gravity">center</item>
         <item name="android:paddingEnd">10dp</item>
         <item name="android:paddingStart">10dp</item>
         <item name="android:src">@drawable/ic_close</item>
     </style>
 
-    <style name="ToolbarFilterYearTextView">
+    <style name="tvToolbarFilterYear">
         <item name="android:layout_gravity">center</item>
         <item name="android:paddingEnd">16dp</item>
         <item name="android:paddingStart">16dp</item>
@@ -30,7 +30,7 @@
         <item name="android:textSize">20sp</item>
     </style>
 
-    <style name="ToolbarFilterMonthTextView">
+    <style name="tvToolbarFilterMonth">
         <item name="android:layout_gravity">center</item>
         <item name="android:paddingEnd">10dp</item>
         <item name="android:paddingStart">10dp</item>
@@ -39,11 +39,11 @@
     </style>
 
     <!-- Item -->
-    <style name="ItemBackdropImageView">
+    <style name="ivItemBackdrop">
         <item name="android:scaleType">fitXY</item>
     </style>
 
-    <style name="ItemTitleTextView">
+    <style name="tvItemTitle">
         <item name="android:background">@drawable/shape_gradient</item>
         <item name="android:gravity">start|bottom</item>
         <item name="android:padding">16dp</item>
@@ -51,20 +51,20 @@
         <item name="android:textSize">24sp</item>
     </style>
 
-    <style name="ItemDetailsLinearLayout">
+    <style name="ctrItemDetails">
         <item name="android:paddingBottom">8dp</item>
         <item name="android:paddingLeft">16dp</item>
         <item name="android:paddingRight">16dp</item>
         <item name="android:paddingTop">8dp</item>
     </style>
 
-    <style name="ItemReleaseDateTextView">
+    <style name="tvItemReleaseDate">
         <item name="android:gravity">start|center</item>
         <item name="android:textColor">@android:color/black</item>
         <item name="android:textSize">18sp</item>
     </style>
 
-    <style name="ItemVoteTextView">
+    <style name="tvItemVote">
         <item name="android:gravity">end|center</item>
         <item name="android:textColor">@android:color/black</item>
         <item name="android:textSize">18sp</item>
