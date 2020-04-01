@@ -1,11 +1,9 @@
-package io.petros.movies.movies.view
+package io.petros.movies.movies.list.item
 
 import io.mockk.mockk
 import io.mockk.verify
 import io.petros.movies.android_test.context.TestContextProvider.context
 import io.petros.movies.core.view.SharedElementMovie
-import io.petros.movies.movies.list.item.MovieItemCallback
-import io.petros.movies.movies.list.item.MovieItemView
 import io.petros.movies.test.domain.movie
 import org.junit.Test
 import org.junit.runner.RunWith
