@@ -15,56 +15,56 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="@dimen/toolbar_height"
-            app:layout_constraintBottom_toTopOf="@id/ivMovieBackdrop"
+            app:layout_constraintBottom_toTopOf="@id/ivBackdrop"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0"
             app:layout_constraintVertical_chainStyle="packed" />
 
         <ImageView
-            android:id="@+id/ivMovieBackdrop"
+            android:id="@+id/ivBackdrop"
             style="@style/BackdropImageView"
             android:layout_width="match_parent"
             android:layout_height="@dimen/activity_movie_details_backdrop_height"
             android:transitionName="@string/movie_backdrop_shared_element"
-            app:layout_constraintBottom_toTopOf="@+id/tvMovieTitle"
+            app:layout_constraintBottom_toTopOf="@+id/tvTitle"
             app:layout_constraintTop_toTopOf="@id/toolbar"
             tools:ignore="ContentDescription"
             tools:src="@android:color/darker_gray" />
 
         <TextView
-            android:id="@+id/tvMovieTitle"
+            android:id="@+id/tvTitle"
             style="@style/TitleTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toTopOf="@id/tvMovieReleaseDate"
-            app:layout_constraintTop_toBottomOf="@id/ivMovieBackdrop"
+            app:layout_constraintBottom_toTopOf="@id/tvReleaseDate"
+            app:layout_constraintTop_toBottomOf="@id/ivBackdrop"
             tools:text="Avengers: Infinity War" />
 
         <TextView
-            android:id="@+id/tvMovieReleaseDate"
+            android:id="@+id/tvReleaseDate"
             style="@style/ReleaseDateTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toTopOf="@id/tvMovieVote"
-            app:layout_constraintTop_toBottomOf="@id/tvMovieTitle"
+            app:layout_constraintBottom_toTopOf="@id/tvVote"
+            app:layout_constraintTop_toBottomOf="@id/tvTitle"
             tools:text="2018 (April)" />
 
         <TextView
-            android:id="@+id/tvMovieVote"
+            android:id="@+id/tvVote"
             style="@style/VoteTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toTopOf="@id/tvMovieOverview"
-            app:layout_constraintTop_toBottomOf="@id/tvMovieReleaseDate"
+            app:layout_constraintBottom_toTopOf="@id/tvOverview"
+            app:layout_constraintTop_toBottomOf="@id/tvReleaseDate"
             tools:text="8.3 ★ (7651)" />
 
         <TextView
-            android:id="@+id/tvMovieOverview"
+            android:id="@+id/tvOverview"
             style="@style/OverviewTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvMovieVote"
+            app:layout_constraintTop_toBottomOf="@id/tvVote"
             tools:text="As the Avengers and their allies have continued to protect the world from threats too large for any one hero to handle, a new danger has emerged from the cosmic shadows: Thanos. A despot of intergalactic infamy, his goal is to collect all six Infinity Stones, artifacts of unimaginable power, and use them to inflict his twisted will on all of reality. Everything the Avengers have fought for has led up to this moment - the fate of Earth and existence itself has never been more uncertain."/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

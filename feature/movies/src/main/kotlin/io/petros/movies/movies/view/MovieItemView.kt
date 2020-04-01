@@ -41,14 +41,14 @@ class MovieItemView : CardView {
     }
 
     private fun bindMovie(movie: Movie) {
-        binding.ivMovieBackdrop.displayImage(movie.backdrop)
-        binding.tvMovieTitle.text = movie.title
-        binding.tvMovieReleaseDate.text = movie.releaseDate()
-        binding.tvMovieVote.text = movie.vote()
+        binding.ivItemBackdrop.displayImage(movie.backdrop)
+        binding.tvItemTitle.text = movie.title
+        binding.tvItemReleaseDate.text = movie.releaseDate()
+        binding.tvItemVote.text = movie.vote()
     }
 
     fun bindCallback(movie: Movie, callback: MovieCallback?) {
-        val sharedElementMovie = SharedElementMovie(movie, binding.ivMovieBackdrop)
+        val sharedElementMovie = SharedElementMovie(movie, binding.ivItemBackdrop)
         setOnClickListener { callback?.onClick(sharedElementMovie) }
     }
 

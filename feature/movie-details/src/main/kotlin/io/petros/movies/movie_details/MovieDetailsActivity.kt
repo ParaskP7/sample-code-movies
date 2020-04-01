@@ -20,11 +20,11 @@ class MovieDetailsActivity : BaseActivity() { // MET
     }
 
     private fun initMovie(movie: Movie) {
-        binding.ivMovieBackdrop.displayImage(movie.backdrop)
-        binding.tvMovieTitle.text = movie.title
-        binding.tvMovieReleaseDate.text = movie.releaseDate()
-        binding.tvMovieVote.text = movie.vote()
-        binding.tvMovieOverview.text = movie.overview
+        binding.ivBackdrop.displayImage(movie.backdrop)
+        binding.tvTitle.text = movie.title
+        binding.tvReleaseDate.text = movie.releaseDate()
+        binding.tvVote.text = movie.vote()
+        binding.tvOverview.text = movie.overview
     }
 
     /* CONTRACT */

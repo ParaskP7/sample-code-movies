@@ -16,14 +16,14 @@
             android:text="@string/activity_movies_name"/>
 
         <ImageView
-            android:id="@+id/ivFilterIcon"
+            android:id="@+id/ivToolbarFilterIcon"
             style="@style/ToolbarFilterIconImageView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             tools:ignore="ContentDescription" />
 
         <ImageView
-            android:id="@+id/ivCloseIcon"
+            android:id="@+id/ivToolbarCloseIcon"
             style="@style/ToolbarCloseIconImageView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -31,7 +31,7 @@
             tools:ignore="ContentDescription" />
 
         <TextView
-            android:id="@+id/tvFilterYear"
+            android:id="@+id/tvToolbarFilterYear"
             style="@style/ToolbarFilterYearTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -39,7 +39,7 @@
             android:visibility="invisible"/>
 
         <TextView
-            android:id="@+id/tvFilterMonth"
+            android:id="@+id/tvToolbarFilterMonth"
             style="@style/ToolbarFilterMonthTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

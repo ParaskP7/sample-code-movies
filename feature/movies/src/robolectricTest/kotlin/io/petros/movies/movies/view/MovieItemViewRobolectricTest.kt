@@ -24,39 +24,39 @@ class MovieItemViewRobolectricTest {
     private val testedClass = MovieItemView(context())
 
     @Test
-    fun `when movie is bind, then the movie backdrop is set`() {
-        expect { that(testedClass.binding.ivMovieBackdrop.drawable).isNull() }
+    fun `when movie is bind, then the item backdrop is set`() {
+        expect { that(testedClass.binding.ivItemBackdrop.drawable).isNull() }
 
         testedClass.bind(movie)
 
-        expect { that(testedClass.binding.ivMovieBackdrop.drawable).isNotNull() }
+        expect { that(testedClass.binding.ivItemBackdrop.drawable).isNotNull() }
     }
 
     @Test
-    fun `when movie is bind, then the movie title is set`() {
+    fun `when movie is bind, then the item title is set`() {
         testedClass.bind(movie)
 
-        expect { that(testedClass.binding.tvMovieTitle.text).isEqualTo(movie.title) }
+        expect { that(testedClass.binding.tvItemTitle.text).isEqualTo(movie.title) }
     }
 
     @Test
-    fun `when movie is bind, then the movie release date is set`() {
+    fun `when movie is bind, then the item release date is set`() {
         testedClass.bind(movie)
 
-        expect { that(testedClass.binding.tvMovieReleaseDate.text).isEqualTo(movie.releaseDate()) }
+        expect { that(testedClass.binding.tvItemReleaseDate.text).isEqualTo(movie.releaseDate()) }
     }
 
     @Test
-    fun `when movie is bind, then the movie vote is set`() {
+    fun `when movie is bind, then the item vote is set`() {
         testedClass.bind(movie)
 
-        expect { that(testedClass.binding.tvMovieVote.text).isEqualTo(movie.vote()) }
+        expect { that(testedClass.binding.tvItemVote.text).isEqualTo(movie.vote()) }
     }
 
     @Test
     fun `when movie callback is bind, then the callback's on click event is triggered`() {
         testedClass.bindCallback(movie, callbackMock)
-        val sharedElementMovie = SharedElementMovie(movie, testedClass.binding.ivMovieBackdrop)
+        val sharedElementMovie = SharedElementMovie(movie, testedClass.binding.ivItemBackdrop)
 
         testedClass.performClick()
 

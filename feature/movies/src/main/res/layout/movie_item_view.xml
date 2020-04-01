@@ -9,36 +9,36 @@
         android:layout_height="wrap_content">
 
         <ImageView
-            android:id="@+id/ivMovieBackdrop"
+            android:id="@+id/ivItemBackdrop"
             style="@style/ItemBackdropImageView"
             android:layout_width="match_parent"
             android:layout_height="@dimen/item_movie_backdrop_height"
             android:transitionName="@string/movie_backdrop_shared_element"
-            app:layout_constraintBottom_toTopOf="@id/llMovieDetails"
+            app:layout_constraintBottom_toTopOf="@id/llItemDetails"
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="ContentDescription"
             tools:src="@android:color/darker_gray" />
 
         <TextView
-            android:id="@+id/tvMovieTitle"
+            android:id="@+id/tvItemTitle"
             style="@style/ItemTitleTextView"
             android:layout_width="match_parent"
             android:layout_height="@dimen/item_movie_backdrop_height"
-            app:layout_constraintBottom_toBottomOf="@id/ivMovieBackdrop"
-            app:layout_constraintTop_toTopOf="@id/ivMovieBackdrop"
+            app:layout_constraintBottom_toBottomOf="@id/ivItemBackdrop"
+            app:layout_constraintTop_toTopOf="@id/ivItemBackdrop"
             tools:text="Avengers: Infinity War" />
 
         <LinearLayout
-            android:id="@+id/llMovieDetails"
+            android:id="@+id/llItemDetails"
             style="@style/ItemDetailsLinearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvMovieTitle">
+            app:layout_constraintTop_toBottomOf="@id/tvItemTitle">
 
             <TextView
-                android:id="@+id/tvMovieReleaseDate"
+                android:id="@+id/tvItemReleaseDate"
                 style="@style/ItemReleaseDateTextView"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -46,7 +46,7 @@
                 tools:text="2018 (April)" />
 
             <TextView
-                android:id="@+id/tvMovieVote"
+                android:id="@+id/tvItemVote"
                 style="@style/ItemVoteTextView"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"

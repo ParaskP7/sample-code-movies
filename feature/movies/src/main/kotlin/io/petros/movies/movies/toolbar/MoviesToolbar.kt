@@ -39,69 +39,69 @@ class MoviesToolbar : AppBarLayout { // MRT
     }
 
     private fun initFilterIcon() {
-        binding.ivFilterIcon.setOnClickListener { onFilterIconClicked() }
+        binding.ivToolbarFilterIcon.setOnClickListener { onFilterIconClicked() }
     }
 
     private fun onFilterIconClicked() {
-        binding.ivFilterIcon.isVisible = false
-        binding.ivCloseIcon.isVisible = true
+        binding.ivToolbarFilterIcon.isVisible = false
+        binding.ivToolbarCloseIcon.isVisible = true
         showYear()
     }
 
     private fun initCloseIcon() {
-        binding.ivCloseIcon.setOnClickListener { onCloseIconClicked() }
+        binding.ivToolbarCloseIcon.setOnClickListener { onCloseIconClicked() }
     }
 
     private fun onCloseIconClicked() {
-        binding.ivCloseIcon.isVisible = false
-        binding.ivFilterIcon.isVisible = true
+        binding.ivToolbarCloseIcon.isVisible = false
+        binding.ivToolbarFilterIcon.isVisible = true
         hideYear()
         hideMonth()
         callback?.onCloseClicked()
     }
 
     private fun initYearFilter() {
-        binding.tvFilterYear.setOnClickListener { callback?.onYearClicked() }
+        binding.tvToolbarFilterYear.setOnClickListener { callback?.onYearClicked() }
     }
 
     private fun initMonthFilter() {
-        binding.tvFilterMonth.setOnClickListener { callback?.onMonthClicked() }
+        binding.tvToolbarFilterMonth.setOnClickListener { callback?.onMonthClicked() }
     }
 
     /* SHOW/HIDE */
 
     @Suppress("MemberVisibilityCanBePrivate")
     fun showYear() {
-        binding.tvFilterYear.isInvisible = false
-        binding.tvFilterYear.text = context.getString(R.string.toolbar_movies_filter_year)
+        binding.tvToolbarFilterYear.isInvisible = false
+        binding.tvToolbarFilterYear.text = context.getString(R.string.toolbar_movies_filter_year)
     }
 
     @Suppress("MemberVisibilityCanBePrivate")
     fun hideYear() {
-        binding.tvFilterYear.isInvisible = true
-        binding.tvFilterYear.text = context.getString(R.string.toolbar_movies_filter_year)
+        binding.tvToolbarFilterYear.isInvisible = true
+        binding.tvToolbarFilterYear.text = context.getString(R.string.toolbar_movies_filter_year)
     }
 
     fun showMonth() {
-        binding.tvFilterMonth.isInvisible = false
-        binding.tvFilterMonth.text = context.getString(R.string.toolbar_movies_filter_month)
+        binding.tvToolbarFilterMonth.isInvisible = false
+        binding.tvToolbarFilterMonth.text = context.getString(R.string.toolbar_movies_filter_month)
     }
 
     @Suppress("MemberVisibilityCanBePrivate")
     fun hideMonth() {
-        binding.tvFilterMonth.isInvisible = true
-        binding.tvFilterMonth.text = context.getString(R.string.toolbar_movies_filter_month)
+        binding.tvToolbarFilterMonth.isInvisible = true
+        binding.tvToolbarFilterMonth.text = context.getString(R.string.toolbar_movies_filter_month)
     }
 
     /* YEAR */
 
     fun setYear(year: Int) {
-        binding.tvFilterYear.text = year.toString()
+        binding.tvToolbarFilterYear.text = year.toString()
     }
 
     @Suppress("SwallowedException")
     fun getYear(): Int? {
-        val year = binding.tvFilterYear.text.toString()
+        val year = binding.tvToolbarFilterYear.text.toString()
         return try {
             year.toInt()
         } catch (nfe: NumberFormatException) {
@@ -113,10 +113,10 @@ class MoviesToolbar : AppBarLayout { // MRT
     /* MONTH */
 
     fun setMonth(month: Int) {
-        binding.tvFilterMonth.text = MonthOfYear.from(month).monthName
+        binding.tvToolbarFilterMonth.text = MonthOfYear.from(month).monthName
     }
 
-    fun getMonth() = MonthOfYear.from(binding.tvFilterMonth.text).month
+    fun getMonth() = MonthOfYear.from(binding.tvToolbarFilterMonth.text).month
 
     /* CONFIGURATION CHANGE */
 
@@ -155,7 +155,7 @@ class MoviesToolbar : AppBarLayout { // MRT
     }
 
     private fun onSaveCloseIconInstanceState(outState: Bundle) {
-        outState.putBoolean(INSTANCE_STATE_KEY_CLOSE_ICON, binding.ivCloseIcon.isVisible)
+        outState.putBoolean(INSTANCE_STATE_KEY_CLOSE_ICON, binding.ivToolbarCloseIcon.isVisible)
     }
 
     private fun onSaveYearInstanceState(outState: Bundle) {
