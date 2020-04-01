@@ -8,7 +8,7 @@ import io.petros.movies.core.list.infinite.InfiniteRecyclerView
 import io.petros.movies.core.view.SharedElementMovie
 import io.petros.movies.movies.databinding.MoviesActivityBinding
 import io.petros.movies.movies.list.MoviesAdapter
-import io.petros.movies.movies.list.item.MovieCallback
+import io.petros.movies.movies.list.item.MovieItemCallback
 import io.petros.movies.movies.navigator.MoviesNavigator
 import io.petros.movies.movies.toolbar.MoviesToolbarCallback
 import io.petros.movies.picker.MovieMonthPickerFragment
@@ -21,7 +21,7 @@ import org.koin.core.parameter.parametersOf
 
 @Suppress("TooManyFunctions")
 class MoviesActivity : BaseActivity(), InfiniteRecyclerView.Listener, MoviesToolbarCallback,
-    MovieYearPickerFragmentCallback, MovieMonthPickerFragmentCallback, MovieCallback { // MET
+    MovieYearPickerFragmentCallback, MovieMonthPickerFragmentCallback, MovieItemCallback { // MET
 
     private val viewModel: MoviesActivityViewModel by viewModel()
 
@@ -44,7 +44,7 @@ class MoviesActivity : BaseActivity(), InfiniteRecyclerView.Listener, MoviesTool
     }
 
     private fun initRecyclerView() {
-        adapter.callback = this
+        adapter.itemCallback = this
         binding.recyclerView.adapter = adapter
         binding.recyclerView.listener = this
     }

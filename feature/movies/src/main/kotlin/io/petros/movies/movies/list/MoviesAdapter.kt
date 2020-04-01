@@ -10,7 +10,7 @@ import io.petros.movies.core.list.infinite.InfiniteAdapter
 import io.petros.movies.core.list.item.ErrorItemView
 import io.petros.movies.core.list.item.ProgressItemView
 import io.petros.movies.domain.model.movie.Movie
-import io.petros.movies.movies.list.item.MovieCallback
+import io.petros.movies.movies.list.item.MovieItemCallback
 import io.petros.movies.movies.list.item.MovieItemView
 import kotlin.math.max
 
@@ -22,7 +22,7 @@ class MoviesAdapter(items: ArrayList<Movie> = arrayListOf()) : InfiniteAdapter<M
         internal const val VIEW_TYPE_ERROR = 101
     }
 
-    var callback: MovieCallback? = null
+    var itemCallback: MovieItemCallback? = null
 
     var status = AdapterStatus.IDLE
         set(value) {
@@ -49,8 +49,8 @@ class MoviesAdapter(items: ArrayList<Movie> = arrayListOf()) : InfiniteAdapter<M
 
     private fun onCreateViewHolderWithContext(viewType: Int, context: Context) = when (viewType) {
         VIEW_TYPE_PROGRESS -> ProgressViewHolder(ProgressItemView(context))
-        VIEW_TYPE_MOVIE -> MovieViewHolder(MovieItemView(context), callback)
-        VIEW_TYPE_ERROR -> ErrorViewHolder(ErrorItemView(context)) { callback?.onErrorClick() }
+        VIEW_TYPE_MOVIE -> MovieViewHolder(MovieItemView(context), itemCallback)
+        VIEW_TYPE_ERROR -> ErrorViewHolder(ErrorItemView(context)) { itemCallback?.onErrorClick() }
         else -> throw IllegalArgumentException("View type out of range. [View Type: $viewType]")
     }
 

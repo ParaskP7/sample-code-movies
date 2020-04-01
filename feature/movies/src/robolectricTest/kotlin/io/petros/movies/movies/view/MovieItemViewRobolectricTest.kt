@@ -4,7 +4,7 @@ import io.mockk.mockk
 import io.mockk.verify
 import io.petros.movies.android_test.context.TestContextProvider.context
 import io.petros.movies.core.view.SharedElementMovie
-import io.petros.movies.movies.list.item.MovieCallback
+import io.petros.movies.movies.list.item.MovieItemCallback
 import io.petros.movies.movies.list.item.MovieItemView
 import io.petros.movies.test.domain.movie
 import org.junit.Test
@@ -20,7 +20,7 @@ class MovieItemViewRobolectricTest {
 
     private val movie = movie()
 
-    private val callbackMock = mockk<MovieCallback>()
+    private val callbackMock = mockk<MovieItemCallback>()
 
     private val testedClass = MovieItemView(context())
 

@@ -25,7 +25,7 @@ class MoviesAdapterRobolectricTest {
     private val items = listOf(movie(id = 1), movie(id = 2), movie(id = 3))
 
     private val testedClass = MoviesAdapter(ArrayList(items)).also {
-        it.callback = mockk()
+        it.itemCallback = mockk()
     }
 
     /* STATUS */
