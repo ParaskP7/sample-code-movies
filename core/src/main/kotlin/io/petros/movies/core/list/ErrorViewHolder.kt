@@ -1,4 +1,4 @@
-package io.petros.movies.core.list.holder
+package io.petros.movies.core.list
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView

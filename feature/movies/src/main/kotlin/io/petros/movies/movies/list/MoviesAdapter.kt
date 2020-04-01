@@ -4,8 +4,8 @@ import android.content.Context
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import io.petros.movies.core.list.AdapterStatus
-import io.petros.movies.core.list.holder.ErrorViewHolder
-import io.petros.movies.core.list.holder.ProgressViewHolder
+import io.petros.movies.core.list.ErrorViewHolder
+import io.petros.movies.core.list.ProgressViewHolder
 import io.petros.movies.core.list.infinite.InfiniteAdapter
 import io.petros.movies.core.list.item.ErrorItemView
 import io.petros.movies.core.list.item.ProgressItemView

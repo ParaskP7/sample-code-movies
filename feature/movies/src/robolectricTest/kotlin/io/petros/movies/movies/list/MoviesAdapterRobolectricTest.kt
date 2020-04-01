@@ -5,8 +5,8 @@ import io.mockk.mockk
 import io.mockk.verify
 import io.petros.movies.android_test.context.TestContextProvider.context
 import io.petros.movies.core.list.AdapterStatus
-import io.petros.movies.core.list.holder.ErrorViewHolder
-import io.petros.movies.core.list.holder.ProgressViewHolder
+import io.petros.movies.core.list.ErrorViewHolder
+import io.petros.movies.core.list.ProgressViewHolder
 import io.petros.movies.movies.list.MoviesAdapter.Companion.VIEW_TYPE_ERROR
 import io.petros.movies.movies.list.MoviesAdapter.Companion.VIEW_TYPE_MOVIE
 import io.petros.movies.movies.list.MoviesAdapter.Companion.VIEW_TYPE_PROGRESS
