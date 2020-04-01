@@ -8,7 +8,7 @@ import io.petros.movies.core.list.infinite.InfiniteRecyclerView
 import io.petros.movies.core.view.SharedElementMovie
 import io.petros.movies.movies.databinding.MoviesActivityBinding
 import io.petros.movies.movies.list.MoviesAdapter
-import io.petros.movies.movies.listener.MovieCallback
+import io.petros.movies.movies.list.item.MovieCallback
 import io.petros.movies.movies.navigator.MoviesNavigator
 import io.petros.movies.movies.toolbar.MoviesToolbarCallback
 import io.petros.movies.picker.MovieMonthPickerFragment

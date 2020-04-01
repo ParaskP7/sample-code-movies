@@ -1,4 +1,4 @@
-package io.petros.movies.movies.listener
+package io.petros.movies.movies.list.item
 
 import io.petros.movies.core.view.SharedElementMovie
 

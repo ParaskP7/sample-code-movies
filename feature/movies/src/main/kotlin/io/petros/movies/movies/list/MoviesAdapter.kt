@@ -10,8 +10,8 @@ import io.petros.movies.core.list.infinite.InfiniteAdapter
 import io.petros.movies.core.list.item.ErrorItemView
 import io.petros.movies.core.list.item.ProgressItemView
 import io.petros.movies.domain.model.movie.Movie
+import io.petros.movies.movies.list.item.MovieCallback
 import io.petros.movies.movies.list.item.MovieItemView
-import io.petros.movies.movies.listener.MovieCallback
 import kotlin.math.max
 
 class MoviesAdapter(items: ArrayList<Movie> = arrayListOf()) : InfiniteAdapter<Movie>(items) {
