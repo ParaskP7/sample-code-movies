@@ -1,4 +1,4 @@
-package io.petros.movies.core.list.adapter
+package io.petros.movies.core.list
 
 enum class AdapterStatus {
 

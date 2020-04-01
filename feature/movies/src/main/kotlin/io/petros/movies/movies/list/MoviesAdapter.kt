@@ -3,7 +3,7 @@ package io.petros.movies.movies.list
 import android.content.Context
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import io.petros.movies.core.list.adapter.AdapterStatus
+import io.petros.movies.core.list.AdapterStatus
 import io.petros.movies.core.list.holder.ErrorViewHolder
 import io.petros.movies.core.list.holder.ProgressViewHolder
 import io.petros.movies.core.list.infinite.InfiniteAdapter

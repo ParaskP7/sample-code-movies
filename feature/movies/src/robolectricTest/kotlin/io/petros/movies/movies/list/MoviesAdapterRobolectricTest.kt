@@ -4,7 +4,7 @@ import androidx.recyclerview.widget.RecyclerView
 import io.mockk.mockk
 import io.mockk.verify
 import io.petros.movies.android_test.context.TestContextProvider.context
-import io.petros.movies.core.list.adapter.AdapterStatus
+import io.petros.movies.core.list.AdapterStatus
 import io.petros.movies.core.list.holder.ErrorViewHolder
 import io.petros.movies.core.list.holder.ProgressViewHolder
 import io.petros.movies.movies.list.MoviesAdapter.Companion.VIEW_TYPE_ERROR

@@ -6,7 +6,7 @@ import io.mockk.coVerify
 import io.mockk.mockk
 import io.mockk.verify
 import io.petros.movies.android_test.utils.ViewModelSpek
-import io.petros.movies.core.list.adapter.AdapterStatus
+import io.petros.movies.core.list.AdapterStatus
 import io.petros.movies.domain.interactor.movie.LoadMoviesUseCase
 import io.petros.movies.domain.model.common.PaginationData
 import io.petros.movies.domain.model.movie.Movie
