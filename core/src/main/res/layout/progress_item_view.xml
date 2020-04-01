@@ -3,7 +3,7 @@
 <merge xmlns:android="http://schemas.android.com/apk/res/android">
 
     <ProgressBar
-        style="@style/ItemLoadingProgressBar"
+        style="@style/ProgressItemProgressBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"

@@ -10,7 +10,7 @@
 
         <ImageView
             android:id="@+id/ivMovieBackdrop"
-            style="@style/ItemMovieBackdropImageView"
+            style="@style/ItemBackdropImageView"
             android:layout_width="match_parent"
             android:layout_height="@dimen/item_movie_backdrop_height"
             android:transitionName="@string/movie_backdrop_shared_element"
@@ -21,7 +21,7 @@
 
         <TextView
             android:id="@+id/tvMovieTitle"
-            style="@style/ItemMovieTitleTextView"
+            style="@style/ItemTitleTextView"
             android:layout_width="match_parent"
             android:layout_height="@dimen/item_movie_backdrop_height"
             app:layout_constraintBottom_toBottomOf="@id/ivMovieBackdrop"
@@ -30,7 +30,7 @@
 
         <LinearLayout
             android:id="@+id/llMovieDetails"
-            style="@style/ItemMovieLinearLayout"
+            style="@style/ItemDetailsLinearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -39,7 +39,7 @@
 
             <TextView
                 android:id="@+id/tvMovieReleaseDate"
-                style="@style/ItemMovieDetailsTextView.Left"
+                style="@style/ItemReleaseDateTextView"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -47,11 +47,11 @@
 
             <TextView
                 android:id="@+id/tvMovieVote"
-                style="@style/ItemMovieDetailsTextView.Right"
+                style="@style/ItemVoteTextView"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                tools:text="8.3 ★ (7651)"/>
+                tools:text="8.3 ★ (7651)" />
 
         </LinearLayout>
 

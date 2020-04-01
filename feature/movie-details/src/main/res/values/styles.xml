@@ -2,32 +2,33 @@
 
 <resources>
 
-    <style name="ActivityMovieBackdropImageView">
+    <style name="BackdropImageView">
         <item name="android:scaleType">fitXY</item>
     </style>
 
-    <style name="ActivityMovieTitleTextView">
+    <style name="TitleTextView">
         <item name="android:padding">16dp</item>
         <item name="android:textColor">@android:color/black</item>
         <item name="android:textSize">24sp</item>
     </style>
 
-    <style name="ActivityMovieDetailsTextView">
+    <style name="ReleaseDateTextView">
+        <item name="android:paddingBottom">2dp</item>
         <item name="android:paddingLeft">16dp</item>
         <item name="android:paddingRight">16dp</item>
         <item name="android:textColor">@android:color/black</item>
         <item name="android:textSize">18sp</item>
     </style>
 
-    <style name="ActivityMovieDetailsTextView.Top">
-        <item name="android:paddingBottom">2dp</item>
-    </style>
-
-    <style name="ActivityMovieDetailsTextView.Bottom">
+    <style name="VoteTextView">
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">16dp</item>
         <item name="android:paddingTop">2dp</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textSize">18sp</item>
     </style>
 
-    <style name="ActivityMovieOverviewTextView">
+    <style name="OverviewTextView">
         <item name="android:padding">16dp</item>
         <item name="android:textColor">@android:color/black</item>
         <item name="android:textSize">16sp</item>

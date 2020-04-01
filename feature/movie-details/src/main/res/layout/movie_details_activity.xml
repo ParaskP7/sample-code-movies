@@ -22,7 +22,7 @@
 
         <ImageView
             android:id="@+id/ivMovieBackdrop"
-            style="@style/ActivityMovieBackdropImageView"
+            style="@style/BackdropImageView"
             android:layout_width="match_parent"
             android:layout_height="@dimen/activity_movie_details_backdrop_height"
             android:transitionName="@string/movie_backdrop_shared_element"
@@ -33,7 +33,7 @@
 
         <TextView
             android:id="@+id/tvMovieTitle"
-            style="@style/ActivityMovieTitleTextView"
+            style="@style/TitleTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toTopOf="@id/tvMovieReleaseDate"
@@ -42,7 +42,7 @@
 
         <TextView
             android:id="@+id/tvMovieReleaseDate"
-            style="@style/ActivityMovieDetailsTextView.Top"
+            style="@style/ReleaseDateTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toTopOf="@id/tvMovieVote"
@@ -51,7 +51,7 @@
 
         <TextView
             android:id="@+id/tvMovieVote"
-            style="@style/ActivityMovieDetailsTextView.Bottom"
+            style="@style/VoteTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toTopOf="@id/tvMovieOverview"
@@ -60,7 +60,7 @@
 
         <TextView
             android:id="@+id/tvMovieOverview"
-            style="@style/ActivityMovieOverviewTextView"
+            style="@style/OverviewTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
