@@ -213,7 +213,7 @@ and library enhancements:
 15. **![#2cb42c](https://placehold.it/15/2cb42c/000000?text=+) `DONE`** Migrate to View Binding (From Kotlin Android Extensions Plugin). 
     For more info, see [View Binding](https://developer.android.com/topic/libraries/view-binding) 
     ```(View binding is a feature that allows you to more easily write code that interacts with views. Once view binding is enabled in a module, it generates a binding class for each XML layout file present in that module. An instance of a binding class contains direct references to all views that have an ID in the corresponding layout)```
-16. **![#ffff00](https://placehold.it/15/ffff00/000000?text=+) `IN PROGRESS`** Modularize the App Horizontally by Features.
+16. **![#2cb42c](https://placehold.it/15/2cb42c/000000?text=+) `DONE`** Modularize the App Horizontally by Features.
     To get an understanding of Modularization and how to it applies to an Android project, start with this Article [Modularization](https://medium.com/google-developer-experts/modularizing-android-applications-9e2d18f244a0)
     ```(To take advantage of new distribution features (Instant apps, app bundles) from Google, or even just create a clear separation of concerns to make our project easier to work with— modularizing our applications can help us to achieve all of these things)```
 17. Add Jetpack Compose.
