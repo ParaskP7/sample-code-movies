@@ -14,7 +14,7 @@
         <io.petros.movies.movie_details.toolbar.MovieDetailsToolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/toolbar_height"
+            android:layout_height="@dimen/toolbarHeight"
             app:layout_constraintBottom_toTopOf="@id/ivBackdrop"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0"
@@ -24,7 +24,7 @@
             android:id="@+id/ivBackdrop"
             style="@style/ivBackdrop"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/activity_movie_details_backdrop_height"
+            android:layout_height="@dimen/ivBackdropHeight"
             android:transitionName="@string/ivSharedElementMovie"
             app:layout_constraintBottom_toTopOf="@+id/tvTitle"
             app:layout_constraintTop_toTopOf="@id/toolbar"

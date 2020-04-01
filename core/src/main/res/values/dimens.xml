@@ -3,26 +3,30 @@
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="UnusedResources">
 
     <!-- Margin/Padding -->
-    <dimen name="no_spacing">0dp</dimen>
-    <dimen name="spacing_xxxs">1dp</dimen>
-    <dimen name="spacing_xxs">2dp</dimen>
-    <dimen name="spacing_xs">4dp</dimen>
-    <dimen name="spacing_s">8dp</dimen>
-    <dimen name="spacing_m">16dp</dimen>
-    <dimen name="spacing_l">32dp</dimen>
-    <dimen name="spacing_xl">48dp</dimen>
-    <dimen name="spacing_xxl">56dp</dimen>
-    <dimen name="spacing_xxxl">64dp</dimen>
+    <dimen name="spacing0">0dp</dimen>
+    <dimen name="spacingXXXS">1dp</dimen>
+    <dimen name="spacingXXS">2dp</dimen>
+    <dimen name="spacingXS">4dp</dimen>
+    <dimen name="spacingS">8dp</dimen>
+    <dimen name="spacingM">16dp</dimen>
+    <dimen name="spacingL">32dp</dimen>
+    <dimen name="SpacingXL">48dp</dimen>
+    <dimen name="spacingXXL">56dp</dimen>
+    <dimen name="spacingXXXL">64dp</dimen>
 
     <!-- Text sizes -->
-    <dimen name="text_size_12">12sp</dimen>
-    <dimen name="text_size_14">14sp</dimen>
-    <dimen name="text_size_16">16sp</dimen>
-    <dimen name="text_size_18">18sp</dimen>
-    <dimen name="text_size_20">20sp</dimen>
-    <dimen name="text_size_24">24sp</dimen>
+    <dimen name="textSize0">0sp</dimen>
+    <dimen name="textSizeXXXS">4sp</dimen>
+    <dimen name="textSizeXXS">8sp</dimen>
+    <dimen name="textSizeXS">12sp</dimen>
+    <dimen name="textSizeS">14sp</dimen>
+    <dimen name="textSizeM">16sp</dimen>
+    <dimen name="textSizeL">18sp</dimen>
+    <dimen name="textSizeXL">20sp</dimen>
+    <dimen name="textSizeXXL">24sp</dimen>
+    <dimen name="textSizeXXXL">28sp</dimen>
 
     <!-- Toolbar -->
-    <dimen name="toolbar_height">56dp</dimen>
+    <dimen name="toolbarHeight">@dimen/spacingXXL</dimen>
 
 </resources>

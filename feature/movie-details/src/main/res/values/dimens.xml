@@ -2,6 +2,6 @@
 
 <resources>
 
-    <dimen name="activity_movie_details_backdrop_height">250dp</dimen>
+    <dimen name="ivBackdropHeight">250dp</dimen>
 
 </resources>

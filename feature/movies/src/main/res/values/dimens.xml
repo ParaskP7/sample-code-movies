@@ -3,10 +3,11 @@
 <resources>
 
     <!-- Item -->
-    <dimen name="item_movie_backdrop_height">200dp</dimen>
-    <dimen name="item_movie_margin">8dp</dimen>
-    <dimen name="item_movie_space">8dp</dimen>
-    <dimen name="item_movie_radius">2dp</dimen>
-    <dimen name="item_movie_elevation">2dp</dimen>
+    <dimen name="cdItemHorizontalMargin">@dimen/spacingS</dimen>
+    <dimen name="cdItemVerticalMargin">@dimen/spacingS</dimen>
+    <dimen name="cdItemRadius">@dimen/spacingXXS</dimen>
+    <dimen name="cdItemCardElevation">@dimen/spacingXXS</dimen>
+    <dimen name="ivItemBackdropHeight">200dp</dimen>
+    <dimen name="tvItemTitleHeight">@dimen/ivItemBackdropHeight</dimen>
 
 </resources>

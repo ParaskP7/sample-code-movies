@@ -11,25 +11,25 @@
     <!-- Toolbar -->
     <style name="tvToolbarLabel">
         <item name="android:layout_gravity">center</item>
-        <item name="android:paddingEnd">16dp</item>
-        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">@dimen/spacingM</item>
+        <item name="android:paddingStart">@dimen/spacingM</item>
         <item name="android:textColor">@android:color/white</item>
-        <item name="android:textSize">20sp</item>
+        <item name="android:textSize">@dimen/textSizeXL</item>
     </style>
 
     <!-- Item -->
     <style name="pbProgressItem">
         <item name="android:layout_gravity">center</item>
-        <item name="android:padding">@dimen/spacing_l</item>
+        <item name="android:padding">@dimen/spacingL</item>
     </style>
 
     <style name="tvErrorItem">
         <item name="android:layout_gravity">center</item>
         <item name="android:gravity">center</item>
-        <item name="android:padding">@dimen/spacing_l</item>
+        <item name="android:padding">@dimen/spacingL</item>
         <item name="android:text">@string/tvErrorItem</item>
         <item name="android:textColor">@color/colorAccent</item>
-        <item name="android:textSize">@dimen/text_size_20</item>
+        <item name="android:textSize">@dimen/textSizeXL</item>
     </style>
 
 </resources>

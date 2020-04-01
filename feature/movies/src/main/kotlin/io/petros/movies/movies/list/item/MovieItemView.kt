@@ -27,12 +27,12 @@ class MovieItemView : CardView {
 
     private fun initView() {
         val lp = LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
-        lp.leftMargin = context.getDimension(R.dimen.item_movie_margin)
-        lp.rightMargin = context.getDimension(R.dimen.item_movie_margin)
-        lp.bottomMargin = context.getDimension(R.dimen.item_movie_space)
+        lp.leftMargin = context.getDimension(R.dimen.cdItemHorizontalMargin)
+        lp.rightMargin = context.getDimension(R.dimen.cdItemHorizontalMargin)
+        lp.bottomMargin = context.getDimension(R.dimen.cdItemVerticalMargin)
         layoutParams = lp
-        radius = context.getDimension(R.dimen.item_movie_radius).toFloat()
-        cardElevation = context.getDimension(R.dimen.item_movie_elevation).toFloat()
+        radius = context.getDimension(R.dimen.cdItemRadius).toFloat()
+        cardElevation = context.getDimension(R.dimen.cdItemCardElevation).toFloat()
     }
 
     fun bind(movie: Movie) {
