@@ -2,8 +2,8 @@ package io.petros.movies.movies.navigator
 
 import io.mockk.mockk
 import io.mockk.verify
-import io.petros.movies.core.view.SharedElementMovie
 import io.petros.movies.movie_details.navigator.MovieDetailsLauncher
+import io.petros.movies.movie_details.navigator.SharedElementMovie
 import io.petros.movies.test.domain.movie
 import org.junit.Test
 

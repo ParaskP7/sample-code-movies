@@ -1,4 +1,4 @@
-package io.petros.movies.core.view
+package io.petros.movies.movie_details.navigator
 
 import android.view.View
 import io.petros.movies.domain.model.movie.Movie

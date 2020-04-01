@@ -1,7 +1,7 @@
 package io.petros.movies.movies.navigator
 
-import io.petros.movies.core.view.SharedElementMovie
 import io.petros.movies.movie_details.navigator.MovieDetailsLauncher
+import io.petros.movies.movie_details.navigator.SharedElementMovie
 
 class MoviesActivityNavigator constructor(
     private val movieDetailsLauncher: MovieDetailsLauncher

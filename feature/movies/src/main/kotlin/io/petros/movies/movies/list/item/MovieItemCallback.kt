@@ -1,6 +1,6 @@
 package io.petros.movies.movies.list.item
 
-import io.petros.movies.core.view.SharedElementMovie
+import io.petros.movies.movie_details.navigator.SharedElementMovie
 
 interface MovieItemCallback {
 

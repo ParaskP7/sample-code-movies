@@ -6,7 +6,6 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityOptionsCompat
 import io.petros.movies.android_utils.getExtraName
-import io.petros.movies.core.view.SharedElementMovie
 import io.petros.movies.domain.model.movie.Movie
 import io.petros.movies.movie_details.MovieDetailsActivity
 import io.petros.movies.movie_details.R

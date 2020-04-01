@@ -5,7 +5,7 @@ import android.view.View
 import androidx.lifecycle.Observer
 import io.petros.movies.core.activity.BaseActivity
 import io.petros.movies.core.list.infinite.InfiniteRecyclerView
-import io.petros.movies.core.view.SharedElementMovie
+import io.petros.movies.movie_details.navigator.SharedElementMovie
 import io.petros.movies.movies.databinding.MoviesActivityBinding
 import io.petros.movies.movies.list.MoviesAdapter
 import io.petros.movies.movies.list.item.MovieItemCallback
