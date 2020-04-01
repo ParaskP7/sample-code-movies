@@ -2,8 +2,8 @@ package io.petros.movies.movies.list
 
 import androidx.recyclerview.widget.RecyclerView
 import io.petros.movies.domain.model.movie.Movie
+import io.petros.movies.movies.list.item.MovieItemView
 import io.petros.movies.movies.listener.MovieCallback
-import io.petros.movies.movies.view.MovieItemView
 
 class MovieViewHolder(
     itemView: MovieItemView,

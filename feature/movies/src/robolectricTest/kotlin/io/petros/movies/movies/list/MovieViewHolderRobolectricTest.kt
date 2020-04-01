@@ -2,8 +2,8 @@ package io.petros.movies.movies.list
 
 import io.mockk.mockk
 import io.mockk.verify
+import io.petros.movies.movies.list.item.MovieItemView
 import io.petros.movies.movies.listener.MovieCallback
-import io.petros.movies.movies.view.MovieItemView
 import io.petros.movies.test.domain.movie
 import org.junit.Test
 import org.junit.runner.RunWith

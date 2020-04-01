@@ -1,4 +1,4 @@
-package io.petros.movies.movies.view
+package io.petros.movies.movies.list.item
 
 import android.content.Context
 import android.util.AttributeSet
