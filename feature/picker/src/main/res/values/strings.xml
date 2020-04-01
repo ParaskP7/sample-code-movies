@@ -2,7 +2,7 @@
 
 <resources>
 
-    <string name="dialog_picker_movie_year">Select Movie Year</string>
-    <string name="dialog_picker_movie_month">Select Movie Month</string>
+    <string name="dlgMovieYear">Select Movie Year</string>
+    <string name="dlgMovieMonth">Select Movie Month</string>
 
 </resources>

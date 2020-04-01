@@ -13,7 +13,7 @@
             style="@style/ivItemBackdrop"
             android:layout_width="match_parent"
             android:layout_height="@dimen/item_movie_backdrop_height"
-            android:transitionName="@string/movie_backdrop_shared_element"
+            android:transitionName="@string/ivSharedElementMovie"
             app:layout_constraintBottom_toTopOf="@id/ctrItemDetails"
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="ContentDescription"

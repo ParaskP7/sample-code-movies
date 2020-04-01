@@ -2,9 +2,10 @@
 
 <resources>
 
-    <string name="activity_movie_details_name">Movie Details</string>
+    <!-- Toolbar -->
+    <string name="tvToolbarMovieDetailsLabel">Movie Details</string>
 
     <!-- Navigator -->
-    <string name="movie_backdrop_shared_element">movie_backdrop</string>
+    <string name="ivSharedElementMovie">sharedElementMovie</string>
 
 </resources>

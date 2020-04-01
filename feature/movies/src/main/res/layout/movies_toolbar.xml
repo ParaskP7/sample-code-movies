@@ -13,7 +13,7 @@
             style="@style/tvToolbarLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/activity_movies_name"/>
+            android:text="@string/tvToolbarMoviesLabel" />
 
         <ImageView
             android:id="@+id/ivToolbarFilterIcon"
@@ -35,7 +35,7 @@
             style="@style/tvToolbarFilterYear"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/toolbar_movies_filter_year"
+            android:text="@string/tvToolbarFilterYear"
             android:visibility="invisible"/>
 
         <TextView
@@ -43,7 +43,7 @@
             style="@style/tvToolbarFilterMonth"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/toolbar_movies_filter_month"
+            android:text="@string/tvToolbarFilterMonth"
             android:visibility="invisible"/>
 
     </LinearLayout>

@@ -2,10 +2,9 @@
 
 <resources>
 
-    <string name="activity_movies_name">Movies</string>
-
     <!-- Toolbar -->
-    <string name="toolbar_movies_filter_year">Year</string>
-    <string name="toolbar_movies_filter_month">Month</string>
+    <string name="tvToolbarMoviesLabel">Movies</string>
+    <string name="tvToolbarFilterYear">Year</string>
+    <string name="tvToolbarFilterMonth">Month</string>
 
 </resources>

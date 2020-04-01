@@ -3,7 +3,7 @@
 <resources>
 
     <!-- Item -->
-    <string name="error_loading">
+    <string name="tvErrorItem">
         Oops, we encountered an error while loading your movies…\n
         \n
         Please click here to try again!

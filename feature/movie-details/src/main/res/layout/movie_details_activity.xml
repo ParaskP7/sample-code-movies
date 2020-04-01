@@ -25,7 +25,7 @@
             style="@style/ivBackdrop"
             android:layout_width="match_parent"
             android:layout_height="@dimen/activity_movie_details_backdrop_height"
-            android:transitionName="@string/movie_backdrop_shared_element"
+            android:transitionName="@string/ivSharedElementMovie"
             app:layout_constraintBottom_toTopOf="@+id/tvTitle"
             app:layout_constraintTop_toTopOf="@id/toolbar"
             tools:ignore="ContentDescription"

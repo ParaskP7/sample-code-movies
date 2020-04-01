@@ -28,7 +28,7 @@ class App : Application(), LifecycleObserver {
         initLogging()
         initStrictMode()
         initLifecycleObserver()
-        Timber.i("${getString(R.string.app_name)} created.")
+        Timber.i("${getString(R.string.appName)} created.")
     }
 
     private fun initKoin() {

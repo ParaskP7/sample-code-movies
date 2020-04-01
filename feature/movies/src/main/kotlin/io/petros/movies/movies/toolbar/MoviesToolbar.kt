@@ -73,24 +73,24 @@ class MoviesToolbar : AppBarLayout { // MRT
     @Suppress("MemberVisibilityCanBePrivate")
     fun showYear() {
         binding.tvToolbarFilterYear.isInvisible = false
-        binding.tvToolbarFilterYear.text = context.getString(R.string.toolbar_movies_filter_year)
+        binding.tvToolbarFilterYear.text = context.getString(R.string.tvToolbarFilterYear)
     }
 
     @Suppress("MemberVisibilityCanBePrivate")
     fun hideYear() {
         binding.tvToolbarFilterYear.isInvisible = true
-        binding.tvToolbarFilterYear.text = context.getString(R.string.toolbar_movies_filter_year)
+        binding.tvToolbarFilterYear.text = context.getString(R.string.tvToolbarFilterYear)
     }
 
     fun showMonth() {
         binding.tvToolbarFilterMonth.isInvisible = false
-        binding.tvToolbarFilterMonth.text = context.getString(R.string.toolbar_movies_filter_month)
+        binding.tvToolbarFilterMonth.text = context.getString(R.string.tvToolbarFilterMonth)
     }
 
     @Suppress("MemberVisibilityCanBePrivate")
     fun hideMonth() {
         binding.tvToolbarFilterMonth.isInvisible = true
-        binding.tvToolbarFilterMonth.text = context.getString(R.string.toolbar_movies_filter_month)
+        binding.tvToolbarFilterMonth.text = context.getString(R.string.tvToolbarFilterMonth)
     }
 
     /* YEAR */
