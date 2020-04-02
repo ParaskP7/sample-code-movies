@@ -301,6 +301,7 @@ fun ignoredVariants(variantOptions: (String) -> Unit) {
     localProperties.load(FileInputStream(file(Files.Properties.LOCAL)))
     val ignoredVariants = localProperties[Properties.Local.Property.IGNORED_VARIANTS]?.toString()?.split(Utils.COMMA)
     ignoredVariants?.forEach {
+        println(" << CONFIGURE WITHOUT $it VARIANT >>")
         variantOptions(it)
     }
 }
