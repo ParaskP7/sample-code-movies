@@ -9,7 +9,6 @@ import com.android.build.gradle.internal.dsl.DefaultConfig
 import com.android.build.gradle.internal.dsl.LintOptions
 import com.android.build.gradle.internal.dsl.TestOptions
 import com.android.build.gradle.LibraryExtension
-import com.android.build.gradle.api.ViewBindingOptions
 import com.android.build.gradle.LibraryPlugin as AndroidLibraryPlugin
 
 import com.github.benmanes.gradle.versions.VersionsPlugin
@@ -198,7 +197,7 @@ fun LibraryExtension.androidLibrary() {
     sourceSets { sourceSets() }
     testOptions { testOptions() }
     lintOptions { lintOptions() }
-    viewBinding { viewBinding() }
+    buildFeatures()
 }
 
 fun AppExtension.androidApplication() {
@@ -209,7 +208,7 @@ fun AppExtension.androidApplication() {
     sourceSets { sourceSets() }
     testOptions { testOptions() }
     lintOptions { lintOptions() }
-    viewBinding { viewBinding() }
+    buildFeatures()
 }
 
 fun DetektExtension.detekt() {
@@ -266,8 +265,8 @@ fun LintOptions.lintOptions() {
     disable(*Config.Lint.disabledIssues)
 }
 
-fun ViewBindingOptions.viewBinding() {
-    isEnabled = true
+fun BaseExtension.buildFeatures() {
+    buildFeatures.viewBinding = true
 }
 
 /* *********************************************************************************************************************** */
