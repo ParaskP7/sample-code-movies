@@ -101,6 +101,23 @@ command:
 git update-index --assume-unchanged config/keys/themoviedb_api.properties
 ```
 
+# Build Variant
+
+This project is setup in a way that can be configured to filter out on demand specific build variants by just specifying the 
+'ignored_variants' property, which is located within the 'local.properties' file. If no configuration is specified, then the 
+default configuration will be applied, which is all build types and flavors.
+
+To apply this configuration first locate the 'local.properties' file, and if it doesn't exist already, create it. Then, add 
+the 'ignored_variants' property and assign that to a value. This value can be a single variant value, such as the 'release' 
+built type or a comma separated list of variant values, such as 'debug,release,etc'. Any variant that goes in there will be 
+then filtered out by the build.
+```
+This is mainly done in order to speed up build times and complexity during development, thus making developers happier since 
+in most cases developers usually only care about the'debug' build type (and a single build flavor, if that is even available).
+```
+
+# Building The Project
+
 All set, use the below command to build the project in order to install it on an Android device for demonstration:
 ```
 gradlew clean build -x check
