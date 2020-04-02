@@ -30,6 +30,9 @@ import org.jetbrains.kotlin.gradle.plugin.KotlinAndroidPluginWrapper as KotlinAn
 import org.jetbrains.kotlin.gradle.plugin.KotlinPluginWrapper as KotlinPlugin
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
+import java.io.FileInputStream
+import java.util.*
+
 /* BUILD SCRIPT */
 
 buildscript {
@@ -198,6 +201,7 @@ fun LibraryExtension.androidLibrary() {
     testOptions { testOptions() }
     lintOptions { lintOptions() }
     buildFeatures()
+    variantOptions()
 }
 
 fun AppExtension.androidApplication() {
@@ -209,6 +213,7 @@ fun AppExtension.androidApplication() {
     testOptions { testOptions() }
     lintOptions { lintOptions() }
     buildFeatures()
+    variantOptions()
 }
 
 fun DetektExtension.detekt() {
@@ -267,6 +272,37 @@ fun LintOptions.lintOptions() {
 
 fun BaseExtension.buildFeatures() {
     buildFeatures.viewBinding = true
+}
+
+fun LibraryExtension.variantOptions() {
+    ignoredVariants {
+        onVariants.withName(it) {
+            enabled = false
+            androidTest {
+                enabled = false
+            }
+            unitTest {
+                enabled = false
+            }
+        }
+    }
+}
+
+fun AppExtension.variantOptions() {
+    ignoredVariants {
+        variantFilter {
+            if (name == it) ignore = true
+        }
+    }
+}
+
+fun ignoredVariants(variantOptions: (String) -> Unit) {
+    val localProperties = Properties()
+    localProperties.load(FileInputStream(file(Files.Properties.LOCAL)))
+    val ignoredVariants = localProperties[Properties.Local.Property.IGNORED_VARIANTS]?.toString()?.split(Utils.COMMA)
+    ignoredVariants?.forEach {
+        variantOptions(it)
+    }
 }
 
 /* *********************************************************************************************************************** */
