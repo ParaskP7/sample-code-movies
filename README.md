@@ -141,8 +141,8 @@ gradlew test
 
 Or if you want to be more specific, run the below commands to run the tests or your choice (per module):
 ```
-gradlew utils:test domain:test network:test
-gradlew testDebugUnitTest
+gradlew <kotlin_module>:test
+gradlew <android_module>:testDebugUnitTest
 ```
 
 Run the project instrumentation tests using this command (Espresso):
