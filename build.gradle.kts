@@ -109,6 +109,9 @@ fun Project.subprojectsTasks() {
     tasks.withType<DependencyUpdatesTask> {
         versionsOptions()
     }
+    tasks.withType<Zip> {
+        duplicatesStrategy = DuplicatesStrategy.INCLUDE
+    }
 }
 
 /* *********************************************************************************************************************** */
