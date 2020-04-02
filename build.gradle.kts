@@ -69,36 +69,36 @@ subprojects {
 
 fun Project.subprojectsPlugins() {
     plugins.withType(KotlinPlugin::class) {
-        log(PluginIds.Kotlin.KOTLIN)
+        logPlugin(PluginIds.Kotlin.KOTLIN)
         java { java() }
         sourceSets()
         testOptions()
     }
     plugins.withType(KotlinKaptPlugin::class) {
-        log(PluginIds.Kotlin.KAPT)
+        logPlugin(PluginIds.Kotlin.KAPT)
         kapt { kapt() }
     }
     plugins.withType(KotlinAndroidPlugin::class) {
-        log(PluginIds.Kotlin.Android.ANDROID)
+        logPlugin(PluginIds.Kotlin.Android.ANDROID)
     }
     plugins.withType(AndroidLibraryPlugin::class) {
-        log(PluginIds.Android.LIBRARY)
+        logPlugin(PluginIds.Android.LIBRARY)
         androidLibrary { androidLibrary() }
     }
     plugins.withType(AndroidApplicationPlugin::class) {
-        log(PluginIds.Android.APPLICATION)
+        logPlugin(PluginIds.Android.APPLICATION)
         androidApplication { androidApplication() }
     }
     plugins.withType(DetektPlugin::class) {
-        log(PluginIds.Quality.DETEKT)
+        logPlugin(PluginIds.Quality.DETEKT)
         detekt { detekt() }
     }
     plugins.withType(AndroidJUnitPlatformPlugin::class) {
-        log(PluginIds.Test.Android.J_UNIT_5)
+        logPlugin(PluginIds.Test.Android.J_UNIT_5)
         androidBase { androidBase() }
     }
     plugins.withType(VersionsPlugin::class) {
-        log(PluginIds.Dependency.VERSIONS)
+        logPlugin(PluginIds.Dependency.VERSIONS)
     }
 }
 
@@ -115,8 +115,8 @@ fun Project.subprojectsTasks() {
 
 /* PLUGINS EXTENSION FUNCTIONS */
 
-fun Project.log(pluginId: String) {
-    task("log-$pluginId") { println("<<< CONFIGURE WITH $pluginId PLUGIN >>>") }
+fun logPlugin(pluginId: String) {
+    println("<<< CONFIGURE WITH $pluginId PLUGIN >>>")
 }
 
 fun Project.java(configure: JavaPluginExtension.() -> Unit) =
