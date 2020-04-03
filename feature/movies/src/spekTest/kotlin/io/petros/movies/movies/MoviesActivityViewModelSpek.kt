@@ -8,6 +8,8 @@ import io.mockk.verify
 import io.petros.movies.android_test.utils.ViewModelSpek
 import io.petros.movies.core.list.AdapterStatus
 import io.petros.movies.domain.interactor.movie.LoadMoviesUseCase
+import io.petros.movies.domain.model.NetworkError
+import io.petros.movies.domain.model.Result
 import io.petros.movies.domain.model.common.PaginationData
 import io.petros.movies.domain.model.movie.Movie
 import io.petros.movies.test.domain.MOVIE_MONTH
@@ -33,7 +35,7 @@ private fun setupViewModel(testedClass: MoviesActivityViewModel) {
 class MoviesActivityViewModelSpek : ViewModelSpek({
 
     val previousMoviesResultPage = moviesResultPage(NEXT_PAGE, listOf(movie(), movie()))
-    val moviesResultPage = moviesResultPage()
+    val moviesResultPage = Result.Success(moviesResultPage())
     val loadMoviesUseCaseMock = mockk<LoadMoviesUseCase>()
 
     Feature("Movies activity view model") {
@@ -56,13 +58,15 @@ class MoviesActivityViewModelSpek : ViewModelSpek({
                 verify { statusObservableMock.onChanged(AdapterStatus.IDLE) }
             }
             Then("a page is posted") {
-                verify { moviesResultPageObservableMock.onChanged(testedClass.paginationData.addPage(moviesResultPage)) }
+                verify {
+                    moviesResultPageObservableMock.onChanged(testedClass.paginationData.addPage(moviesResultPage.value))
+                }
             }
         }
         Scenario("on failure") {
             Given("an exception as a result") {
                 setupViewModel(testedClass)
-                coEvery { loadMoviesUseCaseMock.execute(any()) } answers { throw LoadMoviesUseCase.Error(Exception()) }
+                coEvery { loadMoviesUseCaseMock.execute(any()) } returns NetworkError(Exception())
             }
             When("loading movies") {
                 testedClass.loadMovies(MOVIE_YEAR, MOVIE_MONTH, NEXT_PAGE)
@@ -128,7 +132,7 @@ class MoviesActivityViewModelSpek : ViewModelSpek({
                 testedClass.reloadMovies(MOVIE_YEAR, MOVIE_MONTH)
             }
             Then("the existing data gets cleared") {
-                expect { that(testedClass.paginationData.items().size).isEqualTo(moviesResultPage.movies.size) }
+                expect { that(testedClass.paginationData.items().size).isEqualTo(moviesResultPage.value.movies.size) }
             }
             Then("a new load of movies is triggered") {
                 coVerify { loadMoviesUseCaseMock.execute(LoadMoviesUseCase.Params(MOVIE_YEAR, MOVIE_MONTH, null)) }

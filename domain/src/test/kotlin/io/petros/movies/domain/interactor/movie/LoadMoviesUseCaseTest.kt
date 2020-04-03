@@ -3,6 +3,7 @@ package io.petros.movies.domain.interactor.movie
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.mockk
+import io.petros.movies.domain.model.Result
 import io.petros.movies.domain.repository.movie.MoviesRepository
 import io.petros.movies.test.domain.MOVIE_MONTH
 import io.petros.movies.test.domain.MOVIE_YEAR
@@ -23,7 +24,7 @@ class LoadMoviesUseCaseTest {
 
     private val params = LoadMoviesUseCase.Params(MOVIE_YEAR, MOVIE_MONTH, NEXT_PAGE)
 
-    private val moviesResultPage = moviesResultPage()
+    private val moviesResultPage = Result.Success(moviesResultPage())
 
     private val moviesRepositoryMock = mockk<MoviesRepository>()
     private val testedClass = LoadMoviesUseCase(moviesRepositoryMock)

@@ -8,6 +8,8 @@ import io.mockk.mockk
 import io.mockk.verify
 import io.petros.movies.core.list.AdapterStatus
 import io.petros.movies.domain.interactor.movie.LoadMoviesUseCase
+import io.petros.movies.domain.model.NetworkError
+import io.petros.movies.domain.model.Result
 import io.petros.movies.domain.model.common.PaginationData
 import io.petros.movies.domain.model.movie.Movie
 import io.petros.movies.test.domain.MOVIE_MONTH
@@ -32,7 +34,7 @@ class MoviesActivityViewModelTest {
     @get:Rule val rule = InstantTaskExecutorRule()
 
     private val previousMoviesResultPage = moviesResultPage(NEXT_PAGE, listOf(movie(), movie()))
-    private val moviesResultPage = moviesResultPage()
+    private val moviesResultPage = Result.Success(moviesResultPage())
 
     @Suppress("LateinitUsage") private lateinit var testedClass: MoviesActivityViewModel
     private val loadMoviesUseCaseMock = mockk<LoadMoviesUseCase>()
@@ -76,12 +78,12 @@ class MoviesActivityViewModelTest {
 
         testedClass.loadMovies()
 
-        verify { moviesResultPageObservableMock.onChanged(testedClass.paginationData.addPage(moviesResultPage)) }
+        verify { moviesResultPageObservableMock.onChanged(testedClass.paginationData.addPage(moviesResultPage.value)) }
     }
 
     @Test
     fun `when load movies fails, then an error status is posted`() {
-        coEvery { loadMoviesUseCaseMock.execute(any()) } answers { throw LoadMoviesUseCase.Error(Exception()) }
+        coEvery { loadMoviesUseCaseMock.execute(any()) } returns NetworkError(Exception())
 
         testedClass.loadMovies()
 
@@ -90,7 +92,7 @@ class MoviesActivityViewModelTest {
 
     @Test
     fun `when load movies fails, then a null page is posted`() {
-        coEvery { loadMoviesUseCaseMock.execute(any()) } answers { throw LoadMoviesUseCase.Error(Exception()) }
+        coEvery { loadMoviesUseCaseMock.execute(any()) } returns NetworkError(Exception())
 
         testedClass.loadMovies()
 
@@ -134,7 +136,7 @@ class MoviesActivityViewModelTest {
 
         testedClass.reloadMovies(MOVIE_YEAR, MOVIE_MONTH)
 
-        expect { that(testedClass.paginationData.items().size).isEqualTo(moviesResultPage.movies.size) }
+        expect { that(testedClass.paginationData.items().size).isEqualTo(moviesResultPage.value.movies.size) }
     }
 
     @Test

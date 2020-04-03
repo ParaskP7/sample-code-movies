@@ -10,6 +10,4 @@ class LoadMoviesUseCase constructor(
 
     data class Params(val year: Int?, val month: Int?, val page: Int?)
 
-    class Error(cause: Throwable) : Throwable(cause.message, cause)
-
 }

@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import io.petros.movies.core.list.AdapterStatus
 import io.petros.movies.domain.interactor.movie.LoadMoviesUseCase
+import io.petros.movies.domain.model.Result
 import io.petros.movies.domain.model.common.PaginationData
 import io.petros.movies.domain.model.movie.Movie
 import io.petros.movies.domain.model.movie.MoviesResultPage
@@ -26,11 +27,9 @@ class MoviesActivityViewModel constructor(
 
     fun loadMovies(year: Int? = null, month: Int? = null, page: Int? = null) = viewModelScope.launch {
         statusObservable.postValue(AdapterStatus.LOADING)
-        try {
-            val movies = loadMoviesUseCase.execute(LoadMoviesUseCase.Params(year, month, page))
-            onLoadMoviesSuccess(movies)
-        } catch (error: LoadMoviesUseCase.Error) {
-            onLoadMoviesError(error)
+        when (val movies = loadMoviesUseCase.execute(LoadMoviesUseCase.Params(year, month, page))) {
+            is Result.Success -> onLoadMoviesSuccess(movies.value)
+            is Result.Error -> onLoadMoviesError(movies.cause)
         }
     }
 
@@ -40,7 +39,7 @@ class MoviesActivityViewModel constructor(
         moviesObservable.postValue(paginationData.addPage(movies))
     }
 
-    private fun onLoadMoviesError(error: LoadMoviesUseCase.Error) {
+    private fun onLoadMoviesError(error: Exception) {
         Timber.w(error, "Load movies error.")
         statusObservable.postValue(AdapterStatus.ERROR)
         moviesObservable.postValue(null)
