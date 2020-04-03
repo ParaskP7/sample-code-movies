@@ -6,7 +6,7 @@ import io.mockk.mockk
 import io.petros.movies.android_test.context.TestContextProvider.context
 import io.petros.movies.domain.model.common.PaginationData
 import io.petros.movies.domain.model.movie.Movie
-import io.petros.movies.domain.model.movie.MoviesResultPage
+import io.petros.movies.domain.model.movie.MoviesPage
 import io.petros.movies.test.domain.NEXT_PAGE
 import io.petros.movies.test.domain.movie
 import org.junit.Test
@@ -63,7 +63,7 @@ class InfiniteAdapterRobolectricTest {
     fun `given first page load, when setting items to adapter, then the first page items are set`() {
         expect { that(testedClass.items()).isEqualTo(emptyList()) }
 
-        testedClass.setItems(PaginationData<Movie>().addPage(MoviesResultPage(NEXT_PAGE, firstPageItems)))
+        testedClass.setItems(PaginationData<Movie>().addPage(MoviesPage(NEXT_PAGE, firstPageItems)))
 
         expect { that(testedClass.items()).isEqualTo(firstPageItems) }
     }
@@ -71,10 +71,10 @@ class InfiniteAdapterRobolectricTest {
     @Test
     fun `given second page load, when setting items to adapter, then new items are appended on the current items`() {
         val paginationData = PaginationData<Movie>()
-        paginationData.addPage(MoviesResultPage(NEXT_PAGE, firstPageItems))
+        paginationData.addPage(MoviesPage(NEXT_PAGE, firstPageItems))
         testedClass.setItems(paginationData)
         expect { that(testedClass.items()).isEqualTo(firstPageItems) }
-        paginationData.addPage(MoviesResultPage(NEXT_PAGE + 1, secondPageItems))
+        paginationData.addPage(MoviesPage(NEXT_PAGE + 1, secondPageItems))
 
         testedClass.setItems(paginationData)
 
@@ -83,10 +83,10 @@ class InfiniteAdapterRobolectricTest {
 
     @Test
     fun `given another page reload, when setting items to adapter, then this another page items are reloaded`() {
-        testedClass.setItems(PaginationData<Movie>().addPage(MoviesResultPage(NEXT_PAGE, firstPageItems)))
+        testedClass.setItems(PaginationData<Movie>().addPage(MoviesPage(NEXT_PAGE, firstPageItems)))
         expect { that(testedClass.items()).isEqualTo(firstPageItems) }
 
-        testedClass.setItems(PaginationData<Movie>().addPage(MoviesResultPage(NEXT_PAGE, anotherPageItems)))
+        testedClass.setItems(PaginationData<Movie>().addPage(MoviesPage(NEXT_PAGE, anotherPageItems)))
 
         expect { that(testedClass.items()).isEqualTo(anotherPageItems) }
     }
@@ -94,9 +94,9 @@ class InfiniteAdapterRobolectricTest {
     @Test
     fun `given page restore, when setting items to adapter, then all page items are restored`() {
         val paginationData = PaginationData<Movie>()
-        paginationData.addPage(MoviesResultPage(NEXT_PAGE, firstPageItems))
+        paginationData.addPage(MoviesPage(NEXT_PAGE, firstPageItems))
         testedClass.setItems(paginationData)
-        paginationData.addPage(MoviesResultPage(NEXT_PAGE + 1, secondPageItems))
+        paginationData.addPage(MoviesPage(NEXT_PAGE + 1, secondPageItems))
         testedClass.setItems(paginationData)
         expect { that(testedClass.items()).isEqualTo(firstPageItems + secondPageItems) }
 

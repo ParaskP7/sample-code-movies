@@ -8,7 +8,7 @@ import io.petros.movies.domain.interactor.movie.LoadMoviesUseCase
 import io.petros.movies.domain.model.Result
 import io.petros.movies.domain.model.common.PaginationData
 import io.petros.movies.domain.model.movie.Movie
-import io.petros.movies.domain.model.movie.MoviesResultPage
+import io.petros.movies.domain.model.movie.MoviesPage
 import kotlinx.coroutines.launch
 import timber.log.Timber
 
@@ -33,7 +33,7 @@ class MoviesActivityViewModel constructor(
         }
     }
 
-    private fun onLoadMoviesSuccess(movies: MoviesResultPage) {
+    private fun onLoadMoviesSuccess(movies: MoviesPage) {
         Timber.d("Load movies success. [Movies: $movies]")
         statusObservable.postValue(AdapterStatus.IDLE)
         moviesObservable.postValue(paginationData.addPage(movies))

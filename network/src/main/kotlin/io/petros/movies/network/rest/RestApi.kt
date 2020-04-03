@@ -1,6 +1,6 @@
 package io.petros.movies.network.rest
 
-import io.petros.movies.network.raw.movie.MoviesResultPageRaw
+import io.petros.movies.network.raw.movie.MoviesPageRaw
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -16,6 +16,6 @@ interface RestApi {
         @Query("sort_by") sortBy: String = "popularity.desc",
         // TODO: Think about how to add this `BuildConfig.THEMOVIEDB_API_KEY` logic back
         @Query("api_key") clientId: String = "f075136f8e2f4871f75b4aa0e399ce49"
-    ): MoviesResultPageRaw
+    ): MoviesPageRaw
 
 }

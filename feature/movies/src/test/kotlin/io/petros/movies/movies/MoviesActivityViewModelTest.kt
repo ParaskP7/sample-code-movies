@@ -16,7 +16,7 @@ import io.petros.movies.test.domain.MOVIE_MONTH
 import io.petros.movies.test.domain.MOVIE_YEAR
 import io.petros.movies.test.domain.NEXT_PAGE
 import io.petros.movies.test.domain.movie
-import io.petros.movies.test.domain.moviesResultPage
+import io.petros.movies.test.domain.moviesPage
 import io.petros.movies.test.utils.MainCoroutineScopeRule
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.junit.Before
@@ -33,20 +33,20 @@ class MoviesActivityViewModelTest {
     @get:Rule val coroutineScope = MainCoroutineScopeRule()
     @get:Rule val rule = InstantTaskExecutorRule()
 
-    private val previousMoviesResultPage = moviesResultPage(NEXT_PAGE, listOf(movie(), movie()))
-    private val moviesResultPage = Result.Success(moviesResultPage())
+    private val previousMoviesPage = moviesPage(NEXT_PAGE, listOf(movie(), movie()))
+    private val moviesPage = Result.Success(moviesPage())
 
     @Suppress("LateinitUsage") private lateinit var testedClass: MoviesActivityViewModel
     private val loadMoviesUseCaseMock = mockk<LoadMoviesUseCase>()
     private val statusObservableMock = mockk<Observer<AdapterStatus>>()
-    private val moviesResultPageObservableMock = mockk<Observer<PaginationData<Movie>>>()
+    private val moviesPageObservableMock = mockk<Observer<PaginationData<Movie>>>()
 
     @Before
     @ExperimentalCoroutinesApi
     fun setUp() {
         testedClass = MoviesActivityViewModel(loadMoviesUseCaseMock)
         testedClass.statusObservable.observeForever(statusObservableMock)
-        testedClass.moviesObservable.observeForever(moviesResultPageObservableMock)
+        testedClass.moviesObservable.observeForever(moviesPageObservableMock)
     }
 
     @Test
@@ -65,7 +65,7 @@ class MoviesActivityViewModelTest {
 
     @Test
     fun `when loading movies succeeds, then an idle status is posted`() {
-        coEvery { loadMoviesUseCaseMock.execute(any()) } returns moviesResultPage
+        coEvery { loadMoviesUseCaseMock.execute(any()) } returns moviesPage
 
         testedClass.loadMovies()
 
@@ -74,11 +74,11 @@ class MoviesActivityViewModelTest {
 
     @Test
     fun `when load movies succeeds, then a page is posted`() {
-        coEvery { loadMoviesUseCaseMock.execute(any()) } returns moviesResultPage
+        coEvery { loadMoviesUseCaseMock.execute(any()) } returns moviesPage
 
         testedClass.loadMovies()
 
-        verify { moviesResultPageObservableMock.onChanged(testedClass.paginationData.addPage(moviesResultPage.value)) }
+        verify { moviesPageObservableMock.onChanged(testedClass.paginationData.addPage(moviesPage.value)) }
     }
 
     @Test
@@ -96,7 +96,7 @@ class MoviesActivityViewModelTest {
 
         testedClass.loadMovies()
 
-        coVerify { moviesResultPageObservableMock.onChanged(null) }
+        coVerify { moviesPageObservableMock.onChanged(null) }
     }
 
     @Test
@@ -121,28 +121,28 @@ class MoviesActivityViewModelTest {
 
     @Test
     fun `given a page, when loading movies or restoring, then restore is triggered`() {
-        testedClass.paginationData.addPage(previousMoviesResultPage)
+        testedClass.paginationData.addPage(previousMoviesPage)
         expect { that(testedClass.paginationData.isEmpty()).isFalse() }
 
         testedClass.loadMoviesOrRestore()
 
-        verify { moviesResultPageObservableMock.onChanged(testedClass.paginationData) }
+        verify { moviesPageObservableMock.onChanged(testedClass.paginationData) }
     }
 
     @Test
     fun `given a page, when reloading movies, then existing data gets cleared`() {
-        testedClass.paginationData.addPage(previousMoviesResultPage)
-        coEvery { loadMoviesUseCaseMock.execute(any()) } returns moviesResultPage
+        testedClass.paginationData.addPage(previousMoviesPage)
+        coEvery { loadMoviesUseCaseMock.execute(any()) } returns moviesPage
 
         testedClass.reloadMovies(MOVIE_YEAR, MOVIE_MONTH)
 
-        expect { that(testedClass.paginationData.items().size).isEqualTo(moviesResultPage.value.movies.size) }
+        expect { that(testedClass.paginationData.items().size).isEqualTo(moviesPage.value.movies.size) }
     }
 
     @Test
     fun `given a page, when reloading movies, then a new load of movies is triggered`() {
-        testedClass.paginationData.addPage(previousMoviesResultPage)
-        coEvery { loadMoviesUseCaseMock.execute(any()) } returns moviesResultPage
+        testedClass.paginationData.addPage(previousMoviesPage)
+        coEvery { loadMoviesUseCaseMock.execute(any()) } returns moviesPage
 
         testedClass.reloadMovies(MOVIE_YEAR, MOVIE_MONTH)
 

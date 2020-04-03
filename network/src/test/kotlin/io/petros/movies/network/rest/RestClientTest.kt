@@ -3,11 +3,11 @@ package io.petros.movies.network.rest
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.mockk
-import io.petros.movies.network.raw.movie.MoviesResultPageRaw
+import io.petros.movies.network.raw.movie.MoviesPageRaw
 import io.petros.movies.test.domain.MOVIE_MONTH
 import io.petros.movies.test.domain.MOVIE_YEAR
 import io.petros.movies.test.domain.NEXT_PAGE
-import io.petros.movies.test.domain.moviesResultPage
+import io.petros.movies.test.domain.moviesPage
 import io.petros.movies.test.utils.MainCoroutineScopeRule
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
@@ -33,8 +33,8 @@ class RestClientTest {
 
     @Test
     fun `when load movies is triggered, then rest api triggers load movies`() = coroutineScope.runBlockingTest {
-        val moviesResponse = MoviesResultPageRaw(0, 1, emptyList())
-        coEvery { restApiMock.loadMovies(RELEASE_DATE_GTE, RELEASE_DATE_LTE, NEXT_PAGE) } returns moviesResponse
+        val moviesPageRaw = MoviesPageRaw(0, 1, emptyList())
+        coEvery { restApiMock.loadMovies(RELEASE_DATE_GTE, RELEASE_DATE_LTE, NEXT_PAGE) } returns moviesPageRaw
 
         testedClass.loadMovies(MOVIE_YEAR, MOVIE_MONTH, NEXT_PAGE)
 
@@ -42,14 +42,14 @@ class RestClientTest {
     }
 
     @Test
-    fun `when load movies is triggered, then the movies result page is the expected one`() = coroutineScope.runBlockingTest {
-        val moviesResponse = MoviesResultPageRaw(0, 1, emptyList())
-        val movies = moviesResultPage(1, emptyList())
-        coEvery { restApiMock.loadMovies(RELEASE_DATE_GTE, RELEASE_DATE_LTE, NEXT_PAGE) } returns moviesResponse
+    fun `when load movies is triggered, then the movies page is the expected one`() = coroutineScope.runBlockingTest {
+        val moviesPageRaw = MoviesPageRaw(0, 1, emptyList())
+        val moviesPage = moviesPage(1, emptyList())
+        coEvery { restApiMock.loadMovies(RELEASE_DATE_GTE, RELEASE_DATE_LTE, NEXT_PAGE) } returns moviesPageRaw
 
         val result = testedClass.loadMovies(MOVIE_YEAR, MOVIE_MONTH, NEXT_PAGE)
 
-        expect { that(result).isEqualTo(movies) }
+        expect { that(result).isEqualTo(moviesPage) }
     }
 
 }

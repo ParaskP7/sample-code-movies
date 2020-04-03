@@ -2,7 +2,7 @@ package io.petros.movies.domain.model.movie
 
 import io.petros.movies.domain.model.common.PaginationData
 
-data class MoviesResultPage(
+data class MoviesPage(
     val nextPage: Int?,
     val movies: List<Movie>
 ) : PaginationData.InfiniteScrollPage<Movie>() {

@@ -1,7 +1,7 @@
 package io.petros.movies.test.domain
 
 import io.petros.movies.domain.model.movie.Movie
-import io.petros.movies.domain.model.movie.MoviesResultPage
+import io.petros.movies.domain.model.movie.MoviesPage
 import java.util.*
 
 const val NEXT_PAGE = 2
@@ -16,11 +16,11 @@ private const val VOTE_COUNT = 100
 private const val OVERVIEW = "OVERVIEW"
 private const val BACKDROP = "BACKDROP"
 
-fun moviesResultPage(
+fun moviesPage(
     nextPage: Int = NEXT_PAGE,
     movies: List<Movie> = arrayListOf(movie(), movie(), movie())
-): MoviesResultPage {
-    return MoviesResultPage(
+): MoviesPage {
+    return MoviesPage(
         nextPage,
         movies
     )

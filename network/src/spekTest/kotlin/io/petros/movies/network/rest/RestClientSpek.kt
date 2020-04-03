@@ -3,12 +3,12 @@ package io.petros.movies.network.rest
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.mockk
-import io.petros.movies.domain.model.movie.MoviesResultPage
-import io.petros.movies.network.raw.movie.MoviesResultPageRaw
+import io.petros.movies.domain.model.movie.MoviesPage
+import io.petros.movies.network.raw.movie.MoviesPageRaw
 import io.petros.movies.test.domain.MOVIE_MONTH
 import io.petros.movies.test.domain.MOVIE_YEAR
 import io.petros.movies.test.domain.NEXT_PAGE
-import io.petros.movies.test.domain.moviesResultPage
+import io.petros.movies.test.domain.moviesPage
 import io.petros.movies.test.utils.CoroutineSpek
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.runBlocking
@@ -28,11 +28,11 @@ class RestClientSpek : CoroutineSpek({
     Feature("Rest client for movies") {
         val testedClass by memoized { RestClient(restApiMock) }
         Scenario("loading movies") {
-            val moviesResponse = MoviesResultPageRaw(0, 1, emptyList())
-            val movies = moviesResultPage(1, emptyList())
-            var result: MoviesResultPage? = null
+            val moviesPageRaw = MoviesPageRaw(0, 1, emptyList())
+            val moviesPage = moviesPage(1, emptyList())
+            var result: MoviesPage? = null
             Given("movies response") {
-                coEvery { restApiMock.loadMovies(RELEASE_DATE_GTE, RELEASE_DATE_LTE, NEXT_PAGE) } returns moviesResponse
+                coEvery { restApiMock.loadMovies(RELEASE_DATE_GTE, RELEASE_DATE_LTE, NEXT_PAGE) } returns moviesPageRaw
             }
             When("load movies is triggered") {
                 result = runBlocking { testedClass.loadMovies(MOVIE_YEAR, MOVIE_MONTH, NEXT_PAGE) }
@@ -40,8 +40,8 @@ class RestClientSpek : CoroutineSpek({
             Then("rest api triggers load movies") {
                 coVerify { restApiMock.loadMovies(RELEASE_DATE_GTE, RELEASE_DATE_LTE, NEXT_PAGE) }
             }
-            Then("the movies result page is the expected one") {
-                expect { that(result).isEqualTo(movies) }
+            Then("the movies page is the expected one") {
+                expect { that(result).isEqualTo(moviesPage) }
             }
         }
     }

@@ -14,7 +14,7 @@ class RestClient(
             releaseDateGte(year, month),
             releaseDateLte(year, month),
             page
-        ).toMoviesResultPage()
+        ).toMoviesPage()
     }
 
 }

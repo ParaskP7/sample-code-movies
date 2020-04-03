@@ -16,26 +16,26 @@ import io.petros.movies.test.domain.MOVIE_MONTH
 import io.petros.movies.test.domain.MOVIE_YEAR
 import io.petros.movies.test.domain.NEXT_PAGE
 import io.petros.movies.test.domain.movie
-import io.petros.movies.test.domain.moviesResultPage
+import io.petros.movies.test.domain.moviesPage
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.spekframework.spek2.style.gherkin.Feature
 import strikt.api.expect
 import strikt.assertions.isEqualTo
 
 private val statusObservableMock = mockk<Observer<AdapterStatus>>()
-private val moviesResultPageObservableMock = mockk<Observer<PaginationData<Movie>>>()
+private val moviesPageObservableMock = mockk<Observer<PaginationData<Movie>>>()
 
 @ExperimentalCoroutinesApi
 private fun setupViewModel(testedClass: MoviesActivityViewModel) {
     testedClass.statusObservable.observeForever(statusObservableMock)
-    testedClass.moviesObservable.observeForever(moviesResultPageObservableMock)
+    testedClass.moviesObservable.observeForever(moviesPageObservableMock)
 }
 
 @ExperimentalCoroutinesApi
 class MoviesActivityViewModelSpek : ViewModelSpek({
 
-    val previousMoviesResultPage = moviesResultPage(NEXT_PAGE, listOf(movie(), movie()))
-    val moviesResultPage = Result.Success(moviesResultPage())
+    val previousMoviesPage = moviesPage(NEXT_PAGE, listOf(movie(), movie()))
+    val moviesPage = Result.Success(moviesPage())
     val loadMoviesUseCaseMock = mockk<LoadMoviesUseCase>()
 
     Feature("Movies activity view model") {
@@ -43,7 +43,7 @@ class MoviesActivityViewModelSpek : ViewModelSpek({
         Scenario("on success") {
             Given("a page as a result") {
                 setupViewModel(testedClass)
-                coEvery { loadMoviesUseCaseMock.execute(any()) } returns moviesResultPage
+                coEvery { loadMoviesUseCaseMock.execute(any()) } returns moviesPage
             }
             When("loading movies") {
                 testedClass.loadMovies(MOVIE_YEAR, MOVIE_MONTH, NEXT_PAGE)
@@ -58,9 +58,7 @@ class MoviesActivityViewModelSpek : ViewModelSpek({
                 verify { statusObservableMock.onChanged(AdapterStatus.IDLE) }
             }
             Then("a page is posted") {
-                verify {
-                    moviesResultPageObservableMock.onChanged(testedClass.paginationData.addPage(moviesResultPage.value))
-                }
+                verify { moviesPageObservableMock.onChanged(testedClass.paginationData.addPage(moviesPage.value)) }
             }
         }
         Scenario("on failure") {
@@ -81,7 +79,7 @@ class MoviesActivityViewModelSpek : ViewModelSpek({
                 coVerify { statusObservableMock.onChanged(AdapterStatus.ERROR) }
             }
             Then("a null page is posted") {
-                coVerify { moviesResultPageObservableMock.onChanged(null) }
+                coVerify { moviesPageObservableMock.onChanged(null) }
             }
         }
     }
@@ -109,13 +107,13 @@ class MoviesActivityViewModelSpek : ViewModelSpek({
         Scenario("loading or restoring movies") {
             Given("a pages") {
                 setupViewModel(testedClass)
-                testedClass.paginationData.addPage(previousMoviesResultPage)
+                testedClass.paginationData.addPage(previousMoviesPage)
             }
             When("loading movies or restoring") {
                 testedClass.loadMoviesOrRestore()
             }
             Then("restore is triggered") {
-                verify { moviesResultPageObservableMock.onChanged(testedClass.paginationData) }
+                verify { moviesPageObservableMock.onChanged(testedClass.paginationData) }
             }
         }
     }
@@ -125,14 +123,14 @@ class MoviesActivityViewModelSpek : ViewModelSpek({
         Scenario("reloading movies") {
             Given("a page") {
                 setupViewModel(testedClass)
-                coEvery { loadMoviesUseCaseMock.execute(any()) } returns moviesResultPage
-                testedClass.paginationData.addPage(previousMoviesResultPage)
+                coEvery { loadMoviesUseCaseMock.execute(any()) } returns moviesPage
+                testedClass.paginationData.addPage(previousMoviesPage)
             }
             When("reloading movies") {
                 testedClass.reloadMovies(MOVIE_YEAR, MOVIE_MONTH)
             }
             Then("the existing data gets cleared") {
-                expect { that(testedClass.paginationData.items().size).isEqualTo(moviesResultPage.value.movies.size) }
+                expect { that(testedClass.paginationData.items().size).isEqualTo(moviesPage.value.movies.size) }
             }
             Then("a new load of movies is triggered") {
                 coVerify { loadMoviesUseCaseMock.execute(LoadMoviesUseCase.Params(MOVIE_YEAR, MOVIE_MONTH, null)) }
