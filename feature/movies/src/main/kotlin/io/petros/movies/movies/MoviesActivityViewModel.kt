@@ -9,6 +9,7 @@ import io.petros.movies.domain.model.Result
 import io.petros.movies.domain.model.common.PaginationData
 import io.petros.movies.domain.model.movie.Movie
 import io.petros.movies.domain.model.movie.MoviesPage
+import io.petros.movies.utils.exhaustive
 import kotlinx.coroutines.launch
 import timber.log.Timber
 
@@ -30,7 +31,7 @@ class MoviesActivityViewModel constructor(
         when (val movies = loadMoviesUseCase.execute(LoadMoviesUseCase.Params(year, month, page))) {
             is Result.Success -> onLoadMoviesSuccess(movies.value)
             is Result.Error -> onLoadMoviesError(movies.cause)
-        }
+        }.exhaustive
     }
 
     private fun onLoadMoviesSuccess(movies: MoviesPage) {
