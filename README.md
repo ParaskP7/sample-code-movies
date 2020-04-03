@@ -233,7 +233,7 @@ and library enhancements:
 16. **![#2cb42c](https://placehold.it/15/2cb42c/000000?text=+) `DONE`** Modularize the App Horizontally by Features.
     To get an understanding of Modularization and how to it applies to an Android project, start with this Article [Modularization](https://medium.com/google-developer-experts/modularizing-android-applications-9e2d18f244a0)
     ```(To take advantage of new distribution features (Instant apps, app bundles) from Google, or even just create a clear separation of concerns to make our project easier to work with— modularizing our applications can help us to achieve all of these things)```
-17. **![#ffff00](https://placehold.it/15/ffff00/000000?text=+) `IN PROGRESS`** Add Result for Error Handling.
+17. **![#2cb42c](https://placehold.it/15/2cb42c/000000?text=+) `DONE`** Add Result for Error Handling.
     To get an understanding of the power of types for errors, start with this Article [Designing Errors with Kotlin](https://arturdryomov.dev/posts/designing-errors-with-kotlin/)
     ```(Exceptions! Developers adore exceptions. It is so easy to throw an error and forget about consequences. Is it a good idea though? Should Kotlin follow the same path? Fortunately enough there are many good languages we can learn from)```
 18. Add Code Coverage Reports for Tests with Jacoco.
