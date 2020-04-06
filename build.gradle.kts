@@ -234,8 +234,6 @@ fun DetektExtension.detekt() {
     }
 }
 
-/* CONFIGURATION EXTENSION FUNCTIONS - ANDROID */
-
 fun DefaultConfig.defaultConfig() {
     minSdkVersion(Android.Sdk.MIN)
     targetSdkVersion(Android.Sdk.TARGET)
@@ -309,18 +307,12 @@ fun ignoredVariants(variantOptions: (String) -> Unit) {
     }
 }
 
-/* *********************************************************************************************************************** */
-
 /* TASKS EXTENSION FUNCTIONS */
-
-/* CONFIGURATION EXTENSION FUNCTIONS - KOTLIN */
 
 fun KotlinJvmOptions.kotlinOptions() {
     jvmTarget = Java.version.toString()
     allWarningsAsErrors = true
 }
-
-/* CONFIGURATION EXTENSION FUNCTIONS - VERSIONS */
 
 fun DependencyUpdatesTask.versionsOptions() {
     rejectVersionIf { isNonStable(candidate.version) }
@@ -340,9 +332,7 @@ fun isNonStable(version: String): Boolean {
     return isStable.not()
 }
 
-/* *********************************************************************************************************************** */
-
-/* MODULE SOURCE SETS */
+/* SOURCE SET EXTENSION FUNCTIONS */
 
 fun SourceSetContainer.mainSourceSetContainer() {
     named(Sources.MAIN) {
