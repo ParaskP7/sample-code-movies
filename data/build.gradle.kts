@@ -48,6 +48,7 @@ dependencies {
 
 /* CONFIGURATION EXTENSION FUNCTIONS */
 
+// TODO: Think about how to add this logic back
 fun NamedDomainObjectContainer<BuildType>.buildTypes() {
     val themoviedbApiProperties = Properties()
     themoviedbApiProperties.load(FileInputStream(file(Config.Keys.TheMoviesDb.API_FILE_PATH)))
