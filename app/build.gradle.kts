@@ -1,4 +1,4 @@
-@file:Suppress("InvalidPackageDeclaration", "ForbiddenComment", "FunctionMaxLength")
+@file:Suppress("InvalidPackageDeclaration")
 
 import com.android.build.gradle.ProguardFiles.getDefaultProguardFile
 import com.android.build.gradle.internal.dsl.BuildType
@@ -23,16 +23,31 @@ android {
 /* DEPENDENCIES */
 
 dependencies {
-    projectImplementation()
-    debugImplementation()
-    implementation()
-    androidTestImplementation()
-    plugins()
+    implementation(project(Project.Implementation.Kotlin.DOMAIN))
+    implementation(project(Project.Implementation.Android.Core.DATA))
+    implementation(project(Project.Implementation.Android.Core.CORE))
+    implementation(project(Project.Implementation.Android.Feature.SPLASH))
+    implementation(project(Project.Implementation.Android.Feature.MOVIES))
+    implementation(project(Project.Implementation.Android.Feature.MOVIE_DETAILS))
+
+    debugImplementation(Deps.LeakCanary.LEAK_CANARY)
+
+    implementation(Deps.Kotlin.Core.KOTLIN)
+    implementation(Deps.Android.Arch.Core.Lifecycle.PROCESS)
+    implementation(Deps.Di.Koin.Android.ANDROID)
+    implementation(Deps.Log.TIMBER)
+
+    androidTestImplementation(Deps.Android.Test.CORE)
+    androidTestImplementation(Deps.Android.Test.J_UNIT)
+    androidTestImplementation(Deps.Android.Test.ESPRESSO)
+    androidTestImplementation(Deps.Test.Assert.STRIKT)
+
+    detektPlugins(Deps.Plugin.DETEKT_FORMATTING)
 }
 
 /* *********************************************************************************************************************** */
 
-/* CONFIGURATION EXTENSION FUNCTIONS - ANDROID */
+/* CONFIGURATION EXTENSION FUNCTIONS */
 
 fun DefaultConfig.defaultConfig() {
     applicationId = App.APPLICATION_ID
@@ -51,85 +66,4 @@ fun NamedDomainObjectContainer<BuildType>.buildTypes() {
         isMinifyEnabled = false
         proguardFiles(getDefaultProguardFile(Files.Txt.PROGUARD_ANDROID, layout.buildDirectory), Files.Pro.PROGUARD_RULES)
     }
-}
-
-/* DEPENDENCIES - PROJECT IMPLEMENTATION */
-
-fun DependencyHandlerScope.projectImplementation() {
-    kotlinProjectImplementation()
-    androidProjectImplementation()
-}
-
-fun DependencyHandlerScope.kotlinProjectImplementation() {
-    implementation(project(Project.Implementation.Kotlin.DOMAIN))
-}
-
-fun DependencyHandlerScope.androidProjectImplementation() {
-    androidProjectImplementationCore()
-    androidProjectImplementationFeature()
-}
-
-fun DependencyHandlerScope.androidProjectImplementationCore() {
-    implementation(project(Project.Implementation.Android.Core.DATA))
-    implementation(project(Project.Implementation.Android.Core.CORE))
-}
-
-fun DependencyHandlerScope.androidProjectImplementationFeature() {
-    implementation(project(Project.Implementation.Android.Feature.SPLASH))
-    implementation(project(Project.Implementation.Android.Feature.MOVIES))
-    implementation(project(Project.Implementation.Android.Feature.MOVIE_DETAILS))
-}
-
-/* DEPENDENCIES - BUILD TYPE IMPLEMENTATION */
-
-fun DependencyHandlerScope.debugImplementation() {
-    debugImplementation(Deps.LeakCanary.LEAK_CANARY)
-}
-
-/* DEPENDENCIES - IMPLEMENTATION */
-
-fun DependencyHandlerScope.implementation() {
-    implementationKotlin()
-    implementationAndroidArch()
-    implementationDi()
-    implementationLog()
-}
-
-fun DependencyHandlerScope.implementationKotlin() {
-    implementation(Deps.Kotlin.Core.KOTLIN)
-}
-
-fun DependencyHandlerScope.implementationAndroidArch() {
-    implementation(Deps.Android.Arch.Core.Lifecycle.PROCESS)
-}
-
-fun DependencyHandlerScope.implementationDi() {
-    implementation(Deps.Di.Koin.Android.ANDROID)
-}
-
-fun DependencyHandlerScope.implementationLog() {
-    implementation(Deps.Log.TIMBER)
-}
-
-/* DEPENDENCIES - ANDROID TEST IMPLEMENTATION */
-
-fun DependencyHandlerScope.androidTestImplementation() {
-    androidTestImplementationTest()
-    androidTestImplementationMock()
-}
-
-fun DependencyHandlerScope.androidTestImplementationTest() {
-    androidTestImplementation(Deps.Android.Test.CORE)
-    androidTestImplementation(Deps.Android.Test.J_UNIT)
-    androidTestImplementation(Deps.Android.Test.ESPRESSO)
-}
-
-fun DependencyHandlerScope.androidTestImplementationMock() {
-    androidTestImplementation(Deps.Test.Assert.STRIKT)
-}
-
-/* DEPENDENCIES - PLUGINS */
-
-fun DependencyHandlerScope.plugins() {
-    detektPlugins(Deps.Plugin.DETEKT_FORMATTING)
 }

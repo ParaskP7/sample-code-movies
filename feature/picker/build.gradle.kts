@@ -1,4 +1,4 @@
-@file:Suppress("InvalidPackageDeclaration", "ForbiddenComment")
+@file:Suppress("InvalidPackageDeclaration")
 
 /* PLUGINS */
 
@@ -12,45 +12,11 @@ plugins {
 /* DEPENDENCIES */
 
 dependencies {
-    projectImplementation()
-    implementation()
-    plugins()
-}
-
-/* *********************************************************************************************************************** */
-
-/* DEPENDENCIES - PROJECT IMPLEMENTATION */
-
-fun DependencyHandlerScope.projectImplementation() {
-    androidProjectImplementation()
-}
-
-fun DependencyHandlerScope.androidProjectImplementation() {
     implementation(project(Project.Implementation.Android.Core.CORE))
-}
 
-/* DEPENDENCIES - IMPLEMENTATION */
-
-fun DependencyHandlerScope.implementation() {
-    implementationKotlin()
-    implementationAndroid()
-    implementationUtil()
-}
-
-fun DependencyHandlerScope.implementationKotlin() {
     implementation(Deps.Kotlin.Core.KOTLIN)
-}
-
-fun DependencyHandlerScope.implementationAndroid() {
     implementation(Deps.Android.Core.APP_COMPAT)
-}
-
-fun DependencyHandlerScope.implementationUtil() {
     api(Deps.Util.MONTH_YEAR_PICKER) // Usage of api is required because of 'MovieActivity', which cannot access it.
-}
 
-/* DEPENDENCIES - PLUGINS */
-
-fun DependencyHandlerScope.plugins() {
     detektPlugins(Deps.Plugin.DETEKT_FORMATTING)
 }
