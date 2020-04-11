@@ -246,7 +246,7 @@ and library enhancements:
 17. **![#2cb42c](https://placehold.it/15/2cb42c/000000?text=+) `DONE`** Add Result for Error Handling.
     To get an understanding of the power of types for errors, start with this Article [Designing Errors with Kotlin](https://arturdryomov.dev/posts/designing-errors-with-kotlin/)
     ```(Exceptions! Developers adore exceptions. It is so easy to throw an error and forget about consequences. Is it a good idea though? Should Kotlin follow the same path? Fortunately enough there are many good languages we can learn from)```
-18. **![#ffff00](https://placehold.it/15/ffff00/000000?text=+) `IN PROGRESS`** Add Code Coverage Reports for Tests with Jacoco.
+18. **![#2cb42c](https://placehold.it/15/2cb42c/000000?text=+) `DONE`** Add Code Coverage Reports for Tests with Jacoco.
     For more info see [Jacoco](https://github.com/jacoco/jacoco)
     ```(Java Code Coverage Library)```
 19. Add Support for Dark Theme.
