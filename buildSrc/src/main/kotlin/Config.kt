@@ -37,6 +37,53 @@ object Config {
 
     }
 
+    object Jacoco {
+
+        object Robolectric {
+
+            val excludes = listOf("jdk.internal.*")
+        }
+
+        private const val REPORT_DIRECTORY_PATH = "build/reports/jacoco"
+        private const val REPORT_HTML_DIRECTORY = "jacocoHtml"
+        private const val REPORT_XML_FILE = "jacoco.xml"
+        private const val REPORT_CSV_FILE = "jacoco.csv"
+
+        const val GROUP = "Reporting"
+        const val DESCRIPTION = "Generate Jacoco code coverage reports."
+
+        const val REPORT_HTML_DIRECTORY_PATH = "$REPORT_DIRECTORY_PATH/$REPORT_HTML_DIRECTORY"
+        const val REPORT_XML_FILE_PATH = "$REPORT_DIRECTORY_PATH/$REPORT_XML_FILE"
+        const val REPORT_CSV_FILE_PATH = "$REPORT_DIRECTORY_PATH/$REPORT_CSV_FILE"
+
+        fun dirPair(isKotlinModule: Boolean): Pair<String, Any> {
+            val kotlinDir = "build/classes/kotlin/main"
+            val androidDir = "build/tmp/kotlin-classes/debug"
+            return "dir" to if (isKotlinModule) kotlinDir else androidDir
+        }
+
+        fun excludesPair(isKotlinModule: Boolean): Pair<String, Any> {
+            val kotlinExcludes = listOf(
+                "**/*Module*.*"
+            )
+            val androidExcludes = listOf(
+                "**/*Activity*.*",
+                "**/*Toolbar*.*",
+                "**/*Module*.*",
+                "**/*Binding*.*",
+                "**/*Glide*.*"
+            )
+            return "excludes" to if (isKotlinModule) kotlinExcludes else androidExcludes
+        }
+
+        fun executionData(isKotlinModule: Boolean): String {
+            val kotlinExecutionData = "build/jacoco/test.exec"
+            val androidExecutionData = "build/jacoco/testDebugUnitTest.exec"
+            return if (isKotlinModule) kotlinExecutionData else androidExecutionData
+        }
+
+    }
+
     object Keys {
 
         object TheMoviesDb {

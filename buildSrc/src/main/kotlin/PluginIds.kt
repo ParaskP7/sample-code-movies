@@ -37,6 +37,8 @@ object PluginIds {
 
         }
 
+        const val JACOCO = "jacoco"
+
     }
 
     object Dependency {

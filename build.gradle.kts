@@ -100,6 +100,10 @@ fun Project.subprojectsPlugins() {
     plugins.withType(VersionsPlugin::class) {
         logPlugin(PluginIds.Dependency.VERSIONS)
     }
+    plugins.withType(JacocoPlugin::class) {
+        logPlugin(PluginIds.Test.JACOCO)
+        jacocoRobolectric()
+    }
 }
 
 fun Project.subprojectsTasks() {
@@ -111,6 +115,10 @@ fun Project.subprojectsTasks() {
     }
     tasks.withType<Zip> {
         duplicatesStrategy = DuplicatesStrategy.INCLUDE
+    }
+    afterEvaluate {
+        val isKotlinModule = pluginManager.hasPlugin(PluginIds.Kotlin.KOTLIN)
+        tasks.create(Tasks.JACOCO, JacocoReport::class) { jacoco(isKotlinModule) }
     }
 }
 
@@ -304,6 +312,39 @@ fun ignoredVariants(variantOptions: (String) -> Unit) {
     ignoredVariants?.forEach {
         println(" << CONFIGURE WITHOUT $it VARIANT >>")
         variantOptions(it)
+    }
+}
+
+fun JacocoReport.jacoco(isKotlinModule: Boolean) {
+    group = Config.Jacoco.GROUP
+    description = Config.Jacoco.DESCRIPTION
+    reports {
+        html.isEnabled = true
+        html.destination = project.file(Config.Jacoco.REPORT_HTML_DIRECTORY_PATH)
+        xml.isEnabled = true
+        xml.destination = project.file(Config.Jacoco.REPORT_XML_FILE_PATH)
+        csv.isEnabled = true
+        csv.destination = project.file(Config.Jacoco.REPORT_CSV_FILE_PATH)
+    }
+    classDirectories.setFrom(
+        project.files(
+            project.fileTree(
+                Config.Jacoco.dirPair(isKotlinModule),
+                Config.Jacoco.excludesPair(isKotlinModule)
+            )
+        )
+    )
+    additionalSourceDirs.setFrom(project.files(Sources.Main.KOTLIN))
+    sourceDirectories.setFrom(project.files(Sources.Main.KOTLIN))
+    executionData(project.files(Config.Jacoco.executionData(isKotlinModule)))
+}
+
+fun Project.jacocoRobolectric() {
+    tasks.withType(Test::class.java) {
+        extensions.getByType(JacocoTaskExtension::class.java).apply {
+            isIncludeNoLocationClasses = true
+            excludes = Config.Jacoco.Robolectric.excludes
+        }
     }
 }
 
