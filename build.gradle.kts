@@ -21,6 +21,10 @@ import io.gitlab.arturbosch.detekt.detekt
 import io.gitlab.arturbosch.detekt.DetektPlugin
 import io.gitlab.arturbosch.detekt.extensions.DetektExtension
 
+import io.petros.movies.plugin.coverage.CoverageExtension
+import io.petros.movies.plugin.coverage.CoveragePlugin
+import io.petros.movies.plugin.coverage.CoverageTask
+
 import org.gradle.api.Project
 
 import org.jetbrains.kotlin.gradle.dsl.KotlinJvmOptions
@@ -104,6 +108,10 @@ fun Project.subprojectsPlugins() {
         logPlugin(PluginIds.Test.JACOCO)
         jacocoRobolectric()
     }
+    plugins.withType(CoveragePlugin::class) {
+        logPlugin(PluginIds.Test.COVERAGE)
+        coverage { coverage() }
+    }
 }
 
 fun Project.subprojectsTasks() {
@@ -119,6 +127,9 @@ fun Project.subprojectsTasks() {
     afterEvaluate {
         val isKotlinModule = pluginManager.hasPlugin(PluginIds.Kotlin.KOTLIN)
         tasks.create(Tasks.JACOCO, JacocoReport::class) { jacoco(isKotlinModule) }
+    }
+    tasks.withType<CoverageTask> {
+        dependsOn(Tasks.JACOCO)
     }
 }
 
@@ -158,6 +169,9 @@ fun Project.androidLibrary(configure: LibraryExtension.() -> Unit) =
 
 fun Project.androidApplication(configure: AppExtension.() -> Unit) =
     extensions.configure(AppExtension::class.java, configure)
+
+fun Project.coverage(configure: CoverageExtension.() -> Unit) =
+    extensions.configure(CoverageExtension::class.java, configure)
 
 /* CONFIGURATION EXTENSION FUNCTIONS */
 
@@ -346,6 +360,11 @@ fun Project.jacocoRobolectric() {
             excludes = Config.Jacoco.Robolectric.excludes
         }
     }
+}
+
+fun CoverageExtension.coverage() {
+    report = Config.Coverage.REPORT_FILE_PATH
+    config = Config.Coverage.CONFIG_FILE_PATH
 }
 
 /* TASKS EXTENSION FUNCTIONS */

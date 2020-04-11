@@ -84,6 +84,13 @@ object Config {
 
     }
 
+    object Coverage {
+
+        const val REPORT_FILE_PATH = Jacoco.REPORT_XML_FILE_PATH
+        const val CONFIG_FILE_PATH = "coverage.properties"
+
+    }
+
     object Keys {
 
         object TheMoviesDb {

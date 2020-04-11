@@ -38,6 +38,7 @@ object PluginIds {
         }
 
         const val JACOCO = "jacoco"
+        const val COVERAGE = "io.petros.movies.coverage"
 
     }
 
