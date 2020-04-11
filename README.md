@@ -167,6 +167,16 @@ Run the project instrumentation tests using this command (Espresso):
 gradlew app:connectedDebugAndroidTest
 ```
 
+Run the project coverage reports using this command:
+```
+gradlew coverage
+```
+
+Or if you want to just run the Jacoco reports without comparing the results with each other, use the below command:
+```
+gradlew jacoco
+```
+
 Use this command in order to check dependency updates for the project:
 ```
 gradlew dependencyUpdates
