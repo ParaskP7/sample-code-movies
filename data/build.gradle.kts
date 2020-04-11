@@ -25,14 +25,14 @@ android {
 /* DEPENDENCIES */
 
 dependencies {
-    implementation(project(Project.Implementation.Kotlin.DOMAIN))
-    implementation(project(Project.Implementation.Kotlin.NETWORK))
+    implementation(project(Deps.Project.Implementation.Kotlin.DOMAIN))
+    implementation(project(Deps.Project.Implementation.Kotlin.NETWORK))
 
     implementation(Deps.Kotlin.Core.KOTLIN)
     implementation(Deps.Kotlin.Coroutines.CORE)
     implementation(Deps.Di.Koin.Kotlin.CORE)
 
-    testImplementation(project(Project.TestImplementation.Kotlin.TEST))
+    testImplementation(project(Deps.Project.TestImplementation.Kotlin.TEST))
 
     testImplementation(Deps.Kotlin.Coroutines.Test.TEST)
     testImplementation(Deps.Test.Spek.DSL)

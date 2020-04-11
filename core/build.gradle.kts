@@ -15,7 +15,7 @@ plugins {
 /* DEPENDENCIES */
 
 dependencies {
-    implementation(project(Project.Implementation.Kotlin.DOMAIN))
+    implementation(project(Deps.Project.Implementation.Kotlin.DOMAIN))
 
     implementation(Deps.Kotlin.Core.KOTLIN)
     implementation(Deps.Android.Core.APP_COMPAT)
@@ -24,8 +24,8 @@ dependencies {
     kapt(Deps.Image.Glide.GLIDE_COMPILER)
     implementation(Deps.Log.TIMBER)
 
-    testImplementation(project(Project.TestImplementation.Kotlin.TEST))
-    testImplementation(project(Project.TestImplementation.Android.ANDROID_TEST))
+    testImplementation(project(Deps.Project.TestImplementation.Kotlin.TEST))
+    testImplementation(project(Deps.Project.TestImplementation.Android.ANDROID_TEST))
 
     testImplementation(Deps.Test.JUnit.J_UNIT_4)
     testImplementation(Deps.Test.Assert.STRIKT)

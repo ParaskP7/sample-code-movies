@@ -14,17 +14,17 @@ plugins {
 /* DEPENDENCIES */
 
 dependencies {
-    implementation(project(Project.Implementation.Kotlin.DOMAIN))
-    implementation(project(Project.Implementation.Android.Core.ANDROID_UTILS))
-    implementation(project(Project.Implementation.Android.Core.CORE))
+    implementation(project(Deps.Project.Implementation.Kotlin.DOMAIN))
+    implementation(project(Deps.Project.Implementation.Android.Core.ANDROID_UTILS))
+    implementation(project(Deps.Project.Implementation.Android.Core.CORE))
 
     implementation(Deps.Kotlin.Core.KOTLIN)
     implementation(Deps.Material.MATERIAL)
     implementation(Deps.Android.Core.APP_COMPAT)
     implementation(Deps.Android.Core.CONSTRAINT_LAYOUT)
 
-    testImplementation(project(Project.TestImplementation.Kotlin.TEST))
-    testImplementation(project(Project.TestImplementation.Android.ANDROID_TEST))
+    testImplementation(project(Deps.Project.TestImplementation.Kotlin.TEST))
+    testImplementation(project(Deps.Project.TestImplementation.Android.ANDROID_TEST))
 
     testImplementation(Deps.Test.JUnit.J_UNIT_4)
     testImplementation(Deps.Test.Assert.STRIKT)

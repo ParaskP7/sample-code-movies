@@ -12,7 +12,7 @@ plugins {
 /* DEPENDENCIES */
 
 dependencies {
-    implementation(project(Project.Implementation.Kotlin.UTILS))
+    implementation(project(Deps.Project.Implementation.Kotlin.UTILS))
 
     implementation(Deps.Kotlin.Core.KOTLIN)
 

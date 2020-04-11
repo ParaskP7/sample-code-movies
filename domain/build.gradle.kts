@@ -13,13 +13,13 @@ plugins {
 /* DEPENDENCIES */
 
 dependencies {
-    implementation(project(Project.Implementation.Kotlin.UTILS))
+    implementation(project(Deps.Project.Implementation.Kotlin.UTILS))
 
     implementation(Deps.Kotlin.Core.KOTLIN)
     implementation(Deps.Kotlin.Coroutines.CORE)
     implementation(Deps.Di.Koin.Kotlin.CORE)
 
-    testImplementation(project(Project.TestImplementation.Kotlin.TEST))
+    testImplementation(project(Deps.Project.TestImplementation.Kotlin.TEST))
 
     testImplementation(Deps.Kotlin.Coroutines.Test.TEST)
     testImplementation(Deps.Test.Spek.DSL)

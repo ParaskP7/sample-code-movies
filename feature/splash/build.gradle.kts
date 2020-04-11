@@ -15,14 +15,14 @@ plugins {
 /* DEPENDENCIES */
 
 dependencies {
-    implementation(project(Project.Implementation.Android.Core.CORE))
-    implementation(project(Project.Implementation.Android.Feature.MOVIES))
+    implementation(project(Deps.Project.Implementation.Android.Core.CORE))
+    implementation(project(Deps.Project.Implementation.Android.Feature.MOVIES))
 
     implementation(Deps.Kotlin.Core.KOTLIN)
     implementation(Deps.Android.Core.APP_COMPAT)
     implementation(Deps.Di.Koin.Android.ANDROID)
 
-    testImplementation(project(Project.TestImplementation.Kotlin.TEST))
+    testImplementation(project(Deps.Project.TestImplementation.Kotlin.TEST))
 
     testImplementation(Deps.Test.Spek.DSL)
     testImplementation(Deps.Test.Spek.J_UNIT_5)

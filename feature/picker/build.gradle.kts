@@ -12,7 +12,7 @@ plugins {
 /* DEPENDENCIES */
 
 dependencies {
-    implementation(project(Project.Implementation.Android.Core.CORE))
+    implementation(project(Deps.Project.Implementation.Android.Core.CORE))
 
     implementation(Deps.Kotlin.Core.KOTLIN)
     implementation(Deps.Android.Core.APP_COMPAT)

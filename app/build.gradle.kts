@@ -23,12 +23,12 @@ android {
 /* DEPENDENCIES */
 
 dependencies {
-    implementation(project(Project.Implementation.Kotlin.DOMAIN))
-    implementation(project(Project.Implementation.Android.Core.DATA))
-    implementation(project(Project.Implementation.Android.Core.CORE))
-    implementation(project(Project.Implementation.Android.Feature.SPLASH))
-    implementation(project(Project.Implementation.Android.Feature.MOVIES))
-    implementation(project(Project.Implementation.Android.Feature.MOVIE_DETAILS))
+    implementation(project(Deps.Project.Implementation.Kotlin.DOMAIN))
+    implementation(project(Deps.Project.Implementation.Android.Core.DATA))
+    implementation(project(Deps.Project.Implementation.Android.Core.CORE))
+    implementation(project(Deps.Project.Implementation.Android.Feature.SPLASH))
+    implementation(project(Deps.Project.Implementation.Android.Feature.MOVIES))
+    implementation(project(Deps.Project.Implementation.Android.Feature.MOVIE_DETAILS))
 
     debugImplementation(Deps.LeakCanary.LEAK_CANARY)
 

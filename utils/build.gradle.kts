@@ -15,7 +15,7 @@ plugins {
 dependencies {
     implementation(Deps.Kotlin.Core.KOTLIN)
 
-    testImplementation(project(Project.TestImplementation.Kotlin.TEST))
+    testImplementation(project(Deps.Project.TestImplementation.Kotlin.TEST))
 
     testImplementation(Deps.Test.Spek.DSL)
     testImplementation(Deps.Test.Spek.J_UNIT_5)

@@ -15,12 +15,12 @@ plugins {
 /* DEPENDENCIES */
 
 dependencies {
-    implementation(project(Project.Implementation.Kotlin.UTILS))
-    implementation(project(Project.Implementation.Kotlin.DOMAIN))
-    implementation(project(Project.Implementation.Android.Core.ANDROID_UTILS))
-    implementation(project(Project.Implementation.Android.Core.CORE))
-    implementation(project(Project.Implementation.Android.Feature.PICKER))
-    implementation(project(Project.Implementation.Android.Feature.MOVIE_DETAILS))
+    implementation(project(Deps.Project.Implementation.Kotlin.UTILS))
+    implementation(project(Deps.Project.Implementation.Kotlin.DOMAIN))
+    implementation(project(Deps.Project.Implementation.Android.Core.ANDROID_UTILS))
+    implementation(project(Deps.Project.Implementation.Android.Core.CORE))
+    implementation(project(Deps.Project.Implementation.Android.Feature.PICKER))
+    implementation(project(Deps.Project.Implementation.Android.Feature.MOVIE_DETAILS))
 
     implementation(Deps.Kotlin.Core.KOTLIN)
     implementation(Deps.Kotlin.Coroutines.CORE)
@@ -36,8 +36,8 @@ dependencies {
     implementation(Deps.Di.Koin.Android.VIEW_MODEL)
     implementation(Deps.Log.TIMBER)
 
-    testImplementation(project(Project.TestImplementation.Kotlin.TEST))
-    testImplementation(project(Project.TestImplementation.Android.ANDROID_TEST))
+    testImplementation(project(Deps.Project.TestImplementation.Kotlin.TEST))
+    testImplementation(project(Deps.Project.TestImplementation.Android.ANDROID_TEST))
 
     testImplementation(Deps.Kotlin.Coroutines.Test.TEST)
     testImplementation(Deps.Test.Spek.DSL)
