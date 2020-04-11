@@ -1,4 +1,4 @@
-@file:Suppress("InvalidPackageDeclaration")
+@file:Suppress("InvalidPackageDeclaration", "DEPRECATION")
 
 import com.android.build.gradle.AppExtension
 import com.android.build.gradle.BaseExtension
