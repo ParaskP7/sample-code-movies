@@ -1,19 +1,24 @@
 @file:Suppress("InvalidPackageDeclaration", "ForbiddenComment")
 
 import com.android.build.gradle.internal.dsl.BuildType
+import io.petros.movies.config.android.Android
+import io.petros.movies.config.android.BuildConfig
+import io.petros.movies.config.android.Keys
+import io.petros.movies.config.deps.Deps
+import io.petros.movies.config.utils.asString
 import java.io.FileInputStream
-import java.util.Properties
+import java.util.*
 
 /* PLUGINS */
 
 plugins {
-    id(PluginIds.Android.LIBRARY)
-    id(PluginIds.Kotlin.Android.ANDROID)
-    id(PluginIds.Quality.DETEKT)
-    // id(PluginIds.Test.Android.J_UNIT_5) // FIXME: Failed to notify project evaluation listener.
-    id(PluginIds.Dependency.VERSIONS)
-    id(PluginIds.Test.JACOCO)
-    id(PluginIds.Test.COVERAGE)
+    id(Plugins.Id.Android.LIBRARY)
+    id(Plugins.Id.Kotlin.Android.ANDROID)
+    id(Plugins.Id.Quality.DETEKT)
+    // id(Plugins.Id.Test.Android.J_UNIT_5) // FIXME: Failed to notify project evaluation listener.
+    id(Plugins.Id.Dependency.VERSIONS)
+    id(Plugins.Id.Test.JACOCO)
+    id(Plugins.Id.Test.COVERAGE)
 }
 
 /* ANDROID */
@@ -53,12 +58,12 @@ dependencies {
 // TODO: Think about how to add this logic back
 fun NamedDomainObjectContainer<BuildType>.buildTypes() {
     val themoviedbApiProperties = Properties()
-    themoviedbApiProperties.load(FileInputStream(file(Config.Keys.TheMoviesDb.API_FILE_PATH)))
+    themoviedbApiProperties.load(FileInputStream(file(Keys.TheMoviesDb.Config.API_FILE_PATH)))
     val themoviedbApiKey = themoviedbApiProperties[Keys.TheMoviesDb.Property.API_KEY].asString()
     named(Android.BuildTypes.DEBUG) {
-        buildConfigField(BuildConfig.Field.STRING, Config.Keys.TheMoviesDb.API_KEY_CONST, themoviedbApiKey)
+        buildConfigField(BuildConfig.Field.STRING, Keys.TheMoviesDb.Config.API_KEY_CONST, themoviedbApiKey)
     }
     named(Android.BuildTypes.RELEASE) {
-        buildConfigField(BuildConfig.Field.STRING, Config.Keys.TheMoviesDb.API_KEY_CONST, themoviedbApiKey)
+        buildConfigField(BuildConfig.Field.STRING, Keys.TheMoviesDb.Config.API_KEY_CONST, themoviedbApiKey)
     }
 }

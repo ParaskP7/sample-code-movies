@@ -15,6 +15,17 @@ import de.mannodermaus.gradle.plugins.junit5.junitPlatform
 import io.gitlab.arturbosch.detekt.DetektPlugin
 import io.gitlab.arturbosch.detekt.detekt
 import io.gitlab.arturbosch.detekt.extensions.DetektExtension
+import io.petros.movies.config.Build
+import io.petros.movies.config.Config
+import io.petros.movies.config.Sources
+import io.petros.movies.config.android.Android
+import io.petros.movies.config.android.Props
+import io.petros.movies.config.deps.Versions
+import io.petros.movies.config.dirs.Files
+import io.petros.movies.config.kotlin.Java
+import io.petros.movies.config.tests.Logs
+import io.petros.movies.config.tests.Tests
+import io.petros.movies.config.utils.Utils
 import io.petros.movies.plugin.coverage.CoverageExtension
 import io.petros.movies.plugin.coverage.CoveragePlugin
 import io.petros.movies.plugin.coverage.CoverageTask
@@ -35,14 +46,13 @@ buildscript {
     repositories {
         google()
         jcenter()
-        maven { url = uri(Reps.Url.GRADLE) }
     }
     dependencies {
-        classpath(Deps.Plugin.ANDROID)
-        classpath(Deps.Plugin.KOTLIN)
-        classpath(Deps.Plugin.DETEKT)
-        classpath(Deps.Plugin.ANDROID_J_UNIT_5)
-        classpath(Deps.Plugin.VERSIONS)
+        classpath(Plugins.ANDROID)
+        classpath(Plugins.KOTLIN)
+        classpath(Plugins.DETEKT)
+        classpath(Plugins.ANDROID_J_UNIT_5)
+        classpath(Plugins.VERSIONS)
     }
 }
 
@@ -52,7 +62,6 @@ allprojects {
     repositories {
         google()
         jcenter()
-        maven { url = uri(Reps.Url.GRADLE) }
     }
 }
 
@@ -65,43 +74,43 @@ subprojects {
 
 fun Project.subprojectsPlugins() {
     plugins.withType(KotlinPlugin::class) {
-        logPlugin(PluginIds.Kotlin.KOTLIN)
+        logPlugin(Plugins.Id.Kotlin.KOTLIN)
         java { java() }
         sourceSets()
         testOptions()
     }
     plugins.withType(KotlinKaptPlugin::class) {
-        logPlugin(PluginIds.Kotlin.KAPT)
+        logPlugin(Plugins.Id.Kotlin.KAPT)
         kapt { kapt() }
     }
     plugins.withType(KotlinAndroidPlugin::class) {
-        logPlugin(PluginIds.Kotlin.Android.ANDROID)
+        logPlugin(Plugins.Id.Kotlin.Android.ANDROID)
     }
     plugins.withType(AndroidLibraryPlugin::class) {
-        logPlugin(PluginIds.Android.LIBRARY)
+        logPlugin(Plugins.Id.Android.LIBRARY)
         androidLibrary { androidLibrary() }
     }
     plugins.withType(AndroidApplicationPlugin::class) {
-        logPlugin(PluginIds.Android.APPLICATION)
+        logPlugin(Plugins.Id.Android.APPLICATION)
         androidApplication { androidApplication() }
     }
     plugins.withType(DetektPlugin::class) {
-        logPlugin(PluginIds.Quality.DETEKT)
+        logPlugin(Plugins.Id.Quality.DETEKT)
         detekt { detekt() }
     }
     plugins.withType(AndroidJUnitPlatformPlugin::class) {
-        logPlugin(PluginIds.Test.Android.J_UNIT_5)
+        logPlugin(Plugins.Id.Test.Android.J_UNIT_5)
         androidBase { androidBase() }
     }
     plugins.withType(VersionsPlugin::class) {
-        logPlugin(PluginIds.Dependency.VERSIONS)
+        logPlugin(Plugins.Id.Dependency.VERSIONS)
     }
     plugins.withType(JacocoPlugin::class) {
-        logPlugin(PluginIds.Test.JACOCO)
+        logPlugin(Plugins.Id.Test.JACOCO)
         jacocoRobolectric()
     }
     plugins.withType(CoveragePlugin::class) {
-        logPlugin(PluginIds.Test.COVERAGE)
+        logPlugin(Plugins.Id.Test.COVERAGE)
         coverage { coverage() }
     }
 }
@@ -117,7 +126,7 @@ fun Project.subprojectsTasks() {
         duplicatesStrategy = DuplicatesStrategy.INCLUDE
     }
     afterEvaluate {
-        val isKotlinModule = pluginManager.hasPlugin(PluginIds.Kotlin.KOTLIN)
+        val isKotlinModule = pluginManager.hasPlugin(Plugins.Id.Kotlin.KOTLIN)
         logModule(isKotlinModule)
         tasks.create(Build.Tasks.JACOCO, JacocoReport::class) { jacoco(isKotlinModule) }
     }

@@ -1,8 +1,10 @@
-@file:Suppress("InvalidPackageDeclaration")
+package io.petros.movies.config
+
+import io.petros.movies.config.dirs.Files
+import io.petros.movies.config.dirs.Folders
 
 object Config {
 
-    private const val KEYS_DIRECTORY = "${Folders.PARENT}/${Folders.Config.CONFIG}/${Folders.Config.Subfolder.KEYS}"
     private const val QUALITY_DIRECTORY = "${Folders.Config.CONFIG}/${Folders.Config.Subfolder.QUALITY}"
 
     object Lint {
@@ -88,17 +90,6 @@ object Config {
 
         const val REPORT_FILE_PATH = Jacoco.REPORT_XML_FILE_PATH
         const val CONFIG_FILE_PATH = "coverage.properties"
-
-    }
-
-    object Keys {
-
-        object TheMoviesDb {
-
-            const val API_FILE_PATH = "$KEYS_DIRECTORY/${Files.Properties.THEMOVIEDB_API}"
-            const val API_KEY_CONST = "THEMOVIEDB_API_KEY"
-
-        }
 
     }
 

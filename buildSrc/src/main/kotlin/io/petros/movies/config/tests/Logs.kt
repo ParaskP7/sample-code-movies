@@ -1,14 +1,14 @@
-@file:Suppress("InvalidPackageDeclaration")
+package io.petros.movies.config.tests
 
-import Utils.COLON
-import Utils.COMMA
-import Utils.DASH
-import Utils.EMPTY
-import Utils.LEFT_PARENTHESIS
-import Utils.NEW_LINE
-import Utils.PIPE
-import Utils.RIGHT_PARENTHESIS
-import Utils.SPACE
+import io.petros.movies.config.utils.Utils.COLON
+import io.petros.movies.config.utils.Utils.COMMA
+import io.petros.movies.config.utils.Utils.DASH
+import io.petros.movies.config.utils.Utils.EMPTY
+import io.petros.movies.config.utils.Utils.LEFT_PARENTHESIS
+import io.petros.movies.config.utils.Utils.NEW_LINE
+import io.petros.movies.config.utils.Utils.PIPE
+import io.petros.movies.config.utils.Utils.RIGHT_PARENTHESIS
+import io.petros.movies.config.utils.Utils.SPACE
 import org.gradle.api.tasks.testing.TestResult
 import org.gradle.api.tasks.testing.logging.TestLogEvent
 

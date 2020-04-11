@@ -1,15 +1,17 @@
 @file:Suppress("InvalidPackageDeclaration")
 
+import io.petros.movies.config.deps.Deps
+
 /* PLUGINS */
 
 plugins {
-    id(PluginIds.Android.LIBRARY)
-    id(PluginIds.Kotlin.Android.ANDROID)
-    id(PluginIds.Kotlin.KAPT) // This plugin is required because of Glide.
-    id(PluginIds.Quality.DETEKT)
-    id(PluginIds.Dependency.VERSIONS)
-    id(PluginIds.Test.JACOCO)
-    id(PluginIds.Test.COVERAGE)
+    id(Plugins.Id.Android.LIBRARY)
+    id(Plugins.Id.Kotlin.Android.ANDROID)
+    id(Plugins.Id.Kotlin.KAPT) // This plugin is required because of Glide.
+    id(Plugins.Id.Quality.DETEKT)
+    id(Plugins.Id.Dependency.VERSIONS)
+    id(Plugins.Id.Test.JACOCO)
+    id(Plugins.Id.Test.COVERAGE)
 }
 
 /* DEPENDENCIES */

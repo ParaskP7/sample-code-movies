@@ -1,4 +1,6 @@
-@file:Suppress("InvalidPackageDeclaration")
+package io.petros.movies.config
+
+import io.petros.movies.config.dirs.Folders
 
 object Sources {
 

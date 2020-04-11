@@ -1,11 +1,13 @@
 @file:Suppress("InvalidPackageDeclaration")
 
+import io.petros.movies.config.deps.Deps
+
 /* PLUGINS */
 
 plugins {
-    id(PluginIds.Kotlin.KOTLIN)
-    id(PluginIds.Quality.DETEKT)
-    id(PluginIds.Dependency.VERSIONS)
+    id(Plugins.Id.Kotlin.KOTLIN)
+    id(Plugins.Id.Quality.DETEKT)
+    id(Plugins.Id.Dependency.VERSIONS)
 }
 
 /* DEPENDENCIES */

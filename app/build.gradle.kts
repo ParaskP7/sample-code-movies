@@ -3,14 +3,18 @@
 import com.android.build.gradle.ProguardFiles.getDefaultProguardFile
 import com.android.build.gradle.internal.dsl.BuildType
 import com.android.build.gradle.internal.dsl.DefaultConfig
+import io.petros.movies.config.android.Android
+import io.petros.movies.config.android.App
+import io.petros.movies.config.deps.Deps
+import io.petros.movies.config.dirs.Files
 
 /* PLUGINS */
 
 plugins {
-    id(PluginIds.Android.APPLICATION)
-    id(PluginIds.Kotlin.Android.ANDROID)
-    id(PluginIds.Quality.DETEKT)
-    id(PluginIds.Dependency.VERSIONS)
+    id(Plugins.Id.Android.APPLICATION)
+    id(Plugins.Id.Kotlin.Android.ANDROID)
+    id(Plugins.Id.Quality.DETEKT)
+    id(Plugins.Id.Dependency.VERSIONS)
 }
 
 /* ANDROID */

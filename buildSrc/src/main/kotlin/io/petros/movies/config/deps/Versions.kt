@@ -1,4 +1,4 @@
-@file:Suppress("InvalidPackageDeclaration")
+package io.petros.movies.config.deps
 
 @Suppress("StringLiteralDuplication")
 object Versions {

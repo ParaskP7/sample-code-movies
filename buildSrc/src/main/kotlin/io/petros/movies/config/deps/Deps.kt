@@ -1,16 +1,13 @@
-@file:Suppress("InvalidPackageDeclaration")
+package io.petros.movies.config.deps
+
+import io.petros.movies.config.utils.Utils
 
 @Suppress("MayBeConstant", "MemberVisibilityCanBePrivate")
 object Deps {
 
     object Plugin {
 
-        val ANDROID = "com.android.tools.build:gradle:${Versions.Plugin.ANDROID}"
-        val KOTLIN = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.Plugin.KOTLIN}"
-        val DETEKT = "io.gitlab.arturbosch.detekt:detekt-gradle-plugin:${Versions.Plugin.DETEKT}"
         val DETEKT_FORMATTING = "io.gitlab.arturbosch.detekt:detekt-formatting:${Versions.Plugin.DETEKT}"
-        val ANDROID_J_UNIT_5 = "de.mannodermaus.gradle.plugins:android-junit5:${Versions.Plugin.ANDROID_J_UNIT_5}"
-        val VERSIONS = "com.github.ben-manes:gradle-versions-plugin:${Versions.Plugin.VERSIONS}"
 
     }
 
