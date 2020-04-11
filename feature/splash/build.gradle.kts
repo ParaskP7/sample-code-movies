@@ -9,6 +9,7 @@ plugins {
     // id(PluginIds.Test.Android.J_UNIT_5) // FIXME: Failed to notify project evaluation listener.
     id(PluginIds.Dependency.VERSIONS)
     id(PluginIds.Test.JACOCO)
+    id(PluginIds.Test.COVERAGE)
 }
 
 /* DEPENDENCIES */

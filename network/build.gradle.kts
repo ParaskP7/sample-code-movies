@@ -7,6 +7,7 @@ plugins {
     id(PluginIds.Quality.DETEKT)
     id(PluginIds.Dependency.VERSIONS)
     id(PluginIds.Test.JACOCO)
+    id(PluginIds.Test.COVERAGE)
 }
 
 /* DEPENDENCIES */
