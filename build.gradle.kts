@@ -141,6 +141,10 @@ fun logPlugin(pluginId: String) {
     println("<<< CONFIGURE WITH $pluginId PLUGIN >>>")
 }
 
+fun logVariant(variant: String) {
+    println(" << CONFIGURE WITHOUT $variant VARIANT >>")
+}
+
 fun Project.java(configure: JavaPluginExtension.() -> Unit) =
     extensions.configure(JavaPluginExtension::class.java, configure)
 
@@ -324,7 +328,7 @@ fun ignoredVariants(variantOptions: (String) -> Unit) {
     localProperties.load(FileInputStream(file(Files.Properties.LOCAL)))
     val ignoredVariants = localProperties[Properties.Local.Property.IGNORED_VARIANTS]?.toString()?.split(Utils.COMMA)
     ignoredVariants?.forEach {
-        println(" << CONFIGURE WITHOUT $it VARIANT >>")
+        logVariant(it)
         variantOptions(it)
     }
 }
