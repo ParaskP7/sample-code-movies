@@ -1,41 +1,33 @@
 @file:Suppress("InvalidPackageDeclaration")
 
-import com.android.build.gradle.api.AndroidSourceSet
 import com.android.build.gradle.AppExtension
-import com.android.build.gradle.AppPlugin as AndroidApplicationPlugin
 import com.android.build.gradle.BaseExtension
+import com.android.build.gradle.LibraryExtension
+import com.android.build.gradle.api.AndroidSourceSet
 import com.android.build.gradle.internal.CompileOptions
 import com.android.build.gradle.internal.dsl.DefaultConfig
 import com.android.build.gradle.internal.dsl.LintOptions
 import com.android.build.gradle.internal.dsl.TestOptions
-import com.android.build.gradle.LibraryExtension
-import com.android.build.gradle.LibraryPlugin as AndroidLibraryPlugin
-
 import com.github.benmanes.gradle.versions.VersionsPlugin
 import com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask
-
 import de.mannodermaus.gradle.plugins.junit5.AndroidJUnitPlatformPlugin
 import de.mannodermaus.gradle.plugins.junit5.junitPlatform
-
-import io.gitlab.arturbosch.detekt.detekt
 import io.gitlab.arturbosch.detekt.DetektPlugin
+import io.gitlab.arturbosch.detekt.detekt
 import io.gitlab.arturbosch.detekt.extensions.DetektExtension
-
 import io.petros.movies.plugin.coverage.CoverageExtension
 import io.petros.movies.plugin.coverage.CoveragePlugin
 import io.petros.movies.plugin.coverage.CoverageTask
-
-import org.gradle.api.Project
-
 import org.jetbrains.kotlin.gradle.dsl.KotlinJvmOptions
-import org.jetbrains.kotlin.gradle.internal.Kapt3GradleSubplugin as KotlinKaptPlugin
 import org.jetbrains.kotlin.gradle.plugin.KaptExtension
-import org.jetbrains.kotlin.gradle.plugin.KotlinAndroidPluginWrapper as KotlinAndroidPlugin
-import org.jetbrains.kotlin.gradle.plugin.KotlinPluginWrapper as KotlinPlugin
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-
 import java.io.FileInputStream
 import java.util.*
+import com.android.build.gradle.AppPlugin as AndroidApplicationPlugin
+import com.android.build.gradle.LibraryPlugin as AndroidLibraryPlugin
+import org.jetbrains.kotlin.gradle.internal.Kapt3GradleSubplugin as KotlinKaptPlugin
+import org.jetbrains.kotlin.gradle.plugin.KotlinAndroidPluginWrapper as KotlinAndroidPlugin
+import org.jetbrains.kotlin.gradle.plugin.KotlinPluginWrapper as KotlinPlugin
 
 /* BUILD SCRIPT */
 
