@@ -1,6 +1,6 @@
 @file:Suppress("InvalidPackageDeclaration")
 
-object Properties {
+object Props {
 
     object Local {
 

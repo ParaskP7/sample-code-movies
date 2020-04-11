@@ -337,7 +337,7 @@ fun AppExtension.variantOptions() {
 fun ignoredVariants(variantOptions: (String) -> Unit) {
     val localProperties = Properties()
     localProperties.load(FileInputStream(file(Files.Properties.LOCAL)))
-    val ignoredVariants = localProperties[Properties.Local.Property.IGNORED_VARIANTS]?.toString()?.split(Utils.COMMA)
+    val ignoredVariants = localProperties[Props.Local.Property.IGNORED_VARIANTS]?.toString()?.split(Utils.COMMA)
     ignoredVariants?.forEach {
         logVariant(it)
         variantOptions(it)
