@@ -126,6 +126,7 @@ fun Project.subprojectsTasks() {
     }
     afterEvaluate {
         val isKotlinModule = pluginManager.hasPlugin(PluginIds.Kotlin.KOTLIN)
+        logModule(isKotlinModule)
         tasks.create(Tasks.JACOCO, JacocoReport::class) { jacoco(isKotlinModule) }
     }
     tasks.withType<CoverageTask> {
@@ -139,6 +140,14 @@ fun Project.subprojectsTasks() {
 
 fun logPlugin(pluginId: String) {
     println("<<< CONFIGURE WITH $pluginId PLUGIN >>>")
+}
+
+fun logModule(isKotlinModule: Boolean) {
+    if (isKotlinModule) {
+        println("<<< CONFIGURE FOR kotlin MODULE >>>")
+    } else {
+        println("<<< CONFIGURE FOR android MODULE >>>")
+    }
 }
 
 fun logVariant(variant: String) {
