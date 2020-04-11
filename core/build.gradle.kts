@@ -8,6 +8,7 @@ plugins {
     id(PluginIds.Kotlin.KAPT) // This plugin is required because of Glide.
     id(PluginIds.Quality.DETEKT)
     id(PluginIds.Dependency.VERSIONS)
+    id(PluginIds.Test.JACOCO)
 }
 
 /* DEPENDENCIES */

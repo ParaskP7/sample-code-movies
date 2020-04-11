@@ -7,6 +7,7 @@ plugins {
     id(PluginIds.Kotlin.Android.ANDROID)
     id(PluginIds.Quality.DETEKT)
     id(PluginIds.Dependency.VERSIONS)
+    id(PluginIds.Test.JACOCO)
 }
 
 /* DEPENDENCIES */
