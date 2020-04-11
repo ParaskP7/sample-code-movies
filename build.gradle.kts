@@ -127,10 +127,10 @@ fun Project.subprojectsTasks() {
     afterEvaluate {
         val isKotlinModule = pluginManager.hasPlugin(PluginIds.Kotlin.KOTLIN)
         logModule(isKotlinModule)
-        tasks.create(Tasks.JACOCO, JacocoReport::class) { jacoco(isKotlinModule) }
+        tasks.create(Build.Tasks.JACOCO, JacocoReport::class) { jacoco(isKotlinModule) }
     }
     tasks.withType<CoverageTask> {
-        dependsOn(Tasks.JACOCO)
+        dependsOn(Build.Tasks.JACOCO)
     }
 }
 
@@ -167,7 +167,7 @@ fun Project.sourceSets() {
 }
 
 fun Project.testOptions() {
-    tasks.getByName<Test>(Tasks.TEST) {
+    tasks.getByName<Test>(Build.Tasks.TEST) {
         testLogging()
         testJUnit5()
     }
