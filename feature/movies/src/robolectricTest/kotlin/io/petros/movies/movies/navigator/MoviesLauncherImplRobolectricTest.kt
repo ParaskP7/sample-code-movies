@@ -13,18 +13,18 @@ import strikt.api.expect
 import strikt.assertions.isEqualTo
 
 @RunWith(RobolectricTestRunner::class)
-class MoviesActivityLauncherRobolectricTest {
+class MoviesLauncherImplRobolectricTest {
 
     private val slot = slot<Intent>()
 
-    private var appCompatActivityMock = mockk<AppCompatActivity>()
-    private val testedClass = MoviesActivityLauncher(appCompatActivityMock)
+    private var activityMock = mockk<AppCompatActivity>()
+    private val testedClass = MoviesLauncherImpl(activityMock)
 
     @Test
     fun `when launch is called, then current activity starts target movies activity`() {
         testedClass.launch()
 
-        verify { appCompatActivityMock.startActivity(capture(slot)) }
+        verify { activityMock.startActivity(capture(slot)) }
         expect { that(slot.captured.component?.className).isEqualTo(MoviesActivity::class.java.name) }
     }
 

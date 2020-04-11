@@ -6,7 +6,7 @@ import io.mockk.mockk
 import io.mockk.slot
 import io.mockk.verify
 import io.petros.movies.movie_details.MovieDetailsActivity
-import io.petros.movies.movie_details.navigator.MovieDetailsActivityLauncher.Companion.getMovie
+import io.petros.movies.movie_details.navigator.MovieDetailsLauncherImpl.Companion.getMovie
 import io.petros.movies.test.domain.movie
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -15,10 +15,10 @@ import strikt.api.expect
 import strikt.assertions.isEqualTo
 
 @RunWith(RobolectricTestRunner::class)
-class MovieDetailsActivityLauncherRobolectricTest {
+class MovieDetailsLauncherImplRobolectricTest {
 
-    private var appCompatActivityMock = mockk<AppCompatActivity>()
-    private val testedClass = MovieDetailsActivityLauncher(appCompatActivityMock)
+    private var activityMock = mockk<AppCompatActivity>()
+    private val testedClass = MovieDetailsLauncherImpl(activityMock)
 
     @Test
     fun `when launch is called, then current activity starts target movies activity`() {
@@ -27,7 +27,7 @@ class MovieDetailsActivityLauncherRobolectricTest {
 
         testedClass.launch(movie)
 
-        verify { appCompatActivityMock.startActivity(capture(slot)) }
+        verify { activityMock.startActivity(capture(slot)) }
         expect {
             that(slot.captured.component?.className).isEqualTo(MovieDetailsActivity::class.java.name)
             that(getMovie(slot.captured)).isEqualTo(movie)

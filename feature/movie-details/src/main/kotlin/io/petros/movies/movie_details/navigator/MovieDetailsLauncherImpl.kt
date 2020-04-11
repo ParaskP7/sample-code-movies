@@ -10,7 +10,7 @@ import io.petros.movies.domain.model.movie.Movie
 import io.petros.movies.movie_details.MovieDetailsActivity
 import io.petros.movies.movie_details.R
 
-class MovieDetailsActivityLauncher constructor(
+class MovieDetailsLauncherImpl constructor(
     private val activity: AppCompatActivity
 ) : MovieDetailsLauncher {
 

@@ -4,7 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import io.petros.movies.movies.MoviesActivity
 
-class MoviesActivityLauncher constructor(
+class MoviesLauncherImpl constructor(
     private val activity: AppCompatActivity
 ) : MoviesLauncher {
 

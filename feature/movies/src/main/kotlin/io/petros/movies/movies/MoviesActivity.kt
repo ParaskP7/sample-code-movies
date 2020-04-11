@@ -27,7 +27,7 @@ class MoviesActivity : BaseActivity(),
     MovieYearPickerFragmentCallback,
     MovieMonthPickerFragmentCallback { // MET
 
-    private val viewModel: MoviesActivityViewModel by viewModel()
+    private val viewModel: MoviesViewModel by viewModel()
 
     private val moviesNavigator: MoviesNavigator by inject { parametersOf(this) }
 

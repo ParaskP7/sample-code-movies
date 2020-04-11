@@ -8,12 +8,12 @@ import io.petros.movies.test.domain.movie
 import org.spekframework.spek2.Spek
 import org.spekframework.spek2.style.gherkin.Feature
 
-class MoviesActivityNavigatorSpek : Spek({
+class MoviesNavigatorImplSpek : Spek({
 
     val movieDetailsLauncherMock = mockk<MovieDetailsLauncher>()
 
-    Feature("Movies activity navigator") {
-        val testedClass by memoized { MoviesActivityNavigator(movieDetailsLauncherMock) }
+    Feature("Movies navigator") {
+        val testedClass by memoized { MoviesNavigatorImpl(movieDetailsLauncherMock) }
         Scenario("navigating from movies") {
             val movie = movie()
             var sharedElementMovie: SharedElementMovie? = null

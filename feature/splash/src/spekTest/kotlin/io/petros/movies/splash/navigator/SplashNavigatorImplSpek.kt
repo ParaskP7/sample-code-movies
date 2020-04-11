@@ -6,12 +6,12 @@ import io.petros.movies.movies.navigator.MoviesLauncher
 import org.spekframework.spek2.Spek
 import org.spekframework.spek2.style.gherkin.Feature
 
-class SplashActivityNavigatorSpek : Spek({
+class SplashNavigatorImplSpek : Spek({
 
     val moviesLauncherMock = mockk<MoviesLauncher>()
 
-    Feature("Splash activity navigator") {
-        val testedClass by memoized { SplashActivityNavigator(moviesLauncherMock) }
+    Feature("Splash navigator") {
+        val testedClass by memoized { SplashNavigatorImpl(moviesLauncherMock) }
         Scenario("navigating from splash") {
             When("navigating from splash activity") {
                 testedClass.navigate()

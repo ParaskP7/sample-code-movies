@@ -5,10 +5,10 @@ import io.mockk.verify
 import io.petros.movies.movies.navigator.MoviesLauncher
 import org.junit.Test
 
-class SplashActivityNavigatorTest {
+class SplashNavigatorImplTest {
 
     private val moviesLauncherMock = mockk<MoviesLauncher>()
-    private val testedClass = SplashActivityNavigator(moviesLauncherMock)
+    private val testedClass = SplashNavigatorImpl(moviesLauncherMock)
 
     @Test
     fun `when navigating from splash activity, then movies activity launches`() {

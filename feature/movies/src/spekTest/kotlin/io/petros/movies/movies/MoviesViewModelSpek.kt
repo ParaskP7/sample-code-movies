@@ -26,20 +26,20 @@ private val statusObservableMock = mockk<Observer<AdapterStatus>>()
 private val moviesPageObservableMock = mockk<Observer<PaginationData<Movie>>>()
 
 @ExperimentalCoroutinesApi
-private fun setupViewModel(testedClass: MoviesActivityViewModel) {
+private fun setupViewModel(testedClass: MoviesViewModel) {
     testedClass.statusObservable.observeForever(statusObservableMock)
     testedClass.moviesObservable.observeForever(moviesPageObservableMock)
 }
 
 @ExperimentalCoroutinesApi
-class MoviesActivityViewModelSpek : ViewModelSpek({
+class MoviesViewModelSpek : ViewModelSpek({
 
     val previousMoviesPage = moviesPage(NEXT_PAGE, listOf(movie(), movie()))
     val moviesPage = Result.Success(moviesPage())
     val loadMoviesUseCaseMock = mockk<LoadMoviesUseCase>()
 
-    Feature("Movies activity view model") {
-        val testedClass by memoized { MoviesActivityViewModel(loadMoviesUseCaseMock) }
+    Feature("Movies view model") {
+        val testedClass by memoized { MoviesViewModel(loadMoviesUseCaseMock) }
         Scenario("on success") {
             Given("a page as a result") {
                 setupViewModel(testedClass)
@@ -84,8 +84,8 @@ class MoviesActivityViewModelSpek : ViewModelSpek({
         }
     }
 
-    Feature("Movies activity view model with no pages") {
-        val testedClass by memoized { MoviesActivityViewModel(loadMoviesUseCaseMock) }
+    Feature("Movies view model with no pages") {
+        val testedClass by memoized { MoviesViewModel(loadMoviesUseCaseMock) }
         Scenario("loading or restoring movies") {
             Given("no pages") {
                 setupViewModel(testedClass)
@@ -102,8 +102,8 @@ class MoviesActivityViewModelSpek : ViewModelSpek({
         }
     }
 
-    Feature("Movies activity view model with a page") {
-        val testedClass by memoized { MoviesActivityViewModel(loadMoviesUseCaseMock) }
+    Feature("Movies view model with a page") {
+        val testedClass by memoized { MoviesViewModel(loadMoviesUseCaseMock) }
         Scenario("loading or restoring movies") {
             Given("a pages") {
                 setupViewModel(testedClass)
@@ -118,8 +118,8 @@ class MoviesActivityViewModelSpek : ViewModelSpek({
         }
     }
 
-    Feature("Movies activity view model during reload") {
-        val testedClass by memoized { MoviesActivityViewModel(loadMoviesUseCaseMock) }
+    Feature("Movies view model during reload") {
+        val testedClass by memoized { MoviesViewModel(loadMoviesUseCaseMock) }
         Scenario("reloading movies") {
             Given("a page") {
                 setupViewModel(testedClass)

@@ -28,7 +28,7 @@ import strikt.assertions.isFalse
 import strikt.assertions.isTrue
 
 @ExperimentalCoroutinesApi
-class MoviesActivityViewModelTest {
+class MoviesViewModelTest {
 
     @get:Rule val coroutineScope = MainCoroutineScopeRule()
     @get:Rule val rule = InstantTaskExecutorRule()
@@ -36,7 +36,7 @@ class MoviesActivityViewModelTest {
     private val previousMoviesPage = moviesPage(NEXT_PAGE, listOf(movie(), movie()))
     private val moviesPage = Result.Success(moviesPage())
 
-    @Suppress("LateinitUsage") private lateinit var testedClass: MoviesActivityViewModel
+    @Suppress("LateinitUsage") private lateinit var testedClass: MoviesViewModel
     private val loadMoviesUseCaseMock = mockk<LoadMoviesUseCase>()
     private val statusObservableMock = mockk<Observer<AdapterStatus>>()
     private val moviesPageObservableMock = mockk<Observer<PaginationData<Movie>>>()
@@ -44,7 +44,7 @@ class MoviesActivityViewModelTest {
     @Before
     @ExperimentalCoroutinesApi
     fun setUp() {
-        testedClass = MoviesActivityViewModel(loadMoviesUseCaseMock)
+        testedClass = MoviesViewModel(loadMoviesUseCaseMock)
         testedClass.statusObservable.observeForever(statusObservableMock)
         testedClass.moviesObservable.observeForever(moviesPageObservableMock)
     }

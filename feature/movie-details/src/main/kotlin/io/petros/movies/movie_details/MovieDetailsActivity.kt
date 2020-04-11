@@ -6,7 +6,7 @@ import io.petros.movies.core.activity.BaseActivity
 import io.petros.movies.core.image.glide.displayImage
 import io.petros.movies.domain.model.movie.Movie
 import io.petros.movies.movie_details.databinding.MovieDetailsActivityBinding
-import io.petros.movies.movie_details.navigator.MovieDetailsActivityLauncher.Companion.getMovie
+import io.petros.movies.movie_details.navigator.MovieDetailsLauncherImpl.Companion.getMovie
 
 class MovieDetailsActivity : BaseActivity() { // MET
 
