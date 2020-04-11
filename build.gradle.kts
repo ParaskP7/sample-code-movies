@@ -13,7 +13,6 @@ import com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask
 import de.mannodermaus.gradle.plugins.junit5.AndroidJUnitPlatformPlugin
 import de.mannodermaus.gradle.plugins.junit5.junitPlatform
 import io.gitlab.arturbosch.detekt.DetektPlugin
-import io.gitlab.arturbosch.detekt.detekt
 import io.gitlab.arturbosch.detekt.extensions.DetektExtension
 import io.petros.movies.config.Build
 import io.petros.movies.config.Config
@@ -185,6 +184,9 @@ fun Project.androidLibrary(configure: LibraryExtension.() -> Unit) =
 
 fun Project.androidApplication(configure: AppExtension.() -> Unit) =
     extensions.configure(AppExtension::class.java, configure)
+
+fun Project.detekt(configure: DetektExtension.() -> Unit) =
+    extensions.configure(DetektExtension::class.java, configure)
 
 fun Project.coverage(configure: CoverageExtension.() -> Unit) =
     extensions.configure(CoverageExtension::class.java, configure)
