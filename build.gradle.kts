@@ -135,7 +135,7 @@ fun Project.subprojectsTasks() {
 
 /* *********************************************************************************************************************** */
 
-/* PLUGINS EXTENSION FUNCTIONS */
+/* LOG FUNCTIONS */
 
 fun logPlugin(pluginId: String) {
     println("<<< CONFIGURE WITH $pluginId PLUGIN >>>")
@@ -144,6 +144,8 @@ fun logPlugin(pluginId: String) {
 fun logVariant(variant: String) {
     println(" << CONFIGURE WITHOUT $variant VARIANT >>")
 }
+
+/* PLUGINS EXTENSION FUNCTIONS */
 
 fun Project.java(configure: JavaPluginExtension.() -> Unit) =
     extensions.configure(JavaPluginExtension::class.java, configure)
