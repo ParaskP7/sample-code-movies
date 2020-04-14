@@ -4,21 +4,17 @@ import io.petros.movies.domain.model.movie.MoviesPage
 import io.petros.movies.network.NetworkException
 import io.petros.movies.test.domain.movie
 import io.petros.movies.test.domain.moviesPage
-import io.petros.movies.test.utils.BYTES_PER_PERIOD
 import io.petros.movies.test.utils.TIMEOUT_MILLISECONDS
 import io.petros.movies.test.utils.api
-import io.petros.movies.test.utils.jsonFromFile
+import io.petros.movies.test.utils.mockResponse
 import kotlinx.coroutines.runBlocking
-import okhttp3.mockwebserver.MockResponse
 import okhttp3.mockwebserver.MockWebServer
 import org.junit.After
 import org.junit.Before
 import org.junit.Test
 import strikt.api.expect
 import strikt.assertions.isEqualTo
-import java.net.HttpURLConnection
 import java.util.*
-import java.util.concurrent.TimeUnit
 
 class RestClientIntegrationTest {
 
@@ -46,11 +42,7 @@ class RestClientIntegrationTest {
 
     @Test
     fun `given movies page response, when loading movies, then the movies page model is the expected one`() = runBlocking {
-        server.enqueue(
-            MockResponse()
-                .setResponseCode(HttpURLConnection.HTTP_OK)
-                .setBody(jsonFromFile(MOVIES_PAGE_FILE))
-        )
+        server.enqueue(mockResponse(MOVIES_PAGE_FILE))
 
         val result = testedClass.loadMovies(null, null, null)
 
@@ -59,12 +51,7 @@ class RestClientIntegrationTest {
 
     @Test(expected = NetworkException::class)
     fun `given socket timeout exception, when loading movies, then throw network exception`() = runBlocking {
-        server.enqueue(
-            MockResponse()
-                .setResponseCode(HttpURLConnection.HTTP_OK)
-                .setBody(jsonFromFile(MOVIES_PAGE_FILE))
-                .throttleBody(BYTES_PER_PERIOD, TIMEOUT_MILLISECONDS * 2, TimeUnit.MILLISECONDS)
-        )
+        server.enqueue(mockResponse(MOVIES_PAGE_FILE, TIMEOUT_MILLISECONDS * 2))
 
         @Suppress("UNUSED_VARIABLE") val result = testedClass.loadMovies(null, null, null)
     }
