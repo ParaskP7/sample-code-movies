@@ -15,7 +15,7 @@ import strikt.api.expect
 import strikt.assertions.isEqualTo
 
 @ExperimentalCoroutinesApi
-object LoadMoviesUseCaseSpek : CoroutineSpek({
+class LoadMoviesUseCaseSpek : CoroutineSpek({
 
     val moviesPage = Result.Success(moviesPage())
     val moviesRepositoryMock = mockk<MoviesRepository>()

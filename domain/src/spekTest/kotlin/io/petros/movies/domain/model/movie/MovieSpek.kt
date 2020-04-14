@@ -6,7 +6,7 @@ import org.spekframework.spek2.style.gherkin.Feature
 import strikt.api.expect
 import strikt.assertions.isEqualTo
 
-object MovieSpek : Spek({
+class MovieSpek : Spek({
 
     Feature("Movie") {
         val testedClass by memoized { movie() }

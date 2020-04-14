@@ -12,7 +12,7 @@ import strikt.assertions.isFalse
 import strikt.assertions.isNull
 import strikt.assertions.isTrue
 
-object PaginationDataSpek : Spek({
+class PaginationDataSpek : Spek({
 
     val firstPageItems = listOf(movie(id = 1), movie(id = 2), movie(id = 3))
     val secondPageItems = listOf(movie(id = 4), movie(id = 5), movie(id = 6))

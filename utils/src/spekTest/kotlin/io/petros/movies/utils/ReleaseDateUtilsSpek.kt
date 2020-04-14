@@ -6,7 +6,7 @@ import strikt.api.expect
 import strikt.assertions.isEqualTo
 import strikt.assertions.isNull
 
-object ReleaseDateUtilsSpek : Spek({
+class ReleaseDateUtilsSpek : Spek({
 
     Feature("Release date utils with no year") {
         Scenario("greater than or equal") {
