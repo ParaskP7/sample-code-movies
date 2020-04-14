@@ -15,6 +15,7 @@ import org.junit.Before
 import org.junit.Test
 import strikt.api.expect
 import strikt.assertions.isEqualTo
+import java.net.HttpURLConnection
 import java.util.*
 import java.util.concurrent.TimeUnit
 
@@ -44,7 +45,11 @@ class RestClientIntegrationTest {
 
     @Test
     fun `given movies page response, when loading movies, then the movies page model is the expected one`() = runBlocking {
-        server.enqueue(MockResponse().setBody(jsonFromFile(MOVIES_PAGE_FILE)))
+        server.enqueue(
+            MockResponse()
+                .setResponseCode(HttpURLConnection.HTTP_OK)
+                .setBody(jsonFromFile(MOVIES_PAGE_FILE))
+        )
 
         val result = testedClass.loadMovies(null, null, null)
 
@@ -55,6 +60,7 @@ class RestClientIntegrationTest {
     fun `given socket timeout exception, when loading movies, then throw network exception`() = runBlocking {
         server.enqueue(
             MockResponse()
+                .setResponseCode(HttpURLConnection.HTTP_OK)
                 .setBody(jsonFromFile(MOVIES_PAGE_FILE))
                 .throttleBody(1024, TIMEOUT_MILLISECONDS * 2, TimeUnit.MILLISECONDS)
         )
