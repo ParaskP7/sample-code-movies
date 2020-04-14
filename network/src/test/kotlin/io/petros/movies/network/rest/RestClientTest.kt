@@ -1,7 +1,6 @@
 package io.petros.movies.network.rest
 
 import io.mockk.coEvery
-import io.mockk.coVerify
 import io.mockk.mockk
 import io.petros.movies.network.raw.movie.MoviesPageRaw
 import io.petros.movies.test.domain.moviesPage
@@ -31,16 +30,6 @@ class RestClientTest {
 
     private val restApiMock = mockk<RestApi>()
     private val testedClass = RestClient(restApiMock)
-
-    @Test
-    fun `when load movies is triggered, then rest api triggers load movies`() = coroutineScope.runBlockingTest {
-        val moviesPageRaw = MoviesPageRaw(0, 1, emptyList())
-        coEvery { restApiMock.loadMovies(RELEASE_DATE_GTE, RELEASE_DATE_LTE, SECOND_PAGE) } returns moviesPageRaw
-
-        testedClass.loadMovies(MOVIE_YEAR, MOVIE_MONTH, SECOND_PAGE)
-
-        coVerify { restApiMock.loadMovies(RELEASE_DATE_GTE, RELEASE_DATE_LTE, SECOND_PAGE) }
-    }
 
     @Test
     fun `when load movies is triggered, then the movies page is the expected one`() = coroutineScope.runBlockingTest {

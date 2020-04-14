@@ -1,7 +1,6 @@
 package io.petros.movies.network.rest
 
 import io.mockk.coEvery
-import io.mockk.coVerify
 import io.mockk.mockk
 import io.petros.movies.domain.model.movie.MoviesPage
 import io.petros.movies.network.raw.movie.MoviesPageRaw
@@ -30,9 +29,6 @@ class RestClientSpek : CoroutineSpek({
             }
             When("load movies is triggered") {
                 result = runBlocking { testedClass.loadMovies(MOVIE_YEAR, MOVIE_MONTH, SECOND_PAGE) }
-            }
-            Then("rest api triggers load movies") {
-                coVerify { restApiMock.loadMovies(RELEASE_DATE_GTE, RELEASE_DATE_LTE, SECOND_PAGE) }
             }
             Then("the movies page is the expected one") {
                 expect { that(result).isEqualTo(moviesPage) }

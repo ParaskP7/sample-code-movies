@@ -1,7 +1,6 @@
 package io.petros.movies.domain.interactor.movie
 
 import io.mockk.coEvery
-import io.mockk.coVerify
 import io.mockk.mockk
 import io.petros.movies.domain.interactor.movie.LoadMoviesUseCase.Params
 import io.petros.movies.domain.model.Result
@@ -28,9 +27,6 @@ object LoadMoviesUseCaseSpek : CoroutineSpek({
             var result: Result<MoviesPage>? = null
             When("executing the use case") {
                 result = runBlocking { testedClass.execute(Params(MOVIE_YEAR, MOVIE_MONTH, SECOND_PAGE)) }
-            }
-            Then("the repository triggers load movies") {
-                coVerify { moviesRepositoryMock.loadMovies(MOVIE_YEAR, MOVIE_MONTH, SECOND_PAGE) }
             }
             Then("the movies page is the expected one") {
                 expect { that(result).isEqualTo(moviesPage) }

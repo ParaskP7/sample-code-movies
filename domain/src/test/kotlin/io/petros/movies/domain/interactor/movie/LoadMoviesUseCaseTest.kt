@@ -1,7 +1,6 @@
 package io.petros.movies.domain.interactor.movie
 
 import io.mockk.coEvery
-import io.mockk.coVerify
 import io.mockk.mockk
 import io.petros.movies.domain.model.Result
 import io.petros.movies.domain.repository.movie.MoviesRepository
@@ -33,15 +32,6 @@ class LoadMoviesUseCaseTest {
 
     private val moviesRepositoryMock = mockk<MoviesRepository>()
     private val testedClass = LoadMoviesUseCase(moviesRepositoryMock)
-
-    @Test
-    fun `when executing the use case, then the repository triggers load movies`() = coroutineScope.runBlockingTest {
-        coEvery { moviesRepositoryMock.loadMovies(MOVIE_YEAR, MOVIE_MONTH, SECOND_PAGE) } returns moviesPage
-
-        testedClass.execute(params)
-
-        coVerify { moviesRepositoryMock.loadMovies(MOVIE_YEAR, MOVIE_MONTH, SECOND_PAGE) }
-    }
 
     @Test
     fun `when executing the use case, then the movies page is the expected one`() = coroutineScope.runBlockingTest {
