@@ -49,11 +49,12 @@ class RestClientIntegrationTest {
         expect { that(result).isEqualTo(expectedMoviesPage()) }
     }
 
+    @Suppress("UNUSED_VARIABLE")
     @Test(expected = NetworkException::class)
     fun `given socket timeout exception, when loading movies, then throw network exception`() = runBlocking {
         server.enqueue(mockResponse(MOVIES_PAGE_FILE, TIMEOUT_MILLISECONDS * 2))
 
-        @Suppress("UNUSED_VARIABLE") val result = testedClass.loadMovies(null, null, null)
+        val result = testedClass.loadMovies(null, null, null)
     }
 
     /* HELPER FUNCTIONS */
