@@ -7,14 +7,21 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.io.InputStreamReader
 import java.nio.charset.StandardCharsets
+import java.util.concurrent.TimeUnit
 
 const val MOCK_WEB_SERVER_URL = "localhost/"
+const val TIMEOUT_MILLISECONDS = 10L
 
 inline fun <reified T> api(server: MockWebServer): T {
+    val client = OkHttpClient.Builder()
+        .connectTimeout(TIMEOUT_MILLISECONDS, TimeUnit.MILLISECONDS)
+        .readTimeout(TIMEOUT_MILLISECONDS, TimeUnit.MILLISECONDS)
+        .writeTimeout(TIMEOUT_MILLISECONDS, TimeUnit.MILLISECONDS)
+        .build()
     return Retrofit.Builder()
         .baseUrl(server.url(MOCK_WEB_SERVER_URL))
         .addConverterFactory(GsonConverterFactory.create(Gson()))
-        .client(OkHttpClient.Builder().build())
+        .client(client)
         .build()
         .create(T::class.java)
 }
