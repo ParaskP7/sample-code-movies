@@ -8,9 +8,11 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.io.InputStreamReader
 import java.nio.charset.StandardCharsets
 
+const val MOCK_WEB_SERVER_URL = "localhost/"
+
 inline fun <reified T> api(server: MockWebServer): T {
     return Retrofit.Builder()
-        .baseUrl(server.url("localhost/"))
+        .baseUrl(server.url(MOCK_WEB_SERVER_URL))
         .addConverterFactory(GsonConverterFactory.create(Gson()))
         .client(OkHttpClient.Builder().build())
         .build()
