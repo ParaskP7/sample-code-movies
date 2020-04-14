@@ -414,36 +414,84 @@ fun isNonStable(version: String): Boolean {
 
 fun SourceSetContainer.mainSourceSetContainer() {
     named(Sources.MAIN) {
-        java.setSrcDirs(arrayListOf(Sources.Main.KOTLIN))
-        resources.setSrcDirs(arrayListOf(Sources.Main.RESOURCES))
+        java.setSrcDirs(
+            arrayListOf(
+                Sources.Main.KOTLIN
+            )
+        )
+        resources.setSrcDirs(
+            arrayListOf(
+                Sources.Main.RESOURCES
+            )
+        )
     }
 }
 
 fun NamedDomainObjectContainer<AndroidSourceSet>.androidMainSourceSetContainer() {
     named(Sources.MAIN) {
-        java.setSrcDirs(arrayListOf(Sources.Main.KOTLIN))
-        resources.setSrcDirs(arrayListOf(Sources.Main.RESOURCES))
+        java.setSrcDirs(
+            arrayListOf(
+                Sources.Main.KOTLIN
+            )
+        )
+        resources.setSrcDirs(
+            arrayListOf(
+                Sources.Main.RESOURCES
+            )
+        )
     }
 }
 
 fun SourceSetContainer.testSourceSetContainer() {
     named(Sources.TEST) {
-        java.setSrcDirs(arrayListOf(Sources.Test.KOTLIN, Sources.Spek.KOTLIN, Sources.Robolectric.KOTLIN))
-        resources.setSrcDirs(arrayListOf(Sources.Test.RESOURCES, Sources.Spek.RESOURCES, Sources.Robolectric.RESOURCES))
+        java.setSrcDirs(
+            arrayListOf(
+                Sources.Test.KOTLIN,
+                Sources.Spek.KOTLIN,
+                Sources.Robolectric.KOTLIN
+            )
+        )
+        resources.setSrcDirs(
+            arrayListOf(
+                Sources.Test.RESOURCES,
+                Sources.Spek.RESOURCES,
+                Sources.Robolectric.RESOURCES
+            )
+        )
     }
 }
 
 fun NamedDomainObjectContainer<AndroidSourceSet>.androidTestSourceSetContainer() {
     named(Sources.TEST) {
-        java.setSrcDirs(arrayListOf(Sources.Test.KOTLIN, Sources.Spek.KOTLIN, Sources.Robolectric.KOTLIN))
-        resources.setSrcDirs(arrayListOf(Sources.Test.RESOURCES, Sources.Spek.RESOURCES, Sources.Robolectric.RESOURCES))
+        java.setSrcDirs(
+            arrayListOf(
+                Sources.Test.KOTLIN,
+                Sources.Spek.KOTLIN,
+                Sources.Robolectric.KOTLIN
+            )
+        )
+        resources.setSrcDirs(
+            arrayListOf(
+                Sources.Test.RESOURCES,
+                Sources.Spek.RESOURCES,
+                Sources.Robolectric.RESOURCES
+            )
+        )
     }
 }
 
 @Suppress("FunctionMaxLength")
 fun NamedDomainObjectContainer<AndroidSourceSet>.androidAndroidTestSourceSetContainer() {
     named(Sources.ANDROID_TEST) {
-        java.setSrcDirs(arrayListOf(Sources.Android.Test.KOTLIN))
-        resources.setSrcDirs(arrayListOf(Sources.Android.Test.RESOURCES))
+        java.setSrcDirs(
+            arrayListOf(
+                Sources.Android.Test.KOTLIN
+            )
+        )
+        resources.setSrcDirs(
+            arrayListOf(
+                Sources.Android.Test.RESOURCES
+            )
+        )
     }
 }
