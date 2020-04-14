@@ -244,6 +244,12 @@ object Deps {
 
         }
 
+        object Integration {
+
+            val MOCK_WEB_SERVER = "com.squareup.okhttp3:mockwebserver:${Versions.Net.OkHttp.OK_HTTP}"
+
+        }
+
         object Assert {
 
             val STRIKT = "io.strikt:strikt-core:${Versions.Test.Assert.STRIKT}"
