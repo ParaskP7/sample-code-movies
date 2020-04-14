@@ -42,11 +42,11 @@ dependencies {
     testImplementation(project(Deps.Project.TestImplementation.Android.ANDROID_TEST))
 
     testImplementation(Deps.Kotlin.Coroutines.Test.TEST)
+    testImplementation(Deps.Test.JUnit.J_UNIT_4)
+    testRuntimeOnly(Deps.Test.JUnit.J_UNIT_5)
     testImplementation(Deps.Test.Spek.DSL)
     testImplementation(Deps.Test.Spek.J_UNIT_5)
     testRuntimeOnly(Deps.Kotlin.Core.KOTLIN_REFLECT)
-    testImplementation(Deps.Test.JUnit.J_UNIT_4)
-    testRuntimeOnly(Deps.Test.JUnit.J_UNIT_5)
     testImplementation(Deps.Test.Assert.STRIKT)
     testImplementation(Deps.Test.Mock.MOCK_K)
     testImplementation(Deps.Android.Arch.Test.CORE_TESTING)

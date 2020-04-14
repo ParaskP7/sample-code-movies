@@ -20,11 +20,11 @@ dependencies {
     implementation(Deps.Kotlin.Coroutines.Test.TEST)
     implementation(Deps.Net.Rest.RETROFIT)
     implementation(Deps.Net.Rest.RETROFIT_GSON)
+    implementation(Deps.Test.JUnit.J_UNIT_4)
+    runtimeOnly(Deps.Test.JUnit.J_UNIT_5)
     implementation(Deps.Test.Spek.DSL)
     implementation(Deps.Test.Spek.J_UNIT_5)
     runtimeOnly(Deps.Kotlin.Core.KOTLIN_REFLECT)
-    implementation(Deps.Test.JUnit.J_UNIT_4)
-    runtimeOnly(Deps.Test.JUnit.J_UNIT_5)
     implementation(Deps.Test.Integration.MOCK_WEB_SERVER)
 
     detektPlugins(Deps.Plugin.DETEKT_FORMATTING)
