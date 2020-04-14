@@ -4,7 +4,6 @@ import com.google.gson.Gson
 import io.petros.movies.network.WebService
 import io.petros.movies.network.rest.RestApi
 import io.petros.movies.network.rest.RestClient
-import io.petros.movies.utils.toMillis
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.dsl.module
@@ -12,7 +11,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
-const val TIMEOUT_SECS: Int = 10
+const val TIMEOUT_SECS = 10L
 const val THEMOVIEDB_URL = "https://api.themoviedb.org/"
 
 val networkModule = module {
@@ -35,7 +34,7 @@ private fun okHttpClient(
     loggingInterceptor: HttpLoggingInterceptor
 ): OkHttpClient {
     return OkHttpClient.Builder()
-        .connectTimeout(toMillis(TIMEOUT_SECS), TimeUnit.MILLISECONDS)
+        .connectTimeout(TIMEOUT_SECS, TimeUnit.SECONDS)
         .addInterceptor(loggingInterceptor) // TODO: Think about how to add this `if (BuildConfig.DEBUG)` logic back
         .build()
 }

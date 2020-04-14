@@ -32,12 +32,6 @@ fun String.withParentheses() = leftParentheses() + this + rightParentheses()
 
 fun Int.withParentheses() = leftParentheses() + this + rightParentheses()
 
-/* TIME */
-
-private const val ONE_SEC_IN_MILLS: Long = 1_000L
-
-fun toMillis(seconds: Int) = seconds * ONE_SEC_IN_MILLS
-
 /* DATE */
 
 private const val SIMPLE_DATE_FORMAT_PATTERN = "MMMM"
