@@ -11,6 +11,7 @@ import java.util.concurrent.TimeUnit
 
 const val MOCK_WEB_SERVER_URL = "localhost/"
 const val TIMEOUT_MILLISECONDS = 10L
+const val BYTES_PER_PERIOD = 1024L
 
 inline fun <reified T> api(server: MockWebServer): T {
     val client = OkHttpClient.Builder()

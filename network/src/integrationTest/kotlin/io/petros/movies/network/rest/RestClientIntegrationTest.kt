@@ -4,6 +4,7 @@ import io.petros.movies.domain.model.movie.MoviesPage
 import io.petros.movies.network.NetworkException
 import io.petros.movies.test.domain.movie
 import io.petros.movies.test.domain.moviesPage
+import io.petros.movies.test.utils.BYTES_PER_PERIOD
 import io.petros.movies.test.utils.TIMEOUT_MILLISECONDS
 import io.petros.movies.test.utils.api
 import io.petros.movies.test.utils.jsonFromFile
@@ -62,7 +63,7 @@ class RestClientIntegrationTest {
             MockResponse()
                 .setResponseCode(HttpURLConnection.HTTP_OK)
                 .setBody(jsonFromFile(MOVIES_PAGE_FILE))
-                .throttleBody(1024, TIMEOUT_MILLISECONDS * 2, TimeUnit.MILLISECONDS)
+                .throttleBody(BYTES_PER_PERIOD, TIMEOUT_MILLISECONDS * 2, TimeUnit.MILLISECONDS)
         )
 
         @Suppress("UNUSED_VARIABLE") val result = testedClass.loadMovies(null, null, null)
