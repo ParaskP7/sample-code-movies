@@ -4,7 +4,7 @@ import io.petros.movies.domain.model.movie.MoviesPage
 import io.petros.movies.network.NetworkException
 import io.petros.movies.test.domain.movie
 import io.petros.movies.test.domain.moviesPage
-import io.petros.movies.test.utils.TIMEOUT_MILLISECONDS
+import io.petros.movies.test.utils.TIMEOUT_MILLIS
 import io.petros.movies.test.utils.api
 import io.petros.movies.test.utils.mockResponse
 import kotlinx.coroutines.runBlocking
@@ -52,7 +52,7 @@ class RestClientIntegrationTest {
     @Suppress("UNUSED_VARIABLE")
     @Test(expected = NetworkException::class)
     fun `given socket timeout exception, when loading movies, then throw network exception`() = runBlocking {
-        server.enqueue(mockResponse(MOVIES_PAGE_FILE, TIMEOUT_MILLISECONDS * 2))
+        server.enqueue(mockResponse(MOVIES_PAGE_FILE, TIMEOUT_MILLIS * 2))
 
         val result = testedClass.loadMovies(null, null, null)
     }

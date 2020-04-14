@@ -12,15 +12,15 @@ import java.nio.charset.StandardCharsets
 import java.util.concurrent.TimeUnit
 
 const val MOCK_WEB_SERVER_URL = "localhost/"
-const val TIMEOUT_MILLISECONDS = 10L
+const val TIMEOUT_MILLIS = 10L
 
 private const val BYTES_PER_PERIOD = 1024L
 
 inline fun <reified T> api(server: MockWebServer): T {
     val client = OkHttpClient.Builder()
-        .connectTimeout(TIMEOUT_MILLISECONDS, TimeUnit.MILLISECONDS)
-        .readTimeout(TIMEOUT_MILLISECONDS, TimeUnit.MILLISECONDS)
-        .writeTimeout(TIMEOUT_MILLISECONDS, TimeUnit.MILLISECONDS)
+        .connectTimeout(TIMEOUT_MILLIS, TimeUnit.MILLISECONDS)
+        .readTimeout(TIMEOUT_MILLIS, TimeUnit.MILLISECONDS)
+        .writeTimeout(TIMEOUT_MILLIS, TimeUnit.MILLISECONDS)
         .build()
     return Retrofit.Builder()
         .baseUrl(server.url(MOCK_WEB_SERVER_URL))
