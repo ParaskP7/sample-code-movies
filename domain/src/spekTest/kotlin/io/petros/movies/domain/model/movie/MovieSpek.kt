@@ -16,7 +16,7 @@ class MovieSpek : Spek({
                 result = testedClass.releaseDate()
             }
             Then("it is the expected one") {
-                expect { that(result).isEqualTo("2018 (September)") }
+                expect { that(result).isEqualTo("2019 (September)") }
             }
         }
         Scenario("vote") {
@@ -25,7 +25,7 @@ class MovieSpek : Spek({
                 result = testedClass.vote()
             }
             Then("it is the expected one") {
-                expect { that(result).isEqualTo("10.0 ★ (100)") }
+                expect { that(result).isEqualTo("6.0 ★ (2958)") }
             }
         }
     }
