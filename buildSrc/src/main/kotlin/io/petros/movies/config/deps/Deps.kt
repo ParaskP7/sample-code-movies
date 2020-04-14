@@ -230,17 +230,17 @@ object Deps {
 
     object Test {
 
-        object Spek {
-
-            val DSL = "org.spekframework.spek2:spek-dsl-jvm:${Versions.Test.Spek.SPEK}"
-            val J_UNIT_5 = "org.spekframework.spek2:spek-runner-junit5:${Versions.Test.Spek.SPEK}"
-
-        }
-
         object JUnit {
 
             val J_UNIT_4 = "junit:junit:${Versions.Test.JUnit.J_UNIT_4}"
             val J_UNIT_5 = "org.junit.vintage:junit-vintage-engine:${Versions.Test.JUnit.J_UNIT_5}"
+
+        }
+
+        object Spek {
+
+            val DSL = "org.spekframework.spek2:spek-dsl-jvm:${Versions.Test.Spek.SPEK}"
+            val J_UNIT_5 = "org.spekframework.spek2:spek-runner-junit5:${Versions.Test.Spek.SPEK}"
 
         }
 
