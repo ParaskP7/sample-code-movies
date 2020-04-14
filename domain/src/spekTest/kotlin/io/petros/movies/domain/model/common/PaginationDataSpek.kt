@@ -2,7 +2,6 @@ package io.petros.movies.domain.model.common
 
 import io.petros.movies.domain.model.movie.Movie
 import io.petros.movies.domain.model.movie.MoviesPage
-import io.petros.movies.test.domain.NEXT_PAGE
 import io.petros.movies.test.domain.movie
 import org.spekframework.spek2.Spek
 import org.spekframework.spek2.style.gherkin.Feature
@@ -31,7 +30,7 @@ object PaginationDataSpek : Spek({
         }
         Scenario("add page") {
             When("adding a page") {
-                testedClass.addPage(MoviesPage(NEXT_PAGE, firstPageItems))
+                testedClass.addPage(MoviesPage(SECOND_PAGE, firstPageItems))
             }
             Then("the items are the expected one") {
                 expect { that(testedClass.items()).isEqualTo(firstPageItems) }
@@ -40,7 +39,7 @@ object PaginationDataSpek : Spek({
                 expect { that(testedClass.latestItems()).isEqualTo(firstPageItems) }
             }
             Then("the next page is the expected one") {
-                expect { that(testedClass.nextPage()).isEqualTo(NEXT_PAGE) }
+                expect { that(testedClass.nextPage()).isEqualTo(SECOND_PAGE) }
             }
         }
     }
@@ -49,7 +48,7 @@ object PaginationDataSpek : Spek({
         val testedClass by memoized { PaginationData<Movie>() }
         Scenario("is empty") {
             Given("a single paged data") {
-                testedClass.addPage(MoviesPage(NEXT_PAGE, firstPageItems))
+                testedClass.addPage(MoviesPage(SECOND_PAGE, firstPageItems))
             }
             var result = false
             When("checking if it is empty") {
@@ -62,7 +61,7 @@ object PaginationDataSpek : Spek({
         Scenario("is first page") {
             var result = false
             Given("a single page") {
-                testedClass.addPage(MoviesPage(NEXT_PAGE, firstPageItems))
+                testedClass.addPage(MoviesPage(SECOND_PAGE, firstPageItems))
             }
             When("checking if it is the first page") {
                 result = testedClass.isFirstPage()
@@ -73,10 +72,10 @@ object PaginationDataSpek : Spek({
         }
         Scenario("add page") {
             Given("a single page") {
-                testedClass.addPage(MoviesPage(NEXT_PAGE, firstPageItems))
+                testedClass.addPage(MoviesPage(SECOND_PAGE, firstPageItems))
             }
             When("adding a page") {
-                testedClass.addPage(MoviesPage(NEXT_PAGE + 1, secondPageItems))
+                testedClass.addPage(MoviesPage(SECOND_PAGE + 1, secondPageItems))
             }
             Then("the items are the expected one") {
                 expect { that(testedClass.items()).isEqualTo(firstPageItems + secondPageItems) }
@@ -85,7 +84,7 @@ object PaginationDataSpek : Spek({
                 expect { that(testedClass.latestItems()).isEqualTo(secondPageItems) }
             }
             Then("the next page is the expected one") {
-                expect { that(testedClass.nextPage()).isEqualTo(NEXT_PAGE + 1) }
+                expect { that(testedClass.nextPage()).isEqualTo(SECOND_PAGE + 1) }
             }
         }
     }
@@ -94,8 +93,8 @@ object PaginationDataSpek : Spek({
         val testedClass by memoized { PaginationData<Movie>() }
         Scenario("is first page") {
             Given("a multi page") {
-                testedClass.addPage(MoviesPage(NEXT_PAGE, firstPageItems))
-                testedClass.addPage(MoviesPage(NEXT_PAGE + 1, secondPageItems))
+                testedClass.addPage(MoviesPage(SECOND_PAGE, firstPageItems))
+                testedClass.addPage(MoviesPage(SECOND_PAGE + 1, secondPageItems))
             }
             var result = false
             When("checking if it is the first page") {
@@ -107,8 +106,8 @@ object PaginationDataSpek : Spek({
         }
         Scenario("clear") {
             Given("a multi page") {
-                testedClass.addPage(MoviesPage(NEXT_PAGE, firstPageItems))
-                testedClass.addPage(MoviesPage(NEXT_PAGE + 1, secondPageItems))
+                testedClass.addPage(MoviesPage(SECOND_PAGE, firstPageItems))
+                testedClass.addPage(MoviesPage(SECOND_PAGE + 1, secondPageItems))
             }
             When("clearing the pages") {
                 testedClass.clear()
@@ -128,4 +127,12 @@ object PaginationDataSpek : Spek({
         }
     }
 
-})
+}) {
+
+    companion object {
+
+        private const val SECOND_PAGE = 2
+
+    }
+
+}

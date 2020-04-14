@@ -4,10 +4,6 @@ import io.petros.movies.domain.model.movie.Movie
 import io.petros.movies.domain.model.movie.MoviesPage
 import java.util.*
 
-const val NEXT_PAGE = 2
-const val MOVIE_YEAR = 2018
-const val MOVIE_MONTH = 7
-
 private const val ID = 1
 private const val TITLE = "TITLE"
 private val RELEASE_DATE = GregorianCalendar(2018, Calendar.SEPTEMBER, 12).time
@@ -17,7 +13,7 @@ private const val OVERVIEW = "OVERVIEW"
 private const val BACKDROP = "BACKDROP"
 
 fun moviesPage(
-    nextPage: Int = NEXT_PAGE,
+    nextPage: Int = 2,
     movies: List<Movie> = arrayListOf(movie(), movie(), movie())
 ): MoviesPage {
     return MoviesPage(

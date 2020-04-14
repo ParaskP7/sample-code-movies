@@ -5,9 +5,6 @@ import io.mockk.mockk
 import io.petros.movies.domain.model.NetworkError
 import io.petros.movies.network.rest.RestApi
 import io.petros.movies.network.rest.RestClient
-import io.petros.movies.test.domain.MOVIE_MONTH
-import io.petros.movies.test.domain.MOVIE_YEAR
-import io.petros.movies.test.domain.NEXT_PAGE
 import io.petros.movies.test.utils.MainCoroutineScopeRule
 import io.petros.movies.utils.empty
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -23,6 +20,10 @@ class ExceptionsTest {
 
     companion object {
 
+        private const val SECOND_PAGE = 2
+        private const val MOVIE_YEAR = 2018
+        private const val MOVIE_MONTH = 7
+
         private const val RELEASE_DATE_GTE = "2018-08-01"
         private const val RELEASE_DATE_LTE = "2018-08-31"
 
@@ -36,17 +37,17 @@ class ExceptionsTest {
     @Test(expected = NetworkException::class)
     fun `given io exception, when network call is triggered, then throw network exception`() =
         coroutineScope.runBlockingTest {
-            coEvery { restApiMock.loadMovies(RELEASE_DATE_GTE, RELEASE_DATE_LTE, NEXT_PAGE) } throws IOException(empty())
+            coEvery { restApiMock.loadMovies(RELEASE_DATE_GTE, RELEASE_DATE_LTE, SECOND_PAGE) } throws IOException(empty())
 
-            testedClass.loadMovies(MOVIE_YEAR, MOVIE_MONTH, NEXT_PAGE)
+            testedClass.loadMovies(MOVIE_YEAR, MOVIE_MONTH, SECOND_PAGE)
         }
 
     @Test(expected = Exception::class)
     fun `given exception, when network call is triggered, then throw exception`() =
         coroutineScope.runBlockingTest {
-            coEvery { restApiMock.loadMovies(RELEASE_DATE_GTE, RELEASE_DATE_LTE, NEXT_PAGE) } throws Exception()
+            coEvery { restApiMock.loadMovies(RELEASE_DATE_GTE, RELEASE_DATE_LTE, SECOND_PAGE) } throws Exception()
 
-            testedClass.loadMovies(MOVIE_YEAR, MOVIE_MONTH, NEXT_PAGE)
+            testedClass.loadMovies(MOVIE_YEAR, MOVIE_MONTH, SECOND_PAGE)
         }
 
     /* TO ERROR */

@@ -6,9 +6,6 @@ import io.petros.movies.domain.model.NetworkError
 import io.petros.movies.domain.model.Result
 import io.petros.movies.network.rest.RestApi
 import io.petros.movies.network.rest.RestClient
-import io.petros.movies.test.domain.MOVIE_MONTH
-import io.petros.movies.test.domain.MOVIE_YEAR
-import io.petros.movies.test.domain.NEXT_PAGE
 import io.petros.movies.test.utils.CoroutineSpek
 import io.petros.movies.utils.empty
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -32,12 +29,12 @@ class ExceptionSpek : CoroutineSpek({
         Scenario("network call") {
             val exception = IOException(empty())
             Given("io exception") {
-                coEvery { restApiMock.loadMovies(RELEASE_DATE_GTE, RELEASE_DATE_LTE, NEXT_PAGE) } throws exception
+                coEvery { restApiMock.loadMovies(RELEASE_DATE_GTE, RELEASE_DATE_LTE, SECOND_PAGE) } throws exception
             }
             When("network call is triggered, then throw network exception") {
                 runBlocking {
                     try {
-                        testedClass.loadMovies(MOVIE_YEAR, MOVIE_MONTH, NEXT_PAGE)
+                        testedClass.loadMovies(MOVIE_YEAR, MOVIE_MONTH, SECOND_PAGE)
                     } catch (e: Exception) {
                         expect { that(e).isA<NetworkException>() }
                     }
@@ -52,12 +49,12 @@ class ExceptionSpek : CoroutineSpek({
         Scenario("network call") {
             val exception = Exception()
             Given("exception") {
-                coEvery { restApiMock.loadMovies(RELEASE_DATE_GTE, RELEASE_DATE_LTE, NEXT_PAGE) } throws exception
+                coEvery { restApiMock.loadMovies(RELEASE_DATE_GTE, RELEASE_DATE_LTE, SECOND_PAGE) } throws exception
             }
             When("network call is triggered, then throw exception") {
                 runBlocking {
                     try {
-                        testedClass.loadMovies(MOVIE_YEAR, MOVIE_MONTH, NEXT_PAGE)
+                        testedClass.loadMovies(MOVIE_YEAR, MOVIE_MONTH, SECOND_PAGE)
                     } catch (e: Exception) {
                         expect { that(e).isA<Exception>() }
                     }
@@ -82,4 +79,14 @@ class ExceptionSpek : CoroutineSpek({
         }
     }
 
-})
+}) {
+
+    companion object {
+
+        private const val SECOND_PAGE = 2
+        private const val MOVIE_YEAR = 2018
+        private const val MOVIE_MONTH = 7
+
+    }
+
+}

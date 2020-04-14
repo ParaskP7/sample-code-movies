@@ -12,9 +12,6 @@ import io.petros.movies.domain.model.NetworkError
 import io.petros.movies.domain.model.Result
 import io.petros.movies.domain.model.common.PaginationData
 import io.petros.movies.domain.model.movie.Movie
-import io.petros.movies.test.domain.MOVIE_MONTH
-import io.petros.movies.test.domain.MOVIE_YEAR
-import io.petros.movies.test.domain.NEXT_PAGE
 import io.petros.movies.test.domain.movie
 import io.petros.movies.test.domain.moviesPage
 import io.petros.movies.test.utils.MainCoroutineScopeRule
@@ -30,10 +27,18 @@ import strikt.assertions.isTrue
 @ExperimentalCoroutinesApi
 class MoviesViewModelTest {
 
+    companion object {
+
+        private const val SECOND_PAGE = 2
+        private const val MOVIE_YEAR = 2018
+        private const val MOVIE_MONTH = 7
+
+    }
+
     @get:Rule val coroutineScope = MainCoroutineScopeRule()
     @get:Rule val rule = InstantTaskExecutorRule()
 
-    private val previousMoviesPage = moviesPage(NEXT_PAGE, listOf(movie(), movie()))
+    private val previousMoviesPage = moviesPage(SECOND_PAGE, listOf(movie(), movie()))
     private val moviesPage = Result.Success(moviesPage())
 
     @Suppress("LateinitUsage") private lateinit var testedClass: MoviesViewModel
@@ -58,9 +63,9 @@ class MoviesViewModelTest {
 
     @Test
     fun `when loading movies, then the load movies use case executes`() {
-        testedClass.loadMovies(MOVIE_YEAR, MOVIE_MONTH, NEXT_PAGE)
+        testedClass.loadMovies(MOVIE_YEAR, MOVIE_MONTH, SECOND_PAGE)
 
-        coVerify { loadMoviesUseCaseMock.execute(LoadMoviesUseCase.Params(MOVIE_YEAR, MOVIE_MONTH, NEXT_PAGE)) }
+        coVerify { loadMoviesUseCaseMock.execute(LoadMoviesUseCase.Params(MOVIE_YEAR, MOVIE_MONTH, SECOND_PAGE)) }
     }
 
     @Test

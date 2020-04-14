@@ -5,9 +5,6 @@ import io.mockk.coVerify
 import io.mockk.mockk
 import io.petros.movies.domain.model.Result
 import io.petros.movies.domain.repository.movie.MoviesRepository
-import io.petros.movies.test.domain.MOVIE_MONTH
-import io.petros.movies.test.domain.MOVIE_YEAR
-import io.petros.movies.test.domain.NEXT_PAGE
 import io.petros.movies.test.domain.moviesPage
 import io.petros.movies.test.utils.MainCoroutineScopeRule
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -20,9 +17,17 @@ import strikt.assertions.isEqualTo
 @ExperimentalCoroutinesApi
 class LoadMoviesUseCaseTest {
 
+    companion object {
+
+        private const val SECOND_PAGE = 2
+        private const val MOVIE_YEAR = 2018
+        private const val MOVIE_MONTH = 7
+
+    }
+
     @get:Rule val coroutineScope = MainCoroutineScopeRule()
 
-    private val params = LoadMoviesUseCase.Params(MOVIE_YEAR, MOVIE_MONTH, NEXT_PAGE)
+    private val params = LoadMoviesUseCase.Params(MOVIE_YEAR, MOVIE_MONTH, SECOND_PAGE)
 
     private val moviesPage = Result.Success(moviesPage())
 
@@ -31,16 +36,16 @@ class LoadMoviesUseCaseTest {
 
     @Test
     fun `when executing the use case, then the repository triggers load movies`() = coroutineScope.runBlockingTest {
-        coEvery { moviesRepositoryMock.loadMovies(MOVIE_YEAR, MOVIE_MONTH, NEXT_PAGE) } returns moviesPage
+        coEvery { moviesRepositoryMock.loadMovies(MOVIE_YEAR, MOVIE_MONTH, SECOND_PAGE) } returns moviesPage
 
         testedClass.execute(params)
 
-        coVerify { moviesRepositoryMock.loadMovies(MOVIE_YEAR, MOVIE_MONTH, NEXT_PAGE) }
+        coVerify { moviesRepositoryMock.loadMovies(MOVIE_YEAR, MOVIE_MONTH, SECOND_PAGE) }
     }
 
     @Test
     fun `when executing the use case, then the movies page is the expected one`() = coroutineScope.runBlockingTest {
-        coEvery { moviesRepositoryMock.loadMovies(MOVIE_YEAR, MOVIE_MONTH, NEXT_PAGE) } returns moviesPage
+        coEvery { moviesRepositoryMock.loadMovies(MOVIE_YEAR, MOVIE_MONTH, SECOND_PAGE) } returns moviesPage
 
         val result = testedClass.execute(params)
 

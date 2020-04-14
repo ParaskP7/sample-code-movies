@@ -1,7 +1,5 @@
 package io.petros.movies.utils
 
-import io.petros.movies.test.domain.MOVIE_MONTH
-import io.petros.movies.test.domain.MOVIE_YEAR
 import org.spekframework.spek2.Spek
 import org.spekframework.spek2.style.gherkin.Feature
 import strikt.api.expect
@@ -73,4 +71,13 @@ object ReleaseDateUtilsSpek : Spek({
         }
     }
 
-})
+}) {
+
+    companion object {
+
+        private const val MOVIE_YEAR = 2018
+        private const val MOVIE_MONTH = 7
+
+    }
+
+}

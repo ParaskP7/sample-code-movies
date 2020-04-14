@@ -7,7 +7,6 @@ import io.petros.movies.android_test.context.TestContextProvider.context
 import io.petros.movies.domain.model.common.PaginationData
 import io.petros.movies.domain.model.movie.Movie
 import io.petros.movies.domain.model.movie.MoviesPage
-import io.petros.movies.test.domain.NEXT_PAGE
 import io.petros.movies.test.domain.movie
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -18,6 +17,12 @@ import strikt.assertions.isNull
 
 @RunWith(RobolectricTestRunner::class)
 class InfiniteAdapterRobolectricTest {
+
+    companion object {
+
+        private const val SECOND_PAGE = 2
+
+    }
 
     private val context = context()
     private val recyclerView = RecyclerView(context)
@@ -63,7 +68,7 @@ class InfiniteAdapterRobolectricTest {
     fun `given first page load, when setting items to adapter, then the first page items are set`() {
         expect { that(testedClass.items()).isEqualTo(emptyList()) }
 
-        testedClass.setItems(PaginationData<Movie>().addPage(MoviesPage(NEXT_PAGE, firstPageItems)))
+        testedClass.setItems(PaginationData<Movie>().addPage(MoviesPage(SECOND_PAGE, firstPageItems)))
 
         expect { that(testedClass.items()).isEqualTo(firstPageItems) }
     }
@@ -71,10 +76,10 @@ class InfiniteAdapterRobolectricTest {
     @Test
     fun `given second page load, when setting items to adapter, then new items are appended on the current items`() {
         val paginationData = PaginationData<Movie>()
-        paginationData.addPage(MoviesPage(NEXT_PAGE, firstPageItems))
+        paginationData.addPage(MoviesPage(SECOND_PAGE, firstPageItems))
         testedClass.setItems(paginationData)
         expect { that(testedClass.items()).isEqualTo(firstPageItems) }
-        paginationData.addPage(MoviesPage(NEXT_PAGE + 1, secondPageItems))
+        paginationData.addPage(MoviesPage(SECOND_PAGE + 1, secondPageItems))
 
         testedClass.setItems(paginationData)
 
@@ -83,10 +88,10 @@ class InfiniteAdapterRobolectricTest {
 
     @Test
     fun `given another page reload, when setting items to adapter, then this another page items are reloaded`() {
-        testedClass.setItems(PaginationData<Movie>().addPage(MoviesPage(NEXT_PAGE, firstPageItems)))
+        testedClass.setItems(PaginationData<Movie>().addPage(MoviesPage(SECOND_PAGE, firstPageItems)))
         expect { that(testedClass.items()).isEqualTo(firstPageItems) }
 
-        testedClass.setItems(PaginationData<Movie>().addPage(MoviesPage(NEXT_PAGE, anotherPageItems)))
+        testedClass.setItems(PaginationData<Movie>().addPage(MoviesPage(SECOND_PAGE, anotherPageItems)))
 
         expect { that(testedClass.items()).isEqualTo(anotherPageItems) }
     }
@@ -94,9 +99,9 @@ class InfiniteAdapterRobolectricTest {
     @Test
     fun `given page restore, when setting items to adapter, then all page items are restored`() {
         val paginationData = PaginationData<Movie>()
-        paginationData.addPage(MoviesPage(NEXT_PAGE, firstPageItems))
+        paginationData.addPage(MoviesPage(SECOND_PAGE, firstPageItems))
         testedClass.setItems(paginationData)
-        paginationData.addPage(MoviesPage(NEXT_PAGE + 1, secondPageItems))
+        paginationData.addPage(MoviesPage(SECOND_PAGE + 1, secondPageItems))
         testedClass.setItems(paginationData)
         expect { that(testedClass.items()).isEqualTo(firstPageItems + secondPageItems) }
 

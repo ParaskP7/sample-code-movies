@@ -5,13 +5,18 @@ import io.mockk.mockk
 import io.mockk.verify
 import io.petros.movies.android_test.context.TestContextProvider.context
 import io.petros.movies.domain.model.movie.Movie
-import io.petros.movies.test.domain.NEXT_PAGE
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
 
 @RunWith(RobolectricTestRunner::class)
 class InfiniteRecyclerViewRobolectricTest {
+
+    companion object {
+
+        private const val SECOND_PAGE = 2
+
+    }
 
     private var adapterMock = mockk<InfiniteAdapter<Movie>>()
 
@@ -30,11 +35,11 @@ class InfiniteRecyclerViewRobolectricTest {
 
     @Test
     fun `when load more is triggered, then infinite scrolling listener's load data is triggered for next page`() {
-        every { adapterMock.nextPage() } returns NEXT_PAGE
+        every { adapterMock.nextPage() } returns SECOND_PAGE
 
         testedClass.loadMore()
 
-        verify { listenerMock.loadData(NEXT_PAGE) }
+        verify { listenerMock.loadData(SECOND_PAGE) }
     }
 
     @Test

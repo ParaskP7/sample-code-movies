@@ -12,9 +12,6 @@ import io.petros.movies.domain.model.NetworkError
 import io.petros.movies.domain.model.Result
 import io.petros.movies.domain.model.common.PaginationData
 import io.petros.movies.domain.model.movie.Movie
-import io.petros.movies.test.domain.MOVIE_MONTH
-import io.petros.movies.test.domain.MOVIE_YEAR
-import io.petros.movies.test.domain.NEXT_PAGE
 import io.petros.movies.test.domain.movie
 import io.petros.movies.test.domain.moviesPage
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -34,7 +31,7 @@ private fun setupViewModel(testedClass: MoviesViewModel) {
 @ExperimentalCoroutinesApi
 class MoviesViewModelSpek : ViewModelSpek({
 
-    val previousMoviesPage = moviesPage(NEXT_PAGE, listOf(movie(), movie()))
+    val previousMoviesPage = moviesPage(SECOND_PAGE, listOf(movie(), movie()))
     val moviesPage = Result.Success(moviesPage())
     val loadMoviesUseCaseMock = mockk<LoadMoviesUseCase>()
 
@@ -46,13 +43,13 @@ class MoviesViewModelSpek : ViewModelSpek({
                 coEvery { loadMoviesUseCaseMock.execute(any()) } returns moviesPage
             }
             When("loading movies") {
-                testedClass.loadMovies(MOVIE_YEAR, MOVIE_MONTH, NEXT_PAGE)
+                testedClass.loadMovies(MOVIE_YEAR, MOVIE_MONTH, SECOND_PAGE)
             }
             Then("a loading status is posted") {
                 coVerify { statusObservableMock.onChanged(AdapterStatus.LOADING) }
             }
             Then("the load movies use case executes") {
-                coVerify { loadMoviesUseCaseMock.execute(LoadMoviesUseCase.Params(MOVIE_YEAR, MOVIE_MONTH, NEXT_PAGE)) }
+                coVerify { loadMoviesUseCaseMock.execute(LoadMoviesUseCase.Params(MOVIE_YEAR, MOVIE_MONTH, SECOND_PAGE)) }
             }
             Then("an idle status is posted") {
                 verify { statusObservableMock.onChanged(AdapterStatus.IDLE) }
@@ -67,13 +64,13 @@ class MoviesViewModelSpek : ViewModelSpek({
                 coEvery { loadMoviesUseCaseMock.execute(any()) } returns NetworkError(Exception())
             }
             When("loading movies") {
-                testedClass.loadMovies(MOVIE_YEAR, MOVIE_MONTH, NEXT_PAGE)
+                testedClass.loadMovies(MOVIE_YEAR, MOVIE_MONTH, SECOND_PAGE)
             }
             Then("a loading status is posted") {
                 coVerify { statusObservableMock.onChanged(AdapterStatus.LOADING) }
             }
             Then("the load movies use case executes") {
-                coVerify { loadMoviesUseCaseMock.execute(LoadMoviesUseCase.Params(MOVIE_YEAR, MOVIE_MONTH, NEXT_PAGE)) }
+                coVerify { loadMoviesUseCaseMock.execute(LoadMoviesUseCase.Params(MOVIE_YEAR, MOVIE_MONTH, SECOND_PAGE)) }
             }
             Then("an error status is posted") {
                 coVerify { statusObservableMock.onChanged(AdapterStatus.ERROR) }
@@ -138,4 +135,14 @@ class MoviesViewModelSpek : ViewModelSpek({
         }
     }
 
-})
+}) {
+
+    companion object {
+
+        private const val SECOND_PAGE = 2
+        private const val MOVIE_YEAR = 2018
+        private const val MOVIE_MONTH = 7
+
+    }
+
+}
