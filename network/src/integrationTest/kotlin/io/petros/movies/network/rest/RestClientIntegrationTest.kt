@@ -40,7 +40,7 @@ class RestClientIntegrationTest {
     }
 
     @Test
-    fun `give movies page response, when loading movies, then the movies page model is the expected one`() = runBlocking {
+    fun `given movies page response, when loading movies, then the movies page model is the expected one`() = runBlocking {
         server.enqueue(MockResponse().setBody(jsonFromFile(MOVIES_PAGE_FILE)))
 
         val result = testedClass.loadMovies(null, null, null)
