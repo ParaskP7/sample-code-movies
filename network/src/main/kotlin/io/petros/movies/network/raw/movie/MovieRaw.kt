@@ -12,7 +12,7 @@ data class MovieRaw(
     private val backdrop_path: String?,
     private val overview: String,
     private val release_date: String
-) { // MIT
+) {
 
     companion object {
 

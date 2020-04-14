@@ -6,7 +6,7 @@ data class MoviesPageRaw(
     private val page: Int,
     private val total_pages: Int,
     private val results: List<MovieRaw>
-) { // MIT
+) {
 
     fun toMoviesPage(): MoviesPage {
         return MoviesPage(
