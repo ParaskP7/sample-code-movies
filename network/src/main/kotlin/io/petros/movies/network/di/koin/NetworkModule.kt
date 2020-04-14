@@ -35,6 +35,8 @@ private fun okHttpClient(
 ): OkHttpClient {
     return OkHttpClient.Builder()
         .connectTimeout(TIMEOUT_SECS, TimeUnit.SECONDS)
+        .readTimeout(TIMEOUT_SECS, TimeUnit.SECONDS)
+        .writeTimeout(TIMEOUT_SECS, TimeUnit.SECONDS)
         .addInterceptor(loggingInterceptor) // TODO: Think about how to add this `if (BuildConfig.DEBUG)` logic back
         .build()
 }
