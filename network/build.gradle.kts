@@ -33,6 +33,7 @@ dependencies {
     testRuntimeOnly(Deps.Kotlin.Core.KOTLIN_REFLECT)
     testImplementation(Deps.Test.JUnit.J_UNIT_4)
     testRuntimeOnly(Deps.Test.JUnit.J_UNIT_5)
+    testImplementation(Deps.Test.Integration.MOCK_WEB_SERVER)
     testImplementation(Deps.Test.Assert.STRIKT)
     testImplementation(Deps.Test.Mock.MOCK_K)
 
