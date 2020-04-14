@@ -35,6 +35,15 @@ object Sources {
 
     }
 
+    object Integration {
+
+        const val KOTLIN = "${Folders.Source.SRC}/${Folders.Source.INTEGRATION_TEST}/" +
+                Folders.Source.Subfolder.KOTLIN
+        const val RESOURCES = "${Folders.Source.SRC}/${Folders.Source.INTEGRATION_TEST}/" +
+                Folders.Source.Subfolder.RESOURCES
+
+    }
+
     object Robolectric {
 
         const val KOTLIN = "${Folders.Source.SRC}/${Folders.Source.ROBOLECTRIC_TEST}/" +

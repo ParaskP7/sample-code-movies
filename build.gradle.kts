@@ -448,6 +448,7 @@ fun SourceSetContainer.testSourceSetContainer() {
             arrayListOf(
                 Sources.Test.KOTLIN,
                 Sources.Spek.KOTLIN,
+                Sources.Integration.KOTLIN,
                 Sources.Robolectric.KOTLIN
             )
         )
@@ -455,6 +456,7 @@ fun SourceSetContainer.testSourceSetContainer() {
             arrayListOf(
                 Sources.Test.RESOURCES,
                 Sources.Spek.RESOURCES,
+                Sources.Integration.RESOURCES,
                 Sources.Robolectric.RESOURCES
             )
         )
@@ -467,6 +469,7 @@ fun NamedDomainObjectContainer<AndroidSourceSet>.androidTestSourceSetContainer()
             arrayListOf(
                 Sources.Test.KOTLIN,
                 Sources.Spek.KOTLIN,
+                Sources.Integration.KOTLIN,
                 Sources.Robolectric.KOTLIN
             )
         )
@@ -474,6 +477,7 @@ fun NamedDomainObjectContainer<AndroidSourceSet>.androidTestSourceSetContainer()
             arrayListOf(
                 Sources.Test.RESOURCES,
                 Sources.Spek.RESOURCES,
+                Sources.Integration.RESOURCES,
                 Sources.Robolectric.RESOURCES
             )
         )
