@@ -1,8 +1,10 @@
 package io.petros.movies.network.rest
 
 import io.petros.movies.domain.model.movie.MoviesPage
+import io.petros.movies.network.NetworkException
 import io.petros.movies.test.domain.movie
 import io.petros.movies.test.domain.moviesPage
+import io.petros.movies.test.utils.TIMEOUT_MILLISECONDS
 import io.petros.movies.test.utils.api
 import io.petros.movies.test.utils.jsonFromFile
 import kotlinx.coroutines.runBlocking
@@ -14,6 +16,7 @@ import org.junit.Test
 import strikt.api.expect
 import strikt.assertions.isEqualTo
 import java.util.*
+import java.util.concurrent.TimeUnit
 
 class RestClientIntegrationTest {
 
@@ -46,6 +49,17 @@ class RestClientIntegrationTest {
         val result = testedClass.loadMovies(null, null, null)
 
         expect { that(result).isEqualTo(expectedMoviesPage()) }
+    }
+
+    @Test(expected = NetworkException::class)
+    fun `given socket timeout exception, when loading movies, then throw network exception`() = runBlocking {
+        server.enqueue(
+            MockResponse()
+                .setBody(jsonFromFile(MOVIES_PAGE_FILE))
+                .throttleBody(1024, TIMEOUT_MILLISECONDS * 2, TimeUnit.MILLISECONDS)
+        )
+
+        @Suppress("UNUSED_VARIABLE") val result = testedClass.loadMovies(null, null, null)
     }
 
     /* HELPER FUNCTIONS */
