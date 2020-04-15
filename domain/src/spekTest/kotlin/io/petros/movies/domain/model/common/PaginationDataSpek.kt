@@ -28,6 +28,15 @@ class PaginationDataSpek : Spek({
                 expect { that(result).isTrue() }
             }
         }
+        Scenario("is first page") {
+            var result = false
+            When("checking if it is first page") {
+                result = testedClass.isFirstPage()
+            }
+            Then("the return value is false") {
+                expect { that(result).isFalse() }
+            }
+        }
         Scenario("add page") {
             When("adding a page") {
                 testedClass.addPage(MoviesPage(SECOND_PAGE, firstPageItems))

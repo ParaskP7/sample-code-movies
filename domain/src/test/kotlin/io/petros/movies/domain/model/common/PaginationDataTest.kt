@@ -30,6 +30,11 @@ class PaginationDataTest {
     }
 
     @Test
+    fun `given no pages, when checking if it is first page, then the return value is false`() {
+        expect { that(testedClass.isFirstPage()).isFalse() }
+    }
+
+    @Test
     fun `given no pages, when adding a page, then the items are the expected one`() {
         testedClass.addPage(MoviesPage(SECOND_PAGE, firstPageItems))
 
