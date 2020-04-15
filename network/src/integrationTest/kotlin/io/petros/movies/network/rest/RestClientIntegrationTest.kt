@@ -21,7 +21,9 @@ class RestClientIntegrationTest {
     companion object {
 
         private const val MOVIES_DIR = "responses/movies"
-        private const val MOVIES_PAGE_FILE = "$MOVIES_DIR/movies_page.json"
+        private const val FIRST_MOVIES_PAGE_FILE = "$MOVIES_DIR/movies_page_first.json"
+        private const val SECOND_MOVIES_PAGE_FILE = "$MOVIES_DIR/movies_page_second.json"
+        private const val LAST_MOVIES_PAGE_FILE = "$MOVIES_DIR/movies_page_last.json"
 
     }
 
@@ -41,25 +43,43 @@ class RestClientIntegrationTest {
     }
 
     @Test
-    fun `given movies page response, when loading movies, then the movies page model is the expected one`() = runBlocking {
-        server.enqueue(mockResponse(MOVIES_PAGE_FILE))
+    fun `given first movies page, when loading movies, then the movies page model is the expected one`() = runBlocking {
+        server.enqueue(mockResponse(FIRST_MOVIES_PAGE_FILE))
 
         val result = testedClass.loadMovies(null, null, null)
 
-        expect { that(result).isEqualTo(expectedMoviesPage()) }
+        expect { that(result).isEqualTo(expectedFirstMoviesPage()) }
+    }
+
+    @Test
+    fun `given second movies page, when loading movies, then the movies page model is the expected one`() = runBlocking {
+        server.enqueue(mockResponse(SECOND_MOVIES_PAGE_FILE))
+
+        val result = testedClass.loadMovies(null, null, null)
+
+        expect { that(result).isEqualTo(expectedSecondMoviesPage()) }
+    }
+
+    @Test
+    fun `given last movies page, when loading movies, then the movies page model is the expected one`() = runBlocking {
+        server.enqueue(mockResponse(LAST_MOVIES_PAGE_FILE))
+
+        val result = testedClass.loadMovies(null, null, null)
+
+        expect { that(result).isEqualTo(expectedLastMoviesPage()) }
     }
 
     @Suppress("UNUSED_VARIABLE")
     @Test(expected = NetworkException::class)
     fun `given socket timeout exception, when loading movies, then throw network exception`() = runBlocking {
-        server.enqueue(mockResponse(MOVIES_PAGE_FILE, TIMEOUT_MILLIS * 2))
+        server.enqueue(mockResponse(FIRST_MOVIES_PAGE_FILE, TIMEOUT_MILLIS * 2))
 
         val result = testedClass.loadMovies(null, null, null)
     }
 
     /* HELPER FUNCTIONS */
 
-    private fun expectedMoviesPage(): MoviesPage {
+    private fun expectedFirstMoviesPage(): MoviesPage {
         return moviesPage(
             nextPage = 2,
             movies = listOf(
@@ -98,6 +118,69 @@ class RestClientIntegrationTest {
                             "live-action adventure comedy, Sonic and his new best friend team up to defend the planet " +
                             "from the evil genius Dr. Robotnik and his plans for world domination.",
                     backdrop = "http://image.tmdb.org/t/p/w500/stmYfCUGd8Iy6kAMBr6AmWqx8Bq.jpg"
+                )
+            )
+        )
+    }
+
+    private fun expectedSecondMoviesPage(): MoviesPage {
+        return moviesPage(
+            nextPage = 3,
+            movies = listOf(
+                movie(
+                    id = 181_812,
+                    title = "Star Wars: The Rise of Skywalker",
+                    releaseDate = GregorianCalendar(2019, Calendar.DECEMBER, 18).time,
+                    voteAverage = 6.5,
+                    voteCount = 3946,
+                    overview = "The surviving Resistance faces the First Order once again as the journey of Rey, Finn and " +
+                            "Poe Dameron continues. With the power and knowledge of generations behind them, the final " +
+                            "battle begins.",
+                    backdrop = "http://image.tmdb.org/t/p/w500/99QDSTfr9bOqv1kbn8YRlynbgU.jpg"
+                ),
+                movie(
+                    id = 495_764,
+                    title = "Birds of Prey (and the Fantabulous Emancipation of One Harley Quinn)",
+                    releaseDate = GregorianCalendar(2020, Calendar.FEBRUARY, 5).time,
+                    voteAverage = 7.2,
+                    voteCount = 2910,
+                    overview = "Harley Quinn joins forces with a singer, an assassin and a police detective to help a " +
+                            "young girl who had a hit placed on herafter she stole a rare diamond from a crime lord.",
+                    backdrop = "http://image.tmdb.org/t/p/w500/uozb2VeD87YmhoUP1RrGWfzuCrr.jpg"
+                ),
+                movie(
+                    id = 412_117,
+                    title = "The Secret Life of Pets 2",
+                    releaseDate = GregorianCalendar(2019, Calendar.MAY, 24).time,
+                    voteAverage = 6.8,
+                    voteCount = 1343,
+                    overview = "Max the terrier must cope with some major life changes when his owner gets married and " +
+                            "has a baby. When the family takes a trip to the countryside, nervous Max has numerous " +
+                            "run-ins with canine-intolerant cows, hostile foxes and a scary turkey. Luckily for Max, he " +
+                            "soon catches a break when he meets Rooster, a gruff farm dog who tries to cure the lovable " +
+                            "pooch of his neuroses.",
+                    backdrop = null
+                )
+            )
+        )
+    }
+
+    private fun expectedLastMoviesPage(): MoviesPage {
+        return moviesPage(
+            nextPage = null,
+            movies = listOf(
+                movie(
+                    id = 446_893,
+                    title = "Trolls World Tour",
+                    releaseDate = GregorianCalendar(2020, Calendar.MARCH, 12).time,
+                    voteAverage = 7.7,
+                    voteCount = 122,
+                    overview = "Queen Poppy and Branch make a surprising discovery — there are other Troll worlds beyond " +
+                            "their own, and their distinct differences create big clashes between these various tribes. " +
+                            "When a mysterious threat puts all of the Trolls across the land in danger, Poppy, Branch, " +
+                            "and their band of friends must embark on an epic quest to create harmony among the feuding " +
+                            "Trolls to unite them against certain doom.",
+                    backdrop = "http://image.tmdb.org/t/p/w500/qsxhnirlp7y4Ae9bd11oYJSX59j.jpg"
                 )
             )
         )

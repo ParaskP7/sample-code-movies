@@ -1,0 +1,30 @@
+{
+  "page": 3,
+  "total_results": 7,
+  "total_pages": 3,
+  "results": [
+    {
+      "popularity": 233.655,
+      "vote_count": 122,
+      "video": false,
+      "poster_path": "\/7W0G3YECgDAfnuiHG91r8WqgIOe.jpg",
+      "id": 446893,
+      "adult": false,
+      "backdrop_path": "\/qsxhnirlp7y4Ae9bd11oYJSX59j.jpg",
+      "original_language": "en",
+      "original_title": "Trolls World Tour",
+      "genre_ids": [
+        12,
+        16,
+        35,
+        14,
+        10402,
+        10751
+      ],
+      "title": "Trolls World Tour",
+      "vote_average": 7.7,
+      "overview": "Queen Poppy and Branch make a surprising discovery — there are other Troll worlds beyond their own, and their distinct differences create big clashes between these various tribes. When a mysterious threat puts all of the Trolls across the land in danger, Poppy, Branch, and their band of friends must embark on an epic quest to create harmony among the feuding Trolls to unite them against certain doom.",
+      "release_date": "2020-03-12"
+    }
+  ]
+}

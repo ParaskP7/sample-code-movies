@@ -1,0 +1,68 @@
+{
+  "page": 2,
+  "total_results": 7,
+  "total_pages": 3,
+  "results": [
+    {
+      "popularity": 207.911,
+      "vote_count": 3946,
+      "video": false,
+      "poster_path": "\/db32LaOibwEliAmSL2jjDF6oDdj.jpg",
+      "id": 181812,
+      "adult": false,
+      "backdrop_path": "\/99QDSTfr9bOqv1kbn8YRlynbgU.jpg",
+      "original_language": "en",
+      "original_title": "Star Wars: The Rise of Skywalker",
+      "genre_ids": [
+        28,
+        12,
+        878
+      ],
+      "title": "Star Wars: The Rise of Skywalker",
+      "vote_average": 6.5,
+      "overview": "The surviving Resistance faces the First Order once again as the journey of Rey, Finn and Poe Dameron continues. With the power and knowledge of generations behind them, the final battle begins.",
+      "release_date": "2019-12-18"
+    },
+    {
+      "popularity": 189.735,
+      "vote_count": 2910,
+      "video": false,
+      "poster_path": "\/h4VB6m0RwcicVEZvzftYZyKXs6K.jpg",
+      "id": 495764,
+      "adult": false,
+      "backdrop_path": "\/uozb2VeD87YmhoUP1RrGWfzuCrr.jpg",
+      "original_language": "en",
+      "original_title": "Birds of Prey (and the Fantabulous Emancipation of One Harley Quinn)",
+      "genre_ids": [
+        28,
+        35,
+        80
+      ],
+      "title": "Birds of Prey (and the Fantabulous Emancipation of One Harley Quinn)",
+      "vote_average": 7.2,
+      "overview": "Harley Quinn joins forces with a singer, an assassin and a police detective to help a young girl who had a hit placed on herafter she stole a rare diamond from a crime lord.",
+      "release_date": "2020-02-05"
+    },
+    {
+      "popularity": 119.685,
+      "vote_count": 1343,
+      "video": false,
+      "poster_path": "\/nYcaCNkB4EgVyvrXxxbklefDrGL.jpg",
+      "id": 412117,
+      "adult": false,
+      "backdrop_path": null,
+      "original_language": "en",
+      "original_title": "The Secret Life of Pets 2",
+      "genre_ids": [
+        12,
+        16,
+        35,
+        10751
+      ],
+      "title": "The Secret Life of Pets 2",
+      "vote_average": 6.8,
+      "overview": "Max the terrier must cope with some major life changes when his owner gets married and has a baby. When the family takes a trip to the countryside, nervous Max has numerous run-ins with canine-intolerant cows, hostile foxes and a scary turkey. Luckily for Max, he soon catches a break when he meets Rooster, a gruff farm dog who tries to cure the lovable pooch of his neuroses.",
+      "release_date": "2019-05-24"
+    }
+  ]
+}
