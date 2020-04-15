@@ -8,7 +8,7 @@ import strikt.assertions.isNull
 
 class ReleaseDateUtilsKtSpek : Spek({
 
-    Feature("Release date utils with no year") {
+    Feature("Release date utils with no year and month") {
         Scenario("greater than or equal") {
             var result: String? = null
             When("converting to release date") {
@@ -22,6 +22,27 @@ class ReleaseDateUtilsKtSpek : Spek({
             var result: String? = null
             When("converting to release date") {
                 result = releaseDateLte(null, null)
+            }
+            Then("null is returned") {
+                expect { that(result).isNull() }
+            }
+        }
+    }
+
+    Feature("Release date utils with no year") {
+        Scenario("greater than or equal") {
+            var result: String? = null
+            When("converting to release date") {
+                result = releaseDateGte(null, MOVIE_MONTH)
+            }
+            Then("null is returned") {
+                expect { that(result).isNull() }
+            }
+        }
+        Scenario("less than or equal") {
+            var result: String? = null
+            When("converting to release date") {
+                result = releaseDateLte(null, MOVIE_MONTH)
             }
             Then("null is returned") {
                 expect { that(result).isNull() }

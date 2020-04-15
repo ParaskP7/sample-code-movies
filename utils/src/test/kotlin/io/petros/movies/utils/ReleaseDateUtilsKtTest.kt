@@ -15,6 +15,16 @@ class ReleaseDateUtilsKtTest {
     }
 
     @Test
+    fun `given no year and month, when converting (greater than or equal), then null is returned`() {
+        expect { that(releaseDateGte(null, null)).isNull() }
+    }
+
+    @Test
+    fun `given no year and month, when converting (less than or equal), then null is returned`() {
+        expect { that(releaseDateLte(null, null)).isNull() }
+    }
+
+    @Test
     fun `given no year, when converting (greater than or equal), then null is returned`() {
         expect { that(releaseDateGte(null, MOVIE_MONTH)).isNull() }
     }
