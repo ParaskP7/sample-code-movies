@@ -5,7 +5,7 @@ import strikt.api.expect
 import strikt.assertions.isEqualTo
 import strikt.assertions.isNull
 
-class ReleaseDateUtilsTest {
+class ReleaseDateUtilsKtTest {
 
     companion object {
 
