@@ -163,7 +163,7 @@ class MoviesToolbar : AppBarLayout { // MRT
     }
 
     private fun onSaveMonthInstanceState(outState: Bundle) {
-        getMonth()?.let { outState.putString(INSTANCE_STATE_KEY_MONTH_FILTER, it.toString()) }
+        getMonth().let { outState.putString(INSTANCE_STATE_KEY_MONTH_FILTER, it.toString()) }
     }
 
 }
