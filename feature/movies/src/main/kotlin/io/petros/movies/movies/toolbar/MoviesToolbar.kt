@@ -113,10 +113,10 @@ class MoviesToolbar : AppBarLayout { // MRT
     /* MONTH */
 
     fun setMonth(month: Int) {
-        binding.tvToolbarFilterMonth.text = MonthOfYear.from(month).monthName
+        binding.tvToolbarFilterMonth.text = MonthOfYear.from(month).label
     }
 
-    fun getMonth() = MonthOfYear.from(binding.tvToolbarFilterMonth.text).month
+    fun getMonth() = MonthOfYear.from(binding.tvToolbarFilterMonth.text).number
 
     /* CONFIGURATION CHANGE */
 

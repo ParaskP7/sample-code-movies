@@ -2,8 +2,8 @@ package io.petros.movies.utils
 
 @Suppress("MagicNumber")
 enum class MonthOfYear(
-    val month: Int?,
-    val monthName: String
+    val number: Int?,
+    val label: String
 ) { // MUT
 
     JANUARY(0, "January"),
@@ -23,9 +23,9 @@ enum class MonthOfYear(
     @Suppress("RemoveRedundantQualifierName")
     companion object {
 
-        fun from(month: Int) = MonthOfYear.values().firstOrNull { it.month == month } ?: UNKNOWN_MONTH
+        fun from(number: Int) = MonthOfYear.values().firstOrNull { it.number == number } ?: UNKNOWN_MONTH
 
-        fun from(monthName: CharSequence) = MonthOfYear.values().firstOrNull { it.monthName == monthName } ?: UNKNOWN_MONTH
+        fun from(label: CharSequence) = MonthOfYear.values().firstOrNull { it.label == label } ?: UNKNOWN_MONTH
 
     }
 
