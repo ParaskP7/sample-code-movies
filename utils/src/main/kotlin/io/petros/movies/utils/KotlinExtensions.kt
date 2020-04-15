@@ -1,4 +1,4 @@
-@file:Suppress("unused", "TooManyFunctions")
+@file:Suppress("TooManyFunctions")
 
 package io.petros.movies.utils
 
