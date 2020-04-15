@@ -12,7 +12,7 @@ import java.nio.charset.StandardCharsets
 import java.util.concurrent.TimeUnit
 
 const val MOCK_WEB_SERVER_URL = "localhost/"
-const val TIMEOUT_MILLIS = 10L
+const val TIMEOUT_MILLIS = 100L
 
 private const val BYTES_PER_PERIOD = 1024L
 
