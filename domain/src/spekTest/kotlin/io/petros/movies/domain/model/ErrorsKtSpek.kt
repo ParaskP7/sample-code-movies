@@ -5,7 +5,7 @@ import org.spekframework.spek2.style.gherkin.Feature
 import strikt.api.expect
 import strikt.assertions.isA
 
-class ErrorsSpek : Spek({
+class ErrorsKtSpek : Spek({
 
     data class MappableTestError(override val cause: Exception) : Result.Error(cause)
 

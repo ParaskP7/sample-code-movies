@@ -4,7 +4,7 @@ import org.junit.Test
 import strikt.api.expect
 import strikt.assertions.isA
 
-class ErrorsTest {
+class ErrorsKtTest {
 
     data class MappableTestError(override val cause: Exception) : Result.Error(cause)
 
