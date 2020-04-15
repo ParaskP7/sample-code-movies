@@ -16,7 +16,7 @@ import strikt.assertions.isA
 import java.io.IOException
 
 @ExperimentalCoroutinesApi
-class ExceptionsTest {
+class ExceptionsKtTest {
 
     companion object {
 
