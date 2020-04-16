@@ -42,9 +42,8 @@ abstract class InfiniteAdapter<T>(
     /* ITEMS */
 
     fun setItems(paginationData: PaginationData<T>) {
-        val shouldReload = shouldReload(paginationData)
+        if (shouldReload(paginationData)) reloadItems(paginationData) else appendItems(paginationData)
         saveState(paginationData)
-        if (shouldReload) reloadItems(paginationData) else appendItems(paginationData)
         notifyDataSetChanged()
     }
 
