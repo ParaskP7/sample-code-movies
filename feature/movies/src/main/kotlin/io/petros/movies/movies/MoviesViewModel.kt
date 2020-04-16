@@ -13,7 +13,7 @@ import io.petros.movies.utils.exhaustive
 import kotlinx.coroutines.launch
 import timber.log.Timber
 
-class MoviesViewModel constructor(
+class MoviesViewModel(
     private val loadMoviesUseCase: LoadMoviesUseCase
 ) : ViewModel() {
 

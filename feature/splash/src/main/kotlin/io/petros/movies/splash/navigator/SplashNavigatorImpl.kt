@@ -2,7 +2,7 @@ package io.petros.movies.splash.navigator
 
 import io.petros.movies.movies.navigator.MoviesLauncher
 
-class SplashNavigatorImpl constructor(
+class SplashNavigatorImpl(
     private val moviesLauncher: MoviesLauncher
 ) : SplashNavigator {
 

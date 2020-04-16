@@ -3,7 +3,7 @@ package io.petros.movies.movies.navigator
 import io.petros.movies.movie_details.navigator.MovieDetailsLauncher
 import io.petros.movies.movie_details.navigator.SharedElementMovie
 
-class MoviesNavigatorImpl constructor(
+class MoviesNavigatorImpl(
     private val movieDetailsLauncher: MovieDetailsLauncher
 ) : MoviesNavigator {
 

@@ -4,7 +4,7 @@ import io.petros.movies.domain.model.asResult
 import io.petros.movies.domain.repository.movie.MoviesRepository
 import io.petros.movies.network.WebService
 
-class MoviesRepositoryImpl constructor(
+class MoviesRepositoryImpl(
     private val webService: WebService
 ) : MoviesRepository {
 

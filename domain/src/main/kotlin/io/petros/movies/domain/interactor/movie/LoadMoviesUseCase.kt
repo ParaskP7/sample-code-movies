@@ -2,7 +2,7 @@ package io.petros.movies.domain.interactor.movie
 
 import io.petros.movies.domain.repository.movie.MoviesRepository
 
-class LoadMoviesUseCase constructor(
+class LoadMoviesUseCase(
     private val moviesRepository: MoviesRepository
 ) {
 
