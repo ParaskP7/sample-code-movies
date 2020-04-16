@@ -67,36 +67,42 @@ class InfiniteAdapterRobolectricTest {
     fun `given first page load, when setting items to adapter, then the first page items are set`() {
         expect { that(testedClass.items()).isEqualTo(emptyList()) }
 
-        testedClass.setItems(PaginationData<Movie>().addPage(MoviesPage(SECOND_PAGE, firstPageItems)))
+        setItems(PaginationData(), SECOND_PAGE, firstPageItems)
 
         expect { that(testedClass.items()).isEqualTo(firstPageItems) }
     }
 
     @Test
     fun `given second page load, when setting items to adapter, then new items are appended on the current items`() {
-        val paginationData = PaginationData<Movie>()
-        paginationData.addPage(MoviesPage(SECOND_PAGE, firstPageItems))
-        testedClass.setItems(paginationData)
+        val paginationData = setItems(PaginationData(), SECOND_PAGE, firstPageItems)
         expect { that(testedClass.items()).isEqualTo(firstPageItems) }
-        paginationData.addPage(MoviesPage(SECOND_PAGE + 1, secondPageItems))
 
-        testedClass.setItems(paginationData)
+        setItems(paginationData, SECOND_PAGE + 1, secondPageItems)
 
         expect { that(testedClass.items()).isEqualTo(firstPageItems + secondPageItems) }
     }
 
     @Test
     fun `given page restore, when setting items to adapter, then all page items are restored`() {
-        val paginationData = PaginationData<Movie>()
-        paginationData.addPage(MoviesPage(SECOND_PAGE, firstPageItems))
-        testedClass.setItems(paginationData)
-        paginationData.addPage(MoviesPage(SECOND_PAGE + 1, secondPageItems))
-        testedClass.setItems(paginationData)
+        var paginationData = setItems(PaginationData(), SECOND_PAGE, firstPageItems)
+        paginationData = setItems(paginationData, SECOND_PAGE + 1, secondPageItems)
         expect { that(testedClass.items()).isEqualTo(firstPageItems + secondPageItems) }
 
         testedClass.setItems(paginationData)
 
         expect { that(testedClass.items()).isEqualTo(firstPageItems + secondPageItems) }
+    }
+
+    /* HELPER FUNCTIONS */
+
+    private fun setItems(
+        paginationData: PaginationData<Movie>,
+        nextPage: Int,
+        movies: List<Movie>
+    ): PaginationData<Movie> {
+        paginationData.addPage(MoviesPage(nextPage, movies))
+        testedClass.setItems(paginationData)
+        return paginationData
     }
 
 }
