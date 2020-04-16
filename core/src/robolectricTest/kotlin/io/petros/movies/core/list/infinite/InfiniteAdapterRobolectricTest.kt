@@ -29,7 +29,6 @@ class InfiniteAdapterRobolectricTest {
 
     private val firstPageItems = listOf(movie(id = 1), movie(id = 2), movie(id = 3))
     private val secondPageItems = listOf(movie(id = 4), movie(id = 5), movie(id = 6))
-    private val anotherPageItems = listOf(movie(id = 7), movie(id = 8), movie(id = 9))
 
     private val testedClass = object : InfiniteAdapter<Movie>() {
         override fun isLoading() = false
@@ -84,16 +83,6 @@ class InfiniteAdapterRobolectricTest {
         testedClass.setItems(paginationData)
 
         expect { that(testedClass.items()).isEqualTo(firstPageItems + secondPageItems) }
-    }
-
-    @Test
-    fun `given another page reload, when setting items to adapter, then this another page items are reloaded`() {
-        testedClass.setItems(PaginationData<Movie>().addPage(MoviesPage(SECOND_PAGE, firstPageItems)))
-        expect { that(testedClass.items()).isEqualTo(firstPageItems) }
-
-        testedClass.setItems(PaginationData<Movie>().addPage(MoviesPage(SECOND_PAGE, anotherPageItems)))
-
-        expect { that(testedClass.items()).isEqualTo(anotherPageItems) }
     }
 
     @Test
