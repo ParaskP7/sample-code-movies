@@ -9,7 +9,7 @@ object Versions {
         const val ANDROID = "4.1.0-alpha05" // Released: 09-04-20
 
         // Releases: https://blog.jetbrains.com/kotlin/category/releases
-        const val KOTLIN = "1.3.71" // Released: 23-03-20
+        const val KOTLIN = "1.3.72" // Released: 14-04-20
 
         // Releases: https://github.com/arturbosch/detekt/releases
         const val DETEKT = "1.7.4" // Released: 03-04-20
