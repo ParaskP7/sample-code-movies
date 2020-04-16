@@ -45,18 +45,14 @@ abstract class InfiniteAdapter<T>(
         notifyDataSetChanged()
     }
 
-    private fun shouldReload(paginationData: PaginationData<T>): Boolean {
-        return paginationData.isFirstPage() ||
-                paginationData == this.paginationData
-    }
+    private fun shouldReload(paginationData: PaginationData<T>) =
+        paginationData.isFirstPage() || paginationData == this.paginationData
 
     private fun reloadItems(paginationData: PaginationData<T>) {
         items.clear()
         items.addAll(paginationData.items())
     }
 
-    private fun appendItems(paginationData: PaginationData<T>) {
-        paginationData.latestItems()?.let { items.addAll(it) }
-    }
+    private fun appendItems(paginationData: PaginationData<T>) = paginationData.latestItems()?.let { items.addAll(it) }
 
 }

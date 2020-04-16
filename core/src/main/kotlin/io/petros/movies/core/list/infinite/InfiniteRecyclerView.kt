@@ -28,9 +28,7 @@ class InfiniteRecyclerView(
 
     override fun nextPage() = (adapter as? InfiniteAdapter<*>)?.nextPage()
 
-    override fun loadMore() {
-        listener?.loadData(nextPage())
-    }
+    override fun loadMore() = listener?.loadData(nextPage())
 
     override fun isLoading() = (adapter as? InfiniteAdapter<*>)?.isLoading() ?: false
 

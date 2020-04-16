@@ -45,7 +45,7 @@ class InfiniteScrollListener(
 
         fun nextPage(): Int?
 
-        fun loadMore()
+        fun loadMore(): Unit?
 
         fun isLoading(): Boolean
 
