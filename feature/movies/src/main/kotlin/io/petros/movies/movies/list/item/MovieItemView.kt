@@ -1,7 +1,6 @@
 package io.petros.movies.movies.list.item
 
 import android.content.Context
-import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.annotation.VisibleForTesting
@@ -13,11 +12,7 @@ import io.petros.movies.movie_details.navigator.SharedElementMovie
 import io.petros.movies.movies.R
 import io.petros.movies.movies.databinding.MovieItemViewBinding
 
-class MovieItemView : CardView {
-
-    constructor(ctx: Context) : super(ctx)
-
-    constructor(ctx: Context, attrs: AttributeSet) : super(ctx, attrs)
+class MovieItemView(ctx: Context) : CardView(ctx) {
 
     @VisibleForTesting val binding = MovieItemViewBinding.inflate(LayoutInflater.from(context), this)
 
