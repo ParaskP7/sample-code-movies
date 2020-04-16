@@ -13,7 +13,10 @@ import io.petros.movies.utils.MonthOfYear
 import timber.log.Timber
 
 @Suppress("TooManyFunctions")
-class MoviesToolbar : AppBarLayout { // MRT
+class MoviesToolbar(
+    ctx: Context,
+    attrs: AttributeSet? = null
+) : AppBarLayout(ctx, attrs) { // MRT
 
     companion object {
 
@@ -22,10 +25,6 @@ class MoviesToolbar : AppBarLayout { // MRT
         private const val INSTANCE_STATE_KEY_MONTH_FILTER = "MONTH_FILTER"
 
     }
-
-    constructor(ctx: Context) : super(ctx)
-
-    constructor(ctx: Context, attrs: AttributeSet) : super(ctx, attrs)
 
     var callback: MoviesToolbarCallback? = null
 

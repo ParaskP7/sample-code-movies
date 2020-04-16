@@ -6,11 +6,10 @@ import android.view.LayoutInflater
 import com.google.android.material.appbar.AppBarLayout
 import io.petros.movies.movie_details.databinding.MovieDetailsToolbarBinding
 
-class MovieDetailsToolbar : AppBarLayout {
-
-    constructor(ctx: Context) : super(ctx)
-
-    constructor(ctx: Context, attrs: AttributeSet) : super(ctx, attrs)
+class MovieDetailsToolbar(
+    ctx: Context,
+    attrs: AttributeSet? = null
+) : AppBarLayout(ctx, attrs) {
 
     init {
         MovieDetailsToolbarBinding.inflate(LayoutInflater.from(context), this)

@@ -5,14 +5,13 @@ import android.util.AttributeSet
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
-class InfiniteRecyclerView : RecyclerView,
+class InfiniteRecyclerView(
+    ctx: Context,
+    attrs: AttributeSet? = null
+) : RecyclerView(ctx, attrs),
     InfiniteScrollListener.Listener {
 
     var listener: Listener? = null
-
-    constructor(ctx: Context) : super(ctx)
-
-    constructor(ctx: Context, attrs: AttributeSet) : super(ctx, attrs)
 
     init {
         initOnScrollListener()
