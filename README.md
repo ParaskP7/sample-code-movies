@@ -239,10 +239,10 @@ Below is a list of all those ```I REALLY WANNA DO``` future architecture and lib
 18. **![#2cb42c](https://placehold.it/15/2cb42c/000000?text=+) `DONE`** Add Code Coverage Reports for Tests with Jacoco.
     For more info see [Jacoco](https://github.com/jacoco/jacoco)
     ```(Java Code Coverage Library)```
-19. **![#2cb42c](https://placehold.it/15/2cb42c/000000?text=+) `DONE`**  Add Integration Tests with MockWebServer (See `MIT` comment which stands for `Missing Integration Tests`).
+19. **![#2cb42c](https://placehold.it/15/2cb42c/000000?text=+) `DONE`** Add Integration Tests with MockWebServer (See `MIT` comment which stands for `Missing Integration Tests`).
     For more info, see [MockWebServer](https://github.com/square/okhttp/tree/master/mockwebserver)
     ```(A scriptable web server for testing HTTP clients)``` 
-20. **![#ffff00](https://placehold.it/15/ffff00/000000?text=+) `IN PROGRESS`** Add missing Unit Tests (See `MUT` comment which stands for `Missing Unit Tests`).
+20. **![#2cb42c](https://placehold.it/15/2cb42c/000000?text=+) `DONE`** Add missing Unit Tests (See `MUT` comment which stands for `Missing Unit Tests`).
     For more info, see [JUnit4](https://junit.org/junit4/)
     ```(JUnit is a simple framework to write repeatable tests. It is an instance of the xUnit architecture for unit testing frameworks)``` 
 21. Add missing Robolectric Tests (See `MRT` comment which stands for `Missing Robolectric Tests`).
