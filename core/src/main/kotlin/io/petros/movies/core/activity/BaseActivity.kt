@@ -14,12 +14,8 @@ abstract class BaseActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView()
-        Timber.v("${javaClass.simpleName} created. [Bundle: $savedInstanceState]")
-    }
-
-    private fun setContentView() {
         constructContentView()?.let { setContentView(it) }
+        Timber.v("${javaClass.simpleName} created. [Bundle: $savedInstanceState]")
     }
 
     protected abstract fun constructContentView(): View?
