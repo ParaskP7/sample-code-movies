@@ -75,6 +75,7 @@ class MoviesAdapterRobolectricTest {
     fun `given a movie view type, when binding a view holder, then a movie item is bind`() {
         testedClass.onAttachedToRecyclerView(recyclerView)
         testedClass.onCreateViewHolder(mockk(), VIEW_TYPE_MOVIE)
+        testedClass.status = AdapterStatus.IDLE
         val position = 1
         val viewHolderMock = mockk<MovieViewHolder>()
 
