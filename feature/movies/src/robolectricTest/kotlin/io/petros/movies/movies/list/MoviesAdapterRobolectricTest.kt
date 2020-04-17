@@ -45,7 +45,7 @@ class MoviesAdapterRobolectricTest {
     /* VIEW HOLDER */
 
     @Test
-    fun `when creating a view holder for a progress item, then the correct view holder is returned`() {
+    fun `given a progress view type, when creating a view holder, then the correct view holder is returned`() {
         testedClass.onAttachedToRecyclerView(recyclerView)
 
         val viewHolder = testedClass.onCreateViewHolder(mockk(), VIEW_TYPE_PROGRESS)
@@ -54,7 +54,7 @@ class MoviesAdapterRobolectricTest {
     }
 
     @Test
-    fun `when creating a view holder for a movie item, then the correct view holder is returned`() {
+    fun `given a movie view type, when creating a view holder, then the correct view holder is returned`() {
         testedClass.onAttachedToRecyclerView(recyclerView)
 
         val viewHolder = testedClass.onCreateViewHolder(mockk(), VIEW_TYPE_MOVIE)
@@ -63,7 +63,7 @@ class MoviesAdapterRobolectricTest {
     }
 
     @Test
-    fun `when creating a view holder for an error item, then the correct view holder is returned`() {
+    fun `given an error view type, when creating a view holder, then the correct view holder is returned`() {
         testedClass.onAttachedToRecyclerView(recyclerView)
 
         val viewHolder = testedClass.onCreateViewHolder(mockk(), VIEW_TYPE_ERROR)
@@ -84,7 +84,7 @@ class MoviesAdapterRobolectricTest {
     }
 
     @Test
-    fun `given a non-movie view type, when binding a view holder, then a movie item is not bind`() {
+    fun `given a progress view type, when binding a view holder, then a movie item is not bind`() {
         testedClass.onAttachedToRecyclerView(recyclerView)
         testedClass.onCreateViewHolder(mockk(), VIEW_TYPE_PROGRESS)
         testedClass.status = AdapterStatus.LOADING
