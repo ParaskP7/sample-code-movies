@@ -45,21 +45,21 @@ class MoviesAdapterRobolectricTest {
     /* VIEW HOLDER */
 
     @Test
-    fun `given a progress view type, when creating a view holder, then the correct view holder is returned`() {
-        testedClass.onAttachedToRecyclerView(recyclerView)
-
-        val viewHolder = testedClass.onCreateViewHolder(mockk(), VIEW_TYPE_PROGRESS)
-
-        expect { that(viewHolder.javaClass.name).isEqualTo(ProgressViewHolder::class.java.name) }
-    }
-
-    @Test
     fun `given a movie view type, when creating a view holder, then the correct view holder is returned`() {
         testedClass.onAttachedToRecyclerView(recyclerView)
 
         val viewHolder = testedClass.onCreateViewHolder(mockk(), VIEW_TYPE_MOVIE)
 
         expect { that(viewHolder.javaClass.name).isEqualTo(MovieViewHolder::class.java.name) }
+    }
+
+    @Test
+    fun `given a progress view type, when creating a view holder, then the correct view holder is returned`() {
+        testedClass.onAttachedToRecyclerView(recyclerView)
+
+        val viewHolder = testedClass.onCreateViewHolder(mockk(), VIEW_TYPE_PROGRESS)
+
+        expect { that(viewHolder.javaClass.name).isEqualTo(ProgressViewHolder::class.java.name) }
     }
 
     @Test
