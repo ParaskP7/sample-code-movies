@@ -50,8 +50,8 @@ class MoviesAdapter(
             ?: throw IllegalArgumentException("Context not initialised.")
 
     private fun onCreateViewHolderWithContext(viewType: Int, context: Context) = when (viewType) {
-        VIEW_TYPE_PROGRESS -> ProgressViewHolder(ProgressItemView(context))
         VIEW_TYPE_MOVIE -> MovieViewHolder(MovieItemView(context), itemCallback)
+        VIEW_TYPE_PROGRESS -> ProgressViewHolder(ProgressItemView(context))
         VIEW_TYPE_ERROR -> ErrorViewHolder(ErrorItemView(context)) { itemCallback?.onErrorClick() }
         else -> throw IllegalArgumentException("View type out of range. [View Type: $viewType]")
     }
