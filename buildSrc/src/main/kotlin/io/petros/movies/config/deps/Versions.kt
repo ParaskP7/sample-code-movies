@@ -12,7 +12,7 @@ object Versions {
         const val KOTLIN = "1.3.72" // Released: 14-04-20
 
         // Releases: https://github.com/arturbosch/detekt/releases
-        const val DETEKT = "1.7.4" // Released: 03-04-20
+        const val DETEKT = "1.8.0" // Released: 20-04-20
 
         // Releases: https://github.com/mannodermaus/android-junit5/releases
         const val ANDROID_J_UNIT_5 = "1.6.0.0" // Released: 28-02-20
