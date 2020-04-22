@@ -28,4 +28,11 @@ class MoviesLauncherImplRobolectricTest {
         expect { that(slot.captured.component?.className).isEqualTo(MoviesActivity::class.java.name) }
     }
 
+    @Test
+    fun `when finish is triggered, then the activity is finished`() {
+        testedClass.finish()
+
+        verify { activityMock.finish() }
+    }
+
 }
