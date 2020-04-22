@@ -4,6 +4,7 @@ import android.content.Context
 import android.os.Bundle
 import android.util.AttributeSet
 import android.view.LayoutInflater
+import androidx.annotation.VisibleForTesting
 import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
 import com.google.android.material.appbar.AppBarLayout
@@ -20,15 +21,15 @@ class MoviesToolbar(
 
     companion object {
 
-        private const val INSTANCE_STATE_KEY_CLOSE_ICON = "CLOSE_ICON"
-        private const val INSTANCE_STATE_KEY_YEAR_FILTER = "YEAR_FILTER"
-        private const val INSTANCE_STATE_KEY_MONTH_FILTER = "MONTH_FILTER"
+        @VisibleForTesting const val INSTANCE_STATE_KEY_CLOSE_ICON = "CLOSE_ICON"
+        @VisibleForTesting const val INSTANCE_STATE_KEY_YEAR_FILTER = "YEAR_FILTER"
+        @VisibleForTesting const val INSTANCE_STATE_KEY_MONTH_FILTER = "MONTH_FILTER"
 
     }
 
     var callback: MoviesToolbarCallback? = null
 
-    private val binding = MoviesToolbarBinding.inflate(LayoutInflater.from(context), this)
+    @VisibleForTesting val binding = MoviesToolbarBinding.inflate(LayoutInflater.from(context), this)
 
     init {
         initFilterIcon()
