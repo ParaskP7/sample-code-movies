@@ -1,10 +1,12 @@
 package io.petros.movies.movie_details.navigator
 
 import android.content.Intent
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import io.mockk.mockk
 import io.mockk.slot
 import io.mockk.verify
+import io.petros.movies.android_test.context.TestContextProvider.context
 import io.petros.movies.movie_details.MovieDetailsActivity
 import io.petros.movies.movie_details.navigator.MovieDetailsLauncherImpl.Companion.getMovie
 import io.petros.movies.test.domain.movie
@@ -21,7 +23,7 @@ class MovieDetailsLauncherImplRobolectricTest {
     private val testedClass = MovieDetailsLauncherImpl(activityMock)
 
     @Test
-    fun `when launch is called, then current activity starts target movies activity`() {
+    fun `given a movie, when launch is called, then current activity starts target movies activity`() {
         val movie = movie()
         val slot = slot<Intent>()
 
@@ -32,6 +34,27 @@ class MovieDetailsLauncherImplRobolectricTest {
             that(slot.captured.component?.className).isEqualTo(MovieDetailsActivity::class.java.name)
             that(getMovie(slot.captured)).isEqualTo(movie)
         }
+    }
+
+    @Test
+    fun `given a shared element movie, when launch is called, then target activity starts with options bundle`() {
+        val movie = SharedElementMovie(movie(), View(context()))
+        val slot = slot<Intent>()
+
+        testedClass.launch(movie)
+
+        verify { activityMock.startActivity(capture(slot), any()) }
+        expect {
+            that(slot.captured.component?.className).isEqualTo(MovieDetailsActivity::class.java.name)
+            that(getMovie(slot.captured)).isEqualTo(movie.movie)
+        }
+    }
+
+    @Test
+    fun `when finish is triggered, then the activity is finished`() {
+        testedClass.finish()
+
+        verify { activityMock.finish() }
     }
 
 }

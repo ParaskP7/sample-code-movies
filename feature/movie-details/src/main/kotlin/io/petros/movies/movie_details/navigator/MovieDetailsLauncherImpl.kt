@@ -41,8 +41,8 @@ class MovieDetailsLauncherImpl(
 
     private fun getSharedElement(movie: SharedElementMovie): Bundle? {
         val sharedElement = activity.getString(R.string.ivSharedElementMovie)
-        val anim = ActivityOptionsCompat.makeSceneTransitionAnimation(activity, movie.sharedElement, sharedElement)
-        return anim.toBundle()
+        val options = ActivityOptionsCompat.makeSceneTransitionAnimation(activity, movie.sharedElement, sharedElement)
+        return options.toBundle()
     }
 
     override fun finish() {
