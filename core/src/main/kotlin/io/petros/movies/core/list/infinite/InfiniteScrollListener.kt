@@ -7,7 +7,7 @@ import kotlin.math.max
 class InfiniteScrollListener(
     private val layoutManager: LinearLayoutManager,
     private val listener: Listener
-) : RecyclerView.OnScrollListener() { // MRT
+) : RecyclerView.OnScrollListener() {
 
     private var pageSize = 0
     private var currentItemsCount = 0

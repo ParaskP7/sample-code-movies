@@ -17,7 +17,7 @@ import timber.log.Timber
 class MoviesToolbar(
     ctx: Context,
     attrs: AttributeSet? = null
-) : AppBarLayout(ctx, attrs) { // MRT
+) : AppBarLayout(ctx, attrs) {
 
     companion object {
 

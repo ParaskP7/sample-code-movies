@@ -8,7 +8,7 @@ import com.whiteelephant.monthpicker.MonthPickerDialog
 import java.util.*
 
 class MovieYearPickerFragment : DialogFragment(),
-    MonthPickerDialog.OnDateSetListener { // MRT
+    MonthPickerDialog.OnDateSetListener {
 
     companion object {
 
