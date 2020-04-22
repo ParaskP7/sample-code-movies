@@ -16,6 +16,7 @@ plugins {
 dependencies {
     implementation(Deps.Kotlin.Core.KOTLIN)
     implementation(Deps.Kotlin.Coroutines.Test.TEST)
+    implementation(Deps.Android.Core.APP_COMPAT)
     implementation(Deps.Android.Test.CORE)
     implementation(Deps.Test.Spek.DSL)
     implementation(Deps.Test.Spek.J_UNIT_5)
