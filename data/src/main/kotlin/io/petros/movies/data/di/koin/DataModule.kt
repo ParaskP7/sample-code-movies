@@ -11,4 +11,7 @@ private fun repositoryModule() = module {
 
 fun dataModule(
     baseUrl: String
-) = listOf(repositoryModule(), networkModule(baseUrl))
+) = listOf(
+    repositoryModule(),
+    networkModule(baseUrl)
+)

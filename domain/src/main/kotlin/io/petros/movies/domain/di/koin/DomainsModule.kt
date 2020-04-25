@@ -7,4 +7,6 @@ private fun useCaseModule() = module {
     factory { LoadMoviesUseCase(get()) }
 }
 
-fun domainModule() = listOf(useCaseModule())
+fun domainModule() = listOf(
+    useCaseModule()
+)

@@ -12,4 +12,6 @@ private fun navigatorModule() = module {
     }
 }
 
-fun splashModule() = listOf(navigatorModule())
+fun splashModule() = listOf(
+    navigatorModule()
+)

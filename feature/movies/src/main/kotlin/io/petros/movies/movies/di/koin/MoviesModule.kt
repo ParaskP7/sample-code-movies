@@ -18,4 +18,7 @@ private fun navigatorModule() = module {
     }
 }
 
-fun moviesModule() = listOf(viewModelModule(), navigatorModule())
+fun moviesModule() = listOf(
+    viewModelModule(),
+    navigatorModule()
+)
