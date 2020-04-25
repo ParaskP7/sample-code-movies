@@ -31,7 +31,7 @@ dependencies {
     testImplementation(Deps.Test.JUnit.J_UNIT_4)
     testImplementation(Deps.Test.Assert.STRIKT)
     testImplementation(Deps.Test.Mock.MOCK_K)
-    testImplementation(Deps.Android.Test.ROBOLECTRIC)
+    testImplementation(Deps.Android.Test.Robolectric.ROBOLECTRIC)
 
     detektPlugins(Deps.Plugin.DETEKT_FORMATTING)
 }

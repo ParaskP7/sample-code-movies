@@ -50,7 +50,7 @@ dependencies {
     testImplementation(Deps.Test.Assert.STRIKT)
     testImplementation(Deps.Test.Mock.MOCK_K)
     testImplementation(Deps.Android.Arch.Test.CORE_TESTING)
-    testImplementation(Deps.Android.Test.ROBOLECTRIC)
+    testImplementation(Deps.Android.Test.Robolectric.ROBOLECTRIC)
 
     detektPlugins(Deps.Plugin.DETEKT_FORMATTING)
 }
