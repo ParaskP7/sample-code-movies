@@ -156,12 +156,14 @@ object Deps {
         object Test {
 
             val CORE = "androidx.test:core:${Versions.Android.Test.CORE}"
+            val RULES = "androidx.test:rules:${Versions.Android.Test.CORE}"
             val RUNNER = "androidx.test:runner:${Versions.Android.Test.CORE}"
             val J_UNIT = "androidx.test.ext:junit:${Versions.Android.Test.J_UNIT}"
 
             object Espresso {
 
                 val CORE = "androidx.test.espresso:espresso-core:${Versions.Android.Test.ESPRESSO}"
+                val CONTRIB = "androidx.test.espresso:espresso-contrib:${Versions.Android.Test.ESPRESSO}"
 
             }
 

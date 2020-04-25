@@ -34,18 +34,26 @@ dependencies {
     implementation(project(Deps.Project.Implementation.Android.Core.CORE))
     implementation(project(Deps.Project.Implementation.Android.Feature.SPLASH))
     implementation(project(Deps.Project.Implementation.Android.Feature.MOVIES))
+    implementation(project(Deps.Project.Implementation.Android.Feature.PICKER))
     implementation(project(Deps.Project.Implementation.Android.Feature.MOVIE_DETAILS))
 
     debugImplementation(Deps.LeakCanary.LEAK_CANARY)
 
     implementation(Deps.Kotlin.Core.KOTLIN)
+    implementation(Deps.Android.Core.APP_COMPAT)
     implementation(Deps.Android.Arch.Core.Lifecycle.PROCESS)
     implementation(Deps.Di.Koin.Android.ANDROID)
     implementation(Deps.Log.TIMBER)
 
+    androidTestImplementation(project(Deps.Project.TestImplementation.Kotlin.TEST))
+    androidTestImplementation(project(Deps.Project.TestImplementation.Android.ANDROID_TEST))
+
     androidTestImplementation(Deps.Android.Test.CORE)
+    androidTestImplementation(Deps.Android.Test.RULES)
     androidTestImplementation(Deps.Android.Test.J_UNIT)
     androidTestImplementation(Deps.Android.Test.Espresso.CORE)
+    androidTestImplementation(Deps.Android.Test.Espresso.CONTRIB)
+    androidTestImplementation(Deps.Test.Integration.MOCK_WEB_SERVER)
     androidTestImplementation(Deps.Test.Assert.STRIKT)
 
     detektPlugins(Deps.Plugin.DETEKT_FORMATTING)
