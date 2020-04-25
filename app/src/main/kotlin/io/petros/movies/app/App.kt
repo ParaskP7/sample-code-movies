@@ -23,6 +23,12 @@ import timber.log.Timber
 class App : Application(),
     LifecycleObserver {
 
+    companion object {
+
+        private const val THEMOVIEDB_URL = "https://api.themoviedb.org/"
+
+    }
+
     override fun onCreate() {
         super.onCreate()
         initKoin()
@@ -36,9 +42,11 @@ class App : Application(),
         startKoin {
             androidLogger()
             androidContext(this@App)
-            modules(appModule() + dataModule() + domainModule())
+            modules(appModule() + dataModule(baseUrl()) + domainModule())
         }
     }
+
+    open fun baseUrl() = THEMOVIEDB_URL
 
     private fun initLogging() {
         if (BuildConfig.DEBUG) {

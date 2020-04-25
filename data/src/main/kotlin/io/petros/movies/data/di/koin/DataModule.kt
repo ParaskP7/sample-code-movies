@@ -9,4 +9,6 @@ private fun repositoryModule() = module {
     factory<MoviesRepository> { MoviesRepositoryImpl(get()) }
 }
 
-fun dataModule() = listOf(repositoryModule(), networkModule())
+fun dataModule(
+    baseUrl: String
+) = listOf(repositoryModule(), networkModule(baseUrl))

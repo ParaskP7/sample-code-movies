@@ -12,13 +12,14 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
 const val TIMEOUT_SECS = 10L
-const val THEMOVIEDB_URL = "https://api.themoviedb.org/"
 
-fun networkModule() = module {
+fun networkModule(
+    baseUrl: String
+) = module {
     single { Gson() }
     single { httpLoggingInterceptor() }
     single { okHttpClient(get()) }
-    single { retrofit(get(), get()) }
+    single { retrofit(baseUrl, get(), get()) }
     single { restApi(get()) }
     single<WebService> { RestClient(get()) }
 }
@@ -42,11 +43,12 @@ private fun okHttpClient(
 }
 
 private fun retrofit(
+    baseUrl: String,
     gson: Gson,
     httpClient: OkHttpClient
 ): Retrofit {
     return Retrofit.Builder()
-        .baseUrl(THEMOVIEDB_URL)
+        .baseUrl(baseUrl)
         .addConverterFactory(GsonConverterFactory.create(gson))
         .client(httpClient)
         .build()
