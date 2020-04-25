@@ -43,7 +43,7 @@ dependencies {
 
     androidTestImplementation(Deps.Android.Test.CORE)
     androidTestImplementation(Deps.Android.Test.J_UNIT)
-    androidTestImplementation(Deps.Android.Test.ESPRESSO)
+    androidTestImplementation(Deps.Android.Test.Espresso.CORE)
     androidTestImplementation(Deps.Test.Assert.STRIKT)
 
     detektPlugins(Deps.Plugin.DETEKT_FORMATTING)

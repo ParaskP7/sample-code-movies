@@ -155,7 +155,12 @@ object Deps {
 
             val CORE = "androidx.test:core:${Versions.Android.Test.CORE}"
             val J_UNIT = "androidx.test.ext:junit:${Versions.Android.Test.J_UNIT}"
-            val ESPRESSO = "androidx.test.espresso:espresso-core:${Versions.Android.Test.ESPRESSO}"
+
+            object Espresso {
+
+                val CORE = "androidx.test.espresso:espresso-core:${Versions.Android.Test.ESPRESSO}"
+
+            }
 
             @Suppress("MemberNameEqualsClassName")
             object Robolectric {
