@@ -29,4 +29,16 @@ object Android {
 
     }
 
+    object PackagingOption {
+
+        object Exclude {
+
+            private const val META_INF_DIR = "META-INF"
+            const val LICENCE = "$META_INF_DIR/LICENSE.md"
+            const val LICENCE_NOTICE = "$META_INF_DIR/LICENSE-notice.md"
+
+        }
+
+    }
+
 }
