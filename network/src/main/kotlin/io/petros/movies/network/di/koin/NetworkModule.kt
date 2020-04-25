@@ -11,7 +11,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
-const val TIMEOUT_SECS = 10L
+private const val TIMEOUT_SECS = 10L
 
 fun networkModule(
     baseUrl: String
