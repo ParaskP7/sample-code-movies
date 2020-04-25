@@ -20,7 +20,7 @@ import org.koin.core.context.startKoin
 import timber.log.Timber
 
 @Suppress("TooManyFunctions")
-class App : Application(),
+open class App : Application(),
     LifecycleObserver {
 
     companion object {

@@ -57,7 +57,7 @@ fun DefaultConfig.defaultConfig() {
     applicationId = App.APPLICATION_ID
     versionCode = App.Version.CODE
     versionName = App.Version.NAME
-    testInstrumentationRunner = Android.DefaultConfig.Test.INSTRUMENTATION_RUNNER
+    testInstrumentationRunner = Android.DefaultConfig.Test.CUSTOM_INSTRUMENTATION_RUNNER
 }
 
 fun NamedDomainObjectContainer<BuildType>.buildTypes() {

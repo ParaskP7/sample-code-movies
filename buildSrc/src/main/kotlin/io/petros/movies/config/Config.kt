@@ -15,7 +15,8 @@ object Config {
             "MissingRegistered", // Because of UAST
             "UnusedIds", // Because of UAST
             "ContentDescription",
-            "SelectableText"
+            "SelectableText",
+            "InvalidPackage"
         )
 
     }

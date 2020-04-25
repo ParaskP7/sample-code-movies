@@ -33,6 +33,8 @@ object Deps {
 
             object Android {
 
+                const val APP = "${Utils.COLON}app"
+
                 @Suppress("MemberNameEqualsClassName")
                 object Core {
 
@@ -154,6 +156,7 @@ object Deps {
         object Test {
 
             val CORE = "androidx.test:core:${Versions.Android.Test.CORE}"
+            val RUNNER = "androidx.test:runner:${Versions.Android.Test.CORE}"
             val J_UNIT = "androidx.test.ext:junit:${Versions.Android.Test.J_UNIT}"
 
             object Espresso {

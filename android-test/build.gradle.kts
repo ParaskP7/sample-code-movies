@@ -14,6 +14,9 @@ plugins {
 /* DEPENDENCIES */
 
 dependencies {
+    implementation(project(Deps.Project.TestImplementation.Kotlin.TEST))
+    implementation(project(Deps.Project.Implementation.Android.APP))
+
     implementation(Deps.Kotlin.Core.KOTLIN)
     implementation(Deps.Kotlin.Coroutines.Test.TEST)
     implementation(Deps.Android.Core.APP_COMPAT)
@@ -22,6 +25,7 @@ dependencies {
     implementation(Deps.Test.Spek.J_UNIT_5)
     runtimeOnly(Deps.Kotlin.Core.KOTLIN_REFLECT)
     implementation(Deps.Android.Arch.Test.CORE_TESTING)
+    implementation(Deps.Android.Test.RUNNER)
 
     detektPlugins(Deps.Plugin.DETEKT_FORMATTING)
 }

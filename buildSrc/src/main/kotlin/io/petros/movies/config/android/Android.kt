@@ -14,7 +14,9 @@ object Android {
 
         object Test {
 
-            const val INSTRUMENTATION_RUNNER = "androidx.test.runner.AndroidJUnitRunner"
+            @Suppress("unused")
+            const val DEFAULT_INSTRUMENTATION_RUNNER = "androidx.test.runner.AndroidJUnitRunner"
+            const val CUSTOM_INSTRUMENTATION_RUNNER = "io.petros.movies.android_test.runner.CustomAndroidJunitRunner"
 
         }
 
