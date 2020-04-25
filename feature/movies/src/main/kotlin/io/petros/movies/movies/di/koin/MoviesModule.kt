@@ -8,14 +8,14 @@ import io.petros.movies.movies.navigator.MoviesNavigatorImpl
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
-private val viewModelModule = module {
+private fun viewModelModule() = module {
     viewModel { MoviesViewModel(get()) }
 }
 
-private val navigatorModule = module {
+private fun navigatorModule() = module {
     factory<MoviesNavigator> { (activity: AppCompatActivity) ->
         MoviesNavigatorImpl(MovieDetailsLauncherImpl(activity))
     }
 }
 
-val moviesModule = listOf(viewModelModule, navigatorModule)
+fun moviesModule() = listOf(viewModelModule(), navigatorModule())

@@ -6,10 +6,10 @@ import io.petros.movies.splash.navigator.SplashNavigator
 import io.petros.movies.splash.navigator.SplashNavigatorImpl
 import org.koin.dsl.module
 
-private val navigatorModule = module {
+private fun navigatorModule() = module {
     factory<SplashNavigator> { (activity: AppCompatActivity) ->
         SplashNavigatorImpl(MoviesLauncherImpl(activity))
     }
 }
 
-val splashModule = listOf(navigatorModule)
+fun splashModule() = listOf(navigatorModule())

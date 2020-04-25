@@ -14,7 +14,7 @@ import java.util.concurrent.TimeUnit
 const val TIMEOUT_SECS = 10L
 const val THEMOVIEDB_URL = "https://api.themoviedb.org/"
 
-val networkModule = module {
+fun networkModule() = module {
     single { Gson() }
     single { httpLoggingInterceptor() }
     single { okHttpClient(get()) }
