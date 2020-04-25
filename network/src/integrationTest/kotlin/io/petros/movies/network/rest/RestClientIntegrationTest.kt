@@ -3,6 +3,7 @@ package io.petros.movies.network.rest
 import io.petros.movies.domain.model.movie.MoviesPage
 import io.petros.movies.test.domain.movie
 import io.petros.movies.test.domain.moviesPage
+import io.petros.movies.test.utils.MOCK_WEB_SERVER_PORT
 import io.petros.movies.test.utils.api
 import io.petros.movies.test.utils.mockResponse
 import kotlinx.coroutines.runBlocking
@@ -30,7 +31,7 @@ class RestClientIntegrationTest {
 
     @Before
     fun setUp() {
-        server.start()
+        server.start(MOCK_WEB_SERVER_PORT)
 
         testedClass = RestClient(api(server))
     }

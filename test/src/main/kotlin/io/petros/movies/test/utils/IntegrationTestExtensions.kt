@@ -11,7 +11,8 @@ import java.net.HttpURLConnection
 import java.nio.charset.StandardCharsets
 import java.util.concurrent.TimeUnit
 
-const val MOCK_WEB_SERVER_URL = "localhost/"
+const val MOCK_WEB_SERVER_PORT = 8080
+const val MOCK_WEB_SERVER_URL = "http://localhost:$MOCK_WEB_SERVER_PORT/"
 const val TIMEOUT_MILLIS = 100L
 
 private const val BYTES_PER_PERIOD = 1024L
