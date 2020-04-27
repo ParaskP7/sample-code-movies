@@ -11,8 +11,9 @@ private fun repositoryModule() = module {
 
 fun dataModule(
     isDebug: Boolean,
-    baseUrl: String
+    baseUrl: String,
+    themoviedbApiKey: String
 ) = listOf(
     repositoryModule(),
-    networkModule(isDebug, baseUrl)
+    networkModule(isDebug, baseUrl, themoviedbApiKey)
 )

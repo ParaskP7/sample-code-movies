@@ -4,6 +4,7 @@ import com.google.gson.Gson
 import io.petros.movies.network.WebService
 import io.petros.movies.network.rest.RestApi
 import io.petros.movies.network.rest.RestClient
+import io.petros.movies.network.rest.THEMOVIEDB_API_KEY
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.dsl.module
@@ -15,7 +16,8 @@ private const val TIMEOUT_SECS = 10L
 
 fun networkModule(
     isDebug: Boolean,
-    baseUrl: String
+    baseUrl: String,
+    themoviedbApiKey: String
 ) = module {
     single { Gson() }
     single { httpLoggingInterceptor() }
@@ -23,6 +25,7 @@ fun networkModule(
     single { retrofit(baseUrl, get(), get()) }
     single { restApi(get()) }
     single<WebService> { RestClient(get()) }
+    THEMOVIEDB_API_KEY = themoviedbApiKey
 }
 
 private fun httpLoggingInterceptor(): HttpLoggingInterceptor {

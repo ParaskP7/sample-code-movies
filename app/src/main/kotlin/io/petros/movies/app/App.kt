@@ -46,7 +46,8 @@ open class App : Application(),
                 appModule() +
                         dataModule(
                             BuildConfig.DEBUG,
-                            baseUrl()
+                            baseUrl(),
+                            BuildConfig.THEMOVIEDB_API_KEY
                         ) +
                         domainModule()
             )
