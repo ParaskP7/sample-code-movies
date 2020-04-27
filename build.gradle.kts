@@ -7,6 +7,7 @@ import com.android.build.gradle.api.AndroidSourceSet
 import com.android.build.gradle.internal.CompileOptions
 import com.android.build.gradle.internal.dsl.DefaultConfig
 import com.android.build.gradle.internal.dsl.LintOptions
+import com.android.build.gradle.internal.dsl.PackagingOptions
 import com.android.build.gradle.internal.dsl.TestOptions
 import com.github.benmanes.gradle.versions.VersionsPlugin
 import com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask
@@ -239,6 +240,7 @@ fun LibraryExtension.androidLibrary() {
     compileSdkVersion(Android.Sdk.COMPILE)
     testOptions.unitTests.isIncludeAndroidResources = true
     defaultConfig { defaultConfig() }
+    packagingOptions { packagingOptions() }
     compileOptions { compileOptions() }
     sourceSets { sourceSets() }
     testOptions { testOptions() }
@@ -251,6 +253,7 @@ fun AppExtension.androidApplication() {
     compileSdkVersion(Android.Sdk.COMPILE)
     testOptions.unitTests.isIncludeAndroidResources = true
     defaultConfig { defaultConfig() }
+    packagingOptions { packagingOptions() }
     compileOptions { compileOptions() }
     sourceSets { sourceSets() }
     testOptions { testOptions() }
@@ -277,6 +280,11 @@ fun DetektExtension.detekt() {
 fun DefaultConfig.defaultConfig() {
     minSdkVersion(Android.Sdk.MIN)
     targetSdkVersion(Android.Sdk.TARGET)
+}
+
+fun PackagingOptions.packagingOptions() {
+    exclude(Android.PackagingOption.Exclude.LICENCE)
+    exclude(Android.PackagingOption.Exclude.LICENCE_NOTICE)
 }
 
 fun CompileOptions.compileOptions() {

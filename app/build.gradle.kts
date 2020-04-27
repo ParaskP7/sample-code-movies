@@ -3,7 +3,6 @@
 import com.android.build.gradle.ProguardFiles.getDefaultProguardFile
 import com.android.build.gradle.internal.dsl.BuildType
 import com.android.build.gradle.internal.dsl.DefaultConfig
-import com.android.build.gradle.internal.dsl.PackagingOptions
 import io.petros.movies.config.android.Android
 import io.petros.movies.config.android.App
 import io.petros.movies.config.deps.Deps
@@ -23,7 +22,6 @@ plugins {
 android {
     defaultConfig { defaultConfig() }
     buildTypes { buildTypes() }
-    packagingOptions { packagingOptions() }
 }
 
 /* DEPENDENCIES */
@@ -80,9 +78,4 @@ fun NamedDomainObjectContainer<BuildType>.buildTypes() {
         isMinifyEnabled = false
         proguardFiles(getDefaultProguardFile(Files.Txt.PROGUARD_ANDROID, layout.buildDirectory), Files.Pro.PROGUARD_RULES)
     }
-}
-
-fun PackagingOptions.packagingOptions() {
-    exclude(Android.PackagingOption.Exclude.LICENCE)
-    exclude(Android.PackagingOption.Exclude.LICENCE_NOTICE)
 }
