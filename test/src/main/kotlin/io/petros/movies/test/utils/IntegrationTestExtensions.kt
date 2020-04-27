@@ -13,15 +13,15 @@ import java.util.concurrent.TimeUnit
 
 const val MOCK_WEB_SERVER_PORT = 8080
 const val MOCK_WEB_SERVER_URL = "http://localhost:$MOCK_WEB_SERVER_PORT/"
-const val TIMEOUT_MILLIS = 100L
+const val TIMEOUT_SECS = 10L
 
 private const val BYTES_PER_PERIOD = 1024L
 
 inline fun <reified T> api(server: MockWebServer): T {
     val client = OkHttpClient.Builder()
-        .connectTimeout(TIMEOUT_MILLIS, TimeUnit.MILLISECONDS)
-        .readTimeout(TIMEOUT_MILLIS, TimeUnit.MILLISECONDS)
-        .writeTimeout(TIMEOUT_MILLIS, TimeUnit.MILLISECONDS)
+        .connectTimeout(TIMEOUT_SECS, TimeUnit.SECONDS)
+        .readTimeout(TIMEOUT_SECS, TimeUnit.SECONDS)
+        .writeTimeout(TIMEOUT_SECS, TimeUnit.SECONDS)
         .build()
     return Retrofit.Builder()
         .baseUrl(server.url(MOCK_WEB_SERVER_URL))
