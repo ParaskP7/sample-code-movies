@@ -14,11 +14,12 @@ import java.util.concurrent.TimeUnit
 private const val TIMEOUT_SECS = 10L
 
 fun networkModule(
+    isDebug: Boolean,
     baseUrl: String
 ) = module {
     single { Gson() }
     single { httpLoggingInterceptor() }
-    single { okHttpClient(get()) }
+    single { okHttpClient(isDebug, get()) }
     single { retrofit(baseUrl, get(), get()) }
     single { restApi(get()) }
     single<WebService> { RestClient(get()) }
@@ -32,14 +33,15 @@ private fun httpLoggingInterceptor(): HttpLoggingInterceptor {
 
 @Suppress("ForbiddenComment")
 private fun okHttpClient(
+    isDebug: Boolean,
     loggingInterceptor: HttpLoggingInterceptor
 ): OkHttpClient {
-    return OkHttpClient.Builder()
+    val okHttpBuilder = OkHttpClient.Builder()
         .connectTimeout(TIMEOUT_SECS, TimeUnit.SECONDS)
         .readTimeout(TIMEOUT_SECS, TimeUnit.SECONDS)
         .writeTimeout(TIMEOUT_SECS, TimeUnit.SECONDS)
-        .addInterceptor(loggingInterceptor) // TODO: Think about how to add this `if (BuildConfig.DEBUG)` logic back
-        .build()
+    if (isDebug) okHttpBuilder.addInterceptor(loggingInterceptor)
+    return okHttpBuilder.build()
 }
 
 private fun retrofit(

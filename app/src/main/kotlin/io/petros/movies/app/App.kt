@@ -42,7 +42,7 @@ open class App : Application(),
         startKoin {
             androidLogger()
             androidContext(this@App)
-            modules(appModule() + dataModule(baseUrl()) + domainModule())
+            modules(appModule() + dataModule(BuildConfig.DEBUG, baseUrl()) + domainModule())
         }
     }
 

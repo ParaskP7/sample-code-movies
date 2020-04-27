@@ -10,8 +10,9 @@ private fun repositoryModule() = module {
 }
 
 fun dataModule(
+    isDebug: Boolean,
     baseUrl: String
 ) = listOf(
     repositoryModule(),
-    networkModule(baseUrl)
+    networkModule(isDebug, baseUrl)
 )
