@@ -156,7 +156,12 @@ Run the project unit tests using this command (this includes Robolectric):
 gradlew test
 ```
 
-Or if you want to be more specific, run the below commands to run the tests or your choice (per module):
+There might be a possibility that you encounter a Java version related problem while having the Robolectric tests run. In 
+that case, first run 'java -version' and check the Java version on your machine. Them, you might end up needing to upgrade 
+or downgrade your Java version to be able to run the Robolectric tests. This is a Robolectric's specific problem, which 
+should get fixed in subsequent Robolectric releases.
+
+Now, if you want to be more specific, run the below commands to run the tests or your choice (per module):
 ```
 gradlew <kotlin_module>:test
 gradlew <android_module>:testDebugUnitTest
