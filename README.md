@@ -169,6 +169,11 @@ gradlew <android_module>:testDebugUnitTest
 
 Run the project instrumentation tests using this command (Espresso):
 ```
+gradlew connectedDebugAndroidTest
+```
+
+Or if you want to be more specific, run the below command to run the instrumentation tests or your choice (for app module):
+```
 gradlew app:connectedDebugAndroidTest
 ```
 
