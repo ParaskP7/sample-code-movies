@@ -172,7 +172,14 @@ Run the project instrumentation tests using this command (Espresso):
 gradlew connectedDebugAndroidTest
 ```
 
-Or if you want to be more specific, run the below command to run the instrumentation tests or your choice (for app module):
+In order to run successfully the instrumentation tests and avoid flakiness, you need to turn off system animations on the 
+device used for testing. To do so, on your device, under 'Settings -> Developer options', disable the following 3 settings 
+within the 'DRAWING' section:
+- Window animation scale
+- Transition animation scale
+- Animator duration scale
+
+Now, if you want to be more specific, run the below command to run the instrumentation tests or your choice (for app module):
 ```
 gradlew app:connectedDebugAndroidTest
 ```
