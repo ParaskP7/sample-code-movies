@@ -11,6 +11,7 @@
         android:orientation="horizontal">
 
         <TextView
+            android:id="@+id/tvToolbarMoviesLabel"
             style="@style/tvToolbarLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
