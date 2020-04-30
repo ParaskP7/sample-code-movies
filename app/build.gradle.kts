@@ -58,7 +58,6 @@ dependencies {
     androidTestImplementation(Deps.Android.Test.Espresso.CONTRIB)
     androidTestImplementation(Deps.Test.Integration.MOCK_WEB_SERVER)
     androidTestImplementation(Deps.Test.Assert.STRIKT)
-    androidTestImplementation(Deps.Log.TIMBER)
 
     detektPlugins(Deps.Plugin.DETEKT_FORMATTING)
 }
