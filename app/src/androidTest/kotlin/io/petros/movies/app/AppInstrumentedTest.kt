@@ -173,15 +173,15 @@ class AppInstrumentedTest {
 
     @Test
     fun app_e2e_test() {
-        check_movies_with_no_filter()
+        check_movies_no_filter()
         check_movies_year_picker()
-        check_movies_with_year_filter()
+        check_movies_year_filter()
         check_movies_month_picker()
-        check_movies_with_month_filter()
+        check_movies_month_filter()
         check_movies_defaults()
     }
 
-    private fun check_movies_with_no_filter() {
+    private fun check_movies_no_filter() {
         // SONIC THE HEDGEHOG
         checkViewMoviesToolbar()
         checkViewMovies(
@@ -257,7 +257,7 @@ class AppInstrumentedTest {
         )
     }
 
-    private fun check_movies_with_year_filter() {
+    private fun check_movies_year_filter() {
         // UNDERWATER
         checkViewMoviesToolbarYear2020()
         checkViewMovies(
@@ -313,7 +313,7 @@ class AppInstrumentedTest {
         )
     }
 
-    private fun check_movies_with_month_filter() {
+    private fun check_movies_month_filter() {
         // LOVE WEDDING REPEAT
         checkViewMoviesToolbarYear2020MonthApril()
         checkViewMovies(
