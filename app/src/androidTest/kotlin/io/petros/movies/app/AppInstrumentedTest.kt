@@ -182,7 +182,43 @@ class AppInstrumentedTest {
     }
 
     private fun check_movies_no_filter() {
-        // SONIC THE HEDGEHOG
+        check_sonic_the_hedgehog_movie()
+        check_mortal_kombat_legends_movie()
+        check_nineteen_seventeen_movie()
+        check_sonic_the_hedgehog_movie()
+    }
+
+    private fun check_movies_year_picker() {
+        check_filter_icon()
+        check_year_filter()
+        check_year_picker()
+    }
+
+    private fun check_movies_year_filter() {
+        check_underwater_movie()
+        check_trolls_world_tour_movie()
+        check_underwater_movie()
+    }
+
+    private fun check_movies_month_picker() {
+        check_month_filter()
+        check_month_picker()
+    }
+
+    private fun check_movies_month_filter() {
+        check_love_wedding_repeat_movie()
+        check_behind_you_movie()
+        check_love_wedding_repeat_movie()
+    }
+
+    private fun check_movies_defaults() {
+        check_close_icon()
+        check_sonic_the_hedgehog_movie()
+    }
+
+    /* TEST CASES */
+
+    private fun check_sonic_the_hedgehog_movie() {
         checkViewMoviesToolbar()
         checkViewMovies(
             position = SONIC_THE_HEDGEHOG_ITEM_POSITION,
@@ -199,7 +235,9 @@ class AppInstrumentedTest {
             overview = SONIC_THE_HEDGEHOG_ITEM_OVERVIEW
         )
         pressBack()
-        // MORTAL KOMBAT LEGENDS
+    }
+
+    private fun check_mortal_kombat_legends_movie() {
         checkViewMoviesToolbar()
         checkViewMovies(
             position = MORTAL_KOMBAT_LEGENDS_ITEM_POSITION,
@@ -216,7 +254,9 @@ class AppInstrumentedTest {
             overview = MORTAL_KOMBAT_LEGENDS_ITEM_OVERVIEW
         )
         pressBack()
-        // NINETEEN SEVENTEEN
+    }
+
+    private fun check_nineteen_seventeen_movie() {
         checkViewMoviesToolbar()
         checkViewMovies(
             position = NINETEEN_SEVENTEEN_ITEM_POSITION,
@@ -233,23 +273,21 @@ class AppInstrumentedTest {
             overview = NINETEEN_SEVENTEEN_ITEM_OVERVIEW
         )
         pressBack()
-        // SONIC THE HEDGEHOG
-        checkViewMoviesToolbar()
-        checkViewMovies(
-            position = SONIC_THE_HEDGEHOG_ITEM_POSITION,
-            title = SONIC_THE_HEDGEHOG_ITEM_TITLE,
-            releaseDate = SONIC_THE_HEDGEHOG_ITEM_RELEASE_DATE,
-            vote = SONIC_THE_HEDGEHOG_ITEM_VOTE
-        )
     }
 
-    private fun check_movies_year_picker() {
+    private fun check_filter_icon() {
         checkViewMoviesToolbar(
             withFilterIconClick = true
         )
+    }
+
+    private fun check_year_filter() {
         checkViewMoviesToolbarYear(
             withFilterYearClick = true
         )
+    }
+
+    private fun check_year_picker() {
         checkViewMoviesPicker(
             title = MOVIE_YEAR_PICKER_TITLE,
             year = MOVIE_YEAR_PICKER_YEAR_2020,
@@ -257,8 +295,7 @@ class AppInstrumentedTest {
         )
     }
 
-    private fun check_movies_year_filter() {
-        // UNDERWATER
+    private fun check_underwater_movie() {
         checkViewMoviesToolbarYear2020()
         checkViewMovies(
             position = UNDERWATER_ITEM_POSITION,
@@ -275,7 +312,9 @@ class AppInstrumentedTest {
             overview = UNDERWATER_ITEM_OVERVIEW
         )
         pressBack()
-        // TROLLS WORLD TOUR
+    }
+
+    private fun check_trolls_world_tour_movie() {
         checkViewMoviesToolbarYear2020()
         checkViewMovies(
             position = TROLLS_WORLD_TOUR_ITEM_POSITION,
@@ -292,20 +331,15 @@ class AppInstrumentedTest {
             overview = TROLLS_WORLD_TOUR_ITEM_OVERVIEW
         )
         pressBack()
-        // UNDERWATER
-        checkViewMoviesToolbarYear2020()
-        checkViewMovies(
-            position = UNDERWATER_ITEM_POSITION,
-            title = UNDERWATER_ITEM_TITLE,
-            releaseDate = UNDERWATER_ITEM_RELEASE_DATE,
-            vote = UNDERWATER_ITEM_VOTE
-        )
     }
 
-    private fun check_movies_month_picker() {
+    private fun check_month_filter() {
         checkViewMoviesToolbarYear2020(
             withFilterMonthClick = true
         )
+    }
+
+    private fun check_month_picker() {
         checkViewMoviesPicker(
             title = MOVIE_MONTH_PICKER_TITLE,
             month = MOVIE_MONTH_PICKER_MONTH_APR,
@@ -313,8 +347,7 @@ class AppInstrumentedTest {
         )
     }
 
-    private fun check_movies_month_filter() {
-        // LOVE WEDDING REPEAT
+    private fun check_love_wedding_repeat_movie() {
         checkViewMoviesToolbarYear2020MonthApril()
         checkViewMovies(
             position = LOVE_WEDDING_REPEAT_ITEM_POSITION,
@@ -331,7 +364,9 @@ class AppInstrumentedTest {
             overview = LOVE_WEDDING_REPEAT_ITEM_OVERVIEW
         )
         pressBack()
-        // BEHIND YOU
+    }
+
+    private fun check_behind_you_movie() {
         checkViewMoviesToolbarYear2020MonthApril()
         checkViewMovies(
             position = BEHIND_YOU_ITEM_POSITION,
@@ -348,37 +383,12 @@ class AppInstrumentedTest {
             overview = BEHIND_YOU_ITEM_OVERVIEW
         )
         pressBack()
-        // LOVE WEDDING REPEAT
-        checkViewMoviesToolbarYear2020MonthApril()
-        checkViewMovies(
-            position = LOVE_WEDDING_REPEAT_ITEM_POSITION,
-            title = LOVE_WEDDING_REPEAT_ITEM_TITLE,
-            releaseDate = LOVE_WEDDING_REPEAT_ITEM_RELEASE_DATE,
-            vote = LOVE_WEDDING_REPEAT_ITEM_VOTE
-        )
     }
 
-    private fun check_movies_defaults() {
+    private fun check_close_icon() {
         checkViewMoviesToolbarYear2020MonthApril(
             withCloseIconClick = true
         )
-        // SONIC THE HEDGEHOG
-        checkViewMoviesToolbar()
-        checkViewMovies(
-            position = SONIC_THE_HEDGEHOG_ITEM_POSITION,
-            title = SONIC_THE_HEDGEHOG_ITEM_TITLE,
-            releaseDate = SONIC_THE_HEDGEHOG_ITEM_RELEASE_DATE,
-            vote = SONIC_THE_HEDGEHOG_ITEM_VOTE,
-            withClick = true
-        )
-        checkViewMovieDetailsToolbar()
-        checkViewMovieDetails(
-            title = SONIC_THE_HEDGEHOG_ITEM_TITLE,
-            releaseDate = SONIC_THE_HEDGEHOG_ITEM_RELEASE_DATE,
-            vote = SONIC_THE_HEDGEHOG_ITEM_VOTE,
-            overview = SONIC_THE_HEDGEHOG_ITEM_OVERVIEW
-        )
-        pressBack()
     }
 
     /* EXTRA HELPER FUNCTIONS */
