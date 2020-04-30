@@ -224,8 +224,7 @@ class AppInstrumentedTest {
             position = SONIC_THE_HEDGEHOG_ITEM_POSITION,
             title = SONIC_THE_HEDGEHOG_ITEM_TITLE,
             releaseDate = SONIC_THE_HEDGEHOG_ITEM_RELEASE_DATE,
-            vote = SONIC_THE_HEDGEHOG_ITEM_VOTE,
-            withClick = true
+            vote = SONIC_THE_HEDGEHOG_ITEM_VOTE
         )
         checkViewMovieDetailsToolbar()
         checkViewMovieDetails(
@@ -243,8 +242,7 @@ class AppInstrumentedTest {
             position = MORTAL_KOMBAT_LEGENDS_ITEM_POSITION,
             title = MORTAL_KOMBAT_LEGENDS_ITEM_TITLE,
             releaseDate = MORTAL_KOMBAT_LEGENDS_ITEM_RELEASE_DATE,
-            vote = MORTAL_KOMBAT_LEGENDS_ITEM_VOTE,
-            withClick = true
+            vote = MORTAL_KOMBAT_LEGENDS_ITEM_VOTE
         )
         checkViewMovieDetailsToolbar()
         checkViewMovieDetails(
@@ -262,8 +260,7 @@ class AppInstrumentedTest {
             position = NINETEEN_SEVENTEEN_ITEM_POSITION,
             title = NINETEEN_SEVENTEEN_ITEM_TITLE,
             releaseDate = NINETEEN_SEVENTEEN_ITEM_RELEASE_DATE,
-            vote = NINETEEN_SEVENTEEN_ITEM_VOTE,
-            withClick = true
+            vote = NINETEEN_SEVENTEEN_ITEM_VOTE
         )
         checkViewMovieDetailsToolbar()
         checkViewMovieDetails(
@@ -301,8 +298,7 @@ class AppInstrumentedTest {
             position = UNDERWATER_ITEM_POSITION,
             title = UNDERWATER_ITEM_TITLE,
             releaseDate = UNDERWATER_ITEM_RELEASE_DATE,
-            vote = UNDERWATER_ITEM_VOTE,
-            withClick = true
+            vote = UNDERWATER_ITEM_VOTE
         )
         checkViewMovieDetailsToolbar()
         checkViewMovieDetails(
@@ -320,8 +316,7 @@ class AppInstrumentedTest {
             position = TROLLS_WORLD_TOUR_ITEM_POSITION,
             title = TROLLS_WORLD_TOUR_ITEM_TITLE,
             releaseDate = TROLLS_WORLD_TOUR_ITEM_RELEASE_DATE,
-            vote = TROLLS_WORLD_TOUR_ITEM_VOTE,
-            withClick = true
+            vote = TROLLS_WORLD_TOUR_ITEM_VOTE
         )
         checkViewMovieDetailsToolbar()
         checkViewMovieDetails(
@@ -353,8 +348,7 @@ class AppInstrumentedTest {
             position = LOVE_WEDDING_REPEAT_ITEM_POSITION,
             title = LOVE_WEDDING_REPEAT_ITEM_TITLE,
             releaseDate = LOVE_WEDDING_REPEAT_ITEM_RELEASE_DATE,
-            vote = LOVE_WEDDING_REPEAT_ITEM_VOTE,
-            withClick = true
+            vote = LOVE_WEDDING_REPEAT_ITEM_VOTE
         )
         checkViewMovieDetailsToolbar()
         checkViewMovieDetails(
@@ -372,8 +366,7 @@ class AppInstrumentedTest {
             position = BEHIND_YOU_ITEM_POSITION,
             title = BEHIND_YOU_ITEM_TITLE,
             releaseDate = BEHIND_YOU_ITEM_RELEASE_DATE,
-            vote = BEHIND_YOU_ITEM_VOTE,
-            withClick = true
+            vote = BEHIND_YOU_ITEM_VOTE
         )
         checkViewMovieDetailsToolbar()
         checkViewMovieDetails(
@@ -596,8 +589,7 @@ class AppInstrumentedTest {
         position: Int,
         title: String,
         releaseDate: String,
-        vote: String,
-        withClick: Boolean = false
+        vote: String
     ) {
         onView(withId(mR.id.recyclerView))
             .perform(scrollToPosition<MovieViewHolder>(position))
@@ -611,10 +603,8 @@ class AppInstrumentedTest {
         }
         onView(allOf(withId(mR.id.tvItemVote), withText(vote)))
             .check(matches(allOf(isDisplayed(), withText(vote))))
-        if (withClick) {
-            onView(withId(mR.id.recyclerView))
-                .perform(actionOnItemAtPosition<MovieViewHolder>(position, click()))
-        }
+        onView(withId(mR.id.recyclerView))
+            .perform(actionOnItemAtPosition<MovieViewHolder>(position, click()))
     }
 
     private fun checkViewMovieDetailsToolbar() {
