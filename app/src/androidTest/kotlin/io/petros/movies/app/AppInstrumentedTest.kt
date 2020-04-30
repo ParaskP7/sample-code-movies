@@ -457,7 +457,9 @@ class AppInstrumentedTest {
         }
     }
 
-    private fun checkViewMoviesToolbarWithFilterIcon(withFilterIconClick: Boolean) {
+    private fun checkViewMoviesToolbarWithFilterIcon(
+        withFilterIconClick: Boolean
+    ) {
         onView(withId(mR.id.ivToolbarFilterIcon))
             .check(matches(isDisplayed()))
         onView(withId(mR.id.ivToolbarCloseIcon))
