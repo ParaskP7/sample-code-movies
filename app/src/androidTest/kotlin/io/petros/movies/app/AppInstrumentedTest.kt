@@ -54,10 +54,12 @@ class AppInstrumentedTest {
 
         // TOOLBAR
 
+        private const val MOVIES_TOOLBAR_LABEL = "Movies"
         private const val MOVIES_TOOLBAR_FILTER_YEAR = "Year"
         private const val MOVIES_TOOLBAR_FILTER_YEAR_2020 = "2020"
         private const val MOVIES_TOOLBAR_FILTER_MONTH = "Month"
         private const val MOVIES_TOOLBAR_FILTER_MONTH_APRIL = "April"
+        private const val MOVIE_DETAILS_TOOLBAR_LABEL = "Movie Details"
 
         // PICKER
 
@@ -435,8 +437,8 @@ class AppInstrumentedTest {
         filterMonth: String = MOVIES_TOOLBAR_FILTER_MONTH,
         withFilterMonthClick: Boolean = false
     ) {
-        onView(allOf(withId(mR.id.tvToolbarMoviesLabel), withText(mR.string.tvToolbarMoviesLabel)))
-            .check(matches(allOf(isDisplayed(), withText(mR.string.tvToolbarMoviesLabel))))
+        onView(allOf(withId(mR.id.tvToolbarMoviesLabel), withText(MOVIES_TOOLBAR_LABEL)))
+            .check(matches(allOf(isDisplayed(), withText(MOVIES_TOOLBAR_LABEL))))
         if (filterIconDisplayed) {
             checkViewMoviesToolbarWithFilterIcon(
                 withFilterIconClick
@@ -604,8 +606,8 @@ class AppInstrumentedTest {
     }
 
     private fun checkViewMovieDetailsToolbar() {
-        onView(withId(mdR.id.tvToolbarMovieDetailsLabel))
-            .check(matches(allOf(isDisplayed(), withText(mdR.string.tvToolbarMovieDetailsLabel))))
+        onView(allOf(withId(mdR.id.tvToolbarMovieDetailsLabel), withText(MOVIE_DETAILS_TOOLBAR_LABEL)))
+            .check(matches(allOf(isDisplayed(), withText(MOVIE_DETAILS_TOOLBAR_LABEL))))
     }
 
     private fun checkViewMovieDetails(
