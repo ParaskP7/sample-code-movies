@@ -369,14 +369,21 @@ fun JacocoReport.jacoco(isKotlinModule: Boolean) {
     classDirectories.setFrom(
         project.files(
             project.fileTree(
-                Config.Jacoco.dirPair(isKotlinModule),
-                Config.Jacoco.excludesPair(isKotlinModule)
+                Config.Jacoco.ClassDirectories.dirPair(isKotlinModule),
+                Config.Jacoco.ClassDirectories.excludesPair(isKotlinModule)
             )
         )
     )
     additionalSourceDirs.setFrom(project.files(Sources.Main.KOTLIN))
     sourceDirectories.setFrom(project.files(Sources.Main.KOTLIN))
-    executionData(project.files(Config.Jacoco.executionData(isKotlinModule)))
+    executionData(
+        project.files(
+            project.fileTree(
+                Config.Jacoco.ExecutionData.dirPair(),
+                Config.Jacoco.ExecutionData.includePair(isKotlinModule)
+            )
+        )
+    )
 }
 
 fun Project.jacocoRobolectric() {

@@ -59,29 +59,46 @@ object Config {
         const val REPORT_XML_FILE_PATH = "$REPORT_DIRECTORY_PATH/$REPORT_XML_FILE"
         const val REPORT_CSV_FILE_PATH = "$REPORT_DIRECTORY_PATH/$REPORT_CSV_FILE"
 
-        fun dirPair(isKotlinModule: Boolean): Pair<String, Any> {
-            val kotlinDir = "build/classes/kotlin/main"
-            val androidDir = "build/tmp/kotlin-classes/debug"
-            return "dir" to if (isKotlinModule) kotlinDir else androidDir
+        object ClassDirectories {
+
+            fun dirPair(isKotlinModule: Boolean): Pair<String, Any> {
+                val kotlinDir = "build/classes/kotlin/main"
+                val androidDir = "build/tmp/kotlin-classes/debug"
+                return "dir" to if (isKotlinModule) kotlinDir else androidDir
+            }
+
+            fun excludesPair(isKotlinModule: Boolean): Pair<String, Any> {
+                val kotlinExcludes = listOf(
+                    "**/*Module*.*"
+                )
+                val androidExcludes = listOf(
+                    "**/*Activity*.*",
+                    "**/*Module*.*",
+                    "**/*Binding*.*",
+                    "**/*Glide*.*"
+                )
+                return "excludes" to if (isKotlinModule) kotlinExcludes else androidExcludes
+            }
+
         }
 
-        fun excludesPair(isKotlinModule: Boolean): Pair<String, Any> {
-            val kotlinExcludes = listOf(
-                "**/*Module*.*"
-            )
-            val androidExcludes = listOf(
-                "**/*Activity*.*",
-                "**/*Module*.*",
-                "**/*Binding*.*",
-                "**/*Glide*.*"
-            )
-            return "excludes" to if (isKotlinModule) kotlinExcludes else androidExcludes
-        }
+        object ExecutionData {
 
-        fun executionData(isKotlinModule: Boolean): String {
-            val kotlinExecutionData = "build/jacoco/test.exec"
-            val androidExecutionData = "build/jacoco/testDebugUnitTest.exec"
-            return if (isKotlinModule) kotlinExecutionData else androidExecutionData
+            fun dirPair(): Pair<String, Any> {
+                val dir = "build"
+                return "dir" to dir
+            }
+
+            fun includePair(isKotlinModule: Boolean): Pair<String, Any> {
+                val kotlinExecutionData = listOf(
+                    "jacoco/test.exec"
+                )
+                val androidExecutionData = listOf(
+                    "jacoco/testDebugUnitTest.exec"
+                )
+                return "include" to if (isKotlinModule) kotlinExecutionData else androidExecutionData
+            }
+
         }
 
     }
