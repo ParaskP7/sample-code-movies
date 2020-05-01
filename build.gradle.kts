@@ -238,7 +238,6 @@ fun BaseExtension.androidBase() {
 
 fun LibraryExtension.androidLibrary() {
     compileSdkVersion(Android.Sdk.COMPILE)
-    testOptions.unitTests.isIncludeAndroidResources = true
     defaultConfig { defaultConfig() }
     packagingOptions { packagingOptions() }
     compileOptions { compileOptions() }
@@ -251,7 +250,6 @@ fun LibraryExtension.androidLibrary() {
 
 fun AppExtension.androidApplication() {
     compileSdkVersion(Android.Sdk.COMPILE)
-    testOptions.unitTests.isIncludeAndroidResources = true
     defaultConfig { defaultConfig() }
     packagingOptions { packagingOptions() }
     compileOptions { compileOptions() }
@@ -299,6 +297,7 @@ fun NamedDomainObjectContainer<AndroidSourceSet>.sourceSets() {
 }
 
 fun TestOptions.testOptions() {
+    unitTests.isIncludeAndroidResources = true
     unitTests.all { test: Test -> test.testLogging() }
 }
 
