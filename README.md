@@ -262,10 +262,10 @@ Below is a list of all those ```I REALLY WANNA DO``` future architecture and lib
 20. **![#2cb42c](https://placehold.it/15/2cb42c/000000?text=+) `DONE`** Add missing Unit Tests (See `MUT` comment which stands for `Missing Unit Tests`).
     For more info, see [JUnit4](https://junit.org/junit4/)
     ```(JUnit is a simple framework to write repeatable tests. It is an instance of the xUnit architecture for unit testing frameworks)``` 
-21. **![#2cb42c](https://placehold.it/15/2cb42c/000000?text=+) `DONE`**  Add missing Robolectric Tests (See `MRT` comment which stands for `Missing Robolectric Tests`).
+21. **![#2cb42c](https://placehold.it/15/2cb42c/000000?text=+) `DONE`** Add missing Robolectric Tests (See `MRT` comment which stands for `Missing Robolectric Tests`).
     For more info, see [Robolectric](http://robolectric.org)
     ```(Robolectric is a framework that brings fast and reliable unit tests to Android)``` 
-22. **![#ffff00](https://placehold.it/15/ffff00/000000?text=+) `IN PROGRESS`** Add missing Espresso Tests (See `MET` comment which stands for `Missing Espresso Tests`).
+22. **![#2cb42c](https://placehold.it/15/2cb42c/000000?text=+) `DONE`** Add missing Espresso Tests (See `MET` comment which stands for `Missing Espresso Tests`).
     For more info, see [Espresso](https://developer.android.com/training/testing/espresso)
     ```(Use Espresso to write concise, beautiful, and reliable Android UI tests)``` 
 23. Add Support for Dark Theme.
