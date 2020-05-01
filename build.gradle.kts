@@ -366,6 +366,8 @@ fun JacocoReport.jacoco(isKotlinModule: Boolean) {
         csv.isEnabled = true
         csv.destination = project.file(Config.Jacoco.REPORT_CSV_FILE_PATH)
     }
+    sourceDirectories.setFrom(project.files(Sources.Main.KOTLIN))
+    additionalSourceDirs.setFrom(project.files(Sources.Main.KOTLIN))
     classDirectories.setFrom(
         project.files(
             project.fileTree(
@@ -374,8 +376,6 @@ fun JacocoReport.jacoco(isKotlinModule: Boolean) {
             )
         )
     )
-    additionalSourceDirs.setFrom(project.files(Sources.Main.KOTLIN))
-    sourceDirectories.setFrom(project.files(Sources.Main.KOTLIN))
     executionData(
         project.files(
             project.fileTree(
