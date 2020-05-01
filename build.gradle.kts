@@ -297,6 +297,7 @@ fun NamedDomainObjectContainer<AndroidSourceSet>.sourceSets() {
 }
 
 fun TestOptions.testOptions() {
+    animationsDisabled = true
     unitTests.isIncludeAndroidResources = true
     unitTests.all { test: Test -> test.testLogging() }
 }
