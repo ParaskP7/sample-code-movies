@@ -9,11 +9,11 @@ import io.petros.movies.android_test.robot.actions.NoActions
 import io.petros.movies.app.robot.AppRobot
 import io.petros.movies.app.robot.movie_details.MovieDetailsToolbarRobot.Companion.MOVIE_DETAILS_TOOLBAR_LABEL
 import io.petros.movies.app.robot.movies.MoviesToolbarRobot.Companion.MOVIES_TOOLBAR_FILTER_MONTH
-import io.petros.movies.app.robot.movies.MoviesToolbarRobot.Companion.MOVIES_TOOLBAR_FILTER_MONTH_APRIL
+import io.petros.movies.app.robot.movies.MoviesToolbarRobot.Companion.MOVIES_TOOLBAR_FILTER_MONTH_MAY
 import io.petros.movies.app.robot.movies.MoviesToolbarRobot.Companion.MOVIES_TOOLBAR_FILTER_YEAR
 import io.petros.movies.app.robot.movies.MoviesToolbarRobot.Companion.MOVIES_TOOLBAR_FILTER_YEAR_2020
 import io.petros.movies.app.robot.movies.MoviesToolbarRobot.Companion.MOVIES_TOOLBAR_LABEL
-import io.petros.movies.app.robot.picker.MonthPickerRobot.Companion.MOVIE_MONTH_PICKER_MONTH_APR
+import io.petros.movies.app.robot.picker.MonthPickerRobot.Companion.MOVIE_MONTH_PICKER_MONTH_MAY
 import io.petros.movies.app.robot.picker.MonthPickerRobot.Companion.MOVIE_MONTH_PICKER_TITLE
 import io.petros.movies.app.robot.picker.YearPickerRobot.Companion.MOVIE_YEAR_PICKER_TITLE
 import io.petros.movies.app.robot.picker.YearPickerRobot.Companion.MOVIE_YEAR_PICKER_YEAR_2020
@@ -422,7 +422,7 @@ class AppInstrumentedRobotTest {
         inMovies {
             inMonthPicker {
                 inTitle { hasText(MOVIE_MONTH_PICKER_TITLE) }
-                inMonth { hasTextInside(MOVIE_MONTH_PICKER_MONTH_APR) }
+                inMonth { hasTextInside(MOVIE_MONTH_PICKER_MONTH_MAY) }
                 onActionOk { performClick() }
             }
         }
@@ -435,7 +435,7 @@ class AppInstrumentedRobotTest {
                 inFilterIcon { isNotShown() }
                 inCloseIcon { isShown() }
                 inYearFilter { hasText(MOVIES_TOOLBAR_FILTER_YEAR_2020) }
-                inMonthFilter { hasText(MOVIES_TOOLBAR_FILTER_MONTH_APRIL) }
+                inMonthFilter { hasText(MOVIES_TOOLBAR_FILTER_MONTH_MAY) }
             }
             inList {
                 inItem(LOVE_WEDDING_REPEAT_ITEM_POSITION) {
@@ -467,7 +467,7 @@ class AppInstrumentedRobotTest {
                 inFilterIcon { isNotShown() }
                 inCloseIcon { isShown() }
                 inYearFilter { hasText(MOVIES_TOOLBAR_FILTER_YEAR_2020) }
-                inMonthFilter { hasText(MOVIES_TOOLBAR_FILTER_MONTH_APRIL) }
+                inMonthFilter { hasText(MOVIES_TOOLBAR_FILTER_MONTH_MAY) }
             }
             inList {
                 inItem(BEHIND_YOU_ITEM_POSITION) {
@@ -499,7 +499,7 @@ class AppInstrumentedRobotTest {
                 inFilterIcon { isNotShown() }
                 inCloseIcon { isShown() }
                 inYearFilter { hasText(MOVIES_TOOLBAR_FILTER_YEAR_2020) }
-                inMonthFilter { hasText(MOVIES_TOOLBAR_FILTER_MONTH_APRIL) }
+                inMonthFilter { hasText(MOVIES_TOOLBAR_FILTER_MONTH_MAY) }
                 inCloseIcon { performClick() }
             }
         }

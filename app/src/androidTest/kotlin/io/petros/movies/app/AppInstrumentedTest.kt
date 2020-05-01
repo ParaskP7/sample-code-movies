@@ -32,6 +32,7 @@ import io.petros.movies.movie_details.R as mdR
 import io.petros.movies.movies.R as mR
 
 @LargeTest
+@Suppress("ForbiddenComment")
 @RunWith(AndroidJUnit4::class)
 class AppInstrumentedTest {
 
@@ -58,7 +59,10 @@ class AppInstrumentedTest {
         private const val MOVIES_TOOLBAR_FILTER_YEAR = "Year"
         private const val MOVIES_TOOLBAR_FILTER_YEAR_2020 = "2020"
         private const val MOVIES_TOOLBAR_FILTER_MONTH = "Month"
-        private const val MOVIES_TOOLBAR_FILTER_MONTH_APRIL = "April"
+
+        // TODO: Revert to 'April' by specifically selecting this month during testing
+        @Suppress("unused") private const val MOVIES_TOOLBAR_FILTER_MONTH_APRIL = "April"
+        private const val MOVIES_TOOLBAR_FILTER_MONTH_MAY = "May"
         private const val MOVIE_DETAILS_TOOLBAR_LABEL = "Movie Details"
 
         // PICKER
@@ -66,7 +70,10 @@ class AppInstrumentedTest {
         private const val MOVIE_YEAR_PICKER_TITLE = "Select Movie Year"
         private const val MOVIE_YEAR_PICKER_YEAR_2020 = "2020"
         private const val MOVIE_MONTH_PICKER_TITLE = "Select Movie Month"
-        private const val MOVIE_MONTH_PICKER_MONTH_APR = "Apr"
+
+        // TODO: Revert to 'Apr' by specifically selecting the month during testing
+        @Suppress("unused") private const val MOVIE_MONTH_PICKER_MONTH_APR = "Apr"
+        private const val MOVIE_MONTH_PICKER_MONTH_MAY = "May"
         private const val MOVIE_PICKER_ACTION_OK = "OK"
 
         // NO FILTER
@@ -337,7 +344,7 @@ class AppInstrumentedTest {
     private fun check_month_picker() {
         checkViewMoviesPicker(
             title = MOVIE_MONTH_PICKER_TITLE,
-            month = MOVIE_MONTH_PICKER_MONTH_APR,
+            month = MOVIE_MONTH_PICKER_MONTH_MAY,
             withActionOkClick = true
         )
     }
@@ -421,7 +428,7 @@ class AppInstrumentedTest {
             filterYearDisplayed = true,
             filterYear = MOVIES_TOOLBAR_FILTER_YEAR_2020,
             filterMonthDisplayed = true,
-            filterMonth = MOVIES_TOOLBAR_FILTER_MONTH_APRIL
+            filterMonth = MOVIES_TOOLBAR_FILTER_MONTH_MAY
         )
     }
 

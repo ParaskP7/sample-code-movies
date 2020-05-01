@@ -7,12 +7,16 @@ import io.petros.movies.android_test.robot.utils.idMatcher
 import io.petros.movies.android_test.robot.utils.textMatcher
 import io.petros.movies.picker.R
 
+@Suppress("ForbiddenComment")
 class MonthPickerRobot : ScopedActions(idMatcher(R.id.monthPicker)) {
 
     companion object {
 
         const val MOVIE_MONTH_PICKER_TITLE = "Select Movie Month"
-        const val MOVIE_MONTH_PICKER_MONTH_APR = "Apr"
+
+        // TODO: Revert to 'Apr' by specifically selecting the month during testing
+        @Suppress("unused") const val MOVIE_MONTH_PICKER_MONTH_APR = "Apr"
+        const val MOVIE_MONTH_PICKER_MONTH_MAY = "May"
 
         private const val ACTION_OK = "OK"
 

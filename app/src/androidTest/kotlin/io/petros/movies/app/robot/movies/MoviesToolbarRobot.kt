@@ -6,6 +6,7 @@ import io.petros.movies.android_test.robot.actions.UiActions
 import io.petros.movies.android_test.robot.utils.idMatcher
 import io.petros.movies.movies.R
 
+@Suppress("ForbiddenComment")
 class MoviesToolbarRobot : ScopedActions(idMatcher(R.id.ctrMoviesToolbar)) {
 
     companion object {
@@ -14,7 +15,10 @@ class MoviesToolbarRobot : ScopedActions(idMatcher(R.id.ctrMoviesToolbar)) {
         const val MOVIES_TOOLBAR_FILTER_YEAR = "Year"
         const val MOVIES_TOOLBAR_FILTER_YEAR_2020 = "2020"
         const val MOVIES_TOOLBAR_FILTER_MONTH = "Month"
-        const val MOVIES_TOOLBAR_FILTER_MONTH_APRIL = "April"
+
+        // TODO: Revert to 'April' by specifically selecting this month during testing
+        @Suppress("unused") const val MOVIES_TOOLBAR_FILTER_MONTH_APRIL = "April"
+        const val MOVIES_TOOLBAR_FILTER_MONTH_MAY = "May"
 
     }
 
