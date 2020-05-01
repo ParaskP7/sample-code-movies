@@ -7,7 +7,7 @@ import io.petros.movies.splash.navigator.SplashNavigator
 import org.koin.android.ext.android.inject
 import org.koin.core.parameter.parametersOf
 
-class SplashActivity : BaseActivity() { // MET
+class SplashActivity : BaseActivity() {
 
     private val splashNavigator: SplashNavigator by inject { parametersOf(this) }
 

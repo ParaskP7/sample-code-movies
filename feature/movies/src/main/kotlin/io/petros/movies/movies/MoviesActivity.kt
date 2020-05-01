@@ -25,7 +25,7 @@ class MoviesActivity : BaseActivity(),
     MovieItemCallback,
     InfiniteRecyclerView.Listener,
     MovieYearPickerFragmentCallback,
-    MovieMonthPickerFragmentCallback { // MET
+    MovieMonthPickerFragmentCallback {
 
     private val viewModel: MoviesViewModel by viewModel()
 
