@@ -2,8 +2,12 @@
 
 <resources>
 
-    <color name="colorPrimary">#01d277</color>
-    <color name="colorPrimaryDark">#081c24</color>
-    <color name="colorAccent">#FF4081</color>
+    <!-- Theme -->
+    <color name="colorPrimary">@color/green_material_A700</color>
+    <color name="colorPrimaryVariant">@color/green_material_800</color>
+    <color name="colorSecondary">@color/pink_material_A200</color>
+    <color name="colorSecondaryVariant">@color/pink_material_A700</color>
+    <color name="colorBackground">@color/design_default_color_background</color>
+    <color name="colorOnBackground">@color/colorPrimary</color>
 
 </resources>
