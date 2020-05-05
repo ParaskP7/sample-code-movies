@@ -1,9 +1,9 @@
 package io.petros.movies.movie_details.navigator
 
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityOptionsCompat
 import io.petros.movies.android_utils.getExtraName
 import io.petros.movies.domain.model.movie.Movie
@@ -11,7 +11,7 @@ import io.petros.movies.movie_details.MovieDetailsActivity
 import io.petros.movies.movie_details.R
 
 class MovieDetailsLauncherImpl(
-    private val activity: AppCompatActivity
+    private val activity: Activity
 ) : MovieDetailsLauncher {
 
     companion object {

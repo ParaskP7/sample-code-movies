@@ -2,7 +2,6 @@ package io.petros.movies.movies.navigator
 
 import android.app.Activity
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import io.mockk.mockk
 import io.mockk.slot
 import io.mockk.verify
@@ -21,7 +20,7 @@ class MoviesLauncherImplRobolectricTest {
 
     private val slot = slot<Intent>()
 
-    private var activityMock = mockk<AppCompatActivity>()
+    private var activityMock = mockk<Activity>()
     private val testedClass = MoviesLauncherImpl(activityMock)
 
     @Test

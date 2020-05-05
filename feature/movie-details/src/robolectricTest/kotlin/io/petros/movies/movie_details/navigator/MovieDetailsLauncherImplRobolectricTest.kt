@@ -3,7 +3,6 @@ package io.petros.movies.movie_details.navigator
 import android.app.Activity
 import android.content.Intent
 import android.view.View
-import androidx.appcompat.app.AppCompatActivity
 import io.mockk.mockk
 import io.mockk.slot
 import io.mockk.verify
@@ -23,7 +22,7 @@ import strikt.assertions.isEqualTo
 @Config(application = TestApp::class)
 class MovieDetailsLauncherImplRobolectricTest {
 
-    private var activityMock = mockk<AppCompatActivity>()
+    private var activityMock = mockk<Activity>()
     private val testedClass = MovieDetailsLauncherImpl(activityMock)
 
     @Test

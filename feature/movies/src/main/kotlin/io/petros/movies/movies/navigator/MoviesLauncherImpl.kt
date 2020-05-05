@@ -1,11 +1,11 @@
 package io.petros.movies.movies.navigator
 
+import android.app.Activity
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import io.petros.movies.movies.MoviesActivity
 
 class MoviesLauncherImpl(
-    private val activity: AppCompatActivity
+    private val activity: Activity
 ) : MoviesLauncher {
 
     override fun launch() {
