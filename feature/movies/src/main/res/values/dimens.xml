@@ -5,8 +5,6 @@
     <!-- Item -->
     <dimen name="cdItemHorizontalMargin">@dimen/spacingS</dimen>
     <dimen name="cdItemVerticalMargin">@dimen/spacingS</dimen>
-    <dimen name="cdItemRadius">@dimen/spacingXXS</dimen>
-    <dimen name="cdItemCardElevation">@dimen/spacingXXS</dimen>
     <dimen name="ivItemBackdropHeight">200dp</dimen>
     <dimen name="tvItemTitleHeight">@dimen/ivItemBackdropHeight</dimen>
 

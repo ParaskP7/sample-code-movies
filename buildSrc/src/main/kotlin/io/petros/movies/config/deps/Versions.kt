@@ -56,9 +56,6 @@ object Versions {
             // Releases: https://developer.android.com/jetpack/androidx/releases/recyclerview
             const val RECYCLER_VIEW = "1.1.0" // Released: 20-11-19
 
-            // Releases: https://developer.android.com/jetpack/androidx/releases/cardview
-            const val CARD_VIEW = "1.0.0" // Released: 21-09-18
-
             // Releases: https://developer.android.com/jetpack/androidx/releases/constraintlayout
             const val CONSTRAINT_LAYOUT = "1.1.3" // Released: 16-12-19
 

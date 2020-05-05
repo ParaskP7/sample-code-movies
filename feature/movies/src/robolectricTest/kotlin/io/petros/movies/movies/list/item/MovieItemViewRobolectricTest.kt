@@ -3,9 +3,7 @@ package io.petros.movies.movies.list.item
 import io.mockk.mockk
 import io.mockk.verify
 import io.petros.movies.android_test.context.TestContextProvider.context
-import io.petros.movies.android_utils.getDimension
 import io.petros.movies.movie_details.navigator.SharedElementMovie
-import io.petros.movies.movies.R
 import io.petros.movies.test.domain.movie
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -29,16 +27,6 @@ class MovieItemViewRobolectricTest {
     @Test
     fun `when the movie item view is instantiated, then the layout params are set`() {
         expect { that(testedClass.layoutParams).isNotNull() }
-    }
-
-    @Test
-    fun `when the movie item view is instantiated, then the radius is correctly set`() {
-        expect { that(testedClass.radius).isEqualTo(context.getDimension(R.dimen.cdItemRadius).toFloat()) }
-    }
-
-    @Test
-    fun `when the movie item view is instantiated, then the card elevation is correctly set`() {
-        expect { that(testedClass.cardElevation).isEqualTo(context.getDimension(R.dimen.cdItemCardElevation).toFloat()) }
     }
 
     @Test

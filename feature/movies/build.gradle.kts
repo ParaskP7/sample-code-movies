@@ -28,7 +28,6 @@ dependencies {
     implementation(Deps.Kotlin.Coroutines.CORE)
     implementation(Deps.Material.MATERIAL)
     implementation(Deps.Android.Core.APP_COMPAT)
-    implementation(Deps.Android.Core.CARD_VIEW)
     implementation(Deps.Android.Core.CONSTRAINT_LAYOUT)
     implementation(Deps.Android.Ktx.CORE)
     implementation(Deps.Android.Arch.Core.Lifecycle.LIVE_DATA)

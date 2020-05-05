@@ -115,7 +115,6 @@ object Deps {
 
             val APP_COMPAT = "androidx.appcompat:appcompat:${Versions.Android.Core.APP_COMPAT}"
             val RECYCLER_VIEW = "androidx.recyclerview:recyclerview:${Versions.Android.Core.RECYCLER_VIEW}"
-            val CARD_VIEW = "androidx.cardview:cardview:${Versions.Android.Core.CARD_VIEW}"
             val CONSTRAINT_LAYOUT = "androidx.constraintlayout:constraintlayout:${Versions.Android.Core.CONSTRAINT_LAYOUT}"
 
         }

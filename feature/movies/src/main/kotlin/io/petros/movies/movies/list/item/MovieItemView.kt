@@ -4,7 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.annotation.VisibleForTesting
-import androidx.cardview.widget.CardView
+import com.google.android.material.card.MaterialCardView
 import io.petros.movies.android_utils.getDimension
 import io.petros.movies.core.image.glide.displayImage
 import io.petros.movies.domain.model.movie.Movie
@@ -12,7 +12,7 @@ import io.petros.movies.movie_details.navigator.SharedElementMovie
 import io.petros.movies.movies.R
 import io.petros.movies.movies.databinding.MovieItemViewBinding
 
-class MovieItemView(ctx: Context) : CardView(ctx) {
+class MovieItemView(ctx: Context) : MaterialCardView(ctx) {
 
     @VisibleForTesting val binding = MovieItemViewBinding.inflate(LayoutInflater.from(context), this)
 
@@ -26,8 +26,6 @@ class MovieItemView(ctx: Context) : CardView(ctx) {
         lp.rightMargin = context.getDimension(R.dimen.cdItemHorizontalMargin)
         lp.bottomMargin = context.getDimension(R.dimen.cdItemVerticalMargin)
         layoutParams = lp
-        radius = context.getDimension(R.dimen.cdItemRadius).toFloat()
-        cardElevation = context.getDimension(R.dimen.cdItemCardElevation).toFloat()
     }
 
     fun bind(movie: Movie) {
