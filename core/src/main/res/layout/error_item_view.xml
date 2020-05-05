@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:parentTag="android.widget.FrameLayout">
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
         style="@style/tvErrorItem"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />

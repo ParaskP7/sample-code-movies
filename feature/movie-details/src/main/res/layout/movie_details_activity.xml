@@ -32,7 +32,7 @@
             tools:ignore="ContentDescription"
             tools:src="@android:color/darker_gray" />
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tvTitle"
             style="@style/tvTitle"
             android:layout_width="match_parent"
@@ -41,7 +41,7 @@
             app:layout_constraintTop_toBottomOf="@id/ivBackdrop"
             tools:text="Avengers: Infinity War" />
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tvReleaseDate"
             style="@style/tvReleaseDate"
             android:layout_width="match_parent"
@@ -50,7 +50,7 @@
             app:layout_constraintTop_toBottomOf="@id/tvTitle"
             tools:text="2018 (April)" />
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tvVote"
             style="@style/tvVote"
             android:layout_width="match_parent"
@@ -59,7 +59,7 @@
             app:layout_constraintTop_toBottomOf="@id/tvReleaseDate"
             tools:text="8.3 ★ (7651)" />
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tvOverview"
             style="@style/tvOverview"
             android:layout_width="match_parent"

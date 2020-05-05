@@ -21,7 +21,7 @@
             tools:ignore="ContentDescription"
             tools:src="@android:color/darker_gray" />
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tvItemTitle"
             style="@style/tvItemTitle"
             android:layout_width="match_parent"
@@ -39,7 +39,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvItemTitle">
 
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tvItemReleaseDate"
                 style="@style/tvItemReleaseDate"
                 android:layout_width="0dp"
@@ -47,7 +47,7 @@
                 android:layout_weight="1"
                 tools:text="2018 (April)" />
 
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tvItemVote"
                 style="@style/tvItemVote"
                 android:layout_width="0dp"
