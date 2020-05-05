@@ -190,7 +190,7 @@ class MoviesToolbarRobolectricTest {
 
     @Test
     fun `when get month is triggered, then the correct month number is returned`() {
-        expect { that(testedClass.getMonth()).isEqualTo(MonthOfYear.UNKNOWN_MONTH.number) }
+        expect { that(testedClass.getMonth()).isNull() }
         val month = MonthOfYear.JANUARY
         testedClass.setMonth(month.number)
 

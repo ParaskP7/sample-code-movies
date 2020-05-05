@@ -116,7 +116,10 @@ class MoviesToolbar(
         binding.tvToolbarFilterMonth.text = MonthOfYear.from(month).label
     }
 
-    fun getMonth() = MonthOfYear.from(binding.tvToolbarFilterMonth.text).number
+    fun getMonth(): Int? {
+        val monthOfYear = MonthOfYear.from(binding.tvToolbarFilterMonth.text)
+        return if (monthOfYear != MonthOfYear.UNKNOWN_MONTH) monthOfYear.number else null
+    }
 
     /* CONFIGURATION CHANGE */
 
@@ -163,7 +166,7 @@ class MoviesToolbar(
     }
 
     private fun onSaveMonthInstanceState(outState: Bundle) {
-        getMonth().let { outState.putString(INSTANCE_STATE_KEY_MONTH_FILTER, it.toString()) }
+        getMonth()?.let { outState.putString(INSTANCE_STATE_KEY_MONTH_FILTER, it.toString()) }
     }
 
 }
