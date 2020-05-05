@@ -42,6 +42,10 @@
     </style>
 
     <!-- Toolbar -->
+    <style name="ctrToolbar">
+        <item name="android:background">@color/colorOnBackground</item>
+    </style>
+
     <style name="tvToolbarLabel">
         <item name="android:layout_gravity">center</item>
         <item name="android:paddingEnd">@dimen/spacingM</item>

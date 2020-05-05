@@ -6,9 +6,9 @@
 
     <LinearLayout
         android:id="@+id/ctrMoviesToolbar"
+        style="@style/ctrToolbar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorPrimary"
         android:orientation="horizontal">
 
         <com.google.android.material.textview.MaterialTextView
