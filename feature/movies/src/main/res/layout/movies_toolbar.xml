@@ -18,14 +18,14 @@
             android:layout_height="wrap_content"
             android:text="@string/tvToolbarMoviesLabel" />
 
-        <ImageView
+        <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/ivToolbarFilterIcon"
             style="@style/ivToolbarFilterIcon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             tools:ignore="ContentDescription" />
 
-        <ImageView
+        <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/ivToolbarCloseIcon"
             style="@style/ivToolbarCloseIcon"
             android:layout_width="wrap_content"

@@ -21,7 +21,7 @@
             app:layout_constraintVertical_bias="0.0"
             app:layout_constraintVertical_chainStyle="packed" />
 
-        <ImageView
+        <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/ivBackdrop"
             style="@style/ivBackdrop"
             android:layout_width="match_parent"
