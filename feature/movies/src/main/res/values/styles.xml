@@ -49,6 +49,7 @@
     </style>
 
     <style name="ctrItemDetails">
+        <item name="android:background">@color/colorContainer</item>
         <item name="android:paddingBottom">@dimen/spacingS</item>
         <item name="android:paddingLeft">@dimen/spacingM</item>
         <item name="android:paddingRight">@dimen/spacingM</item>
