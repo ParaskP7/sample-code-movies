@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="monthBgSelectedColor">@color/colorPrimaryVariant</color>
+    <color name="headerBgColor">@color/colorPrimaryVariant</color>
+    <color name="dialogActionButtonColor">@color/colorPrimaryVariant</color>
+    <color name="monthFontColorNormal">@color/colorPrimaryVariant</color>
+
+</resources>
