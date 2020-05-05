@@ -8,18 +8,11 @@
     </style>
 
     <!-- Toolbar -->
-    <style name="ivToolbarFilterIcon">
-        <item name="android:layout_gravity">center</item>
-        <item name="android:paddingEnd">@dimen/spacingS</item>
-        <item name="android:paddingStart">@dimen/spacingS</item>
-        <item name="android:src">@drawable/ic_filter</item>
-    </style>
 
-    <style name="ivToolbarCloseIcon">
+    <style name="ivToolbarIcon">
         <item name="android:layout_gravity">center</item>
         <item name="android:paddingEnd">@dimen/spacingS</item>
         <item name="android:paddingStart">@dimen/spacingS</item>
-        <item name="android:src">@drawable/ic_close</item>
     </style>
 
     <style name="tvToolbarFilterYear">

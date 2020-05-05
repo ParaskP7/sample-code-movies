@@ -20,18 +20,20 @@
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/ivToolbarFilterIcon"
-            style="@style/ivToolbarFilterIcon"
+            style="@style/ivToolbarIcon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:src="@drawable/ic_filter"
             android:visibility="visible"
             tools:ignore="ContentDescription"
             tools:visibility="gone" />
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/ivToolbarCloseIcon"
-            style="@style/ivToolbarCloseIcon"
+            style="@style/ivToolbarIcon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:src="@drawable/ic_close"
             android:visibility="gone"
             tools:ignore="ContentDescription"
             tools:visibility="visible" />
