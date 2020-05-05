@@ -19,7 +19,7 @@ dependencies {
 
     implementation(Deps.Kotlin.Core.KOTLIN)
     implementation(Deps.Kotlin.Coroutines.Test.TEST)
-    implementation(Deps.Android.Core.APP_COMPAT)
+    implementation(Deps.Material.MATERIAL)
     implementation(Deps.Android.Core.RECYCLER_VIEW)
     implementation(Deps.Android.Test.CORE)
     implementation(Deps.Log.TIMBER)
