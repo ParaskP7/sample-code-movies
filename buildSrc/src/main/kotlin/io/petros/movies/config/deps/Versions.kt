@@ -42,7 +42,7 @@ object Versions {
     object Material {
 
         // Releases: https://github.com/material-components/material-components-android/releases
-        const val MATERIAL = "1.1.0" // Released: 03-02-20
+        const val MATERIAL = "1.2.0-alpha06" // Released: 13-04-20
 
     }
 
