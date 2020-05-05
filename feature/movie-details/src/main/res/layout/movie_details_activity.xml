@@ -44,16 +44,18 @@
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tvReleaseDate"
-            style="@style/tvReleaseDate"
+            style="@style/tvDetails"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingTop="@dimen/spacingXXS"
+            android:paddingBottom="@dimen/spacingXXS"
             app:layout_constraintBottom_toTopOf="@id/tvVote"
             app:layout_constraintTop_toBottomOf="@id/tvTitle"
             tools:text="2018 (April)" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tvVote"
-            style="@style/tvVote"
+            style="@style/tvDetails"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toTopOf="@id/tvOverview"
