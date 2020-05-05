@@ -8,30 +8,27 @@
 
     <style name="tvTitle">
         <item name="android:padding">@dimen/spacingM</item>
-        <item name="android:textColor">@android:color/black</item>
-        <item name="android:textSize">@dimen/textSizeXXL</item>
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+        <item name="android:textAppearance">?attr/textAppearanceHeadline5</item>
     </style>
 
     <style name="tvReleaseDate">
         <item name="android:paddingBottom">@dimen/spacingXXS</item>
         <item name="android:paddingLeft">@dimen/spacingM</item>
         <item name="android:paddingRight">@dimen/spacingM</item>
-        <item name="android:textColor">@android:color/black</item>
-        <item name="android:textSize">@dimen/textSizeL</item>
+        <item name="android:textAppearance">?attr/textAppearanceBody1</item>
     </style>
 
     <style name="tvVote">
         <item name="android:paddingLeft">@dimen/spacingM</item>
         <item name="android:paddingRight">@dimen/spacingM</item>
         <item name="android:paddingTop">@dimen/spacingXXS</item>
-        <item name="android:textColor">@android:color/black</item>
-        <item name="android:textSize">@dimen/textSizeL</item>
+        <item name="android:textAppearance">?attr/textAppearanceBody1</item>
     </style>
 
     <style name="tvOverview">
         <item name="android:padding">@dimen/spacingM</item>
-        <item name="android:textColor">@android:color/black</item>
-        <item name="android:textSize">@dimen/textSizeM</item>
+        <item name="android:textAppearance">?attr/textAppearanceSubtitle1</item>
     </style>
 
 </resources>

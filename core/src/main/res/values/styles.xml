@@ -46,8 +46,7 @@
         <item name="android:layout_gravity">center</item>
         <item name="android:paddingEnd">@dimen/spacingM</item>
         <item name="android:paddingStart">@dimen/spacingM</item>
-        <item name="android:textColor">@android:color/white</item>
-        <item name="android:textSize">@dimen/textSizeXL</item>
+        <item name="android:textAppearance">?attr/textAppearanceHeadline6</item>
     </style>
 
     <!-- Item -->
@@ -61,8 +60,8 @@
         <item name="android:gravity">center</item>
         <item name="android:padding">@dimen/spacingL</item>
         <item name="android:text">@string/tvErrorItem</item>
-        <item name="android:textColor">@color/colorAccent</item>
-        <item name="android:textSize">@dimen/textSizeXL</item>
+        <item name="android:textColor">?attr/colorError</item>
+        <item name="android:textAppearance">?attr/textAppearanceHeadline6</item>
     </style>
 
 </resources>

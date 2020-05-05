@@ -26,16 +26,14 @@
         <item name="android:layout_gravity">center</item>
         <item name="android:paddingEnd">@dimen/spacingM</item>
         <item name="android:paddingStart">@dimen/spacingM</item>
-        <item name="android:textColor">@android:color/white</item>
-        <item name="android:textSize">@dimen/textSizeXL</item>
+        <item name="android:textAppearance">?attr/textAppearanceHeadline6</item>
     </style>
 
     <style name="tvToolbarFilterMonth">
         <item name="android:layout_gravity">center</item>
         <item name="android:paddingEnd">@dimen/spacingS</item>
         <item name="android:paddingStart">@dimen/spacingS</item>
-        <item name="android:textColor">@android:color/white</item>
-        <item name="android:textSize">@dimen/textSizeXL</item>
+        <item name="android:textAppearance">?attr/textAppearanceHeadline6</item>
     </style>
 
     <!-- Item -->
@@ -47,8 +45,7 @@
         <item name="android:background">@drawable/shape_gradient</item>
         <item name="android:gravity">start|bottom</item>
         <item name="android:padding">@dimen/spacingM</item>
-        <item name="android:textColor">@android:color/white</item>
-        <item name="android:textSize">@dimen/textSizeXXL</item>
+        <item name="android:textAppearance">?attr/textAppearanceHeadline5</item>
     </style>
 
     <style name="ctrItemDetails">
@@ -60,14 +57,12 @@
 
     <style name="tvItemReleaseDate">
         <item name="android:gravity">start|center</item>
-        <item name="android:textColor">@android:color/black</item>
-        <item name="android:textSize">@dimen/textSizeL</item>
+        <item name="android:textAppearance">?attr/textAppearanceBody1</item>
     </style>
 
     <style name="tvItemVote">
         <item name="android:gravity">end|center</item>
-        <item name="android:textColor">@android:color/black</item>
-        <item name="android:textSize">@dimen/textSizeL</item>
+        <item name="android:textAppearance">?attr/textAppearanceBody1</item>
     </style>
 
 </resources>
