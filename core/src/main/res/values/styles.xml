@@ -2,45 +2,6 @@
 
 <resources>
 
-    <!-- Theme -->
-    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryVariant">@color/colorPrimaryVariant</item>
-        <item name="colorOnPrimary">@color/design_default_color_on_primary</item>
-        <item name="colorSecondary">@color/colorSecondary</item>
-        <item name="colorSecondaryVariant">@color/colorSecondaryVariant</item>
-        <item name="colorOnSecondary">@color/design_default_color_on_secondary</item>
-        <item name="colorSurface">@color/design_default_color_surface</item>
-        <item name="colorOnSurface">@color/black</item>
-        <item name="android:colorBackground">@color/colorBackground</item>
-        <item name="colorOnBackground">@color/colorOnBackground</item>
-        <item name="colorError">@color/design_default_color_error</item>
-        <item name="colorOnError">@color/white</item>
-        <item name="android:statusBarColor">@color/black</item>
-        <!-- Text -->
-        <item name="textAppearanceHeadline5">@style/TextAppearance.App.Headline5</item>
-        <item name="textAppearanceHeadline6">@style/TextAppearance.App.Headline6</item>
-        <item name="textAppearanceBody1">@style/TextAppearance.App.Body1</item>
-        <item name="textAppearanceSubtitle1">@style/TextAppearance.App.Subtitle1</item>
-    </style>
-
-    <!-- Text -->
-    <style name="TextAppearance.App.Headline5" parent="TextAppearance.MaterialComponents.Headline5">
-        <item name="android:textColor">?attr/colorOnPrimary</item>
-    </style>
-
-    <style name="TextAppearance.App.Headline6" parent="TextAppearance.MaterialComponents.Headline6">
-        <item name="android:textColor">?attr/colorOnPrimary</item>
-    </style>
-
-    <style name="TextAppearance.App.Body1" parent="TextAppearance.MaterialComponents.Body1">
-        <item name="android:textColor">?android:attr/textColorPrimary</item>
-    </style>
-
-    <style name="TextAppearance.App.Subtitle1" parent="TextAppearance.MaterialComponents.Subtitle1">
-        <item name="android:textColor">?android:attr/textColorPrimary</item>
-    </style>
-
     <!-- Toolbar -->
     <style name="ctrToolbar">
         <item name="android:background">@color/colorOnBackground</item>
