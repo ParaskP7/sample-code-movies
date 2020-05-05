@@ -10,4 +10,7 @@
     <color name="colorBackground">@color/design_default_color_background</color>
     <color name="colorOnBackground">@color/colorPrimary</color>
 
+    <!-- App -->
+    <color name="colorContainer">@color/white</color>
+
 </resources>

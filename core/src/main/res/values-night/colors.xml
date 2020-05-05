@@ -5,4 +5,7 @@
     <color name="colorBackground">@color/black</color>
     <color name="colorOnBackground">@color/colorPrimaryVariant</color>
 
+    <!-- App -->
+    <color name="colorContainer">@color/colorPrimaryVariant</color>
+
 </resources>
