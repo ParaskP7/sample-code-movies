@@ -271,7 +271,7 @@ Below is a list of all those ```I REALLY WANNA DO``` future architecture and lib
 23. **![#2cb42c](https://placehold.it/15/2cb42c/000000?text=+) `DONE`** Add Support for Dark Theme.
     For more info see [Dark Theme](https://developer.android.com/guide/topics/ui/look-and-feel/darktheme)
     ```(Dark theme is available in Android 10 (API level 29) and higher)```
-24. Enhance MVVM with MVI.
+24. **![#ffff00](https://placehold.it/15/ffff00/000000?text=+) `IN PROGRESS`** Enhance MVVM with MVI.
     To get an understanding of MVI and how it applies to MVVM (or MVP), start with this Article [MVI](http://hannesdorfmann.com/android/model-view-intent)
     ```(Model-View_Intent, is an architecture enhancment that tries to solve the state problem, which most complex application have, especially when the screen complexity grows)```
 25. Replace Manual Navigation with the Navigation Architecture Component.
