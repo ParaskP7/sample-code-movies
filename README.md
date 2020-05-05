@@ -268,7 +268,7 @@ Below is a list of all those ```I REALLY WANNA DO``` future architecture and lib
 22. **![#2cb42c](https://placehold.it/15/2cb42c/000000?text=+) `DONE`** Add missing Espresso Tests (See `MET` comment which stands for `Missing Espresso Tests`).
     For more info, see [Espresso](https://developer.android.com/training/testing/espresso)
     ```(Use Espresso to write concise, beautiful, and reliable Android UI tests)``` 
-23. **![#ffff00](https://placehold.it/15/ffff00/000000?text=+) `IN PROGRESS`** Add Support for Dark Theme.
+23. **![#2cb42c](https://placehold.it/15/2cb42c/000000?text=+) `DONE`** Add Support for Dark Theme.
     For more info see [Dark Theme](https://developer.android.com/guide/topics/ui/look-and-feel/darktheme)
     ```(Dark theme is available in Android 10 (API level 29) and higher)```
 24. Enhance MVVM with MVI.
