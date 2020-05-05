@@ -15,14 +15,7 @@
         <item name="android:paddingStart">@dimen/spacingS</item>
     </style>
 
-    <style name="tvToolbarFilterYear">
-        <item name="android:layout_gravity">center</item>
-        <item name="android:paddingEnd">@dimen/spacingM</item>
-        <item name="android:paddingStart">@dimen/spacingM</item>
-        <item name="android:textAppearance">?attr/textAppearanceHeadline6</item>
-    </style>
-
-    <style name="tvToolbarFilterMonth">
+    <style name="tvToolbarFilter">
         <item name="android:layout_gravity">center</item>
         <item name="android:paddingEnd">@dimen/spacingS</item>
         <item name="android:paddingStart">@dimen/spacingS</item>
