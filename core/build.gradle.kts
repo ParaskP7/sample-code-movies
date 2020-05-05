@@ -20,6 +20,7 @@ dependencies {
     implementation(project(Deps.Project.Implementation.Kotlin.DOMAIN))
 
     implementation(Deps.Kotlin.Core.KOTLIN)
+    implementation(Deps.Material.MATERIAL)
     implementation(Deps.Android.Core.APP_COMPAT)
     implementation(Deps.Android.Core.RECYCLER_VIEW)
     implementation(Deps.Image.Glide.GLIDE)
