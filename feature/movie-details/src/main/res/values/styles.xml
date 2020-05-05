@@ -2,6 +2,10 @@
 
 <resources>
 
+    <style name="ctrMovieDetails">
+        <item name="android:background">@color/colorContainer</item>
+    </style>
+
     <style name="ivBackdrop">
         <item name="android:scaleType">fitXY</item>
     </style>
