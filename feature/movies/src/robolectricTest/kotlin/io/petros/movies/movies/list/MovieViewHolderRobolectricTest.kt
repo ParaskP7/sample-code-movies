@@ -2,14 +2,17 @@ package io.petros.movies.movies.list
 
 import io.mockk.mockk
 import io.mockk.verify
+import io.petros.movies.android_test.app.TestApp
 import io.petros.movies.movies.list.item.MovieItemCallback
 import io.petros.movies.movies.list.item.MovieItemView
 import io.petros.movies.test.domain.movie
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
+import org.robolectric.annotation.Config
 
 @RunWith(RobolectricTestRunner::class)
+@Config(application = TestApp::class)
 class MovieViewHolderRobolectricTest {
 
     private val movie = movie()

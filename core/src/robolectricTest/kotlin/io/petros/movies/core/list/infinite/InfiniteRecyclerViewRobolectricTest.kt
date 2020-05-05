@@ -3,13 +3,16 @@ package io.petros.movies.core.list.infinite
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
+import io.petros.movies.android_test.app.TestApp
 import io.petros.movies.android_test.context.TestContextProvider.context
 import io.petros.movies.domain.model.movie.Movie
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
+import org.robolectric.annotation.Config
 
 @RunWith(RobolectricTestRunner::class)
+@Config(application = TestApp::class)
 class InfiniteRecyclerViewRobolectricTest {
 
     companion object {

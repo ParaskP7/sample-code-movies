@@ -2,18 +2,21 @@ package io.petros.movies.movies.list.item
 
 import io.mockk.mockk
 import io.mockk.verify
+import io.petros.movies.android_test.app.TestApp
 import io.petros.movies.android_test.context.TestContextProvider.context
 import io.petros.movies.movie_details.navigator.SharedElementMovie
 import io.petros.movies.test.domain.movie
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
+import org.robolectric.annotation.Config
 import strikt.api.expect
 import strikt.assertions.isEqualTo
 import strikt.assertions.isNotNull
 import strikt.assertions.isNull
 
 @RunWith(RobolectricTestRunner::class)
+@Config(application = TestApp::class)
 class MovieItemViewRobolectricTest {
 
     private val context = context()

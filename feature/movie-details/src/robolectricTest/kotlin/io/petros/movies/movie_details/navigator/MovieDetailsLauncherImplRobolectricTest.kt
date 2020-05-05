@@ -1,11 +1,13 @@
 package io.petros.movies.movie_details.navigator
 
+import android.app.Activity
 import android.content.Intent
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import io.mockk.mockk
 import io.mockk.slot
 import io.mockk.verify
+import io.petros.movies.android_test.app.TestApp
 import io.petros.movies.android_test.context.TestContextProvider.context
 import io.petros.movies.movie_details.MovieDetailsActivity
 import io.petros.movies.movie_details.navigator.MovieDetailsLauncherImpl.Companion.getMovie
@@ -13,10 +15,12 @@ import io.petros.movies.test.domain.movie
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
+import org.robolectric.annotation.Config
 import strikt.api.expect
 import strikt.assertions.isEqualTo
 
 @RunWith(RobolectricTestRunner::class)
+@Config(application = TestApp::class)
 class MovieDetailsLauncherImplRobolectricTest {
 
     private var activityMock = mockk<AppCompatActivity>()
