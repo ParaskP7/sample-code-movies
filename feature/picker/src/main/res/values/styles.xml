@@ -4,11 +4,15 @@
 
     <!-- Do not change style name as it is being used to override 'monthandyearpicker' library's theme. -->
     <style name="MonthPickerDialogStyle" tools:ignore="UnusedResources">
-        <item name="monthBgSelectedColor">@color/monthBgSelectedColor</item>
-        <item name="headerBgColor">@color/headerBgColor</item>
-        <item name="dialogActionButtonColor">@color/dialogActionButtonColor</item>
+        <!-- Background -->
         <item name="monthBgColor">@color/colorBackground</item>
+        <item name="monthBgSelectedColor">@color/monthBgSelectedColor</item>
+        <!-- Font -->
         <item name="monthFontColorNormal">?android:attr/textColorPrimary</item>
+        <!-- Header -->
+        <item name="headerBgColor">@color/headerBgColor</item>
+        <!-- Dialog -->
+        <item name="dialogActionButtonColor">@color/dialogActionButtonColor</item>
     </style>
 
 </resources>
