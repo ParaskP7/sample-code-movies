@@ -43,7 +43,6 @@ dependencies {
     debugImplementation(Deps.LeakCanary.LEAK_CANARY)
 
     implementation(Deps.Kotlin.Core.KOTLIN)
-    implementation(Deps.Android.Core.APP_COMPAT)
     implementation(Deps.Android.Arch.Core.Lifecycle.PROCESS)
     implementation(Deps.Di.Koin.Android.ANDROID)
     implementation(Deps.Log.TIMBER)

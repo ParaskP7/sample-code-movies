@@ -22,7 +22,6 @@ dependencies {
 
     implementation(Deps.Kotlin.Core.KOTLIN)
     implementation(Deps.Material.MATERIAL)
-    implementation(Deps.Android.Core.APP_COMPAT)
     implementation(Deps.Android.Core.CONSTRAINT_LAYOUT)
 
     testImplementation(project(Deps.Project.TestImplementation.Kotlin.TEST))
