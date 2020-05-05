@@ -23,7 +23,9 @@
             style="@style/ivToolbarFilterIcon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:ignore="ContentDescription" />
+            android:visibility="visible"
+            tools:ignore="ContentDescription"
+            tools:visibility="gone" />
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/ivToolbarCloseIcon"
@@ -31,7 +33,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:visibility="gone"
-            tools:ignore="ContentDescription" />
+            tools:ignore="ContentDescription"
+            tools:visibility="visible" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tvToolbarFilterYear"
@@ -39,7 +42,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/tvToolbarFilterYear"
-            android:visibility="invisible" />
+            android:visibility="invisible"
+            tools:visibility="visible" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tvToolbarFilterMonth"
@@ -47,7 +51,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/tvToolbarFilterMonth"
-            android:visibility="invisible" />
+            android:visibility="invisible"
+            tools:visibility="visible" />
 
     </LinearLayout>
 
