@@ -14,7 +14,7 @@ object Versions {
         // Releases: https://github.com/arturbosch/detekt/releases
         const val DETEKT = "1.8.0" // Released: 20-04-20
 
-        // Releases: https://github.com/mannodermaus/android-junit5/releases
+        // Releases: https://github.com/mannodermaus/android-junit5/releases (not working with 'dependencyUpdates')
         const val ANDROID_J_UNIT_5 = "1.6.0.0" // Released: 28-02-20
 
         // Releases: https://github.com/ben-manes/gradle-versions-plugin/releases
