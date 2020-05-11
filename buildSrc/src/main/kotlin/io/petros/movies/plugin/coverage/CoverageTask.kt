@@ -1,5 +1,3 @@
-@file:Suppress("UnusedPrivateMember")
-
 package io.petros.movies.plugin.coverage
 
 import groovy.util.Node
