@@ -8,7 +8,7 @@ plugins {
     id(Plugins.Id.Android.LIBRARY)
     id(Plugins.Id.Kotlin.Android.ANDROID)
     id(Plugins.Id.Quality.DETEKT)
-    // id(Plugins.Id.Test.Android.J_UNIT_5) // FIXME: Failed to notify project evaluation listener.
+    id(Plugins.Id.Test.Android.J_UNIT_5)
     id(Plugins.Id.Dependency.VERSIONS)
     id(Plugins.Id.Test.JACOCO)
     id(Plugins.Id.Test.COVERAGE)

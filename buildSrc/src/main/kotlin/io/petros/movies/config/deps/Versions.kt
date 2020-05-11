@@ -15,7 +15,7 @@ object Versions {
         const val DETEKT = "1.8.0" // Released: 20-04-20
 
         // Releases: https://github.com/mannodermaus/android-junit5/releases (not working with 'dependencyUpdates')
-        const val ANDROID_J_UNIT_5 = "1.6.0.0" // Released: 28-02-20
+        const val ANDROID_J_UNIT_5 = "1.6.2.0" // Released: 03-05-20
 
         // Releases: https://github.com/ben-manes/gradle-versions-plugin/releases
         const val VERSIONS = "0.28.0" // Released: 22-02-20
