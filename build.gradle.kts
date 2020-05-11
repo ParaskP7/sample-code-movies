@@ -283,6 +283,8 @@ fun DefaultConfig.defaultConfig() {
 fun PackagingOptions.packagingOptions() {
     exclude(Android.PackagingOption.Exclude.LICENCE)
     exclude(Android.PackagingOption.Exclude.LICENCE_NOTICE)
+    exclude(Android.PackagingOption.Exclude.AL)
+    exclude(Android.PackagingOption.Exclude.LGPL)
 }
 
 fun CompileOptions.compileOptions() {

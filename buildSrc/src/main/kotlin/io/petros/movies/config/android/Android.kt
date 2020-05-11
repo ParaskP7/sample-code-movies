@@ -34,8 +34,12 @@ object Android {
         object Exclude {
 
             private const val META_INF_DIR = "META-INF"
+
             const val LICENCE = "$META_INF_DIR/LICENSE.md"
             const val LICENCE_NOTICE = "$META_INF_DIR/LICENSE-notice.md"
+
+            const val AL = "$META_INF_DIR/AL2.0"
+            const val LGPL = "$META_INF_DIR/LGPL2.1"
 
         }
 
