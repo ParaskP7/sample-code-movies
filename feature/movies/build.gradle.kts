@@ -1,4 +1,4 @@
-@file:Suppress("InvalidPackageDeclaration", "ForbiddenComment")
+@file:Suppress("InvalidPackageDeclaration")
 
 import io.petros.movies.config.deps.Deps
 

@@ -1,4 +1,4 @@
-@file:Suppress("ForbiddenComment", "UnusedPrivateMember")
+@file:Suppress("UnusedPrivateMember")
 
 package io.petros.movies.plugin.coverage
 

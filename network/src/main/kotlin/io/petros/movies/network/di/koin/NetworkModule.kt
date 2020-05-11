@@ -34,7 +34,6 @@ private fun httpLoggingInterceptor(): HttpLoggingInterceptor {
     return logging
 }
 
-@Suppress("ForbiddenComment")
 private fun okHttpClient(
     isDebug: Boolean,
     loggingInterceptor: HttpLoggingInterceptor

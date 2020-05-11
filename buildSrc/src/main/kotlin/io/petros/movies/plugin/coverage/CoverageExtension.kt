@@ -1,5 +1,3 @@
-@file:Suppress("ForbiddenComment")
-
 package io.petros.movies.plugin.coverage
 
 open class CoverageExtension {
