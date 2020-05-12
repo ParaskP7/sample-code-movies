@@ -27,11 +27,19 @@ class MoviesActivity : BaseActivity(),
     MovieYearPickerFragmentCallback,
     MovieMonthPickerFragmentCallback {
 
+    companion object {
+
+        private const val INSTANCE_STATE_KEY_RELOAD_ITEMS = "RELOAD_ITEMS"
+
+    }
+
     private val viewModel: MoviesViewModel by viewModel()
 
     private val moviesNavigator: MoviesNavigator by inject { parametersOf(this) }
 
     private val adapter = MoviesAdapter()
+
+    private var reloadItems = false
 
     @Suppress("LateinitUsage") private lateinit var binding: MoviesActivityBinding
 
@@ -40,7 +48,7 @@ class MoviesActivity : BaseActivity(),
         initToolbar()
         initRecyclerView()
         initObservers()
-        loadDataOrRestore()
+        viewModel.loadMoviesOrRestore(binding.toolbar.getYear(), binding.toolbar.getMonth())
     }
 
     private fun initToolbar() {
@@ -68,15 +76,14 @@ class MoviesActivity : BaseActivity(),
 
     private fun observeMovies() {
         viewModel.moviesObservable.observe(this, Observer { paginationData ->
-            paginationData?.let { adapter.setItems(it) }
+            paginationData?.let {
+                adapter.setItems(it, reloadItems)
+                reloadItems = false
+            }
         })
     }
 
     /* DATA LOADING */
-
-    override fun loadDataOrRestore() {
-        viewModel.loadMoviesOrRestore(binding.toolbar.getYear(), binding.toolbar.getMonth())
-    }
 
     override fun loadData(page: Int?) {
         viewModel.loadMovies(binding.toolbar.getYear(), binding.toolbar.getMonth(), page)
@@ -118,11 +125,21 @@ class MoviesActivity : BaseActivity(),
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         super.onRestoreInstanceState(savedInstanceState)
         binding.toolbar.onRestoreInstanceState(savedInstanceState)
+        onRestoreDoReloadInstanceState(savedInstanceState)
+    }
+
+    private fun onRestoreDoReloadInstanceState(savedInstanceState: Bundle) {
+        reloadItems = savedInstanceState.getBoolean(INSTANCE_STATE_KEY_RELOAD_ITEMS)
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
         binding.toolbar.onSaveInstanceState(outState)
+        onSaveDoReloadInstanceState(outState)
+    }
+
+    private fun onSaveDoReloadInstanceState(outState: Bundle) {
+        outState.putBoolean(INSTANCE_STATE_KEY_RELOAD_ITEMS, true)
     }
 
     /* CONTRACT */

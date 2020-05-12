@@ -86,12 +86,12 @@ class InfiniteAdapterRobolectricTest {
     }
 
     @Test
-    fun `given page restore, when setting items to adapter, then all page items are restored`() {
+    fun `given page reload, when setting items to adapter, then all page items are restored`() {
         var paginationData = setItems(PaginationData(), SECOND_PAGE, firstPageItems)
         paginationData = setItems(paginationData, SECOND_PAGE + 1, secondPageItems)
         expect { that(testedClass.items()).isEqualTo(firstPageItems + secondPageItems) }
 
-        testedClass.setItems(paginationData)
+        testedClass.setItems(paginationData, true)
 
         expect { that(testedClass.items()).isEqualTo(firstPageItems + secondPageItems) }
     }
@@ -104,7 +104,7 @@ class InfiniteAdapterRobolectricTest {
         movies: List<Movie>
     ): PaginationData<Movie> {
         paginationData.addPage(MoviesPage(nextPage, movies))
-        testedClass.setItems(paginationData)
+        testedClass.setItems(paginationData, false)
         return paginationData
     }
 

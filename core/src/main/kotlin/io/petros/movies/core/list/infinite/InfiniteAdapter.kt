@@ -5,7 +5,6 @@ import androidx.annotation.VisibleForTesting
 import androidx.recyclerview.widget.RecyclerView
 import io.petros.movies.domain.model.common.PaginationData
 
-@Suppress("TooManyFunctions")
 abstract class InfiniteAdapter<T>(
     private val items: ArrayList<T> = arrayListOf()
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
@@ -13,8 +12,6 @@ abstract class InfiniteAdapter<T>(
     @VisibleForTesting(otherwise = VisibleForTesting.PROTECTED)
     var context: Context? = null
 
-    private var allPageItems: List<T> = listOf()
-    private var latestPage: List<T>? = null
     private var nextPage: Int? = null
 
     fun items(): List<T> = items
@@ -41,31 +38,20 @@ abstract class InfiniteAdapter<T>(
 
     /* ITEMS */
 
-    fun setItems(paginationData: PaginationData<T>) {
-        if (shouldReload(paginationData)) reloadItems(paginationData) else appendItems(paginationData)
-        saveState(paginationData)
+    fun setItems(paginationData: PaginationData<T>, reloadItems: Boolean) {
+        if (paginationData.isFirstPage() || reloadItems) reloadItems(paginationData) else appendItems(paginationData)
         notifyDataSetChanged()
     }
-
-    private fun shouldReload(paginationData: PaginationData<T>): Boolean =
-        paginationData.isFirstPage() || isRestoreState(paginationData)
-
-    private fun isRestoreState(newPaginationData: PaginationData<T>) =
-        allPageItems == newPaginationData.items() &&
-                latestPage == newPaginationData.latestItems() &&
-                nextPage == newPaginationData.nextPage()
 
     private fun reloadItems(paginationData: PaginationData<T>) {
         items.clear()
         items.addAll(paginationData.items())
+        nextPage = paginationData.nextPage()
     }
 
-    private fun appendItems(paginationData: PaginationData<T>) = paginationData.latestItems()?.let { items.addAll(it) }
-
-    private fun saveState(newPaginationData: PaginationData<T>) {
-        allPageItems = newPaginationData.items()
-        latestPage = newPaginationData.latestItems()
-        nextPage = newPaginationData.nextPage()
+    private fun appendItems(paginationData: PaginationData<T>) {
+        paginationData.latestItems()?.let { items.addAll(it) }
+        nextPage = paginationData.nextPage()
     }
 
 }

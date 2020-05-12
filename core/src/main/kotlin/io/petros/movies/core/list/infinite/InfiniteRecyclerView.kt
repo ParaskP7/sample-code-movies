@@ -36,8 +36,6 @@ class InfiniteRecyclerView(
 
     interface Listener {
 
-        fun loadDataOrRestore()
-
         fun loadData(page: Int? = null)
 
     }
