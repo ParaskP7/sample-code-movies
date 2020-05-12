@@ -18,6 +18,7 @@ plugins {
 
 dependencies {
     implementation(project(Deps.Project.Implementation.Kotlin.DOMAIN))
+    implementation(project(Deps.Project.Implementation.Android.Core.ANDROID_UTILS))
 
     implementation(Deps.Kotlin.Core.KOTLIN)
     implementation(Deps.Material.MATERIAL)
