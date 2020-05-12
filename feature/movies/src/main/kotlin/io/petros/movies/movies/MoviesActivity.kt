@@ -88,10 +88,6 @@ class MoviesActivity : BaseActivity(),
         moviesNavigator.navigate(movie)
     }
 
-    override fun onErrorClick() {
-        loadDataOrRestore()
-    }
-
     /* CALLBACK */
 
     override fun onCloseClicked() {

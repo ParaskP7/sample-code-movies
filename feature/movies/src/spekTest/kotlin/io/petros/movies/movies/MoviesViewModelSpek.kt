@@ -72,9 +72,6 @@ class MoviesViewModelSpek : ViewModelSpek({
             Then("the load movies use case executes") {
                 coVerify { loadMoviesUseCaseMock.execute(LoadMoviesUseCase.Params(MOVIE_YEAR, MOVIE_MONTH, SECOND_PAGE)) }
             }
-            Then("an error status is posted") {
-                coVerify { statusObservableMock.onChanged(AdapterStatus.ERROR) }
-            }
             Then("a null page is posted") {
                 coVerify { moviesPageObservableMock.onChanged(null) }
             }

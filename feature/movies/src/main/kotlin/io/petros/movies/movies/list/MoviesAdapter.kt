@@ -4,10 +4,8 @@ import android.content.Context
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import io.petros.movies.core.list.AdapterStatus
-import io.petros.movies.core.list.ErrorViewHolder
 import io.petros.movies.core.list.ProgressViewHolder
 import io.petros.movies.core.list.infinite.InfiniteAdapter
-import io.petros.movies.core.list.item.ErrorItemView
 import io.petros.movies.core.list.item.ProgressItemView
 import io.petros.movies.domain.model.movie.Movie
 import io.petros.movies.movies.list.item.MovieItemCallback
@@ -21,7 +19,6 @@ class MoviesAdapter(
     companion object {
         internal const val VIEW_TYPE_PROGRESS = 0
         internal const val VIEW_TYPE_MOVIE = 1
-        internal const val VIEW_TYPE_ERROR = 101
     }
 
     var itemCallback: MovieItemCallback? = null
@@ -52,7 +49,6 @@ class MoviesAdapter(
     private fun onCreateViewHolderWithContext(viewType: Int, context: Context) = when (viewType) {
         VIEW_TYPE_MOVIE -> MovieViewHolder(MovieItemView(context), itemCallback)
         VIEW_TYPE_PROGRESS -> ProgressViewHolder(ProgressItemView(context))
-        VIEW_TYPE_ERROR -> ErrorViewHolder(ErrorItemView(context)) { itemCallback?.onErrorClick() }
         else -> throw IllegalArgumentException("View type out of range. [View Type: $viewType]")
     }
 
@@ -71,7 +67,6 @@ class MoviesAdapter(
     private fun getItemViewTypeAtLastPosition() = when (status) {
         AdapterStatus.IDLE -> VIEW_TYPE_MOVIE
         AdapterStatus.LOADING -> VIEW_TYPE_PROGRESS
-        AdapterStatus.ERROR -> VIEW_TYPE_ERROR
     }
 
     private fun isAtLastPosition(position: Int) = position == max(itemCount - 1, 0)

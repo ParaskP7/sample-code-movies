@@ -20,13 +20,4 @@
         <item name="android:padding">@dimen/spacingL</item>
     </style>
 
-    <style name="tvErrorItem">
-        <item name="android:layout_gravity">center</item>
-        <item name="android:gravity">center</item>
-        <item name="android:padding">@dimen/spacingL</item>
-        <item name="android:text">@string/tvErrorItem</item>
-        <item name="android:textColor">?attr/colorError</item>
-        <item name="android:textAppearance">?attr/textAppearanceHeadline6</item>
-    </style>
-
 </resources>

@@ -6,9 +6,7 @@ import io.mockk.verify
 import io.petros.movies.android_test.app.TestApp
 import io.petros.movies.android_test.context.TestContextProvider.context
 import io.petros.movies.core.list.AdapterStatus
-import io.petros.movies.core.list.ErrorViewHolder
 import io.petros.movies.core.list.ProgressViewHolder
-import io.petros.movies.movies.list.MoviesAdapter.Companion.VIEW_TYPE_ERROR
 import io.petros.movies.movies.list.MoviesAdapter.Companion.VIEW_TYPE_MOVIE
 import io.petros.movies.movies.list.MoviesAdapter.Companion.VIEW_TYPE_PROGRESS
 import io.petros.movies.test.domain.movie
@@ -61,13 +59,6 @@ class MoviesAdapterRobolectricTest {
         expect { that(testedClass.isLoading()).isTrue() }
     }
 
-    @Test
-    fun `given status change to error, when is loading is queried, then is loading is false`() {
-        testedClass.status = AdapterStatus.ERROR
-
-        expect { that(testedClass.isLoading()).isFalse() }
-    }
-
     /* ITEMS */
 
     @Test
@@ -108,15 +99,6 @@ class MoviesAdapterRobolectricTest {
         val viewHolder = testedClass.onCreateViewHolder(mockk(), VIEW_TYPE_PROGRESS)
 
         expect { that(viewHolder.javaClass.name).isEqualTo(ProgressViewHolder::class.java.name) }
-    }
-
-    @Test
-    fun `given an error view type, when creating a view holder, then the correct view holder is returned`() {
-        testedClass.onAttachedToRecyclerView(recyclerView)
-
-        val viewHolder = testedClass.onCreateViewHolder(mockk(), VIEW_TYPE_ERROR)
-
-        expect { that(viewHolder.javaClass.name).isEqualTo(ErrorViewHolder::class.java.name) }
     }
 
     @Test(expected = IllegalArgumentException::class)
@@ -165,19 +147,6 @@ class MoviesAdapterRobolectricTest {
         verify(exactly = 0) { viewHolderMock.bind(any()) }
     }
 
-    @Test
-    fun `given an error view type at last position, when binding a view holder, then a movie item is not bind`() {
-        testedClass.onAttachedToRecyclerView(recyclerView)
-        testedClass.onCreateViewHolder(mockk(), VIEW_TYPE_ERROR)
-        testedClass.status = AdapterStatus.ERROR
-        val position = items.size
-        val viewHolderMock = mockk<MovieViewHolder>()
-
-        testedClass.onBindViewHolder(viewHolderMock, position)
-
-        verify(exactly = 0) { viewHolderMock.bind(any()) }
-    }
-
     /* NAVIGATION */
 
     @Test
@@ -203,15 +172,6 @@ class MoviesAdapterRobolectricTest {
         val result = testedClass.getItemViewType(items.size)
 
         expect { that(result).isEqualTo(VIEW_TYPE_PROGRESS) }
-    }
-
-    @Test
-    fun `given at last position and error, when getting the item view type, then an error view type is returned`() {
-        testedClass.status = AdapterStatus.ERROR
-
-        val result = testedClass.getItemViewType(items.size)
-
-        expect { that(result).isEqualTo(VIEW_TYPE_ERROR) }
     }
 
 }

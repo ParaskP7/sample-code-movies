@@ -42,7 +42,6 @@ class MoviesViewModel(
 
     private fun onLoadMoviesError(error: Exception) {
         Timber.w(error, "Load movies error.")
-        statusObservable.postValue(AdapterStatus.ERROR)
         moviesObservable.postValue(null)
     }
 

@@ -87,15 +87,6 @@ class MoviesViewModelTest {
     }
 
     @Test
-    fun `when load movies fails, then an error status is posted`() {
-        coEvery { loadMoviesUseCaseMock.execute(any()) } returns NetworkError(Exception())
-
-        testedClass.loadMovies()
-
-        coVerify { statusObservableMock.onChanged(AdapterStatus.ERROR) }
-    }
-
-    @Test
     fun `when load movies fails, then a null page is posted`() {
         coEvery { loadMoviesUseCaseMock.execute(any()) } returns NetworkError(Exception())
 

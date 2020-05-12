@@ -6,6 +6,4 @@ interface MovieItemCallback {
 
     fun onClick(movie: SharedElementMovie)
 
-    fun onErrorClick()
-
 }
