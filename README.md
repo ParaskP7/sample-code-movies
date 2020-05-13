@@ -274,7 +274,7 @@ Below is a list of all those ```I REALLY WANNA DO``` future architecture and lib
 24. **![#2cb42c](https://placehold.it/15/2cb42c/000000?text=+) `DONE`** Enhance MVVM with MVI.
     To get an understanding of MVI and how it applies to MVVM (or MVP), start with this Article [MVI](http://hannesdorfmann.com/android/model-view-intent)
     ```(Model-View_Intent, is an architecture enhancment that tries to solve the state problem, which most complex application have, especially when the screen complexity grows)```
-25. Replace Manual Navigation with the Navigation Architecture Component.
+25. **![#ffff00](https://placehold.it/15/ffff00/000000?text=+) `IN PROGRESS`** Replace Manual Navigation with the Navigation Architecture Component.
     For more info, see [Navigation Architecture Component](https://developer.android.com/topic/libraries/architecture/navigation)
     ```(The Navigation Architecture Component simplifies the implementation of navigation in an Android app)```
 26. Add Offline Support with Room. 
