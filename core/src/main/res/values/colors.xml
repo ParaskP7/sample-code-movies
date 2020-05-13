@@ -9,6 +9,8 @@
     <color name="colorSecondaryVariant">@color/pink_material_A700</color>
     <color name="colorBackground">@color/design_default_color_background</color>
     <color name="colorOnBackground">@color/colorPrimary</color>
+    <color name="colorSnackbarBackground">@color/colorPrimary</color>
+    <color name="colorSnackbarText">@color/white</color>
 
     <!-- App -->
     <color name="colorContainer">@color/white</color>

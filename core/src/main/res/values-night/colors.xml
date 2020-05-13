@@ -4,6 +4,8 @@
     <!-- Theme -->
     <color name="colorBackground">@color/black</color>
     <color name="colorOnBackground">@color/colorPrimaryVariant</color>
+    <color name="colorSnackbarBackground">@color/black</color>
+    <color name="colorSnackbarText">@color/design_default_color_error</color>
 
     <!-- App -->
     <color name="colorContainer">@color/colorPrimaryVariant</color>
