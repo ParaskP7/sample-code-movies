@@ -7,4 +7,8 @@
     <string name="tvToolbarFilterYear">Year</string>
     <string name="tvToolbarFilterMonth">Month</string>
 
+    <!-- Snackbar -->
+    <string name="sbLoadMoviesError">There was an error while loading movies!</string>
+    <string name="sbLoadMoviesErrorAction">RETRY</string>
+
 </resources>

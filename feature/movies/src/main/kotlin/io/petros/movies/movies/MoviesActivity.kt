@@ -2,6 +2,7 @@ package io.petros.movies.movies
 
 import android.os.Bundle
 import android.view.View
+import com.google.android.material.snackbar.Snackbar
 import io.petros.movies.core.activity.MviActivity
 import io.petros.movies.core.list.AdapterStatus
 import io.petros.movies.core.list.infinite.InfiniteRecyclerView
@@ -39,6 +40,8 @@ class MoviesActivity : MviActivity<MoviesIntent, MoviesState, MoviesSideEffect, 
     private val moviesNavigator: MoviesNavigator by inject { parametersOf(this) }
 
     private val adapter = MoviesAdapter()
+
+    private var snackbar: Snackbar? = null
 
     private var reloadItems = false
 
@@ -79,6 +82,7 @@ class MoviesActivity : MviActivity<MoviesIntent, MoviesState, MoviesSideEffect, 
 
     private fun renderLoadingState() {
         adapter.status = AdapterStatus.LOADING
+        snackbar?.dismiss()
     }
 
     private fun renderLoadedState(state: MoviesState) {
@@ -93,9 +97,19 @@ class MoviesActivity : MviActivity<MoviesIntent, MoviesState, MoviesSideEffect, 
         is MoviesSideEffect.Error -> renderErrorSideEffect()
     }
 
-    @Suppress("ForbiddenComment")
     private fun renderErrorSideEffect() {
-        // TODO: Implement side effect
+        snackbar = Snackbar
+            .make(binding.ctrMovies, R.string.sbLoadMoviesError, Snackbar.LENGTH_INDEFINITE)
+            .setAction(R.string.sbLoadMoviesErrorAction) {
+                viewModel.process(
+                    MoviesIntent.LoadMovies(
+                        binding.toolbar.getYear(),
+                        binding.toolbar.getMonth(),
+                        adapter.nextPage()
+                    )
+                )
+            }
+        snackbar?.show()
     }
 
     /* DATA LOADING */
