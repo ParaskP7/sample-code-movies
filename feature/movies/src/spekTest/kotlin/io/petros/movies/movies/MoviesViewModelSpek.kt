@@ -6,128 +6,176 @@ import io.mockk.coVerify
 import io.mockk.mockk
 import io.mockk.verify
 import io.petros.movies.android_test.utils.ViewModelSpek
-import io.petros.movies.core.list.AdapterStatus
 import io.petros.movies.domain.interactor.movie.LoadMoviesUseCase
 import io.petros.movies.domain.model.NetworkError
 import io.petros.movies.domain.model.Result
 import io.petros.movies.domain.model.common.PaginationData
 import io.petros.movies.domain.model.movie.Movie
-import io.petros.movies.test.domain.movie
+import io.petros.movies.domain.model.movie.MoviesPage
+import io.petros.movies.domain.model.movie.MoviesStatus
 import io.petros.movies.test.domain.moviesPage
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.spekframework.spek2.style.gherkin.Feature
-import strikt.api.expect
-import strikt.assertions.isEqualTo
 
-private val statusObservableMock = mockk<Observer<AdapterStatus>>()
-private val moviesPageObservableMock = mockk<Observer<PaginationData<Movie>>>()
+private val stateMock = mockk<Observer<MoviesState>>()
+private val sideEffectMock = mockk<Observer<MoviesSideEffect>>()
 
 @ExperimentalCoroutinesApi
 private fun setupViewModel(testedClass: MoviesViewModel) {
-    testedClass.statusObservable.observeForever(statusObservableMock)
-    testedClass.moviesObservable.observeForever(moviesPageObservableMock)
+    testedClass.state().observeForever(stateMock)
+    testedClass.sideEffect().observeForever(sideEffectMock)
 }
 
 @ExperimentalCoroutinesApi
 class MoviesViewModelSpek : ViewModelSpek({
 
-    val previousMoviesPage = moviesPage(SECOND_PAGE, listOf(movie(), movie()))
     val moviesPage = Result.Success(moviesPage())
     val loadMoviesUseCaseMock = mockk<LoadMoviesUseCase>()
 
-    Feature("Movies view model") {
+    Feature("Movies view model for load") {
         val testedClass by memoized { MoviesViewModel(loadMoviesUseCaseMock) }
+        Scenario("loading") {
+            When("loading movies") {
+                setupViewModel(testedClass)
+                testedClass.process(MoviesIntent.LoadMovies(MOVIE_YEAR, MOVIE_MONTH, SECOND_PAGE))
+            }
+            Then("the expected loading state is posted") {
+                coVerify {
+                    stateMock.onChanged(
+                        MoviesState(
+                            status = MoviesStatus.Loading,
+                            movies = PaginationData()
+                        )
+                    )
+                }
+            }
+        }
         Scenario("on success") {
+            val paginationData = PaginationData<Movie>()
             Given("a page as a result") {
                 setupViewModel(testedClass)
                 coEvery { loadMoviesUseCaseMock.execute(any()) } returns moviesPage
             }
             When("loading movies") {
-                testedClass.loadMovies(MOVIE_YEAR, MOVIE_MONTH, SECOND_PAGE)
-            }
-            Then("a loading status is posted") {
-                coVerify { statusObservableMock.onChanged(AdapterStatus.LOADING) }
+                testedClass.process(MoviesIntent.LoadMovies(MOVIE_YEAR, MOVIE_MONTH, SECOND_PAGE))
             }
             Then("the load movies use case executes") {
                 coVerify { loadMoviesUseCaseMock.execute(LoadMoviesUseCase.Params(MOVIE_YEAR, MOVIE_MONTH, SECOND_PAGE)) }
             }
-            Then("an idle status is posted") {
-                verify { statusObservableMock.onChanged(AdapterStatus.IDLE) }
-            }
-            Then("a page is posted") {
-                verify { moviesPageObservableMock.onChanged(testedClass.paginationData.addPage(moviesPage.value)) }
+            Then("the expected loaded state is posted") {
+                verify {
+                    stateMock.onChanged(
+                        MoviesState(
+                            status = MoviesStatus.Loaded,
+                            movies = paginationData.addPage(moviesPage.value)
+                        )
+                    )
+                }
             }
         }
         Scenario("on failure") {
-            Given("an exception as a result") {
+            val paginationData = PaginationData<Movie>()
+            Given("a page as a result") {
                 setupViewModel(testedClass)
                 coEvery { loadMoviesUseCaseMock.execute(any()) } returns NetworkError(Exception())
             }
             When("loading movies") {
-                testedClass.loadMovies(MOVIE_YEAR, MOVIE_MONTH, SECOND_PAGE)
-            }
-            Then("a loading status is posted") {
-                coVerify { statusObservableMock.onChanged(AdapterStatus.LOADING) }
+                testedClass.process(MoviesIntent.LoadMovies(MOVIE_YEAR, MOVIE_MONTH, SECOND_PAGE))
             }
             Then("the load movies use case executes") {
                 coVerify { loadMoviesUseCaseMock.execute(LoadMoviesUseCase.Params(MOVIE_YEAR, MOVIE_MONTH, SECOND_PAGE)) }
             }
-            Then("a null page is posted") {
-                coVerify { moviesPageObservableMock.onChanged(null) }
+            Then("the expected loaded state is posted") {
+                verify {
+                    stateMock.onChanged(
+                        MoviesState(
+                            status = MoviesStatus.Loaded,
+                            movies = paginationData.addPage(MoviesPage(paginationData.nextPage(), emptyList()))
+                        )
+                    )
+                }
+            }
+            Then("the expected error side effect is posted") {
+                verify { sideEffectMock.onChanged(MoviesReducer.once(MoviesAction.Error)) }
             }
         }
     }
 
-    Feature("Movies view model with no pages") {
+    Feature("Movies view model for reload") {
         val testedClass by memoized { MoviesViewModel(loadMoviesUseCaseMock) }
-        Scenario("loading or restoring movies") {
-            Given("no pages") {
+        Scenario("reloading") {
+            When("reloading movies") {
                 setupViewModel(testedClass)
+                testedClass.process(MoviesIntent.ReloadMovies(MOVIE_YEAR, MOVIE_MONTH))
             }
-            When("loading movies or restoring") {
-                testedClass.loadMoviesOrRestore()
+            Then("the expected reloading state is posted") {
+                coVerify {
+                    stateMock.onChanged(
+                        MoviesState(
+                            status = MoviesStatus.Init,
+                            movies = PaginationData()
+                        )
+                    )
+                }
             }
-            Then("a loading status is posted") {
-                coVerify { statusObservableMock.onChanged(AdapterStatus.LOADING) }
-            }
-            Then("the load movies use case executes") {
-                coVerify { loadMoviesUseCaseMock.execute(LoadMoviesUseCase.Params(null, null, null)) }
-            }
-        }
-    }
-
-    Feature("Movies view model with a page") {
-        val testedClass by memoized { MoviesViewModel(loadMoviesUseCaseMock) }
-        Scenario("loading or restoring movies") {
-            Given("a pages") {
-                setupViewModel(testedClass)
-                testedClass.paginationData.addPage(previousMoviesPage)
-            }
-            When("loading movies or restoring") {
-                testedClass.loadMoviesOrRestore()
-            }
-            Then("restore is triggered") {
-                verify { moviesPageObservableMock.onChanged(testedClass.paginationData) }
+            Then("the expected loading state is posted") {
+                coVerify {
+                    stateMock.onChanged(
+                        MoviesState(
+                            status = MoviesStatus.Loading,
+                            movies = PaginationData()
+                        )
+                    )
+                }
             }
         }
-    }
-
-    Feature("Movies view model during reload") {
-        val testedClass by memoized { MoviesViewModel(loadMoviesUseCaseMock) }
-        Scenario("reloading movies") {
-            Given("a page") {
+        Scenario("on success") {
+            val paginationData = PaginationData<Movie>()
+            Given("a page as a result") {
                 setupViewModel(testedClass)
                 coEvery { loadMoviesUseCaseMock.execute(any()) } returns moviesPage
-                testedClass.paginationData.addPage(previousMoviesPage)
             }
             When("reloading movies") {
-                testedClass.reloadMovies(MOVIE_YEAR, MOVIE_MONTH)
+                testedClass.process(MoviesIntent.ReloadMovies(MOVIE_YEAR, MOVIE_MONTH))
             }
-            Then("the existing data gets cleared") {
-                expect { that(testedClass.paginationData.items().size).isEqualTo(moviesPage.value.movies.size) }
-            }
-            Then("a new load of movies is triggered") {
+            Then("the load movies use case executes") {
                 coVerify { loadMoviesUseCaseMock.execute(LoadMoviesUseCase.Params(MOVIE_YEAR, MOVIE_MONTH, null)) }
+            }
+            Then("the expected loaded state is posted") {
+                verify {
+                    stateMock.onChanged(
+                        MoviesState(
+                            status = MoviesStatus.Loaded,
+                            movies = paginationData.addPage(moviesPage.value)
+                        )
+                    )
+                }
+            }
+        }
+        Scenario("on failure") {
+            val paginationData = PaginationData<Movie>()
+            Given("a page as a result") {
+                setupViewModel(testedClass)
+                coEvery { loadMoviesUseCaseMock.execute(any()) } returns NetworkError(Exception())
+            }
+            When("reloading movies") {
+                testedClass.process(MoviesIntent.ReloadMovies(MOVIE_YEAR, MOVIE_MONTH))
+            }
+            Then("the load movies use case executes") {
+                coVerify { loadMoviesUseCaseMock.execute(LoadMoviesUseCase.Params(MOVIE_YEAR, MOVIE_MONTH, null)) }
+            }
+            Then("the expected loaded state is posted") {
+                verify {
+                    stateMock.onChanged(
+                        MoviesState(
+                            status = MoviesStatus.Loaded,
+                            movies = paginationData.addPage(MoviesPage(paginationData.nextPage(), emptyList()))
+                        )
+                    )
+                }
+            }
+            Then("the expected error side effect is posted") {
+                verify { sideEffectMock.onChanged(MoviesReducer.once(MoviesAction.Error)) }
             }
         }
     }

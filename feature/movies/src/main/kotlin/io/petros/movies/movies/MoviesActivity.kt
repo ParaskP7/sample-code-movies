@@ -2,9 +2,10 @@ package io.petros.movies.movies
 
 import android.os.Bundle
 import android.view.View
-import androidx.lifecycle.Observer
-import io.petros.movies.core.activity.BaseActivity
+import io.petros.movies.core.activity.MviActivity
+import io.petros.movies.core.list.AdapterStatus
 import io.petros.movies.core.list.infinite.InfiniteRecyclerView
+import io.petros.movies.domain.model.movie.MoviesStatus
 import io.petros.movies.movie_details.navigator.SharedElementMovie
 import io.petros.movies.movies.databinding.MoviesActivityBinding
 import io.petros.movies.movies.list.MoviesAdapter
@@ -20,7 +21,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
 
 @Suppress("TooManyFunctions")
-class MoviesActivity : BaseActivity(),
+class MoviesActivity : MviActivity<MoviesIntent, MoviesState, MoviesSideEffect, MoviesViewModel>(),
     MoviesToolbarCallback,
     MovieItemCallback,
     InfiniteRecyclerView.Listener,
@@ -33,7 +34,7 @@ class MoviesActivity : BaseActivity(),
 
     }
 
-    private val viewModel: MoviesViewModel by viewModel()
+    override val viewModel: MoviesViewModel by viewModel()
 
     private val moviesNavigator: MoviesNavigator by inject { parametersOf(this) }
 
@@ -47,8 +48,6 @@ class MoviesActivity : BaseActivity(),
         super.onCreate(savedInstanceState)
         initToolbar()
         initRecyclerView()
-        initObservers()
-        viewModel.loadMoviesOrRestore(binding.toolbar.getYear(), binding.toolbar.getMonth())
     }
 
     private fun initToolbar() {
@@ -61,32 +60,54 @@ class MoviesActivity : BaseActivity(),
         binding.recyclerView.listener = this
     }
 
-    /* OBSERVERS */
+    /* STATE */
 
-    private fun initObservers() {
-        observeStatus()
-        observeMovies()
+    override fun renderState(state: MoviesState) = when (state.status) {
+        is MoviesStatus.Init -> renderInitState()
+        is MoviesStatus.Loading -> renderLoadingState()
+        is MoviesStatus.Loaded -> renderLoadedState(state)
     }
 
-    private fun observeStatus() {
-        viewModel.statusObservable.observe(this, Observer { adapterStatus ->
-            adapterStatus?.let { adapter.status = it }
-        })
+    private fun renderInitState() {
+        viewModel.process(
+            MoviesIntent.LoadMovies(
+                binding.toolbar.getYear(),
+                binding.toolbar.getMonth()
+            )
+        )
     }
 
-    private fun observeMovies() {
-        viewModel.moviesObservable.observe(this, Observer { paginationData ->
-            paginationData?.let {
-                adapter.setItems(it, reloadItems)
-                reloadItems = false
-            }
-        })
+    private fun renderLoadingState() {
+        adapter.status = AdapterStatus.LOADING
+    }
+
+    private fun renderLoadedState(state: MoviesState) {
+        adapter.status = AdapterStatus.IDLE
+        adapter.setItems(state.movies, reloadItems)
+        reloadItems = false
+    }
+
+    /* SIDE EFFECT */
+
+    override fun renderSideEffect(sideEffect: MoviesSideEffect) = when (sideEffect) {
+        is MoviesSideEffect.Error -> renderErrorSideEffect()
+    }
+
+    @Suppress("ForbiddenComment")
+    private fun renderErrorSideEffect() {
+        // TODO: Implement side effect
     }
 
     /* DATA LOADING */
 
     override fun loadData(page: Int?) {
-        viewModel.loadMovies(binding.toolbar.getYear(), binding.toolbar.getMonth(), page)
+        viewModel.process(
+            MoviesIntent.LoadMovies(
+                binding.toolbar.getYear(),
+                binding.toolbar.getMonth(),
+                page
+            )
+        )
     }
 
     /* NAVIGATION */
@@ -98,7 +119,9 @@ class MoviesActivity : BaseActivity(),
     /* CALLBACK */
 
     override fun onCloseClicked() {
-        viewModel.reloadMovies()
+        viewModel.process(
+            MoviesIntent.ReloadMovies()
+        )
     }
 
     override fun onYearClicked() {
@@ -112,12 +135,21 @@ class MoviesActivity : BaseActivity(),
     override fun onYearPicked(year: Int) {
         binding.toolbar.setYear(year)
         binding.toolbar.showMonth()
-        viewModel.reloadMovies(year)
+        viewModel.process(
+            MoviesIntent.ReloadMovies(
+                year
+            )
+        )
     }
 
     override fun onMonthPicked(month: Int) {
         binding.toolbar.setMonth(month)
-        viewModel.reloadMovies(binding.toolbar.getYear(), month)
+        viewModel.process(
+            MoviesIntent.ReloadMovies(
+                binding.toolbar.getYear(),
+                month
+            )
+        )
     }
 
     /* CONFIGURATION CHANGE */
