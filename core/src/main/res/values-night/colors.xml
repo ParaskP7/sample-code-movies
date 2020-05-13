@@ -8,6 +8,6 @@
     <color name="colorSnackbarText">@color/design_default_color_error</color>
 
     <!-- App -->
-    <color name="colorContainer">@color/colorPrimaryVariant</color>
+    <color name="colorContainerBackground">@color/colorPrimaryVariant</color>
 
 </resources>

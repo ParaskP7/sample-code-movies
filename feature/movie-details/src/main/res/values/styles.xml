@@ -3,7 +3,7 @@
 <resources>
 
     <style name="ctrMovieDetails">
-        <item name="android:background">@color/colorContainer</item>
+        <item name="android:background">@color/colorContainerBackground</item>
     </style>
 
     <style name="ivBackdrop">

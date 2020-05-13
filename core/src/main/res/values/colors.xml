@@ -13,6 +13,6 @@
     <color name="colorSnackbarText">@color/white</color>
 
     <!-- App -->
-    <color name="colorContainer">@color/white</color>
+    <color name="colorContainerBackground">@color/white</color>
 
 </resources>
