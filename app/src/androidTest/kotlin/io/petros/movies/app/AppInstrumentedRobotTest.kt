@@ -18,7 +18,6 @@ import io.petros.movies.app.robot.picker.MonthPickerRobot.Companion.MOVIE_MONTH_
 import io.petros.movies.app.robot.picker.YearPickerRobot.Companion.MOVIE_YEAR_PICKER_TITLE
 import io.petros.movies.app.robot.picker.YearPickerRobot.Companion.MOVIE_YEAR_PICKER_YEAR_2020
 import io.petros.movies.app.robot.robot
-import io.petros.movies.movies.MoviesActivity
 import io.petros.movies.test.utils.MOCK_WEB_SERVER_PORT
 import io.petros.movies.test.utils.mockResponse
 import okhttp3.mockwebserver.MockWebServer
@@ -109,7 +108,7 @@ class AppInstrumentedRobotTest {
     }
 
     @get:Rule
-    val activityRule = ActivityTestRule(MoviesActivity::class.java, false, false)
+    val activityRule = ActivityTestRule(AppActivity::class.java, false, false)
 
     private val server = MockWebServer()
 

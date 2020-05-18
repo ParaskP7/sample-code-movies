@@ -15,7 +15,6 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
 import androidx.test.rule.ActivityTestRule
 import io.petros.movies.R
-import io.petros.movies.movies.MoviesActivity
 import io.petros.movies.movies.list.MovieViewHolder
 import io.petros.movies.test.utils.MOCK_WEB_SERVER_PORT
 import io.petros.movies.test.utils.mockResponse
@@ -135,7 +134,7 @@ class AppInstrumentedTest {
     }
 
     @get:Rule
-    val activityRule = ActivityTestRule(MoviesActivity::class.java, false, false)
+    val activityRule = ActivityTestRule(AppActivity::class.java, false, false)
 
     private val server = MockWebServer()
 
