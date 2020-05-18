@@ -37,6 +37,9 @@ dependencies {
     debugImplementation(Deps.LeakCanary.LEAK_CANARY)
 
     implementation(Deps.Kotlin.Core.KOTLIN)
+    implementation(Deps.Material.MATERIAL)
+    implementation(Deps.Android.Core.APP_COMPAT)
+    implementation(Deps.Android.Core.CONSTRAINT_LAYOUT)
     implementation(Deps.Android.Arch.Core.Lifecycle.PROCESS)
     implementation(Deps.Android.Arch.Core.Navigation.FRAGMENT_KTX)
     implementation(Deps.Android.Arch.Core.Navigation.UI_KTX)

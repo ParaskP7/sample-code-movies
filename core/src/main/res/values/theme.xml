@@ -28,6 +28,17 @@
         <item name="snackbarButtonStyle">@style/Widget.App.Snackbar.Button</item>
     </style>
 
+    <!-- Toolbar -->
+    <style name="ToolbarTheme" parent="AppTheme">
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="android:background">@color/colorOnBackground</item>
+        <item name="drawerArrowStyle">@style/drawerArrow</item>
+    </style>
+
+    <style name="drawerArrow" parent="Widget.AppCompat.DrawerArrowToggle">
+        <item name="color">@color/white</item>
+    </style>
+
     <!-- Text -->
     <style name="TextAppearance.App.Headline5" parent="TextAppearance.MaterialComponents.Headline5">
         <item name="android:textColor">?attr/colorOnPrimary</item>
