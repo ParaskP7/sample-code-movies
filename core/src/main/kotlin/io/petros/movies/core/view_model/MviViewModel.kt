@@ -1,4 +1,4 @@
-package io.petros.movies.core.activity
+package io.petros.movies.core.view_model
 
 import androidx.annotation.CallSuper
 import androidx.lifecycle.LiveData

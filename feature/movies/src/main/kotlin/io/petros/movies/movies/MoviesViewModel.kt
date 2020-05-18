@@ -1,7 +1,7 @@
 package io.petros.movies.movies
 
 import androidx.lifecycle.viewModelScope
-import io.petros.movies.core.activity.MviViewModel
+import io.petros.movies.core.view_model.MviViewModel
 import io.petros.movies.domain.interactor.movie.LoadMoviesUseCase
 import io.petros.movies.domain.model.Result
 import io.petros.movies.domain.model.movie.MoviesPage
