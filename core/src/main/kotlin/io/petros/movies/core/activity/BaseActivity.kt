@@ -25,7 +25,7 @@ abstract class BaseActivity : AppCompatActivity() {
         Timber.v("${javaClass.simpleName} new intent. [Intent: $intent]")
     }
 
-    public override fun onRestart() {
+    override fun onRestart() {
         super.onRestart()
         Timber.v("${javaClass.simpleName} restarted.")
     }
@@ -55,7 +55,7 @@ abstract class BaseActivity : AppCompatActivity() {
         super.onPause()
     }
 
-    public override fun onSaveInstanceState(outState: Bundle) {
+    override fun onSaveInstanceState(outState: Bundle) {
         Timber.v("${javaClass.simpleName} instance state saved. [Bundle: %s]", outState)
         super.onSaveInstanceState(outState)
     }
