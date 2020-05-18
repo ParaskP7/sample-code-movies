@@ -4,7 +4,6 @@ import io.mockk.mockk
 import io.mockk.verify
 import io.petros.movies.android_test.app.TestApp
 import io.petros.movies.android_test.context.TestContextProvider.context
-import io.petros.movies.movie_details.navigator.SharedElementMovie
 import io.petros.movies.test.domain.movie
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -65,11 +64,10 @@ class MovieItemViewRobolectricTest {
     @Test
     fun `when movie callback is bind, then the callback's on click event is triggered`() {
         testedClass.bindCallback(movie, callbackMock)
-        val sharedElementMovie = SharedElementMovie(movie, testedClass.binding.ivItemBackdrop)
 
         testedClass.performClick()
 
-        verify { callbackMock.onClick(sharedElementMovie) }
+        verify { callbackMock.onClick(movie) }
     }
 
 }

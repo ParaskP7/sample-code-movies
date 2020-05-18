@@ -3,7 +3,6 @@ package io.petros.movies.movies.navigator
 import io.mockk.mockk
 import io.mockk.verify
 import io.petros.movies.movie_details.navigator.MovieDetailsLauncher
-import io.petros.movies.movie_details.navigator.SharedElementMovie
 import io.petros.movies.test.domain.movie
 import org.junit.Test
 
@@ -13,13 +12,12 @@ class MoviesNavigatorImplTest {
     private val testedClass = MoviesNavigatorImpl(movieDetailsLauncherMock)
 
     @Test
-    fun `given shared element movie, when navigating from movies activity, then movie details activity launches with it`() {
+    fun `when navigating from movies activity, then movie details activity launches with it`() {
         val movie = movie()
-        val sharedElementMovie = SharedElementMovie(movie, mockk())
 
-        testedClass.navigate(sharedElementMovie)
+        testedClass.navigate(movie)
 
-        verify { movieDetailsLauncherMock.launch(sharedElementMovie) }
+        verify { movieDetailsLauncherMock.launch(movie) }
     }
 
 }

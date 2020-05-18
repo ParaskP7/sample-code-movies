@@ -5,7 +5,4 @@
     <!-- Toolbar -->
     <string name="tvToolbarMovieDetailsLabel">Movie Details</string>
 
-    <!-- Navigator -->
-    <string name="ivSharedElementMovie">sharedElementMovie</string>
-
 </resources>

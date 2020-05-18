@@ -15,7 +15,6 @@
             style="@style/ivItemBackdrop"
             android:layout_width="match_parent"
             android:layout_height="@dimen/ivItemBackdropHeight"
-            android:transitionName="@string/ivSharedElementMovie"
             app:layout_constraintBottom_toTopOf="@id/ctrItemDetails"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

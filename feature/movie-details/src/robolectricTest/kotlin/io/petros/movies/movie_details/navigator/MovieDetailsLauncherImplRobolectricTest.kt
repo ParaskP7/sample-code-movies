@@ -2,12 +2,10 @@ package io.petros.movies.movie_details.navigator
 
 import android.app.Activity
 import android.content.Intent
-import android.view.View
 import io.mockk.mockk
 import io.mockk.slot
 import io.mockk.verify
 import io.petros.movies.android_test.app.TestApp
-import io.petros.movies.android_test.context.TestContextProvider.context
 import io.petros.movies.movie_details.MovieDetailsActivity
 import io.petros.movies.movie_details.navigator.MovieDetailsLauncherImpl.Companion.getMovie
 import io.petros.movies.test.domain.movie
@@ -36,20 +34,6 @@ class MovieDetailsLauncherImplRobolectricTest {
         expect {
             that(slot.captured.component?.className).isEqualTo(MovieDetailsActivity::class.java.name)
             that(getMovie(slot.captured)).isEqualTo(movie)
-        }
-    }
-
-    @Test
-    fun `given a shared element movie, when launch is called, then target activity starts with options bundle`() {
-        val movie = SharedElementMovie(movie(), View(context()))
-        val slot = slot<Intent>()
-
-        testedClass.launch(movie)
-
-        verify { activityMock.startActivity(capture(slot), any()) }
-        expect {
-            that(slot.captured.component?.className).isEqualTo(MovieDetailsActivity::class.java.name)
-            that(getMovie(slot.captured)).isEqualTo(movie.movie)
         }
     }
 

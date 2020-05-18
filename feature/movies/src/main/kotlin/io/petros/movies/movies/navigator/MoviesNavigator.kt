@@ -1,10 +1,10 @@
 package io.petros.movies.movies.navigator
 
-import io.petros.movies.movie_details.navigator.SharedElementMovie
+import io.petros.movies.domain.model.movie.Movie
 
 interface MoviesNavigator {
 
-    fun navigate(movie: SharedElementMovie)
+    fun navigate(movie: Movie)
 
     fun finish()
 

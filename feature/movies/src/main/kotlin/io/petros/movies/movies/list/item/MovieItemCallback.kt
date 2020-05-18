@@ -1,9 +1,9 @@
 package io.petros.movies.movies.list.item
 
-import io.petros.movies.movie_details.navigator.SharedElementMovie
+import io.petros.movies.domain.model.movie.Movie
 
 interface MovieItemCallback {
 
-    fun onClick(movie: SharedElementMovie)
+    fun onClick(movie: Movie)
 
 }

@@ -126,7 +126,7 @@ class MoviesActivity : MviActivity<MoviesIntent, MoviesState, MoviesSideEffect, 
 
     /* NAVIGATION */
 
-    override fun onClick(movie: SharedElementMovie) {
+    override fun onClick(movie: Movie) {
         moviesNavigator.navigate(movie)
     }
 

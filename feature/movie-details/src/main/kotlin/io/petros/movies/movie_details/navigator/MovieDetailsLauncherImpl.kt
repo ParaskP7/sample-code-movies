@@ -3,12 +3,9 @@ package io.petros.movies.movie_details.navigator
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
-import android.os.Bundle
-import androidx.core.app.ActivityOptionsCompat
 import io.petros.movies.android_utils.getExtraName
 import io.petros.movies.domain.model.movie.Movie
 import io.petros.movies.movie_details.MovieDetailsActivity
-import io.petros.movies.movie_details.R
 
 class MovieDetailsLauncherImpl(
     private val activity: Activity
@@ -29,20 +26,10 @@ class MovieDetailsLauncherImpl(
         activity.startActivity(getIntent(movie))
     }
 
-    override fun launch(movie: SharedElementMovie) {
-        activity.startActivity(getIntent(movie.movie), getSharedElement(movie))
-    }
-
     private fun getIntent(movie: Movie): Intent {
         return Intent(activity, EXTRA_CLASS).also {
             it.putExtra(EXTRA_MOVIE, movie)
         }
-    }
-
-    private fun getSharedElement(movie: SharedElementMovie): Bundle? {
-        val sharedElement = activity.getString(R.string.ivSharedElementMovie)
-        val options = ActivityOptionsCompat.makeSceneTransitionAnimation(activity, movie.sharedElement, sharedElement)
-        return options.toBundle()
     }
 
     override fun finish() {

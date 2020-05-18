@@ -29,7 +29,6 @@
             style="@style/ivBackdrop"
             android:layout_width="match_parent"
             android:layout_height="@dimen/ivBackdropHeight"
-            android:transitionName="@string/ivSharedElementMovie"
             app:layout_constraintBottom_toTopOf="@+id/tvTitle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

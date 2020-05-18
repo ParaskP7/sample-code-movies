@@ -8,7 +8,6 @@ import com.google.android.material.card.MaterialCardView
 import io.petros.movies.android_utils.getDimension
 import io.petros.movies.core.image.glide.displayImage
 import io.petros.movies.domain.model.movie.Movie
-import io.petros.movies.movie_details.navigator.SharedElementMovie
 import io.petros.movies.movies.R
 import io.petros.movies.movies.databinding.MovieItemViewBinding
 
@@ -40,8 +39,7 @@ class MovieItemView(ctx: Context) : MaterialCardView(ctx) {
     }
 
     fun bindCallback(movie: Movie, callback: MovieItemCallback?) {
-        val sharedElementMovie = SharedElementMovie(movie, binding.ivItemBackdrop)
-        setOnClickListener { callback?.onClick(sharedElementMovie) }
+        setOnClickListener { callback?.onClick(movie) }
     }
 
 }
