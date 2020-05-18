@@ -2,8 +2,6 @@
 
 import io.petros.movies.config.deps.Deps
 
-/* PLUGINS */
-
 plugins {
     id(Plugins.Id.Kotlin.KOTLIN)
     id(Plugins.Id.Quality.DETEKT)
@@ -11,8 +9,6 @@ plugins {
     id(Plugins.Id.Test.JACOCO)
     id(Plugins.Id.Test.COVERAGE)
 }
-
-/* DEPENDENCIES */
 
 dependencies {
     implementation(project(Deps.Project.Implementation.Kotlin.UTILS))

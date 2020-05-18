@@ -2,15 +2,11 @@
 
 import io.petros.movies.config.deps.Deps
 
-/* PLUGINS */
-
 plugins {
     id(Plugins.Id.Kotlin.KOTLIN)
     id(Plugins.Id.Quality.DETEKT)
     id(Plugins.Id.Dependency.VERSIONS)
 }
-
-/* DEPENDENCIES */
 
 dependencies {
     implementation(project(Deps.Project.Implementation.Kotlin.DOMAIN))

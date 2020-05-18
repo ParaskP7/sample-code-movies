@@ -1,7 +1,5 @@
 @file:Suppress("InvalidPackageDeclaration")
 
-/* PLUGINS */
-
 plugins {
     `kotlin-dsl`
     `java-gradle-plugin`
@@ -20,8 +18,6 @@ gradlePlugin {
         }
     }
 }
-
-/* REPOS */
 
 repositories {
     jcenter()

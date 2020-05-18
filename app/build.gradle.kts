@@ -13,8 +13,6 @@ import io.petros.movies.config.utils.asString
 import java.io.FileInputStream
 import java.util.*
 
-/* PLUGINS */
-
 plugins {
     id(Plugins.Id.Android.APPLICATION)
     id(Plugins.Id.Kotlin.Android.ANDROID)
@@ -22,14 +20,10 @@ plugins {
     id(Plugins.Id.Dependency.VERSIONS)
 }
 
-/* ANDROID */
-
 android {
     defaultConfig { defaultConfig() }
     buildTypes { buildTypes() }
 }
-
-/* DEPENDENCIES */
 
 dependencies {
     implementation(project(Deps.Project.Implementation.Kotlin.DOMAIN))
@@ -60,8 +54,6 @@ dependencies {
 
     detektPlugins(Deps.Plugin.DETEKT_FORMATTING)
 }
-
-/* *********************************************************************************************************************** */
 
 /* CONFIGURATION EXTENSION FUNCTIONS */
 
