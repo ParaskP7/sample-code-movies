@@ -164,6 +164,35 @@ class MoviesToolbarRobolectricTest {
     }
 
     @Test
+    fun `when restore year is triggered, then year is shown`() {
+        testedClass.hideYear()
+
+        testedClass.restoreYear(2020)
+
+        expect { that(testedClass.binding.tvToolbarFilterYear.isInvisible).isFalse() }
+    }
+
+    @Test
+    fun `when restore year is triggered, then monht is shown`() {
+        testedClass.hideMonth()
+
+        testedClass.restoreYear(2020)
+
+        expect { that(testedClass.binding.tvToolbarFilterMonth.isInvisible).isFalse() }
+    }
+
+    @Test
+    fun `when restore year is triggered, then year is set`() {
+        val previousYear = 2019
+        val currentYear = 2020
+        testedClass.setMonth(previousYear)
+
+        testedClass.restoreYear(currentYear)
+
+        expect { that(testedClass.getYear()).isEqualTo(currentYear) }
+    }
+
+    @Test
     fun `when get year is triggered, then the correct year number is returned`() {
         expect { that(testedClass.getYear()).isNull() }
         val year = 2020
@@ -186,6 +215,26 @@ class MoviesToolbarRobolectricTest {
         testedClass.setMonth(month.number)
 
         expect { that(testedClass.binding.tvToolbarFilterMonth.text).isEqualTo(month.label) }
+    }
+
+    @Test
+    fun `when restore month is triggered, then month is shown`() {
+        testedClass.hideMonth()
+
+        testedClass.restoreMonth(MonthOfYear.JANUARY.number)
+
+        expect { that(testedClass.binding.tvToolbarFilterMonth.isInvisible).isFalse() }
+    }
+
+    @Test
+    fun `when restore month is triggered, then month is set`() {
+        val previousMonth = MonthOfYear.JANUARY.number
+        val currentMonth = MonthOfYear.FEBRUARY.number
+        testedClass.setMonth(previousMonth)
+
+        testedClass.restoreMonth(currentMonth)
+
+        expect { that(testedClass.getMonth()).isEqualTo(currentMonth) }
     }
 
     @Test

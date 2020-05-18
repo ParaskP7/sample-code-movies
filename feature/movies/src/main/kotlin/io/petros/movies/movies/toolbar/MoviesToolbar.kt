@@ -13,7 +13,7 @@ import io.petros.movies.movies.databinding.MoviesToolbarBinding
 import io.petros.movies.utils.MonthOfYear
 import timber.log.Timber
 
-@Suppress("TooManyFunctions")
+@Suppress("TooManyFunctions", "MemberVisibilityCanBePrivate")
 class MoviesToolbar(
     ctx: Context,
     attrs: AttributeSet? = null
@@ -43,8 +43,7 @@ class MoviesToolbar(
     }
 
     private fun onFilterIconClicked() {
-        binding.ivToolbarFilterIcon.isVisible = false
-        binding.ivToolbarCloseIcon.isVisible = true
+        showCloseIcon()
         showYear()
     }
 
@@ -53,10 +52,7 @@ class MoviesToolbar(
     }
 
     private fun onCloseIconClicked() {
-        binding.ivToolbarCloseIcon.isVisible = false
-        binding.ivToolbarFilterIcon.isVisible = true
-        hideYear()
-        hideMonth()
+        showFilterIcon()
         callback?.onCloseClicked()
     }
 
@@ -69,6 +65,18 @@ class MoviesToolbar(
     }
 
     /* SHOW/HIDE */
+
+    fun showFilterIcon() {
+        binding.ivToolbarCloseIcon.isVisible = false
+        binding.ivToolbarFilterIcon.isVisible = true
+        hideYear()
+        hideMonth()
+    }
+
+    fun showCloseIcon() {
+        binding.ivToolbarFilterIcon.isVisible = false
+        binding.ivToolbarCloseIcon.isVisible = true
+    }
 
     @Suppress("MemberVisibilityCanBePrivate")
     fun showYear() {
@@ -99,6 +107,12 @@ class MoviesToolbar(
         binding.tvToolbarFilterYear.text = year.toString()
     }
 
+    fun restoreYear(year: Int) {
+        showYear()
+        showMonth()
+        setYear(year)
+    }
+
     @Suppress("SwallowedException")
     fun getYear(): Int? {
         val year = binding.tvToolbarFilterYear.text.toString()
@@ -116,6 +130,11 @@ class MoviesToolbar(
         binding.tvToolbarFilterMonth.text = MonthOfYear.from(month).label
     }
 
+    fun restoreMonth(month: Int) {
+        showMonth()
+        setMonth(month)
+    }
+
     fun getMonth(): Int? {
         val monthOfYear = MonthOfYear.from(binding.tvToolbarFilterMonth.text)
         return if (monthOfYear != MonthOfYear.UNKNOWN_MONTH) monthOfYear.number else null
@@ -131,24 +150,15 @@ class MoviesToolbar(
 
     private fun onRestoreIconInstanceState(savedInstanceState: Bundle) {
         val closeIcon = savedInstanceState.getBoolean(INSTANCE_STATE_KEY_CLOSE_ICON)
-        if (closeIcon) onFilterIconClicked()
+        if (closeIcon) showCloseIcon()
     }
 
     private fun onRestoreYearInstanceState(savedInstanceState: Bundle) {
-        val year = savedInstanceState.getString(INSTANCE_STATE_KEY_YEAR_FILTER)
-        if (year != null) {
-            showYear()
-            showMonth()
-            setYear(year.toInt())
-        }
+        savedInstanceState.getString(INSTANCE_STATE_KEY_YEAR_FILTER)?.let { restoreYear(it.toInt()) }
     }
 
     private fun onRestoreMonthInstanceState(savedInstanceState: Bundle) {
-        val month = savedInstanceState.getString(INSTANCE_STATE_KEY_MONTH_FILTER)
-        if (month != null) {
-            showMonth()
-            setMonth(month.toInt())
-        }
+        savedInstanceState.getString(INSTANCE_STATE_KEY_MONTH_FILTER)?.let { restoreMonth(it.toInt()) }
     }
 
     fun onSaveInstanceState(outState: Bundle) {
