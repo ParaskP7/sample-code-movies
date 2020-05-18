@@ -14,8 +14,10 @@ class InfiniteScrollListener(
     private var previousItemsCount = 0
 
     override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
-        updatePageSize()
-        checkAndLoadMore()
+        if (dy > 0) {
+            updatePageSize()
+            checkAndLoadMore()
+        }
     }
 
     private fun updatePageSize() {

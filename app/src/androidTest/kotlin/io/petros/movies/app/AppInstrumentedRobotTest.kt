@@ -42,13 +42,9 @@ class AppInstrumentedRobotTest {
         private const val YEAR_FILTER_DIR = "/year_filter"
         private const val MONTH_FILTER_DIR = "/month_filter"
         private const val NO_FILTER_FIRST_MOVIES_PAGE_FILE = "$MOVIES_DIR$NO_FILTER_DIR/movies_page_first.json"
-        private const val NO_FILTER_SECOND_MOVIES_PAGE_FILE = "$MOVIES_DIR$NO_FILTER_DIR/movies_page_second.json"
         private const val YEAR_FILTER_FIRST_MOVIES_PAGE_FILE = "$MOVIES_DIR$YEAR_FILTER_DIR/movies_page_first.json"
-        private const val YEAR_FILTER_SECOND_MOVIES_PAGE_FILE = "$MOVIES_DIR$YEAR_FILTER_DIR/movies_page_second.json"
         private const val YEAR_AND_MONTH_FILTER_FIRST_MOVIES_PAGE_FILE =
             "$MOVIES_DIR$YEAR_FILTER_DIR$MONTH_FILTER_DIR/movies_page_first.json"
-        private const val YEAR_AND_MONTH_FILTER_SECOND_MOVIES_PAGE_FILE =
-            "$MOVIES_DIR$YEAR_FILTER_DIR$MONTH_FILTER_DIR/movies_page_second.json"
 
         // NO FILTER
 
@@ -74,14 +70,6 @@ class AppInstrumentedRobotTest {
                     "Forces officer Sonya Blade and action star Johnny Cage – an unlikely band of heroes with one chance " +
                     "to save humanity. To do this, they must defeat Shang Tsung’s horde of Outworld gladiators and reign " +
                     "over the Mortal Kombat tournament."
-
-        private const val NINETEEN_SEVENTEEN_ITEM_POSITION = 20
-        private const val NINETEEN_SEVENTEEN_ITEM_TITLE = "1917"
-        private const val NINETEEN_SEVENTEEN_ITEM_RELEASE_DATE = "2019 (December)"
-        private const val NINETEEN_SEVENTEEN_ITEM_VOTE = "7.9 ★ (4389)"
-        private const val NINETEEN_SEVENTEEN_ITEM_OVERVIEW =
-            "At the height of the First World War, two young British soldiers must cross enemy territory and deliver a " +
-                    "message that will stop a deadly attack on hundreds of soldiers."
 
         // YEAR FILTER
 
@@ -138,13 +126,9 @@ class AppInstrumentedRobotTest {
 
     private fun enqueueMockResponses() {
         server.enqueue(mockResponse(NO_FILTER_FIRST_MOVIES_PAGE_FILE))
-        server.enqueue(mockResponse(NO_FILTER_SECOND_MOVIES_PAGE_FILE))
         server.enqueue(mockResponse(YEAR_FILTER_FIRST_MOVIES_PAGE_FILE))
-        server.enqueue(mockResponse(YEAR_FILTER_SECOND_MOVIES_PAGE_FILE))
         server.enqueue(mockResponse(YEAR_AND_MONTH_FILTER_FIRST_MOVIES_PAGE_FILE))
-        server.enqueue(mockResponse(YEAR_AND_MONTH_FILTER_SECOND_MOVIES_PAGE_FILE))
         server.enqueue(mockResponse(NO_FILTER_FIRST_MOVIES_PAGE_FILE))
-        server.enqueue(mockResponse(NO_FILTER_SECOND_MOVIES_PAGE_FILE))
     }
 
     @After
@@ -167,7 +151,6 @@ class AppInstrumentedRobotTest {
     private fun AppRobot.check_movies_no_filter(): Actions {
         check_sonic_the_hedgehog_movie()
         check_mortal_kombat_legends_movie()
-        check_nineteen_seventeen_movie()
         check_sonic_the_hedgehog_movie()
         return NoActions
     }
@@ -266,38 +249,6 @@ class AppInstrumentedRobotTest {
                 inReleaseDate { hasText(MORTAL_KOMBAT_LEGENDS_ITEM_RELEASE_DATE) }
                 inVote { hasText(MORTAL_KOMBAT_LEGENDS_ITEM_VOTE) }
                 inOverview { hasText(MORTAL_KOMBAT_LEGENDS_ITEM_OVERVIEW) }
-            }
-        }
-        performBack()
-    }
-
-    private fun AppRobot.check_nineteen_seventeen_movie() {
-        inMovies {
-            inToolbar {
-                inLabel { hasText(MOVIES_TOOLBAR_LABEL) }
-                inFilterIcon { isShown() }
-                inCloseIcon { isNotShown() }
-                inYearFilter { isNotShown() }
-                inMonthFilter { isNotShown() }
-            }
-            inList {
-                inItem(NINETEEN_SEVENTEEN_ITEM_POSITION) {
-                    inTitle { hasText(NINETEEN_SEVENTEEN_ITEM_TITLE) }
-                    inReleaseDate { hasText(NINETEEN_SEVENTEEN_ITEM_RELEASE_DATE) }
-                    inVote { hasText(NINETEEN_SEVENTEEN_ITEM_VOTE) }
-                    performClick()
-                }
-            }
-        }
-        inMovieDetails {
-            inToolbar {
-                inLabel { hasText(MOVIE_DETAILS_TOOLBAR_LABEL) }
-            }
-            inScreen {
-                inTitle { hasText(NINETEEN_SEVENTEEN_ITEM_TITLE) }
-                inReleaseDate { hasText(NINETEEN_SEVENTEEN_ITEM_RELEASE_DATE) }
-                inVote { hasText(NINETEEN_SEVENTEEN_ITEM_VOTE) }
-                inOverview { hasText(NINETEEN_SEVENTEEN_ITEM_OVERVIEW) }
             }
         }
         performBack()

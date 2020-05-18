@@ -46,18 +46,27 @@ class InfiniteScrollListenerTest {
         verify { listenerMock.loadMore() }
     }
 
+    @Test
+    fun `given zero vertical scroll, then when on scrolled is triggered, then listener will not load more`() {
+        onScrolled(false, 2, 2, 0)
+
+        verify(exactly = 0) { listenerMock.loadMore() }
+    }
+
     /* HELPER FUNCTIONS */
 
     private fun onScrolled(
         isLoading: Boolean,
         nextPage: Int?,
-        lastVisibleItemPosition: Int
+        lastVisibleItemPosition: Int,
+        dy: Int = 1
     ) {
         every { listenerMock.isLoading() } returns isLoading
         every { listenerMock.nextPage() } returns nextPage
         every { layoutManagerMock.itemCount } returns 20
         every { layoutManagerMock.findLastVisibleItemPosition() } returns lastVisibleItemPosition
-        testedClass.onScrolled(mockk(), 0, 0)
+
+        testedClass.onScrolled(mockk(), 0, dy)
     }
 
 }
