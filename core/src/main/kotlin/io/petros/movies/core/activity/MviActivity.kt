@@ -3,7 +3,6 @@ package io.petros.movies.core.activity
 import androidx.lifecycle.Observer
 import timber.log.Timber
 
-@Suppress("TooManyFunctions")
 abstract class MviActivity<
         INTENT : Any,
         STATE : Any,
