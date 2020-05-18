@@ -19,7 +19,7 @@
         tools:replace="android:label,android:allowBackup">
 
         <activity
-            android:name=".splash.SplashActivity"
+            android:name=".app.AppActivity"
             android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
