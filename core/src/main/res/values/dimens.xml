@@ -26,7 +26,4 @@
     <dimen name="textSizeXXL">24sp</dimen>
     <dimen name="textSizeXXXL">28sp</dimen>
 
-    <!-- Toolbar -->
-    <dimen name="toolbarHeight">@dimen/spacingXXL</dimen>
-
 </resources>
