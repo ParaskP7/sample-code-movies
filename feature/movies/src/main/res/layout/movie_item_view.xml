@@ -17,6 +17,8 @@
             android:layout_height="@dimen/ivItemBackdropHeight"
             android:transitionName="@string/ivSharedElementMovie"
             app:layout_constraintBottom_toTopOf="@id/ctrItemDetails"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="ContentDescription"
             tools:src="@android:color/darker_gray" />
@@ -27,6 +29,8 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/tvItemTitleHeight"
             app:layout_constraintBottom_toBottomOf="@id/ivItemBackdrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/ivItemBackdrop"
             tools:text="Avengers: Infinity War" />
 
@@ -37,6 +41,8 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvItemTitle">
 
             <com.google.android.material.textview.MaterialTextView
