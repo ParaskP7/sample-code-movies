@@ -1,14 +1,15 @@
 package io.petros.movies.movies
 
 import android.os.Bundle
+import android.view.View
 import com.google.android.material.snackbar.Snackbar
-import io.petros.movies.core.activity.MviActivity
+import io.petros.movies.core.fragment.MviFragment
 import io.petros.movies.core.list.AdapterStatus
 import io.petros.movies.core.list.infinite.InfiniteRecyclerView
 import io.petros.movies.core.view_binding.viewBinding
 import io.petros.movies.domain.model.movie.Movie
 import io.petros.movies.domain.model.movie.MoviesStatus
-import io.petros.movies.movies.databinding.MoviesActivityBinding
+import io.petros.movies.movies.databinding.MoviesFragmentBinding
 import io.petros.movies.movies.list.MoviesAdapter
 import io.petros.movies.movies.list.item.MovieItemCallback
 import io.petros.movies.movies.navigator.MoviesNavigator
@@ -20,7 +21,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
 
 @Suppress("TooManyFunctions")
-class MoviesActivity : MviActivity<MoviesIntent, MoviesState, MoviesSideEffect, MoviesViewModel>(),
+class MoviesFragment : MviFragment<MoviesIntent, MoviesState, MoviesSideEffect, MoviesViewModel>(R.layout.movies_fragment),
     MoviesToolbarCallback,
     MovieItemCallback,
     InfiniteRecyclerView.Listener {
@@ -41,10 +42,10 @@ class MoviesActivity : MviActivity<MoviesIntent, MoviesState, MoviesSideEffect, 
 
     private var reloadItems = false
 
-    private val binding by viewBinding(MoviesActivityBinding::inflate)
+    private val binding by viewBinding(MoviesFragmentBinding::bind)
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         initToolbar()
         initRecyclerView()
     }
@@ -151,8 +152,10 @@ class MoviesActivity : MviActivity<MoviesIntent, MoviesState, MoviesSideEffect, 
     }
 
     override fun onYearClicked() {
-        MovieYearPickerFragment { year -> onYearPicked(year) }
-            .show(supportFragmentManager)
+        activity?.supportFragmentManager?.let { fragmentManager ->
+            MovieYearPickerFragment { year -> onYearPicked(year) }
+                .show(fragmentManager)
+        }
     }
 
     private fun onYearPicked(year: Int) {
@@ -166,8 +169,10 @@ class MoviesActivity : MviActivity<MoviesIntent, MoviesState, MoviesSideEffect, 
     }
 
     override fun onMonthClicked() {
-        MovieMonthPickerFragment { month -> onMonthPicked(month) }
-            .show(supportFragmentManager)
+        activity?.supportFragmentManager?.let { fragmentManager ->
+            MovieMonthPickerFragment { month -> onMonthPicked(month) }
+                .show(fragmentManager)
+        }
     }
 
     private fun onMonthPicked(month: Int) {
@@ -182,10 +187,12 @@ class MoviesActivity : MviActivity<MoviesIntent, MoviesState, MoviesSideEffect, 
 
     /* CONFIGURATION CHANGE */
 
-    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
-        super.onRestoreInstanceState(savedInstanceState)
-        binding.toolbar.onRestoreInstanceState(savedInstanceState)
-        onRestoreDoReloadInstanceState(savedInstanceState)
+    override fun onViewStateRestored(savedInstanceState: Bundle?) {
+        super.onViewStateRestored(savedInstanceState)
+        savedInstanceState?.let {
+            binding.toolbar.onRestoreInstanceState(it)
+            onRestoreDoReloadInstanceState(it)
+        }
     }
 
     private fun onRestoreDoReloadInstanceState(savedInstanceState: Bundle) {
@@ -201,9 +208,5 @@ class MoviesActivity : MviActivity<MoviesIntent, MoviesState, MoviesSideEffect, 
     private fun onSaveDoReloadInstanceState(outState: Bundle) {
         outState.putBoolean(INSTANCE_STATE_KEY_RELOAD_ITEMS, true)
     }
-
-    /* CONTRACT */
-
-    override fun constructContentView() = binding.root
 
 }
