@@ -180,9 +180,7 @@ class MoviesViewModelTest {
             stateMock.onChanged(
                 MoviesState(
                     status = MoviesStatus.Loaded,
-                    movies = paginationData.addPage(
-                        MoviesPage(paginationData.nextPage(), emptyList())
-                    )
+                    movies = paginationData.addPage(MoviesPage(paginationData.nextPage(), emptyList()))
                 )
             )
         }
