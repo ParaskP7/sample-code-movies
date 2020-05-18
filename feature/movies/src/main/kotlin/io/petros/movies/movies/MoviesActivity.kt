@@ -6,8 +6,8 @@ import com.google.android.material.snackbar.Snackbar
 import io.petros.movies.core.activity.MviActivity
 import io.petros.movies.core.list.AdapterStatus
 import io.petros.movies.core.list.infinite.InfiniteRecyclerView
+import io.petros.movies.domain.model.movie.Movie
 import io.petros.movies.domain.model.movie.MoviesStatus
-import io.petros.movies.movie_details.navigator.SharedElementMovie
 import io.petros.movies.movies.databinding.MoviesActivityBinding
 import io.petros.movies.movies.list.MoviesAdapter
 import io.petros.movies.movies.list.item.MovieItemCallback
