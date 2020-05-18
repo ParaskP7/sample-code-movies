@@ -73,6 +73,7 @@ object Config {
                 )
                 val androidExcludes = listOf(
                     "**/*Activity*.*",
+                    "**/*Fragment*.*",
                     "**/*Module*.*",
                     "**/*Binding*.*",
                     "**/*Glide*.*"
