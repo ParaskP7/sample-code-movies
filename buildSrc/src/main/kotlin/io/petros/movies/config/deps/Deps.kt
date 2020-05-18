@@ -150,6 +150,16 @@ object Deps {
 
                 }
 
+                object Navigation {
+
+                    val FRAGMENT_KTX =
+                        "androidx.navigation:navigation-fragment-ktx:${Versions.Android.Arch.Core.Navigation.EXTENSIONS}"
+
+                    val UI_KTX =
+                        "androidx.navigation:navigation-ui-ktx:${Versions.Android.Arch.Core.Navigation.EXTENSIONS}"
+
+                }
+
             }
 
             object Test {

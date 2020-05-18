@@ -38,6 +38,8 @@ dependencies {
 
     implementation(Deps.Kotlin.Core.KOTLIN)
     implementation(Deps.Android.Arch.Core.Lifecycle.PROCESS)
+    implementation(Deps.Android.Arch.Core.Navigation.FRAGMENT_KTX)
+    implementation(Deps.Android.Arch.Core.Navigation.UI_KTX)
     implementation(Deps.Di.Koin.Android.ANDROID)
     implementation(Deps.Log.TIMBER)
 

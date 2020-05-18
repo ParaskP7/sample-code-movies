@@ -79,6 +79,13 @@ object Versions {
 
                 }
 
+                object Navigation {
+
+                    // Releases: https://developer.android.com/jetpack/androidx/releases/navigation
+                    const val EXTENSIONS = "2.2.2" // Released: 22-01-20
+
+                }
+
             }
 
             object Test {

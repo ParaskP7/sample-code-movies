@@ -6,6 +6,8 @@ object Plugins {
 
     const val KOTLIN = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.Plugin.KOTLIN}"
     const val ANDROID = "com.android.tools.build:gradle:${Versions.Plugin.ANDROID}"
+    const val ANDROID_NAVIGATION =
+        "androidx.navigation:navigation-safe-args-gradle-plugin:${Versions.Android.Arch.Core.Navigation.EXTENSIONS}"
     const val DETEKT = "io.gitlab.arturbosch.detekt:detekt-gradle-plugin:${Versions.Plugin.DETEKT}"
     const val ANDROID_J_UNIT_5 = "de.mannodermaus.gradle.plugins:android-junit5:${Versions.Plugin.ANDROID_J_UNIT_5}"
     const val VERSIONS = "com.github.ben-manes:gradle-versions-plugin:${Versions.Plugin.VERSIONS}"
@@ -18,6 +20,7 @@ object Plugins {
             object Android {
 
                 const val ANDROID = "kotlin-android"
+                const val ANDROID_NAVIGATION = "androidx.navigation.safeargs.kotlin"
 
             }
 

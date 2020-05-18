@@ -29,6 +29,8 @@ dependencies {
     implementation(Deps.Android.Arch.Core.Lifecycle.LIVE_DATA)
     implementation(Deps.Android.Arch.Core.Lifecycle.VIEW_MODEL)
     implementation(Deps.Android.Arch.Core.Lifecycle.VIEW_MODEL_KTX)
+    implementation(Deps.Android.Arch.Core.Navigation.FRAGMENT_KTX)
+    implementation(Deps.Android.Arch.Core.Navigation.UI_KTX)
     implementation(Deps.Di.Koin.Android.ANDROID)
     implementation(Deps.Di.Koin.Android.VIEW_MODEL)
     implementation(Deps.Log.TIMBER)
