@@ -38,13 +38,9 @@ class AppInstrumentedRobotTest {
         // MOCK RESPONSES
 
         private const val MOVIES_DIR = "responses/movies"
-        private const val NO_FILTER_DIR = "/no_filter"
-        private const val YEAR_FILTER_DIR = "/year_filter"
-        private const val MONTH_FILTER_DIR = "/month_filter"
-        private const val NO_FILTER_FIRST_MOVIES_PAGE_FILE = "$MOVIES_DIR$NO_FILTER_DIR/movies_page_first.json"
-        private const val YEAR_FILTER_FIRST_MOVIES_PAGE_FILE = "$MOVIES_DIR$YEAR_FILTER_DIR/movies_page_first.json"
-        private const val YEAR_AND_MONTH_FILTER_FIRST_MOVIES_PAGE_FILE =
-            "$MOVIES_DIR$YEAR_FILTER_DIR$MONTH_FILTER_DIR/movies_page_first.json"
+        private const val NO_FILTER_MOVIES_PAGE_FILE = "$MOVIES_DIR/no_filter_movies_page.json"
+        private const val YEAR_FILTER_MOVIES_PAGE_FILE = "$MOVIES_DIR/year_filter_movies_page.json"
+        private const val YEAR_AND_MONTH_FILTER_MOVIES_PAGE_FILE = "$MOVIES_DIR/year_and_month_filter_movies_page.json"
 
         // NO FILTER
 
@@ -125,10 +121,10 @@ class AppInstrumentedRobotTest {
     }
 
     private fun enqueueMockResponses() {
-        server.enqueue(mockResponse(NO_FILTER_FIRST_MOVIES_PAGE_FILE))
-        server.enqueue(mockResponse(YEAR_FILTER_FIRST_MOVIES_PAGE_FILE))
-        server.enqueue(mockResponse(YEAR_AND_MONTH_FILTER_FIRST_MOVIES_PAGE_FILE))
-        server.enqueue(mockResponse(NO_FILTER_FIRST_MOVIES_PAGE_FILE))
+        server.enqueue(mockResponse(NO_FILTER_MOVIES_PAGE_FILE))
+        server.enqueue(mockResponse(YEAR_FILTER_MOVIES_PAGE_FILE))
+        server.enqueue(mockResponse(YEAR_AND_MONTH_FILTER_MOVIES_PAGE_FILE))
+        server.enqueue(mockResponse(NO_FILTER_MOVIES_PAGE_FILE))
     }
 
     @After
