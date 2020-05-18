@@ -1,9 +1,9 @@
 package io.petros.movies.movie_details
 
 import android.os.Bundle
-import android.view.View
 import io.petros.movies.core.activity.BaseActivity
 import io.petros.movies.core.image.glide.displayImage
+import io.petros.movies.core.view_binding.viewBinding
 import io.petros.movies.domain.model.movie.Movie
 import io.petros.movies.movie_details.databinding.MovieDetailsActivityBinding
 import io.petros.movies.movie_details.navigator.MovieDetailsLauncherImpl.Companion.getMovie
@@ -12,7 +12,7 @@ class MovieDetailsActivity : BaseActivity() {
 
     private val movie: Movie by lazy { getMovie(intent) }
 
-    @Suppress("LateinitUsage") private lateinit var binding: MovieDetailsActivityBinding
+    private val binding by viewBinding(MovieDetailsActivityBinding::inflate)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,9 +29,6 @@ class MovieDetailsActivity : BaseActivity() {
 
     /* CONTRACT */
 
-    override fun constructContentView(): View? {
-        binding = MovieDetailsActivityBinding.inflate(layoutInflater)
-        return binding.root
-    }
+    override fun constructContentView() = binding.root
 
 }

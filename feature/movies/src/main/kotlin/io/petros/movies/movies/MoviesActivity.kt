@@ -1,11 +1,11 @@
 package io.petros.movies.movies
 
 import android.os.Bundle
-import android.view.View
 import com.google.android.material.snackbar.Snackbar
 import io.petros.movies.core.activity.MviActivity
 import io.petros.movies.core.list.AdapterStatus
 import io.petros.movies.core.list.infinite.InfiniteRecyclerView
+import io.petros.movies.core.view_binding.viewBinding
 import io.petros.movies.domain.model.movie.Movie
 import io.petros.movies.domain.model.movie.MoviesStatus
 import io.petros.movies.movies.databinding.MoviesActivityBinding
@@ -41,7 +41,7 @@ class MoviesActivity : MviActivity<MoviesIntent, MoviesState, MoviesSideEffect, 
 
     private var reloadItems = false
 
-    @Suppress("LateinitUsage") private lateinit var binding: MoviesActivityBinding
+    private val binding by viewBinding(MoviesActivityBinding::inflate)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -204,9 +204,6 @@ class MoviesActivity : MviActivity<MoviesIntent, MoviesState, MoviesSideEffect, 
 
     /* CONTRACT */
 
-    override fun constructContentView(): View {
-        binding = MoviesActivityBinding.inflate(layoutInflater)
-        return binding.root
-    }
+    override fun constructContentView() = binding.root
 
 }
