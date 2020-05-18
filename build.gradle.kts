@@ -48,8 +48,8 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath(Plugins.ANDROID)
         classpath(Plugins.KOTLIN)
+        classpath(Plugins.ANDROID)
         classpath(Plugins.DETEKT)
         classpath(Plugins.ANDROID_J_UNIT_5)
         classpath(Plugins.VERSIONS)

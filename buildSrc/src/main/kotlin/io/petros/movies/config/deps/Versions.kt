@@ -5,11 +5,11 @@ object Versions {
 
     object Plugin {
 
-        // Releases: https://androidstudio.googleblog.com
-        const val ANDROID = "4.1.0-alpha08" // Released: 28-04-20
-
         // Releases: https://blog.jetbrains.com/kotlin/category/releases
         const val KOTLIN = "1.3.72" // Released: 14-04-20
+
+        // Releases: https://androidstudio.googleblog.com
+        const val ANDROID = "4.1.0-alpha08" // Released: 28-04-20
 
         // Releases: https://github.com/arturbosch/detekt/releases (not working with 'dependencyUpdates')
         const val DETEKT = "1.9.0" // Released: 12-05-20
