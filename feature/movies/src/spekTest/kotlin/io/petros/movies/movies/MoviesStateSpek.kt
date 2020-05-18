@@ -44,8 +44,8 @@ class MoviesStateSpek : Spek({
                     movies = PaginationData()
                 )
             }
-            When("init is triggered") {
-                result = MoviesReducer.reduce(previousState, MoviesAction.Load)
+            When("reduce is triggered") {
+                result = MoviesReducer.reduce(previousState, MoviesAction.Load(MOVIE_YEAR, MOVIE_MONTH))
             }
             Then("the initial state is the expected one") {
                 expect {
@@ -69,7 +69,7 @@ class MoviesStateSpek : Spek({
                     movies = paginationData.addPage(moviesPage)
                 )
             }
-            When("init is triggered") {
+            When("reduce is triggered") {
                 result = MoviesReducer.reduce(previousState, MoviesAction.Reload)
             }
             Then("the initial state is the expected one") {
@@ -94,7 +94,7 @@ class MoviesStateSpek : Spek({
                     movies = paginationData
                 )
             }
-            When("init is triggered") {
+            When("reduce is triggered") {
                 result = MoviesReducer.reduce(previousState, MoviesAction.Success(moviesPage))
             }
             Then("the initial state is the expected one") {
@@ -119,7 +119,7 @@ class MoviesStateSpek : Spek({
                     movies = paginationData.addPage(moviesPage)
                 )
             }
-            When("init is triggered") {
+            When("reduce is triggered") {
                 result = MoviesReducer.reduce(previousState, MoviesAction.Error)
             }
             Then("the initial state is the expected one") {
