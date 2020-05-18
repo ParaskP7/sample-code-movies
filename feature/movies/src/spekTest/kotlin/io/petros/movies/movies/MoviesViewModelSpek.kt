@@ -32,6 +32,28 @@ class MoviesViewModelSpek : ViewModelSpek({
     val moviesPage = Result.Success(moviesPage())
     val loadMoviesUseCaseMock = mockk<LoadMoviesUseCase>()
 
+    Feature("Movies view model for idle") {
+        val testedClass by memoized { MoviesViewModel(loadMoviesUseCaseMock) }
+        Scenario("idling") {
+            When("idling movies") {
+                setupViewModel(testedClass)
+                testedClass.process(MoviesIntent.IdleMovies)
+            }
+            Then("the expected idling state is posted") {
+                coVerify {
+                    stateMock.onChanged(
+                        MoviesState(
+                            year = null,
+                            month = null,
+                            status = MoviesStatus.Idle,
+                            movies = PaginationData()
+                        )
+                    )
+                }
+            }
+        }
+    }
+
     Feature("Movies view model for load") {
         val testedClass by memoized { MoviesViewModel(loadMoviesUseCaseMock) }
         Scenario("loading") {
@@ -43,6 +65,8 @@ class MoviesViewModelSpek : ViewModelSpek({
                 coVerify {
                     stateMock.onChanged(
                         MoviesState(
+                            year = MOVIE_YEAR,
+                            month = MOVIE_MONTH,
                             status = MoviesStatus.Loading,
                             movies = PaginationData()
                         )
@@ -66,6 +90,8 @@ class MoviesViewModelSpek : ViewModelSpek({
                 verify {
                     stateMock.onChanged(
                         MoviesState(
+                            year = MOVIE_YEAR,
+                            month = MOVIE_MONTH,
                             status = MoviesStatus.Loaded,
                             movies = paginationData.addPage(moviesPage.value)
                         )
@@ -89,6 +115,8 @@ class MoviesViewModelSpek : ViewModelSpek({
                 verify {
                     stateMock.onChanged(
                         MoviesState(
+                            year = MOVIE_YEAR,
+                            month = MOVIE_MONTH,
                             status = MoviesStatus.Loaded,
                             movies = paginationData.addPage(MoviesPage(paginationData.nextPage(), emptyList()))
                         )
@@ -112,6 +140,8 @@ class MoviesViewModelSpek : ViewModelSpek({
                 coVerify {
                     stateMock.onChanged(
                         MoviesState(
+                            year = null,
+                            month = null,
                             status = MoviesStatus.Init,
                             movies = PaginationData()
                         )
@@ -122,6 +152,8 @@ class MoviesViewModelSpek : ViewModelSpek({
                 coVerify {
                     stateMock.onChanged(
                         MoviesState(
+                            year = MOVIE_YEAR,
+                            month = MOVIE_MONTH,
                             status = MoviesStatus.Loading,
                             movies = PaginationData()
                         )
@@ -145,6 +177,8 @@ class MoviesViewModelSpek : ViewModelSpek({
                 verify {
                     stateMock.onChanged(
                         MoviesState(
+                            year = MOVIE_YEAR,
+                            month = MOVIE_MONTH,
                             status = MoviesStatus.Loaded,
                             movies = paginationData.addPage(moviesPage.value)
                         )
@@ -168,6 +202,8 @@ class MoviesViewModelSpek : ViewModelSpek({
                 verify {
                     stateMock.onChanged(
                         MoviesState(
+                            year = MOVIE_YEAR,
+                            month = MOVIE_MONTH,
                             status = MoviesStatus.Loaded,
                             movies = paginationData.addPage(MoviesPage(paginationData.nextPage(), emptyList()))
                         )

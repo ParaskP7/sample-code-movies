@@ -49,6 +49,24 @@ class MoviesViewModelTest {
         testedClass.sideEffect().observeForever(sideEffectMock)
     }
 
+    /* IDLE */
+
+    @Test
+    fun `when idling movies, then the expected idling state is posted`() {
+        testedClass.process(MoviesIntent.IdleMovies)
+
+        verify {
+            stateMock.onChanged(
+                MoviesState(
+                    year = null,
+                    month = null,
+                    status = MoviesStatus.Idle,
+                    movies = PaginationData()
+                )
+            )
+        }
+    }
+
     /* LOAD */
 
     @Test
@@ -58,6 +76,8 @@ class MoviesViewModelTest {
         verify {
             stateMock.onChanged(
                 MoviesState(
+                    year = MOVIE_YEAR,
+                    month = MOVIE_MONTH,
                     status = MoviesStatus.Loading,
                     movies = PaginationData()
                 )
@@ -82,6 +102,8 @@ class MoviesViewModelTest {
         verify {
             stateMock.onChanged(
                 MoviesState(
+                    year = MOVIE_YEAR,
+                    month = MOVIE_MONTH,
                     status = MoviesStatus.Loaded,
                     movies = paginationData.addPage(moviesPage.value)
                 )
@@ -99,6 +121,8 @@ class MoviesViewModelTest {
         verify {
             stateMock.onChanged(
                 MoviesState(
+                    year = MOVIE_YEAR,
+                    month = MOVIE_MONTH,
                     status = MoviesStatus.Loaded,
                     movies = paginationData.addPage(MoviesPage(paginationData.nextPage(), emptyList()))
                 )
@@ -124,6 +148,8 @@ class MoviesViewModelTest {
         verify {
             stateMock.onChanged(
                 MoviesState(
+                    year = null,
+                    month = null,
                     status = MoviesStatus.Init,
                     movies = PaginationData()
                 )
@@ -138,6 +164,8 @@ class MoviesViewModelTest {
         verify {
             stateMock.onChanged(
                 MoviesState(
+                    year = MOVIE_YEAR,
+                    month = MOVIE_MONTH,
                     status = MoviesStatus.Loading,
                     movies = PaginationData()
                 )
@@ -162,6 +190,8 @@ class MoviesViewModelTest {
         verify {
             stateMock.onChanged(
                 MoviesState(
+                    year = MOVIE_YEAR,
+                    month = MOVIE_MONTH,
                     status = MoviesStatus.Loaded,
                     movies = paginationData.addPage(moviesPage.value)
                 )
@@ -179,6 +209,8 @@ class MoviesViewModelTest {
         verify {
             stateMock.onChanged(
                 MoviesState(
+                    year = MOVIE_YEAR,
+                    month = MOVIE_MONTH,
                     status = MoviesStatus.Loaded,
                     movies = paginationData.addPage(MoviesPage(paginationData.nextPage(), emptyList()))
                 )

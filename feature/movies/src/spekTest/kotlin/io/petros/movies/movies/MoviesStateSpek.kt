@@ -25,6 +25,8 @@ class MoviesStateSpek : Spek({
                 expect {
                     that(result).isEqualTo(
                         MoviesState(
+                            year = null,
+                            month = null,
                             status = MoviesStatus.Init,
                             movies = PaginationData()
                         )
@@ -35,12 +37,41 @@ class MoviesStateSpek : Spek({
     }
 
     Feature("Movies reducer reduce") {
+        Scenario("idle") {
+            @Suppress("LateinitUsage") lateinit var previousState: MoviesState
+            var result: MoviesState? = null
+            Given("an idle action") {
+                previousState = MoviesState(
+                    year = null,
+                    month = null,
+                    status = MoviesStatus.Init,
+                    movies = PaginationData()
+                )
+            }
+            When("reduce is triggered") {
+                result = MoviesReducer.reduce(previousState, MoviesAction.Idle)
+            }
+            Then("the initial state is the expected one") {
+                expect {
+                    that(result).isEqualTo(
+                        MoviesState(
+                            year = null,
+                            month = null,
+                            status = MoviesStatus.Idle,
+                            movies = PaginationData()
+                        )
+                    )
+                }
+            }
+        }
         Scenario("load") {
             @Suppress("LateinitUsage") lateinit var previousState: MoviesState
             var result: MoviesState? = null
             Given("a load action") {
                 previousState = MoviesState(
-                    status = MoviesStatus.Init,
+                    year = null,
+                    month = null,
+                    status = MoviesStatus.Idle,
                     movies = PaginationData()
                 )
             }
@@ -51,6 +82,8 @@ class MoviesStateSpek : Spek({
                 expect {
                     that(result).isEqualTo(
                         MoviesState(
+                            year = MOVIE_YEAR,
+                            month = MOVIE_MONTH,
                             status = MoviesStatus.Loading,
                             movies = PaginationData()
                         )
@@ -65,6 +98,8 @@ class MoviesStateSpek : Spek({
                 val paginationData = PaginationData<Movie>()
                 val moviesPage = MoviesPage(SECOND_PAGE, firstPageItems)
                 previousState = MoviesState(
+                    year = MOVIE_YEAR,
+                    month = MOVIE_MONTH,
                     status = MoviesStatus.Loaded,
                     movies = paginationData.addPage(moviesPage)
                 )
@@ -76,6 +111,8 @@ class MoviesStateSpek : Spek({
                 expect {
                     that(result).isEqualTo(
                         MoviesState(
+                            year = null,
+                            month = null,
                             status = MoviesStatus.Loaded,
                             movies = PaginationData()
                         )
@@ -90,6 +127,8 @@ class MoviesStateSpek : Spek({
             var result: MoviesState? = null
             Given("a success action") {
                 previousState = MoviesState(
+                    year = null,
+                    month = null,
                     status = MoviesStatus.Loading,
                     movies = paginationData
                 )
@@ -101,6 +140,8 @@ class MoviesStateSpek : Spek({
                 expect {
                     that(result).isEqualTo(
                         MoviesState(
+                            year = null,
+                            month = null,
                             status = MoviesStatus.Loaded,
                             movies = paginationData.addPage(moviesPage)
                         )
@@ -115,6 +156,8 @@ class MoviesStateSpek : Spek({
             Given("an error action") {
                 val moviesPage = MoviesPage(SECOND_PAGE, firstPageItems)
                 previousState = MoviesState(
+                    year = null,
+                    month = null,
                     status = MoviesStatus.Loading,
                     movies = paginationData.addPage(moviesPage)
                 )
@@ -126,6 +169,8 @@ class MoviesStateSpek : Spek({
                 expect {
                     that(result).isEqualTo(
                         MoviesState(
+                            year = null,
+                            month = null,
                             status = MoviesStatus.Loaded,
                             movies = paginationData.addPage(MoviesPage(SECOND_PAGE, emptyList()))
                         )
@@ -152,7 +197,7 @@ class MoviesStateSpek : Spek({
         Scenario("unexpected") {
             @Suppress("LateinitUsage") lateinit var action: MoviesAction
             Given("an unexpected action") {
-                action = MoviesAction.Load
+                action = MoviesAction.Load(null, null)
             }
             When("once is triggered, then throw illegal argument exception") {
                 try {
@@ -169,6 +214,8 @@ class MoviesStateSpek : Spek({
     companion object {
 
         private const val SECOND_PAGE = 2
+        private const val MOVIE_YEAR = 2018
+        private const val MOVIE_MONTH = 7
 
     }
 

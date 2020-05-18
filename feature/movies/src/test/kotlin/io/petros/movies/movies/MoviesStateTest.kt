@@ -14,6 +14,8 @@ class MoviesStateTest {
     companion object {
 
         private const val SECOND_PAGE = 2
+        private const val MOVIE_YEAR = 2018
+        private const val MOVIE_MONTH = 7
 
     }
 
@@ -26,7 +28,32 @@ class MoviesStateTest {
         expect {
             that(result).isEqualTo(
                 MoviesState(
+                    year = null,
+                    month = null,
                     status = MoviesStatus.Init,
+                    movies = PaginationData()
+                )
+            )
+        }
+    }
+
+    @Test
+    fun `given an idle action, when reduce is triggered, then the new state is the expected one`() {
+        val previousState = MoviesState(
+            year = null,
+            month = null,
+            status = MoviesStatus.Init,
+            movies = PaginationData()
+        )
+
+        val result = MoviesReducer.reduce(previousState, MoviesAction.Idle)
+
+        expect {
+            that(result).isEqualTo(
+                MoviesState(
+                    year = null,
+                    month = null,
+                    status = MoviesStatus.Idle,
                     movies = PaginationData()
                 )
             )
@@ -36,15 +63,19 @@ class MoviesStateTest {
     @Test
     fun `given a load action, when reduce is triggered, then the new state is the expected one`() {
         val previousState = MoviesState(
-            status = MoviesStatus.Init,
+            year = null,
+            month = null,
+            status = MoviesStatus.Idle,
             movies = PaginationData()
         )
 
-        val result = MoviesReducer.reduce(previousState, MoviesAction.Load)
+        val result = MoviesReducer.reduce(previousState, MoviesAction.Load(MOVIE_YEAR, MOVIE_MONTH))
 
         expect {
             that(result).isEqualTo(
                 MoviesState(
+                    year = MOVIE_YEAR,
+                    month = MOVIE_MONTH,
                     status = MoviesStatus.Loading,
                     movies = PaginationData()
                 )
@@ -57,6 +88,8 @@ class MoviesStateTest {
         val paginationData = PaginationData<Movie>()
         val moviesPage = MoviesPage(SECOND_PAGE, firstPageItems)
         val previousState = MoviesState(
+            year = MOVIE_YEAR,
+            month = MOVIE_MONTH,
             status = MoviesStatus.Loaded,
             movies = paginationData.addPage(moviesPage)
         )
@@ -66,6 +99,8 @@ class MoviesStateTest {
         expect {
             that(result).isEqualTo(
                 MoviesState(
+                    year = null,
+                    month = null,
                     status = MoviesStatus.Loaded,
                     movies = PaginationData()
                 )
@@ -78,6 +113,8 @@ class MoviesStateTest {
         val paginationData = PaginationData<Movie>()
         val moviesPage = MoviesPage(SECOND_PAGE, firstPageItems)
         val previousState = MoviesState(
+            year = null,
+            month = null,
             status = MoviesStatus.Loading,
             movies = paginationData
         )
@@ -87,6 +124,8 @@ class MoviesStateTest {
         expect {
             that(result).isEqualTo(
                 MoviesState(
+                    year = null,
+                    month = null,
                     status = MoviesStatus.Loaded,
                     movies = paginationData.addPage(moviesPage)
                 )
@@ -99,6 +138,8 @@ class MoviesStateTest {
         val paginationData = PaginationData<Movie>()
         val moviesPage = MoviesPage(SECOND_PAGE, firstPageItems)
         val previousState = MoviesState(
+            year = null,
+            month = null,
             status = MoviesStatus.Loading,
             movies = paginationData.addPage(moviesPage)
         )
@@ -108,6 +149,8 @@ class MoviesStateTest {
         expect {
             that(result).isEqualTo(
                 MoviesState(
+                    year = null,
+                    month = null,
                     status = MoviesStatus.Loaded,
                     movies = paginationData.addPage(MoviesPage(SECOND_PAGE, emptyList()))
                 )
@@ -124,7 +167,7 @@ class MoviesStateTest {
 
     @Test(expected = IllegalArgumentException::class)
     fun `given an unexpected action, when once is triggered, then throw illegal argument exception`() {
-        MoviesReducer.once(MoviesAction.Load)
+        MoviesReducer.once(MoviesAction.Load(null, null))
     }
 
 }

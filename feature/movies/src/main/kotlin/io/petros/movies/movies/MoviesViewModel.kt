@@ -21,13 +21,18 @@ class MoviesViewModel(
     override fun process(intent: MoviesIntent) {
         super.process(intent)
         when (intent) {
+            is MoviesIntent.IdleMovies -> idleMovies()
             is MoviesIntent.LoadMovies -> loadMovies(intent.year, intent.month, intent.page)
             is MoviesIntent.ReloadMovies -> reloadMovies(intent.year, intent.month)
         }.exhaustive
     }
 
+    private fun idleMovies() {
+        state = MoviesReducer.reduce(state, MoviesAction.Idle)
+    }
+
     private fun loadMovies(year: Int? = null, month: Int? = null, page: Int? = null) = viewModelScope.launch {
-        state = MoviesReducer.reduce(state, MoviesAction.Load)
+        state = MoviesReducer.reduce(state, MoviesAction.Load(year, month))
         when (val movies = loadMoviesUseCase.execute(LoadMoviesUseCase.Params(year, month, page))) {
             is Result.Success -> onLoadMoviesSuccess(movies.value)
             is Result.Error -> onLoadMoviesError(movies.cause)

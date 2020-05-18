@@ -59,10 +59,16 @@ class MoviesActivity : MviActivity<MoviesIntent, MoviesState, MoviesSideEffect, 
         binding.recyclerView.listener = this
     }
 
+    override fun onResume() {
+        super.onResume()
+        viewModel.process(MoviesIntent.IdleMovies)
+    }
+
     /* STATE */
 
     override fun renderState(state: MoviesState) = when (state.status) {
         is MoviesStatus.Init -> renderInitState()
+        is MoviesStatus.Idle -> renderIdleState(state)
         is MoviesStatus.Loading -> renderLoadingState()
         is MoviesStatus.Loaded -> renderLoadedState(state)
     }
@@ -74,6 +80,16 @@ class MoviesActivity : MviActivity<MoviesIntent, MoviesState, MoviesSideEffect, 
                 month = binding.toolbar.getMonth()
             )
         )
+    }
+
+    private fun renderIdleState(state: MoviesState) {
+        state.year?.let { year ->
+            binding.toolbar.showCloseIcon()
+            binding.toolbar.restoreYear(year)
+            state.month?.let { binding.toolbar.restoreMonth(it) }
+        }
+        adapter.status = AdapterStatus.IDLE
+        adapter.setItems(state.movies, true)
     }
 
     private fun renderLoadingState() {

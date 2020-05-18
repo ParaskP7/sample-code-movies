@@ -6,6 +6,8 @@ import io.petros.movies.domain.model.movie.MoviesPage
 import io.petros.movies.domain.model.movie.MoviesStatus
 
 data class MoviesState(
+    val year: Int?,
+    val month: Int?,
     val status: MoviesStatus,
     val movies: PaginationData<Movie>
 )
@@ -17,6 +19,8 @@ sealed class MoviesSideEffect {
 }
 
 sealed class MoviesIntent {
+
+    object IdleMovies : MoviesIntent()
 
     data class LoadMovies(
         val year: Int? = null,
@@ -33,7 +37,12 @@ sealed class MoviesIntent {
 
 sealed class MoviesAction {
 
-    object Load : MoviesAction()
+    object Idle : MoviesAction()
+
+    data class Load(
+        val year: Int?,
+        val month: Int?
+    ) : MoviesAction()
 
     object Reload : MoviesAction()
 
@@ -48,15 +57,24 @@ sealed class MoviesAction {
 object MoviesReducer {
 
     fun init() = MoviesState(
+        year = null,
+        month = null,
         status = MoviesStatus.Init,
         movies = PaginationData()
     )
 
     fun reduce(previousState: MoviesState, action: MoviesAction) = when (action) {
+        is MoviesAction.Idle -> previousState.copy(
+            status = MoviesStatus.Idle
+        )
         is MoviesAction.Load -> previousState.copy(
+            year = action.year,
+            month = action.month,
             status = MoviesStatus.Loading
         )
         is MoviesAction.Reload -> previousState.copy(
+            year = null,
+            month = null,
             movies = PaginationData()
         )
         is MoviesAction.Success -> previousState.copy(
