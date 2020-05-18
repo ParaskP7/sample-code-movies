@@ -10,7 +10,7 @@
     <dimen name="spacingS">8dp</dimen>
     <dimen name="spacingM">16dp</dimen>
     <dimen name="spacingL">32dp</dimen>
-    <dimen name="SpacingXL">48dp</dimen>
+    <dimen name="spacingXL">48dp</dimen>
     <dimen name="spacingXXL">56dp</dimen>
     <dimen name="spacingXXXL">64dp</dimen>
 
