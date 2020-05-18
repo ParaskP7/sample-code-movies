@@ -27,7 +27,8 @@ class InfiniteScrollListener(
     private fun checkAndLoadMore() {
         if (!isLoading() and
             hasNextPage() and
-            isVisiblePageThresholdBreached(layoutManager.findLastVisibleItemPosition())) {
+            isVisiblePageThresholdBreached(layoutManager.findLastVisibleItemPosition())
+        ) {
             listener.loadMore()
         }
     }
