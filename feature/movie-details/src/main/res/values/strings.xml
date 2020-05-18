@@ -3,6 +3,6 @@
 <resources>
 
     <!-- Toolbar -->
-    <string name="tvToolbarMovieDetailsLabel">Movie Details</string>
+    <string name="navToolbarMovieDetailsLabel">Movie Details</string>
 
 </resources>

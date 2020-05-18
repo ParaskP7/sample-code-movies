@@ -16,7 +16,7 @@
             style="@style/tvToolbarLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/tvToolbarMovieDetailsLabel" />
+            android:text="@string/navToolbarMovieDetailsLabel" />
 
     </LinearLayout>
 
