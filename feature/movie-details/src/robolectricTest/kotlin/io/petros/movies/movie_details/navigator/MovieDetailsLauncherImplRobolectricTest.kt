@@ -6,7 +6,7 @@ import io.mockk.mockk
 import io.mockk.slot
 import io.mockk.verify
 import io.petros.movies.android_test.app.TestApp
-import io.petros.movies.movie_details.MovieDetailsActivity
+import io.petros.movies.movie_details.MovieDetailsFragment
 import io.petros.movies.movie_details.navigator.MovieDetailsLauncherImpl.Companion.getMovie
 import io.petros.movies.test.domain.movie
 import org.junit.Test
@@ -32,7 +32,7 @@ class MovieDetailsLauncherImplRobolectricTest {
 
         verify { activityMock.startActivity(capture(slot)) }
         expect {
-            that(slot.captured.component?.className).isEqualTo(MovieDetailsActivity::class.java.name)
+            that(slot.captured.component?.className).isEqualTo(MovieDetailsFragment::class.java.name)
             that(getMovie(slot.captured)).isEqualTo(movie)
         }
     }

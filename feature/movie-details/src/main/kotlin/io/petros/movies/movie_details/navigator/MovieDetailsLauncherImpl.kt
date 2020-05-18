@@ -5,7 +5,7 @@ import android.app.Activity
 import android.content.Intent
 import io.petros.movies.android_utils.getExtraName
 import io.petros.movies.domain.model.movie.Movie
-import io.petros.movies.movie_details.MovieDetailsActivity
+import io.petros.movies.movie_details.MovieDetailsFragment
 
 class MovieDetailsLauncherImpl(
     private val activity: Activity
@@ -13,7 +13,7 @@ class MovieDetailsLauncherImpl(
 
     companion object {
 
-        private val EXTRA_CLASS = MovieDetailsActivity::class.java
+        private val EXTRA_CLASS = MovieDetailsFragment::class.java
         private val EXTRA_MOVIE = getExtraName(EXTRA_CLASS, "movie")
 
         @Suppress("UnsafeCast")
