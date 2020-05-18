@@ -7,7 +7,9 @@ import androidx.fragment.app.FragmentManager
 import com.whiteelephant.monthpicker.MonthPickerDialog
 import java.util.*
 
-class MovieYearPickerFragment : DialogFragment(),
+class MovieYearPickerFragment(
+    private val onYearPicked: (Int) -> Unit
+) : DialogFragment(),
     MonthPickerDialog.OnDateSetListener {
 
     companion object {
@@ -28,7 +30,7 @@ class MovieYearPickerFragment : DialogFragment(),
     }
 
     override fun onDateSet(selectedMonth: Int, selectedYear: Int) {
-        (activity as? MovieYearPickerFragmentCallback)?.onYearPicked(selectedYear)
+        onYearPicked(selectedYear)
     }
 
     fun show(manager: FragmentManager) {

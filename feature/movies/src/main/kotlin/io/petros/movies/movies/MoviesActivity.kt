@@ -14,9 +14,7 @@ import io.petros.movies.movies.list.item.MovieItemCallback
 import io.petros.movies.movies.navigator.MoviesNavigator
 import io.petros.movies.movies.toolbar.MoviesToolbarCallback
 import io.petros.movies.picker.MovieMonthPickerFragment
-import io.petros.movies.picker.MovieMonthPickerFragmentCallback
 import io.petros.movies.picker.MovieYearPickerFragment
-import io.petros.movies.picker.MovieYearPickerFragmentCallback
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
@@ -25,9 +23,7 @@ import org.koin.core.parameter.parametersOf
 class MoviesActivity : MviActivity<MoviesIntent, MoviesState, MoviesSideEffect, MoviesViewModel>(),
     MoviesToolbarCallback,
     MovieItemCallback,
-    InfiniteRecyclerView.Listener,
-    MovieYearPickerFragmentCallback,
-    MovieMonthPickerFragmentCallback {
+    InfiniteRecyclerView.Listener {
 
     companion object {
 
@@ -139,14 +135,11 @@ class MoviesActivity : MviActivity<MoviesIntent, MoviesState, MoviesSideEffect, 
     }
 
     override fun onYearClicked() {
-        MovieYearPickerFragment().show(supportFragmentManager)
+        MovieYearPickerFragment { year -> onYearPicked(year) }
+            .show(supportFragmentManager)
     }
 
-    override fun onMonthClicked() {
-        MovieMonthPickerFragment().show(supportFragmentManager)
-    }
-
-    override fun onYearPicked(year: Int) {
+    private fun onYearPicked(year: Int) {
         binding.toolbar.setYear(year)
         binding.toolbar.showMonth()
         viewModel.process(
@@ -156,7 +149,12 @@ class MoviesActivity : MviActivity<MoviesIntent, MoviesState, MoviesSideEffect, 
         )
     }
 
-    override fun onMonthPicked(month: Int) {
+    override fun onMonthClicked() {
+        MovieMonthPickerFragment { month -> onMonthPicked(month) }
+            .show(supportFragmentManager)
+    }
+
+    private fun onMonthPicked(month: Int) {
         binding.toolbar.setMonth(month)
         viewModel.process(
             MoviesIntent.ReloadMovies(
