@@ -17,12 +17,13 @@ class MoviesViewModel(
         state = MoviesReducer.init()
     }
 
+    @Suppress("IMPLICIT_CAST_TO_ANY")
     override fun process(intent: MoviesIntent) {
         super.process(intent)
         when (intent) {
             is MoviesIntent.LoadMovies -> loadMovies(intent.year, intent.month, intent.page)
             is MoviesIntent.ReloadMovies -> reloadMovies(intent.year, intent.month)
-        }
+        }.exhaustive
     }
 
     private fun loadMovies(year: Int? = null, month: Int? = null, page: Int? = null) = viewModelScope.launch {
