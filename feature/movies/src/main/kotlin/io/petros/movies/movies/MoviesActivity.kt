@@ -70,8 +70,8 @@ class MoviesActivity : MviActivity<MoviesIntent, MoviesState, MoviesSideEffect, 
     private fun renderInitState() {
         viewModel.process(
             MoviesIntent.LoadMovies(
-                binding.toolbar.getYear(),
-                binding.toolbar.getMonth()
+                year = binding.toolbar.getYear(),
+                month = binding.toolbar.getMonth()
             )
         )
     }
@@ -99,9 +99,9 @@ class MoviesActivity : MviActivity<MoviesIntent, MoviesState, MoviesSideEffect, 
             .setAction(R.string.sbLoadMoviesErrorAction) {
                 viewModel.process(
                     MoviesIntent.LoadMovies(
-                        binding.toolbar.getYear(),
-                        binding.toolbar.getMonth(),
-                        adapter.nextPage()
+                        year = binding.toolbar.getYear(),
+                        month = binding.toolbar.getMonth(),
+                        page = adapter.nextPage()
                     )
                 )
             }
@@ -113,9 +113,9 @@ class MoviesActivity : MviActivity<MoviesIntent, MoviesState, MoviesSideEffect, 
     override fun loadData(page: Int?) {
         viewModel.process(
             MoviesIntent.LoadMovies(
-                binding.toolbar.getYear(),
-                binding.toolbar.getMonth(),
-                page
+                year = binding.toolbar.getYear(),
+                month = binding.toolbar.getMonth(),
+                page = page
             )
         )
     }
@@ -144,7 +144,7 @@ class MoviesActivity : MviActivity<MoviesIntent, MoviesState, MoviesSideEffect, 
         binding.toolbar.showMonth()
         viewModel.process(
             MoviesIntent.ReloadMovies(
-                year
+                year = year
             )
         )
     }
@@ -158,8 +158,8 @@ class MoviesActivity : MviActivity<MoviesIntent, MoviesState, MoviesSideEffect, 
         binding.toolbar.setMonth(month)
         viewModel.process(
             MoviesIntent.ReloadMovies(
-                binding.toolbar.getYear(),
-                month
+                year = binding.toolbar.getYear(),
+                month = month
             )
         )
     }
