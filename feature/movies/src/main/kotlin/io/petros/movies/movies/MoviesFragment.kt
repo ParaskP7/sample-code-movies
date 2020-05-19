@@ -208,7 +208,7 @@ class MoviesFragment : MviFragment<MoviesIntent, MoviesState, MoviesSideEffect, 
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        binding.toolbar.onSaveInstanceState(outState)
+        view?.let { binding.toolbar.onSaveInstanceState(outState) }
         onSaveDoReloadInstanceState(outState)
     }
 
