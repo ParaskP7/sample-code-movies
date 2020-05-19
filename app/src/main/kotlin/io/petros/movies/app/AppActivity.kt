@@ -12,9 +12,9 @@ import io.petros.movies.databinding.AppActivityBinding
 
 class AppActivity : BaseActivity() {
 
-    @Suppress("LateinitUsage") private lateinit var appBarConfiguration: AppBarConfiguration
-
     private val binding by viewBinding(AppActivityBinding::inflate)
+
+    @Suppress("LateinitUsage") private lateinit var appBarConfiguration: AppBarConfiguration
 
     override fun onCreate(savedInstanceState: Bundle?) {
         setTheme(R.style.AppTheme)
