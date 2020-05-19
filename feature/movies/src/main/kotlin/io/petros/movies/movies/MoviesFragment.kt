@@ -33,7 +33,7 @@ class MoviesFragment : MviFragment<MoviesIntent, MoviesState, MoviesSideEffect, 
 
     override val viewModel: MoviesViewModel by viewModel()
 
-    private val adapter = MoviesAdapter()
+    private var adapter: MoviesAdapter? = null
 
     private var snackbar: Snackbar? = null
 
@@ -52,7 +52,8 @@ class MoviesFragment : MviFragment<MoviesIntent, MoviesState, MoviesSideEffect, 
     }
 
     private fun initRecyclerView() {
-        adapter.itemCallback = this
+        adapter = MoviesAdapter()
+        adapter?.itemCallback = this
         binding.recyclerView.adapter = adapter
         binding.recyclerView.listener = this
     }
@@ -60,6 +61,11 @@ class MoviesFragment : MviFragment<MoviesIntent, MoviesState, MoviesSideEffect, 
     override fun onResume() {
         super.onResume()
         viewModel.process(MoviesIntent.IdleMovies)
+    }
+
+    override fun onDestroyView() {
+        adapter = null
+        super.onDestroyView()
     }
 
     /* STATE */
@@ -81,18 +87,18 @@ class MoviesFragment : MviFragment<MoviesIntent, MoviesState, MoviesSideEffect, 
             binding.toolbar.restoreYear(year)
             state.month?.let { binding.toolbar.restoreMonth(it) }
         }
-        adapter.status = AdapterStatus.IDLE
-        adapter.setItems(state.movies, true)
+        adapter?.status = AdapterStatus.IDLE
+        adapter?.setItems(state.movies, true)
     }
 
     private fun renderLoadingState() {
-        adapter.status = AdapterStatus.LOADING
+        adapter?.status = AdapterStatus.LOADING
         snackbar?.dismiss()
     }
 
     private fun renderLoadedState(state: MoviesState) {
-        adapter.status = AdapterStatus.IDLE
-        adapter.setItems(state.movies, reloadItems)
+        adapter?.status = AdapterStatus.IDLE
+        adapter?.setItems(state.movies, reloadItems)
         reloadItems = false
     }
 
@@ -110,7 +116,7 @@ class MoviesFragment : MviFragment<MoviesIntent, MoviesState, MoviesSideEffect, 
                     MoviesIntent.LoadMovies(
                         year = binding.toolbar.getYear(),
                         month = binding.toolbar.getMonth(),
-                        page = adapter.nextPage()
+                        page = adapter?.nextPage()
                     )
                 )
             }
