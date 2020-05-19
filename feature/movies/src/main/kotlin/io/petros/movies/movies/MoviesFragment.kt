@@ -31,14 +31,13 @@ class MoviesFragment : MviFragment<MoviesIntent, MoviesState, MoviesSideEffect, 
 
     }
 
-    override val viewModel: MoviesViewModel by viewModel()
-
     private var adapter: MoviesAdapter? = null
     private var snackbar: Snackbar? = null
 
     private var reloadItems = false
 
     private val binding by viewBinding(MoviesFragmentBinding::bind)
+    override val viewModel: MoviesViewModel by viewModel()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
