@@ -2,53 +2,44 @@
 
 <merge xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:parentTag="com.google.android.material.appbar.AppBarLayout">
+    tools:parentTag="android.widget.LinearLayout">
 
-    <LinearLayout
-        android:id="@+id/ctrMoviesToolbar"
-        style="@style/ctrMoviesToolbar"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/ivToolbarFilterIcon"
+        style="@style/ivToolbarIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_filter"
+        android:visibility="visible"
+        tools:ignore="ContentDescription"
+        tools:visibility="gone" />
 
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/ivToolbarFilterIcon"
-            style="@style/ivToolbarIcon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_filter"
-            android:visibility="visible"
-            tools:ignore="ContentDescription"
-            tools:visibility="gone" />
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/ivToolbarCloseIcon"
+        style="@style/ivToolbarIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_close"
+        android:visibility="gone"
+        tools:ignore="ContentDescription"
+        tools:visibility="visible" />
 
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/ivToolbarCloseIcon"
-            style="@style/ivToolbarIcon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_close"
-            android:visibility="gone"
-            tools:ignore="ContentDescription"
-            tools:visibility="visible" />
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tvToolbarFilterYear"
+        style="@style/tvToolbarFilter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tvToolbarFilterYear"
+        android:visibility="invisible"
+        tools:visibility="visible" />
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/tvToolbarFilterYear"
-            style="@style/tvToolbarFilter"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/tvToolbarFilterYear"
-            android:visibility="invisible"
-            tools:visibility="visible" />
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/tvToolbarFilterMonth"
-            style="@style/tvToolbarFilter"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/tvToolbarFilterMonth"
-            android:visibility="invisible"
-            tools:visibility="visible" />
-
-    </LinearLayout>
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tvToolbarFilterMonth"
+        style="@style/tvToolbarFilter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tvToolbarFilterMonth"
+        android:visibility="invisible"
+        tools:visibility="visible" />
 
 </merge>

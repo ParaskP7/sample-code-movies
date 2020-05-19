@@ -4,10 +4,10 @@ import android.content.Context
 import android.os.Bundle
 import android.util.AttributeSet
 import android.view.LayoutInflater
+import android.widget.LinearLayout
 import androidx.annotation.VisibleForTesting
 import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
-import com.google.android.material.appbar.AppBarLayout
 import io.petros.movies.movies.R
 import io.petros.movies.movies.databinding.MoviesToolbarBinding
 import io.petros.movies.utils.MonthOfYear
@@ -17,7 +17,7 @@ import timber.log.Timber
 class MoviesToolbar(
     ctx: Context,
     attrs: AttributeSet? = null
-) : AppBarLayout(ctx, attrs) {
+) : LinearLayout(ctx, attrs) {
 
     companion object {
 

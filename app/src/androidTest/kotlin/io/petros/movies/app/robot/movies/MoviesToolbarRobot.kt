@@ -7,7 +7,7 @@ import io.petros.movies.android_test.robot.utils.idMatcher
 import io.petros.movies.movies.R
 
 @Suppress("ForbiddenComment")
-class MoviesToolbarRobot : ScopedActions(idMatcher(R.id.ctrMoviesToolbar)) {
+class MoviesToolbarRobot : ScopedActions(idMatcher(R.id.toolbar)) {
 
     companion object {
 
