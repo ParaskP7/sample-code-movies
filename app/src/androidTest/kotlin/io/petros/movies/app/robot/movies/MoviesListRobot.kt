@@ -18,6 +18,8 @@ class MoviesListRobot(
 
     fun inItem(position: Int, action: MovieItemRobot.() -> Actions): Actions {
         onView(matcher())
+            .perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(position - 1))
+            .perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(position + 1))
             .perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(position))
         return MovieItemRobot(positionMatcher(position)).action()
     }

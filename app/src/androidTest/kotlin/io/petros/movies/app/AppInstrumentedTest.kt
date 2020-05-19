@@ -549,6 +549,8 @@ class AppInstrumentedTest {
         vote: String
     ) {
         onView(withId(mR.id.recyclerView))
+            .perform(scrollToPosition<MovieViewHolder>(position - 1))
+            .perform(scrollToPosition<MovieViewHolder>(position + 1))
             .perform(scrollToPosition<MovieViewHolder>(position))
         onView(allOf(withId(mR.id.tvItemTitle), withText(title)))
             .check(matches(allOf(isDisplayed(), withText(title))))
