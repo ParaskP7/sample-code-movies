@@ -7,8 +7,6 @@ import io.petros.movies.movie_details.R
 
 class MovieDetailsRobot : ScopedActions(idMatcher(R.id.ctrMovieDetails)) {
 
-    fun inToolbar(action: MovieDetailsToolbarRobot.() -> Actions) = MovieDetailsToolbarRobot().action()
-
     fun inScreen(action: MovieDetailsScreenRobot.() -> Actions) = MovieDetailsScreenRobot().action()
 
 }

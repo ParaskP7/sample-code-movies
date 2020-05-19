@@ -6,17 +6,10 @@
 
     <LinearLayout
         android:id="@+id/ctrMoviesToolbar"
-        style="@style/ctrToolbar"
+        style="@style/ctrMoviesToolbar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal">
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/tvToolbarMoviesLabel"
-            style="@style/tvToolbarLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/navToolbarMoviesLabel" />
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/ivToolbarFilterIcon"

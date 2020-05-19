@@ -13,17 +13,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <io.petros.movies.movie_details.toolbar.MovieDetailsToolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            app:layout_constraintBottom_toTopOf="@id/ivBackdrop"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0"
-            app:layout_constraintVertical_chainStyle="packed" />
-
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/ivBackdrop"
             style="@style/ivBackdrop"
@@ -32,7 +21,9 @@
             app:layout_constraintBottom_toTopOf="@+id/tvTitle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/toolbar"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:layout_constraintVertical_chainStyle="packed"
             tools:ignore="ContentDescription"
             tools:src="@android:color/darker_gray" />
 

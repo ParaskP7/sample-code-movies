@@ -46,7 +46,6 @@ class AppInstrumentedTest {
 
         // TOOLBAR
 
-        private const val MOVIES_TOOLBAR_LABEL = "Movies"
         private const val MOVIES_TOOLBAR_FILTER_YEAR = "Year"
         private const val MOVIES_TOOLBAR_FILTER_YEAR_2020 = "2020"
         private const val MOVIES_TOOLBAR_FILTER_MONTH = "Month"
@@ -54,7 +53,6 @@ class AppInstrumentedTest {
         // TODO: Revert to 'April' by specifically selecting this month during testing
         @Suppress("unused") private const val MOVIES_TOOLBAR_FILTER_MONTH_APRIL = "April"
         private const val MOVIES_TOOLBAR_FILTER_MONTH_MAY = "May"
-        private const val MOVIE_DETAILS_TOOLBAR_LABEL = "Movie Details"
 
         // PICKER
 
@@ -211,7 +209,6 @@ class AppInstrumentedTest {
             releaseDate = SONIC_THE_HEDGEHOG_ITEM_RELEASE_DATE,
             vote = SONIC_THE_HEDGEHOG_ITEM_VOTE
         )
-        checkViewMovieDetailsToolbar()
         checkViewMovieDetails(
             title = SONIC_THE_HEDGEHOG_ITEM_TITLE,
             releaseDate = SONIC_THE_HEDGEHOG_ITEM_RELEASE_DATE,
@@ -229,7 +226,6 @@ class AppInstrumentedTest {
             releaseDate = MORTAL_KOMBAT_LEGENDS_ITEM_RELEASE_DATE,
             vote = MORTAL_KOMBAT_LEGENDS_ITEM_VOTE
         )
-        checkViewMovieDetailsToolbar()
         checkViewMovieDetails(
             title = MORTAL_KOMBAT_LEGENDS_ITEM_TITLE,
             releaseDate = MORTAL_KOMBAT_LEGENDS_ITEM_RELEASE_DATE,
@@ -267,7 +263,6 @@ class AppInstrumentedTest {
             releaseDate = UNDERWATER_ITEM_RELEASE_DATE,
             vote = UNDERWATER_ITEM_VOTE
         )
-        checkViewMovieDetailsToolbar()
         checkViewMovieDetails(
             title = UNDERWATER_ITEM_TITLE,
             releaseDate = UNDERWATER_ITEM_RELEASE_DATE,
@@ -285,7 +280,6 @@ class AppInstrumentedTest {
             releaseDate = TROLLS_WORLD_TOUR_ITEM_RELEASE_DATE,
             vote = TROLLS_WORLD_TOUR_ITEM_VOTE
         )
-        checkViewMovieDetailsToolbar()
         checkViewMovieDetails(
             title = TROLLS_WORLD_TOUR_ITEM_TITLE,
             releaseDate = TROLLS_WORLD_TOUR_ITEM_RELEASE_DATE,
@@ -317,7 +311,6 @@ class AppInstrumentedTest {
             releaseDate = LOVE_WEDDING_REPEAT_ITEM_RELEASE_DATE,
             vote = LOVE_WEDDING_REPEAT_ITEM_VOTE
         )
-        checkViewMovieDetailsToolbar()
         checkViewMovieDetails(
             title = LOVE_WEDDING_REPEAT_ITEM_TITLE,
             releaseDate = LOVE_WEDDING_REPEAT_ITEM_RELEASE_DATE,
@@ -335,7 +328,6 @@ class AppInstrumentedTest {
             releaseDate = BEHIND_YOU_ITEM_RELEASE_DATE,
             vote = BEHIND_YOU_ITEM_VOTE
         )
-        checkViewMovieDetailsToolbar()
         checkViewMovieDetails(
             title = BEHIND_YOU_ITEM_TITLE,
             releaseDate = BEHIND_YOU_ITEM_RELEASE_DATE,
@@ -407,8 +399,6 @@ class AppInstrumentedTest {
         filterMonth: String = MOVIES_TOOLBAR_FILTER_MONTH,
         withFilterMonthClick: Boolean = false
     ) {
-        onView(allOf(withId(mR.id.tvToolbarMoviesLabel), withText(MOVIES_TOOLBAR_LABEL)))
-            .check(matches(allOf(isDisplayed(), withText(MOVIES_TOOLBAR_LABEL))))
         if (filterIconDisplayed) {
             checkViewMoviesToolbarWithFilterIcon(
                 withFilterIconClick
@@ -572,11 +562,6 @@ class AppInstrumentedTest {
             .check(matches(allOf(isDisplayed(), withText(vote))))
         onView(withId(mR.id.recyclerView))
             .perform(actionOnItemAtPosition<MovieViewHolder>(position, click()))
-    }
-
-    private fun checkViewMovieDetailsToolbar() {
-        onView(allOf(withId(mdR.id.tvToolbarMovieDetailsLabel), withText(MOVIE_DETAILS_TOOLBAR_LABEL)))
-            .check(matches(allOf(isDisplayed(), withText(MOVIE_DETAILS_TOOLBAR_LABEL))))
     }
 
     private fun checkViewMovieDetails(

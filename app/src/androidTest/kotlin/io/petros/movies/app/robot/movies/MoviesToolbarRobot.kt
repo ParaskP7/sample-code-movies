@@ -11,7 +11,6 @@ class MoviesToolbarRobot : ScopedActions(idMatcher(R.id.ctrMoviesToolbar)) {
 
     companion object {
 
-        const val MOVIES_TOOLBAR_LABEL = "Movies"
         const val MOVIES_TOOLBAR_FILTER_YEAR = "Year"
         const val MOVIES_TOOLBAR_FILTER_YEAR_2020 = "2020"
         const val MOVIES_TOOLBAR_FILTER_MONTH = "Month"
@@ -21,8 +20,6 @@ class MoviesToolbarRobot : ScopedActions(idMatcher(R.id.ctrMoviesToolbar)) {
         const val MOVIES_TOOLBAR_FILTER_MONTH_MAY = "May"
 
     }
-
-    fun inLabel(action: UiActions.() -> Actions) = UiActions(idMatcher(R.id.tvToolbarMoviesLabel)).action()
 
     fun inFilterIcon(action: UiActions.() -> Actions) = UiActions(idMatcher(R.id.ivToolbarFilterIcon)).action()
 

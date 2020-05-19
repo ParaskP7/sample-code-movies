@@ -8,11 +8,14 @@
     </style>
 
     <!-- Toolbar -->
+    <style name="ctrMoviesToolbar">
+        <item name="android:background">@color/colorOnBackground</item>
+    </style>
 
     <style name="ivToolbarIcon">
         <item name="android:layout_gravity">center</item>
         <item name="android:paddingEnd">@dimen/spacingS</item>
-        <item name="android:paddingStart">@dimen/spacingS</item>
+        <item name="android:paddingStart">@dimen/spacingM</item>
     </style>
 
     <style name="tvToolbarFilter">

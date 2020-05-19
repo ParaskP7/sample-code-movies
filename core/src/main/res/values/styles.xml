@@ -2,18 +2,6 @@
 
 <resources>
 
-    <!-- Toolbar -->
-    <style name="ctrToolbar">
-        <item name="android:background">@color/colorOnBackground</item>
-    </style>
-
-    <style name="tvToolbarLabel">
-        <item name="android:layout_gravity">center</item>
-        <item name="android:paddingEnd">@dimen/spacingM</item>
-        <item name="android:paddingStart">@dimen/spacingM</item>
-        <item name="android:textAppearance">?attr/textAppearanceHeadline6</item>
-    </style>
-
     <!-- Item -->
     <style name="pbProgressItem">
         <item name="android:layout_gravity">center</item>

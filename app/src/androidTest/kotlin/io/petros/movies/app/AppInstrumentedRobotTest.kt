@@ -7,12 +7,10 @@ import androidx.test.rule.ActivityTestRule
 import io.petros.movies.android_test.robot.actions.Actions
 import io.petros.movies.android_test.robot.actions.NoActions
 import io.petros.movies.app.robot.AppRobot
-import io.petros.movies.app.robot.movie_details.MovieDetailsToolbarRobot.Companion.MOVIE_DETAILS_TOOLBAR_LABEL
 import io.petros.movies.app.robot.movies.MoviesToolbarRobot.Companion.MOVIES_TOOLBAR_FILTER_MONTH
 import io.petros.movies.app.robot.movies.MoviesToolbarRobot.Companion.MOVIES_TOOLBAR_FILTER_MONTH_MAY
 import io.petros.movies.app.robot.movies.MoviesToolbarRobot.Companion.MOVIES_TOOLBAR_FILTER_YEAR
 import io.petros.movies.app.robot.movies.MoviesToolbarRobot.Companion.MOVIES_TOOLBAR_FILTER_YEAR_2020
-import io.petros.movies.app.robot.movies.MoviesToolbarRobot.Companion.MOVIES_TOOLBAR_LABEL
 import io.petros.movies.app.robot.picker.MonthPickerRobot.Companion.MOVIE_MONTH_PICKER_MONTH_MAY
 import io.petros.movies.app.robot.picker.MonthPickerRobot.Companion.MOVIE_MONTH_PICKER_TITLE
 import io.petros.movies.app.robot.picker.YearPickerRobot.Companion.MOVIE_YEAR_PICKER_TITLE
@@ -188,7 +186,6 @@ class AppInstrumentedRobotTest {
     private fun AppRobot.check_sonic_the_hedgehog_movie() {
         inMovies {
             inToolbar {
-                inLabel { hasText(MOVIES_TOOLBAR_LABEL) }
                 inFilterIcon { isShown() }
                 inCloseIcon { isNotShown() }
                 inYearFilter { isNotShown() }
@@ -204,9 +201,6 @@ class AppInstrumentedRobotTest {
             }
         }
         inMovieDetails {
-            inToolbar {
-                inLabel { hasText(MOVIE_DETAILS_TOOLBAR_LABEL) }
-            }
             inScreen {
                 inTitle { hasText(SONIC_THE_HEDGEHOG_ITEM_TITLE) }
                 inReleaseDate { hasText(SONIC_THE_HEDGEHOG_ITEM_RELEASE_DATE) }
@@ -220,7 +214,6 @@ class AppInstrumentedRobotTest {
     private fun AppRobot.check_mortal_kombat_legends_movie() {
         inMovies {
             inToolbar {
-                inLabel { hasText(MOVIES_TOOLBAR_LABEL) }
                 inFilterIcon { isShown() }
                 inCloseIcon { isNotShown() }
                 inYearFilter { isNotShown() }
@@ -236,9 +229,6 @@ class AppInstrumentedRobotTest {
             }
         }
         inMovieDetails {
-            inToolbar {
-                inLabel { hasText(MOVIE_DETAILS_TOOLBAR_LABEL) }
-            }
             inScreen {
                 inTitle { hasText(MORTAL_KOMBAT_LEGENDS_ITEM_TITLE) }
                 inReleaseDate { hasText(MORTAL_KOMBAT_LEGENDS_ITEM_RELEASE_DATE) }
@@ -252,7 +242,6 @@ class AppInstrumentedRobotTest {
     private fun AppRobot.check_filter_icon() {
         inMovies {
             inToolbar {
-                inLabel { hasText(MOVIES_TOOLBAR_LABEL) }
                 inFilterIcon { isShown() }
                 inCloseIcon { isNotShown() }
                 inYearFilter { isNotShown() }
@@ -265,7 +254,6 @@ class AppInstrumentedRobotTest {
     private fun AppRobot.check_year_filter() {
         inMovies {
             inToolbar {
-                inLabel { hasText(MOVIES_TOOLBAR_LABEL) }
                 inFilterIcon { isNotShown() }
                 inCloseIcon { isShown() }
                 inYearFilter { hasText(MOVIES_TOOLBAR_FILTER_YEAR) }
@@ -288,7 +276,6 @@ class AppInstrumentedRobotTest {
     private fun AppRobot.check_underwater_movie() {
         inMovies {
             inToolbar {
-                inLabel { hasText(MOVIES_TOOLBAR_LABEL) }
                 inFilterIcon { isNotShown() }
                 inCloseIcon { isShown() }
                 inYearFilter { hasText(MOVIES_TOOLBAR_FILTER_YEAR_2020) }
@@ -304,9 +291,6 @@ class AppInstrumentedRobotTest {
             }
         }
         inMovieDetails {
-            inToolbar {
-                inLabel { hasText(MOVIE_DETAILS_TOOLBAR_LABEL) }
-            }
             inScreen {
                 inTitle { hasText(UNDERWATER_ITEM_TITLE) }
                 inReleaseDate { hasText(UNDERWATER_ITEM_RELEASE_DATE) }
@@ -320,7 +304,6 @@ class AppInstrumentedRobotTest {
     private fun AppRobot.check_trolls_world_tour_movie() {
         inMovies {
             inToolbar {
-                inLabel { hasText(MOVIES_TOOLBAR_LABEL) }
                 inFilterIcon { isNotShown() }
                 inCloseIcon { isShown() }
                 inYearFilter { hasText(MOVIES_TOOLBAR_FILTER_YEAR_2020) }
@@ -336,9 +319,6 @@ class AppInstrumentedRobotTest {
             }
         }
         inMovieDetails {
-            inToolbar {
-                inLabel { hasText(MOVIE_DETAILS_TOOLBAR_LABEL) }
-            }
             inScreen {
                 inTitle { hasText(TROLLS_WORLD_TOUR_ITEM_TITLE) }
                 inReleaseDate { hasText(TROLLS_WORLD_TOUR_ITEM_RELEASE_DATE) }
@@ -352,7 +332,6 @@ class AppInstrumentedRobotTest {
     private fun AppRobot.check_month_filter() {
         inMovies {
             inToolbar {
-                inLabel { hasText(MOVIES_TOOLBAR_LABEL) }
                 inFilterIcon { isNotShown() }
                 inCloseIcon { isShown() }
                 inYearFilter { hasText(MOVIES_TOOLBAR_FILTER_YEAR_2020) }
@@ -377,7 +356,6 @@ class AppInstrumentedRobotTest {
     private fun AppRobot.check_love_wedding_repeat_movie() {
         inMovies {
             inToolbar {
-                inLabel { hasText(MOVIES_TOOLBAR_LABEL) }
                 inFilterIcon { isNotShown() }
                 inCloseIcon { isShown() }
                 inYearFilter { hasText(MOVIES_TOOLBAR_FILTER_YEAR_2020) }
@@ -393,9 +371,6 @@ class AppInstrumentedRobotTest {
             }
         }
         inMovieDetails {
-            inToolbar {
-                inLabel { hasText(MOVIE_DETAILS_TOOLBAR_LABEL) }
-            }
             inScreen {
                 inTitle { hasText(LOVE_WEDDING_REPEAT_ITEM_TITLE) }
                 inReleaseDate { hasText(LOVE_WEDDING_REPEAT_ITEM_RELEASE_DATE) }
@@ -409,7 +384,6 @@ class AppInstrumentedRobotTest {
     private fun AppRobot.check_behind_you_movie() {
         inMovies {
             inToolbar {
-                inLabel { hasText(MOVIES_TOOLBAR_LABEL) }
                 inFilterIcon { isNotShown() }
                 inCloseIcon { isShown() }
                 inYearFilter { hasText(MOVIES_TOOLBAR_FILTER_YEAR_2020) }
@@ -425,9 +399,6 @@ class AppInstrumentedRobotTest {
             }
         }
         inMovieDetails {
-            inToolbar {
-                inLabel { hasText(MOVIE_DETAILS_TOOLBAR_LABEL) }
-            }
             inScreen {
                 inTitle { hasText(BEHIND_YOU_ITEM_TITLE) }
                 inReleaseDate { hasText(BEHIND_YOU_ITEM_RELEASE_DATE) }
@@ -441,7 +412,6 @@ class AppInstrumentedRobotTest {
     private fun AppRobot.check_close_icon() {
         inMovies {
             inToolbar {
-                inLabel { hasText(MOVIES_TOOLBAR_LABEL) }
                 inFilterIcon { isNotShown() }
                 inCloseIcon { isShown() }
                 inYearFilter { hasText(MOVIES_TOOLBAR_FILTER_YEAR_2020) }
