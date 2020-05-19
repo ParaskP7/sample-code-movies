@@ -16,7 +16,7 @@ object Android {
 
             @Suppress("unused")
             const val DEFAULT_INSTRUMENTATION_RUNNER = "androidx.test.runner.AndroidJUnitRunner"
-            const val CUSTOM_INSTRUMENTATION_RUNNER = "io.petros.movies.android_test.runner.CustomAndroidJunitRunner"
+            const val CUSTOM_INSTRUMENTATION_RUNNER = "io.petros.movies.app.runner.CustomAndroidJunitRunner"
 
         }
 

@@ -1,9 +1,8 @@
-package io.petros.movies.android_test.runner
+package io.petros.movies.app.runner
 
 import android.app.Application
 import android.content.Context
 import androidx.test.runner.AndroidJUnitRunner
-import io.petros.movies.android_test.app.InstrumentedTestApp
 
 @Suppress("unused")
 class CustomAndroidJunitRunner : AndroidJUnitRunner() {

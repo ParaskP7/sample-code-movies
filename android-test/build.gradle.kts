@@ -11,7 +11,6 @@ plugins {
 
 dependencies {
     implementation(project(Deps.Project.TestImplementation.Kotlin.TEST))
-    implementation(project(Deps.Project.Implementation.Android.APP))
 
     implementation(Deps.Kotlin.Core.KOTLIN)
     implementation(Deps.Kotlin.Coroutines.Test.TEST)
@@ -23,7 +22,6 @@ dependencies {
     implementation(Deps.Test.Spek.J_UNIT_5)
     runtimeOnly(Deps.Kotlin.Core.KOTLIN_REFLECT)
     implementation(Deps.Android.Arch.Test.CORE_TESTING)
-    implementation(Deps.Android.Test.RUNNER)
     implementation(Deps.Android.Test.Espresso.CORE)
 
     detektPlugins(Deps.Plugin.DETEKT_FORMATTING)

@@ -33,8 +33,6 @@ object Deps {
 
             object Android {
 
-                const val APP = "${Utils.COLON}app"
-
                 @Suppress("MemberNameEqualsClassName")
                 object Core {
 
