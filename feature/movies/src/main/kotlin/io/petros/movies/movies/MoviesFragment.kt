@@ -72,12 +72,7 @@ class MoviesFragment : MviFragment<MoviesIntent, MoviesState, MoviesSideEffect, 
     }
 
     private fun renderInitState() {
-        viewModel.process(
-            MoviesIntent.LoadMovies(
-                year = binding.toolbar.getYear(),
-                month = binding.toolbar.getMonth()
-            )
-        )
+        viewModel.process(MoviesIntent.LoadMovies())
     }
 
     private fun renderIdleState(state: MoviesState) {
