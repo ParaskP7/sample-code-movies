@@ -34,7 +34,6 @@ class MoviesFragment : MviFragment<MoviesIntent, MoviesState, MoviesSideEffect, 
     override val viewModel: MoviesViewModel by viewModel()
 
     private var adapter: MoviesAdapter? = null
-
     private var snackbar: Snackbar? = null
 
     private var reloadItems = false
@@ -65,6 +64,7 @@ class MoviesFragment : MviFragment<MoviesIntent, MoviesState, MoviesSideEffect, 
 
     override fun onDestroyView() {
         adapter = null
+        snackbar = null
         super.onDestroyView()
     }
 
