@@ -67,6 +67,7 @@ class MainCoroutineScopeRule(
     val dispatcher: TestCoroutineDispatcher = TestCoroutineDispatcher()
 ) : TestWatcher(),
     TestCoroutineScope by TestCoroutineScope(dispatcher) {
+
     override fun starting(description: Description?) {
         super.starting(description)
         // If your codebase allows the injection of other dispatchers like
@@ -83,4 +84,5 @@ class MainCoroutineScopeRule(
         cleanupTestCoroutines()
         Dispatchers.resetMain()
     }
+
 }
