@@ -31,8 +31,6 @@ dependencies {
     implementation(project(Deps.Project.Implementation.Android.Core.CORE))
     implementation(project(Deps.Project.Implementation.Android.Feature.SPLASH))
     implementation(project(Deps.Project.Implementation.Android.Feature.MOVIES))
-    implementation(project(Deps.Project.Implementation.Android.Feature.PICKER))
-    implementation(project(Deps.Project.Implementation.Android.Feature.MOVIE_DETAILS))
 
     debugImplementation(Deps.LeakCanary.LEAK_CANARY)
 

@@ -1,6 +1,7 @@
 package io.petros.movies.app
 
 import android.content.Intent
+import androidx.recyclerview.widget.RecyclerView
 import androidx.test.espresso.AmbiguousViewMatcherException
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.Espresso.pressBack
@@ -14,8 +15,6 @@ import androidx.test.espresso.matcher.ViewMatchers.withText
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
 import androidx.test.rule.ActivityTestRule
-import io.petros.movies.R
-import io.petros.movies.movies.list.MovieViewHolder
 import io.petros.movies.test.utils.MOCK_WEB_SERVER_PORT
 import io.petros.movies.test.utils.mockResponse
 import okhttp3.mockwebserver.MockWebServer
@@ -29,6 +28,7 @@ import org.junit.runner.RunWith
 import timber.log.Timber
 import io.petros.movies.movie_details.R as mdR
 import io.petros.movies.movies.R as mR
+import io.petros.movies.picker.R as pR
 
 @LargeTest
 @Suppress("ForbiddenComment")
@@ -524,14 +524,14 @@ class AppInstrumentedTest {
         month: String? = null,
         withActionOkClick: Boolean = false
     ) {
-        onView(allOf(withId(R.id.title), withText(title)))
+        onView(allOf(withId(pR.id.title), withText(title)))
             .check(matches(allOf(isDisplayed(), withText(title))))
         year?.let {
-            onView(allOf(withId(R.id.year), withText(it)))
+            onView(allOf(withId(pR.id.year), withText(it)))
                 .check(matches(allOf(isDisplayed(), withText(it))))
         }
         month?.let {
-            onView(allOf(withId(R.id.month), withText(it)))
+            onView(allOf(withId(pR.id.month), withText(it)))
                 .check(matches(allOf(isDisplayed(), withText(it))))
         }
         if (withActionOkClick) {
@@ -549,9 +549,9 @@ class AppInstrumentedTest {
         vote: String
     ) {
         onView(withId(mR.id.recyclerView))
-            .perform(scrollToPosition<MovieViewHolder>(position - 1))
-            .perform(scrollToPosition<MovieViewHolder>(position + 1))
-            .perform(scrollToPosition<MovieViewHolder>(position))
+            .perform(scrollToPosition<RecyclerView.ViewHolder>(position - 1))
+            .perform(scrollToPosition<RecyclerView.ViewHolder>(position + 1))
+            .perform(scrollToPosition<RecyclerView.ViewHolder>(position))
         onView(allOf(withId(mR.id.tvItemTitle), withText(title)))
             .check(matches(allOf(isDisplayed(), withText(title))))
         try {
@@ -563,7 +563,7 @@ class AppInstrumentedTest {
         onView(allOf(withId(mR.id.tvItemVote), withText(vote)))
             .check(matches(allOf(isDisplayed(), withText(vote))))
         onView(withId(mR.id.recyclerView))
-            .perform(actionOnItemAtPosition<MovieViewHolder>(position, click()))
+            .perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(position, click()))
     }
 
     private fun checkViewMovieDetails(
