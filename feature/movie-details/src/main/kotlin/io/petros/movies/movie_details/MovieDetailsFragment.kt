@@ -1,5 +1,6 @@
 package io.petros.movies.movie_details
 
+import android.os.Bundle
 import androidx.core.view.isVisible
 import com.google.android.material.snackbar.Snackbar
 import io.petros.movies.core.fragment.MviFragment
@@ -19,10 +20,14 @@ class MovieDetailsFragment : MviFragment<
 
         private const val ARGS_ID = "id"
 
+        private fun getId(arguments: Bundle?): Int = arguments?.getInt(ARGS_ID)
+            ?: throw UninitializedPropertyAccessException("'id' was queried before being initialized.")
+
     }
 
     private val binding by viewBinding(MovieDetailsFragmentBinding::bind)
     override val viewModel: MovieDetailsViewModel by viewModel()
+    private val movieId: Int by lazy { getId(arguments) }
 
     private var snackbar: Snackbar? = null
 
@@ -40,13 +45,11 @@ class MovieDetailsFragment : MviFragment<
     }
 
     private fun renderInitState() {
-        arguments?.getInt(ARGS_ID)?.let {
-            viewModel.process(
-                MovieDetailsIntent.LoadMovie(
-                    id = it
-                )
+        viewModel.process(
+            MovieDetailsIntent.LoadMovie(
+                id = movieId
             )
-        }
+        )
     }
 
     private fun renderLoadingState() {
@@ -76,13 +79,11 @@ class MovieDetailsFragment : MviFragment<
         snackbar = Snackbar
             .make(binding.ctrMovieDetails, R.string.sbLoadMovieError, Snackbar.LENGTH_INDEFINITE)
             .setAction(R.string.sbLoadMovieErrorAction) {
-                arguments?.getInt(ARGS_ID)?.let {
-                    viewModel.process(
-                        MovieDetailsIntent.LoadMovie(
-                            id = it
-                        )
+                viewModel.process(
+                    MovieDetailsIntent.LoadMovie(
+                        id = movieId
                     )
-                }
+                )
             }
         snackbar?.show()
     }
