@@ -12,4 +12,8 @@ class MoviesRepositoryImpl(
         webService.loadMovies(year, month, page)
     }
 
+    override suspend fun loadMovie(id: Int) = asResult {
+        webService.loadMovie(id)
+    }
+
 }
