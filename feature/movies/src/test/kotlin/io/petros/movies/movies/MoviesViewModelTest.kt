@@ -12,7 +12,6 @@ import io.petros.movies.domain.model.Result
 import io.petros.movies.domain.model.common.PaginationData
 import io.petros.movies.domain.model.movie.Movie
 import io.petros.movies.domain.model.movie.MoviesPage
-import io.petros.movies.domain.model.movie.MoviesStatus
 import io.petros.movies.test.domain.moviesPage
 import io.petros.movies.test.utils.MainCoroutineScopeRule
 import kotlinx.coroutines.ExperimentalCoroutinesApi

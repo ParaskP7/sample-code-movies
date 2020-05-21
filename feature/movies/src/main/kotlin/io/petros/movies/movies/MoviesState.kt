@@ -3,7 +3,6 @@ package io.petros.movies.movies
 import io.petros.movies.domain.model.common.PaginationData
 import io.petros.movies.domain.model.movie.Movie
 import io.petros.movies.domain.model.movie.MoviesPage
-import io.petros.movies.domain.model.movie.MoviesStatus
 
 data class MoviesState(
     val year: Int?,
@@ -11,6 +10,18 @@ data class MoviesState(
     val status: MoviesStatus,
     val movies: PaginationData<Movie>
 )
+
+sealed class MoviesStatus {
+
+    object Init : MoviesStatus()
+
+    object Idle : MoviesStatus()
+
+    object Loading : MoviesStatus()
+
+    object Loaded : MoviesStatus()
+
+}
 
 sealed class MoviesSideEffect {
 

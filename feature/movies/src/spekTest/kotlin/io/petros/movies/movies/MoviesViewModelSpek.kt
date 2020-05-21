@@ -12,7 +12,6 @@ import io.petros.movies.domain.model.Result
 import io.petros.movies.domain.model.common.PaginationData
 import io.petros.movies.domain.model.movie.Movie
 import io.petros.movies.domain.model.movie.MoviesPage
-import io.petros.movies.domain.model.movie.MoviesStatus
 import io.petros.movies.test.domain.moviesPage
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.spekframework.spek2.style.gherkin.Feature

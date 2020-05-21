@@ -3,7 +3,6 @@ package io.petros.movies.movies
 import io.petros.movies.domain.model.common.PaginationData
 import io.petros.movies.domain.model.movie.Movie
 import io.petros.movies.domain.model.movie.MoviesPage
-import io.petros.movies.domain.model.movie.MoviesStatus
 import io.petros.movies.test.domain.movie
 import org.spekframework.spek2.Spek
 import org.spekframework.spek2.style.gherkin.Feature

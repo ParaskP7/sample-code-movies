@@ -9,7 +9,6 @@ import io.petros.movies.core.list.AdapterStatus
 import io.petros.movies.core.list.infinite.InfiniteRecyclerView
 import io.petros.movies.core.view_binding.viewBinding
 import io.petros.movies.domain.model.movie.Movie
-import io.petros.movies.domain.model.movie.MoviesStatus
 import io.petros.movies.movie_details.MovieDetailsFragmentArgs
 import io.petros.movies.movies.databinding.MoviesFragmentBinding
 import io.petros.movies.movies.list.MoviesAdapter
