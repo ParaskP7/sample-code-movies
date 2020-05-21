@@ -24,7 +24,7 @@ class RestClientSpek : CoroutineSpek({
             val moviesPageRaw = MoviesPageRaw(0, 1, emptyList())
             val moviesPage = moviesPage(1, emptyList())
             var result: MoviesPage? = null
-            Given("movies response") {
+            Given("movies page response") {
                 coEvery { restApiMock.loadMovies(RELEASE_DATE_GTE, RELEASE_DATE_LTE, SECOND_PAGE) } returns moviesPageRaw
             }
             When("load movies is triggered") {
