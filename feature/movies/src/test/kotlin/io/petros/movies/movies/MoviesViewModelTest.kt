@@ -114,7 +114,7 @@ class MoviesViewModelTest {
     }
 
     @Test
-    fun `when load movies fails, then the expected loaded state is posted`() {
+    fun `when loading movies fails, then the expected loaded state is posted`() {
         val paginationData = PaginationData<Movie>()
         coEvery { loadMoviesUseCaseMock.execute(any()) } returns NetworkError(Exception())
 
@@ -133,7 +133,7 @@ class MoviesViewModelTest {
     }
 
     @Test
-    fun `when load movies fails, then the expected error side effect is posted`() {
+    fun `when loading movies fails, then the expected error side effect is posted`() {
         coEvery { loadMoviesUseCaseMock.execute(any()) } returns NetworkError(Exception())
 
         testedClass.process(MoviesIntent.LoadMovies(MOVIE_YEAR, MOVIE_MONTH, SECOND_PAGE))
@@ -202,7 +202,7 @@ class MoviesViewModelTest {
     }
 
     @Test
-    fun `when reload movies fails, then the expected loaded state is posted`() {
+    fun `when reloading movies fails, then the expected loaded state is posted`() {
         val paginationData = PaginationData<Movie>()
         coEvery { loadMoviesUseCaseMock.execute(any()) } returns NetworkError(Exception())
 
@@ -221,7 +221,7 @@ class MoviesViewModelTest {
     }
 
     @Test
-    fun `when reload movies fails, then the expected error side effect is posted`() {
+    fun `when reloading movies fails, then the expected error side effect is posted`() {
         coEvery { loadMoviesUseCaseMock.execute(any()) } returns NetworkError(Exception())
 
         testedClass.process(MoviesIntent.ReloadMovies(MOVIE_YEAR, MOVIE_MONTH))
