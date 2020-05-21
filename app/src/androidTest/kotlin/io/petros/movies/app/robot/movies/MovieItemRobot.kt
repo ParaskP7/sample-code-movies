@@ -9,10 +9,10 @@ import org.hamcrest.Matcher
 
 class MovieItemRobot(matcher: () -> Matcher<View>) : UiActions(matcher) {
 
-    fun inTitle(action: UiActions.() -> Actions) = UiActions(idMatcher(R.id.tvTitle)).action()
+    fun inTitle(action: UiActions.() -> Actions) = UiActions(idMatcher(R.id.tvItemTitle)).action()
 
-    fun inReleaseDate(action: UiActions.() -> Actions) = UiActions(idMatcher(R.id.tvReleaseDate)).action()
+    fun inReleaseDate(action: UiActions.() -> Actions) = UiActions(idMatcher(R.id.tvItemReleaseDate)).action()
 
-    fun inVote(action: UiActions.() -> Actions) = UiActions(idMatcher(R.id.tvVote)).action()
+    fun inVote(action: UiActions.() -> Actions) = UiActions(idMatcher(R.id.tvItemVote)).action()
 
 }
