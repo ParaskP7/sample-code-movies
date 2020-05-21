@@ -2,9 +2,6 @@
 
 <resources>
 
-    <!-- Toolbar -->
-    <string name="navToolbarMovieDetailsLabel">Movie Details</string>
-
     <!-- Snackbar -->
     <string name="sbLoadMovieError">There was an error while loading movie!</string>
     <string name="sbLoadMovieErrorAction">RETRY</string>

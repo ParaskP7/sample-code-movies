@@ -1,7 +1,6 @@
 package io.petros.movies.movie_details
 
 import androidx.core.view.isVisible
-import androidx.navigation.fragment.navArgs
 import com.google.android.material.snackbar.Snackbar
 import io.petros.movies.core.fragment.MviFragment
 import io.petros.movies.core.image.glide.displayImage
@@ -16,8 +15,13 @@ class MovieDetailsFragment : MviFragment<
         MovieDetailsSideEffect,
         MovieDetailsViewModel>(R.layout.movie_details_fragment) {
 
+    companion object {
+
+        private const val ARGS_ID = "id"
+
+    }
+
     private val binding by viewBinding(MovieDetailsFragmentBinding::bind)
-    private val safeArgs: MovieDetailsFragmentArgs by navArgs()
     override val viewModel: MovieDetailsViewModel by viewModel()
 
     private var snackbar: Snackbar? = null
@@ -36,7 +40,7 @@ class MovieDetailsFragment : MviFragment<
     }
 
     private fun renderInitState() {
-        safeArgs.movie.id.let {
+        arguments?.getInt(ARGS_ID)?.let {
             viewModel.process(
                 MovieDetailsIntent.LoadMovie(
                     id = it
@@ -72,7 +76,7 @@ class MovieDetailsFragment : MviFragment<
         snackbar = Snackbar
             .make(binding.ctrMovieDetails, R.string.sbLoadMovieError, Snackbar.LENGTH_INDEFINITE)
             .setAction(R.string.sbLoadMovieErrorAction) {
-                safeArgs.movie.id.let {
+                arguments?.getInt(ARGS_ID)?.let {
                     viewModel.process(
                         MovieDetailsIntent.LoadMovie(
                             id = it

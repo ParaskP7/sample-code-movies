@@ -18,7 +18,6 @@ dependencies {
     implementation(project(Deps.Project.Implementation.Android.Core.ANDROID_UTILS))
     implementation(project(Deps.Project.Implementation.Android.Core.CORE))
     implementation(project(Deps.Project.Implementation.Android.Feature.PICKER))
-    implementation(project(Deps.Project.Implementation.Android.Feature.MOVIE_DETAILS))
 
     implementation(Deps.Kotlin.Core.KOTLIN)
     implementation(Deps.Kotlin.Coroutines.CORE)

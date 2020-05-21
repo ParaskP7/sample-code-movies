@@ -2,11 +2,33 @@
 
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/appNavigation"
-    app:startDestination="@id/moviesNavigation"
-    tools:ignore="UnusedResources, InvalidNavigation">
+    app:startDestination="@id/moviesFragment">
 
-    <include app:graph="@navigation/movies_navigation" />
+    <fragment
+        android:id="@+id/moviesFragment"
+        android:name="io.petros.movies.movies.MoviesFragment"
+        android:label="@string/navMoviesLabel"
+        android:layout="@layout/movies_fragment">
+
+        <action
+            android:id="@+id/toMovieDetails"
+            app:destination="@id/movieDetailsFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/movieDetailsFragment"
+        android:name="io.petros.movies.movie_details.MovieDetailsFragment"
+        android:label="@string/navMovieDetailsLabel"
+        android:layout="@layout/movie_details_fragment">
+
+        <argument
+            android:name="id"
+            app:argType="integer" />
+
+        <deepLink app:uri="io.petros.movies://movieDetailsFragment/{id}" />
+
+    </fragment>
 
 </navigation>

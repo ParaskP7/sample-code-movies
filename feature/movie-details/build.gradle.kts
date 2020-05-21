@@ -5,7 +5,6 @@ import io.petros.movies.config.deps.Deps
 plugins {
     id(Plugins.Id.Android.LIBRARY)
     id(Plugins.Id.Kotlin.Android.ANDROID)
-    id(Plugins.Id.Kotlin.Android.ANDROID_NAVIGATION)
     id(Plugins.Id.Quality.DETEKT)
     id(Plugins.Id.Test.Android.J_UNIT_5)
     id(Plugins.Id.Dependency.VERSIONS)

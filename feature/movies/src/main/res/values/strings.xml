@@ -3,7 +3,6 @@
 <resources>
 
     <!-- Toolbar -->
-    <string name="navToolbarMoviesLabel">Movies</string>
     <string name="tvToolbarFilterYear">Year</string>
     <string name="tvToolbarFilterMonth">Month</string>
 
