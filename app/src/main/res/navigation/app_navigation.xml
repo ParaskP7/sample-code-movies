@@ -24,10 +24,10 @@
         android:layout="@layout/movie_details_fragment">
 
         <argument
-            android:name="id"
+            android:name="movie_id"
             app:argType="integer" />
 
-        <deepLink app:uri="io.petros.movies://movieDetailsFragment/{id}" />
+        <deepLink app:uri="io.petros.movies://movieDetailsFragment/{movie_id}" />
 
     </fragment>
 
