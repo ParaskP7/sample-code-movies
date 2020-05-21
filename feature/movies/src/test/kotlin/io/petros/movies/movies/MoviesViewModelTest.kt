@@ -4,6 +4,7 @@ import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Observer
 import io.mockk.coEvery
 import io.mockk.coVerify
+import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
 import io.petros.movies.domain.interactor.movie.LoadMoviesUseCase
@@ -44,7 +45,9 @@ class MoviesViewModelTest {
     @ExperimentalCoroutinesApi
     fun setUp() {
         testedClass = MoviesViewModel(loadMoviesUseCaseMock)
+        every { stateMock.onChanged(any()) } answers { }
         testedClass.state().observeForever(stateMock)
+        every { sideEffectMock.onChanged(any()) } answers { }
         testedClass.sideEffect().observeForever(sideEffectMock)
     }
 

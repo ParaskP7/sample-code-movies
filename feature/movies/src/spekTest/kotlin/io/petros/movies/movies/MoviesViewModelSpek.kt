@@ -3,6 +3,7 @@ package io.petros.movies.movies
 import androidx.lifecycle.Observer
 import io.mockk.coEvery
 import io.mockk.coVerify
+import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
 import io.petros.movies.android_test.utils.ViewModelSpek
@@ -21,7 +22,9 @@ private val sideEffectMock = mockk<Observer<MoviesSideEffect>>()
 
 @ExperimentalCoroutinesApi
 private fun setupViewModel(testedClass: MoviesViewModel) {
+    every { stateMock.onChanged(any()) } answers { }
     testedClass.state().observeForever(stateMock)
+    every { sideEffectMock.onChanged(any()) } answers { }
     testedClass.sideEffect().observeForever(sideEffectMock)
 }
 
