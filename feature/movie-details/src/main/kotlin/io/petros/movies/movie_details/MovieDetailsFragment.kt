@@ -9,7 +9,7 @@ import io.petros.movies.core.view_binding.viewBinding
 import io.petros.movies.movie_details.databinding.MovieDetailsFragmentBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-@Suppress("ForbiddenComment")
+@Suppress("SyntheticAccessor")
 class MovieDetailsFragment : MviFragment<
         MovieDetailsIntent,
         MovieDetailsState,
