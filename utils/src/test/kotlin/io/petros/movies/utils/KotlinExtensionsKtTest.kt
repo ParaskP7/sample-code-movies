@@ -41,6 +41,11 @@ class KotlinExtensionsKtTest {
     }
 
     @Test
+    fun `when slash is triggered, then a slash string is returned`() {
+        expect { that(slash()).isEqualTo("/") }
+    }
+
+    @Test
     fun `given string, when with parentheses is triggered, then the string is enclosed in parentheses`() {
         val string = "word"
 

@@ -26,6 +26,9 @@ fun star() = "★"
 @Suppress("FunctionOnlyReturningConstant")
 fun colon() = ":"
 
+@Suppress("FunctionOnlyReturningConstant")
+fun slash() = "/"
+
 /* PARENTHESES */
 
 fun String.withParentheses() = leftParentheses() + this + rightParentheses()
