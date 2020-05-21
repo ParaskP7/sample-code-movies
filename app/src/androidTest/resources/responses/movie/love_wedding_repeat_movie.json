@@ -1,0 +1,67 @@
+{
+  "adult": false,
+  "backdrop_path": "/ruxOWt2iCPM4tV2PY3OuYJHt4Do.jpg",
+  "belongs_to_collection": null,
+  "budget": 0,
+  "genres": [
+    {
+      "id": 35,
+      "name": "Comedy"
+    },
+    {
+      "id": 10749,
+      "name": "Romance"
+    }
+  ],
+  "homepage": "https://www.netflix.com/title/80227754",
+  "id": 624808,
+  "imdb_id": "tt5096470",
+  "original_language": "en",
+  "original_title": "Love Wedding Repeat",
+  "overview": "While trying to make his sister's wedding day go smoothly, Jack finds himself juggling an angry ex-girlfriend, an uninvited guest with a secret, a misplaced sleep sedative, and the girl that got away in alternate versions of the same day.",
+  "popularity": 47.569,
+  "poster_path": "/zn7feouGPU8sELez4qvpp0EtgeQ.jpg",
+  "production_companies": [
+    {
+      "id": 10529,
+      "logo_path": null,
+      "name": "Notorious Pictures",
+      "origin_country": ""
+    },
+    {
+      "id": 132904,
+      "logo_path": null,
+      "name": "Tempo Productions Limited",
+      "origin_country": ""
+    }
+  ],
+  "production_countries": [
+    {
+      "iso_3166_1": "GB",
+      "name": "United Kingdom"
+    },
+    {
+      "iso_3166_1": "IT",
+      "name": "Italy"
+    }
+  ],
+  "release_date": "2020-04-10",
+  "revenue": 0,
+  "runtime": 100,
+  "spoken_languages": [
+    {
+      "iso_639_1": "en",
+      "name": "English"
+    },
+    {
+      "iso_639_1": "it",
+      "name": "Italiano"
+    }
+  ],
+  "status": "Released",
+  "tagline": "",
+  "title": "Love Wedding Repeat",
+  "video": false,
+  "vote_average": 5.8,
+  "vote_count": 176
+}

@@ -1,0 +1,37 @@
+{
+  "adult": false,
+  "backdrop_path": "/do4q8TPJYDNf4sJTuCBVEmm597l.jpg",
+  "belongs_to_collection": null,
+  "budget": 0,
+  "genres": [
+    {
+      "id": 27,
+      "name": "Horror"
+    }
+  ],
+  "homepage": "",
+  "id": 684139,
+  "imdb_id": "tt7335796",
+  "original_language": "en",
+  "original_title": "Behind You",
+  "overview": "Two young sisters find that all the mirrors in their estranged aunt's house are covered or hidden. When one of them happens upon a mirror in the basement, she unknowingly releases a malicious demon.",
+  "popularity": 9.935,
+  "poster_path": "/2qcnM2j2gatClqweKytsLmSclgj.jpg",
+  "production_companies": [],
+  "production_countries": [],
+  "release_date": "2020-04-17",
+  "revenue": 0,
+  "runtime": 86,
+  "spoken_languages": [
+    {
+      "iso_639_1": "en",
+      "name": "English"
+    }
+  ],
+  "status": "Released",
+  "tagline": "Blood makes you family.",
+  "title": "Behind You",
+  "video": false,
+  "vote_average": 6,
+  "vote_count": 8
+}
