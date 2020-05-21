@@ -1,5 +1,6 @@
 package io.petros.movies.network.rest
 
+import io.petros.movies.domain.model.movie.Movie
 import io.petros.movies.domain.model.movie.MoviesPage
 import io.petros.movies.test.domain.movie
 import io.petros.movies.test.domain.moviesPage
@@ -20,9 +21,13 @@ class RestClientIntegrationTest {
     companion object {
 
         private const val MOVIES_DIR = "responses/movies"
+        private const val MOVIE_DIR = "responses/movie"
+
         private const val FIRST_MOVIES_PAGE_FILE = "$MOVIES_DIR/movies_page_first.json"
         private const val SECOND_MOVIES_PAGE_FILE = "$MOVIES_DIR/movies_page_second.json"
         private const val LAST_MOVIES_PAGE_FILE = "$MOVIES_DIR/movies_page_last.json"
+
+        private const val MOVIE_FILE = "$MOVIE_DIR/movie.json"
 
     }
 
@@ -66,6 +71,15 @@ class RestClientIntegrationTest {
         val result = testedClass.loadMovies(null, null, null)
 
         expect { that(result).isEqualTo(expectedLastMoviesPage()) }
+    }
+
+    @Test
+    fun `when loading movie, then the movie is the expected one`() = runBlocking {
+        server.enqueue(mockResponse(MOVIE_FILE))
+
+        val result = testedClass.loadMovie(454_626)
+
+        expect { that(result).isEqualTo(expectedMovie()) }
     }
 
     /* HELPER FUNCTIONS */
@@ -174,6 +188,21 @@ class RestClientIntegrationTest {
                     backdrop = "http://image.tmdb.org/t/p/w500/qsxhnirlp7y4Ae9bd11oYJSX59j.jpg"
                 )
             )
+        )
+    }
+
+    private fun expectedMovie(): Movie {
+        return movie(
+            id = 454_626,
+            title = "Sonic the Hedgehog",
+            releaseDate = GregorianCalendar(2020, Calendar.FEBRUARY, 12).time,
+            voteAverage = 7.5,
+            voteCount = 2497,
+            overview = "Based on the global blockbuster videogame franchise from Sega, Sonic the Hedgehog tells " +
+                    "the story of the world’s speediest hedgehog as he embraces his new home on Earth. In this " +
+                    "live-action adventure comedy, Sonic and his new best friend team up to defend the planet " +
+                    "from the evil genius Dr. Robotnik and his plans for world domination.",
+            backdrop = "http://image.tmdb.org/t/p/w500/stmYfCUGd8Iy6kAMBr6AmWqx8Bq.jpg"
         )
     }
 

@@ -16,7 +16,7 @@ data class MovieRaw(
 
     companion object {
 
-        private const val IMAGE_URL_PREFIX = "http://image.tmdb.org/t/p/w500"
+        const val IMAGE_URL_PREFIX = "http://image.tmdb.org/t/p/w500"
 
     }
 

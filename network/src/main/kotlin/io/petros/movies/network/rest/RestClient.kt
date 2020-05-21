@@ -17,4 +17,10 @@ class RestClient(
         ).toMoviesPage()
     }
 
+    override suspend fun loadMovie(id: Int) = withException {
+        restApi.loadMovie(
+            id
+        ).toMovie()
+    }
+
 }
