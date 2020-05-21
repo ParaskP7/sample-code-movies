@@ -17,7 +17,7 @@ abstract class MviViewModel<
     private var _state: STATE? = null
     protected var state: STATE
         get() = _state
-            ?: throw UninitializedPropertyAccessException("\"state\" was queried before being initialized.")
+            ?: throw UninitializedPropertyAccessException("'state' was queried before being initialized.")
         set(value) {
             Timber.v("Setting state. [State: $value]")
             _state = value
@@ -28,7 +28,7 @@ abstract class MviViewModel<
     private var _sideEffect: SIDE_EFFECT? = null
     protected var sideEffect: SIDE_EFFECT
         get() = _sideEffect
-            ?: throw UninitializedPropertyAccessException("\"sideEffect\" was queried before being initialized.")
+            ?: throw UninitializedPropertyAccessException("'sideEffect' was queried before being initialized.")
         set(value) {
             Timber.v("Setting side effect. [Side Effect: $value]")
             _sideEffect = value
