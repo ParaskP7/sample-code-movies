@@ -9,70 +9,86 @@
     android:layout_height="match_parent"
     tools:context=".MovieDetailsFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/ivBackdrop"
-            style="@style/ivBackdrop"
+        <ProgressBar
+            android:id="@+id/pbLoading"
+            style="@style/pbProgress"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/ivBackdropHeight"
-            app:layout_constraintBottom_toTopOf="@+id/tvTitle"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0"
-            app:layout_constraintVertical_chainStyle="packed"
-            tools:ignore="ContentDescription"
-            tools:src="@android:color/darker_gray" />
+            android:layout_height="@dimen/pbLoadingHeight"
+            android:visibility="visible" />
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/tvTitle"
-            style="@style/tvTitle"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/ctrLoaded"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toTopOf="@id/tvReleaseDate"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ivBackdrop"
-            tools:text="Avengers: Infinity War" />
+            android:layout_height="match_parent"
+            android:visibility="invisible">
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/tvReleaseDate"
-            style="@style/tvDetails"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingTop="@dimen/spacingXXS"
-            android:paddingBottom="@dimen/spacingXXS"
-            app:layout_constraintBottom_toTopOf="@id/tvVote"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvTitle"
-            tools:text="2018 (April)" />
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/ivBackdrop"
+                style="@style/ivBackdrop"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/ivBackdropHeight"
+                app:layout_constraintBottom_toTopOf="@+id/tvTitle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0"
+                app:layout_constraintVertical_chainStyle="packed"
+                tools:ignore="ContentDescription"
+                tools:src="@android:color/darker_gray" />
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/tvVote"
-            style="@style/tvDetails"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toTopOf="@id/tvOverview"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvReleaseDate"
-            tools:text="8.3 ★ (7651)" />
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvTitle"
+                style="@style/tvTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toTopOf="@id/tvReleaseDate"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ivBackdrop"
+                tools:text="Avengers: Infinity War" />
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/tvOverview"
-            style="@style/tvOverview"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvVote"
-            tools:text="As the Avengers and their allies have continued to protect the world from threats too large for any one hero to handle, a new danger has emerged from the cosmic shadows: Thanos. A despot of intergalactic infamy, his goal is to collect all six Infinity Stones, artifacts of unimaginable power, and use them to inflict his twisted will on all of reality. Everything the Avengers have fought for has led up to this moment - the fate of Earth and existence itself has never been more uncertain." />
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvReleaseDate"
+                style="@style/tvDetails"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/spacingXXS"
+                android:paddingBottom="@dimen/spacingXXS"
+                app:layout_constraintBottom_toTopOf="@id/tvVote"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvTitle"
+                tools:text="2018 (April)" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvVote"
+                style="@style/tvDetails"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toTopOf="@id/tvOverview"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvReleaseDate"
+                tools:text="8.3 ★ (7651)" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvOverview"
+                style="@style/tvOverview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvVote"
+                tools:text="As the Avengers and their allies have continued to protect the world from threats too large for any one hero to handle, a new danger has emerged from the cosmic shadows: Thanos. A despot of intergalactic infamy, his goal is to collect all six Infinity Stones, artifacts of unimaginable power, and use them to inflict his twisted will on all of reality. Everything the Avengers have fought for has led up to this moment - the fate of Earth and existence itself has never been more uncertain." />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
 
 </ScrollView>

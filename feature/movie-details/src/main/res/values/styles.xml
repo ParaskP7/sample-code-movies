@@ -2,6 +2,11 @@
 
 <resources>
 
+    <style name="pbProgress">
+        <item name="android:layout_gravity">center</item>
+        <item name="android:padding">@dimen/pbLoadingPadding</item>
+    </style>
+
     <style name="ctrMovieDetails">
         <item name="android:background">@color/colorContainerBackground</item>
     </style>
