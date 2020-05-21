@@ -7,8 +7,6 @@
     <ProgressBar
         style="@style/pbProgressItem"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:padding="@dimen/spacingL" />
+        android:layout_height="wrap_content" />
 
 </merge>
