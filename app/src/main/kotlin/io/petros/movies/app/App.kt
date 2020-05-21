@@ -74,7 +74,7 @@ open class App : Application(),
     @Suppress("ForbiddenComment")
     private fun setThreadPolicyToStrictMode() {
         val strictModeBuilder = StrictMode.ThreadPolicy.Builder()
-            // .detectDiskReads() // FIXME: Check again with a newer version of OkHttp (after 4.7.0)
+            .detectDiskReads()
             .detectDiskWrites()
             .detectNetwork()
             .detectCustomSlowCalls()
