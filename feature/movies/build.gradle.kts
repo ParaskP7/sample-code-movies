@@ -48,5 +48,5 @@ dependencies {
     testImplementation(Deps.Android.Arch.Test.CORE_TESTING)
     testImplementation(Deps.Android.Test.Robolectric.ROBOLECTRIC)
 
-    detektPlugins(Deps.Plugin.DETEKT_FORMATTING)
+    detektPlugins(Plugins.DETEKT_FORMATTING)
 }

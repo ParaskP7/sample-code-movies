@@ -24,5 +24,5 @@ dependencies {
     implementation(Deps.Android.Arch.Test.CORE_TESTING)
     implementation(Deps.Android.Test.Espresso.CORE)
 
-    detektPlugins(Deps.Plugin.DETEKT_FORMATTING)
+    detektPlugins(Plugins.DETEKT_FORMATTING)
 }

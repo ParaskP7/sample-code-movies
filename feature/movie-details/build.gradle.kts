@@ -46,5 +46,5 @@ dependencies {
     testImplementation(Deps.Test.Mock.MOCK_K)
     testImplementation(Deps.Android.Arch.Test.CORE_TESTING)
 
-    detektPlugins(Deps.Plugin.DETEKT_FORMATTING)
+    detektPlugins(Plugins.DETEKT_FORMATTING)
 }

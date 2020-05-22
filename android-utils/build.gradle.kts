@@ -16,5 +16,5 @@ dependencies {
     implementation(Deps.Android.Arch.Core.Lifecycle.LIVE_DATA)
     implementation(Deps.Log.TIMBER)
 
-    detektPlugins(Deps.Plugin.DETEKT_FORMATTING)
+    detektPlugins(Plugins.DETEKT_FORMATTING)
 }

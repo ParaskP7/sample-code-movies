@@ -23,5 +23,5 @@ dependencies {
     testImplementation(Deps.Test.Assert.STRIKT)
     testImplementation(Deps.Test.Mock.MOCK_K)
 
-    detektPlugins(Deps.Plugin.DETEKT_FORMATTING)
+    detektPlugins(Plugins.DETEKT_FORMATTING)
 }

@@ -36,5 +36,5 @@ dependencies {
     testImplementation(Deps.Test.Mock.MOCK_K)
     testImplementation(Deps.Android.Test.Robolectric.ROBOLECTRIC)
 
-    detektPlugins(Deps.Plugin.DETEKT_FORMATTING)
+    detektPlugins(Plugins.DETEKT_FORMATTING)
 }

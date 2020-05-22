@@ -4,13 +4,33 @@ import io.petros.movies.config.deps.Versions
 
 object Plugins {
 
-    const val KOTLIN = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.Plugin.KOTLIN}"
-    const val ANDROID = "com.android.tools.build:gradle:${Versions.Plugin.ANDROID}"
+    object Version {
+
+        // Releases: https://blog.jetbrains.com/kotlin/category/releases
+        const val KOTLIN = "1.3.72" // Released: 14-04-20
+
+        // Releases: https://androidstudio.googleblog.com
+        const val ANDROID = "4.1.0-alpha08" // Released: 28-04-20
+
+        // Releases: https://github.com/detekt/detekt/releases
+        const val DETEKT = "1.9.1" // Released: 17-05-20
+
+        // Releases: https://github.com/mannodermaus/android-junit5/releases (not working with 'dependencyUpdates')
+        const val ANDROID_J_UNIT_5 = "1.6.2.0" // Released: 03-05-20
+
+        // Releases: https://github.com/ben-manes/gradle-versions-plugin/releases
+        const val VERSIONS = "0.28.0" // Released: 22-02-20
+
+    }
+
+    const val KOTLIN = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Version.KOTLIN}"
+    const val ANDROID = "com.android.tools.build:gradle:${Version.ANDROID}"
     const val ANDROID_NAVIGATION =
         "androidx.navigation:navigation-safe-args-gradle-plugin:${Versions.Android.Arch.Core.Navigation.EXTENSIONS}"
-    const val DETEKT = "io.gitlab.arturbosch.detekt:detekt-gradle-plugin:${Versions.Plugin.DETEKT}"
-    const val ANDROID_J_UNIT_5 = "de.mannodermaus.gradle.plugins:android-junit5:${Versions.Plugin.ANDROID_J_UNIT_5}"
-    const val VERSIONS = "com.github.ben-manes:gradle-versions-plugin:${Versions.Plugin.VERSIONS}"
+    const val DETEKT = "io.gitlab.arturbosch.detekt:detekt-gradle-plugin:${Version.DETEKT}"
+    const val DETEKT_FORMATTING = "io.gitlab.arturbosch.detekt:detekt-formatting:${Version.DETEKT}"
+    const val ANDROID_J_UNIT_5 = "de.mannodermaus.gradle.plugins:android-junit5:${Version.ANDROID_J_UNIT_5}"
+    const val VERSIONS = "com.github.ben-manes:gradle-versions-plugin:${Version.VERSIONS}"
 
     object Id {
 

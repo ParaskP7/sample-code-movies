@@ -1,15 +1,10 @@
 package io.petros.movies.config.deps
 
+import Plugins
 import io.petros.movies.config.utils.Utils
 
 @Suppress("MayBeConstant", "MemberVisibilityCanBePrivate")
 object Deps {
-
-    object Plugin {
-
-        val DETEKT_FORMATTING = "io.gitlab.arturbosch.detekt:detekt-formatting:${Versions.Plugin.DETEKT}"
-
-    }
 
     object LeakCanary {
 
@@ -79,8 +74,8 @@ object Deps {
 
         object Core {
 
-            val KOTLIN = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${Versions.Plugin.KOTLIN}"
-            val KOTLIN_REFLECT = "org.jetbrains.kotlin:kotlin-reflect:${Versions.Plugin.KOTLIN}"
+            val KOTLIN = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${Plugins.Version.KOTLIN}"
+            val KOTLIN_REFLECT = "org.jetbrains.kotlin:kotlin-reflect:${Plugins.Version.KOTLIN}"
 
         }
 

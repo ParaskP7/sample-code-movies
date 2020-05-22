@@ -3,25 +3,6 @@ package io.petros.movies.config.deps
 @Suppress("StringLiteralDuplication")
 object Versions {
 
-    object Plugin {
-
-        // Releases: https://blog.jetbrains.com/kotlin/category/releases
-        const val KOTLIN = "1.3.72" // Released: 14-04-20
-
-        // Releases: https://androidstudio.googleblog.com
-        const val ANDROID = "4.1.0-alpha08" // Released: 28-04-20
-
-        // Releases: https://github.com/detekt/detekt/releases
-        const val DETEKT = "1.9.1" // Released: 17-05-20
-
-        // Releases: https://github.com/mannodermaus/android-junit5/releases (not working with 'dependencyUpdates')
-        const val ANDROID_J_UNIT_5 = "1.6.2.0" // Released: 03-05-20
-
-        // Releases: https://github.com/ben-manes/gradle-versions-plugin/releases
-        const val VERSIONS = "0.28.0" // Released: 22-02-20
-
-    }
-
     object LeakCanary {
 
         // Releases: https://github.com/square/leakcanary/releases

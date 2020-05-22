@@ -56,7 +56,7 @@ dependencies {
     androidTestImplementation(Deps.Test.Integration.MOCK_WEB_SERVER)
     androidTestImplementation(Deps.Test.Assert.STRIKT)
 
-    detektPlugins(Deps.Plugin.DETEKT_FORMATTING)
+    detektPlugins(Plugins.DETEKT_FORMATTING)
 }
 
 /* CONFIGURATION EXTENSION FUNCTIONS */

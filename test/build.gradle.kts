@@ -23,5 +23,5 @@ dependencies {
     runtimeOnly(Deps.Kotlin.Core.KOTLIN_REFLECT)
     implementation(Deps.Test.Integration.MOCK_WEB_SERVER)
 
-    detektPlugins(Deps.Plugin.DETEKT_FORMATTING)
+    detektPlugins(Plugins.DETEKT_FORMATTING)
 }

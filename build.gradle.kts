@@ -20,7 +20,6 @@ import io.petros.movies.config.Config
 import io.petros.movies.config.Sources
 import io.petros.movies.config.android.Android
 import io.petros.movies.config.android.Props
-import io.petros.movies.config.deps.Versions
 import io.petros.movies.config.dirs.Files
 import io.petros.movies.config.kotlin.Java
 import io.petros.movies.config.tests.Logs
@@ -262,7 +261,7 @@ fun AppExtension.androidApplication() {
 }
 
 fun DetektExtension.detekt() {
-    toolVersion = Versions.Plugin.DETEKT
+    toolVersion = Plugins.Version.DETEKT
     parallel = false
     config = files(Config.Detekt.CONFIG_FILE_PATH)
     buildUponDefaultConfig = false
