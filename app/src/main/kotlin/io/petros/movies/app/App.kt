@@ -71,7 +71,6 @@ open class App : Application(),
         }
     }
 
-    @Suppress("ForbiddenComment")
     private fun setThreadPolicyToStrictMode() {
         val strictModeBuilder = StrictMode.ThreadPolicy.Builder()
             .detectDiskReads()
