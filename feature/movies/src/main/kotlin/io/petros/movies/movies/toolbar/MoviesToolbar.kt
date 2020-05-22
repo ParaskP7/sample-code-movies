@@ -8,8 +8,8 @@ import android.widget.LinearLayout
 import androidx.annotation.VisibleForTesting
 import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
-import io.petros.movies.movies.R
-import io.petros.movies.movies.databinding.MoviesToolbarBinding
+import io.petros.movies.feature.movies.R
+import io.petros.movies.feature.movies.databinding.MoviesToolbarBinding
 import io.petros.movies.utils.MonthOfYear
 import timber.log.Timber
 

@@ -3,6 +3,7 @@
 package io.petros.movies.android_utils
 
 import android.os.StrictMode
+import io.petros.movies.android.utils.BuildConfig
 
 /* DISK */
 

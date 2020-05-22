@@ -4,7 +4,7 @@ import android.view.View
 import io.petros.movies.android_test.robot.actions.Actions
 import io.petros.movies.android_test.robot.actions.UiActions
 import io.petros.movies.android_test.robot.utils.idMatcher
-import io.petros.movies.movies.R
+import io.petros.movies.feature.movies.R
 import org.hamcrest.Matcher
 
 class MovieItemRobot(matcher: () -> Matcher<View>) : UiActions(matcher) {

@@ -8,7 +8,7 @@ import io.petros.movies.android_test.robot.actions.Actions
 import io.petros.movies.android_test.robot.actions.ScopedActions
 import io.petros.movies.android_test.robot.utils.RecyclerViewMatcher
 import io.petros.movies.android_test.robot.utils.idMatcher
-import io.petros.movies.movies.R
+import io.petros.movies.feature.movies.R
 import org.hamcrest.Matcher
 import org.hamcrest.TypeSafeMatcher
 

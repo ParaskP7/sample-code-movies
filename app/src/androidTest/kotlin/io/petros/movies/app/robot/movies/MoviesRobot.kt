@@ -5,7 +5,7 @@ import io.petros.movies.android_test.robot.actions.ScopedActions
 import io.petros.movies.android_test.robot.utils.idMatcher
 import io.petros.movies.app.robot.picker.MonthPickerRobot
 import io.petros.movies.app.robot.picker.YearPickerRobot
-import io.petros.movies.movies.R
+import io.petros.movies.feature.movies.R
 
 class MoviesRobot : ScopedActions(idMatcher(R.id.ctrMovies)) {
 

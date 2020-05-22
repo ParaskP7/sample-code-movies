@@ -6,7 +6,8 @@ import com.google.android.material.snackbar.Snackbar
 import io.petros.movies.core.fragment.MviFragment
 import io.petros.movies.core.image.glide.displayImage
 import io.petros.movies.core.view_binding.viewBinding
-import io.petros.movies.movie_details.databinding.MovieDetailsFragmentBinding
+import io.petros.movies.feature.movie.details.R
+import io.petros.movies.feature.movie.details.databinding.MovieDetailsFragmentBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 @Suppress("SyntheticAccessor")

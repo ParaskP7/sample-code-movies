@@ -4,7 +4,7 @@ import io.petros.movies.android_test.robot.actions.Actions
 import io.petros.movies.android_test.robot.actions.ScopedActions
 import io.petros.movies.android_test.robot.actions.UiActions
 import io.petros.movies.android_test.robot.utils.idMatcher
-import io.petros.movies.movie_details.R
+import io.petros.movies.feature.movie.details.R
 
 class MovieDetailsScreenRobot : ScopedActions(idMatcher(R.id.ctrMovieDetails)) {
 

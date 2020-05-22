@@ -26,9 +26,9 @@ import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import timber.log.Timber
-import io.petros.movies.movie_details.R as mdR
-import io.petros.movies.movies.R as mR
-import io.petros.movies.picker.R as pR
+import io.petros.movies.feature.movie.details.R as mdR
+import io.petros.movies.feature.movies.R as mR
+import io.petros.movies.feature.picker.R as pR
 
 @LargeTest
 @Suppress("ForbiddenComment")

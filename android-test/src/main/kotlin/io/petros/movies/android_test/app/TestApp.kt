@@ -1,7 +1,7 @@
 package io.petros.movies.android_test.app
 
 import android.app.Application
-import io.petros.movies.android_test.R
+import io.petros.movies.android.test.R
 
 class TestApp : Application() {
 

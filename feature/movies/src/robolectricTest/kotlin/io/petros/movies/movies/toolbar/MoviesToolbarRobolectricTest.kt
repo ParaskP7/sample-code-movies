@@ -7,7 +7,7 @@ import io.mockk.mockk
 import io.mockk.verify
 import io.petros.movies.android_test.app.TestApp
 import io.petros.movies.android_test.context.TestContextProvider.context
-import io.petros.movies.movies.R
+import io.petros.movies.feature.movies.R
 import io.petros.movies.utils.MonthOfYear
 import org.junit.Test
 import org.junit.runner.RunWith

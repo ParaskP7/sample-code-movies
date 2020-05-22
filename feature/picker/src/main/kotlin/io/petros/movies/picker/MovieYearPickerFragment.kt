@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.FragmentManager
 import com.whiteelephant.monthpicker.MonthPickerDialog
+import io.petros.movies.feature.picker.R
 import java.util.*
 
 class MovieYearPickerFragment(
