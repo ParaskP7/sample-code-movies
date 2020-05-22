@@ -40,7 +40,7 @@ object Plugins {
             object Android {
 
                 const val ANDROID = "kotlin-android"
-                const val ANDROID_NAVIGATION = "androidx.navigation.safeargs.kotlin"
+                @Suppress("unused") const val ANDROID_NAVIGATION = "androidx.navigation.safeargs.kotlin"
 
             }
 
