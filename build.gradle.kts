@@ -19,6 +19,7 @@ import io.petros.movies.config.Build
 import io.petros.movies.config.Config
 import io.petros.movies.config.Sources
 import io.petros.movies.config.android.Android
+import io.petros.movies.config.android.App
 import io.petros.movies.config.android.Props
 import io.petros.movies.config.dirs.Files
 import io.petros.movies.config.kotlin.Java
@@ -50,10 +51,23 @@ buildscript {
         classpath(Plugins.KOTLIN)
         classpath(Plugins.ANDROID)
         classpath(Plugins.ANDROID_NAVIGATION)
+        classpath(Plugins.ANDROID_MANIFEST)
         classpath(Plugins.DETEKT)
         classpath(Plugins.ANDROID_J_UNIT_5)
         classpath(Plugins.VERSIONS)
     }
+}
+
+/* PLUGINS */
+
+plugins {
+    id(Plugins.Id.Kotlin.Android.ANDROID_MANIFEST) version Plugins.Version.ANDROID_MANIFEST
+}
+
+autoManifest {
+    packageName.set(App.APPLICATION_ID)
+    applyRecursively.set(true)
+    replaceDashesWithDot.set(true)
 }
 
 /* PROJECTS CONFIGURATION */
