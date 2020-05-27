@@ -39,19 +39,22 @@ abstract class InfiniteAdapter<T>(
     /* ITEMS */
 
     fun setItems(paginationData: PaginationData<T>, reloadItems: Boolean) {
-        if (paginationData.isFirstPage() || reloadItems) reloadItems(paginationData) else appendItems(paginationData)
+        if (isFirstPage(paginationData) || reloadItems) reloadItems(paginationData) else appendItems(paginationData)
         notifyDataSetChanged()
     }
 
+    private fun isFirstPage(paginationData: PaginationData<T>) =
+        paginationData.allPageItems == paginationData.latestPage?.items
+
     private fun reloadItems(paginationData: PaginationData<T>) {
         items.clear()
-        items.addAll(paginationData.items())
-        nextPage = paginationData.nextPage()
+        items.addAll(paginationData.allPageItems)
+        nextPage = paginationData.nextPage
     }
 
     private fun appendItems(paginationData: PaginationData<T>) {
-        paginationData.latestItems()?.let { items.addAll(it) }
-        nextPage = paginationData.nextPage()
+        paginationData.latestPage?.items?.let { items.addAll(it) }
+        nextPage = paginationData.nextPage
     }
 
 }

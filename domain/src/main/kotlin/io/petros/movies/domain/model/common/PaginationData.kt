@@ -1,46 +1,16 @@
 package io.petros.movies.domain.model.common
 
-@Suppress("DataClassContainsFunctions", "UnnecessaryAbstractClass", "DataClassShouldBeImmutable")
 data class PaginationData<T>(
-    private val allPageItems: ArrayList<T> = arrayListOf(),
-    private var latestPage: InfiniteScrollPage<T>? = null,
-    private var nextPage: Int? = null
+    val allPageItems: List<T> = listOf(),
+    val latestPage: InfiniteScrollPage<T>? = null,
+    val nextPage: Int? = null
 ) {
 
-    /* GET */
+    interface InfiniteScrollPage<T> {
 
-    fun items(): List<T> = allPageItems
+        val nextPage: Int?
 
-    fun latestItems(): List<T>? = latestPage?.items()
-
-    fun nextPage() = nextPage
-
-    /* ADD/CLEAR */
-
-    fun addPage(page: InfiniteScrollPage<T>): PaginationData<T> {
-        allPageItems.addAll(page.items())
-        latestPage = page
-        nextPage = page.nextPage()
-        return this
-    }
-
-    fun clear() {
-        allPageItems.clear()
-        latestPage = null
-        nextPage = null
-    }
-
-    /* IS */
-
-    fun isEmpty() = allPageItems.isEmpty()
-
-    fun isFirstPage() = allPageItems == latestPage?.items()
-
-    abstract class InfiniteScrollPage<T> {
-
-        abstract fun nextPage(): Int?
-
-        abstract fun items(): List<T>
+        val items: List<T>
 
     }
 

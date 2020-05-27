@@ -94,13 +94,16 @@ class MoviesStateSpek : Spek({
             @Suppress("LateinitUsage") lateinit var previousState: MoviesState
             var result: MoviesState? = null
             Given("a reload action") {
-                val paginationData = PaginationData<Movie>()
                 val moviesPage = MoviesPage(SECOND_PAGE, firstPageItems)
                 previousState = MoviesState(
                     year = MOVIE_YEAR,
                     month = MOVIE_MONTH,
                     status = MoviesStatus.Loaded,
-                    movies = paginationData.addPage(moviesPage)
+                    movies = PaginationData(
+                        moviesPage.items,
+                        moviesPage,
+                        moviesPage.nextPage
+                    )
                 )
             }
             When("reduce is triggered") {
@@ -142,23 +145,30 @@ class MoviesStateSpek : Spek({
                             year = null,
                             month = null,
                             status = MoviesStatus.Loaded,
-                            movies = paginationData.addPage(moviesPage)
+                            movies = PaginationData(
+                                previousState.movies.allPageItems + moviesPage.items,
+                                moviesPage,
+                                moviesPage.nextPage
+                            )
                         )
                     )
                 }
             }
         }
         Scenario("error") {
-            val paginationData = PaginationData<Movie>()
+            val moviesPage = MoviesPage(SECOND_PAGE, firstPageItems)
             @Suppress("LateinitUsage") lateinit var previousState: MoviesState
             var result: MoviesState? = null
             Given("an error action") {
-                val moviesPage = MoviesPage(SECOND_PAGE, firstPageItems)
                 previousState = MoviesState(
                     year = null,
                     month = null,
                     status = MoviesStatus.Loading,
-                    movies = paginationData.addPage(moviesPage)
+                    movies = PaginationData(
+                        moviesPage.items,
+                        moviesPage,
+                        moviesPage.nextPage
+                    )
                 )
             }
             When("reduce is triggered") {
@@ -171,7 +181,11 @@ class MoviesStateSpek : Spek({
                             year = null,
                             month = null,
                             status = MoviesStatus.Loaded,
-                            movies = paginationData.addPage(MoviesPage(SECOND_PAGE, emptyList()))
+                            movies = PaginationData(
+                                previousState.movies.allPageItems,
+                                MoviesPage(moviesPage.nextPage, emptyList()),
+                                moviesPage.nextPage
+                            )
                         )
                     )
                 }

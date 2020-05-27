@@ -107,7 +107,11 @@ class MoviesViewModelTest {
                     year = MOVIE_YEAR,
                     month = MOVIE_MONTH,
                     status = MoviesStatus.Loaded,
-                    movies = paginationData.addPage(moviesPage.value)
+                    movies = PaginationData(
+                        paginationData.allPageItems + moviesPage.value.items,
+                        moviesPage.value,
+                        moviesPage.value.nextPage
+                    )
                 )
             )
         }
@@ -126,7 +130,11 @@ class MoviesViewModelTest {
                     year = MOVIE_YEAR,
                     month = MOVIE_MONTH,
                     status = MoviesStatus.Loaded,
-                    movies = paginationData.addPage(MoviesPage(paginationData.nextPage(), emptyList()))
+                    movies = PaginationData(
+                        paginationData.allPageItems,
+                        MoviesPage(paginationData.nextPage, emptyList()),
+                        paginationData.nextPage
+                    )
                 )
             )
         }
@@ -195,7 +203,11 @@ class MoviesViewModelTest {
                     year = MOVIE_YEAR,
                     month = MOVIE_MONTH,
                     status = MoviesStatus.Loaded,
-                    movies = paginationData.addPage(moviesPage.value)
+                    movies = PaginationData(
+                        paginationData.allPageItems + moviesPage.value.items,
+                        moviesPage.value,
+                        moviesPage.value.nextPage
+                    )
                 )
             )
         }
@@ -214,7 +226,11 @@ class MoviesViewModelTest {
                     year = MOVIE_YEAR,
                     month = MOVIE_MONTH,
                     status = MoviesStatus.Loaded,
-                    movies = paginationData.addPage(MoviesPage(paginationData.nextPage(), emptyList()))
+                    movies = PaginationData(
+                        paginationData.allPageItems,
+                        MoviesPage(paginationData.nextPage, emptyList()),
+                        paginationData.nextPage
+                    )
                 )
             )
         }

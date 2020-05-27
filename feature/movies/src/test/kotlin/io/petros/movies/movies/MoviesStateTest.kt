@@ -84,13 +84,16 @@ class MoviesStateTest {
 
     @Test
     fun `given a reload action, when reduce is triggered, then the new state is the expected one`() {
-        val paginationData = PaginationData<Movie>()
         val moviesPage = MoviesPage(SECOND_PAGE, firstPageItems)
         val previousState = MoviesState(
             year = MOVIE_YEAR,
             month = MOVIE_MONTH,
             status = MoviesStatus.Loaded,
-            movies = paginationData.addPage(moviesPage)
+            movies = PaginationData(
+                moviesPage.items,
+                moviesPage,
+                moviesPage.nextPage
+            )
         )
 
         val result = MoviesReducer.reduce(previousState, MoviesAction.Reload)
@@ -126,7 +129,11 @@ class MoviesStateTest {
                     year = null,
                     month = null,
                     status = MoviesStatus.Loaded,
-                    movies = paginationData.addPage(moviesPage)
+                    movies = PaginationData(
+                        previousState.movies.allPageItems + moviesPage.items,
+                        moviesPage,
+                        moviesPage.nextPage
+                    )
                 )
             )
         }
@@ -134,13 +141,16 @@ class MoviesStateTest {
 
     @Test
     fun `given an error action, when reduce is triggered, then the new state is the expected one`() {
-        val paginationData = PaginationData<Movie>()
         val moviesPage = MoviesPage(SECOND_PAGE, firstPageItems)
         val previousState = MoviesState(
             year = null,
             month = null,
             status = MoviesStatus.Loading,
-            movies = paginationData.addPage(moviesPage)
+            movies = PaginationData(
+                moviesPage.items,
+                moviesPage,
+                moviesPage.nextPage
+            )
         )
 
         val result = MoviesReducer.reduce(previousState, MoviesAction.Error)
@@ -151,7 +161,11 @@ class MoviesStateTest {
                     year = null,
                     month = null,
                     status = MoviesStatus.Loaded,
-                    movies = paginationData.addPage(MoviesPage(SECOND_PAGE, emptyList()))
+                    movies = PaginationData(
+                        previousState.movies.allPageItems,
+                        MoviesPage(moviesPage.nextPage, emptyList()),
+                        moviesPage.nextPage
+                    )
                 )
             )
         }

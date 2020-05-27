@@ -90,14 +90,18 @@ object MoviesReducer {
         )
         is MoviesAction.Success -> previousState.copy(
             status = MoviesStatus.Loaded,
-            movies = previousState.movies.addPage(
-                action.movies
+            movies = PaginationData(
+                previousState.movies.allPageItems + action.movies.items,
+                action.movies,
+                action.movies.nextPage
             )
         )
         is MoviesAction.Error -> previousState.copy(
             status = MoviesStatus.Loaded,
-            movies = previousState.movies.addPage(
-                MoviesPage(previousState.movies.nextPage(), emptyList())
+            movies = PaginationData(
+                previousState.movies.allPageItems,
+                MoviesPage(previousState.movies.nextPage, emptyList()),
+                previousState.movies.nextPage
             )
         )
     }
