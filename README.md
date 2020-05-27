@@ -14,49 +14,63 @@ the main focus of this project is:
 
 Below is a list of goodies that are being showcased:
 
-1. Architectural Pattern
-    1. [Clean Architecture](https://8thlight.com/blog/uncle-bob/2012/08/13/the-clean-architecture.html) ```(By employing 
+1. Architectural Patterns
+    1. [Modularization](https://medium.com/google-developer-experts/modularizing-android-applications-9e2d18f244a0) 
+    ```(Modularize the App Horizontally by Features)```
+    2. [Navigation Component](https://developer.android.com/guide/navigation) ```(Navigation refers to the interactions that 
+    allow users to navigate across, into, and back out from the different pieces of content within your app)```
+    3. [Clean Architecture](https://8thlight.com/blog/uncle-bob/2012/08/13/the-clean-architecture.html) ```(By employing 
     clean architecture, you can design applications with very low coupling and independent of technical implementation 
     details, such as databases and frameworks. That way, the application becomes easy to maintain and flexible to change. 
     It also becomes intrinsically testable.)```
-    2. [MVVM](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel) ```(Model View ViewModel)```
+    4. [Result](https://arturdryomov.dev/posts/designing-errors-with-kotlin/) ```(Add Result for Error Handling)```
+2. UI Patterns
+    1. [MVVM](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel) ```(Model View ViewModel)```
+    2. [MVI](http://hannesdorfmann.com/android/model-view-intent) ```(Model View Intent)```
     3. [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel) ```(Architecture Components 
     ViewModel Class)```
     4. [LivaData](https://developer.android.com/topic/libraries/architecture/livedata) ```(Architecture Components 
     LiveData Class)```
-2. Libraries
-    1. [Koin](https://github.com/InsertKoinIO/koin) ```(A pragmatic lightweight dependency injection framework for Kotlin)```
+3. Kotlin
+    1. [Kotlin](https://kotlinlang.org/) ```(A modern programming language that makes developers happier)```
     2. [Kotlin Coroutines](https://kotlinlang.org/docs/reference/coroutines.html) ```(Coroutines simplify asynchronous
     programming by putting the complications into libraries. The logic of the program can be expressed sequentially in a
     coroutine, and the underlying library will figure out the asynchrony for us)```
-    3. [Retrofit](https://github.com/square/retrofit) ```(Type-safe HTTP client for Android and Java by Square, Inc.)```
-    4. [GSON](https://github.com/google/gson) ```(A Java serialization/deserialization library to convert Java Objects into 
-    JSON and back)```
-    5. [Glide](https://github.com/bumptech/glide) ```(An image loading and caching library for Android focused on smooth 
-    scrolling)```
-    6. [Timber](https://github.com/JakeWharton/timber) ```(A logger with a small, extensible API which provides utility on
-    top of Android's normal Log class)```
-3. Android Support
+4. Android Support
     1. [AndroidX](https://developer.android.com/topic/libraries/support-library/androidx-overview) ```(A new package
     structure to make it clearer which packages are bundled with the Android operating system, and which are packaged with
     your app's APK)```
     2. [Android KTX](https://developer.android.com/kotlin/ktx) ```(Android KTX is a set of Kotlin extensions that is part of
     the Android Jetpack family)```
+    3. [View Binding](https://developer.android.com/topic/libraries/view-binding) ```(View binding is a feature that allows 
+    you to more easily write code that interacts with views)```
+5. Android UI
+    1. [Material Components](https://github.com/material-components/material-components-android) ```(Modular and customizable 
+    Material Design UI components for Android)```
+    2. [Dark Theme](https://developer.android.com/guide/topics/ui/look-and-feel/darktheme) ```(Dark theme is available in 
+    Android 10 (API level 29) and higher)```
     3. [Constraint Layout](https://developer.android.com/reference/android/support/constraint/ConstraintLayout) ```(A
     ConstraintLayout is a ViewGroup which allows you to position and size widgets in a flexible way)```
-    4. [Card View](https://developer.android.com/reference/android/support/v7/widget/CardView.html) ```(A FrameLayout with a
-    rounded corner background and shadow)```
-    5. [Recycler View](https://developer.android.com/reference/android/support/v7/widget/RecyclerView.html) ```(A flexible
+    4. [Recycler View](https://developer.android.com/reference/android/support/v7/widget/RecyclerView.html) ```(A flexible
     view for providing a limited window into a large data set)```
-    6. [Shared Element Transition](https://developer.android.com/training/material/animations.html#Transitions) ```(Activity
+    5. [Shared Element Transition](https://developer.android.com/training/material/animations.html#Transitions) ```(Activity
     transitions in material design apps provide visual connections between different states through motion and 
     transformations between common elements)```
-4. Code Quality
+6. Libraries
+    1. [Koin](https://github.com/InsertKoinIO/koin) ```(A pragmatic lightweight dependency injection framework for Kotlin)```
+    2. [Retrofit](https://github.com/square/retrofit) ```(Type-safe HTTP client for Android and Java by Square, Inc.)```
+    3. [GSON](https://github.com/google/gson) ```(A Java serialization/deserialization library to convert Java Objects into 
+    JSON and back)```
+    4. [Glide](https://github.com/bumptech/glide) ```(An image loading and caching library for Android focused on smooth 
+    scrolling)```
+    5. [Timber](https://github.com/JakeWharton/timber) ```(A logger with a small, extensible API which provides utility on
+    top of Android's normal Log class)```
+7. Code Quality
     1. [Android Lint](https://developer.android.com/studio/write/lint.html) ```(The lint tool checks your Android project 
     source files for potential bugs and optimization improvements for correctness, security, performance, usability, 
     accessibility, and internationalization)```
     2. [Detekt](https://github.com/arturbosch/detekt) ```(Static code analysis for Kotlin)```
-5. Tests
+8. Tests
     1. [JUnit4](https://junit.org/junit4) ```(A programmer-oriented testing framework for Java)```
     2. [JUnit5](https://junit.org/junit5) ```(JUnit 5 is the next generation of JUnit)```
     3. [Spek](https://spekframework.org) ```(A specification framework for Kotlin)```
@@ -64,14 +78,22 @@ Below is a list of goodies that are being showcased:
     JUnit or Spek)```
     5. [MockK](https://mockk.io) ```(MockK is a mocking library for Kotlin)```
     6. [Robolectric](https://github.com/robolectric/robolectric) ```(Android Unit Testing Framework)```
-6. Debug
+    7. [MockWebServer](https://github.com/square/okhttp/tree/master/mockwebserver) ```(A scriptable web server for testing 
+    HTTP clients)```
+    8. [Espresso](https://developer.android.com/training/testing/espresso) ```(Use Espresso to write concise, beautiful, 
+    and reliable Android UI tests)```
+    9. [Jacoco](https://www.eclemma.org/jacoco/) ```(JaCoCo is a free code coverage library for Java, which has been created 
+    by the EclEmma team based on the lessons learned from using and integration existing libraries for many years)```
+9. Debug
     1. [LeakCanary](https://github.com/square/leakcanary) ```(A memory leak detection library for Android and Java)```
-    1. [Strict Mode](https://developer.android.com/reference/android/os/StrictMode) ```(StrictMode is a developer tool which 
+    2. [Strict Mode](https://developer.android.com/reference/android/os/StrictMode) ```(StrictMode is a developer tool which 
     detects things you might be doing by accident and brings them to your attention so you can fix them)```
-7. Build
+10. Build
     1. [Gradle Kotlin DSL](https://github.com/gradle/kotlin-dsl) ```(Kotlin language support for Gradle build scripts)```
     2. [Gradle Versions](https://github.com/ben-manes/gradle-versions-plugin) ```(Gradle plugin to discover dependency
     updates)```
+    3. [Gradle Auto Manifest](https://github.com/GradleUp/auto-manifest) ```(Generates AndroidManifest.xml in simple 
+    libraries so that you don't have to)```
 
 # Screenshots
 
