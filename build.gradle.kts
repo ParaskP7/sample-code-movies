@@ -20,7 +20,7 @@ import io.petros.movies.config.Config
 import io.petros.movies.config.Sources
 import io.petros.movies.config.android.Android
 import io.petros.movies.config.android.App
-import io.petros.movies.config.android.Props
+import io.petros.movies.config.android.LocalProperties
 import io.petros.movies.config.dirs.Files
 import io.petros.movies.config.kotlin.Java
 import io.petros.movies.config.tests.Logs
@@ -364,7 +364,7 @@ fun AppExtension.variantOptions() {
 fun ignoredVariants(variantOptions: (String) -> Unit) {
     val localProperties = Properties()
     localProperties.load(FileInputStream(file(Files.Properties.LOCAL)))
-    val ignoredVariants = localProperties[Props.Local.Property.IGNORED_VARIANTS]?.toString()?.split(Utils.COMMA)
+    val ignoredVariants = localProperties[LocalProperties.Gradle.IGNORED_VARIANTS]?.toString()?.split(Utils.COMMA)
     ignoredVariants?.forEach {
         logVariant(it)
         variantOptions(it)
