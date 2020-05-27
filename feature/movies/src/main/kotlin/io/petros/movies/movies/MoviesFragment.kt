@@ -61,7 +61,9 @@ class MoviesFragment : MviFragment<MoviesIntent, MoviesState, MoviesSideEffect, 
 
     override fun onResume() {
         super.onResume()
-        viewModel.process(MoviesIntent.IdleMovies)
+        viewModel.process(
+            MoviesIntent.IdleMovies
+        )
     }
 
     override fun onDestroyView() {
@@ -81,7 +83,9 @@ class MoviesFragment : MviFragment<MoviesIntent, MoviesState, MoviesSideEffect, 
     }
 
     private fun renderInitState() {
-        viewModel.process(MoviesIntent.LoadMovies())
+        viewModel.process(
+            MoviesIntent.LoadMovies()
+        )
     }
 
     private fun renderIdleState(state: MoviesState) {
