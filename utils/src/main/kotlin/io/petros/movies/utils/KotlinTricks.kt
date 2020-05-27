@@ -7,3 +7,5 @@ package io.petros.movies.utils
  */
 val <T> T.exhaustive: T
     get() = this
+
+val doNothing = Unit
