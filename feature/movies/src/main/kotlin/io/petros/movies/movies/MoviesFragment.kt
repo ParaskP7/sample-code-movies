@@ -66,6 +66,7 @@ class MoviesFragment : MviFragment<MoviesIntent, MoviesState, MoviesSideEffect, 
 
     override fun onDestroyView() {
         adapter = null
+        snackbar?.dismiss()
         snackbar = null
         super.onDestroyView()
     }

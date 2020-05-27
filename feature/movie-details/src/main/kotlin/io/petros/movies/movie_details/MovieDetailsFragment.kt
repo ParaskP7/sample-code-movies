@@ -34,6 +34,7 @@ class MovieDetailsFragment : MviFragment<
     private var snackbar: Snackbar? = null
 
     override fun onDestroyView() {
+        snackbar?.dismiss()
         snackbar = null
         super.onDestroyView()
     }
