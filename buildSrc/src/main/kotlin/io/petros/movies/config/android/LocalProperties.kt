@@ -4,7 +4,7 @@ object LocalProperties {
 
     object Gradle {
 
-        const val IGNORED_VARIANTS = "ignored_variants"
+        const val IGNORED_VARIANTS = "gradle.ignored.variants"
 
     }
 
