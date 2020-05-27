@@ -46,6 +46,22 @@ class MovieDetailsViewModelTest {
         testedClass.sideEffect().observeForever(sideEffectMock)
     }
 
+    /* IDLE */
+
+    @Test
+    fun `when idling movie, then the expected idling state is posted`() {
+        testedClass.process(MovieDetailsIntent.IdleMovies)
+
+        verify {
+            stateMock.onChanged(
+                MovieDetailsState(
+                    status = MovieDetailsStatus.Idle,
+                    movie = null
+                )
+            )
+        }
+    }
+
     /* LOAD */
 
     @Test

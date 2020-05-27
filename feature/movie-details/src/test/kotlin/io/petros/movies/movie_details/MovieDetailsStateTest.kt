@@ -24,9 +24,28 @@ class MovieDetailsStateTest {
     }
 
     @Test
-    fun `given a load action, when reduce is triggered, then the new state is the expected one`() {
+    fun `given an idle action, when reduce is triggered, then the new state is the expected one`() {
         val previousState = MovieDetailsState(
             status = MovieDetailsStatus.Init,
+            movie = null
+        )
+
+        val result = MovieDetailsReducer.reduce(previousState, MovieDetailsAction.Idle)
+
+        expect {
+            that(result).isEqualTo(
+                MovieDetailsState(
+                    status = MovieDetailsStatus.Idle,
+                    movie = null
+                )
+            )
+        }
+    }
+
+    @Test
+    fun `given a load action, when reduce is triggered, then the new state is the expected one`() {
+        val previousState = MovieDetailsState(
+            status = MovieDetailsStatus.Idle,
             movie = null
         )
 

@@ -31,12 +31,35 @@ class MovieDetailsStateSpek : Spek({
     }
 
     Feature("Movie details reducer reduce") {
+        Scenario("idle") {
+            @Suppress("LateinitUsage") lateinit var previousState: MovieDetailsState
+            var result: MovieDetailsState? = null
+            Given("an idle action") {
+                previousState = MovieDetailsState(
+                    status = MovieDetailsStatus.Init,
+                    movie = null
+                )
+            }
+            When("reduce is triggered") {
+                result = MovieDetailsReducer.reduce(previousState, MovieDetailsAction.Idle)
+            }
+            Then("the initial state is the expected one") {
+                expect {
+                    that(result).isEqualTo(
+                        MovieDetailsState(
+                            status = MovieDetailsStatus.Idle,
+                            movie = null
+                        )
+                    )
+                }
+            }
+        }
         Scenario("load") {
             @Suppress("LateinitUsage") lateinit var previousState: MovieDetailsState
             var result: MovieDetailsState? = null
             Given("a load action") {
                 previousState = MovieDetailsState(
-                    status = MovieDetailsStatus.Init,
+                    status = MovieDetailsStatus.Idle,
                     movie = null
                 )
             }

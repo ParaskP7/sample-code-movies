@@ -11,6 +11,8 @@ sealed class MovieDetailsStatus {
 
     object Init : MovieDetailsStatus()
 
+    object Idle : MovieDetailsStatus()
+
     object Loading : MovieDetailsStatus()
 
     object Loaded : MovieDetailsStatus()
@@ -25,6 +27,8 @@ sealed class MovieDetailsSideEffect {
 
 sealed class MovieDetailsIntent {
 
+    object IdleMovies : MovieDetailsIntent()
+
     data class LoadMovie(
         val id: Int
     ) : MovieDetailsIntent()
@@ -32,6 +36,8 @@ sealed class MovieDetailsIntent {
 }
 
 sealed class MovieDetailsAction {
+
+    object Idle : MovieDetailsAction()
 
     object Load : MovieDetailsAction()
 
@@ -51,6 +57,9 @@ object MovieDetailsReducer {
     )
 
     fun reduce(previousState: MovieDetailsState, action: MovieDetailsAction) = when (action) {
+        is MovieDetailsAction.Idle -> previousState.copy(
+            status = MovieDetailsStatus.Idle
+        )
         is MovieDetailsAction.Load -> previousState.copy(
             status = MovieDetailsStatus.Loading
         )

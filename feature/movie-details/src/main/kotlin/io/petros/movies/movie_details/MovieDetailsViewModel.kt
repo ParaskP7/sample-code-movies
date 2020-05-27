@@ -21,8 +21,13 @@ class MovieDetailsViewModel(
     override fun process(intent: MovieDetailsIntent) {
         super.process(intent)
         when (intent) {
+            is MovieDetailsIntent.IdleMovies -> idleMovieDetails()
             is MovieDetailsIntent.LoadMovie -> loadMovies(intent.id)
         }.exhaustive
+    }
+
+    private fun idleMovieDetails() {
+        state = MovieDetailsReducer.reduce(state, MovieDetailsAction.Idle)
     }
 
     private fun loadMovies(id: Int) = viewModelScope.launch {

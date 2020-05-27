@@ -8,6 +8,7 @@ import io.petros.movies.core.image.glide.displayImage
 import io.petros.movies.core.view_binding.viewBinding
 import io.petros.movies.feature.movie.details.R
 import io.petros.movies.feature.movie.details.databinding.MovieDetailsFragmentBinding
+import io.petros.movies.utils.doNothing
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 @Suppress("SyntheticAccessor")
@@ -37,10 +38,18 @@ class MovieDetailsFragment : MviFragment<
         super.onDestroyView()
     }
 
+    override fun onResume() {
+        super.onResume()
+        viewModel.process(
+            MovieDetailsIntent.IdleMovies
+        )
+    }
+
     /* STATE */
 
     override fun renderState(state: MovieDetailsState) = when (state.status) {
         is MovieDetailsStatus.Init -> renderInitState()
+        is MovieDetailsStatus.Idle -> doNothing
         is MovieDetailsStatus.Loading -> renderLoadingState()
         is MovieDetailsStatus.Loaded -> renderLoadedState(state)
     }
