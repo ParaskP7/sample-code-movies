@@ -26,6 +26,9 @@ import io.petros.movies.config.kotlin.Java
 import io.petros.movies.config.tests.Logs
 import io.petros.movies.config.tests.Tests
 import io.petros.movies.config.utils.Utils
+import io.petros.movies.config.utils.logModule
+import io.petros.movies.config.utils.logPlugin
+import io.petros.movies.config.utils.logVariant
 import io.petros.movies.plugin.coverage.CoverageExtension
 import io.petros.movies.plugin.coverage.CoveragePlugin
 import io.petros.movies.plugin.coverage.CoverageTask
@@ -148,24 +151,6 @@ fun Project.subprojectsTasks() {
 }
 
 /* *********************************************************************************************************************** */
-
-/* LOG FUNCTIONS */
-
-fun logPlugin(pluginId: String) {
-    println("<<< CONFIGURE WITH $pluginId PLUGIN >>>")
-}
-
-fun logModule(isKotlinModule: Boolean) {
-    if (isKotlinModule) {
-        println("<<< CONFIGURE FOR kotlin MODULE >>>")
-    } else {
-        println("<<< CONFIGURE FOR android MODULE >>>")
-    }
-}
-
-fun logVariant(variant: String) {
-    println(" << CONFIGURE WITHOUT $variant VARIANT >>")
-}
 
 /* PLUGINS EXTENSION FUNCTIONS */
 

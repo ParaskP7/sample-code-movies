@@ -12,6 +12,7 @@ import io.petros.movies.config.android.findLocalProperty
 import io.petros.movies.config.deps.Deps
 import io.petros.movies.config.dirs.Files
 import io.petros.movies.config.utils.asString
+import io.petros.movies.config.utils.logApiKey
 
 plugins {
     id(Plugins.Id.Android.APPLICATION)
@@ -82,8 +83,4 @@ fun NamedDomainObjectContainer<BuildType>.buildTypes() {
         proguardFiles(getDefaultProguardFile(Files.Txt.PROGUARD_ANDROID, layout.buildDirectory), Files.Pro.PROGUARD_RULES)
         buildConfigField(BuildConfig.Field.STRING, Config.Gradle.THEMOVIEDB_API_KEY_CONST, themoviedbApiKey)
     }
-}
-
-fun logApiKey(apiKey: String) {
-    println(" << CONFIGURE WITH $apiKey API KEY>>")
 }
