@@ -31,6 +31,25 @@ class MovieDetailsViewModelSpek : ViewModelSpek({
     val movie = Result.Success(movie())
     val loadMovieUseCaseMock = mockk<LoadMovieUseCase>()
 
+    Feature("Movie details view model for init") {
+        val testedClass by memoized { MovieDetailsViewModel(loadMovieUseCaseMock) }
+        Scenario("initing") {
+            When("initing movie") {
+                setupViewModel(testedClass)
+            }
+            Then("the expected initing state is posted") {
+                coVerify {
+                    stateMock.onChanged(
+                        MovieDetailsState(
+                            status = MovieDetailsStatus.Init,
+                            movie = null
+                        )
+                    )
+                }
+            }
+        }
+    }
+
     Feature("Movie details view model for idle") {
         val testedClass by memoized { MovieDetailsViewModel(loadMovieUseCaseMock) }
         Scenario("idling") {

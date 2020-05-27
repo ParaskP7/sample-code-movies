@@ -34,6 +34,27 @@ class MoviesViewModelSpek : ViewModelSpek({
     val moviesPage = Result.Success(moviesPage())
     val loadMoviesUseCaseMock = mockk<LoadMoviesUseCase>()
 
+    Feature("Movies view model for init") {
+        val testedClass by memoized { MoviesViewModel(loadMoviesUseCaseMock) }
+        Scenario("initing") {
+            When("initing movies") {
+                setupViewModel(testedClass)
+            }
+            Then("the expected initing state is posted") {
+                coVerify {
+                    stateMock.onChanged(
+                        MoviesState(
+                            year = null,
+                            month = null,
+                            status = MoviesStatus.Init,
+                            movies = PaginationData()
+                        )
+                    )
+                }
+            }
+        }
+    }
+
     Feature("Movies view model for idle") {
         val testedClass by memoized { MoviesViewModel(loadMoviesUseCaseMock) }
         Scenario("idling") {

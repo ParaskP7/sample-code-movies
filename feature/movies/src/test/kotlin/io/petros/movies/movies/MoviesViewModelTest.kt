@@ -51,6 +51,22 @@ class MoviesViewModelTest {
         testedClass.sideEffect().observeForever(sideEffectMock)
     }
 
+    /* INIT */
+
+    @Test
+    fun `when initing movies, then the expected initing state is posted`() {
+        verify {
+            stateMock.onChanged(
+                MoviesState(
+                    year = null,
+                    month = null,
+                    status = MoviesStatus.Init,
+                    movies = PaginationData()
+                )
+            )
+        }
+    }
+
     /* IDLE */
 
     @Test

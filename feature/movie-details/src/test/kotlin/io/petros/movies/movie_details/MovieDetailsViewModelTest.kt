@@ -46,6 +46,20 @@ class MovieDetailsViewModelTest {
         testedClass.sideEffect().observeForever(sideEffectMock)
     }
 
+    /* INIT */
+
+    @Test
+    fun `when initing movie, then the expected initing state is posted`() {
+        verify {
+            stateMock.onChanged(
+                MovieDetailsState(
+                    status = MovieDetailsStatus.Init,
+                    movie = null
+                )
+            )
+        }
+    }
+
     /* IDLE */
 
     @Test
