@@ -65,12 +65,10 @@ class MovieDetailsFragment : MviFragment<
 
     private fun renderLoadingState() {
         binding.pbLoading.isVisible = true
-        binding.ctrLoaded.isVisible = false
     }
 
     private fun renderLoadedState(state: MovieDetailsState) {
         binding.pbLoading.isVisible = false
-        binding.ctrLoaded.isVisible = true
         binding.ivBackdrop.displayImage(state.movie.backdrop)
         binding.tvTitle.text = state.movie.title
         binding.tvReleaseDate.text = state.movie.releaseDate()

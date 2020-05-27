@@ -2,8 +2,7 @@
 
 <resources>
 
-    <dimen name="pbLoadingHeight">250dp</dimen>
-    <dimen name="pbLoadingPadding">100dp</dimen>
     <dimen name="ivBackdropHeight">250dp</dimen>
+    <dimen name="pbLoadingPadding">100dp</dimen>
 
 </resources>
