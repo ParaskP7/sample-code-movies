@@ -3,15 +3,15 @@
 import com.android.build.gradle.ProguardFiles.getDefaultProguardFile
 import com.android.build.gradle.internal.dsl.BuildType
 import com.android.build.gradle.internal.dsl.DefaultConfig
+import io.petros.movies.config.Config
 import io.petros.movies.config.android.Android
 import io.petros.movies.config.android.App
 import io.petros.movies.config.android.BuildConfig
-import io.petros.movies.config.android.Keys
+import io.petros.movies.config.android.LocalProperties
+import io.petros.movies.config.android.findLocalProperty
 import io.petros.movies.config.deps.Deps
 import io.petros.movies.config.dirs.Files
 import io.petros.movies.config.utils.asString
-import java.io.FileInputStream
-import java.util.*
 
 plugins {
     id(Plugins.Id.Android.APPLICATION)
@@ -69,18 +69,21 @@ fun DefaultConfig.defaultConfig() {
 }
 
 fun NamedDomainObjectContainer<BuildType>.buildTypes() {
-    val themoviedbApiProperties = Properties()
-    themoviedbApiProperties.load(FileInputStream(file(Keys.TheMoviesDb.Config.API_FILE_PATH)))
-    val themoviedbApiKey = themoviedbApiProperties[Keys.TheMoviesDb.Property.API_KEY].asString()
+    val themoviedbApiKey = findLocalProperty(LocalProperties.TheMoviesDb.API_KEY).asString()
+    logApiKey(themoviedbApiKey)
     named(Android.BuildTypes.DEBUG) {
         applicationIdSuffix = App.Debug.Suffix.APPLICATION_ID
         versionNameSuffix = App.Debug.Suffix.VERSION_NAME
         isDebuggable = true
-        buildConfigField(BuildConfig.Field.STRING, Keys.TheMoviesDb.Config.API_KEY_CONST, themoviedbApiKey)
+        buildConfigField(BuildConfig.Field.STRING, Config.Gradle.THEMOVIEDB_API_KEY_CONST, themoviedbApiKey)
     }
     named(Android.BuildTypes.RELEASE) {
         isMinifyEnabled = false
         proguardFiles(getDefaultProguardFile(Files.Txt.PROGUARD_ANDROID, layout.buildDirectory), Files.Pro.PROGUARD_RULES)
-        buildConfigField(BuildConfig.Field.STRING, Keys.TheMoviesDb.Config.API_KEY_CONST, themoviedbApiKey)
+        buildConfigField(BuildConfig.Field.STRING, Config.Gradle.THEMOVIEDB_API_KEY_CONST, themoviedbApiKey)
     }
+}
+
+fun logApiKey(apiKey: String) {
+    println(" << CONFIGURE WITH $apiKey API KEY>>")
 }

@@ -14,6 +14,12 @@ object LocalProperties {
 
     }
 
+    object TheMoviesDb {
+
+        const val API_KEY = "themoviedb.api.key"
+
+    }
+
 }
 
 fun Project.findLocalProperty(property: String): String? {

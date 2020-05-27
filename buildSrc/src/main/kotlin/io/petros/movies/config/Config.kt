@@ -7,6 +7,12 @@ object Config {
 
     private const val QUALITY_DIRECTORY = "${Folders.Config.CONFIG}/${Folders.Config.Subfolder.QUALITY}"
 
+    object Gradle {
+
+        const val THEMOVIEDB_API_KEY_CONST = "THEMOVIEDB_API_KEY"
+
+    }
+
     object Lint {
 
         const val CONFIG_FILE_PATH = "$QUALITY_DIRECTORY/${Files.Xml.LINT}"

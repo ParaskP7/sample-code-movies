@@ -20,13 +20,6 @@ object Files {
 
     }
 
-    object Properties {
-
-        const val THEMOVIEDB_API = "themoviedb_api.properties"
-        const val LOCAL = "local.properties"
-
-    }
-
     object Pro {
 
         const val PROGUARD_RULES = "proguard-rules.pro"
