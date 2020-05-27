@@ -71,13 +71,13 @@ class MoviesViewModelTest {
 
     @Test
     fun `when idling movies, then the expected idling state is posted`() {
-        testedClass.process(MoviesIntent.IdleMovies)
+        testedClass.process(MoviesIntent.IdleMovies(MOVIE_YEAR, MOVIE_MONTH))
 
         verify {
             stateMock.onChanged(
                 MoviesState(
-                    year = null,
-                    month = null,
+                    year = MOVIE_YEAR,
+                    month = MOVIE_MONTH,
                     status = MoviesStatus.Idle,
                     movies = PaginationData()
                 )
@@ -174,8 +174,8 @@ class MoviesViewModelTest {
         verify {
             stateMock.onChanged(
                 MoviesState(
-                    year = null,
-                    month = null,
+                    year = MOVIE_YEAR,
+                    month = MOVIE_MONTH,
                     status = MoviesStatus.Init,
                     movies = PaginationData()
                 )

@@ -48,14 +48,14 @@ class MoviesStateSpek : Spek({
                 )
             }
             When("reduce is triggered") {
-                result = MoviesReducer.reduce(previousState, MoviesAction.Idle)
+                result = MoviesReducer.reduce(previousState, MoviesAction.Idle(MOVIE_YEAR, MOVIE_MONTH))
             }
             Then("the initial state is the expected one") {
                 expect {
                     that(result).isEqualTo(
                         MoviesState(
-                            year = null,
-                            month = null,
+                            year = MOVIE_YEAR,
+                            month = MOVIE_MONTH,
                             status = MoviesStatus.Idle,
                             movies = PaginationData()
                         )
@@ -68,8 +68,8 @@ class MoviesStateSpek : Spek({
             var result: MoviesState? = null
             Given("a load action") {
                 previousState = MoviesState(
-                    year = null,
-                    month = null,
+                    year = MOVIE_YEAR,
+                    month = MOVIE_MONTH,
                     status = MoviesStatus.Idle,
                     movies = PaginationData()
                 )
@@ -107,14 +107,14 @@ class MoviesStateSpek : Spek({
                 )
             }
             When("reduce is triggered") {
-                result = MoviesReducer.reduce(previousState, MoviesAction.Reload)
+                result = MoviesReducer.reduce(previousState, MoviesAction.Reload(MOVIE_YEAR, MOVIE_MONTH))
             }
             Then("the initial state is the expected one") {
                 expect {
                     that(result).isEqualTo(
                         MoviesState(
-                            year = null,
-                            month = null,
+                            year = MOVIE_YEAR,
+                            month = MOVIE_MONTH,
                             status = MoviesStatus.Loaded,
                             movies = PaginationData()
                         )
@@ -129,8 +129,8 @@ class MoviesStateSpek : Spek({
             var result: MoviesState? = null
             Given("a success action") {
                 previousState = MoviesState(
-                    year = null,
-                    month = null,
+                    year = MOVIE_YEAR,
+                    month = MOVIE_MONTH,
                     status = MoviesStatus.Loading,
                     movies = paginationData
                 )
@@ -142,8 +142,8 @@ class MoviesStateSpek : Spek({
                 expect {
                     that(result).isEqualTo(
                         MoviesState(
-                            year = null,
-                            month = null,
+                            year = MOVIE_YEAR,
+                            month = MOVIE_MONTH,
                             status = MoviesStatus.Loaded,
                             movies = PaginationData(
                                 previousState.movies.allPageItems + moviesPage.items,
@@ -161,8 +161,8 @@ class MoviesStateSpek : Spek({
             var result: MoviesState? = null
             Given("an error action") {
                 previousState = MoviesState(
-                    year = null,
-                    month = null,
+                    year = MOVIE_YEAR,
+                    month = MOVIE_MONTH,
                     status = MoviesStatus.Loading,
                     movies = PaginationData(
                         moviesPage.items,
@@ -178,8 +178,8 @@ class MoviesStateSpek : Spek({
                 expect {
                     that(result).isEqualTo(
                         MoviesState(
-                            year = null,
-                            month = null,
+                            year = MOVIE_YEAR,
+                            month = MOVIE_MONTH,
                             status = MoviesStatus.Loaded,
                             movies = PaginationData(
                                 previousState.movies.allPageItems,

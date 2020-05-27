@@ -45,13 +45,13 @@ class MoviesStateTest {
             movies = PaginationData()
         )
 
-        val result = MoviesReducer.reduce(previousState, MoviesAction.Idle)
+        val result = MoviesReducer.reduce(previousState, MoviesAction.Idle(MOVIE_YEAR, MOVIE_MONTH))
 
         expect {
             that(result).isEqualTo(
                 MoviesState(
-                    year = null,
-                    month = null,
+                    year = MOVIE_YEAR,
+                    month = MOVIE_MONTH,
                     status = MoviesStatus.Idle,
                     movies = PaginationData()
                 )
@@ -62,8 +62,8 @@ class MoviesStateTest {
     @Test
     fun `given a load action, when reduce is triggered, then the new state is the expected one`() {
         val previousState = MoviesState(
-            year = null,
-            month = null,
+            year = MOVIE_YEAR,
+            month = MOVIE_MONTH,
             status = MoviesStatus.Idle,
             movies = PaginationData()
         )
@@ -96,13 +96,13 @@ class MoviesStateTest {
             )
         )
 
-        val result = MoviesReducer.reduce(previousState, MoviesAction.Reload)
+        val result = MoviesReducer.reduce(previousState, MoviesAction.Reload(MOVIE_YEAR, MOVIE_MONTH))
 
         expect {
             that(result).isEqualTo(
                 MoviesState(
-                    year = null,
-                    month = null,
+                    year = MOVIE_YEAR,
+                    month = MOVIE_MONTH,
                     status = MoviesStatus.Loaded,
                     movies = PaginationData()
                 )
@@ -115,8 +115,8 @@ class MoviesStateTest {
         val paginationData = PaginationData<Movie>()
         val moviesPage = MoviesPage(SECOND_PAGE, firstPageItems)
         val previousState = MoviesState(
-            year = null,
-            month = null,
+            year = MOVIE_YEAR,
+            month = MOVIE_MONTH,
             status = MoviesStatus.Loading,
             movies = paginationData
         )
@@ -126,8 +126,8 @@ class MoviesStateTest {
         expect {
             that(result).isEqualTo(
                 MoviesState(
-                    year = null,
-                    month = null,
+                    year = MOVIE_YEAR,
+                    month = MOVIE_MONTH,
                     status = MoviesStatus.Loaded,
                     movies = PaginationData(
                         previousState.movies.allPageItems + moviesPage.items,
@@ -143,8 +143,8 @@ class MoviesStateTest {
     fun `given an error action, when reduce is triggered, then the new state is the expected one`() {
         val moviesPage = MoviesPage(SECOND_PAGE, firstPageItems)
         val previousState = MoviesState(
-            year = null,
-            month = null,
+            year = MOVIE_YEAR,
+            month = MOVIE_MONTH,
             status = MoviesStatus.Loading,
             movies = PaginationData(
                 moviesPage.items,
@@ -158,8 +158,8 @@ class MoviesStateTest {
         expect {
             that(result).isEqualTo(
                 MoviesState(
-                    year = null,
-                    month = null,
+                    year = MOVIE_YEAR,
+                    month = MOVIE_MONTH,
                     status = MoviesStatus.Loaded,
                     movies = PaginationData(
                         previousState.movies.allPageItems,

@@ -38,29 +38,10 @@ class MoviesToolbarRobolectricTest {
     }
 
     @Test
-    fun `when filter icon is clicked, then filter icon gets invisible while close icon gets visible`() {
-        expect { that(testedClass.binding.ivToolbarFilterIcon.isVisible).isTrue() }
-        expect { that(testedClass.binding.ivToolbarCloseIcon.isVisible).isFalse() }
-
+    fun `when filter icon is clicked, then on filter clicked is triggered on the callback`() {
         testedClass.binding.ivToolbarFilterIcon.performClick()
 
-        expect { that(testedClass.binding.ivToolbarFilterIcon.isVisible).isFalse() }
-        expect { that(testedClass.binding.ivToolbarCloseIcon.isVisible).isTrue() }
-    }
-
-    @Test
-    fun `when filter icon is clicked, then show year`() {
-        expect { that(testedClass.binding.tvToolbarFilterYear.isInvisible).isTrue() }
-        expect {
-            that(testedClass.binding.tvToolbarFilterYear.text).isEqualTo(context.getString(R.string.tvToolbarFilterYear))
-        }
-
-        testedClass.binding.ivToolbarFilterIcon.performClick()
-
-        expect { that(testedClass.binding.tvToolbarFilterYear.isInvisible).isFalse() }
-        expect {
-            that(testedClass.binding.tvToolbarFilterYear.text).isEqualTo(context.getString(R.string.tvToolbarFilterYear))
-        }
+        verify { callbackMock.onFilterClicked() }
     }
 
     /* CLOSE ICON */
@@ -68,50 +49,6 @@ class MoviesToolbarRobolectricTest {
     @Test
     fun `when movies toolbar is instantiated, then a click listener is set on the close icon`() {
         expect { that(testedClass.binding.ivToolbarCloseIcon.hasOnClickListeners()).isTrue() }
-    }
-
-    @Test
-    fun `when close icon is clicked, then close icon gets invisible while filter icon gets visible`() {
-        testedClass.binding.ivToolbarFilterIcon.performClick()
-        expect { that(testedClass.binding.ivToolbarCloseIcon.isVisible).isTrue() }
-        expect { that(testedClass.binding.ivToolbarFilterIcon.isVisible).isFalse() }
-
-        testedClass.binding.ivToolbarCloseIcon.performClick()
-
-        expect { that(testedClass.binding.ivToolbarCloseIcon.isVisible).isFalse() }
-        expect { that(testedClass.binding.ivToolbarFilterIcon.isVisible).isTrue() }
-    }
-
-    @Test
-    fun `when close icon is clicked, then hide year`() {
-        testedClass.binding.ivToolbarFilterIcon.performClick()
-        expect { that(testedClass.binding.tvToolbarFilterYear.isInvisible).isFalse() }
-        expect {
-            that(testedClass.binding.tvToolbarFilterYear.text).isEqualTo(context.getString(R.string.tvToolbarFilterYear))
-        }
-
-        testedClass.binding.ivToolbarCloseIcon.performClick()
-
-        expect { that(testedClass.binding.tvToolbarFilterYear.isInvisible).isTrue() }
-        expect {
-            that(testedClass.binding.tvToolbarFilterYear.text).isEqualTo(context.getString(R.string.tvToolbarFilterYear))
-        }
-    }
-
-    @Test
-    fun `when close icon is clicked, then hide month`() {
-        testedClass.showMonth()
-        expect { that(testedClass.binding.tvToolbarFilterMonth.isInvisible).isFalse() }
-        expect {
-            that(testedClass.binding.tvToolbarFilterMonth.text).isEqualTo(context.getString(R.string.tvToolbarFilterMonth))
-        }
-
-        testedClass.binding.ivToolbarCloseIcon.performClick()
-
-        expect { that(testedClass.binding.tvToolbarFilterMonth.isInvisible).isTrue() }
-        expect {
-            that(testedClass.binding.tvToolbarFilterMonth.text).isEqualTo(context.getString(R.string.tvToolbarFilterMonth))
-        }
     }
 
     @Test
@@ -149,6 +86,119 @@ class MoviesToolbarRobolectricTest {
         verify { callbackMock.onMonthClicked() }
     }
 
+    /* SHOW/HIDE */
+
+    @Test
+    fun `when show filter icon is triggered, then filter icon is shown`() {
+        testedClass.showCloseIcon()
+        expect { that(testedClass.binding.ivToolbarFilterIcon.isVisible).isFalse() }
+        expect { that(testedClass.binding.ivToolbarCloseIcon.isVisible).isTrue() }
+
+        testedClass.showFilterIcon()
+
+        expect { that(testedClass.binding.ivToolbarFilterIcon.isVisible).isTrue() }
+        expect { that(testedClass.binding.ivToolbarCloseIcon.isVisible).isFalse() }
+    }
+
+    @Test
+    fun `when show close icon is triggered, then close icon is shown`() {
+        expect { that(testedClass.binding.ivToolbarFilterIcon.isVisible).isTrue() }
+        expect { that(testedClass.binding.ivToolbarCloseIcon.isVisible).isFalse() }
+
+        testedClass.showCloseIcon()
+
+        expect { that(testedClass.binding.ivToolbarFilterIcon.isVisible).isFalse() }
+        expect { that(testedClass.binding.ivToolbarCloseIcon.isVisible).isTrue() }
+    }
+
+    @Test
+    fun `given no year, when show year is triggered, then the default year is shown`() {
+        expect { that(testedClass.binding.tvToolbarFilterYear.isInvisible).isTrue() }
+        expect {
+            that(testedClass.binding.tvToolbarFilterYear.text).isEqualTo(context.getString(R.string.tvToolbarFilterYear))
+        }
+
+        testedClass.showYear()
+
+        expect { that(testedClass.binding.tvToolbarFilterYear.isInvisible).isFalse() }
+        expect {
+            that(testedClass.binding.tvToolbarFilterYear.text).isEqualTo(context.getString(R.string.tvToolbarFilterYear))
+        }
+    }
+
+    @Test
+    fun `given a year, when show year is triggered, then the given year is shown`() {
+        expect { that(testedClass.binding.tvToolbarFilterYear.isInvisible).isTrue() }
+        expect {
+            that(testedClass.binding.tvToolbarFilterYear.text).isEqualTo(context.getString(R.string.tvToolbarFilterYear))
+        }
+        val year = "2020"
+
+        testedClass.showYear(year)
+
+        expect { that(testedClass.binding.tvToolbarFilterYear.isInvisible).isFalse() }
+        expect { that(testedClass.binding.tvToolbarFilterYear.text).isEqualTo(year) }
+    }
+
+    @Test
+    fun `when hide year is triggered, then the year gets hidden`() {
+        val year = "2020"
+        testedClass.showYear(year)
+        expect { that(testedClass.binding.tvToolbarFilterYear.isInvisible).isFalse() }
+        expect { that(testedClass.binding.tvToolbarFilterYear.text).isEqualTo(year) }
+
+        testedClass.hideYear()
+
+        expect { that(testedClass.binding.tvToolbarFilterYear.isInvisible).isTrue() }
+        expect {
+            that(testedClass.binding.tvToolbarFilterYear.text).isEqualTo(context.getString(R.string.tvToolbarFilterYear))
+        }
+    }
+
+    @Test
+    fun `given no month, when show month is triggered, then the default month is shown`() {
+        expect { that(testedClass.binding.tvToolbarFilterMonth.isInvisible).isTrue() }
+        expect {
+            that(testedClass.binding.tvToolbarFilterMonth.text).isEqualTo(context.getString(R.string.tvToolbarFilterMonth))
+        }
+
+        testedClass.showMonth()
+
+        expect { that(testedClass.binding.tvToolbarFilterMonth.isInvisible).isFalse() }
+        expect {
+            that(testedClass.binding.tvToolbarFilterMonth.text).isEqualTo(context.getString(R.string.tvToolbarFilterMonth))
+        }
+    }
+
+    @Test
+    fun `given a month, when show month is triggered, then the month year is shown`() {
+        expect { that(testedClass.binding.tvToolbarFilterMonth.isInvisible).isTrue() }
+        expect {
+            that(testedClass.binding.tvToolbarFilterMonth.text).isEqualTo(context.getString(R.string.tvToolbarFilterMonth))
+        }
+        val month = MonthOfYear.JANUARY.label
+
+        testedClass.showMonth(month)
+
+        expect { that(testedClass.binding.tvToolbarFilterMonth.isInvisible).isFalse() }
+        expect { that(testedClass.binding.tvToolbarFilterMonth.text).isEqualTo(month) }
+    }
+
+    @Test
+    fun `when hide month is triggered, then the month gets hidden`() {
+        val month = MonthOfYear.JANUARY.label
+        testedClass.showMonth(month)
+        expect { that(testedClass.binding.tvToolbarFilterMonth.isInvisible).isFalse() }
+        expect { that(testedClass.binding.tvToolbarFilterMonth.text).isEqualTo(month) }
+
+        testedClass.hideMonth()
+
+        expect { that(testedClass.binding.tvToolbarFilterMonth.isInvisible).isTrue() }
+        expect {
+            that(testedClass.binding.tvToolbarFilterMonth.text).isEqualTo(context.getString(R.string.tvToolbarFilterMonth))
+        }
+    }
+
     /* YEAR */
 
     @Test
@@ -164,30 +214,30 @@ class MoviesToolbarRobolectricTest {
     }
 
     @Test
-    fun `when restore year is triggered, then year is shown`() {
+    fun `when set year is triggered, then year is shown`() {
         testedClass.hideYear()
 
-        testedClass.restoreYear(2020)
+        testedClass.setYear(2020)
 
         expect { that(testedClass.binding.tvToolbarFilterYear.isInvisible).isFalse() }
     }
 
     @Test
-    fun `when restore year is triggered, then monht is shown`() {
+    fun `when set year is triggered, then month is shown`() {
         testedClass.hideMonth()
 
-        testedClass.restoreYear(2020)
+        testedClass.setYear(2020)
 
         expect { that(testedClass.binding.tvToolbarFilterMonth.isInvisible).isFalse() }
     }
 
     @Test
-    fun `when restore year is triggered, then year is set`() {
+    fun `when set year is triggered, then year is set`() {
         val previousYear = 2019
         val currentYear = 2020
         testedClass.setMonth(previousYear)
 
-        testedClass.restoreYear(currentYear)
+        testedClass.setYear(currentYear)
 
         expect { that(testedClass.getYear()).isEqualTo(currentYear) }
     }
@@ -218,21 +268,21 @@ class MoviesToolbarRobolectricTest {
     }
 
     @Test
-    fun `when restore month is triggered, then month is shown`() {
+    fun `when set month is triggered, then month is shown`() {
         testedClass.hideMonth()
 
-        testedClass.restoreMonth(MonthOfYear.JANUARY.number)
+        testedClass.setMonth(MonthOfYear.JANUARY.number)
 
         expect { that(testedClass.binding.tvToolbarFilterMonth.isInvisible).isFalse() }
     }
 
     @Test
-    fun `when restore month is triggered, then month is set`() {
+    fun `when set month is triggered, then month is set`() {
         val previousMonth = MonthOfYear.JANUARY.number
         val currentMonth = MonthOfYear.FEBRUARY.number
         testedClass.setMonth(previousMonth)
 
-        testedClass.restoreMonth(currentMonth)
+        testedClass.setMonth(currentMonth)
 
         expect { that(testedClass.getMonth()).isEqualTo(currentMonth) }
     }
@@ -251,7 +301,7 @@ class MoviesToolbarRobolectricTest {
     /* CONFIGURATION CHANGE - RESTORE - CLOSE ICON */
 
     @Test
-    fun `given close icon state is false, when restore instance state, then on filter icon is not clicked`() {
+    fun `given close icon state is false, when restore instance state, then filter icon is shown`() {
         testedClass.binding.ivToolbarCloseIcon.performClick()
         expect { that(testedClass.binding.ivToolbarFilterIcon.isVisible).isTrue() }
         expect { that(testedClass.binding.ivToolbarCloseIcon.isVisible).isFalse() }
@@ -266,7 +316,7 @@ class MoviesToolbarRobolectricTest {
     }
 
     @Test
-    fun `given close icon state is true, when restore instance state, then on filter icon is clicked`() {
+    fun `given close icon state is true, when restore instance state, then close icon is shown`() {
         testedClass.binding.ivToolbarCloseIcon.performClick()
         expect { that(testedClass.binding.ivToolbarFilterIcon.isVisible).isTrue() }
         expect { that(testedClass.binding.ivToolbarCloseIcon.isVisible).isFalse() }
@@ -413,10 +463,22 @@ class MoviesToolbarRobolectricTest {
     /* CONFIGURATION CHANGE - SAVE */
 
     @Test
-    fun `when save instance state, then save close icon state`() {
+    fun `given year is not set, when save instance state, then don't save close icon state`() {
+        val closeIconState = false
+        testedClass.binding.ivToolbarCloseIcon.isVisible = closeIconState
+        val savedInstanceState = Bundle()
+
+        testedClass.onSaveInstanceState(savedInstanceState)
+
+        expect { that(savedInstanceState.getBoolean(MoviesToolbar.INSTANCE_STATE_KEY_CLOSE_ICON)).isEqualTo(closeIconState) }
+    }
+
+    @Test
+    fun `given year is set, when save instance state, then do save close icon state`() {
         val closeIconState = true
         testedClass.binding.ivToolbarCloseIcon.isVisible = closeIconState
         val savedInstanceState = Bundle()
+        testedClass.setYear(2020)
 
         testedClass.onSaveInstanceState(savedInstanceState)
 

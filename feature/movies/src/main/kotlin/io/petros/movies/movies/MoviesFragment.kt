@@ -62,7 +62,10 @@ class MoviesFragment : MviFragment<MoviesIntent, MoviesState, MoviesSideEffect, 
     override fun onResume() {
         super.onResume()
         viewModel.process(
-            MoviesIntent.IdleMovies
+            MoviesIntent.IdleMovies(
+                year = viewModel.state().value?.year,
+                month = viewModel.state().value?.month
+            )
         )
     }
 
@@ -89,11 +92,7 @@ class MoviesFragment : MviFragment<MoviesIntent, MoviesState, MoviesSideEffect, 
     }
 
     private fun renderIdleState(state: MoviesState) {
-        state.year?.let { year ->
-            binding.toolbar.showCloseIcon()
-            binding.toolbar.restoreYear(year)
-            state.month?.let { binding.toolbar.restoreMonth(it) }
-        }
+        renderToolbarState(state)
         adapter?.status = AdapterStatus.IDLE
         adapter?.setItems(state.movies, true)
     }
@@ -104,9 +103,25 @@ class MoviesFragment : MviFragment<MoviesIntent, MoviesState, MoviesSideEffect, 
     }
 
     private fun renderLoadedState(state: MoviesState) {
+        renderToolbarState(state)
         adapter?.status = AdapterStatus.IDLE
         adapter?.setItems(state.movies, reloadItems)
         reloadItems = false
+    }
+
+    private fun renderToolbarState(state: MoviesState) {
+        if (state.year != null && state.month != null) {
+            binding.toolbar.showCloseIcon()
+            binding.toolbar.setYear(state.year)
+            binding.toolbar.setMonth(state.month)
+        } else if (state.year != null) {
+            binding.toolbar.showCloseIcon()
+            binding.toolbar.setYear(state.year)
+        } else {
+            binding.toolbar.showFilterIcon()
+            binding.toolbar.hideYear()
+            binding.toolbar.hideMonth()
+        }
     }
 
     /* SIDE EFFECT */
@@ -151,6 +166,11 @@ class MoviesFragment : MviFragment<MoviesIntent, MoviesState, MoviesSideEffect, 
 
     /* CALLBACK */
 
+    override fun onFilterClicked() {
+        binding.toolbar.showCloseIcon()
+        binding.toolbar.showYear()
+    }
+
     override fun onCloseClicked() {
         viewModel.process(
             MoviesIntent.ReloadMovies()
@@ -165,8 +185,6 @@ class MoviesFragment : MviFragment<MoviesIntent, MoviesState, MoviesSideEffect, 
     }
 
     private fun onYearPicked(year: Int) {
-        binding.toolbar.setYear(year)
-        binding.toolbar.showMonth()
         viewModel.process(
             MoviesIntent.ReloadMovies(
                 year = year
@@ -182,7 +200,6 @@ class MoviesFragment : MviFragment<MoviesIntent, MoviesState, MoviesSideEffect, 
     }
 
     private fun onMonthPicked(month: Int) {
-        binding.toolbar.setMonth(month)
         viewModel.process(
             MoviesIntent.ReloadMovies(
                 year = binding.toolbar.getYear(),

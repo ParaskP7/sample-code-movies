@@ -60,14 +60,14 @@ class MoviesViewModelSpek : ViewModelSpek({
         Scenario("idling") {
             When("idling movies") {
                 setupViewModel(testedClass)
-                testedClass.process(MoviesIntent.IdleMovies)
+                testedClass.process(MoviesIntent.IdleMovies(MOVIE_YEAR, MOVIE_MONTH))
             }
             Then("the expected idling state is posted") {
                 coVerify {
                     stateMock.onChanged(
                         MoviesState(
-                            year = null,
-                            month = null,
+                            year = MOVIE_YEAR,
+                            month = MOVIE_MONTH,
                             status = MoviesStatus.Idle,
                             movies = PaginationData()
                         )
@@ -171,8 +171,8 @@ class MoviesViewModelSpek : ViewModelSpek({
                 coVerify {
                     stateMock.onChanged(
                         MoviesState(
-                            year = null,
-                            month = null,
+                            year = MOVIE_YEAR,
+                            month = MOVIE_MONTH,
                             status = MoviesStatus.Init,
                             movies = PaginationData()
                         )

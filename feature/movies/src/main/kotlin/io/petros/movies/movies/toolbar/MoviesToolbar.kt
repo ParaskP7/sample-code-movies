@@ -39,21 +39,11 @@ class MoviesToolbar(
     }
 
     private fun initFilterIcon() {
-        binding.ivToolbarFilterIcon.setOnClickListener { onFilterIconClicked() }
-    }
-
-    private fun onFilterIconClicked() {
-        showCloseIcon()
-        showYear()
+        binding.ivToolbarFilterIcon.setOnClickListener { callback?.onFilterClicked() }
     }
 
     private fun initCloseIcon() {
-        binding.ivToolbarCloseIcon.setOnClickListener { onCloseIconClicked() }
-    }
-
-    private fun onCloseIconClicked() {
-        showFilterIcon()
-        callback?.onCloseClicked()
+        binding.ivToolbarCloseIcon.setOnClickListener { callback?.onCloseClicked() }
     }
 
     private fun initYearFilter() {
@@ -67,10 +57,8 @@ class MoviesToolbar(
     /* SHOW/HIDE */
 
     fun showFilterIcon() {
-        binding.ivToolbarCloseIcon.isVisible = false
         binding.ivToolbarFilterIcon.isVisible = true
-        hideYear()
-        hideMonth()
+        binding.ivToolbarCloseIcon.isVisible = false
     }
 
     fun showCloseIcon() {
@@ -78,24 +66,21 @@ class MoviesToolbar(
         binding.ivToolbarCloseIcon.isVisible = true
     }
 
-    @Suppress("MemberVisibilityCanBePrivate")
-    fun showYear() {
+    fun showYear(year: String? = null) {
         binding.tvToolbarFilterYear.isInvisible = false
-        binding.tvToolbarFilterYear.text = context.getString(R.string.tvToolbarFilterYear)
+        binding.tvToolbarFilterYear.text = year ?: context.getString(R.string.tvToolbarFilterYear)
     }
 
-    @Suppress("MemberVisibilityCanBePrivate")
     fun hideYear() {
         binding.tvToolbarFilterYear.isInvisible = true
         binding.tvToolbarFilterYear.text = context.getString(R.string.tvToolbarFilterYear)
     }
 
-    fun showMonth() {
+    fun showMonth(month: String? = null) {
         binding.tvToolbarFilterMonth.isInvisible = false
-        binding.tvToolbarFilterMonth.text = context.getString(R.string.tvToolbarFilterMonth)
+        binding.tvToolbarFilterMonth.text = month ?: context.getString(R.string.tvToolbarFilterMonth)
     }
 
-    @Suppress("MemberVisibilityCanBePrivate")
     fun hideMonth() {
         binding.tvToolbarFilterMonth.isInvisible = true
         binding.tvToolbarFilterMonth.text = context.getString(R.string.tvToolbarFilterMonth)
@@ -104,13 +89,8 @@ class MoviesToolbar(
     /* YEAR */
 
     fun setYear(year: Int) {
-        binding.tvToolbarFilterYear.text = year.toString()
-    }
-
-    fun restoreYear(year: Int) {
-        showYear()
+        showYear(year.toString())
         showMonth()
-        setYear(year)
     }
 
     @Suppress("SwallowedException")
@@ -127,12 +107,7 @@ class MoviesToolbar(
     /* MONTH */
 
     fun setMonth(month: Int) {
-        binding.tvToolbarFilterMonth.text = MonthOfYear.from(month).label
-    }
-
-    fun restoreMonth(month: Int) {
-        showMonth()
-        setMonth(month)
+        showMonth(MonthOfYear.from(month).label)
     }
 
     fun getMonth(): Int? {
@@ -154,11 +129,11 @@ class MoviesToolbar(
     }
 
     private fun onRestoreYearInstanceState(savedInstanceState: Bundle) {
-        savedInstanceState.getString(INSTANCE_STATE_KEY_YEAR_FILTER)?.let { restoreYear(it.toInt()) }
+        savedInstanceState.getString(INSTANCE_STATE_KEY_YEAR_FILTER)?.let { setYear(it.toInt()) }
     }
 
     private fun onRestoreMonthInstanceState(savedInstanceState: Bundle) {
-        savedInstanceState.getString(INSTANCE_STATE_KEY_MONTH_FILTER)?.let { restoreMonth(it.toInt()) }
+        savedInstanceState.getString(INSTANCE_STATE_KEY_MONTH_FILTER)?.let { setMonth(it.toInt()) }
     }
 
     fun onSaveInstanceState(outState: Bundle) {
@@ -168,7 +143,7 @@ class MoviesToolbar(
     }
 
     private fun onSaveCloseIconInstanceState(outState: Bundle) {
-        outState.putBoolean(INSTANCE_STATE_KEY_CLOSE_ICON, binding.ivToolbarCloseIcon.isVisible)
+        outState.putBoolean(INSTANCE_STATE_KEY_CLOSE_ICON, binding.ivToolbarCloseIcon.isVisible && getYear() != null)
     }
 
     private fun onSaveYearInstanceState(outState: Bundle) {

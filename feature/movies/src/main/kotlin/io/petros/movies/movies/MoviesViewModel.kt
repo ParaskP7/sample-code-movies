@@ -21,14 +21,14 @@ class MoviesViewModel(
     override fun process(intent: MoviesIntent) {
         super.process(intent)
         when (intent) {
-            is MoviesIntent.IdleMovies -> idleMovies()
+            is MoviesIntent.IdleMovies -> idleMovies(intent.year, intent.month)
             is MoviesIntent.LoadMovies -> loadMovies(intent.year, intent.month, intent.page)
             is MoviesIntent.ReloadMovies -> reloadMovies(intent.year, intent.month)
         }.exhaustive
     }
 
-    private fun idleMovies() {
-        state = MoviesReducer.reduce(state, MoviesAction.Idle)
+    private fun idleMovies(year: Int? = null, month: Int? = null) {
+        state = MoviesReducer.reduce(state, MoviesAction.Idle(year, month))
     }
 
     private fun loadMovies(year: Int? = null, month: Int? = null, page: Int? = null) = viewModelScope.launch {
@@ -51,7 +51,7 @@ class MoviesViewModel(
     }
 
     private fun reloadMovies(year: Int? = null, month: Int? = null) {
-        state = MoviesReducer.reduce(state, MoviesAction.Reload)
+        state = MoviesReducer.reduce(state, MoviesAction.Reload(year, month))
         loadMovies(year, month)
     }
 

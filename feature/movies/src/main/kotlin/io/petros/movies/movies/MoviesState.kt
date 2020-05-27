@@ -31,7 +31,10 @@ sealed class MoviesSideEffect {
 
 sealed class MoviesIntent {
 
-    object IdleMovies : MoviesIntent()
+    data class IdleMovies(
+        val year: Int? = null,
+        val month: Int? = null
+    ) : MoviesIntent()
 
     data class LoadMovies(
         val year: Int? = null,
@@ -48,14 +51,20 @@ sealed class MoviesIntent {
 
 sealed class MoviesAction {
 
-    object Idle : MoviesAction()
+    data class Idle(
+        val year: Int?,
+        val month: Int?
+    ) : MoviesAction()
 
     data class Load(
         val year: Int?,
         val month: Int?
     ) : MoviesAction()
 
-    object Reload : MoviesAction()
+    data class Reload(
+        val year: Int?,
+        val month: Int?
+    ) : MoviesAction()
 
     data class Success(
         val movies: MoviesPage
@@ -76,6 +85,8 @@ object MoviesReducer {
 
     fun reduce(previousState: MoviesState, action: MoviesAction) = when (action) {
         is MoviesAction.Idle -> previousState.copy(
+            year = action.year,
+            month = action.month,
             status = MoviesStatus.Idle
         )
         is MoviesAction.Load -> previousState.copy(
@@ -84,8 +95,8 @@ object MoviesReducer {
             status = MoviesStatus.Loading
         )
         is MoviesAction.Reload -> previousState.copy(
-            year = null,
-            month = null,
+            year = action.year,
+            month = action.month,
             movies = PaginationData()
         )
         is MoviesAction.Success -> previousState.copy(
