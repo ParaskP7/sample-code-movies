@@ -21,7 +21,7 @@ import io.petros.movies.config.Sources
 import io.petros.movies.config.android.Android
 import io.petros.movies.config.android.App
 import io.petros.movies.config.android.LocalProperties
-import io.petros.movies.config.dirs.Files
+import io.petros.movies.config.android.findLocalProperty
 import io.petros.movies.config.kotlin.Java
 import io.petros.movies.config.tests.Logs
 import io.petros.movies.config.tests.Tests
@@ -32,8 +32,6 @@ import io.petros.movies.plugin.coverage.CoverageTask
 import org.jetbrains.kotlin.gradle.dsl.KotlinJvmOptions
 import org.jetbrains.kotlin.gradle.plugin.KaptExtension
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-import java.io.FileInputStream
-import java.util.*
 import com.android.build.gradle.AppPlugin as AndroidApplicationPlugin
 import com.android.build.gradle.LibraryPlugin as AndroidLibraryPlugin
 import org.jetbrains.kotlin.gradle.internal.Kapt3GradleSubplugin as KotlinKaptPlugin
@@ -362,9 +360,7 @@ fun AppExtension.variantOptions() {
 }
 
 fun ignoredVariants(variantOptions: (String) -> Unit) {
-    val localProperties = Properties()
-    localProperties.load(FileInputStream(file(Files.Properties.LOCAL)))
-    val ignoredVariants = localProperties[LocalProperties.Gradle.IGNORED_VARIANTS]?.toString()?.split(Utils.COMMA)
+    val ignoredVariants = findLocalProperty(LocalProperties.Gradle.IGNORED_VARIANTS)?.split(Utils.COMMA)
     ignoredVariants?.forEach {
         logVariant(it)
         variantOptions(it)
