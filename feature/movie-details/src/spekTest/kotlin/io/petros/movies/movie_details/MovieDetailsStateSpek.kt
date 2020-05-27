@@ -22,7 +22,7 @@ class MovieDetailsStateSpek : Spek({
                     that(result).isEqualTo(
                         MovieDetailsState(
                             status = MovieDetailsStatus.Init,
-                            movie = null
+                            movie = moviePlaceholder
                         )
                     )
                 }
@@ -37,7 +37,7 @@ class MovieDetailsStateSpek : Spek({
             Given("an idle action") {
                 previousState = MovieDetailsState(
                     status = MovieDetailsStatus.Init,
-                    movie = null
+                    movie = moviePlaceholder
                 )
             }
             When("reduce is triggered") {
@@ -48,7 +48,7 @@ class MovieDetailsStateSpek : Spek({
                     that(result).isEqualTo(
                         MovieDetailsState(
                             status = MovieDetailsStatus.Idle,
-                            movie = null
+                            movie = moviePlaceholder
                         )
                     )
                 }
@@ -60,7 +60,7 @@ class MovieDetailsStateSpek : Spek({
             Given("a load action") {
                 previousState = MovieDetailsState(
                     status = MovieDetailsStatus.Idle,
-                    movie = null
+                    movie = moviePlaceholder
                 )
             }
             When("reduce is triggered") {
@@ -71,7 +71,7 @@ class MovieDetailsStateSpek : Spek({
                     that(result).isEqualTo(
                         MovieDetailsState(
                             status = MovieDetailsStatus.Loading,
-                            movie = null
+                            movie = moviePlaceholder
                         )
                     )
                 }
@@ -83,7 +83,7 @@ class MovieDetailsStateSpek : Spek({
             Given("a success action") {
                 previousState = MovieDetailsState(
                     status = MovieDetailsStatus.Loading,
-                    movie = null
+                    movie = moviePlaceholder
                 )
             }
             When("reduce is triggered") {
@@ -106,7 +106,7 @@ class MovieDetailsStateSpek : Spek({
             Given("an error action") {
                 previousState = MovieDetailsState(
                     status = MovieDetailsStatus.Loading,
-                    movie = null
+                    movie = moviePlaceholder
                 )
             }
             When("reduce is triggered") {
@@ -117,7 +117,7 @@ class MovieDetailsStateSpek : Spek({
                     that(result).isEqualTo(
                         MovieDetailsState(
                             status = MovieDetailsStatus.Loaded,
-                            movie = null
+                            movie = moviePlaceholder
                         )
                     )
                 }

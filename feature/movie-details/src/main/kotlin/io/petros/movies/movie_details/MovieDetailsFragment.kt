@@ -71,13 +71,11 @@ class MovieDetailsFragment : MviFragment<
     private fun renderLoadedState(state: MovieDetailsState) {
         binding.pbLoading.isVisible = false
         binding.ctrLoaded.isVisible = true
-        state.movie?.let {
-            binding.ivBackdrop.displayImage(state.movie.backdrop)
-            binding.tvTitle.text = state.movie.title
-            binding.tvReleaseDate.text = state.movie.releaseDate()
-            binding.tvVote.text = state.movie.vote()
-            binding.tvOverview.text = state.movie.overview
-        }
+        binding.ivBackdrop.displayImage(state.movie.backdrop)
+        binding.tvTitle.text = state.movie.title
+        binding.tvReleaseDate.text = state.movie.releaseDate()
+        binding.tvVote.text = state.movie.vote()
+        binding.tvOverview.text = state.movie.overview
     }
 
     /* SIDE EFFECT */

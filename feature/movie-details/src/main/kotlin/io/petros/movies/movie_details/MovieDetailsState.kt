@@ -1,10 +1,11 @@
 package io.petros.movies.movie_details
 
 import io.petros.movies.domain.model.movie.Movie
+import java.util.*
 
 data class MovieDetailsState(
     val status: MovieDetailsStatus,
-    val movie: Movie?
+    val movie: Movie
 )
 
 sealed class MovieDetailsStatus {
@@ -53,7 +54,7 @@ object MovieDetailsReducer {
 
     fun init() = MovieDetailsState(
         status = MovieDetailsStatus.Init,
-        movie = null
+        movie = moviePlaceholder
     )
 
     fun reduce(previousState: MovieDetailsState, action: MovieDetailsAction) = when (action) {
@@ -69,7 +70,7 @@ object MovieDetailsReducer {
         )
         is MovieDetailsAction.Error -> previousState.copy(
             status = MovieDetailsStatus.Loaded,
-            movie = null
+            movie = moviePlaceholder
         )
     }
 
@@ -82,3 +83,13 @@ object MovieDetailsReducer {
     }
 
 }
+
+val moviePlaceholder = Movie(
+    0,
+    "Title",
+    GregorianCalendar(1, Calendar.JANUARY, 1).time,
+    0.0,
+    0,
+    "Overview",
+    null
+)
