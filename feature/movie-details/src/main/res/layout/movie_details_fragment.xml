@@ -7,7 +7,7 @@
     style="@style/ctrMovieDetails"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MovieDetailsFragment">
+    tools:context="io.petros.movies.movie_details.MovieDetailsFragment">
 
     <LinearLayout
         android:layout_width="match_parent"

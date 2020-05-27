@@ -6,7 +6,7 @@
     android:id="@+id/ctrMovies"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MoviesFragment">
+    tools:context="io.petros.movies.movies.MoviesFragment">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"

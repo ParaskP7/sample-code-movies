@@ -6,7 +6,7 @@
     android:id="@+id/ctrApp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".app.AppActivity"
+    tools:context="io.petros.movies.app.AppActivity"
     tools:ignore="UnusedResources">
 
     <androidx.constraintlayout.widget.ConstraintLayout
