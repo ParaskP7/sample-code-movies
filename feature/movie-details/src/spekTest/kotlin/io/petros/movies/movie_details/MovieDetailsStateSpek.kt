@@ -11,7 +11,7 @@ class MovieDetailsStateSpek : Spek({
 
     val movie = movie()
 
-    Feature("Movies reducer init") {
+    Feature("Movie details reducer init") {
         Scenario("init") {
             var result: MovieDetailsState? = null
             When("init is triggered") {
@@ -30,7 +30,7 @@ class MovieDetailsStateSpek : Spek({
         }
     }
 
-    Feature("Movies reducer reduce") {
+    Feature("Movie details reducer reduce") {
         Scenario("load") {
             @Suppress("LateinitUsage") lateinit var previousState: MovieDetailsState
             var result: MovieDetailsState? = null
@@ -102,7 +102,7 @@ class MovieDetailsStateSpek : Spek({
         }
     }
 
-    Feature("Movies reducer once") {
+    Feature("Movie details reducer once") {
         Scenario("error") {
             @Suppress("LateinitUsage") lateinit var action: MovieDetailsAction
             var result: MovieDetailsSideEffect? = null

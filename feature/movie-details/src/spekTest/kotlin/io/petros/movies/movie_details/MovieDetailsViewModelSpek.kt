@@ -31,7 +31,7 @@ class MovieDetailsViewModelSpek : ViewModelSpek({
     val movie = Result.Success(movie())
     val loadMovieUseCaseMock = mockk<LoadMovieUseCase>()
 
-    Feature("Movies view model for load") {
+    Feature("Movie details view model for load") {
         val testedClass by memoized { MovieDetailsViewModel(loadMovieUseCaseMock) }
         Scenario("loading") {
             When("loading movies") {
