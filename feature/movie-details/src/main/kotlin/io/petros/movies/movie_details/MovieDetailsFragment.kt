@@ -6,17 +6,21 @@ import com.google.android.material.snackbar.Snackbar
 import io.petros.movies.core.fragment.MviFragment
 import io.petros.movies.core.image.glide.displayImage
 import io.petros.movies.core.view_binding.viewBinding
+import io.petros.movies.domain.model.movie.Movie
 import io.petros.movies.feature.movie.details.R
 import io.petros.movies.feature.movie.details.databinding.MovieDetailsFragmentBinding
+import io.petros.movies.movie_details.stateful.StatefulMovieDetailsState
+import io.petros.movies.movie_details.stateful.StatefulMovieDetailsStateListener
 import io.petros.movies.utils.doNothing
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-@Suppress("SyntheticAccessor")
-class MovieDetailsFragment : MviFragment<
-        MovieDetailsIntent,
-        MovieDetailsState,
-        MovieDetailsSideEffect,
-        MovieDetailsViewModel>(R.layout.movie_details_fragment) {
+@Suppress("SyntheticAccessor", "PARAMETER_NAME_CHANGED_ON_OVERRIDE")
+class MovieDetailsFragment : StatefulMovieDetailsStateListener,
+    MviFragment<MovieDetailsIntent,
+            MovieDetailsState,
+            StatefulMovieDetailsState,
+            MovieDetailsSideEffect,
+            MovieDetailsViewModel>(R.layout.movie_details_fragment) {
 
     companion object {
 
@@ -29,6 +33,7 @@ class MovieDetailsFragment : MviFragment<
 
     private val binding by viewBinding(MovieDetailsFragmentBinding::bind)
     override val viewModel: MovieDetailsViewModel by viewModel()
+    override val stateful = StatefulMovieDetailsState(this)
     private val movieId: Int by lazy { getMovieId(arguments) }
 
     private var snackbar: Snackbar? = null
@@ -48,32 +53,25 @@ class MovieDetailsFragment : MviFragment<
 
     /* STATE */
 
-    override fun renderState(state: MovieDetailsState) = when (state.status) {
-        is MovieDetailsStatus.Init -> renderInitState()
-        is MovieDetailsStatus.Idle -> doNothing
-        is MovieDetailsStatus.Loading -> renderLoadingState()
-        is MovieDetailsStatus.Loaded -> renderLoadedState(state)
-    }
-
-    private fun renderInitState() {
-        viewModel.process(
-            MovieDetailsIntent.LoadMovie(
-                id = movieId
+    override fun onStatusUpdated(state: MovieDetailsState) {
+        when (state.status) {
+            is MovieDetailsStatus.Init -> viewModel.process(
+                MovieDetailsIntent.LoadMovie(
+                    id = movieId
+                )
             )
-        )
+            is MovieDetailsStatus.Idle -> doNothing
+            is MovieDetailsStatus.Loading -> binding.pbLoading.isVisible = true
+            is MovieDetailsStatus.Loaded -> binding.pbLoading.isVisible = false
+        }
     }
 
-    private fun renderLoadingState() {
-        binding.pbLoading.isVisible = true
-    }
-
-    private fun renderLoadedState(state: MovieDetailsState) {
-        binding.pbLoading.isVisible = false
-        binding.ivBackdrop.displayImage(state.movie.backdrop)
-        binding.tvTitle.text = state.movie.title
-        binding.tvReleaseDate.text = state.movie.releaseDate()
-        binding.tvVote.text = state.movie.vote()
-        binding.tvOverview.text = state.movie.overview
+    override fun onMovieUpdated(movie: Movie) {
+        binding.ivBackdrop.displayImage(movie.backdrop)
+        binding.tvTitle.text = movie.title
+        binding.tvReleaseDate.text = movie.releaseDate()
+        binding.tvVote.text = movie.vote()
+        binding.tvOverview.text = movie.overview
     }
 
     /* SIDE EFFECT */

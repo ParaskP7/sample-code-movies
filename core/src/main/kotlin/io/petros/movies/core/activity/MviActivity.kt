@@ -1,21 +1,24 @@
 package io.petros.movies.core.activity
 
 import androidx.lifecycle.Observer
+import dev.fanie.stateful.AbstractStatefulInstance
 import io.petros.movies.core.view_model.MviViewModel
 import timber.log.Timber
 
 abstract class MviActivity<
         INTENT : Any,
         STATE : Any,
+        STATEFUL_STATE : AbstractStatefulInstance<STATE>,
         SIDE_EFFECT : Any,
         VIEW_MODEL : MviViewModel<INTENT, STATE, SIDE_EFFECT>
         > : BaseActivity() {
 
     abstract val viewModel: VIEW_MODEL
+    abstract val stateful: STATEFUL_STATE
 
     private val state = Observer<STATE> {
         Timber.v("${javaClass.simpleName} observed state. [State: $it]")
-        renderState(it)
+        stateful.accept(it)
     }
 
     private val sideEffect = Observer<SIDE_EFFECT> {
@@ -25,6 +28,7 @@ abstract class MviActivity<
 
     override fun onResume() {
         super.onResume()
+        stateful.clear()
         initObservers()
     }
 
@@ -32,8 +36,6 @@ abstract class MviActivity<
         viewModel.state().observe(this, state)
         viewModel.sideEffect().observe(this, sideEffect)
     }
-
-    abstract fun renderState(state: STATE)
 
     abstract fun renderSideEffect(sideEffect: SIDE_EFFECT): Unit?
 

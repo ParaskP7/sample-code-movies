@@ -1,8 +1,10 @@
 package io.petros.movies.movie_details
 
+import dev.fanie.stateful.Stateful
 import io.petros.movies.domain.model.movie.Movie
 import java.util.*
 
+@Stateful
 data class MovieDetailsState(
     val status: MovieDetailsStatus,
     val movie: Movie

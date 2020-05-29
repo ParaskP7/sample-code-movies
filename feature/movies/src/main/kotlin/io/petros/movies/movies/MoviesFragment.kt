@@ -14,14 +14,22 @@ import io.petros.movies.feature.movies.R
 import io.petros.movies.feature.movies.databinding.MoviesFragmentBinding
 import io.petros.movies.movies.list.MoviesAdapter
 import io.petros.movies.movies.list.item.MovieItemCallback
+import io.petros.movies.movies.stateful.StatefulMoviesState
+import io.petros.movies.movies.stateful.StatefulMoviesStateListener
 import io.petros.movies.movies.toolbar.MoviesToolbarCallback
 import io.petros.movies.picker.MovieMonthPickerFragment
 import io.petros.movies.picker.MovieYearPickerFragment
+import io.petros.movies.utils.doNothing
 import io.petros.movies.utils.slash
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-@Suppress("TooManyFunctions")
-class MoviesFragment : MviFragment<MoviesIntent, MoviesState, MoviesSideEffect, MoviesViewModel>(R.layout.movies_fragment),
+@Suppress("TooManyFunctions", "PARAMETER_NAME_CHANGED_ON_OVERRIDE")
+class MoviesFragment : StatefulMoviesStateListener,
+    MviFragment<MoviesIntent,
+            MoviesState,
+            StatefulMoviesState,
+            MoviesSideEffect,
+            MoviesViewModel>(R.layout.movies_fragment),
     MoviesToolbarCallback,
     MovieItemCallback,
     InfiniteRecyclerView.Listener {
@@ -36,6 +44,7 @@ class MoviesFragment : MviFragment<MoviesIntent, MoviesState, MoviesSideEffect, 
 
     private val binding by viewBinding(MoviesFragmentBinding::bind)
     override val viewModel: MoviesViewModel by viewModel()
+    override val stateful = StatefulMoviesState(this)
 
     private var adapter: MoviesAdapter? = null
     private var snackbar: Snackbar? = null
@@ -78,49 +87,49 @@ class MoviesFragment : MviFragment<MoviesIntent, MoviesState, MoviesSideEffect, 
 
     /* STATE */
 
-    override fun renderState(state: MoviesState) = when (state.status) {
-        is MoviesStatus.Init -> renderInitState()
-        is MoviesStatus.Idle -> renderIdleState(state)
-        is MoviesStatus.Loading -> renderLoadingState()
-        is MoviesStatus.Loaded -> renderLoadedState(state)
+    override fun onStatusUpdated(state: MoviesState) {
+        when (state.status) {
+            is MoviesStatus.Init -> viewModel.process(
+                MoviesIntent.LoadMovies()
+            )
+            is MoviesStatus.Idle -> adapter?.status = AdapterStatus.IDLE
+            is MoviesStatus.Loading -> {
+                adapter?.status = AdapterStatus.LOADING
+                snackbar?.dismiss()
+            }
+            is MoviesStatus.Loaded -> adapter?.status = AdapterStatus.IDLE
+        }
     }
 
-    private fun renderInitState() {
-        viewModel.process(
-            MoviesIntent.LoadMovies()
-        )
-    }
-
-    private fun renderIdleState(state: MoviesState) {
-        renderToolbarState(state)
-        adapter?.status = AdapterStatus.IDLE
-        adapter?.setItems(state.movies, true)
-    }
-
-    private fun renderLoadingState() {
-        adapter?.status = AdapterStatus.LOADING
-        snackbar?.dismiss()
-    }
-
-    private fun renderLoadedState(state: MoviesState) {
-        renderToolbarState(state)
-        adapter?.status = AdapterStatus.IDLE
-        adapter?.setItems(state.movies, reloadItems)
-        reloadItems = false
-    }
-
-    private fun renderToolbarState(state: MoviesState) {
-        if (state.year != null && state.month != null) {
+    override fun onYearUpdated(year: Int?) {
+        year?.let {
             binding.toolbar.showCloseIcon()
-            binding.toolbar.setYear(state.year)
-            binding.toolbar.setMonth(state.month)
-        } else if (state.year != null) {
-            binding.toolbar.showCloseIcon()
-            binding.toolbar.setYear(state.year)
-        } else {
+            binding.toolbar.setYear(it)
+        } ?: run {
             binding.toolbar.showFilterIcon()
             binding.toolbar.hideYear()
             binding.toolbar.hideMonth()
+        }
+    }
+
+    override fun onMonthUpdated(month: Int?) {
+        month?.let {
+            binding.toolbar.setMonth(it)
+        } ?: run {
+            binding.toolbar.hideMonth()
+        }
+    }
+
+    @Suppress("UseCheckOrError")
+    override fun onMoviesUpdated(state: MoviesState) {
+        when (state.status) {
+            is MoviesStatus.Init -> doNothing
+            is MoviesStatus.Idle -> adapter?.setItems(state.movies, true)
+            is MoviesStatus.Loading -> throw IllegalStateException("Movies updated during loading status.")
+            is MoviesStatus.Loaded -> {
+                adapter?.setItems(state.movies, reloadItems)
+                reloadItems = false
+            }
         }
     }
 

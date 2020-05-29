@@ -1,9 +1,11 @@
 package io.petros.movies.movies
 
+import dev.fanie.stateful.Stateful
 import io.petros.movies.domain.model.common.PaginationData
 import io.petros.movies.domain.model.movie.Movie
 import io.petros.movies.domain.model.movie.MoviesPage
 
+@Stateful
 data class MoviesState(
     val year: Int?,
     val month: Int?,
