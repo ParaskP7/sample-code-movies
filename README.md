@@ -215,6 +215,12 @@ Or if you want to just run the Jacoco reports without comparing the results with
 gradlew jacoco
 ```
 
+If you feel like it you can also unleash the 'monkey' and stress test the app with some random instructions (10K of them
+should do it), use the below command:
+```
+adb shell monkey -p io.petros.movies.debug -v 10000
+```
+
 Use this command in order to check dependency updates for the project:
 ```
 gradlew dependencyUpdates
