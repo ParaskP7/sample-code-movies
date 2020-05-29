@@ -3,7 +3,6 @@
 import com.android.build.gradle.AppExtension
 import com.android.build.gradle.BaseExtension
 import com.android.build.gradle.LibraryExtension
-import com.android.build.gradle.api.AndroidSourceSet
 import com.android.build.gradle.internal.CompileOptions
 import com.android.build.gradle.internal.dsl.DefaultConfig
 import com.android.build.gradle.internal.dsl.LintOptions
@@ -38,6 +37,7 @@ import org.jetbrains.kotlin.gradle.plugin.KaptExtension
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import com.android.build.gradle.AppPlugin as AndroidApplicationPlugin
 import com.android.build.gradle.LibraryPlugin as AndroidLibraryPlugin
+import com.android.build.gradle.api.AndroidSourceSet as AndroidSourceSetLegacy
 import org.jetbrains.kotlin.gradle.internal.Kapt3GradleSubplugin as KotlinKaptPlugin
 import org.jetbrains.kotlin.gradle.plugin.KotlinAndroidPluginWrapper as KotlinAndroidPlugin
 import org.jetbrains.kotlin.gradle.plugin.KotlinPluginWrapper as KotlinPlugin
@@ -169,8 +169,8 @@ fun Project.java(configure: JavaPluginExtension.() -> Unit) =
 
 fun Project.sourceSets() {
     configure<SourceSetContainer> {
-        mainSourceSetContainer()
-        testSourceSetContainer()
+        mainSourceSets()
+        testSourceSets()
     }
 }
 
@@ -248,7 +248,7 @@ fun LibraryExtension.androidLibrary() {
     defaultConfig { defaultConfig() }
     packagingOptions { packagingOptions() }
     compileOptions { compileOptions() }
-    sourceSets { sourceSets() }
+    sourceSets { androidSourceSets() }
     testOptions { testOptions() }
     lintOptions { lintOptions() }
     buildFeatures()
@@ -260,7 +260,7 @@ fun AppExtension.androidApplication() {
     defaultConfig { defaultConfig() }
     packagingOptions { packagingOptions() }
     compileOptions { compileOptions() }
-    sourceSets { sourceSets() }
+    sourceSets { androidSourceSets() }
     testOptions { testOptions() }
     lintOptions { lintOptions() }
     buildFeatures()
@@ -299,10 +299,10 @@ fun CompileOptions.compileOptions() {
     targetCompatibility = Java.version
 }
 
-fun NamedDomainObjectContainer<AndroidSourceSet>.sourceSets() {
-    androidMainSourceSetContainer()
-    androidTestSourceSetContainer()
-    androidAndroidTestSourceSetContainer()
+fun NamedDomainObjectContainer<AndroidSourceSetLegacy>.androidSourceSets() {
+    mainAndroidSourceSets()
+    testAndroidSourceSets()
+    androidTestAndroidSourceSets()
 }
 
 fun TestOptions.testOptions() {
@@ -432,9 +432,9 @@ fun isNonStable(version: String): Boolean {
     return isStable.not()
 }
 
-/* SOURCE SET EXTENSION FUNCTIONS */
+/* SOURCE SET EXTENSION FUNCTIONS - KOTLIN */
 
-fun SourceSetContainer.mainSourceSetContainer() {
+fun SourceSetContainer.mainSourceSets() {
     named(Sources.MAIN) {
         java.setSrcDirs(
             arrayListOf(
@@ -449,22 +449,7 @@ fun SourceSetContainer.mainSourceSetContainer() {
     }
 }
 
-fun NamedDomainObjectContainer<AndroidSourceSet>.androidMainSourceSetContainer() {
-    named(Sources.MAIN) {
-        java.setSrcDirs(
-            arrayListOf(
-                Sources.Main.KOTLIN
-            )
-        )
-        resources.setSrcDirs(
-            arrayListOf(
-                Sources.Main.RESOURCES
-            )
-        )
-    }
-}
-
-fun SourceSetContainer.testSourceSetContainer() {
+fun SourceSetContainer.testSourceSets() {
     named(Sources.TEST) {
         java.setSrcDirs(
             arrayListOf(
@@ -485,7 +470,24 @@ fun SourceSetContainer.testSourceSetContainer() {
     }
 }
 
-fun NamedDomainObjectContainer<AndroidSourceSet>.androidTestSourceSetContainer() {
+/* SOURCE SET EXTENSION FUNCTIONS - ANDROID */
+
+fun NamedDomainObjectContainer<AndroidSourceSetLegacy>.mainAndroidSourceSets() {
+    named(Sources.MAIN) {
+        java.setSrcDirs(
+            arrayListOf(
+                Sources.Main.KOTLIN
+            )
+        )
+        resources.setSrcDirs(
+            arrayListOf(
+                Sources.Main.RESOURCES
+            )
+        )
+    }
+}
+
+fun NamedDomainObjectContainer<AndroidSourceSetLegacy>.testAndroidSourceSets() {
     named(Sources.TEST) {
         java.setSrcDirs(
             arrayListOf(
@@ -506,8 +508,7 @@ fun NamedDomainObjectContainer<AndroidSourceSet>.androidTestSourceSetContainer()
     }
 }
 
-@Suppress("FunctionMaxLength")
-fun NamedDomainObjectContainer<AndroidSourceSet>.androidAndroidTestSourceSetContainer() {
+fun NamedDomainObjectContainer<AndroidSourceSetLegacy>.androidTestAndroidSourceSets() {
     named(Sources.ANDROID_TEST) {
         java.setSrcDirs(
             arrayListOf(
