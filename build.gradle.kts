@@ -249,7 +249,7 @@ fun LibraryExtension.androidLibrary() {
     packagingOptions { packagingOptions() }
     compileOptions { compileOptions() }
     sourceSets { androidSourceSets() }
-    testOptions { testOptions() }
+    testOptions { androidTestOptions() }
     lintOptions { lintOptions() }
     buildFeatures()
     variantOptions()
@@ -261,7 +261,7 @@ fun AppExtension.androidApplication() {
     packagingOptions { packagingOptions() }
     compileOptions { compileOptions() }
     sourceSets { androidSourceSets() }
-    testOptions { testOptions() }
+    testOptions { androidTestOptions() }
     lintOptions { lintOptions() }
     buildFeatures()
     variantOptions()
@@ -305,7 +305,7 @@ fun NamedDomainObjectContainer<AndroidSourceSetLegacy>.androidSourceSets() {
     androidTestAndroidSourceSets()
 }
 
-fun TestOptions.testOptions() {
+fun TestOptions.androidTestOptions() {
     animationsDisabled = true
     unitTests.isIncludeAndroidResources = true
     unitTests.all { test: Test -> test.testLogging() }
