@@ -41,6 +41,8 @@ object Android {
             const val AL = "$META_INF_DIR/AL2.0"
             const val LGPL = "$META_INF_DIR/LGPL2.1"
 
+            const val KOTLIN_COROUTINES = "$META_INF_DIR/kotlinx-coroutines-core.kotlin_module"
+
         }
 
     }
