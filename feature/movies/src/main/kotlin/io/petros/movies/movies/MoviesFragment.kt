@@ -172,9 +172,14 @@ class MoviesFragment : MviFragment<MoviesIntent, MoviesState, MoviesSideEffect, 
     }
 
     override fun onCloseClicked() {
-        viewModel.process(
-            MoviesIntent.ReloadMovies()
-        )
+        binding.toolbar.getYear()?.let {
+            viewModel.process(
+                MoviesIntent.ReloadMovies()
+            )
+        } ?: run {
+            binding.toolbar.showFilterIcon()
+            binding.toolbar.hideYear()
+        }
     }
 
     override fun onYearClicked() {
