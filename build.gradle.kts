@@ -1,13 +1,12 @@
 @file:Suppress("InvalidPackageDeclaration", "DEPRECATION")
 
+import com.android.build.api.dsl.CompileOptions
+import com.android.build.api.dsl.LintOptions
+import com.android.build.api.dsl.PackagingOptions
+import com.android.build.api.dsl.TestOptions
 import com.android.build.gradle.AppExtension
 import com.android.build.gradle.BaseExtension
 import com.android.build.gradle.LibraryExtension
-import com.android.build.gradle.internal.CompileOptions
-import com.android.build.gradle.internal.dsl.DefaultConfig
-import com.android.build.gradle.internal.dsl.LintOptions
-import com.android.build.gradle.internal.dsl.PackagingOptions
-import com.android.build.gradle.internal.dsl.TestOptions
 import com.github.benmanes.gradle.versions.VersionsPlugin
 import com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask
 import de.mannodermaus.gradle.plugins.junit5.AndroidJUnitPlatformPlugin
@@ -38,6 +37,8 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import com.android.build.gradle.AppPlugin as AndroidApplicationPlugin
 import com.android.build.gradle.LibraryPlugin as AndroidLibraryPlugin
 import com.android.build.gradle.api.AndroidSourceSet as AndroidSourceSetLegacy
+import com.android.build.gradle.internal.dsl.DefaultConfig as DefaultConfigLegacy
+import com.android.build.gradle.internal.dsl.TestOptions as TestOptionsLegacy
 import org.jetbrains.kotlin.gradle.internal.Kapt3GradleSubplugin as KotlinKaptPlugin
 import org.jetbrains.kotlin.gradle.plugin.KotlinAndroidPluginWrapper as KotlinAndroidPlugin
 import org.jetbrains.kotlin.gradle.plugin.KotlinPluginWrapper as KotlinPlugin
@@ -282,7 +283,7 @@ fun DetektExtension.detekt() {
     }
 }
 
-fun DefaultConfig.defaultConfig() {
+fun DefaultConfigLegacy.defaultConfig() {
     minSdkVersion(Android.Sdk.MIN)
     targetSdkVersion(Android.Sdk.TARGET)
 }
@@ -311,7 +312,7 @@ fun TestOptions.androidTestOptions() {
     unitTests.all { test: Test -> test.testLogging() }
 }
 
-fun TestOptions.testOptionsJUnit5() {
+fun TestOptionsLegacy.testOptionsJUnit5() {
     junitPlatform { filters { includeEngines(Tests.Engine.JUnit.VINTAGE, Tests.Engine.Spek.SPEK) } }
 }
 
