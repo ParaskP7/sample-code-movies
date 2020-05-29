@@ -27,9 +27,11 @@ Below is a list of goodies that are being showcased:
 2. UI Patterns
     1. [MVVM](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel) ```(Model View ViewModel)```
     2. [MVI](http://hannesdorfmann.com/android/model-view-intent) ```(Model View Intent)```
-    3. [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel) ```(Architecture Components 
+    3. [Stateful](https://github.com/iFanie/Stateful) ```(Annotation processor based, diff solution generator for model 
+    classes)```
+    4. [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel) ```(Architecture Components 
     ViewModel Class)```
-    4. [LivaData](https://developer.android.com/topic/libraries/architecture/livedata) ```(Architecture Components 
+    5. [LivaData](https://developer.android.com/topic/libraries/architecture/livedata) ```(Architecture Components 
     LiveData Class)```
 3. Kotlin
     1. [Kotlin](https://kotlinlang.org/) ```(A modern programming language that makes developers happier)```
