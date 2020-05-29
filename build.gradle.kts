@@ -26,6 +26,7 @@ import io.petros.movies.config.kotlin.Java
 import io.petros.movies.config.tests.Logs
 import io.petros.movies.config.tests.Tests
 import io.petros.movies.config.utils.Utils
+import io.petros.movies.config.utils.logCredentials
 import io.petros.movies.config.utils.logModule
 import io.petros.movies.config.utils.logPlugin
 import io.petros.movies.config.utils.logVariant
@@ -74,9 +75,18 @@ autoManifest {
 /* PROJECTS CONFIGURATION */
 
 allprojects {
+    val githubUsername = findLocalProperty(LocalProperties.GitHub.USERNAME)
+    val githubPassword = findLocalProperty(LocalProperties.GitHub.PASSWORD)
+    logCredentials(Pair(githubUsername, githubPassword))
     repositories {
         google()
         jcenter()
+        maven(url = Repos.Url.GitHub.STATEFUL) {
+            credentials {
+                username = githubUsername
+                password = githubPassword
+            }
+        }
     }
 }
 

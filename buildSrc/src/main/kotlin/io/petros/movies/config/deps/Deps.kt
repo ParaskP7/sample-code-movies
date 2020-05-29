@@ -188,6 +188,17 @@ object Deps {
 
     }
 
+    object Architecture {
+
+        object Mvi {
+
+            val STATEFUL = "dev.fanie:stateful:${Versions.Architecture.Mvi.STATEFUL}"
+            val STATEFUL_COMPILER = "dev.fanie:stateful-compiler:${Versions.Architecture.Mvi.STATEFUL}"
+
+        }
+
+    }
+
     object Di {
 
         object Koin {

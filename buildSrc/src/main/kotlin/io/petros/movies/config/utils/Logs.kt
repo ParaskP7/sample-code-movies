@@ -1,5 +1,9 @@
 package io.petros.movies.config.utils
 
+fun logCredentials(credentials: Pair<String?, String?>) {
+    println(" << CONFIGURE WITH $credentials CREDENTIALS>>")
+}
+
 fun logPlugin(pluginId: String) {
     println("<<< CONFIGURE WITH $pluginId PLUGIN >>>")
 }

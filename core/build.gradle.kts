@@ -24,6 +24,7 @@ dependencies {
     implementation(Deps.Android.Arch.Core.Lifecycle.COMMON_JAVA_8)
     implementation(Deps.Android.Arch.Core.Lifecycle.LIVE_DATA_CORE)
     implementation(Deps.Android.Arch.Core.Lifecycle.LIVE_DATA_CORE_KTX)
+    implementation(Deps.Architecture.Mvi.STATEFUL)
     implementation(Deps.Image.Glide.GLIDE)
     kapt(Deps.Image.Glide.GLIDE_COMPILER)
     implementation(Deps.Log.TIMBER)

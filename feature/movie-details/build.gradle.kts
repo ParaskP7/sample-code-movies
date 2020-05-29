@@ -5,6 +5,7 @@ import io.petros.movies.config.deps.Deps
 plugins {
     id(Plugins.Id.Android.LIBRARY)
     id(Plugins.Id.Kotlin.Android.ANDROID)
+    id(Plugins.Id.Kotlin.KAPT)
     id(Plugins.Id.Quality.DETEKT)
     id(Plugins.Id.Test.Android.J_UNIT_5)
     id(Plugins.Id.Dependency.VERSIONS)
@@ -29,6 +30,8 @@ dependencies {
     implementation(Deps.Android.Arch.Core.Lifecycle.VIEW_MODEL_KTX)
     implementation(Deps.Android.Arch.Core.Navigation.FRAGMENT_KTX)
     implementation(Deps.Android.Arch.Core.Navigation.UI_KTX)
+    implementation(Deps.Architecture.Mvi.STATEFUL)
+    kapt(Deps.Architecture.Mvi.STATEFUL_COMPILER)
     implementation(Deps.Di.Koin.Android.ANDROID)
     implementation(Deps.Di.Koin.Android.VIEW_MODEL)
     implementation(Deps.Log.TIMBER)

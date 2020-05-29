@@ -8,6 +8,13 @@ object LocalProperties {
 
     const val FILE = "local.properties"
 
+    object GitHub {
+
+        const val USERNAME = "github.username"
+        const val PASSWORD = "github.password"
+
+    }
+
     object Gradle {
 
         const val IGNORED_VARIANTS = "gradle.ignored.variants"

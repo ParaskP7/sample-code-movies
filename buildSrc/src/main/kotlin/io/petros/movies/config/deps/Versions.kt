@@ -96,6 +96,17 @@ object Versions {
 
     }
 
+    object Architecture {
+
+        object Mvi {
+
+            // Releases: https://github.com/iFanie/Stateful/releases
+            const val STATEFUL = "0.1.2" // 28-05-20
+
+        }
+
+    }
+
     object Di {
 
         @Suppress("MemberNameEqualsClassName")
