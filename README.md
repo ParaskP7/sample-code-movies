@@ -103,27 +103,25 @@ Below is a list of goodies that are being showcased:
 
 # Usage
 
-The first thing that you need to do in order to be able to build this project is to obtain your personal keys and place them 
-under the below config directory:
+The first thing that you need to do in order to be able to build and run this project is to locate the 'local.properties' 
+file (and if it doesn't exist, create it). Then, add the following properties:
 ```
-config/keys/
+# GitHub
+github.username=<YOUR.GITHUB.USERNAME>
+github.password=<YOUR.GITHUB.PASSWORD>
+# Gradle
+gradle.ignored.variants=release
+# The Movie Database (TMDb)
+themoviedb.api.key=<YOUR.THEMOVIEDB.API.KEY>
 ```
 
-With the current configuration the build will be completed successful. However, in order for you to play with the app you 
-will need to obtain your personal api key from "The Movie Database" and replace the existing mocked api key with yours 
-within the below property file:
-```
-themoviedb_api.properties
-```
+For more information on how to configure Gradle for use with GitHub Packages visit
+[Configuring Gradle for use with GitHub Packages](https://help.github.com/en/packages/using-github-packages-with-your-projects-ecosystem/configuring-gradle-for-use-with-github-packages).
+
+For more information on how to configure the Gradle ignored variants read the specific 'Build Variant' section below.
 
 For more information on how to obtain your personal TMDB api key visit  
 [The Movie Database API (v3)](https://developers.themoviedb.org/3/getting-started/introduction).
-
-After this, you might want to ignore this change and make git forget all about that. In order to do so, run the below git 
-command:
-```
-git update-index --assume-unchanged config/keys/themoviedb_api.properties
-```
 
 # Build Variant
 
@@ -131,10 +129,9 @@ This project is setup in a way that can be configured to filter out on demand sp
 'ignored_variants' property, which is located within the 'local.properties' file. If no configuration is specified, then the 
 default configuration will be applied, which is all build types and flavors.
 
-To apply this configuration first locate the 'local.properties' file, and if it doesn't exist already, create it. Then, add 
-the 'ignored_variants' property and assign that to a value. This value can be a single variant value, such as the 'release' 
-built type or a comma separated list of variant values, such as 'debug,release,etc'. Any variant that goes in there will be 
-then filtered out by the build.
+Add the 'gradle.ignored.variants' property and assign that to a value. This value can be a single variant value, such as the 
+'release' built type or a comma separated list of variant values, such as 'debug,release,etc'. Any variant that goes in 
+there will be then filtered out by the build.
 ```
 This is mainly done in order to speed up build times and complexity during development, thus making developers happier since 
 in most cases developers usually only care about the'debug' build type (and a single build flavor, if that is even available).
