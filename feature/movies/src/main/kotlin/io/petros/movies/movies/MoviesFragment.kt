@@ -4,6 +4,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.navOptions
 import com.google.android.material.snackbar.Snackbar
 import io.petros.movies.core.fragment.MviFragment
 import io.petros.movies.core.list.AdapterStatus
@@ -170,7 +171,15 @@ class MoviesFragment : StatefulMoviesStateListener,
 
     override fun onClick(movie: Movie) {
         val uri = Uri.parse(MOVIE_DETAILS_DEEP_LINK + slash() + movie.id)
-        findNavController().navigate(uri)
+        val options = navOptions {
+            anim {
+                enter = R.anim.slide_in_right
+                exit = R.anim.slide_out_left
+                popEnter = R.anim.slide_in_left
+                popExit = R.anim.slide_out_right
+            }
+        }
+        findNavController().navigate(uri, options)
     }
 
     /* CALLBACK */
