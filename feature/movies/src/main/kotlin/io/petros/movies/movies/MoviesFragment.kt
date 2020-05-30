@@ -103,10 +103,10 @@ class MoviesFragment : StatefulMoviesStateListener,
     }
 
     override fun onYearUpdated(year: Int?) {
-        year?.let {
+        if (year != null) {
             binding.toolbar.showCloseIcon()
-            binding.toolbar.setYear(it)
-        } ?: run {
+            binding.toolbar.setYear(year)
+        } else {
             binding.toolbar.showFilterIcon()
             binding.toolbar.hideYear()
             binding.toolbar.hideMonth()
@@ -114,9 +114,9 @@ class MoviesFragment : StatefulMoviesStateListener,
     }
 
     override fun onMonthUpdated(month: Int?) {
-        month?.let {
-            binding.toolbar.setMonth(it)
-        } ?: run {
+        if (month != null) {
+            binding.toolbar.setMonth(month)
+        } else {
             binding.toolbar.hideMonth()
         }
     }
@@ -190,11 +190,11 @@ class MoviesFragment : StatefulMoviesStateListener,
     }
 
     override fun onCloseClicked() {
-        binding.toolbar.getYear()?.let {
+        if (binding.toolbar.getYear() != null) {
             viewModel.process(
                 MoviesIntent.ReloadMovies()
             )
-        } ?: run {
+        } else {
             binding.toolbar.showFilterIcon()
             binding.toolbar.hideYear()
         }
@@ -247,7 +247,7 @@ class MoviesFragment : StatefulMoviesStateListener,
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        view?.let { binding.toolbar.onSaveInstanceState(outState) }
+        if (view != null) binding.toolbar.onSaveInstanceState(outState)
         onSaveDoReloadInstanceState(outState)
     }
 
