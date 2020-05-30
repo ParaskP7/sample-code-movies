@@ -24,10 +24,10 @@ class MovieDetailsFragment : StatefulMovieDetailsStateListener,
 
     companion object {
 
-        private const val ARGS_ID = "movie_id"
+        private const val ARGS_MOVIE_ID = "movie_id"
 
-        private fun getMovieId(arguments: Bundle?): Int = arguments?.getInt(ARGS_ID)
-            ?: throw UninitializedPropertyAccessException("'id' was queried before being initialized.")
+        private fun getMovieId(arguments: Bundle?): Int = arguments?.getInt(ARGS_MOVIE_ID)
+            ?: throw UninitializedPropertyAccessException("'movie_id' was queried before being initialized.")
 
     }
 
