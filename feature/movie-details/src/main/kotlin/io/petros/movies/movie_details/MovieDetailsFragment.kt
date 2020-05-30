@@ -38,17 +38,17 @@ class MovieDetailsFragment : StatefulMovieDetailsStateListener,
 
     private var snackbar: Snackbar? = null
 
-    override fun onDestroyView() {
-        snackbar?.dismiss()
-        snackbar = null
-        super.onDestroyView()
-    }
-
     override fun onResume() {
         super.onResume()
         viewModel.process(
             MovieDetailsIntent.IdleMovies
         )
+    }
+
+    override fun onDestroyView() {
+        snackbar?.dismiss()
+        snackbar = null
+        super.onDestroyView()
     }
 
     /* STATE */
