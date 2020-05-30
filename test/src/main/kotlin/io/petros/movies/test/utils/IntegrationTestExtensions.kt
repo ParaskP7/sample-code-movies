@@ -35,7 +35,7 @@ fun Any.mockResponse(file: String, timeoutMillis: Long? = null): MockResponse {
     val response = MockResponse()
         .setResponseCode(HttpURLConnection.HTTP_OK)
         .setBody(jsonFromFile(file))
-    timeoutMillis?.let { response.throttleBody(BYTES_PER_PERIOD, timeoutMillis, TimeUnit.MILLISECONDS) }
+    timeoutMillis?.let { response.throttleBody(BYTES_PER_PERIOD, it, TimeUnit.MILLISECONDS) }
     return response
 }
 
