@@ -235,9 +235,9 @@ class MoviesFragment : StatefulMoviesStateListener,
 
     override fun onViewStateRestored(savedInstanceState: Bundle?) {
         super.onViewStateRestored(savedInstanceState)
-        savedInstanceState?.let {
-            binding.toolbar.onRestoreInstanceState(it)
-            onRestoreDoReloadInstanceState(it)
+        savedInstanceState?.let { bundle ->
+            binding.toolbar.onRestoreInstanceState(bundle)
+            onRestoreDoReloadInstanceState(bundle)
         }
     }
 
