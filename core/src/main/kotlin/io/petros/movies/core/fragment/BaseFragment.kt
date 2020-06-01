@@ -15,6 +15,8 @@ abstract class BaseFragment<
 
     abstract val binding: BINDING
 
+    /* LIFECYCLE */
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         Timber.v("${javaClass.simpleName} create view. [Container: $container, Bundle: $savedInstanceState]")
         return super.onCreateView(inflater, container, savedInstanceState)
