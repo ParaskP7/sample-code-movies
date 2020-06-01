@@ -9,7 +9,6 @@ import io.petros.movies.core.view_binding.viewBinding
 import io.petros.movies.domain.model.movie.Movie
 import io.petros.movies.feature.movie.details.R
 import io.petros.movies.feature.movie.details.databinding.MovieDetailsFragmentBinding
-import io.petros.movies.movie_details.stateful.StatefulMovieDetailsState
 import io.petros.movies.movie_details.stateful.StatefulMovieDetailsStateListener
 import io.petros.movies.utils.doNothing
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -32,7 +31,7 @@ class MovieDetailsFragment : MviFragment<
 
     private val binding by viewBinding(MovieDetailsFragmentBinding::bind)
     override val viewModel: MovieDetailsViewModel by viewModel()
-    override val stateful = StatefulMovieDetailsState(this)
+    override val stateful by stateful()
     private val movieId: Int by lazy { getMovieId(arguments) }
 
     private var snackbar: Snackbar? = null

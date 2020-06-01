@@ -15,7 +15,6 @@ import io.petros.movies.feature.movies.R
 import io.petros.movies.feature.movies.databinding.MoviesFragmentBinding
 import io.petros.movies.movies.list.MoviesAdapter
 import io.petros.movies.movies.list.item.MovieItemCallback
-import io.petros.movies.movies.stateful.StatefulMoviesState
 import io.petros.movies.movies.stateful.StatefulMoviesStateListener
 import io.petros.movies.movies.toolbar.MoviesToolbarCallback
 import io.petros.movies.picker.MovieMonthPickerFragment
@@ -44,7 +43,7 @@ class MoviesFragment : MviFragment<
 
     private val binding by viewBinding(MoviesFragmentBinding::bind)
     override val viewModel: MoviesViewModel by viewModel()
-    override val stateful = StatefulMoviesState(this)
+    override val stateful by stateful()
 
     private var adapter: MoviesAdapter? = null
     private var snackbar: Snackbar? = null
