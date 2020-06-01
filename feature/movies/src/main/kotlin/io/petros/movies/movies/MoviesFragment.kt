@@ -88,8 +88,8 @@ class MoviesFragment : StatefulMoviesStateListener,
 
     /* STATE */
 
-    override fun onStatusUpdated(state: MoviesState) {
-        when (state.status) {
+    override fun onStatusUpdated(status: MoviesStatus) {
+        when (status) {
             is MoviesStatus.Init -> viewModel.process(
                 MoviesIntent.LoadMovies()
             )
