@@ -8,13 +8,11 @@ import timber.log.Timber
 abstract class MviActivity<
         INTENT : Any,
         STATE : Any,
-        STATEFUL_STATE : StatefulInstance<STATE>,
-        SIDE_EFFECT : Any,
-        VIEW_MODEL : MviViewModel<INTENT, STATE, SIDE_EFFECT>
+        SIDE_EFFECT : Any
         > : BaseActivity() {
 
-    abstract val viewModel: VIEW_MODEL
-    abstract val stateful: STATEFUL_STATE
+    abstract val viewModel: MviViewModel<INTENT, STATE, SIDE_EFFECT>
+    abstract val stateful: StatefulInstance<STATE>
 
     private val state = Observer<STATE> {
         Timber.v("${javaClass.simpleName} observed state. [State: $it]")

@@ -28,9 +28,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class MoviesFragment : StatefulMoviesStateListener,
     MviFragment<MoviesIntent,
             MoviesState,
-            StatefulMoviesState,
-            MoviesSideEffect,
-            MoviesViewModel>(R.layout.movies_fragment),
+            MoviesSideEffect>(R.layout.movies_fragment),
     MoviesToolbarCallback,
     MovieItemCallback,
     InfiniteRecyclerView.Listener {

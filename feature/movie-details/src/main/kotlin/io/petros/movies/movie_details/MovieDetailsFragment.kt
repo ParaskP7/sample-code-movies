@@ -18,9 +18,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class MovieDetailsFragment : StatefulMovieDetailsStateListener,
     MviFragment<MovieDetailsIntent,
             MovieDetailsState,
-            StatefulMovieDetailsState,
-            MovieDetailsSideEffect,
-            MovieDetailsViewModel>(R.layout.movie_details_fragment) {
+            MovieDetailsSideEffect>(R.layout.movie_details_fragment) {
 
     companion object {
 
