@@ -15,10 +15,11 @@ import io.petros.movies.utils.doNothing
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 @Suppress("SyntheticAccessor", "PARAMETER_NAME_CHANGED_ON_OVERRIDE")
-class MovieDetailsFragment : StatefulMovieDetailsStateListener,
-    MviFragment<MovieDetailsIntent,
-            MovieDetailsState,
-            MovieDetailsSideEffect>(R.layout.movie_details_fragment) {
+class MovieDetailsFragment : MviFragment<
+        MovieDetailsIntent,
+        MovieDetailsState,
+        MovieDetailsSideEffect>(R.layout.movie_details_fragment),
+    StatefulMovieDetailsStateListener {
 
     companion object {
 

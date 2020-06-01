@@ -25,10 +25,11 @@ import io.petros.movies.utils.slash
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 @Suppress("TooManyFunctions", "PARAMETER_NAME_CHANGED_ON_OVERRIDE")
-class MoviesFragment : StatefulMoviesStateListener,
-    MviFragment<MoviesIntent,
-            MoviesState,
-            MoviesSideEffect>(R.layout.movies_fragment),
+class MoviesFragment : MviFragment<
+        MoviesIntent,
+        MoviesState,
+        MoviesSideEffect>(R.layout.movies_fragment),
+    StatefulMoviesStateListener,
     MoviesToolbarCallback,
     MovieItemCallback,
     InfiniteRecyclerView.Listener {
