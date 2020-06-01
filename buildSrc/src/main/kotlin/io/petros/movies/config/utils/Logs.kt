@@ -8,6 +8,10 @@ fun logPlugin(pluginId: String) {
     println("<<< CONFIGURE WITH $pluginId PLUGIN >>>")
 }
 
+fun logBuildTools(buildToolsVersion: String) {
+    println("<<< CONFIGURE WITH $buildToolsVersion ANDROID BUILD TOOLS VERSION >>>")
+}
+
 fun logModule(isKotlinModule: Boolean) {
     if (isKotlinModule) {
         println("<<< CONFIGURE FOR kotlin MODULE >>>")

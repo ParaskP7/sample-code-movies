@@ -24,6 +24,7 @@ import io.petros.movies.config.kotlin.Java
 import io.petros.movies.config.tests.Logs
 import io.petros.movies.config.tests.Tests
 import io.petros.movies.config.utils.Utils
+import io.petros.movies.config.utils.logBuildTools
 import io.petros.movies.config.utils.logCredentials
 import io.petros.movies.config.utils.logModule
 import io.petros.movies.config.utils.logPlugin
@@ -114,11 +115,17 @@ fun Project.subprojectsPlugins() {
     }
     plugins.withType(AndroidLibraryPlugin::class) {
         logPlugin(Plugins.Id.Android.LIBRARY)
-        androidLibrary { androidLibrary() }
+        androidLibrary {
+            logBuildTools(buildToolsVersion)
+            androidLibrary()
+        }
     }
     plugins.withType(AndroidApplicationPlugin::class) {
         logPlugin(Plugins.Id.Android.APPLICATION)
-        androidApplication { androidApplication() }
+        androidApplication {
+            logBuildTools(buildToolsVersion)
+            androidApplication()
+        }
     }
     plugins.withType(DetektPlugin::class) {
         logPlugin(Plugins.Id.Quality.DETEKT)
