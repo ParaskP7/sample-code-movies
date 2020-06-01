@@ -1,14 +1,14 @@
 package io.petros.movies.core.activity
 
 import androidx.lifecycle.Observer
-import dev.fanie.stateful.AbstractStatefulInstance
+import dev.fanie.stateful.StatefulInstance
 import io.petros.movies.core.view_model.MviViewModel
 import timber.log.Timber
 
 abstract class MviActivity<
         INTENT : Any,
         STATE : Any,
-        STATEFUL_STATE : AbstractStatefulInstance<STATE>,
+        STATEFUL_STATE : StatefulInstance<STATE>,
         SIDE_EFFECT : Any,
         VIEW_MODEL : MviViewModel<INTENT, STATE, SIDE_EFFECT>
         > : BaseActivity() {
