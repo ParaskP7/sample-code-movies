@@ -11,9 +11,9 @@ import io.petros.movies.core.view_binding.viewBinding
 import io.petros.movies.databinding.AppActivityBinding
 
 @Suppress("GoogleAppIndexingApiWarning")
-class AppActivity : BaseActivity() {
+class AppActivity : BaseActivity<AppActivityBinding>() {
 
-    private val binding by viewBinding(AppActivityBinding::inflate)
+    override val binding by viewBinding(AppActivityBinding::inflate)
 
     @Suppress("LateinitUsage") private lateinit var appBarConfiguration: AppBarConfiguration
 

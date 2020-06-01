@@ -10,11 +10,13 @@ import io.petros.movies.domain.model.movie.Movie
 import io.petros.movies.feature.movie.details.R
 import io.petros.movies.feature.movie.details.databinding.MovieDetailsFragmentBinding
 import io.petros.movies.movie_details.stateful.StatefulMovieDetailsStateListener
+import io.petros.movies.movie_details.stateful.stateful
 import io.petros.movies.utils.doNothing
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 @Suppress("SyntheticAccessor", "PARAMETER_NAME_CHANGED_ON_OVERRIDE")
 class MovieDetailsFragment : MviFragment<
+        MovieDetailsFragmentBinding,
         MovieDetailsIntent,
         MovieDetailsState,
         MovieDetailsSideEffect>(R.layout.movie_details_fragment),
@@ -29,7 +31,7 @@ class MovieDetailsFragment : MviFragment<
 
     }
 
-    private val binding by viewBinding(MovieDetailsFragmentBinding::bind)
+    override val binding by viewBinding(MovieDetailsFragmentBinding::bind)
     override val viewModel: MovieDetailsViewModel by viewModel()
     override val stateful by stateful()
     private val movieId: Int by lazy { getMovieId(arguments) }

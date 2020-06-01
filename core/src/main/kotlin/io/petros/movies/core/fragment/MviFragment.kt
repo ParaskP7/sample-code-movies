@@ -6,10 +6,11 @@ import io.petros.movies.core.view_model.MviViewModel
 import timber.log.Timber
 
 abstract class MviFragment<
+        BINDING : Any,
         INTENT : Any,
         STATE : Any,
         SIDE_EFFECT : Any
-        >(layout: Int) : BaseFragment(layout) {
+        >(layout: Int) : BaseFragment<BINDING>(layout) {
 
     abstract val viewModel: MviViewModel<INTENT, STATE, SIDE_EFFECT>
     abstract val stateful: StatefulInstance<STATE>

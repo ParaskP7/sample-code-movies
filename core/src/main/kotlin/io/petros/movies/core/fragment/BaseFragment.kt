@@ -9,7 +9,11 @@ import androidx.fragment.app.Fragment
 import timber.log.Timber
 
 @Suppress("TooManyFunctions")
-abstract class BaseFragment(layout: Int) : Fragment(layout) {
+abstract class BaseFragment<
+        BINDING : Any
+        >(layout: Int) : Fragment(layout) {
+
+    abstract val binding: BINDING
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         Timber.v("${javaClass.simpleName} create view. [Container: $container, Bundle: $savedInstanceState]")

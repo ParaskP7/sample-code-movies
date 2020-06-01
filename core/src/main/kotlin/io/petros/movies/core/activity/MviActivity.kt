@@ -6,10 +6,11 @@ import io.petros.movies.core.view_model.MviViewModel
 import timber.log.Timber
 
 abstract class MviActivity<
+        BINDING : Any,
         INTENT : Any,
         STATE : Any,
         SIDE_EFFECT : Any
-        > : BaseActivity() {
+        > : BaseActivity<BINDING>() {
 
     abstract val viewModel: MviViewModel<INTENT, STATE, SIDE_EFFECT>
     abstract val stateful: StatefulInstance<STATE>

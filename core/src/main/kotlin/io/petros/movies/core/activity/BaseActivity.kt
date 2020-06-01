@@ -8,7 +8,11 @@ import androidx.appcompat.app.AppCompatActivity
 import timber.log.Timber
 
 @Suppress("TooManyFunctions")
-abstract class BaseActivity : AppCompatActivity() {
+abstract class BaseActivity<
+        BINDING : Any
+        > : AppCompatActivity() {
+
+    abstract val binding: BINDING
 
     /* LIFECYCLE */
 

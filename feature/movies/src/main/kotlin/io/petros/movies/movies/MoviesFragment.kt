@@ -16,6 +16,7 @@ import io.petros.movies.feature.movies.databinding.MoviesFragmentBinding
 import io.petros.movies.movies.list.MoviesAdapter
 import io.petros.movies.movies.list.item.MovieItemCallback
 import io.petros.movies.movies.stateful.StatefulMoviesStateListener
+import io.petros.movies.movies.stateful.stateful
 import io.petros.movies.movies.toolbar.MoviesToolbarCallback
 import io.petros.movies.picker.MovieMonthPickerFragment
 import io.petros.movies.picker.MovieYearPickerFragment
@@ -25,6 +26,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 @Suppress("TooManyFunctions", "PARAMETER_NAME_CHANGED_ON_OVERRIDE")
 class MoviesFragment : MviFragment<
+        MoviesFragmentBinding,
         MoviesIntent,
         MoviesState,
         MoviesSideEffect>(R.layout.movies_fragment),
@@ -41,7 +43,7 @@ class MoviesFragment : MviFragment<
 
     }
 
-    private val binding by viewBinding(MoviesFragmentBinding::bind)
+    override val binding by viewBinding(MoviesFragmentBinding::bind)
     override val viewModel: MoviesViewModel by viewModel()
     override val stateful by stateful()
 
