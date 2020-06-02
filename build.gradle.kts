@@ -425,18 +425,18 @@ fun KotlinJvmOptions.kotlinOptions() {
 
 fun DependencyUpdatesTask.versionsOptions() {
     rejectVersionIf { isNonStable(candidate.version) }
-    gradleReleaseChannel = Config.Versions.GRADLE_RELEASE_CHANNEL
+    gradleReleaseChannel = Config.Dependency.Versions.GRADLE_RELEASE_CHANNEL
     checkConstraints = false
     checkForGradleUpdate = true
-    outputFormatter = Config.Versions.OUTPUT_FORMATTER
-    outputDir = Config.Versions.OUTPUT_DIR
-    reportfileName = Config.Versions.REPORT_FILE_NAME
+    outputFormatter = Config.Dependency.Versions.OUTPUT_FORMATTER
+    outputDir = Config.Dependency.Versions.OUTPUT_DIR
+    reportfileName = Config.Dependency.Versions.REPORT_FILE_NAME
 }
 
 fun isNonStable(version: String): Boolean {
-    val regex = Config.Versions.REGEX.toRegex()
-    val stableKeyword = Config.Versions.stableKeyword.any { version.toUpperCase().contains(it) }
-    val nonStableKeyword = Config.Versions.nonStableKeyword.any { version.toUpperCase().contains(it) }
+    val regex = Config.Dependency.Versions.REGEX.toRegex()
+    val stableKeyword = Config.Dependency.Versions.stableKeyword.any { version.toUpperCase().contains(it) }
+    val nonStableKeyword = Config.Dependency.Versions.nonStableKeyword.any { version.toUpperCase().contains(it) }
     val isStable = !nonStableKeyword && (stableKeyword || regex.matches(version))
     return isStable.not()
 }
