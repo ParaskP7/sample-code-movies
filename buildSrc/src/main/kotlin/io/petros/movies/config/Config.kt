@@ -121,6 +121,21 @@ object Config {
 
         }
 
+        object Analysis {
+
+            object Issue {
+
+                object Severity {
+
+                    const val FAIL = "fail"
+                    const val WARN = "warn"
+
+                }
+
+            }
+
+        }
+
     }
 
 }

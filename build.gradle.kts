@@ -59,6 +59,7 @@ buildscript {
         classpath(Plugins.DETEKT)
         classpath(Plugins.ANDROID_J_UNIT_5)
         classpath(Plugins.DEPENDENCY_VERSIONS)
+        classpath(Plugins.DEPENDENCY_ANALYSIS)
     }
 }
 
@@ -66,12 +67,44 @@ buildscript {
 
 plugins {
     id(Plugins.Id.Kotlin.Android.ANDROID_MANIFEST) version Plugins.Version.ANDROID_MANIFEST
+    id(Plugins.Id.Dependency.ANALYSIS) version Plugins.Version.DEPENDENCY_ANALYSIS
 }
 
 autoManifest {
     packageName.set(App.APPLICATION_ID)
     applyRecursively.set(true)
     replaceDashesWithDot.set(true)
+}
+
+dependencyAnalysis {
+    issues {
+        all {
+            onRedundantPlugins {
+                severity(Config.Dependency.Analysis.Issue.Severity.WARN) // Because of 'kotlin-kapt' and no excludes.
+            }
+            onUnusedDependencies {
+                severity(Config.Dependency.Analysis.Issue.Severity.FAIL)
+            }
+            onUsedTransitiveDependencies {
+                severity(Config.Dependency.Analysis.Issue.Severity.FAIL)
+            }
+            onIncorrectConfiguration {
+                severity(Config.Dependency.Analysis.Issue.Severity.FAIL)
+            }
+            onCompileOnly {
+                severity(Config.Dependency.Analysis.Issue.Severity.FAIL)
+            }
+            onUnusedAnnotationProcessors {
+                severity(Config.Dependency.Analysis.Issue.Severity.FAIL)
+            }
+        }
+    }
+    abi {
+        exclusions {
+            ignoreInternalPackages()
+            ignoreGeneratedCode()
+        }
+    }
 }
 
 /* PROJECTS CONFIGURATION */

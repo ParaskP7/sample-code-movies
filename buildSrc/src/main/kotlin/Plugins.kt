@@ -24,6 +24,9 @@ object Plugins {
         // Releases: https://github.com/ben-manes/gradle-versions-plugin/releases
         const val DEPENDENCY_VERSIONS = "0.28.0" // Released: 22-02-20
 
+        // Releases: https://github.com/autonomousapps/dependency-analysis-android-gradle-plugin/releases
+        const val DEPENDENCY_ANALYSIS = "0.46.0" // Released: 01-06-20
+
     }
 
     const val KOTLIN = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Version.KOTLIN}"
@@ -35,6 +38,7 @@ object Plugins {
     const val DETEKT_FORMATTING = "io.gitlab.arturbosch.detekt:detekt-formatting:${Version.DETEKT}"
     const val ANDROID_J_UNIT_5 = "de.mannodermaus.gradle.plugins:android-junit5:${Version.ANDROID_J_UNIT_5}"
     const val DEPENDENCY_VERSIONS = "com.github.ben-manes:gradle-versions-plugin:${Version.DEPENDENCY_VERSIONS}"
+    const val DEPENDENCY_ANALYSIS = "com.autonomousapps:dependency-analysis-gradle-plugin:${Version.DEPENDENCY_ANALYSIS}"
 
     object Id {
 
@@ -83,6 +87,7 @@ object Plugins {
         object Dependency {
 
             const val VERSIONS = "com.github.ben-manes.versions"
+            const val ANALYSIS = "com.autonomousapps.dependency-analysis"
 
         }
 
