@@ -94,7 +94,9 @@ Below is a list of goodies that are being showcased:
     1. [Gradle Kotlin DSL](https://github.com/gradle/kotlin-dsl) ```(Kotlin language support for Gradle build scripts)```
     2. [Gradle Versions](https://github.com/ben-manes/gradle-versions-plugin) ```(Gradle plugin to discover dependency
     updates)```
-    3. [Gradle Auto Manifest](https://github.com/GradleUp/auto-manifest) ```(Generates AndroidManifest.xml in simple 
+    3. [Dependency Analysis](https://github.com/autonomousapps/dependency-analysis-android-gradle-plugin) ```(Gradle plugin
+    for Java, Kotlin, and Android projects. Provides advice for managing dependencies and other applied plugins)```
+    4. [Gradle Auto Manifest](https://github.com/GradleUp/auto-manifest) ```(Generates AndroidManifest.xml in simple
     libraries so that you don't have to)```
 
 # Screenshots
@@ -224,6 +226,11 @@ adb shell monkey -p io.petros.movies.debug -v 10000
 Use this command in order to check dependency updates for the project:
 ```
 gradlew dependencyUpdates
+```
+
+Run the project dependency analysis reports using this command:
+```
+gradlew buildHealth
 ```
 
 # Future
