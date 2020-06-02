@@ -109,7 +109,7 @@ object Versions {
         object Mvi {
 
             // Releases: https://github.com/iFanie/Stateful/releases
-            const val STATEFUL = "0.2.1" // 31-05-20
+            const val STATEFUL = "0.2.3" // 01-06-20
 
         }
 
