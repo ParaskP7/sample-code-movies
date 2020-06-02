@@ -1,6 +1,7 @@
 @file:Suppress("InvalidPackageDeclaration")
 
 import io.petros.movies.config.deps.Deps
+import io.petros.movies.config.deps.identifier
 
 plugins {
     id(Plugins.Id.Kotlin.KOTLIN)
@@ -10,14 +11,26 @@ plugins {
     id(Plugins.Id.Test.COVERAGE)
 }
 
+dependencyAnalysis {
+    issues {
+        onIncorrectConfiguration {
+            exclude(
+                Deps.Project.Implementation.Kotlin.DOMAIN, // Ignore change to 'api' advice.
+                Deps.Di.Koin.Kotlin.CORE.identifier() // Ignore change to 'api' advice.
+            )
+        }
+    }
+}
+
 dependencies {
     implementation(project(Deps.Project.Implementation.Kotlin.UTILS))
     implementation(project(Deps.Project.Implementation.Kotlin.DOMAIN))
 
     implementation(Deps.Kotlin.Core.KOTLIN)
-    implementation(Deps.Kotlin.Coroutines.CORE)
     implementation(Deps.Di.Koin.Kotlin.CORE)
+    implementation(Deps.Net.OkHttp.OK_HTTP)
     implementation(Deps.Net.OkHttp.LOGGING_INTERCEPTOR)
+    implementation(Deps.Net.Gson.GSON)
     implementation(Deps.Net.Rest.RETROFIT)
     implementation(Deps.Net.Rest.RETROFIT_GSON)
 
