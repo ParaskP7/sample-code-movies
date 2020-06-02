@@ -106,8 +106,12 @@ object Deps {
         object Core {
 
             val APP_COMPAT = "androidx.appcompat:appcompat:${Versions.Android.Core.APP_COMPAT}"
+            val FRAGMENT = "androidx.fragment:fragment:${Versions.Android.Core.FRAGMENT}"
             val RECYCLER_VIEW = "androidx.recyclerview:recyclerview:${Versions.Android.Core.RECYCLER_VIEW}"
             val CONSTRAINT_LAYOUT = "androidx.constraintlayout:constraintlayout:${Versions.Android.Core.CONSTRAINT_LAYOUT}"
+            val DRAWER_LAYOUT = "androidx.drawerlayout:drawerlayout:${Versions.Android.Core.DRAWER_LAYOUT}"
+            val COORDINATOR_LAYOUT =
+                "androidx.coordinatorlayout:coordinatorlayout:${Versions.Android.Core.COORDINATOR_LAYOUT}"
 
         }
 
@@ -121,6 +125,7 @@ object Deps {
 
             object Core {
 
+                val RUNTIME = "androidx.arch.core:core-runtime:${Versions.Android.Arch.Core.CORE}"
                 val TESTING = "androidx.arch.core:core-testing:${Versions.Android.Arch.Core.CORE}"
 
             }
@@ -148,11 +153,23 @@ object Deps {
 
             object Navigation {
 
-                val FRAGMENT_KTX =
-                    "androidx.navigation:navigation-fragment-ktx:${Versions.Android.Arch.Navigation.NAVIGATION}"
+                val COMMON =
+                    "androidx.navigation:navigation-common:${Versions.Android.Arch.Navigation.NAVIGATION}"
+                val COMMON_KTX =
+                    "androidx.navigation:navigation-common-ktx:${Versions.Android.Arch.Navigation.NAVIGATION}"
 
+                val RUNTIME =
+                    "androidx.navigation:navigation-runtime:${Versions.Android.Arch.Navigation.NAVIGATION}"
+                val RUNTIME_KTX =
+                    "androidx.navigation:navigation-runtime-ktx:${Versions.Android.Arch.Navigation.NAVIGATION}"
+
+                val UI =
+                    "androidx.navigation:navigation-ui:${Versions.Android.Arch.Navigation.NAVIGATION}"
                 val UI_KTX =
                     "androidx.navigation:navigation-ui-ktx:${Versions.Android.Arch.Navigation.NAVIGATION}"
+
+                val FRAGMENT_KTX =
+                    "androidx.navigation:navigation-fragment-ktx:${Versions.Android.Arch.Navigation.NAVIGATION}"
 
             }
 
@@ -220,7 +237,15 @@ object Deps {
 
         object OkHttp {
 
+            val OK_HTTP = "com.squareup.okhttp3:okhttp:${Versions.Net.OkHttp.OK_HTTP}"
             val LOGGING_INTERCEPTOR = "com.squareup.okhttp3:logging-interceptor:${Versions.Net.OkHttp.OK_HTTP}"
+
+        }
+
+        @Suppress("MemberNameEqualsClassName")
+        object Gson {
+
+            val GSON = "com.google.code.gson:gson:${Versions.Net.Gson.GSON}"
 
         }
 
@@ -277,6 +302,13 @@ object Deps {
         object Integration {
 
             val MOCK_WEB_SERVER = "com.squareup.okhttp3:mockwebserver:${Versions.Net.OkHttp.OK_HTTP}"
+
+        }
+
+        object Hamcrest {
+
+            val CORE = "org.hamcrest:hamcrest-core:${Versions.Test.Hamcrest.HAMCREST}"
+            val LIBRARY = "org.hamcrest:hamcrest-library:${Versions.Test.Hamcrest.HAMCREST}"
 
         }
 

@@ -34,11 +34,20 @@ object Versions {
             // Releases: https://developer.android.com/jetpack/androidx/releases/appcompat
             const val APP_COMPAT = "1.1.0" // Released: 05-11-19
 
+            // Releases: https://developer.android.com/jetpack/androidx/releases/fragment
+            const val FRAGMENT = "1.2.4" // Released: 01-04-20
+
             // Releases: https://developer.android.com/jetpack/androidx/releases/recyclerview
             const val RECYCLER_VIEW = "1.1.0" // Released: 20-11-19
 
             // Releases: https://developer.android.com/jetpack/androidx/releases/constraintlayout
             const val CONSTRAINT_LAYOUT = "1.1.3" // Released: 16-12-19
+
+            // Releases: https://developer.android.com/jetpack/androidx/releases/drawerlayout
+            const val DRAWER_LAYOUT = "1.0.0" // Released: 21-09-18
+
+            // Releases: https://developer.android.com/jetpack/androidx/releases/constraintlayout
+            const val COORDINATOR_LAYOUT = "1.1.0" // Released: 04-12-19
 
         }
 
@@ -127,6 +136,14 @@ object Versions {
 
         }
 
+        @Suppress("MemberNameEqualsClassName")
+        object Gson {
+
+            // Releases: https://github.com/square/retrofit/releases
+            const val GSON = "2.8.6" // Released: 04-10-19
+
+        }
+
         object Rest {
 
             // Releases: https://github.com/square/retrofit/releases
@@ -181,6 +198,14 @@ object Versions {
 
             // Releases: https://github.com/junit-team/junit5/releases
             const val J_UNIT_5 = "5.6.2" // Released: 10-04-20
+
+        }
+
+        @Suppress("MemberNameEqualsClassName")
+        object Hamcrest {
+
+            // Releases: https://github.com/hamcrest/JavaHamcrest/releases
+            const val HAMCREST = "2.2" // Released: 16-10-19
 
         }
 
