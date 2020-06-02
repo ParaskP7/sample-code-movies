@@ -56,19 +56,19 @@ object Versions {
                 // Releases: https://developer.android.com/jetpack/androidx/releases/arch
                 const val TESTING = "2.1.0" // Released: 05-09-19
 
-                object Lifecycle {
-
-                    // Releases: https://developer.android.com/jetpack/androidx/releases/lifecycle
-                    const val EXTENSIONS = "2.2.0" // Released: 22-01-20
-
-                }
-
                 object Navigation {
 
                     // Releases: https://developer.android.com/jetpack/androidx/releases/navigation
                     const val EXTENSIONS = "2.2.2" // Released: 22-01-20
 
                 }
+
+            }
+
+            object Lifecycle {
+
+                // Releases: https://developer.android.com/jetpack/androidx/releases/lifecycle
+                const val EXTENSIONS = "2.2.0" // Released: 22-01-20
 
             }
 

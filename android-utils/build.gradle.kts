@@ -13,7 +13,7 @@ dependencies {
     implementation(project(Deps.Project.Implementation.Kotlin.UTILS))
 
     implementation(Deps.Kotlin.Core.KOTLIN)
-    implementation(Deps.Android.Arch.Core.Lifecycle.LIVE_DATA)
+    implementation(Deps.Android.Arch.Lifecycle.LIVE_DATA)
     implementation(Deps.Log.TIMBER)
 
     detektPlugins(Plugins.DETEKT_FORMATTING)
