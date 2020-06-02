@@ -327,3 +327,14 @@ object Deps {
     }
 
 }
+
+@Suppress("unused")
+fun String.group() = this.split(Utils.COLON)[0]
+
+@Suppress("unused")
+fun String.name() = this.split(Utils.COLON)[1]
+
+fun String.identifier(): String {
+    val groupNameVersion = this.split(Utils.COLON)
+    return groupNameVersion[0] + Utils.COLON + groupNameVersion[1]
+}
