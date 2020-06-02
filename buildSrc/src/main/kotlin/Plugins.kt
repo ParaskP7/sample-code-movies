@@ -29,7 +29,7 @@ object Plugins {
     const val KOTLIN = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Version.KOTLIN}"
     const val ANDROID = "com.android.tools.build:gradle:${Version.ANDROID}"
     const val ANDROID_NAVIGATION =
-        "androidx.navigation:navigation-safe-args-gradle-plugin:${Versions.Android.Arch.Navigation.EXTENSIONS}"
+        "androidx.navigation:navigation-safe-args-gradle-plugin:${Versions.Android.Arch.Navigation.NAVIGATION}"
     const val ANDROID_MANIFEST = "com.gradleup:auto-manifest-plugin:${Version.ANDROID_MANIFEST}"
     const val DETEKT = "io.gitlab.arturbosch.detekt:detekt-gradle-plugin:${Version.DETEKT}"
     const val DETEKT_FORMATTING = "io.gitlab.arturbosch.detekt:detekt-formatting:${Version.DETEKT}"

@@ -122,38 +122,38 @@ object Deps {
 
             object Core {
 
-                val TESTING = "androidx.arch.core:core-testing:${Versions.Android.Arch.Core.TESTING}"
+                val TESTING = "androidx.arch.core:core-testing:${Versions.Android.Arch.Core.CORE}"
 
             }
 
             object Lifecycle {
 
                 val COMMON =
-                    "androidx.lifecycle:lifecycle-common:${Versions.Android.Arch.Lifecycle.EXTENSIONS}"
+                    "androidx.lifecycle:lifecycle-common:${Versions.Android.Arch.Lifecycle.LIFECYCLE}"
                 val COMMON_JAVA_8 =
-                    "androidx.lifecycle:lifecycle-common-java8:${Versions.Android.Arch.Lifecycle.EXTENSIONS}"
+                    "androidx.lifecycle:lifecycle-common-java8:${Versions.Android.Arch.Lifecycle.LIFECYCLE}"
                 val LIVE_DATA =
-                    "androidx.lifecycle:lifecycle-livedata:${Versions.Android.Arch.Lifecycle.EXTENSIONS}"
+                    "androidx.lifecycle:lifecycle-livedata:${Versions.Android.Arch.Lifecycle.LIFECYCLE}"
                 val LIVE_DATA_CORE =
-                    "androidx.lifecycle:lifecycle-livedata-core:${Versions.Android.Arch.Lifecycle.EXTENSIONS}"
+                    "androidx.lifecycle:lifecycle-livedata-core:${Versions.Android.Arch.Lifecycle.LIFECYCLE}"
                 val LIVE_DATA_CORE_KTX =
-                    "androidx.lifecycle:lifecycle-livedata-core-ktx:${Versions.Android.Arch.Lifecycle.EXTENSIONS}"
+                    "androidx.lifecycle:lifecycle-livedata-core-ktx:${Versions.Android.Arch.Lifecycle.LIFECYCLE}"
                 val VIEW_MODEL =
-                    "androidx.lifecycle:lifecycle-viewmodel:${Versions.Android.Arch.Lifecycle.EXTENSIONS}"
+                    "androidx.lifecycle:lifecycle-viewmodel:${Versions.Android.Arch.Lifecycle.LIFECYCLE}"
                 val VIEW_MODEL_KTX =
-                    "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.Android.Arch.Lifecycle.EXTENSIONS}"
+                    "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.Android.Arch.Lifecycle.LIFECYCLE}"
                 val PROCESS =
-                    "androidx.lifecycle:lifecycle-process:${Versions.Android.Arch.Lifecycle.EXTENSIONS}"
+                    "androidx.lifecycle:lifecycle-process:${Versions.Android.Arch.Lifecycle.LIFECYCLE}"
 
             }
 
             object Navigation {
 
                 val FRAGMENT_KTX =
-                    "androidx.navigation:navigation-fragment-ktx:${Versions.Android.Arch.Navigation.EXTENSIONS}"
+                    "androidx.navigation:navigation-fragment-ktx:${Versions.Android.Arch.Navigation.NAVIGATION}"
 
                 val UI_KTX =
-                    "androidx.navigation:navigation-ui-ktx:${Versions.Android.Arch.Navigation.EXTENSIONS}"
+                    "androidx.navigation:navigation-ui-ktx:${Versions.Android.Arch.Navigation.NAVIGATION}"
 
             }
 
