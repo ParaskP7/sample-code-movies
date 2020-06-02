@@ -12,12 +12,22 @@ plugins {
     id(Plugins.Id.Test.COVERAGE)
 }
 
+dependencyAnalysis {
+    issues {
+        onIncorrectConfiguration {
+            exclude(
+                Deps.Project.Implementation.Kotlin.DOMAIN, // Ignore change to 'api' advice.
+                Deps.Project.Implementation.Kotlin.NETWORK // Ignore change to 'api' advice.
+            )
+        }
+    }
+}
+
 dependencies {
     implementation(project(Deps.Project.Implementation.Kotlin.DOMAIN))
     implementation(project(Deps.Project.Implementation.Kotlin.NETWORK))
 
     implementation(Deps.Kotlin.Core.KOTLIN)
-    implementation(Deps.Kotlin.Coroutines.CORE)
     implementation(Deps.Di.Koin.Kotlin.CORE)
 
     testImplementation(project(Deps.Project.TestImplementation.Kotlin.TEST))
