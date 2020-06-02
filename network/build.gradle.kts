@@ -17,7 +17,7 @@ dependencies {
     implementation(Deps.Kotlin.Core.KOTLIN)
     implementation(Deps.Kotlin.Coroutines.CORE)
     implementation(Deps.Di.Koin.Kotlin.CORE)
-    implementation(Deps.Net.OkHttp.OK_HTTP_LOGGING)
+    implementation(Deps.Net.OkHttp.LOGGING_INTERCEPTOR)
     implementation(Deps.Net.Rest.RETROFIT)
     implementation(Deps.Net.Rest.RETROFIT_GSON)
 
