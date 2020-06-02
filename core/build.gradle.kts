@@ -5,7 +5,6 @@ import io.petros.movies.config.deps.Deps
 plugins {
     id(Plugins.Id.Android.LIBRARY)
     id(Plugins.Id.Kotlin.Android.ANDROID)
-    id(Plugins.Id.Kotlin.KAPT) // This plugin is required because of Glide.
     id(Plugins.Id.Quality.DETEKT)
     id(Plugins.Id.Dependency.VERSIONS)
     id(Plugins.Id.Test.JACOCO)
@@ -26,7 +25,6 @@ dependencies {
     implementation(Deps.Android.Arch.Lifecycle.LIVE_DATA_CORE_KTX)
     implementation(Deps.Architecture.Mvi.STATEFUL)
     implementation(Deps.Image.Glide.GLIDE)
-    kapt(Deps.Image.Glide.GLIDE_COMPILER)
     implementation(Deps.Log.TIMBER)
 
     testImplementation(project(Deps.Project.TestImplementation.Kotlin.TEST))
