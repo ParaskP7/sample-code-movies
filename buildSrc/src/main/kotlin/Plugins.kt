@@ -22,7 +22,7 @@ object Plugins {
         const val ANDROID_J_UNIT_5 = "1.6.2.0" // Released: 03-05-20
 
         // Releases: https://github.com/ben-manes/gradle-versions-plugin/releases
-        const val VERSIONS = "0.28.0" // Released: 22-02-20
+        const val DEPENDENCY_VERSIONS = "0.28.0" // Released: 22-02-20
 
     }
 
@@ -34,7 +34,7 @@ object Plugins {
     const val DETEKT = "io.gitlab.arturbosch.detekt:detekt-gradle-plugin:${Version.DETEKT}"
     const val DETEKT_FORMATTING = "io.gitlab.arturbosch.detekt:detekt-formatting:${Version.DETEKT}"
     const val ANDROID_J_UNIT_5 = "de.mannodermaus.gradle.plugins:android-junit5:${Version.ANDROID_J_UNIT_5}"
-    const val VERSIONS = "com.github.ben-manes:gradle-versions-plugin:${Version.VERSIONS}"
+    const val DEPENDENCY_VERSIONS = "com.github.ben-manes:gradle-versions-plugin:${Version.DEPENDENCY_VERSIONS}"
 
     object Id {
 

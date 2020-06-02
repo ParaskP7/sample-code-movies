@@ -58,7 +58,7 @@ buildscript {
         classpath(Plugins.ANDROID_MANIFEST)
         classpath(Plugins.DETEKT)
         classpath(Plugins.ANDROID_J_UNIT_5)
-        classpath(Plugins.VERSIONS)
+        classpath(Plugins.DEPENDENCY_VERSIONS)
     }
 }
 
