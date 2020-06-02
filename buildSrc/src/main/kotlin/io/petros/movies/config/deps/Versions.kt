@@ -53,6 +53,9 @@ object Versions {
 
             object Core {
 
+                // Releases: https://developer.android.com/jetpack/androidx/releases/arch
+                const val TESTING = "2.1.0" // Released: 05-09-19
+
                 object Lifecycle {
 
                     // Releases: https://developer.android.com/jetpack/androidx/releases/lifecycle
@@ -66,13 +69,6 @@ object Versions {
                     const val EXTENSIONS = "2.2.2" // Released: 22-01-20
 
                 }
-
-            }
-
-            object Test {
-
-                // Releases: https://developer.android.com/jetpack/androidx/releases/arch
-                const val CORE_TESTING = "2.1.0" // Released: 05-09-19
 
             }
 

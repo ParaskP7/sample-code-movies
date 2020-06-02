@@ -122,6 +122,8 @@ object Deps {
 
             object Core {
 
+                val TESTING = "androidx.arch.core:core-testing:${Versions.Android.Arch.Core.TESTING}"
+
                 object Lifecycle {
 
                     val COMMON =
@@ -152,12 +154,6 @@ object Deps {
                         "androidx.navigation:navigation-ui-ktx:${Versions.Android.Arch.Core.Navigation.EXTENSIONS}"
 
                 }
-
-            }
-
-            object Test {
-
-                val CORE_TESTING = "androidx.arch.core:core-testing:${Versions.Android.Arch.Test.CORE_TESTING}"
 
             }
 

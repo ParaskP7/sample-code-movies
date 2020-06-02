@@ -21,7 +21,7 @@ dependencies {
     implementation(Deps.Test.Spek.DSL)
     implementation(Deps.Test.Spek.J_UNIT_5)
     runtimeOnly(Deps.Kotlin.Core.KOTLIN_REFLECT)
-    implementation(Deps.Android.Arch.Test.CORE_TESTING)
+    implementation(Deps.Android.Arch.Core.TESTING)
     implementation(Deps.Android.Test.Espresso.CORE)
 
     detektPlugins(Plugins.DETEKT_FORMATTING)

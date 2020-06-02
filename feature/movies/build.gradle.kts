@@ -48,7 +48,7 @@ dependencies {
     testRuntimeOnly(Deps.Kotlin.Core.KOTLIN_REFLECT)
     testImplementation(Deps.Test.Assert.STRIKT)
     testImplementation(Deps.Test.Mock.MOCK_K)
-    testImplementation(Deps.Android.Arch.Test.CORE_TESTING)
+    testImplementation(Deps.Android.Arch.Core.TESTING)
     testImplementation(Deps.Android.Test.Robolectric.ROBOLECTRIC)
 
     detektPlugins(Plugins.DETEKT_FORMATTING)
