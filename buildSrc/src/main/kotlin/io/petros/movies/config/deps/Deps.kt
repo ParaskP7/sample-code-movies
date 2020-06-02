@@ -124,16 +124,6 @@ object Deps {
 
                 val TESTING = "androidx.arch.core:core-testing:${Versions.Android.Arch.Core.TESTING}"
 
-                object Navigation {
-
-                    val FRAGMENT_KTX =
-                        "androidx.navigation:navigation-fragment-ktx:${Versions.Android.Arch.Core.Navigation.EXTENSIONS}"
-
-                    val UI_KTX =
-                        "androidx.navigation:navigation-ui-ktx:${Versions.Android.Arch.Core.Navigation.EXTENSIONS}"
-
-                }
-
             }
 
             object Lifecycle {
@@ -154,6 +144,16 @@ object Deps {
                     "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.Android.Arch.Lifecycle.EXTENSIONS}"
                 val PROCESS =
                     "androidx.lifecycle:lifecycle-process:${Versions.Android.Arch.Lifecycle.EXTENSIONS}"
+
+            }
+
+            object Navigation {
+
+                val FRAGMENT_KTX =
+                    "androidx.navigation:navigation-fragment-ktx:${Versions.Android.Arch.Navigation.EXTENSIONS}"
+
+                val UI_KTX =
+                    "androidx.navigation:navigation-ui-ktx:${Versions.Android.Arch.Navigation.EXTENSIONS}"
 
             }
 
