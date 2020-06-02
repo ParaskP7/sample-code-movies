@@ -29,7 +29,6 @@ include(":core")
 
 /* FEATURE MODULES */
 
-include(":feature:splash")
 include(":feature:movies")
 include(":feature:picker")
 include(":feature:movie-details")

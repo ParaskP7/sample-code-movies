@@ -39,7 +39,6 @@ object Deps {
 
                 object Feature {
 
-                    const val SPLASH = "${Utils.COLON}feature${Utils.COLON}splash"
                     const val MOVIES = "${Utils.COLON}feature${Utils.COLON}movies"
                     const val PICKER = "${Utils.COLON}feature${Utils.COLON}picker"
                     const val MOVIE_DETAILS = "${Utils.COLON}feature${Utils.COLON}movie-details"

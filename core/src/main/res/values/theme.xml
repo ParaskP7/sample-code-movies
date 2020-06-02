@@ -28,6 +28,10 @@
         <item name="snackbarButtonStyle">@style/Widget.App.Snackbar.Button</item>
     </style>
 
+    <style name="SplashTheme" parent="AppTheme">
+        <item name="android:windowBackground">@drawable/background</item>
+    </style>
+
     <!-- Toolbar -->
     <style name="ToolbarTheme" parent="AppTheme">
         <item name="android:textColorPrimary">@color/white</item>
