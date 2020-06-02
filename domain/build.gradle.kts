@@ -14,7 +14,6 @@ dependencies {
     implementation(project(Deps.Project.Implementation.Kotlin.UTILS))
 
     implementation(Deps.Kotlin.Core.KOTLIN)
-    implementation(Deps.Kotlin.Coroutines.CORE)
     implementation(Deps.Di.Koin.Kotlin.CORE)
 
     testImplementation(project(Deps.Project.TestImplementation.Kotlin.TEST))
