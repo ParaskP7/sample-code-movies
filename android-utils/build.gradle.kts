@@ -10,17 +10,6 @@ plugins {
     id(Plugins.Id.Dependency.VERSIONS)
 }
 
-dependencyAnalysis {
-    issues {
-        onIncorrectConfiguration {
-            exclude(
-                Deps.Android.Arch.Lifecycle.COMMON.identifier(), // Ignore change to 'api' advice.
-                Deps.Android.Arch.Lifecycle.LIVE_DATA_CORE.identifier() // Ignore change to 'api' advice.
-            )
-        }
-    }
-}
-
 dependencies {
     implementation(project(Deps.Project.Implementation.Kotlin.UTILS))
 
@@ -30,4 +19,15 @@ dependencies {
     implementation(Deps.Log.TIMBER)
 
     detektPlugins(Plugins.DETEKT_FORMATTING)
+}
+
+dependencyAnalysis {
+    issues {
+        onIncorrectConfiguration {
+            exclude(
+                Deps.Android.Arch.Lifecycle.COMMON.identifier(), // Ignore change to 'api' advice.
+                Deps.Android.Arch.Lifecycle.LIVE_DATA_CORE.identifier() // Ignore change to 'api' advice.
+            )
+        }
+    }
 }

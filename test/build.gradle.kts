@@ -9,20 +9,6 @@ plugins {
     id(Plugins.Id.Dependency.VERSIONS)
 }
 
-dependencyAnalysis {
-    issues {
-        onIncorrectConfiguration {
-            exclude(
-                Deps.Project.Implementation.Kotlin.DOMAIN, // Ignore change to 'api' advice.
-                Deps.Kotlin.Coroutines.Test.TEST.identifier(), // Ignore change to 'api' advice.
-                Deps.Test.JUnit.J_UNIT_4.identifier(), // Ignore change to 'api' advice.
-                Deps.Test.Spek.DSL.identifier(), // Ignore change to 'api' advice.
-                Deps.Test.Integration.MOCK_WEB_SERVER.identifier() // Ignore change to 'api' advice.
-            )
-        }
-    }
-}
-
 dependencies {
     implementation(project(Deps.Project.Implementation.Kotlin.DOMAIN))
 
@@ -41,4 +27,18 @@ dependencies {
     implementation(Deps.Test.Integration.MOCK_WEB_SERVER)
 
     detektPlugins(Plugins.DETEKT_FORMATTING)
+}
+
+dependencyAnalysis {
+    issues {
+        onIncorrectConfiguration {
+            exclude(
+                Deps.Project.Implementation.Kotlin.DOMAIN, // Ignore change to 'api' advice.
+                Deps.Kotlin.Coroutines.Test.TEST.identifier(), // Ignore change to 'api' advice.
+                Deps.Test.JUnit.J_UNIT_4.identifier(), // Ignore change to 'api' advice.
+                Deps.Test.Spek.DSL.identifier(), // Ignore change to 'api' advice.
+                Deps.Test.Integration.MOCK_WEB_SERVER.identifier() // Ignore change to 'api' advice.
+            )
+        }
+    }
 }

@@ -10,6 +10,17 @@ plugins {
     id(Plugins.Id.Dependency.VERSIONS)
 }
 
+dependencies {
+    implementation(project(Deps.Project.Implementation.Android.Core.CORE))
+
+    implementation(Deps.Kotlin.Core.KOTLIN)
+    implementation(Deps.Android.Core.APP_COMPAT)
+    implementation(Deps.Android.Core.FRAGMENT)
+    api(Deps.Util.MONTH_YEAR_PICKER) // Usage of api is required because of 'MovieActivity', which cannot access it.
+
+    detektPlugins(Plugins.DETEKT_FORMATTING)
+}
+
 dependencyAnalysis {
     issues {
         onUnusedDependencies {
@@ -24,15 +35,4 @@ dependencyAnalysis {
             )
         }
     }
-}
-
-dependencies {
-    implementation(project(Deps.Project.Implementation.Android.Core.CORE))
-
-    implementation(Deps.Kotlin.Core.KOTLIN)
-    implementation(Deps.Android.Core.APP_COMPAT)
-    implementation(Deps.Android.Core.FRAGMENT)
-    api(Deps.Util.MONTH_YEAR_PICKER) // Usage of api is required because of 'MovieActivity', which cannot access it.
-
-    detektPlugins(Plugins.DETEKT_FORMATTING)
 }

@@ -10,6 +10,23 @@ plugins {
     id(Plugins.Id.Dependency.VERSIONS)
 }
 
+dependencies {
+    implementation(Deps.Kotlin.Core.KOTLIN)
+    implementation(Deps.Kotlin.Coroutines.CORE)
+    implementation(Deps.Kotlin.Coroutines.Test.TEST)
+    implementation(Deps.Material.MATERIAL)
+    implementation(Deps.Android.Core.RECYCLER_VIEW)
+    implementation(Deps.Android.Arch.Core.RUNTIME)
+    implementation(Deps.Android.Test.CORE)
+    implementation(Deps.Android.Test.Espresso.CORE)
+    implementation(Deps.Log.TIMBER)
+    implementation(Deps.Test.Spek.DSL)
+    implementation(Deps.Test.Spek.J_UNIT_5)
+    runtimeOnly(Deps.Kotlin.Core.KOTLIN_REFLECT)
+
+    detektPlugins(Plugins.DETEKT_FORMATTING)
+}
+
 dependencyAnalysis {
     issues {
         onUnusedDependencies {
@@ -30,21 +47,4 @@ dependencyAnalysis {
             )
         }
     }
-}
-
-dependencies {
-    implementation(Deps.Kotlin.Core.KOTLIN)
-    implementation(Deps.Kotlin.Coroutines.CORE)
-    implementation(Deps.Kotlin.Coroutines.Test.TEST)
-    implementation(Deps.Material.MATERIAL)
-    implementation(Deps.Android.Core.RECYCLER_VIEW)
-    implementation(Deps.Android.Arch.Core.RUNTIME)
-    implementation(Deps.Android.Test.CORE)
-    implementation(Deps.Android.Test.Espresso.CORE)
-    implementation(Deps.Log.TIMBER)
-    implementation(Deps.Test.Spek.DSL)
-    implementation(Deps.Test.Spek.J_UNIT_5)
-    runtimeOnly(Deps.Kotlin.Core.KOTLIN_REFLECT)
-
-    detektPlugins(Plugins.DETEKT_FORMATTING)
 }

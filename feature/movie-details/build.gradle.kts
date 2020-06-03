@@ -14,19 +14,6 @@ plugins {
     id(Plugins.Id.Test.COVERAGE)
 }
 
-dependencyAnalysis {
-    issues {
-        onIncorrectConfiguration {
-            exclude(
-                Deps.Project.Implementation.Kotlin.DOMAIN, // Ignore change to 'api' advice.
-                Deps.Project.Implementation.Android.Core.CORE, // Ignore change to 'api' advice.
-                Deps.Material.MATERIAL.identifier(), // Ignore change to 'api' advice.
-                Deps.Architecture.Mvi.STATEFUL.identifier() // Ignore change to 'api' advice.
-            )
-        }
-    }
-}
-
 dependencies {
     implementation(project(Deps.Project.Implementation.Kotlin.UTILS))
     implementation(project(Deps.Project.Implementation.Kotlin.DOMAIN))
@@ -61,4 +48,17 @@ dependencies {
     testImplementation(Deps.Android.Arch.Core.TESTING)
 
     detektPlugins(Plugins.DETEKT_FORMATTING)
+}
+
+dependencyAnalysis {
+    issues {
+        onIncorrectConfiguration {
+            exclude(
+                Deps.Project.Implementation.Kotlin.DOMAIN, // Ignore change to 'api' advice.
+                Deps.Project.Implementation.Android.Core.CORE, // Ignore change to 'api' advice.
+                Deps.Material.MATERIAL.identifier(), // Ignore change to 'api' advice.
+                Deps.Architecture.Mvi.STATEFUL.identifier() // Ignore change to 'api' advice.
+            )
+        }
+    }
 }

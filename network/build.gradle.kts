@@ -11,17 +11,6 @@ plugins {
     id(Plugins.Id.Test.COVERAGE)
 }
 
-dependencyAnalysis {
-    issues {
-        onIncorrectConfiguration {
-            exclude(
-                Deps.Project.Implementation.Kotlin.DOMAIN, // Ignore change to 'api' advice.
-                Deps.Di.Koin.Kotlin.CORE.identifier() // Ignore change to 'api' advice.
-            )
-        }
-    }
-}
-
 dependencies {
     implementation(project(Deps.Project.Implementation.Kotlin.UTILS))
     implementation(project(Deps.Project.Implementation.Kotlin.DOMAIN))
@@ -47,4 +36,15 @@ dependencies {
     testImplementation(Deps.Test.Mock.MOCK_K)
 
     detektPlugins(Plugins.DETEKT_FORMATTING)
+}
+
+dependencyAnalysis {
+    issues {
+        onIncorrectConfiguration {
+            exclude(
+                Deps.Project.Implementation.Kotlin.DOMAIN, // Ignore change to 'api' advice.
+                Deps.Di.Koin.Kotlin.CORE.identifier() // Ignore change to 'api' advice.
+            )
+        }
+    }
 }
