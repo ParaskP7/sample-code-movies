@@ -27,6 +27,9 @@ object Plugins {
         // Releases: https://github.com/autonomousapps/dependency-analysis-android-gradle-plugin/releases
         const val DEPENDENCY_ANALYSIS = "0.46.0" // Released: 01-06-20
 
+        // Releases: https://github.com/runningcode/gradle-doctor/releases
+        const val GRADLE_DOCTOR = "0.3.4" // Released: 20-04-20
+
     }
 
     const val KOTLIN = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Version.KOTLIN}"
@@ -39,6 +42,7 @@ object Plugins {
     const val ANDROID_J_UNIT_5 = "de.mannodermaus.gradle.plugins:android-junit5:${Version.ANDROID_J_UNIT_5}"
     const val DEPENDENCY_VERSIONS = "com.github.ben-manes:gradle-versions-plugin:${Version.DEPENDENCY_VERSIONS}"
     const val DEPENDENCY_ANALYSIS = "com.autonomousapps:dependency-analysis-gradle-plugin:${Version.DEPENDENCY_ANALYSIS}"
+    const val GRADLE_DOCTOR = "com.osacky.doctor:doctor-plugin:${Version.GRADLE_DOCTOR}"
 
     object Id {
 
@@ -88,6 +92,12 @@ object Plugins {
 
             const val VERSIONS = "com.github.ben-manes.versions"
             const val ANALYSIS = "com.autonomousapps.dependency-analysis"
+
+        }
+
+        object Gradle {
+
+            const val DOCTOR = "com.osacky.doctor"
 
         }
 

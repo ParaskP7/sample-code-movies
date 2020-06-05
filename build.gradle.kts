@@ -60,6 +60,7 @@ buildscript {
         classpath(Plugins.ANDROID_J_UNIT_5)
         classpath(Plugins.DEPENDENCY_VERSIONS)
         classpath(Plugins.DEPENDENCY_ANALYSIS)
+        classpath(Plugins.GRADLE_DOCTOR)
     }
 }
 
@@ -68,6 +69,7 @@ buildscript {
 plugins {
     id(Plugins.Id.Kotlin.Android.ANDROID_MANIFEST) version Plugins.Version.ANDROID_MANIFEST
     id(Plugins.Id.Dependency.ANALYSIS) version Plugins.Version.DEPENDENCY_ANALYSIS
+    id(Plugins.Id.Gradle.DOCTOR) version Plugins.Version.GRADLE_DOCTOR
 }
 
 autoManifest {
