@@ -37,10 +37,15 @@ object Deps {
 
                 }
 
+                object Lib {
+
+                    const val PICKER = "${Utils.COLON}lib${Utils.COLON}picker"
+
+                }
+
                 object Feature {
 
                     const val MOVIES = "${Utils.COLON}feature${Utils.COLON}movies"
-                    const val PICKER = "${Utils.COLON}feature${Utils.COLON}picker"
                     const val MOVIE_DETAILS = "${Utils.COLON}feature${Utils.COLON}movie-details"
 
                 }

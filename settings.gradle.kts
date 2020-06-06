@@ -27,8 +27,11 @@ include(":app")
 
 include(":core")
 
+/* LIB MODULES */
+
+include(":lib:picker")
+
 /* FEATURE MODULES */
 
 include(":feature:movies")
-include(":feature:picker")
 include(":feature:movie-details")

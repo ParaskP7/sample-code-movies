@@ -5,32 +5,33 @@ import android.os.Bundle
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.FragmentManager
 import com.whiteelephant.monthpicker.MonthPickerDialog
-import io.petros.movies.feature.picker.R
+import io.petros.movies.lib.picker.R
 import java.util.*
 
-class MovieMonthPickerFragment(
-    private val onMonthPicked: (Int) -> Unit
+class MovieYearPickerFragment(
+    private val onYearPicked: (Int) -> Unit
 ) : DialogFragment(),
     MonthPickerDialog.OnDateSetListener {
 
     companion object {
 
-        private const val TAG = "MovieMonthPickerFragment"
+        private const val TAG = "MovieYearPickerFragment"
+        private const val EXTRA_YEARS = 10
 
     }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val year = Calendar.getInstance().get(Calendar.YEAR)
-        val month = Calendar.getInstance().get(Calendar.MONTH)
-        return MonthPickerDialog.Builder(context, this, year, month)
-            .setActivatedMonth(month)
-            .setTitle(context?.getString(R.string.dlgMovieMonth))
-            .showMonthOnly()
+        return MonthPickerDialog.Builder(context, this, year, 0)
+            .setActivatedYear(year)
+            .setMaxYear(year + EXTRA_YEARS)
+            .setTitle(context?.getString(R.string.dlgMovieYear))
+            .showYearOnly()
             .build()
     }
 
     override fun onDateSet(selectedMonth: Int, selectedYear: Int) {
-        onMonthPicked(selectedMonth)
+        onYearPicked(selectedYear)
     }
 
     fun show(manager: FragmentManager) {

@@ -19,7 +19,7 @@ dependencies {
     implementation(project(Deps.Project.Implementation.Kotlin.DOMAIN))
     implementation(project(Deps.Project.Implementation.Android.Core.ANDROID_UTILS))
     implementation(project(Deps.Project.Implementation.Android.Core.CORE))
-    implementation(project(Deps.Project.Implementation.Android.Feature.PICKER))
+    implementation(project(Deps.Project.Implementation.Android.Lib.PICKER))
 
     implementation(Deps.Kotlin.Core.KOTLIN)
     implementation(Deps.Kotlin.Coroutines.CORE)
