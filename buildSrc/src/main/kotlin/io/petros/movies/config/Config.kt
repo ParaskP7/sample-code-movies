@@ -140,7 +140,6 @@ object Config {
 
     object Module {
 
-        @Suppress("MagicNumber")
         object GraphAssert {
 
             const val MAX_HEIGHT = 5 // '4' is the default.
