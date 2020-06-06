@@ -96,7 +96,8 @@ Below is a list of goodies that are being showcased:
     updates)```
     3. [Dependency Analysis](https://github.com/autonomousapps/dependency-analysis-android-gradle-plugin) ```(Gradle plugin
     for Java, Kotlin, and Android projects. Provides advice for managing dependencies and other applied plugins)```
-    4. [Gradle Auto Manifest](https://github.com/GradleUp/auto-manifest) ```(Generates AndroidManifest.xml in simple
+    4. [Gradle Doctor](https://github.com/runningcode/gradle-doctor) ```(The right prescription for your Gradle build)```
+    5. [Gradle Auto Manifest](https://github.com/GradleUp/auto-manifest) ```(Generates AndroidManifest.xml in simple
     libraries so that you don't have to)```
 
 # Screenshots
