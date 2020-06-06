@@ -30,6 +30,9 @@ object Plugins {
         // Releases: https://github.com/runningcode/gradle-doctor/releases
         const val GRADLE_DOCTOR = "0.3.4" // Released: 20-04-20
 
+        // Releases: https://github.com/jraska/modules-graph-assert/releases
+        const val MODULE_GRAPH_ASSERT = "1.3.1" // Released: 12-05-20
+
     }
 
     const val KOTLIN = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Version.KOTLIN}"
@@ -98,6 +101,12 @@ object Plugins {
         object Gradle {
 
             const val DOCTOR = "com.osacky.doctor"
+
+        }
+
+        object Module {
+
+            const val GRAPH_ASSERT = "com.jraska.module.graph.assertion"
 
         }
 

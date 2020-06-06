@@ -138,4 +138,20 @@ object Config {
 
     }
 
+    object Module {
+
+        @Suppress("MagicNumber", "ForbiddenComment")
+        object GraphAssert {
+
+            const val MAX_HEIGHT = 5 // '4' is the default.
+
+            val moduleLayers = arrayOf(":feature:\\S*", ":core\\S*") // TODO: ":lib\\S*"
+            val moduleLayersExclude = arrayOf(":feature:movies -> :feature:picker")
+            val restricted = arrayOf(":feature-[a-z]* -X> :forbidden-to-depend-on")
+            val configurations = setOf("api", "implementation")
+
+        }
+
+    }
+
 }

@@ -19,6 +19,7 @@ plugins {
     id(Plugins.Id.Kotlin.Android.ANDROID)
     id(Plugins.Id.Quality.DETEKT)
     id(Plugins.Id.Dependency.VERSIONS)
+    id(Plugins.Id.Module.GRAPH_ASSERT) version Plugins.Version.MODULE_GRAPH_ASSERT
 }
 
 android {
@@ -62,6 +63,14 @@ dependencies {
     androidTestImplementation(Deps.Test.Assert.STRIKT)
 
     detektPlugins(Plugins.DETEKT_FORMATTING)
+}
+
+moduleGraphAssert {
+    maxHeight = Config.Module.GraphAssert.MAX_HEIGHT
+    moduleLayers = Config.Module.GraphAssert.moduleLayers
+    moduleLayersExclude = Config.Module.GraphAssert.moduleLayersExclude
+    restricted = Config.Module.GraphAssert.restricted
+    configurations = Config.Module.GraphAssert.configurations
 }
 
 /* CONFIGURATION EXTENSION FUNCTIONS */
