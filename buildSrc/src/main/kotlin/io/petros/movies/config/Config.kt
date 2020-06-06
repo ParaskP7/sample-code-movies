@@ -142,7 +142,7 @@ object Config {
 
         object GraphAssert {
 
-            const val MAX_HEIGHT = 5 // '4' is the default.
+            const val MAX_HEIGHT = 5
 
             val moduleLayers = arrayOf(":feature:\\S*", ":lib:\\S*", ":core\\S*")
             val moduleLayersExclude = emptyArray<String>()
