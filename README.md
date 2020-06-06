@@ -96,8 +96,10 @@ Below is a list of goodies that are being showcased:
     updates)```
     3. [Dependency Analysis](https://github.com/autonomousapps/dependency-analysis-android-gradle-plugin) ```(Gradle plugin
     for Java, Kotlin, and Android projects. Provides advice for managing dependencies and other applied plugins)```
-    4. [Gradle Doctor](https://github.com/runningcode/gradle-doctor) ```(The right prescription for your Gradle build)```
-    5. [Gradle Auto Manifest](https://github.com/GradleUp/auto-manifest) ```(Generates AndroidManifest.xml in simple
+    4. [Module Graph Assert](https://github.com/jraska/modules-graph-assert) ```(Gradle plugin to keep your modules graph
+    healthy and lean.)```
+    5. [Gradle Doctor](https://github.com/runningcode/gradle-doctor) ```(The right prescription for your Gradle build)```
+    6. [Gradle Auto Manifest](https://github.com/GradleUp/auto-manifest) ```(Generates AndroidManifest.xml in simple
     libraries so that you don't have to)```
 
 # Screenshots
@@ -233,6 +235,22 @@ Run the project dependency analysis reports using this command:
 ```
 gradlew buildHealth
 ```
+
+Run the project module graph assert reports using this command:
+```
+gradlew assertModuleGraph
+```
+
+And if you feel like it you can also generate 'Graphviz' files to visualise the modularization result, see below commands:
+```
+gradlew generateModulesGraphvizText -Pmodules.graph.print.statistics=true (command line visualization)
+gradlew generateModulesGraphvizText -Pmodules.graph.output.gv=module_graph_assert (file output for Graphviz visualization)
+dot -T png modules_graph -O (convert the above generated .dot file to a .png file, you need to install Graphviz first)
+```
+
+# Modularization
+
+![alt tag](https://github.com/ParaskP7/sample-code-movies/blob/master/module_graph_assert.png)
 
 # Future
 

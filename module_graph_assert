@@ -1,0 +1,24 @@
+digraph G {
+":app" -> ":domain"
+":app" -> ":data"
+":app" -> ":core"
+":app" -> ":feature:movies" [color=red style=bold]
+":app" -> ":feature:movie-details"
+":domain" -> ":utils" [color=red style=bold]
+":data" -> ":domain"
+":data" -> ":network"
+":network" -> ":utils"
+":network" -> ":domain"
+":core" -> ":domain" [color=red style=bold]
+":core" -> ":android-utils"
+":android-utils" -> ":utils"
+":feature:movies" -> ":utils"
+":feature:movies" -> ":domain"
+":feature:movies" -> ":android-utils"
+":feature:movies" -> ":core"
+":feature:movies" -> ":feature:picker" [color=red style=bold]
+":feature:picker" -> ":core" [color=red style=bold]
+":feature:movie-details" -> ":utils"
+":feature:movie-details" -> ":domain"
+":feature:movie-details" -> ":core"
+}
