@@ -34,6 +34,7 @@ dependencyAnalysis {
         onIncorrectConfiguration {
             exclude(
                 Deps.Project.Implementation.Kotlin.DOMAIN, // Ignore change to 'api' advice.
+                Deps.Kotlin.Core.KOTLIN.identifier(), // Ignore change to 'api' advice.
                 Deps.Kotlin.Coroutines.Test.TEST.identifier(), // Ignore change to 'api' advice.
                 Deps.Test.JUnit.J_UNIT_4.identifier(), // Ignore change to 'api' advice.
                 Deps.Test.Spek.DSL.identifier(), // Ignore change to 'api' advice.

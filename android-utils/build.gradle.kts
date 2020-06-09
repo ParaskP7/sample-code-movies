@@ -25,6 +25,7 @@ dependencyAnalysis {
     issues {
         onIncorrectConfiguration {
             exclude(
+                Deps.Kotlin.Core.KOTLIN.identifier(), // Ignore change to 'api' advice.
                 Deps.Android.Arch.Lifecycle.COMMON.identifier(), // Ignore change to 'api' advice.
                 Deps.Android.Arch.Lifecycle.LIVE_DATA_CORE.identifier() // Ignore change to 'api' advice.
             )

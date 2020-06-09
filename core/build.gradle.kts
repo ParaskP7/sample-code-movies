@@ -47,6 +47,7 @@ dependencyAnalysis {
             exclude(
                 Deps.Project.Implementation.Kotlin.DOMAIN, // Ignore change to 'api' advice.
                 Deps.Project.Implementation.Android.Core.ANDROID_UTILS, // Ignore change to 'api' advice.
+                Deps.Kotlin.Core.KOTLIN.identifier(), // Ignore change to 'api' advice.
                 Deps.Material.MATERIAL.identifier(), // Ignore change to 'api' advice.
                 Deps.Android.Core.APP_COMPAT.identifier(), // Ignore change to 'api' advice.
                 Deps.Android.Core.FRAGMENT.identifier(), // Ignore change to 'api' advice.

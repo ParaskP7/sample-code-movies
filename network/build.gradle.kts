@@ -43,6 +43,7 @@ dependencyAnalysis {
         onIncorrectConfiguration {
             exclude(
                 Deps.Project.Implementation.Kotlin.DOMAIN, // Ignore change to 'api' advice.
+                Deps.Kotlin.Core.KOTLIN.identifier(), // Ignore change to 'api' advice.
                 Deps.Di.Koin.Kotlin.CORE.identifier() // Ignore change to 'api' advice.
             )
         }

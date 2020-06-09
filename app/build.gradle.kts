@@ -10,6 +10,7 @@ import io.petros.movies.config.android.BuildConfig
 import io.petros.movies.config.android.LocalProperties
 import io.petros.movies.config.android.findLocalProperty
 import io.petros.movies.config.deps.Deps
+import io.petros.movies.config.deps.identifier
 import io.petros.movies.config.dirs.Files
 import io.petros.movies.config.utils.asString
 import io.petros.movies.config.utils.logApiKey
@@ -63,6 +64,16 @@ dependencies {
     androidTestImplementation(Deps.Test.Assert.STRIKT)
 
     detektPlugins(Plugins.DETEKT_FORMATTING)
+}
+
+dependencyAnalysis {
+    issues {
+        onIncorrectConfiguration {
+            exclude(
+                Deps.Kotlin.Core.KOTLIN.identifier() // Ignore change to 'api' advice.
+            )
+        }
+    }
 }
 
 moduleGraphAssert {

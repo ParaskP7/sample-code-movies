@@ -1,6 +1,7 @@
 @file:Suppress("InvalidPackageDeclaration")
 
 import io.petros.movies.config.deps.Deps
+import io.petros.movies.config.deps.identifier
 
 plugins {
     id(Plugins.Id.Android.LIBRARY)
@@ -38,7 +39,8 @@ dependencyAnalysis {
         onIncorrectConfiguration {
             exclude(
                 Deps.Project.Implementation.Kotlin.DOMAIN, // Ignore change to 'api' advice.
-                Deps.Project.Implementation.Kotlin.NETWORK // Ignore change to 'api' advice.
+                Deps.Project.Implementation.Kotlin.NETWORK, // Ignore change to 'api' advice.
+                Deps.Kotlin.Core.KOTLIN.identifier() // Ignore change to 'api' advice.
             )
         }
     }

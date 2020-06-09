@@ -31,6 +31,7 @@ dependencyAnalysis {
         }
         onIncorrectConfiguration {
             exclude(
+                Deps.Kotlin.Core.KOTLIN.identifier(), // Ignore change to 'api' advice.
                 Deps.Android.Core.FRAGMENT.identifier() // Ignore change to 'api' advice.
             )
         }
