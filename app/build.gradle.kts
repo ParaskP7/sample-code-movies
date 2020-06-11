@@ -48,6 +48,7 @@ dependencies {
     implementation(Deps.Android.Arch.Navigation.RUNTIME_KTX)
     implementation(Deps.Android.Arch.Navigation.UI)
     implementation(Deps.Android.Arch.Navigation.UI_KTX)
+    implementation(Deps.Android.Arch.Navigation.FRAGMENT_KTX)
     implementation(Deps.Di.Koin.Kotlin.CORE)
     implementation(Deps.Di.Koin.Android.ANDROID)
     implementation(Deps.Log.TIMBER)
@@ -68,6 +69,11 @@ dependencies {
 
 dependencyAnalysis {
     issues {
+        onUnusedDependencies {
+            exclude(
+                Deps.Android.Arch.Navigation.FRAGMENT_KTX.identifier() // Ignore remove advise. Required for navigation xml.
+            )
+        }
         onIncorrectConfiguration {
             exclude(
                 Deps.Kotlin.Core.KOTLIN.identifier() // Ignore change to 'api' advice.
