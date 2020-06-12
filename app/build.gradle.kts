@@ -104,8 +104,6 @@ fun NamedDomainObjectContainer<BuildType>.buildTypes() {
     val themoviedbApiKey = findLocalProperty(LocalProperties.TheMoviesDb.API_KEY).asString()
     logApiKey(themoviedbApiKey)
     named(Android.BuildTypes.DEBUG) {
-        applicationIdSuffix = App.Debug.Suffix.APPLICATION_ID
-        versionNameSuffix = App.Debug.Suffix.VERSION_NAME
         isDebuggable = true
         buildConfigField(BuildConfig.Field.STRING, Config.Gradle.THEMOVIEDB_API_KEY_CONST, themoviedbApiKey)
     }

@@ -14,20 +14,6 @@ object App {
 
     }
 
-    object Debug {
-
-        @Suppress("MemberNameEqualsClassName")
-        object Suffix {
-
-            private const val SUFFIX = "debug"
-
-            const val APPLICATION_ID = ".$SUFFIX"
-            const val VERSION_NAME = "-$SUFFIX"
-
-        }
-
-    }
-
     const val APPLICATION_ID = "io.petros.movies"
 
 }
