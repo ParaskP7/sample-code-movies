@@ -6,6 +6,8 @@ import io.petros.movies.config.utils.Utils
 @Suppress("MayBeConstant", "MemberVisibilityCanBePrivate")
 object Deps {
 
+    // DEBUG IMPLEMENTATION // **********************************************************************************************
+
     object LeakCanary {
 
         val LEAK_CANARY = "com.squareup.leakcanary:leakcanary-android:${Versions.LeakCanary.LEAK_CANARY}"

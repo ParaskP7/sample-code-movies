@@ -3,6 +3,8 @@ package io.petros.movies.config.deps
 @Suppress("StringLiteralDuplication")
 object Versions {
 
+    // DEBUG IMPLEMENTATION // **********************************************************************************************
+
     object LeakCanary {
 
         // Releases: https://github.com/square/leakcanary/releases
