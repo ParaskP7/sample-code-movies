@@ -1,6 +1,7 @@
 @file:Suppress("InvalidPackageDeclaration")
 
 import io.petros.movies.config.deps.Deps
+import io.petros.movies.config.deps.Projects
 import io.petros.movies.config.deps.identifier
 
 plugins {
@@ -14,7 +15,7 @@ plugins {
 dependencies {
     implementation(Deps.Kotlin.Core.KOTLIN)
 
-    testImplementation(project(Deps.Project.TestImplementation.Kotlin.TEST))
+    testImplementation(project(Projects.TestImplementation.Kotlin.TEST))
 
     testImplementation(Deps.Test.JUnit.J_UNIT_4)
     testRuntimeOnly(Deps.Test.JUnit.J_UNIT_5)

@@ -1,6 +1,7 @@
 @file:Suppress("InvalidPackageDeclaration")
 
 import io.petros.movies.config.deps.Deps
+import io.petros.movies.config.deps.Projects
 import io.petros.movies.config.deps.identifier
 
 plugins {
@@ -14,13 +15,13 @@ plugins {
 }
 
 dependencies {
-    implementation(project(Deps.Project.Implementation.Kotlin.DOMAIN))
-    implementation(project(Deps.Project.Implementation.Kotlin.NETWORK))
+    implementation(project(Projects.Implementation.Kotlin.DOMAIN))
+    implementation(project(Projects.Implementation.Kotlin.NETWORK))
 
     implementation(Deps.Kotlin.Core.KOTLIN)
     implementation(Deps.Di.Koin.Kotlin.CORE)
 
-    testImplementation(project(Deps.Project.TestImplementation.Kotlin.TEST))
+    testImplementation(project(Projects.TestImplementation.Kotlin.TEST))
 
     testImplementation(Deps.Kotlin.Coroutines.Test.TEST)
     testImplementation(Deps.Test.JUnit.J_UNIT_4)
@@ -38,8 +39,8 @@ dependencyAnalysis {
     issues {
         onIncorrectConfiguration {
             exclude(
-                Deps.Project.Implementation.Kotlin.DOMAIN, // Ignore change to 'api' advice.
-                Deps.Project.Implementation.Kotlin.NETWORK, // Ignore change to 'api' advice.
+                Projects.Implementation.Kotlin.DOMAIN, // Ignore change to 'api' advice.
+                Projects.Implementation.Kotlin.NETWORK, // Ignore change to 'api' advice.
                 Deps.Kotlin.Core.KOTLIN.identifier() // Ignore change to 'api' advice.
             )
         }

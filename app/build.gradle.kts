@@ -10,6 +10,7 @@ import io.petros.movies.config.android.BuildConfig
 import io.petros.movies.config.android.LocalProperties
 import io.petros.movies.config.android.findLocalProperty
 import io.petros.movies.config.deps.Deps
+import io.petros.movies.config.deps.Projects
 import io.petros.movies.config.deps.identifier
 import io.petros.movies.config.dirs.Files
 import io.petros.movies.config.utils.asString
@@ -29,11 +30,11 @@ android {
 }
 
 dependencies {
-    implementation(project(Deps.Project.Implementation.Kotlin.DOMAIN))
-    implementation(project(Deps.Project.Implementation.Android.Core.DATA))
-    implementation(project(Deps.Project.Implementation.Android.Core.CORE))
-    implementation(project(Deps.Project.Implementation.Android.Feature.MOVIES))
-    implementation(project(Deps.Project.Implementation.Android.Feature.MOVIE_DETAILS))
+    implementation(project(Projects.Implementation.Kotlin.DOMAIN))
+    implementation(project(Projects.Implementation.Android.Core.DATA))
+    implementation(project(Projects.Implementation.Android.Core.CORE))
+    implementation(project(Projects.Implementation.Android.Feature.MOVIES))
+    implementation(project(Projects.Implementation.Android.Feature.MOVIE_DETAILS))
 
     debugImplementation(Deps.LeakCanary.LEAK_CANARY)
 
@@ -53,8 +54,8 @@ dependencies {
     implementation(Deps.Di.Koin.Android.ANDROID)
     implementation(Deps.Log.TIMBER)
 
-    androidTestImplementation(project(Deps.Project.TestImplementation.Kotlin.TEST))
-    androidTestImplementation(project(Deps.Project.TestImplementation.Android.ANDROID_TEST))
+    androidTestImplementation(project(Projects.TestImplementation.Kotlin.TEST))
+    androidTestImplementation(project(Projects.TestImplementation.Android.ANDROID_TEST))
 
     androidTestImplementation(Deps.Android.Test.CORE)
     androidTestImplementation(Deps.Android.Test.RULES)

@@ -1,6 +1,7 @@
 @file:Suppress("InvalidPackageDeclaration")
 
 import io.petros.movies.config.deps.Deps
+import io.petros.movies.config.deps.Projects
 import io.petros.movies.config.deps.identifier
 
 plugins {
@@ -15,11 +16,11 @@ plugins {
 }
 
 dependencies {
-    implementation(project(Deps.Project.Implementation.Kotlin.UTILS))
-    implementation(project(Deps.Project.Implementation.Kotlin.DOMAIN))
-    implementation(project(Deps.Project.Implementation.Android.Core.ANDROID_UTILS))
-    implementation(project(Deps.Project.Implementation.Android.Core.CORE))
-    implementation(project(Deps.Project.Implementation.Android.Lib.PICKER))
+    implementation(project(Projects.Implementation.Kotlin.UTILS))
+    implementation(project(Projects.Implementation.Kotlin.DOMAIN))
+    implementation(project(Projects.Implementation.Android.Core.ANDROID_UTILS))
+    implementation(project(Projects.Implementation.Android.Core.CORE))
+    implementation(project(Projects.Implementation.Android.Lib.PICKER))
 
     implementation(Deps.Kotlin.Core.KOTLIN)
     implementation(Deps.Kotlin.Coroutines.CORE)
@@ -42,8 +43,8 @@ dependencies {
     implementation(Deps.Di.Koin.Android.VIEW_MODEL)
     implementation(Deps.Log.TIMBER)
 
-    testImplementation(project(Deps.Project.TestImplementation.Kotlin.TEST))
-    testImplementation(project(Deps.Project.TestImplementation.Android.ANDROID_TEST))
+    testImplementation(project(Projects.TestImplementation.Kotlin.TEST))
+    testImplementation(project(Projects.TestImplementation.Android.ANDROID_TEST))
 
     testImplementation(Deps.Kotlin.Coroutines.Test.TEST)
     testImplementation(Deps.Test.JUnit.J_UNIT_4)
@@ -63,8 +64,8 @@ dependencyAnalysis {
     issues {
         onIncorrectConfiguration {
             exclude(
-                Deps.Project.Implementation.Kotlin.DOMAIN, // Ignore change to 'api' advice.
-                Deps.Project.Implementation.Android.Core.CORE, // Ignore change to 'api' advice.
+                Projects.Implementation.Kotlin.DOMAIN, // Ignore change to 'api' advice.
+                Projects.Implementation.Android.Core.CORE, // Ignore change to 'api' advice.
                 Deps.Kotlin.Core.KOTLIN.identifier(), // Ignore change to 'api' advice.
                 Deps.Material.MATERIAL.identifier(), // Ignore change to 'api' advice.
                 Deps.Android.Core.CONSTRAINT_LAYOUT.identifier(), // Ignore change to 'api' advice.

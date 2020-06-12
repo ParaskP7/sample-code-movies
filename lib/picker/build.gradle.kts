@@ -1,6 +1,7 @@
 @file:Suppress("InvalidPackageDeclaration")
 
 import io.petros.movies.config.deps.Deps
+import io.petros.movies.config.deps.Projects
 import io.petros.movies.config.deps.identifier
 
 plugins {
@@ -11,7 +12,7 @@ plugins {
 }
 
 dependencies {
-    implementation(project(Deps.Project.Implementation.Android.Core.CORE))
+    implementation(project(Projects.Implementation.Android.Core.CORE))
 
     implementation(Deps.Kotlin.Core.KOTLIN)
     implementation(Deps.Android.Core.APP_COMPAT)
@@ -25,7 +26,7 @@ dependencyAnalysis {
     issues {
         onUnusedDependencies {
             exclude(
-                Deps.Project.Implementation.Android.Core.CORE, // Ignore remove advise. Required for theme purposes.
+                Projects.Implementation.Android.Core.CORE, // Ignore remove advise. Required for theme purposes.
                 Deps.Android.Core.APP_COMPAT.identifier() // Ignore remove advise. Otherwise, 'AlertDialog' is unresolved.
             )
         }

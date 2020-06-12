@@ -1,6 +1,7 @@
 @file:Suppress("InvalidPackageDeclaration")
 
 import io.petros.movies.config.deps.Deps
+import io.petros.movies.config.deps.Projects
 import io.petros.movies.config.deps.identifier
 
 plugins {
@@ -11,7 +12,7 @@ plugins {
 }
 
 dependencies {
-    implementation(project(Deps.Project.Implementation.Kotlin.UTILS))
+    implementation(project(Projects.Implementation.Kotlin.UTILS))
 
     implementation(Deps.Kotlin.Core.KOTLIN)
     implementation(Deps.Android.Arch.Lifecycle.COMMON)
