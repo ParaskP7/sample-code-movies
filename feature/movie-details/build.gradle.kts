@@ -26,6 +26,7 @@ dependencies {
     implementation(Deps.Android.Core.FRAGMENT)
     implementation(Deps.Android.Core.CONSTRAINT_LAYOUT)
     implementation(Deps.Android.Ktx.CORE)
+    implementation(Deps.Android.Arch.Lifecycle.LIVE_DATA_CORE)
     implementation(Deps.Android.Arch.Lifecycle.VIEW_MODEL)
     implementation(Deps.Android.Arch.Lifecycle.VIEW_MODEL_KTX)
     implementation(Deps.Architecture.Mvi.STATEFUL)
