@@ -6,6 +6,7 @@ import android.view.View
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.navOptions
 import com.google.android.material.snackbar.Snackbar
+import dev.fanie.stateful.Renders
 import io.petros.movies.core.fragment.MviFragment
 import io.petros.movies.core.list.AdapterStatus
 import io.petros.movies.core.list.infinite.InfiniteRecyclerView
@@ -15,8 +16,8 @@ import io.petros.movies.feature.movies.R
 import io.petros.movies.feature.movies.databinding.MoviesFragmentBinding
 import io.petros.movies.movies.list.MoviesAdapter
 import io.petros.movies.movies.list.item.MovieItemCallback
-import io.petros.movies.movies.stateful.StatefulMoviesStateListener
-import io.petros.movies.movies.stateful.stateful
+import io.petros.movies.movies.stateful.moviesstate.StatefulMoviesState
+import io.petros.movies.movies.stateful.moviesstate.stateful
 import io.petros.movies.movies.toolbar.MoviesToolbarCallback
 import io.petros.movies.picker.MovieMonthPickerFragment
 import io.petros.movies.picker.MovieYearPickerFragment
@@ -24,13 +25,12 @@ import io.petros.movies.utils.doNothing
 import io.petros.movies.utils.slash
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-@Suppress("TooManyFunctions", "PARAMETER_NAME_CHANGED_ON_OVERRIDE")
+@Suppress("TooManyFunctions", "unused")
 class MoviesFragment : MviFragment<
         MoviesFragmentBinding,
         MoviesIntent,
         MoviesState,
         MoviesSideEffect>(R.layout.movies_fragment),
-    StatefulMoviesStateListener,
     MoviesToolbarCallback,
     MovieItemCallback,
     InfiniteRecyclerView.Listener {
@@ -88,7 +88,8 @@ class MoviesFragment : MviFragment<
 
     /* STATE */
 
-    override fun onStatusUpdated(status: MoviesStatus) {
+    @Renders(StatefulMoviesState.Property.STATUS::class)
+    fun renderStatus(status: MoviesStatus) {
         when (status) {
             is MoviesStatus.Init -> viewModel.process(
                 MoviesIntent.LoadMovies()
@@ -102,7 +103,8 @@ class MoviesFragment : MviFragment<
         }
     }
 
-    override fun onYearUpdated(year: Int?) {
+    @Renders(StatefulMoviesState.Property.YEAR::class)
+    fun renderYear(year: Int?) {
         if (year != null) {
             binding.toolbar.showCloseIcon()
             binding.toolbar.setYear(year)
@@ -113,7 +115,8 @@ class MoviesFragment : MviFragment<
         }
     }
 
-    override fun onMonthUpdated(month: Int?) {
+    @Renders(StatefulMoviesState.Property.MONTH::class)
+    fun renderMonth(month: Int?) {
         if (month != null) {
             binding.toolbar.setMonth(month)
         } else {
@@ -122,7 +125,8 @@ class MoviesFragment : MviFragment<
     }
 
     @Suppress("UseCheckOrError")
-    override fun onMoviesUpdated(state: MoviesState) {
+    @Renders(StatefulMoviesState.Property.MOVIES::class)
+    fun renderMovies(state: MoviesState) {
         when (state.status) {
             is MoviesStatus.Init -> doNothing
             is MoviesStatus.Idle -> adapter?.setItems(state.movies, true)

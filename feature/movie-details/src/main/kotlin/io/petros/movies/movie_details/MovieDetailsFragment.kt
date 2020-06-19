@@ -3,24 +3,24 @@ package io.petros.movies.movie_details
 import android.os.Bundle
 import androidx.core.view.isVisible
 import com.google.android.material.snackbar.Snackbar
+import dev.fanie.stateful.Renders
 import io.petros.movies.core.fragment.MviFragment
 import io.petros.movies.core.image.glide.displayImage
 import io.petros.movies.core.view_binding.viewBinding
 import io.petros.movies.domain.model.movie.Movie
 import io.petros.movies.feature.movie.details.R
 import io.petros.movies.feature.movie.details.databinding.MovieDetailsFragmentBinding
-import io.petros.movies.movie_details.stateful.StatefulMovieDetailsStateListener
-import io.petros.movies.movie_details.stateful.stateful
+import io.petros.movies.movie_details.stateful.moviedetailsstate.StatefulMovieDetailsState
+import io.petros.movies.movie_details.stateful.moviedetailsstate.stateful
 import io.petros.movies.utils.doNothing
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-@Suppress("SyntheticAccessor", "PARAMETER_NAME_CHANGED_ON_OVERRIDE")
+@Suppress("SyntheticAccessor", "unused")
 class MovieDetailsFragment : MviFragment<
         MovieDetailsFragmentBinding,
         MovieDetailsIntent,
         MovieDetailsState,
-        MovieDetailsSideEffect>(R.layout.movie_details_fragment),
-    StatefulMovieDetailsStateListener {
+        MovieDetailsSideEffect>(R.layout.movie_details_fragment) {
 
     companion object {
 
@@ -53,7 +53,8 @@ class MovieDetailsFragment : MviFragment<
 
     /* STATE */
 
-    override fun onStatusUpdated(status: MovieDetailsStatus) {
+    @Renders(StatefulMovieDetailsState.Property.STATUS::class)
+    fun renderStatus(status: MovieDetailsStatus) {
         when (status) {
             is MovieDetailsStatus.Init -> viewModel.process(
                 MovieDetailsIntent.LoadMovie(
@@ -66,7 +67,8 @@ class MovieDetailsFragment : MviFragment<
         }
     }
 
-    override fun onMovieUpdated(movie: Movie) {
+    @Renders(StatefulMovieDetailsState.Property.MOVIE::class)
+    fun renderMovie(movie: Movie) {
         binding.ivBackdrop.displayImage(movie.backdrop)
         binding.tvTitle.text = movie.title
         binding.tvReleaseDate.text = movie.releaseDate()
