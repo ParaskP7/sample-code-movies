@@ -48,7 +48,7 @@ object Versions {
             // Releases: https://developer.android.com/jetpack/androidx/releases/drawerlayout
             const val DRAWER_LAYOUT = "1.0.0" // Released: 21-09-18
 
-            // Releases: https://developer.android.com/jetpack/androidx/releases/constraintlayout
+            // Releases: https://developer.android.com/jetpack/androidx/releases/coordinatorlayout
             const val COORDINATOR_LAYOUT = "1.1.0" // Released: 04-12-19
 
         }
@@ -141,7 +141,7 @@ object Versions {
         @Suppress("MemberNameEqualsClassName")
         object Gson {
 
-            // Releases: https://github.com/square/retrofit/releases
+            // Releases: https://github.com/google/gson/releases
             const val GSON = "2.8.6" // Released: 04-10-19
 
         }
