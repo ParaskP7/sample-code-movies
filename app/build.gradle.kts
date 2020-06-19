@@ -37,6 +37,7 @@ dependencies {
     implementation(project(Projects.Implementation.Android.Feature.MOVIE_DETAILS))
 
     debugImplementation(Deps.LeakCanary.LEAK_CANARY)
+    implementation(Deps.LeakCanary.PLUMBER)
 
     implementation(Deps.Kotlin.Core.KOTLIN)
     implementation(Deps.Material.MATERIAL)
