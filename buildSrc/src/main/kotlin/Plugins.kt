@@ -10,7 +10,7 @@ object Plugins {
         const val KOTLIN = "1.3.72" // Released: 14-04-20
 
         // Releases: https://androidstudio.googleblog.com
-        const val ANDROID = "4.2.0-alpha01" // Released: 10-06-20
+        const val ANDROID = "4.2.0-alpha02" // Released: 18-06-20
 
         // Releases: https://github.com/GradleUp/auto-manifest/releases
         const val ANDROID_MANIFEST = "1.0.2" // Released: 24-05-20
