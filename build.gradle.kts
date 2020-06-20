@@ -279,6 +279,8 @@ fun Test.testJUnit5() {
 }
 
 fun KaptExtension.kapt() {
+    strictMode = true
+    showProcessorTimings = true
     useBuildCache = true
 }
 
