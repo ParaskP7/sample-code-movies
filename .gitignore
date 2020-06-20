@@ -46,3 +46,11 @@ fastlane/Preview.html
 fastlane/screenshots
 fastlane/test_output
 fastlane/readme.md
+
+# Gradle Profiler
+gradle-user-home/
+profile-out/
+profile-out.*/
+benchmark.csv
+benchmark.html
+profile.log
