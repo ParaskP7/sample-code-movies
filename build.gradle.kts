@@ -375,7 +375,19 @@ fun LintOptions.lintOptions() {
 }
 
 fun BaseExtension.buildFeatures() {
-    buildFeatures.viewBinding = true
+    buildFeatures.apply {
+        aidl = false
+        compose = false
+        buildConfig = false
+        prefab = false
+        renderScript = false
+        resValues = false
+        shaders = false
+        viewBinding = false
+        dataBinding {
+            isEnabled = false
+        }
+    }
 }
 
 fun LibraryExtension.variantOptions() {

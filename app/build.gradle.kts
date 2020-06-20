@@ -27,6 +27,10 @@ plugins {
 android {
     defaultConfig { defaultConfig() }
     buildTypes { buildTypes() }
+    buildFeatures {
+        viewBinding = true
+        buildConfig = true
+    }
 }
 
 dependencies {

@@ -11,6 +11,10 @@ plugins {
     id(Plugins.Id.Dependency.VERSIONS)
 }
 
+android.buildFeatures {
+    buildConfig = true
+}
+
 dependencies {
     implementation(project(Projects.Implementation.Kotlin.UTILS))
 

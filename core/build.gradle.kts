@@ -13,6 +13,10 @@ plugins {
     id(Plugins.Id.Test.COVERAGE)
 }
 
+android.buildFeatures {
+    viewBinding = true
+}
+
 dependencies {
     implementation(project(Projects.Implementation.Kotlin.DOMAIN))
     implementation(project(Projects.Implementation.Android.Core.ANDROID_UTILS))
