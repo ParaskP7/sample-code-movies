@@ -12,7 +12,7 @@ import org.robolectric.annotation.Config
 
 @RunWith(RobolectricTestRunner::class)
 @Config(application = TestApp::class)
-class InfiniteScrollListenerTest {
+class InfiniteScrollListenerRobolectricTest {
 
     private val layoutManagerMock = mockk<LinearLayoutManager>()
     private val listenerMock = mockk<InfiniteScrollListener.Listener>()
