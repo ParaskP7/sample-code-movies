@@ -1,9 +1,9 @@
-package io.petros.movies.app.robot.movies
+package io.petros.movies.app.robot.app.movies
 
-import io.petros.movies.android_test.robot.actions.Actions
-import io.petros.movies.android_test.robot.actions.ScopedActions
-import io.petros.movies.android_test.robot.actions.UiActions
-import io.petros.movies.android_test.robot.utils.idMatcher
+import io.petros.movies.app.robot.actions.Actions
+import io.petros.movies.app.robot.actions.ScopedActions
+import io.petros.movies.app.robot.actions.UiActions
+import io.petros.movies.app.robot.utils.idMatcher
 import io.petros.movies.feature.movies.R
 
 @Suppress("ForbiddenComment")

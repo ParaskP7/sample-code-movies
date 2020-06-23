@@ -15,11 +15,8 @@ dependencies {
     implementation(Deps.Kotlin.Coroutines.CORE)
     implementation(Deps.Kotlin.Coroutines.Test.TEST)
     implementation(Deps.Material.MATERIAL)
-    implementation(Deps.Android.Core.RECYCLER_VIEW)
     implementation(Deps.Android.Arch.Core.RUNTIME)
     implementation(Deps.Android.Test.CORE)
-    implementation(Deps.Android.Test.Espresso.CORE)
-    implementation(Deps.Log.TIMBER)
     implementation(Deps.Test.Spek.DSL)
     implementation(Deps.Test.Spek.J_UNIT_5)
     runtimeOnly(Deps.Kotlin.Core.KOTLIN_REFLECT)
@@ -32,12 +29,6 @@ dependencyAnalysis {
         onUnusedDependencies {
             exclude(
                 Deps.Material.MATERIAL.identifier() // Ignore remove advise. Required for theme purposes.
-            )
-        }
-        onUsedTransitiveDependencies {
-            exclude(
-                Deps.Test.Hamcrest.CORE.identifier(), // Ignore add to 'api' advice. Otherwise, Espresso fails.
-                Deps.Test.Hamcrest.LIBRARY.identifier() // Ignore add to 'implementation' advice. Otherwise, Espresso fails.
             )
         }
         onIncorrectConfiguration {

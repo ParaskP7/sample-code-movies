@@ -1,4 +1,4 @@
-package io.petros.movies.android_test.robot.utils
+package io.petros.movies.app.robot.utils
 
 import android.view.View
 import androidx.annotation.IdRes

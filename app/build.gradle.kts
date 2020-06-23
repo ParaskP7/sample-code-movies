@@ -60,7 +60,6 @@ dependencies {
     implementation(Deps.Log.TIMBER)
 
     androidTestImplementation(project(Projects.TestImplementation.Kotlin.TEST))
-    androidTestImplementation(project(Projects.TestImplementation.Android.ANDROID_TEST))
 
     androidTestImplementation(Deps.Android.Test.CORE)
     androidTestImplementation(Deps.Android.Test.RULES)

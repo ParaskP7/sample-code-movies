@@ -1,10 +1,10 @@
-package io.petros.movies.app.robot.picker
+package io.petros.movies.app.robot.app.picker
 
-import io.petros.movies.android_test.robot.actions.Actions
-import io.petros.movies.android_test.robot.actions.ScopedActions
-import io.petros.movies.android_test.robot.actions.UiActions
-import io.petros.movies.android_test.robot.utils.idMatcher
-import io.petros.movies.android_test.robot.utils.textMatcher
+import io.petros.movies.app.robot.actions.Actions
+import io.petros.movies.app.robot.actions.ScopedActions
+import io.petros.movies.app.robot.actions.UiActions
+import io.petros.movies.app.robot.utils.idMatcher
+import io.petros.movies.app.robot.utils.textMatcher
 import io.petros.movies.lib.picker.R
 
 class YearPickerRobot : ScopedActions(idMatcher(R.id.monthPicker)) {

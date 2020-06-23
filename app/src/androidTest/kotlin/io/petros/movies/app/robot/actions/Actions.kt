@@ -1,4 +1,4 @@
-package io.petros.movies.android_test.robot.actions
+package io.petros.movies.app.robot.actions
 
 @DslMarker
 annotation class ActionsMarker

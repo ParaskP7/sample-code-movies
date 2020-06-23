@@ -1,9 +1,9 @@
-package io.petros.movies.app.robot.movie_details
+package io.petros.movies.app.robot.app.movie_details
 
-import io.petros.movies.android_test.robot.actions.Actions
-import io.petros.movies.android_test.robot.actions.ScopedActions
-import io.petros.movies.android_test.robot.actions.UiActions
-import io.petros.movies.android_test.robot.utils.idMatcher
+import io.petros.movies.app.robot.actions.Actions
+import io.petros.movies.app.robot.actions.ScopedActions
+import io.petros.movies.app.robot.actions.UiActions
+import io.petros.movies.app.robot.utils.idMatcher
 import io.petros.movies.feature.movie.details.R
 
 class MovieDetailsScreenRobot : ScopedActions(idMatcher(R.id.ctrMovieDetails)) {

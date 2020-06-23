@@ -1,13 +1,13 @@
-package io.petros.movies.app.robot.movies
+package io.petros.movies.app.robot.app.movies
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.contrib.RecyclerViewActions
-import io.petros.movies.android_test.robot.actions.Actions
-import io.petros.movies.android_test.robot.actions.ScopedActions
-import io.petros.movies.android_test.robot.utils.RecyclerViewMatcher
-import io.petros.movies.android_test.robot.utils.idMatcher
+import io.petros.movies.app.robot.actions.Actions
+import io.petros.movies.app.robot.actions.ScopedActions
+import io.petros.movies.app.robot.utils.RecyclerViewMatcher
+import io.petros.movies.app.robot.utils.idMatcher
 import io.petros.movies.feature.movies.R
 import org.hamcrest.Matcher
 import org.hamcrest.TypeSafeMatcher
