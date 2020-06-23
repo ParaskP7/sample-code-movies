@@ -4,14 +4,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
-import io.petros.movies.android_test.app.TestApp
+import io.petros.movies.android_test.runner.CustomRobolectricTestRunner
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.robolectric.RobolectricTestRunner
-import org.robolectric.annotation.Config
 
-@RunWith(RobolectricTestRunner::class)
-@Config(application = TestApp::class)
+@RunWith(CustomRobolectricTestRunner::class)
 class InfiniteScrollListenerRobolectricTest {
 
     private val layoutManagerMock = mockk<LinearLayoutManager>()

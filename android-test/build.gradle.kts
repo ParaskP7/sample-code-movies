@@ -17,9 +17,14 @@ dependencies {
     implementation(Deps.Material.MATERIAL)
     implementation(Deps.Android.Arch.Core.RUNTIME)
     implementation(Deps.Android.Test.CORE)
+    implementation(Deps.Test.JUnit.J_UNIT_4)
     implementation(Deps.Test.Spek.DSL)
     implementation(Deps.Test.Spek.J_UNIT_5)
     runtimeOnly(Deps.Kotlin.Core.KOTLIN_REFLECT)
+    implementation(Deps.Android.Test.Robolectric.ROBOLECTRIC) {
+        exclude(Deps.Android.Test.Robolectric.Exclude.MAVEN)
+    }
+    implementation(Deps.Android.Test.Robolectric.ANNOTATIONS)
 
     detektPlugins(Plugins.DETEKT_FORMATTING)
 }
@@ -28,14 +33,16 @@ dependencyAnalysis {
     issues {
         onUnusedDependencies {
             exclude(
-                Deps.Material.MATERIAL.identifier() // Ignore remove advise. Required for theme purposes.
+                Deps.Material.MATERIAL.identifier(), // Ignore remove advise. Required for theme purposes.
+                Deps.Test.JUnit.J_UNIT_4.identifier() // Ignore remove advise. Required because of Robolectric.
             )
         }
         onIncorrectConfiguration {
             exclude(
                 Deps.Kotlin.Core.KOTLIN.identifier(), // Ignore change to 'api' advice.
                 Deps.Kotlin.Coroutines.Test.TEST.identifier(), // Ignore change to 'api' advice.
-                Deps.Test.Spek.DSL.identifier() // Ignore change to 'api' advice.
+                Deps.Test.Spek.DSL.identifier(), // Ignore change to 'api' advice.
+                Deps.Android.Test.Robolectric.ROBOLECTRIC.identifier() // Ignore change to 'api' advice.
             )
         }
     }

@@ -5,22 +5,19 @@ import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
 import io.mockk.mockk
 import io.mockk.verify
-import io.petros.movies.android_test.app.TestApp
 import io.petros.movies.android_test.context.TestContextProvider.context
+import io.petros.movies.android_test.runner.CustomRobolectricTestRunner
 import io.petros.movies.feature.movies.R
 import io.petros.movies.utils.MonthOfYear
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.robolectric.RobolectricTestRunner
-import org.robolectric.annotation.Config
 import strikt.api.expect
 import strikt.assertions.isEqualTo
 import strikt.assertions.isFalse
 import strikt.assertions.isNull
 import strikt.assertions.isTrue
 
-@RunWith(RobolectricTestRunner::class)
-@Config(application = TestApp::class)
+@RunWith(CustomRobolectricTestRunner::class)
 class MoviesToolbarRobolectricTest {
 
     private val context = context()

@@ -3,22 +3,19 @@ package io.petros.movies.core.list.infinite
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import io.mockk.mockk
-import io.petros.movies.android_test.app.TestApp
 import io.petros.movies.android_test.context.TestContextProvider.context
+import io.petros.movies.android_test.runner.CustomRobolectricTestRunner
 import io.petros.movies.domain.model.common.PaginationData
 import io.petros.movies.domain.model.movie.Movie
 import io.petros.movies.domain.model.movie.MoviesPage
 import io.petros.movies.test.domain.movie
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.robolectric.RobolectricTestRunner
-import org.robolectric.annotation.Config
 import strikt.api.expect
 import strikt.assertions.isEqualTo
 import strikt.assertions.isNull
 
-@RunWith(RobolectricTestRunner::class)
-@Config(application = TestApp::class)
+@RunWith(CustomRobolectricTestRunner::class)
 class InfiniteAdapterRobolectricTest {
 
     companion object {

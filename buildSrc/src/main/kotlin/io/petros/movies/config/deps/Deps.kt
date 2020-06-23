@@ -139,6 +139,13 @@ object Deps {
             object Robolectric {
 
                 val ROBOLECTRIC = "org.robolectric:robolectric:${Versions.Android.Test.ROBOLECTRIC}"
+                val ANNOTATIONS = "org.robolectric:annotations:${Versions.Android.Test.ROBOLECTRIC}"
+
+                object Exclude {
+
+                    const val MAVEN = "org.apache.maven"
+
+                }
 
             }
 

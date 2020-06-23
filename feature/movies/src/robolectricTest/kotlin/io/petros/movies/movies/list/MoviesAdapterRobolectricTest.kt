@@ -3,8 +3,8 @@ package io.petros.movies.movies.list
 import androidx.recyclerview.widget.RecyclerView
 import io.mockk.mockk
 import io.mockk.verify
-import io.petros.movies.android_test.app.TestApp
 import io.petros.movies.android_test.context.TestContextProvider.context
+import io.petros.movies.android_test.runner.CustomRobolectricTestRunner
 import io.petros.movies.core.list.AdapterStatus
 import io.petros.movies.core.list.ProgressViewHolder
 import io.petros.movies.movies.list.MoviesAdapter.Companion.VIEW_TYPE_MOVIE
@@ -12,15 +12,12 @@ import io.petros.movies.movies.list.MoviesAdapter.Companion.VIEW_TYPE_PROGRESS
 import io.petros.movies.test.domain.movie
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.robolectric.RobolectricTestRunner
-import org.robolectric.annotation.Config
 import strikt.api.expect
 import strikt.assertions.isEqualTo
 import strikt.assertions.isFalse
 import strikt.assertions.isTrue
 
-@RunWith(RobolectricTestRunner::class)
-@Config(application = TestApp::class)
+@RunWith(CustomRobolectricTestRunner::class)
 class MoviesAdapterRobolectricTest {
 
     private val recyclerView = RecyclerView(context())
