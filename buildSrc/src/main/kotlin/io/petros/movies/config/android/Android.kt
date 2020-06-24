@@ -5,8 +5,8 @@ object Android {
     object Sdk {
 
         const val MIN = 21
-        const val TARGET = 29
-        const val COMPILE = 29
+        const val TARGET = 30
+        const val COMPILE = 30
 
     }
 
