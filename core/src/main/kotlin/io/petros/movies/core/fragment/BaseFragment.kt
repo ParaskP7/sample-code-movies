@@ -1,5 +1,6 @@
 package io.petros.movies.core.fragment
 
+import android.content.Context
 import android.content.res.Configuration
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -16,6 +17,16 @@ abstract class BaseFragment<
     abstract val binding: BINDING
 
     /* LIFECYCLE */
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        Timber.v("${javaClass.simpleName} created. [Bundle: $savedInstanceState]")
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        Timber.v("${javaClass.simpleName} attached. [Context: $context]")
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         Timber.v("${javaClass.simpleName} create view. [Container: $container, Bundle: $savedInstanceState]")
@@ -70,6 +81,11 @@ abstract class BaseFragment<
     override fun onDestroy() {
         Timber.v("${javaClass.simpleName} destroyed.")
         super.onDestroy()
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+        Timber.v("${javaClass.simpleName} detached.")
     }
 
 }
