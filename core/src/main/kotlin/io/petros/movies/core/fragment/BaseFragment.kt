@@ -18,14 +18,14 @@ abstract class BaseFragment<
 
     /* LIFECYCLE */
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        Timber.v("${javaClass.simpleName} created. [Bundle: $savedInstanceState]")
-    }
-
     override fun onAttach(context: Context) {
         super.onAttach(context)
         Timber.v("${javaClass.simpleName} attached. [Context: $context]")
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        Timber.v("${javaClass.simpleName} created. [Bundle: $savedInstanceState]")
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
