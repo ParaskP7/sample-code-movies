@@ -119,6 +119,12 @@ object Deps {
 
             }
 
+            object CustomView {
+
+                val CUSTOM_VIEW = "androidx.customview:customview:${Versions.Android.Arch.CustomView.CUSTOM_VIEW}"
+
+            }
+
         }
 
         object Test {

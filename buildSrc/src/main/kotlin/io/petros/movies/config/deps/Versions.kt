@@ -82,7 +82,14 @@ object Versions {
             object Navigation {
 
                 // Releases: https://developer.android.com/jetpack/androidx/releases/navigation
-                const val NAVIGATION = "2.2.2" // Released: 22-01-20
+                const val NAVIGATION = "2.3.0" // Released: 24-06-20
+
+            }
+
+            object CustomView {
+
+                // Releases: https://developer.android.com/jetpack/androidx/releases/customview
+                const val CUSTOM_VIEW = "1.1.0" // Release: 24-06-20
 
             }
 

@@ -55,6 +55,7 @@ dependencies {
     implementation(Deps.Android.Arch.Navigation.UI)
     implementation(Deps.Android.Arch.Navigation.UI_KTX)
     implementation(Deps.Android.Arch.Navigation.FRAGMENT_KTX)
+    implementation(Deps.Android.Arch.CustomView.CUSTOM_VIEW)
     implementation(Deps.Di.Koin.Kotlin.CORE)
     implementation(Deps.Di.Koin.Android.ANDROID)
     implementation(Deps.Log.TIMBER)
