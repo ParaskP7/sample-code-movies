@@ -16,7 +16,7 @@ object Plugins {
         const val ANDROID_MANIFEST = "1.0.2" // Released: 24-05-20
 
         // Releases: https://github.com/detekt/detekt/releases
-        const val DETEKT = "1.9.1" // Released: 17-05-20
+        const val DETEKT = "1.10.0" // Released: 27-06-20
 
         // Releases: https://github.com/mannodermaus/android-junit5/releases (not working with 'dependencyUpdates')
         const val ANDROID_J_UNIT_5 = "1.6.2.0" // Released: 03-05-20

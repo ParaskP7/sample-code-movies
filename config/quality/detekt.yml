@@ -1,3 +1,4 @@
+# Default Detekt Config: https://github.com/detekt/detekt/blob/master/detekt-core/src/main/resources/default-detekt-config.yml
 build:
   maxIssues: 0
   excludeCorrectable: false
@@ -28,7 +29,7 @@ console-reports:
     - 'ProjectStatisticsReport'
     - 'ComplexityReport'
     - 'NotificationReport'
-  # - 'FindingsReport'
+    # - 'FindingsReport'
     - 'FileBasedFindingsReport'
 
 comments:
@@ -298,8 +299,9 @@ formatting:
   ImportOrdering:
     active: false
     autoCorrect: true
+    layout: 'idea'
   Indentation:
-    active: true
+    active: false
     autoCorrect: true
     indentSize: 4
     continuationIndentSize: 4
@@ -366,6 +368,9 @@ formatting:
   SpacingAroundDot:
     active: true
     autoCorrect: true
+  SpacingAroundDoubleColon:
+    active: true
+    autoCorrect: true
   SpacingAroundKeyword:
     active: true
     autoCorrect: true
@@ -376,6 +381,12 @@ formatting:
     active: true
     autoCorrect: true
   SpacingAroundRangeOperator:
+    active: true
+    autoCorrect: true
+  SpacingBetweenDeclarationsWithAnnotations:
+    active: true
+    autoCorrect: true
+  SpacingBetweenDeclarationsWithComments:
     active: true
     autoCorrect: true
   StringTemplate:
@@ -480,6 +491,7 @@ naming:
     functionPattern: '([a-z][a-zA-Z0-9]*)|(`.*`)'
     excludeClassPattern: '$^'
     ignoreOverridden: true
+    ignoreAnnotated: ['Composable']
   FunctionParameterNaming:
     active: true
     excludes: [
@@ -635,8 +647,15 @@ potential-bugs:
     active: true
   HasPlatformType:
     active: true
+  IgnoredReturnValue:
+    active: true
+    restrictToAnnotatedMethods: true
+    returnValueAnnotations: ['*.CheckReturnValue', '*.CheckResult']
   ImplicitDefaultLocale:
     active: true
+  ImplicitUnitReturnType:
+    active: true
+    allowExplicitReturnType: true
   InvalidRange:
     active: true
   IteratorHasNextCallsNextMethod:
@@ -714,7 +733,10 @@ style:
     forbiddenPatterns: ''
   ForbiddenMethodCall:
     active: true
-    methods: []
+    methods: [
+      'kotlin.io.println',
+      'kotlin.io.print'
+    ]
   ForbiddenPublicDataClass:
     active: true
     ignorePackages: [
