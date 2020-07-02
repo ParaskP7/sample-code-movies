@@ -16,7 +16,7 @@ class MonthPickerRobot : ScopedActions(idMatcher(R.id.monthPicker)) {
 
         // TODO: Revert to 'Apr' by specifically selecting the month during testing
         @Suppress("unused") const val MOVIE_MONTH_PICKER_MONTH_APR = "Apr"
-        const val MOVIE_MONTH_PICKER_MONTH_JUNE = "Jun"
+        const val MOVIE_MONTH_PICKER_MONTH_JULY = "Jul"
 
         private const val ACTION_OK = "OK"
 
