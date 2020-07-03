@@ -9,7 +9,7 @@ import io.petros.movies.lib.picker.R
 import java.util.*
 
 class MovieYearPickerFragment(
-    private val onYearPicked: (Int) -> Unit
+    private val onYearPicked: (Int) -> Unit,
 ) : DialogFragment(),
     MonthPickerDialog.OnDateSetListener {
 

@@ -27,7 +27,7 @@ class MoviesStateSpek : Spek({
                             year = null,
                             month = null,
                             status = MoviesStatus.Init,
-                            movies = PaginationData()
+                            movies = PaginationData(),
                         )
                     )
                 }
@@ -44,7 +44,7 @@ class MoviesStateSpek : Spek({
                     year = null,
                     month = null,
                     status = MoviesStatus.Init,
-                    movies = PaginationData()
+                    movies = PaginationData(),
                 )
             }
             When("reduce is triggered") {
@@ -57,7 +57,7 @@ class MoviesStateSpek : Spek({
                             year = MOVIE_YEAR,
                             month = MOVIE_MONTH,
                             status = MoviesStatus.Idle,
-                            movies = PaginationData()
+                            movies = PaginationData(),
                         )
                     )
                 }
@@ -71,7 +71,7 @@ class MoviesStateSpek : Spek({
                     year = MOVIE_YEAR,
                     month = MOVIE_MONTH,
                     status = MoviesStatus.Idle,
-                    movies = PaginationData()
+                    movies = PaginationData(),
                 )
             }
             When("reduce is triggered") {
@@ -84,7 +84,7 @@ class MoviesStateSpek : Spek({
                             year = MOVIE_YEAR,
                             month = MOVIE_MONTH,
                             status = MoviesStatus.Loading,
-                            movies = PaginationData()
+                            movies = PaginationData(),
                         )
                     )
                 }
@@ -102,8 +102,8 @@ class MoviesStateSpek : Spek({
                     movies = PaginationData(
                         moviesPage.items,
                         moviesPage,
-                        moviesPage.nextPage
-                    )
+                        moviesPage.nextPage,
+                    ),
                 )
             }
             When("reduce is triggered") {
@@ -116,7 +116,7 @@ class MoviesStateSpek : Spek({
                             year = MOVIE_YEAR,
                             month = MOVIE_MONTH,
                             status = MoviesStatus.Loaded,
-                            movies = PaginationData()
+                            movies = PaginationData(),
                         )
                     )
                 }
@@ -132,7 +132,7 @@ class MoviesStateSpek : Spek({
                     year = MOVIE_YEAR,
                     month = MOVIE_MONTH,
                     status = MoviesStatus.Loading,
-                    movies = paginationData
+                    movies = paginationData,
                 )
             }
             When("reduce is triggered") {
@@ -148,8 +148,8 @@ class MoviesStateSpek : Spek({
                             movies = PaginationData(
                                 previousState.movies.allPageItems + moviesPage.items,
                                 moviesPage,
-                                moviesPage.nextPage
-                            )
+                                moviesPage.nextPage,
+                            ),
                         )
                     )
                 }
@@ -167,7 +167,7 @@ class MoviesStateSpek : Spek({
                     movies = PaginationData(
                         moviesPage.items,
                         moviesPage,
-                        moviesPage.nextPage
+                        moviesPage.nextPage,
                     )
                 )
             }
@@ -184,8 +184,8 @@ class MoviesStateSpek : Spek({
                             movies = PaginationData(
                                 previousState.movies.allPageItems,
                                 MoviesPage(moviesPage.nextPage, emptyList()),
-                                moviesPage.nextPage
-                            )
+                                moviesPage.nextPage,
+                            ),
                         )
                     )
                 }

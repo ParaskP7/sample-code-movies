@@ -10,5 +10,5 @@ private fun useCaseModule() = module {
 }
 
 fun domainModule() = listOf(
-    useCaseModule()
+    useCaseModule(),
 )

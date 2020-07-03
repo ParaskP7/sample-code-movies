@@ -14,7 +14,7 @@ import org.hamcrest.Matchers.anyOf
 import timber.log.Timber
 
 open class UiActions(
-    private val matcher: () -> Matcher<View>
+    private val matcher: () -> Matcher<View>,
 ) : ScopedActions(matcher) {
 
     fun performClick(): Actions {
@@ -24,7 +24,7 @@ open class UiActions(
     }
 
     fun hasText(
-        text: String
+        text: String,
     ): Actions {
         onView(withText(text))
             .check(matches(isDisplayed()))
@@ -33,7 +33,7 @@ open class UiActions(
 
     @Suppress("SwallowedException")
     fun hasTextIgnoreMultipleViews(
-        text: String
+        text: String,
     ): Actions {
         try {
             onView(withText(text))
@@ -45,7 +45,7 @@ open class UiActions(
     }
 
     fun hasTextInside(
-        text: String
+        text: String,
     ): Actions {
         onView(allOf(withText(text), anyOf(isDescendantOfA(matcher()), matcher())))
             .check(matches(isDisplayed()))

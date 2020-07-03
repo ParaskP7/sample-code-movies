@@ -3,7 +3,7 @@ package io.petros.movies.utils
 @Suppress("MagicNumber")
 enum class MonthOfYear(
     val number: Int,
-    val label: String
+    val label: String,
 ) {
 
     JANUARY(0, "January"),
@@ -18,7 +18,8 @@ enum class MonthOfYear(
     OCTOBER(9, "October"),
     NOVEMBER(10, "November"),
     DECEMBER(11, "December"),
-    UNKNOWN_MONTH(-1, "Month");
+    UNKNOWN_MONTH(-1, "Month"),
+    ;
 
     @Suppress("RemoveRedundantQualifierName")
     companion object {

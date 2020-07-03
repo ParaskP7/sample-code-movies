@@ -54,7 +54,7 @@ class MovieDetailsViewModelTest {
             stateMock.onChanged(
                 MovieDetailsState(
                     status = MovieDetailsStatus.Init,
-                    movie = moviePlaceholder
+                    movie = moviePlaceholder,
                 )
             )
         }
@@ -70,7 +70,7 @@ class MovieDetailsViewModelTest {
             stateMock.onChanged(
                 MovieDetailsState(
                     status = MovieDetailsStatus.Idle,
-                    movie = moviePlaceholder
+                    movie = moviePlaceholder,
                 )
             )
         }
@@ -86,7 +86,7 @@ class MovieDetailsViewModelTest {
             stateMock.onChanged(
                 MovieDetailsState(
                     status = MovieDetailsStatus.Loading,
-                    movie = moviePlaceholder
+                    movie = moviePlaceholder,
                 )
             )
         }
@@ -109,7 +109,7 @@ class MovieDetailsViewModelTest {
             stateMock.onChanged(
                 MovieDetailsState(
                     status = MovieDetailsStatus.Loaded,
-                    movie = movie.value
+                    movie = movie.value,
                 )
             )
         }
@@ -125,7 +125,7 @@ class MovieDetailsViewModelTest {
             stateMock.onChanged(
                 MovieDetailsState(
                     status = MovieDetailsStatus.Loaded,
-                    movie = moviePlaceholder
+                    movie = moviePlaceholder,
                 )
             )
         }

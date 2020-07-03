@@ -6,7 +6,7 @@ import org.robolectric.RobolectricTestRunner
 import org.robolectric.annotation.Config
 
 class CustomRobolectricTestRunner(
-    testClass: Class<Any>
+    testClass: Class<Any>,
 ) : RobolectricTestRunner(testClass) {
 
     override fun buildGlobalConfig(): Config {

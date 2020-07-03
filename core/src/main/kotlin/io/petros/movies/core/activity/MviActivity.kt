@@ -9,7 +9,7 @@ abstract class MviActivity<
         BINDING : Any,
         INTENT : Any,
         STATE : Any,
-        SIDE_EFFECT : Any
+        SIDE_EFFECT : Any,
         > : BaseActivity<BINDING>() {
 
     abstract val viewModel: MviViewModel<INTENT, STATE, SIDE_EFFECT>

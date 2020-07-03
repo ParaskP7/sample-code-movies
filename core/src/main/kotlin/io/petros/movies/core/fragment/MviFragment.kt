@@ -9,7 +9,7 @@ abstract class MviFragment<
         BINDING : Any,
         INTENT : Any,
         STATE : Any,
-        SIDE_EFFECT : Any
+        SIDE_EFFECT : Any,
         >(layout: Int) : BaseFragment<BINDING>(layout) {
 
     abstract val viewModel: MviViewModel<INTENT, STATE, SIDE_EFFECT>

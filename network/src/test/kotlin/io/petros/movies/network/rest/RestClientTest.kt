@@ -59,7 +59,15 @@ class RestClientTest {
                 "uncover the truth about a lost expedition that decades before boldly faced emptiness and " +
                 "silence in search of the unknown."
         val backdrop = "http://image.tmdb.org/t/p/w500/5BwqwxMEjeFtdknRV792Svo0K1v.jpg"
-        val movieRaw = MovieRaw(voteCount, MOVIE_ID, voteAverage, title, backdrop, overview, releaseDate)
+        val movieRaw = MovieRaw(
+            voteCount,
+            MOVIE_ID,
+            voteAverage,
+            title,
+            backdrop,
+            overview,
+            releaseDate,
+        )
         val movie = movie(
             MOVIE_ID,
             title,
@@ -67,7 +75,7 @@ class RestClientTest {
             voteAverage,
             voteCount,
             overview,
-            MovieRaw.IMAGE_URL_PREFIX + backdrop
+            MovieRaw.IMAGE_URL_PREFIX + backdrop,
         )
         coEvery { restApiMock.loadMovie(MOVIE_ID) } returns movieRaw
 

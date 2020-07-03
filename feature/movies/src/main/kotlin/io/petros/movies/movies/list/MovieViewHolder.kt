@@ -7,7 +7,7 @@ import io.petros.movies.movies.list.item.MovieItemView
 
 class MovieViewHolder(
     itemView: MovieItemView,
-    private val itemCallback: MovieItemCallback?
+    private val itemCallback: MovieItemCallback?,
 ) : RecyclerView.ViewHolder(itemView) {
 
     fun bind(movie: Movie) {

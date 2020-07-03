@@ -42,7 +42,7 @@ class MovieDetailsViewModelSpek : ViewModelSpek({
                     stateMock.onChanged(
                         MovieDetailsState(
                             status = MovieDetailsStatus.Init,
-                            movie = moviePlaceholder
+                            movie = moviePlaceholder,
                         )
                     )
                 }
@@ -62,7 +62,7 @@ class MovieDetailsViewModelSpek : ViewModelSpek({
                     stateMock.onChanged(
                         MovieDetailsState(
                             status = MovieDetailsStatus.Idle,
-                            movie = moviePlaceholder
+                            movie = moviePlaceholder,
                         )
                     )
                 }
@@ -82,7 +82,7 @@ class MovieDetailsViewModelSpek : ViewModelSpek({
                     stateMock.onChanged(
                         MovieDetailsState(
                             status = MovieDetailsStatus.Loading,
-                            movie = moviePlaceholder
+                            movie = moviePlaceholder,
                         )
                     )
                 }
@@ -104,7 +104,7 @@ class MovieDetailsViewModelSpek : ViewModelSpek({
                     stateMock.onChanged(
                         MovieDetailsState(
                             status = MovieDetailsStatus.Loaded,
-                            movie = movie.value
+                            movie = movie.value,
                         )
                     )
                 }
@@ -126,7 +126,7 @@ class MovieDetailsViewModelSpek : ViewModelSpek({
                     stateMock.onChanged(
                         MovieDetailsState(
                             status = MovieDetailsStatus.Loaded,
-                            movie = moviePlaceholder
+                            movie = moviePlaceholder,
                         )
                     )
                 }

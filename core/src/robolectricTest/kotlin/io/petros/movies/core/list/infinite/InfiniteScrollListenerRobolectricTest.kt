@@ -56,7 +56,7 @@ class InfiniteScrollListenerRobolectricTest {
         isLoading: Boolean,
         nextPage: Int?,
         lastVisibleItemPosition: Int,
-        dy: Int = 1
+        dy: Int = 1,
     ) {
         every { listenerMock.isLoading() } returns isLoading
         every { listenerMock.nextPage() } returns nextPage

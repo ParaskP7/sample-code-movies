@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 
 class InfiniteRecyclerView(
     ctx: Context,
-    attrs: AttributeSet? = null
+    attrs: AttributeSet? = null,
 ) : RecyclerView(ctx, attrs),
     InfiniteScrollListener.Listener {
 

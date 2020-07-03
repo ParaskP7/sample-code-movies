@@ -5,13 +5,13 @@ import io.petros.movies.domain.model.movie.MoviesPage
 data class MoviesPageRaw(
     private val page: Int,
     private val total_pages: Int,
-    private val results: List<MovieRaw>
+    private val results: List<MovieRaw>,
 ) {
 
     fun toMoviesPage(): MoviesPage {
         return MoviesPage(
             if (page < total_pages) page + 1 else null,
-            results.map { it.toMovie() }
+            results.map { it.toMovie() },
         )
     }
 

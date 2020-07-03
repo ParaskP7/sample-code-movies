@@ -13,7 +13,7 @@ import org.hamcrest.Matcher
 import org.hamcrest.TypeSafeMatcher
 
 class MoviesListRobot(
-    private val matcher: () -> Matcher<View> = idMatcher(R.id.recyclerView)
+    private val matcher: () -> Matcher<View> = idMatcher(R.id.recyclerView),
 ) : ScopedActions(matcher) {
 
     fun inItem(position: Int, action: MovieItemRobot.() -> Actions): Actions {

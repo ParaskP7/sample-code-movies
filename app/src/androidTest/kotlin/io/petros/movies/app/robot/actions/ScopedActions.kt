@@ -8,7 +8,7 @@ import org.hamcrest.Matcher
 import org.hamcrest.Matchers.not
 
 open class ScopedActions(
-    private val matcher: () -> Matcher<View>
+    private val matcher: () -> Matcher<View>,
 ) : Actions {
 
     fun isShown(): Actions {

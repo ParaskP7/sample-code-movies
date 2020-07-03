@@ -16,7 +16,7 @@ import timber.log.Timber
 @Suppress("TooManyFunctions", "MemberVisibilityCanBePrivate")
 class MoviesToolbar(
     ctx: Context,
-    attrs: AttributeSet? = null
+    attrs: AttributeSet? = null,
 ) : LinearLayout(ctx, attrs) {
 
     companion object {

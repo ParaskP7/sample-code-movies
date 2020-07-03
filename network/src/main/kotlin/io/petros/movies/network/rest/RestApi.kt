@@ -15,13 +15,13 @@ interface RestApi {
         @Query("primary_release_date.lte") releaseDateLte: String? = null,
         @Query("page") page: Int? = null,
         @Query("sort_by") sortBy: String = "popularity.desc",
-        @Query("api_key") clientId: String = THEMOVIEDB_API_KEY
+        @Query("api_key") clientId: String = THEMOVIEDB_API_KEY,
     ): MoviesPageRaw
 
     @GET("3/movie/{movie_id}")
     suspend fun loadMovie(
         @Path("movie_id") id: Int,
-        @Query("api_key") clientId: String = THEMOVIEDB_API_KEY
+        @Query("api_key") clientId: String = THEMOVIEDB_API_KEY,
     ): MovieRaw
 
 }

@@ -15,7 +15,7 @@ import org.spekframework.spek2.dsl.Root
 @SuppressLint("SyntheticAccessor")
 abstract class ViewModelSpek(
     val viewModelRoot: Root.() -> Unit,
-    private val dispatcher: TestCoroutineDispatcher = TestCoroutineDispatcher()
+    private val dispatcher: TestCoroutineDispatcher = TestCoroutineDispatcher(),
 ) : Spek({
     coroutinesTestRule(dispatcher)
     instantTaskExecutorRule()

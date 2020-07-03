@@ -30,7 +30,7 @@ class MoviesStateTest {
                     year = null,
                     month = null,
                     status = MoviesStatus.Init,
-                    movies = PaginationData()
+                    movies = PaginationData(),
                 )
             )
         }
@@ -42,7 +42,7 @@ class MoviesStateTest {
             year = null,
             month = null,
             status = MoviesStatus.Init,
-            movies = PaginationData()
+            movies = PaginationData(),
         )
 
         val result = MoviesReducer.reduce(previousState, MoviesAction.Idle(MOVIE_YEAR, MOVIE_MONTH))
@@ -53,7 +53,7 @@ class MoviesStateTest {
                     year = MOVIE_YEAR,
                     month = MOVIE_MONTH,
                     status = MoviesStatus.Idle,
-                    movies = PaginationData()
+                    movies = PaginationData(),
                 )
             )
         }
@@ -65,7 +65,7 @@ class MoviesStateTest {
             year = MOVIE_YEAR,
             month = MOVIE_MONTH,
             status = MoviesStatus.Idle,
-            movies = PaginationData()
+            movies = PaginationData(),
         )
 
         val result = MoviesReducer.reduce(previousState, MoviesAction.Load(MOVIE_YEAR, MOVIE_MONTH))
@@ -76,7 +76,7 @@ class MoviesStateTest {
                     year = MOVIE_YEAR,
                     month = MOVIE_MONTH,
                     status = MoviesStatus.Loading,
-                    movies = PaginationData()
+                    movies = PaginationData(),
                 )
             )
         }
@@ -92,8 +92,8 @@ class MoviesStateTest {
             movies = PaginationData(
                 moviesPage.items,
                 moviesPage,
-                moviesPage.nextPage
-            )
+                moviesPage.nextPage,
+            ),
         )
 
         val result = MoviesReducer.reduce(previousState, MoviesAction.Reload(MOVIE_YEAR, MOVIE_MONTH))
@@ -104,7 +104,7 @@ class MoviesStateTest {
                     year = MOVIE_YEAR,
                     month = MOVIE_MONTH,
                     status = MoviesStatus.Loaded,
-                    movies = PaginationData()
+                    movies = PaginationData(),
                 )
             )
         }
@@ -118,7 +118,7 @@ class MoviesStateTest {
             year = MOVIE_YEAR,
             month = MOVIE_MONTH,
             status = MoviesStatus.Loading,
-            movies = paginationData
+            movies = paginationData,
         )
 
         val result = MoviesReducer.reduce(previousState, MoviesAction.Success(moviesPage))
@@ -132,8 +132,8 @@ class MoviesStateTest {
                     movies = PaginationData(
                         previousState.movies.allPageItems + moviesPage.items,
                         moviesPage,
-                        moviesPage.nextPage
-                    )
+                        moviesPage.nextPage,
+                    ),
                 )
             )
         }
@@ -149,8 +149,8 @@ class MoviesStateTest {
             movies = PaginationData(
                 moviesPage.items,
                 moviesPage,
-                moviesPage.nextPage
-            )
+                moviesPage.nextPage,
+            ),
         )
 
         val result = MoviesReducer.reduce(previousState, MoviesAction.Error)
@@ -164,8 +164,8 @@ class MoviesStateTest {
                     movies = PaginationData(
                         previousState.movies.allPageItems,
                         MoviesPage(moviesPage.nextPage, emptyList()),
-                        moviesPage.nextPage
-                    )
+                        moviesPage.nextPage,
+                    ),
                 )
             )
         }

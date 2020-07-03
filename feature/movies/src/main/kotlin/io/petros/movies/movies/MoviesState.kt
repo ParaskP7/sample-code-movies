@@ -10,7 +10,7 @@ data class MoviesState(
     val year: Int?,
     val month: Int?,
     val status: MoviesStatus,
-    val movies: PaginationData<Movie>
+    val movies: PaginationData<Movie>,
 )
 
 sealed class MoviesStatus {
@@ -35,18 +35,18 @@ sealed class MoviesIntent {
 
     data class IdleMovies(
         val year: Int? = null,
-        val month: Int? = null
+        val month: Int? = null,
     ) : MoviesIntent()
 
     data class LoadMovies(
         val year: Int? = null,
         val month: Int? = null,
-        val page: Int? = null
+        val page: Int? = null,
     ) : MoviesIntent()
 
     data class ReloadMovies(
         val year: Int? = null,
-        val month: Int? = null
+        val month: Int? = null,
     ) : MoviesIntent()
 
 }
@@ -55,21 +55,21 @@ sealed class MoviesAction {
 
     data class Idle(
         val year: Int?,
-        val month: Int?
+        val month: Int?,
     ) : MoviesAction()
 
     data class Load(
         val year: Int?,
-        val month: Int?
+        val month: Int?,
     ) : MoviesAction()
 
     data class Reload(
         val year: Int?,
-        val month: Int?
+        val month: Int?,
     ) : MoviesAction()
 
     data class Success(
-        val movies: MoviesPage
+        val movies: MoviesPage,
     ) : MoviesAction()
 
     object Error : MoviesAction()
@@ -82,40 +82,40 @@ object MoviesReducer {
         year = null,
         month = null,
         status = MoviesStatus.Init,
-        movies = PaginationData()
+        movies = PaginationData(),
     )
 
     fun reduce(previousState: MoviesState, action: MoviesAction) = when (action) {
         is MoviesAction.Idle -> previousState.copy(
             year = action.year,
             month = action.month,
-            status = MoviesStatus.Idle
+            status = MoviesStatus.Idle,
         )
         is MoviesAction.Load -> previousState.copy(
             year = action.year,
             month = action.month,
-            status = MoviesStatus.Loading
+            status = MoviesStatus.Loading,
         )
         is MoviesAction.Reload -> previousState.copy(
             year = action.year,
             month = action.month,
-            movies = PaginationData()
+            movies = PaginationData(),
         )
         is MoviesAction.Success -> previousState.copy(
             status = MoviesStatus.Loaded,
             movies = PaginationData(
                 previousState.movies.allPageItems + action.movies.items,
                 action.movies,
-                action.movies.nextPage
-            )
+                action.movies.nextPage,
+            ),
         )
         is MoviesAction.Error -> previousState.copy(
             status = MoviesStatus.Loaded,
             movies = PaginationData(
                 previousState.movies.allPageItems,
                 MoviesPage(previousState.movies.nextPage, emptyList()),
-                previousState.movies.nextPage
-            )
+                previousState.movies.nextPage,
+            ),
         )
     }
 

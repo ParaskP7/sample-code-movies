@@ -5,7 +5,7 @@ import androidx.recyclerview.widget.RecyclerView
 
 class ErrorViewHolder(
     itemView: View,
-    action: () -> Unit
+    action: () -> Unit,
 ) : RecyclerView.ViewHolder(itemView) {
 
     init {

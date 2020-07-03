@@ -47,7 +47,7 @@ class MoviesViewModelSpek : ViewModelSpek({
                             year = null,
                             month = null,
                             status = MoviesStatus.Init,
-                            movies = PaginationData()
+                            movies = PaginationData(),
                         )
                     )
                 }
@@ -69,7 +69,7 @@ class MoviesViewModelSpek : ViewModelSpek({
                             year = MOVIE_YEAR,
                             month = MOVIE_MONTH,
                             status = MoviesStatus.Idle,
-                            movies = PaginationData()
+                            movies = PaginationData(),
                         )
                     )
                 }
@@ -91,7 +91,7 @@ class MoviesViewModelSpek : ViewModelSpek({
                             year = MOVIE_YEAR,
                             month = MOVIE_MONTH,
                             status = MoviesStatus.Loading,
-                            movies = PaginationData()
+                            movies = PaginationData(),
                         )
                     )
                 }
@@ -119,8 +119,8 @@ class MoviesViewModelSpek : ViewModelSpek({
                             movies = PaginationData(
                                 paginationData.allPageItems + moviesPage.value.items,
                                 moviesPage.value,
-                                moviesPage.value.nextPage
-                            )
+                                moviesPage.value.nextPage,
+                            ),
                         )
                     )
                 }
@@ -148,8 +148,8 @@ class MoviesViewModelSpek : ViewModelSpek({
                             movies = PaginationData(
                                 paginationData.allPageItems + emptyList(),
                                 MoviesPage(paginationData.nextPage, emptyList()),
-                                paginationData.nextPage
-                            )
+                                paginationData.nextPage,
+                            ),
                         )
                     )
                 }
@@ -174,7 +174,7 @@ class MoviesViewModelSpek : ViewModelSpek({
                             year = MOVIE_YEAR,
                             month = MOVIE_MONTH,
                             status = MoviesStatus.Init,
-                            movies = PaginationData()
+                            movies = PaginationData(),
                         )
                     )
                 }
@@ -186,7 +186,7 @@ class MoviesViewModelSpek : ViewModelSpek({
                             year = MOVIE_YEAR,
                             month = MOVIE_MONTH,
                             status = MoviesStatus.Loading,
-                            movies = PaginationData()
+                            movies = PaginationData(),
                         )
                     )
                 }
@@ -214,8 +214,8 @@ class MoviesViewModelSpek : ViewModelSpek({
                             movies = PaginationData(
                                 paginationData.allPageItems + moviesPage.value.items,
                                 moviesPage.value,
-                                moviesPage.value.nextPage
-                            )
+                                moviesPage.value.nextPage,
+                            ),
                         )
                     )
                 }
@@ -243,8 +243,8 @@ class MoviesViewModelSpek : ViewModelSpek({
                             movies = PaginationData(
                                 paginationData.allPageItems + emptyList(),
                                 MoviesPage(paginationData.nextPage, emptyList()),
-                                paginationData.nextPage
-                            )
+                                paginationData.nextPage,
+                            ),
                         )
                     )
                 }

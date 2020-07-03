@@ -10,7 +10,7 @@ import timber.log.Timber
 abstract class MviViewModel<
         INTENT : Any,
         STATE : Any,
-        SIDE_EFFECT : Any
+        SIDE_EFFECT : Any,
         > : ViewModel() {
 
     private val _stateLiveData: MutableLiveData<STATE> = MutableLiveData()

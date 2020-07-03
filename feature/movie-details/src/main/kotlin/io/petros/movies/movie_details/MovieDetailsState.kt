@@ -7,7 +7,7 @@ import java.util.*
 @Stateful
 data class MovieDetailsState(
     val status: MovieDetailsStatus,
-    val movie: Movie
+    val movie: Movie,
 )
 
 sealed class MovieDetailsStatus {
@@ -33,7 +33,7 @@ sealed class MovieDetailsIntent {
     object IdleMovies : MovieDetailsIntent()
 
     data class LoadMovie(
-        val id: Int
+        val id: Int,
     ) : MovieDetailsIntent()
 
 }
@@ -45,7 +45,7 @@ sealed class MovieDetailsAction {
     object Load : MovieDetailsAction()
 
     data class Success(
-        val movie: Movie
+        val movie: Movie,
     ) : MovieDetailsAction()
 
     object Error : MovieDetailsAction()
@@ -56,23 +56,23 @@ object MovieDetailsReducer {
 
     fun init() = MovieDetailsState(
         status = MovieDetailsStatus.Init,
-        movie = moviePlaceholder
+        movie = moviePlaceholder,
     )
 
     fun reduce(previousState: MovieDetailsState, action: MovieDetailsAction) = when (action) {
         is MovieDetailsAction.Idle -> previousState.copy(
-            status = MovieDetailsStatus.Idle
+            status = MovieDetailsStatus.Idle,
         )
         is MovieDetailsAction.Load -> previousState.copy(
-            status = MovieDetailsStatus.Loading
+            status = MovieDetailsStatus.Loading,
         )
         is MovieDetailsAction.Success -> previousState.copy(
             status = MovieDetailsStatus.Loaded,
-            movie = action.movie
+            movie = action.movie,
         )
         is MovieDetailsAction.Error -> previousState.copy(
             status = MovieDetailsStatus.Loaded,
-            movie = moviePlaceholder
+            movie = moviePlaceholder,
         )
     }
 
@@ -93,5 +93,5 @@ val moviePlaceholder = Movie(
     0.0,
     0,
     "Overview",
-    null
+    null,
 )

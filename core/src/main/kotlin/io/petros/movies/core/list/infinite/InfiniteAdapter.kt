@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import io.petros.movies.domain.model.common.PaginationData
 
 abstract class InfiniteAdapter<T>(
-    private val items: ArrayList<T> = arrayListOf()
+    private val items: ArrayList<T> = arrayListOf(),
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     @VisibleForTesting(otherwise = VisibleForTesting.PROTECTED)

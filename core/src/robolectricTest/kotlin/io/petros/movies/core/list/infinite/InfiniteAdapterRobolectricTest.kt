@@ -98,12 +98,12 @@ class InfiniteAdapterRobolectricTest {
     private fun setItems(
         paginationData: PaginationData<Movie>,
         nextPage: Int,
-        movies: List<Movie>
+        movies: List<Movie>,
     ): PaginationData<Movie> {
         val items = PaginationData(
             paginationData.allPageItems + movies,
             MoviesPage(nextPage, movies),
-            nextPage
+            nextPage,
         )
         testedClass.setItems(items, false)
         return items

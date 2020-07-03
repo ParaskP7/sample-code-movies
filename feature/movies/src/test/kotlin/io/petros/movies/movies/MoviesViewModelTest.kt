@@ -61,7 +61,7 @@ class MoviesViewModelTest {
                     year = null,
                     month = null,
                     status = MoviesStatus.Init,
-                    movies = PaginationData()
+                    movies = PaginationData(),
                 )
             )
         }
@@ -79,7 +79,7 @@ class MoviesViewModelTest {
                     year = MOVIE_YEAR,
                     month = MOVIE_MONTH,
                     status = MoviesStatus.Idle,
-                    movies = PaginationData()
+                    movies = PaginationData(),
                 )
             )
         }
@@ -97,7 +97,7 @@ class MoviesViewModelTest {
                     year = MOVIE_YEAR,
                     month = MOVIE_MONTH,
                     status = MoviesStatus.Loading,
-                    movies = PaginationData()
+                    movies = PaginationData(),
                 )
             )
         }
@@ -126,8 +126,8 @@ class MoviesViewModelTest {
                     movies = PaginationData(
                         paginationData.allPageItems + moviesPage.value.items,
                         moviesPage.value,
-                        moviesPage.value.nextPage
-                    )
+                        moviesPage.value.nextPage,
+                    ),
                 )
             )
         }
@@ -149,8 +149,8 @@ class MoviesViewModelTest {
                     movies = PaginationData(
                         paginationData.allPageItems,
                         MoviesPage(paginationData.nextPage, emptyList()),
-                        paginationData.nextPage
-                    )
+                        paginationData.nextPage,
+                    ),
                 )
             )
         }
@@ -177,7 +177,7 @@ class MoviesViewModelTest {
                     year = MOVIE_YEAR,
                     month = MOVIE_MONTH,
                     status = MoviesStatus.Init,
-                    movies = PaginationData()
+                    movies = PaginationData(),
                 )
             )
         }
@@ -193,7 +193,7 @@ class MoviesViewModelTest {
                     year = MOVIE_YEAR,
                     month = MOVIE_MONTH,
                     status = MoviesStatus.Loading,
-                    movies = PaginationData()
+                    movies = PaginationData(),
                 )
             )
         }
@@ -222,8 +222,8 @@ class MoviesViewModelTest {
                     movies = PaginationData(
                         paginationData.allPageItems + moviesPage.value.items,
                         moviesPage.value,
-                        moviesPage.value.nextPage
-                    )
+                        moviesPage.value.nextPage,
+                    ),
                 )
             )
         }
@@ -245,8 +245,8 @@ class MoviesViewModelTest {
                     movies = PaginationData(
                         paginationData.allPageItems,
                         MoviesPage(paginationData.nextPage, emptyList()),
-                        paginationData.nextPage
-                    )
+                        paginationData.nextPage,
+                    ),
                 )
             )
         }

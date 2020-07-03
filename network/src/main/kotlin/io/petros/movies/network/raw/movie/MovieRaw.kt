@@ -11,7 +11,7 @@ data class MovieRaw(
     private val title: String,
     private val backdrop_path: String?,
     private val overview: String,
-    private val release_date: String
+    private val release_date: String,
 ) {
 
     companion object {
@@ -28,7 +28,7 @@ data class MovieRaw(
             voteAverage = vote_average,
             voteCount = vote_count,
             overview = overview,
-            backdrop = backdrop_path?.let { IMAGE_URL_PREFIX + it }
+            backdrop = backdrop_path?.let { IMAGE_URL_PREFIX + it },
         )
     }
 

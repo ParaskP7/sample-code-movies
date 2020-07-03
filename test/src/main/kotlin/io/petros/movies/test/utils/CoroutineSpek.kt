@@ -11,7 +11,7 @@ import org.spekframework.spek2.dsl.Root
 @ExperimentalCoroutinesApi
 abstract class CoroutineSpek(
     val testRoot: Root.() -> Unit,
-    private val dispatcher: TestCoroutineDispatcher = TestCoroutineDispatcher()
+    private val dispatcher: TestCoroutineDispatcher = TestCoroutineDispatcher(),
 ) : Spek({
     coroutinesTestRule(dispatcher)
     testRoot()

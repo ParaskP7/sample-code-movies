@@ -9,5 +9,5 @@ private fun viewModelModule() = module {
 }
 
 fun movieDetailsModule() = listOf(
-    viewModelModule()
+    viewModelModule(),
 )

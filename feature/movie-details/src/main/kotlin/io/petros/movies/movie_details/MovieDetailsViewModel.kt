@@ -10,7 +10,7 @@ import kotlinx.coroutines.launch
 import timber.log.Timber
 
 class MovieDetailsViewModel(
-    private val loadMovieUseCase: LoadMovieUseCase
+    private val loadMovieUseCase: LoadMovieUseCase,
 ) : MviViewModel<MovieDetailsIntent, MovieDetailsState, MovieDetailsSideEffect>() {
 
     init {

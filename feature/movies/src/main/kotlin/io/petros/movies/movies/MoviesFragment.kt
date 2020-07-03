@@ -30,7 +30,8 @@ class MoviesFragment : MviFragment<
         MoviesFragmentBinding,
         MoviesIntent,
         MoviesState,
-        MoviesSideEffect>(R.layout.movies_fragment),
+        MoviesSideEffect,
+        >(R.layout.movies_fragment),
     MoviesToolbarCallback,
     MovieItemCallback,
     InfiniteRecyclerView.Listener {
@@ -74,7 +75,7 @@ class MoviesFragment : MviFragment<
         viewModel.process(
             MoviesIntent.IdleMovies(
                 year = viewModel.state().value?.year,
-                month = viewModel.state().value?.month
+                month = viewModel.state().value?.month,
             )
         )
     }
@@ -152,7 +153,7 @@ class MoviesFragment : MviFragment<
                     MoviesIntent.LoadMovies(
                         year = binding.toolbar.getYear(),
                         month = binding.toolbar.getMonth(),
-                        page = adapter?.nextPage()
+                        page = adapter?.nextPage(),
                     )
                 )
             }
@@ -166,7 +167,7 @@ class MoviesFragment : MviFragment<
             MoviesIntent.LoadMovies(
                 year = binding.toolbar.getYear(),
                 month = binding.toolbar.getMonth(),
-                page = page
+                page = page,
             )
         )
     }
@@ -214,7 +215,7 @@ class MoviesFragment : MviFragment<
     private fun onYearPicked(year: Int) {
         viewModel.process(
             MoviesIntent.ReloadMovies(
-                year = year
+                year = year,
             )
         )
     }
@@ -230,7 +231,7 @@ class MoviesFragment : MviFragment<
         viewModel.process(
             MoviesIntent.ReloadMovies(
                 year = binding.toolbar.getYear(),
-                month = month
+                month = month,
             )
         )
     }

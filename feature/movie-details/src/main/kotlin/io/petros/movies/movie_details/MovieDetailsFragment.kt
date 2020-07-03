@@ -20,7 +20,8 @@ class MovieDetailsFragment : MviFragment<
         MovieDetailsFragmentBinding,
         MovieDetailsIntent,
         MovieDetailsState,
-        MovieDetailsSideEffect>(R.layout.movie_details_fragment) {
+        MovieDetailsSideEffect,
+        >(R.layout.movie_details_fragment) {
 
     companion object {
 
@@ -58,7 +59,7 @@ class MovieDetailsFragment : MviFragment<
         when (status) {
             is MovieDetailsStatus.Init -> viewModel.process(
                 MovieDetailsIntent.LoadMovie(
-                    id = movieId
+                    id = movieId,
                 )
             )
             is MovieDetailsStatus.Idle -> doNothing
@@ -88,7 +89,7 @@ class MovieDetailsFragment : MviFragment<
             .setAction(R.string.sbLoadMovieErrorAction) {
                 viewModel.process(
                     MovieDetailsIntent.LoadMovie(
-                        id = movieId
+                        id = movieId,
                     )
                 )
             }

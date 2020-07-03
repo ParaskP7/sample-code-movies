@@ -99,7 +99,7 @@ class RestClientIntegrationTest {
                             "Roy McBride undertakes a mission across the immensity of space and its many perils to " +
                             "uncover the truth about a lost expedition that decades before boldly faced emptiness and " +
                             "silence in search of the unknown.",
-                    backdrop = "http://image.tmdb.org/t/p/w500/5BwqwxMEjeFtdknRV792Svo0K1v.jpg"
+                    backdrop = "http://image.tmdb.org/t/p/w500/5BwqwxMEjeFtdknRV792Svo0K1v.jpg",
                 ),
                 movie(
                     id = 38_700,
@@ -110,7 +110,7 @@ class RestClientIntegrationTest {
                     overview = "Marcus and Mike are forced to confront new threats, career changes, and midlife crises as " +
                             "they join the newly created elite team AMMO of the Miami police department to take down the " +
                             "ruthless Armando Armas, the vicious leader of a Miami drug cartel.",
-                    backdrop = null
+                    backdrop = null,
                 ),
                 movie(
                     id = 454_626,
@@ -122,9 +122,9 @@ class RestClientIntegrationTest {
                             "the story of the world’s speediest hedgehog as he embraces his new home on Earth. In this " +
                             "live-action adventure comedy, Sonic and his new best friend team up to defend the planet " +
                             "from the evil genius Dr. Robotnik and his plans for world domination.",
-                    backdrop = "http://image.tmdb.org/t/p/w500/stmYfCUGd8Iy6kAMBr6AmWqx8Bq.jpg"
-                )
-            )
+                    backdrop = "http://image.tmdb.org/t/p/w500/stmYfCUGd8Iy6kAMBr6AmWqx8Bq.jpg",
+                ),
+            ),
         )
     }
 
@@ -141,7 +141,7 @@ class RestClientIntegrationTest {
                     overview = "The surviving Resistance faces the First Order once again as the journey of Rey, Finn and " +
                             "Poe Dameron continues. With the power and knowledge of generations behind them, the final " +
                             "battle begins.",
-                    backdrop = "http://image.tmdb.org/t/p/w500/99QDSTfr9bOqv1kbn8YRlynbgU.jpg"
+                    backdrop = "http://image.tmdb.org/t/p/w500/99QDSTfr9bOqv1kbn8YRlynbgU.jpg",
                 ),
                 movie(
                     id = 495_764,
@@ -151,7 +151,7 @@ class RestClientIntegrationTest {
                     voteCount = 2910,
                     overview = "Harley Quinn joins forces with a singer, an assassin and a police detective to help a " +
                             "young girl who had a hit placed on herafter she stole a rare diamond from a crime lord.",
-                    backdrop = "http://image.tmdb.org/t/p/w500/uozb2VeD87YmhoUP1RrGWfzuCrr.jpg"
+                    backdrop = "http://image.tmdb.org/t/p/w500/uozb2VeD87YmhoUP1RrGWfzuCrr.jpg",
                 ),
                 movie(
                     id = 412_117,
@@ -164,9 +164,9 @@ class RestClientIntegrationTest {
                             "run-ins with canine-intolerant cows, hostile foxes and a scary turkey. Luckily for Max, he " +
                             "soon catches a break when he meets Rooster, a gruff farm dog who tries to cure the lovable " +
                             "pooch of his neuroses.",
-                    backdrop = null
-                )
-            )
+                    backdrop = null,
+                ),
+            ),
         )
     }
 
@@ -185,9 +185,9 @@ class RestClientIntegrationTest {
                             "When a mysterious threat puts all of the Trolls across the land in danger, Poppy, Branch, " +
                             "and their band of friends must embark on an epic quest to create harmony among the feuding " +
                             "Trolls to unite them against certain doom.",
-                    backdrop = "http://image.tmdb.org/t/p/w500/qsxhnirlp7y4Ae9bd11oYJSX59j.jpg"
-                )
-            )
+                    backdrop = "http://image.tmdb.org/t/p/w500/qsxhnirlp7y4Ae9bd11oYJSX59j.jpg",
+                ),
+            ),
         )
     }
 
@@ -202,7 +202,7 @@ class RestClientIntegrationTest {
                     "the story of the world’s speediest hedgehog as he embraces his new home on Earth. In this " +
                     "live-action adventure comedy, Sonic and his new best friend team up to defend the planet " +
                     "from the evil genius Dr. Robotnik and his plans for world domination.",
-            backdrop = "http://image.tmdb.org/t/p/w500/stmYfCUGd8Iy6kAMBr6AmWqx8Bq.jpg"
+            backdrop = "http://image.tmdb.org/t/p/w500/stmYfCUGd8Iy6kAMBr6AmWqx8Bq.jpg",
         )
     }
 

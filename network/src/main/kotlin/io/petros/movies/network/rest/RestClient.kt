@@ -6,20 +6,20 @@ import io.petros.movies.utils.releaseDateGte
 import io.petros.movies.utils.releaseDateLte
 
 class RestClient(
-    private val restApi: RestApi
+    private val restApi: RestApi,
 ) : WebService {
 
     override suspend fun loadMovies(year: Int?, month: Int?, page: Int?) = withException {
         restApi.loadMovies(
             releaseDateGte(year, month),
             releaseDateLte(year, month),
-            page
+            page,
         ).toMoviesPage()
     }
 
     override suspend fun loadMovie(id: Int) = withException {
         restApi.loadMovie(
-            id
+            id,
         ).toMovie()
     }
 

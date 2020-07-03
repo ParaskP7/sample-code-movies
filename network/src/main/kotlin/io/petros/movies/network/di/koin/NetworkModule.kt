@@ -17,7 +17,7 @@ private const val TIMEOUT_SECS = 10L
 fun networkModule(
     isDebug: Boolean,
     baseUrl: String,
-    themoviedbApiKey: String
+    themoviedbApiKey: String,
 ) = module {
     single { Gson() }
     single { httpLoggingInterceptor() }
@@ -36,7 +36,7 @@ private fun httpLoggingInterceptor(): HttpLoggingInterceptor {
 
 private fun okHttpClient(
     isDebug: Boolean,
-    loggingInterceptor: HttpLoggingInterceptor
+    loggingInterceptor: HttpLoggingInterceptor,
 ): OkHttpClient {
     val okHttpBuilder = OkHttpClient.Builder()
         .connectTimeout(TIMEOUT_SECS, TimeUnit.SECONDS)
@@ -49,7 +49,7 @@ private fun okHttpClient(
 private fun retrofit(
     baseUrl: String,
     gson: Gson,
-    httpClient: OkHttpClient
+    httpClient: OkHttpClient,
 ): Retrofit {
     return Retrofit.Builder()
         .baseUrl(baseUrl)

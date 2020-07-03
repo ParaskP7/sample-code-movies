@@ -226,13 +226,13 @@ class AppInstrumentedTest {
             position = SONIC_THE_HEDGEHOG_ITEM_POSITION,
             title = SONIC_THE_HEDGEHOG_ITEM_TITLE,
             releaseDate = SONIC_THE_HEDGEHOG_ITEM_RELEASE_DATE,
-            vote = SONIC_THE_HEDGEHOG_ITEM_VOTE
+            vote = SONIC_THE_HEDGEHOG_ITEM_VOTE,
         )
         checkViewMovieDetails(
             title = SONIC_THE_HEDGEHOG_ITEM_TITLE,
             releaseDate = SONIC_THE_HEDGEHOG_ITEM_RELEASE_DATE,
             vote = SONIC_THE_HEDGEHOG_ITEM_VOTE,
-            overview = SONIC_THE_HEDGEHOG_ITEM_OVERVIEW
+            overview = SONIC_THE_HEDGEHOG_ITEM_OVERVIEW,
         )
         pressBack()
     }
@@ -243,26 +243,26 @@ class AppInstrumentedTest {
             position = MORTAL_KOMBAT_LEGENDS_ITEM_POSITION,
             title = MORTAL_KOMBAT_LEGENDS_ITEM_TITLE,
             releaseDate = MORTAL_KOMBAT_LEGENDS_ITEM_RELEASE_DATE,
-            vote = MORTAL_KOMBAT_LEGENDS_ITEM_VOTE
+            vote = MORTAL_KOMBAT_LEGENDS_ITEM_VOTE,
         )
         checkViewMovieDetails(
             title = MORTAL_KOMBAT_LEGENDS_ITEM_TITLE,
             releaseDate = MORTAL_KOMBAT_LEGENDS_ITEM_RELEASE_DATE,
             vote = MORTAL_KOMBAT_LEGENDS_ITEM_VOTE,
-            overview = MORTAL_KOMBAT_LEGENDS_ITEM_OVERVIEW
+            overview = MORTAL_KOMBAT_LEGENDS_ITEM_OVERVIEW,
         )
         pressBack()
     }
 
     private fun check_filter_icon() {
         checkViewMoviesToolbar(
-            withFilterIconClick = true
+            withFilterIconClick = true,
         )
     }
 
     private fun check_year_filter() {
         checkViewMoviesToolbarYear(
-            withFilterYearClick = true
+            withFilterYearClick = true,
         )
     }
 
@@ -270,7 +270,7 @@ class AppInstrumentedTest {
         checkViewMoviesPicker(
             title = MOVIE_YEAR_PICKER_TITLE,
             year = MOVIE_YEAR_PICKER_YEAR_2020,
-            withActionOkClick = true
+            withActionOkClick = true,
         )
     }
 
@@ -280,13 +280,13 @@ class AppInstrumentedTest {
             position = UNDERWATER_ITEM_POSITION,
             title = UNDERWATER_ITEM_TITLE,
             releaseDate = UNDERWATER_ITEM_RELEASE_DATE,
-            vote = UNDERWATER_ITEM_VOTE
+            vote = UNDERWATER_ITEM_VOTE,
         )
         checkViewMovieDetails(
             title = UNDERWATER_ITEM_TITLE,
             releaseDate = UNDERWATER_ITEM_RELEASE_DATE,
             vote = UNDERWATER_ITEM_VOTE,
-            overview = UNDERWATER_ITEM_OVERVIEW
+            overview = UNDERWATER_ITEM_OVERVIEW,
         )
         pressBack()
     }
@@ -297,20 +297,20 @@ class AppInstrumentedTest {
             position = TROLLS_WORLD_TOUR_ITEM_POSITION,
             title = TROLLS_WORLD_TOUR_ITEM_TITLE,
             releaseDate = TROLLS_WORLD_TOUR_ITEM_RELEASE_DATE,
-            vote = TROLLS_WORLD_TOUR_ITEM_VOTE
+            vote = TROLLS_WORLD_TOUR_ITEM_VOTE,
         )
         checkViewMovieDetails(
             title = TROLLS_WORLD_TOUR_ITEM_TITLE,
             releaseDate = TROLLS_WORLD_TOUR_ITEM_RELEASE_DATE,
             vote = TROLLS_WORLD_TOUR_ITEM_VOTE,
-            overview = TROLLS_WORLD_TOUR_ITEM_OVERVIEW
+            overview = TROLLS_WORLD_TOUR_ITEM_OVERVIEW,
         )
         pressBack()
     }
 
     private fun check_month_filter() {
         checkViewMoviesToolbarYear2020(
-            withFilterMonthClick = true
+            withFilterMonthClick = true,
         )
     }
 
@@ -318,7 +318,7 @@ class AppInstrumentedTest {
         checkViewMoviesPicker(
             title = MOVIE_MONTH_PICKER_TITLE,
             month = MOVIE_MONTH_PICKER_MONTH_JULY,
-            withActionOkClick = true
+            withActionOkClick = true,
         )
     }
 
@@ -328,13 +328,13 @@ class AppInstrumentedTest {
             position = LOVE_WEDDING_REPEAT_ITEM_POSITION,
             title = LOVE_WEDDING_REPEAT_ITEM_TITLE,
             releaseDate = LOVE_WEDDING_REPEAT_ITEM_RELEASE_DATE,
-            vote = LOVE_WEDDING_REPEAT_ITEM_VOTE
+            vote = LOVE_WEDDING_REPEAT_ITEM_VOTE,
         )
         checkViewMovieDetails(
             title = LOVE_WEDDING_REPEAT_ITEM_TITLE,
             releaseDate = LOVE_WEDDING_REPEAT_ITEM_RELEASE_DATE,
             vote = LOVE_WEDDING_REPEAT_ITEM_VOTE,
-            overview = LOVE_WEDDING_REPEAT_ITEM_OVERVIEW
+            overview = LOVE_WEDDING_REPEAT_ITEM_OVERVIEW,
         )
         pressBack()
     }
@@ -345,20 +345,20 @@ class AppInstrumentedTest {
             position = BEHIND_YOU_ITEM_POSITION,
             title = BEHIND_YOU_ITEM_TITLE,
             releaseDate = BEHIND_YOU_ITEM_RELEASE_DATE,
-            vote = BEHIND_YOU_ITEM_VOTE
+            vote = BEHIND_YOU_ITEM_VOTE,
         )
         checkViewMovieDetails(
             title = BEHIND_YOU_ITEM_TITLE,
             releaseDate = BEHIND_YOU_ITEM_RELEASE_DATE,
             vote = BEHIND_YOU_ITEM_VOTE,
-            overview = BEHIND_YOU_ITEM_OVERVIEW
+            overview = BEHIND_YOU_ITEM_OVERVIEW,
         )
         pressBack()
     }
 
     private fun check_close_icon() {
         checkViewMoviesToolbarYear2020MonthApril(
-            withCloseIconClick = true
+            withCloseIconClick = true,
         )
     }
 
@@ -366,18 +366,18 @@ class AppInstrumentedTest {
 
     @Suppress("SameParameterValue")
     private fun checkViewMoviesToolbarYear(
-        withFilterYearClick: Boolean = false
+        withFilterYearClick: Boolean = false,
     ) {
         checkViewMoviesToolbar(
             filterIconDisplayed = false,
             closeIconDisplayed = true,
             filterYearDisplayed = true,
-            withFilterYearClick = withFilterYearClick
+            withFilterYearClick = withFilterYearClick,
         )
     }
 
     private fun checkViewMoviesToolbarYear2020(
-        withFilterMonthClick: Boolean = false
+        withFilterMonthClick: Boolean = false,
     ) {
         checkViewMoviesToolbar(
             filterIconDisplayed = false,
@@ -385,12 +385,12 @@ class AppInstrumentedTest {
             filterYearDisplayed = true,
             filterYear = MOVIES_TOOLBAR_FILTER_YEAR_2020,
             filterMonthDisplayed = true,
-            withFilterMonthClick = withFilterMonthClick
+            withFilterMonthClick = withFilterMonthClick,
         )
     }
 
     private fun checkViewMoviesToolbarYear2020MonthApril(
-        withCloseIconClick: Boolean = false
+        withCloseIconClick: Boolean = false,
     ) {
         checkViewMoviesToolbar(
             filterIconDisplayed = false,
@@ -399,7 +399,7 @@ class AppInstrumentedTest {
             filterYearDisplayed = true,
             filterYear = MOVIES_TOOLBAR_FILTER_YEAR_2020,
             filterMonthDisplayed = true,
-            filterMonth = MOVIES_TOOLBAR_FILTER_MONTH_JULY
+            filterMonth = MOVIES_TOOLBAR_FILTER_MONTH_JULY,
         )
     }
 
@@ -416,11 +416,11 @@ class AppInstrumentedTest {
         withFilterYearClick: Boolean = false,
         filterMonthDisplayed: Boolean = false,
         filterMonth: String = MOVIES_TOOLBAR_FILTER_MONTH,
-        withFilterMonthClick: Boolean = false
+        withFilterMonthClick: Boolean = false,
     ) {
         if (filterIconDisplayed) {
             checkViewMoviesToolbarWithFilterIcon(
-                withFilterIconClick
+                withFilterIconClick,
             )
         }
         if (closeIconDisplayed) {
@@ -431,13 +431,13 @@ class AppInstrumentedTest {
                 filterMonth,
                 withCloseIconClick,
                 withFilterYearClick,
-                withFilterMonthClick
+                withFilterMonthClick,
             )
         }
     }
 
     private fun checkViewMoviesToolbarWithFilterIcon(
-        withFilterIconClick: Boolean
+        withFilterIconClick: Boolean,
     ) {
         onView(withId(mR.id.ivToolbarFilterIcon))
             .check(matches(isDisplayed()))
@@ -445,7 +445,7 @@ class AppInstrumentedTest {
             .check(matches(not(isDisplayed())))
         checkViewMoviesToolbarWithFilterIconDisplays()
         checkViewMoviesToolbarWithFilterIconClicks(
-            withFilterIconClick
+            withFilterIconClick,
         )
     }
 
@@ -457,7 +457,7 @@ class AppInstrumentedTest {
     }
 
     private fun checkViewMoviesToolbarWithFilterIconClicks(
-        withFilterIconClick: Boolean
+        withFilterIconClick: Boolean,
     ) {
         if (withFilterIconClick) {
             onView(withId(mR.id.ivToolbarFilterIcon))
@@ -473,7 +473,7 @@ class AppInstrumentedTest {
         filterMonth: String,
         withCloseIconClick: Boolean,
         withFilterYearClick: Boolean,
-        withFilterMonthClick: Boolean
+        withFilterMonthClick: Boolean,
     ) {
         onView(withId(mR.id.ivToolbarFilterIcon))
             .check(matches(not(isDisplayed())))
@@ -483,14 +483,14 @@ class AppInstrumentedTest {
             filterYearDisplayed,
             filterYear,
             filterMonthDisplayed,
-            filterMonth
+            filterMonth,
         )
         checkViewMoviesToolbarWithCloseIconClicks(
             withCloseIconClick,
             withFilterYearClick,
             filterYear,
             withFilterMonthClick,
-            filterMonth
+            filterMonth,
         )
     }
 
@@ -498,7 +498,7 @@ class AppInstrumentedTest {
         filterYearDisplayed: Boolean,
         filterYear: String,
         filterMonthDisplayed: Boolean,
-        filterMonth: String
+        filterMonth: String,
     ) {
         if (filterYearDisplayed) {
             onView(allOf(withId(mR.id.tvToolbarFilterYear), withText(filterYear)))
@@ -521,7 +521,7 @@ class AppInstrumentedTest {
         withFilterYearClick: Boolean,
         filterYear: String,
         withFilterMonthClick: Boolean,
-        filterMonth: String
+        filterMonth: String,
     ) {
         if (withCloseIconClick) {
             onView(withId(mR.id.ivToolbarCloseIcon))
@@ -541,7 +541,7 @@ class AppInstrumentedTest {
         title: String,
         year: String? = null,
         month: String? = null,
-        withActionOkClick: Boolean = false
+        withActionOkClick: Boolean = false,
     ) {
         onView(allOf(withId(pR.id.title), withText(title)))
             .check(matches(allOf(isDisplayed(), withText(title))))
@@ -565,7 +565,7 @@ class AppInstrumentedTest {
         position: Int,
         title: String,
         releaseDate: String,
-        vote: String
+        vote: String,
     ) {
         onView(withId(mR.id.recyclerView))
             .perform(scrollToPosition<RecyclerView.ViewHolder>(position - 1))
@@ -589,7 +589,7 @@ class AppInstrumentedTest {
         title: String,
         releaseDate: String,
         vote: String,
-        overview: String
+        overview: String,
     ) {
         onView(withId(mdR.id.tvTitle))
             .check(matches(allOf(isDisplayed(), withText(title))))
