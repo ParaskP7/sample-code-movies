@@ -21,9 +21,7 @@ dependencies {
     implementation(Deps.Test.Spek.DSL)
     implementation(Deps.Test.Spek.J_UNIT_5)
     runtimeOnly(Deps.Kotlin.Core.KOTLIN_REFLECT)
-    implementation(Deps.Android.Test.Robolectric.ROBOLECTRIC) {
-        exclude(Deps.Android.Test.Robolectric.Exclude.MAVEN)
-    }
+    implementation(Deps.Android.Test.Robolectric.ROBOLECTRIC) { exclude(Deps.Android.Test.Robolectric.Exclude.MAVEN) }
     implementation(Deps.Android.Test.Robolectric.ANNOTATIONS)
 
     detektPlugins(Plugins.DETEKT_FORMATTING)
