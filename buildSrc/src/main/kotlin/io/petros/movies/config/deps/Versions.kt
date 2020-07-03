@@ -26,7 +26,8 @@ object Versions {
     object Material {
 
         // Releases: https://github.com/material-components/material-components-android/releases
-        const val MATERIAL = "1.2.0-beta01" // Released: 28-05-20
+        @Suppress("unused") const val MATERIAL = "1.1.0" // Released: 03-02-20
+        const val MATERIAL_BETA = "1.2.0-beta01" // Released: 28-05-20
 
     }
 
@@ -44,7 +45,8 @@ object Versions {
             const val RECYCLER_VIEW = "1.1.0" // Released: 20-11-19
 
             // Releases: https://developer.android.com/jetpack/androidx/releases/constraintlayout
-            const val CONSTRAINT_LAYOUT = "2.0.0-beta7" // Released: 12-06-20
+            @Suppress("unused") const val CONSTRAINT_LAYOUT = "1.1.3" // Released: 16-12-19
+            const val CONSTRAINT_LAYOUT_BETA = "2.0.0-beta7" // Released: 12-06-20
 
             // Releases: https://developer.android.com/jetpack/androidx/releases/drawerlayout
             const val DRAWER_LAYOUT = "1.1.0" // Released: 24-06-20

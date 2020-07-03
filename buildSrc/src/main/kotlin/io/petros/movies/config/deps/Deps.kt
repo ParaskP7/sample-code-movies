@@ -46,7 +46,7 @@ object Deps {
     @Suppress("MemberNameEqualsClassName")
     object Material {
 
-        val MATERIAL = "com.google.android.material:material:${Versions.Material.MATERIAL}"
+        val MATERIAL = "com.google.android.material:material:${Versions.Material.MATERIAL_BETA}"
 
     }
 
@@ -57,7 +57,8 @@ object Deps {
             val APP_COMPAT = "androidx.appcompat:appcompat:${Versions.Android.Core.APP_COMPAT}"
             val FRAGMENT = "androidx.fragment:fragment:${Versions.Android.Core.FRAGMENT}"
             val RECYCLER_VIEW = "androidx.recyclerview:recyclerview:${Versions.Android.Core.RECYCLER_VIEW}"
-            val CONSTRAINT_LAYOUT = "androidx.constraintlayout:constraintlayout:${Versions.Android.Core.CONSTRAINT_LAYOUT}"
+            val CONSTRAINT_LAYOUT =
+                "androidx.constraintlayout:constraintlayout:${Versions.Android.Core.CONSTRAINT_LAYOUT_BETA}"
             val DRAWER_LAYOUT = "androidx.drawerlayout:drawerlayout:${Versions.Android.Core.DRAWER_LAYOUT}"
             val COORDINATOR_LAYOUT =
                 "androidx.coordinatorlayout:coordinatorlayout:${Versions.Android.Core.COORDINATOR_LAYOUT}"
