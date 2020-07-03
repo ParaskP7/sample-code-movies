@@ -22,7 +22,7 @@ dependencies {
     testImplementation(Deps.Test.Spek.DSL)
     testImplementation(Deps.Test.Spek.J_UNIT_5)
     testRuntimeOnly(Deps.Kotlin.Core.KOTLIN_REFLECT)
-    testImplementation(Deps.Test.Assert.STRIKT)
+    testImplementation(Deps.Test.Assert.STRIKT) { exclude(Deps.Test.Assert.Exclude.KOTLIN) }
     testImplementation(Deps.Test.Mock.MOCK_K)
 
     detektPlugins(Plugins.DETEKT_FORMATTING)

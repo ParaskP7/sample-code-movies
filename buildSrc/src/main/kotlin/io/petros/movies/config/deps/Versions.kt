@@ -17,7 +17,8 @@ object Versions {
     object Kotlin {
 
         // Releases: https://github.com/Kotlin/kotlinx.coroutines/releases
-        const val COROUTINES = "1.3.7" // Released: 19-05-20
+        @Suppress("unused") const val COROUTINES = "1.3.7" // Released: 19-05-20
+        const val COROUTINES_EAP = "1.3.7-1.4-M2" // Released: 04-06-20
 
     }
 

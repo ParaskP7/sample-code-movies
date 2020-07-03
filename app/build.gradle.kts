@@ -68,7 +68,7 @@ dependencies {
     androidTestImplementation(Deps.Android.Test.Espresso.CORE)
     androidTestImplementation(Deps.Android.Test.Espresso.CONTRIB)
     androidTestImplementation(Deps.Test.Integration.MOCK_WEB_SERVER)
-    androidTestImplementation(Deps.Test.Assert.STRIKT)
+    androidTestImplementation(Deps.Test.Assert.STRIKT) { exclude(Deps.Test.Assert.Exclude.KOTLIN) }
 
     detektPlugins(Plugins.DETEKT_FORMATTING)
 }

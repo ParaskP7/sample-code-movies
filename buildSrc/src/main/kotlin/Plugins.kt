@@ -7,7 +7,8 @@ object Plugins {
     object Version {
 
         // Releases: https://blog.jetbrains.com/kotlin/category/releases
-        const val KOTLIN = "1.3.72" // Released: 14-04-20
+        @Suppress("unused") const val KOTLIN = "1.3.72" // Released: 14-04-20
+        const val KOTLIN_EAP = "1.4-M2" // Released: 04-06-20
 
         // Releases: https://androidstudio.googleblog.com
         const val ANDROID = "4.2.0-alpha03" // Released: 30-06-20
@@ -35,7 +36,7 @@ object Plugins {
 
     }
 
-    const val KOTLIN = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Version.KOTLIN}"
+    const val KOTLIN = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Version.KOTLIN_EAP}"
     const val ANDROID = "com.android.tools.build:gradle:${Version.ANDROID}"
     const val ANDROID_NAVIGATION =
         "androidx.navigation:navigation-safe-args-gradle-plugin:${Versions.Android.Arch.Navigation.NAVIGATION}"

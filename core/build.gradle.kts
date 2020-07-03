@@ -22,6 +22,7 @@ dependencies {
     implementation(project(Projects.Implementation.Android.Core.ANDROID_UTILS))
 
     implementation(Deps.Kotlin.Core.KOTLIN)
+    implementation(Deps.Kotlin.Core.KOTLIN_REFLECT) // Added due to 'stateful' dependency.
     implementation(Deps.Material.MATERIAL)
     implementation(Deps.Android.Core.APP_COMPAT)
     implementation(Deps.Android.Core.FRAGMENT)
@@ -31,7 +32,7 @@ dependencies {
     implementation(Deps.Android.Arch.Lifecycle.LIVE_DATA_CORE)
     implementation(Deps.Android.Arch.Lifecycle.LIVE_DATA_CORE_KTX)
     implementation(Deps.Android.Arch.Lifecycle.VIEW_MODEL)
-    implementation(Deps.Architecture.Mvi.STATEFUL)
+    implementation(Deps.Architecture.Mvi.STATEFUL) { exclude(Deps.Architecture.Mvi.Exclude.KOTLIN) }
     implementation(Deps.Image.Glide.GLIDE)
     implementation(Deps.Log.TIMBER)
 
@@ -39,7 +40,7 @@ dependencies {
     testImplementation(project(Projects.TestImplementation.Android.ANDROID_TEST))
 
     testImplementation(Deps.Test.JUnit.J_UNIT_4)
-    testImplementation(Deps.Test.Assert.STRIKT)
+    testImplementation(Deps.Test.Assert.STRIKT) { exclude(Deps.Test.Assert.Exclude.KOTLIN) }
     testImplementation(Deps.Test.Mock.MOCK_K)
     testImplementation(Deps.Android.Test.Robolectric.ROBOLECTRIC)
 

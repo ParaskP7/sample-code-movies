@@ -12,7 +12,7 @@ plugins {
 
 dependencies {
     implementation(Deps.Kotlin.Core.KOTLIN)
-    implementation(Deps.Kotlin.Coroutines.CORE)
+    implementation(Deps.Kotlin.Coroutines.CORE_JVM)
     implementation(Deps.Kotlin.Coroutines.Test.TEST)
     implementation(Deps.Material.MATERIAL)
     implementation(Deps.Android.Arch.Core.RUNTIME)

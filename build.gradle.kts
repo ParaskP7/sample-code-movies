@@ -50,6 +50,7 @@ buildscript {
     repositories {
         google()
         jcenter()
+        maven(url = Repos.Url.Kotlin.KOTLIN_EAP)
     }
     dependencies {
         classpath(Plugins.KOTLIN)
@@ -118,6 +119,7 @@ allprojects {
     repositories {
         google()
         jcenter()
+        maven(url = Repos.Url.Kotlin.KOTLIN_EAP)
         maven(url = Repos.Url.GitHub.STATEFUL) {
             credentials {
                 username = githubUsername

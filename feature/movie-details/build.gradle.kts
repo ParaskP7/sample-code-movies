@@ -25,7 +25,9 @@ dependencies {
     implementation(project(Projects.Implementation.Android.Core.CORE))
 
     implementation(Deps.Kotlin.Core.KOTLIN)
+    implementation(Deps.Kotlin.Core.KOTLIN_REFLECT) // Added due to 'stateful' dependency.
     implementation(Deps.Kotlin.Coroutines.CORE)
+    implementation(Deps.Kotlin.Coroutines.CORE_JVM)
     implementation(Deps.Material.MATERIAL)
     implementation(Deps.Android.Core.FRAGMENT)
     implementation(Deps.Android.Core.CONSTRAINT_LAYOUT)
@@ -33,7 +35,7 @@ dependencies {
     implementation(Deps.Android.Arch.Lifecycle.LIVE_DATA_CORE)
     implementation(Deps.Android.Arch.Lifecycle.VIEW_MODEL)
     implementation(Deps.Android.Arch.Lifecycle.VIEW_MODEL_KTX)
-    implementation(Deps.Architecture.Mvi.STATEFUL)
+    implementation(Deps.Architecture.Mvi.STATEFUL) { exclude(Deps.Architecture.Mvi.Exclude.KOTLIN) }
     kapt(Deps.Architecture.Mvi.STATEFUL_COMPILER)
     implementation(Deps.Di.Koin.Kotlin.CORE)
     implementation(Deps.Di.Koin.Android.VIEW_MODEL)
@@ -49,7 +51,7 @@ dependencies {
     testImplementation(Deps.Test.Spek.DSL)
     testImplementation(Deps.Test.Spek.J_UNIT_5)
     testRuntimeOnly(Deps.Kotlin.Core.KOTLIN_REFLECT)
-    testImplementation(Deps.Test.Assert.STRIKT)
+    testImplementation(Deps.Test.Assert.STRIKT) { exclude(Deps.Test.Assert.Exclude.KOTLIN) }
     testImplementation(Deps.Test.Mock.MOCK_K)
     testImplementation(Deps.Android.Arch.Core.TESTING)
 
