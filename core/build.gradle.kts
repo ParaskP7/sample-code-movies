@@ -30,7 +30,6 @@ dependencies {
     implementation(Deps.Android.Arch.Lifecycle.COMMON)
     implementation(Deps.Android.Arch.Lifecycle.COMMON_JAVA_8)
     implementation(Deps.Android.Arch.Lifecycle.LIVE_DATA_CORE)
-    implementation(Deps.Android.Arch.Lifecycle.LIVE_DATA_CORE_KTX)
     implementation(Deps.Android.Arch.Lifecycle.VIEW_MODEL)
     implementation(Deps.Architecture.Mvi.STATEFUL) { exclude(Deps.Architecture.Mvi.Exclude.KOTLIN) }
     implementation(Deps.Image.Glide.GLIDE)

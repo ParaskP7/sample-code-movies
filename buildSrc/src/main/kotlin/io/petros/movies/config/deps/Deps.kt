@@ -88,8 +88,6 @@ object Deps {
                     "androidx.lifecycle:lifecycle-common-java8:${Versions.Android.Arch.Lifecycle.LIFECYCLE}"
                 val LIVE_DATA_CORE =
                     "androidx.lifecycle:lifecycle-livedata-core:${Versions.Android.Arch.Lifecycle.LIFECYCLE}"
-                val LIVE_DATA_CORE_KTX =
-                    "androidx.lifecycle:lifecycle-livedata-core-ktx:${Versions.Android.Arch.Lifecycle.LIFECYCLE}"
                 val VIEW_MODEL =
                     "androidx.lifecycle:lifecycle-viewmodel:${Versions.Android.Arch.Lifecycle.LIFECYCLE}"
                 val VIEW_MODEL_KTX =
