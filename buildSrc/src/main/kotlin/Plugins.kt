@@ -8,7 +8,7 @@ object Plugins {
 
         // Releases: https://blog.jetbrains.com/kotlin/category/releases
         @Suppress("unused") const val KOTLIN = "1.3.72" // Released: 14-04-20
-        const val KOTLIN_EAP = "1.4-M2" // Released: 04-06-20
+        const val KOTLIN_EAP = "1.4-M3" // Released: 06-07-20
 
         // Releases: https://androidstudio.googleblog.com
         @Suppress("unused") const val ANDROID = "4.0.0" // Released: 28-05-20

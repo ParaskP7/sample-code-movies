@@ -17,6 +17,7 @@ import io.petros.movies.domain.di.koin.domainModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
+import org.koin.core.logger.Level
 import timber.log.Timber
 
 @Suppress("TooManyFunctions")
@@ -38,9 +39,10 @@ open class App : Application(),
         Timber.i("${getString(R.string.appName)} created.")
     }
 
+    @Suppress("ForbiddenComment")
     private fun initKoin() {
         startKoin {
-            androidLogger()
+            androidLogger(Level.ERROR) // FIXME: Check again with a newer version of Koin (after 2.1.6)
             androidContext(this@App)
             modules(
                 appModule() +
