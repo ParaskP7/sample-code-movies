@@ -17,6 +17,7 @@ plugins {
 dependencies {
     implementation(project(Projects.Implementation.Kotlin.DOMAIN))
     implementation(project(Projects.Implementation.Kotlin.NETWORK))
+    implementation(project(Projects.Implementation.Android.Core.DATABASE))
 
     implementation(Deps.Kotlin.Core.KOTLIN)
     implementation(Deps.Di.Koin.Kotlin.CORE)
