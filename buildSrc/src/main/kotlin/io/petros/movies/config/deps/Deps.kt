@@ -125,6 +125,14 @@ object Deps {
 
             }
 
+            object Room {
+
+                val RUNTIME = "androidx.room:room-runtime:${Versions.Android.Arch.Room.ROOM_ALPHA}"
+                val KTX = "androidx.room:room-ktx:${Versions.Android.Arch.Room.ROOM_ALPHA}"
+                val COMPILER = "androidx.room:room-compiler:${Versions.Android.Arch.Room.ROOM_ALPHA}"
+
+            }
+
         }
 
         object Test {
