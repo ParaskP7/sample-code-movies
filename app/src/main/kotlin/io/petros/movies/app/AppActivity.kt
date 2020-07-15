@@ -26,7 +26,11 @@ class AppActivity : BaseActivity<AppActivityBinding>() {
         setupActionBarWithNavController(navController, appBarConfiguration)
     }
 
-    override fun onSupportNavigateUp() = findNavController(R.id.navHostFragment).navigateUp(appBarConfiguration)
+    override fun onSupportNavigateUp() = if (this::appBarConfiguration.isInitialized) {
+        findNavController(R.id.navHostFragment).navigateUp(appBarConfiguration)
+    } else {
+        false
+    }
 
     /* CONTRACT */
 
