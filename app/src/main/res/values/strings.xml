@@ -8,4 +8,7 @@
     <string name="navMoviesLabel">Movies</string>
     <string name="navMovieDetailsLabel">Movie Details</string>
 
+    <!-- Snackbar -->
+    <string name="sbNoConnectivity">Watch out, you are currently offline!</string>
+
 </resources>

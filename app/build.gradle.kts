@@ -35,6 +35,7 @@ android {
 
 dependencies {
     implementation(project(Projects.Implementation.Kotlin.DOMAIN))
+    implementation(project(Projects.Implementation.Android.Core.ANDROID_UTILS))
     implementation(project(Projects.Implementation.Android.Core.DATA))
     implementation(project(Projects.Implementation.Android.Core.CORE))
     implementation(project(Projects.Implementation.Android.Feature.MOVIES))

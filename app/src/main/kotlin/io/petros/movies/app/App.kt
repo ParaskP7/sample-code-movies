@@ -11,6 +11,7 @@ import androidx.lifecycle.OnLifecycleEvent
 import androidx.lifecycle.ProcessLifecycleOwner
 import io.petros.movies.BuildConfig
 import io.petros.movies.R
+import io.petros.movies.android_utils.network.NetworkLiveEvent
 import io.petros.movies.app.di.koin.appModule
 import io.petros.movies.data.di.koin.dataModule
 import io.petros.movies.domain.di.koin.domainModule
@@ -36,6 +37,7 @@ open class App : Application(),
         initLogging()
         initStrictMode()
         initLifecycleObserver()
+        initNetworkConnectivity()
         Timber.i("${getString(R.string.appName)} created.")
     }
 
@@ -120,6 +122,10 @@ open class App : Application(),
 
     private fun initLifecycleObserver() {
         ProcessLifecycleOwner.get().lifecycle.addObserver(this)
+    }
+
+    private fun initNetworkConnectivity() {
+        NetworkLiveEvent.init(applicationContext)
     }
 
     /* LIFECYCLE */
