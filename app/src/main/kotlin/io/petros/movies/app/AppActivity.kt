@@ -35,11 +35,15 @@ class AppActivity : BaseActivity<AppActivityBinding>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         setTheme(R.style.AppTheme)
         super.onCreate(savedInstanceState)
+        initActionBar()
+        initObservers()
+    }
+
+    private fun initActionBar() {
         setSupportActionBar(binding.toolbar)
         val navController = findNavController(R.id.navHostFragment)
         appBarConfiguration = AppBarConfiguration(setOf(R.id.moviesFragment), binding.ctrApp)
         setupActionBarWithNavController(navController, appBarConfiguration)
-        initObservers()
     }
 
     private fun initObservers() {
