@@ -84,6 +84,15 @@ class KotlinExtensionsKtTest {
     }
 
     @Test
+    fun `when to date is triggered, then the expect date is returned`() {
+        val date = GregorianCalendar(2019, Calendar.SEPTEMBER, 17).time
+
+        val result = date.toDate(MOVIE_DATE_FORMAT)
+
+        expect { that(result).isEqualTo("2019-09-17") }
+    }
+
+    @Test
     fun `when to year is triggered, then the expect year is returned`() {
         val year = 2019
         val date = GregorianCalendar(year, Calendar.SEPTEMBER, 17).time

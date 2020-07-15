@@ -123,6 +123,19 @@ class KotlinExtensionsKtSpek : Spek({
                 }
             }
         }
+        Scenario("to date") {
+            var date: Date? = null
+            var result: String? = null
+            Given("date") {
+                date = GregorianCalendar(2019, Calendar.SEPTEMBER, 17).time
+            }
+            When("to date is triggered") {
+                result = date?.toDate(MOVIE_DATE_FORMAT)
+            }
+            Then("the expect date is returned") {
+                expect { that(result).isEqualTo("2019-09-17") }
+            }
+        }
         Scenario("to year") {
             val year = 2019
             var date: Date? = null

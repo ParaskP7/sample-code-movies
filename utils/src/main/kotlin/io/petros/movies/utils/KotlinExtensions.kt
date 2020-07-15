@@ -48,6 +48,13 @@ fun String.toDate(dateFormat: String): Date {
     }
 }
 
+fun Date.toDate(dateFormat: String): String {
+    val calendar = Calendar.getInstance()
+    calendar.time = this
+    val date = SimpleDateFormat(dateFormat, Locale.US)
+    return date.format(calendar.time)
+}
+
 fun Date.toYear(): Int {
     val calendar = Calendar.getInstance()
     calendar.time = this
