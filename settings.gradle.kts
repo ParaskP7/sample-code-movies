@@ -17,6 +17,7 @@ include(":domain")
 /* DATA MODULES */
 
 include(":network")
+include(":database")
 include(":data")
 
 /* APP MODULE */

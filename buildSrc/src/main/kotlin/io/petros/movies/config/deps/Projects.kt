@@ -20,6 +20,7 @@ object Projects {
             object Core {
 
                 const val ANDROID_UTILS = "${Utils.COLON}android-utils"
+                const val DATABASE = "${Utils.COLON}database"
                 const val DATA = "${Utils.COLON}data"
                 const val CORE = "${Utils.COLON}core"
 
