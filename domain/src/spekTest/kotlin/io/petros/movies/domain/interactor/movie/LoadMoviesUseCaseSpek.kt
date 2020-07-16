@@ -16,16 +16,21 @@ import strikt.assertions.isEqualTo
 @ExperimentalCoroutinesApi
 class LoadMoviesUseCaseSpek : CoroutineSpek({
 
+    val params = LoadMoviesUseCase.Params(MOVIE_YEAR, MOVIE_MONTH, SECOND_PAGE)
+
     val moviesPage = Result.Success(moviesPage())
+
     val moviesRepositoryMock = mockk<MoviesRepository>()
-    coEvery { moviesRepositoryMock.loadMovies(MOVIE_YEAR, MOVIE_MONTH, SECOND_PAGE) } returns moviesPage
 
     Feature("Load movies use case") {
         val testedClass by memoized { LoadMoviesUseCase(moviesRepositoryMock) }
         Scenario("execute") {
             var result: Result<MoviesPage>? = null
+            Given("movies page") {
+                coEvery { moviesRepositoryMock.loadMovies(MOVIE_YEAR, MOVIE_MONTH, SECOND_PAGE) } returns moviesPage
+            }
             When("executing the use case") {
-                result = runBlocking { testedClass.execute(LoadMoviesUseCase.Params(MOVIE_YEAR, MOVIE_MONTH, SECOND_PAGE)) }
+                result = runBlocking { testedClass.execute(params) }
             }
             Then("the movies page is the expected one") {
                 expect { that(result).isEqualTo(moviesPage) }
