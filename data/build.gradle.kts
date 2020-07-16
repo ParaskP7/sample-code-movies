@@ -20,6 +20,8 @@ dependencies {
     implementation(project(Projects.Implementation.Android.Core.DATABASE))
 
     implementation(Deps.Kotlin.Core.KOTLIN)
+    implementation(Deps.Kotlin.Coroutines.CORE)
+    implementation(Deps.Android.Arch.Pagination.COMMON)
     implementation(Deps.Di.Koin.Kotlin.CORE)
 
     testImplementation(project(Projects.TestImplementation.Kotlin.TEST))
