@@ -23,6 +23,7 @@ dependencies {
     implementation(Deps.Kotlin.Coroutines.CORE)
     implementation(Deps.Android.Arch.Pagination.COMMON)
     implementation(Deps.Di.Koin.Kotlin.CORE)
+    implementation(Deps.Log.TIMBER)
 
     testImplementation(project(Projects.TestImplementation.Kotlin.TEST))
 
