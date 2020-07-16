@@ -9,7 +9,12 @@ import io.petros.movies.utils.toDate
 @Suppress("DataClassContainsFunctions")
 @Entity(tableName = "movies")
 data class MovieEntity(
-    @PrimaryKey val movieId: Int,
+    // The below fields are for pagination purposes only.
+    @PrimaryKey(autoGenerate = true) val id: Int = 0,
+    val prevPage: Int?,
+    val nextPage: Int?,
+    // The below fields are 'Movie' data class related fields.
+    val movieId: Int,
     val title: String,
     val releaseDate: String,
     val voteAverage: Double,
@@ -20,7 +25,13 @@ data class MovieEntity(
 
     companion object {
 
-        fun from(movie: Movie) = MovieEntity(
+        fun from(
+            prevPage: Int?,
+            nextPage: Int?,
+            movie: Movie,
+        ) = MovieEntity(
+            prevPage = prevPage,
+            nextPage = nextPage,
             movieId = movie.id,
             title = movie.title,
             releaseDate = movie.releaseDate.toDate(MOVIE_DATE_FORMAT),
