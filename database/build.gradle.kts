@@ -16,10 +16,10 @@ dependencies {
     implementation(project(Projects.Implementation.Kotlin.DOMAIN))
 
     implementation(Deps.Kotlin.Core.KOTLIN)
-    implementation(Deps.Di.Koin.Kotlin.CORE)
     implementation(Deps.Android.Arch.Room.RUNTIME)
     implementation(Deps.Android.Arch.Room.KTX)
     kapt(Deps.Android.Arch.Room.COMPILER)
+    implementation(Deps.Di.Koin.Kotlin.CORE)
 
     detektPlugins(Plugins.DETEKT_FORMATTING)
 }
