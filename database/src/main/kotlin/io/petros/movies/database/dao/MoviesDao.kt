@@ -1,5 +1,6 @@
 package io.petros.movies.database.dao
 
+import androidx.paging.PagingSource
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
@@ -14,5 +15,8 @@ interface MoviesDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(movies: List<MovieEntity>)
+
+    @Query("SELECT * FROM movies")
+    fun movies(): PagingSource<Int, MovieEntity>
 
 }
