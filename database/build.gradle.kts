@@ -19,6 +19,7 @@ dependencies {
     implementation(Deps.Android.Arch.Room.RUNTIME)
     implementation(Deps.Android.Arch.Room.KTX)
     kapt(Deps.Android.Arch.Room.COMPILER)
+    implementation(Deps.Android.Arch.Pagination.COMMON)
     implementation(Deps.Di.Koin.Kotlin.CORE)
 
     detektPlugins(Plugins.DETEKT_FORMATTING)
