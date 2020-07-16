@@ -185,9 +185,13 @@ fun Project.subprojectsPlugins() {
     }
 }
 
+@Suppress("SuspiciousCollectionReassignment")
 fun Project.subprojectsTasks() {
     tasks.withType<KotlinCompile>().configureEach {
-        kotlinOptions { kotlinOptions() }
+        kotlinOptions {
+            kotlinOptions()
+            freeCompilerArgs += Config.Kotlin.Options.freeCompilerArgs
+        }
     }
     tasks.withType<DependencyUpdatesTask> {
         versionsOptions()

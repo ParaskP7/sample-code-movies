@@ -13,6 +13,16 @@ object Config {
 
     }
 
+    object Kotlin {
+
+        object Options {
+
+            val freeCompilerArgs = listOf("-Xopt-in=kotlin.RequiresOptIn")
+
+        }
+
+    }
+
     object Lint {
 
         const val CONFIG_FILE_PATH = "$QUALITY_DIRECTORY/${Files.Xml.LINT}"
