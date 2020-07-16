@@ -16,8 +16,8 @@ dependencies {
     implementation(project(Projects.Implementation.Kotlin.DOMAIN))
 
     implementation(Deps.Kotlin.Core.KOTLIN)
-    implementation(Deps.Android.Arch.Room.RUNTIME)
-    implementation(Deps.Android.Arch.Room.KTX)
+    api(Deps.Android.Arch.Room.RUNTIME)
+    api(Deps.Android.Arch.Room.KTX)
     kapt(Deps.Android.Arch.Room.COMPILER)
     implementation(Deps.Android.Arch.Pagination.COMMON)
     implementation(Deps.Di.Koin.Kotlin.CORE)
