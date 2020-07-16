@@ -2,6 +2,7 @@ package io.petros.movies.data.repository.movie
 
 import io.mockk.coEvery
 import io.mockk.mockk
+import io.petros.movies.database.MoviesDatabase
 import io.petros.movies.domain.model.Result
 import io.petros.movies.domain.model.movie.Movie
 import io.petros.movies.domain.model.movie.MoviesPage
@@ -22,9 +23,10 @@ class MoviesRepositoryImplSpek : CoroutineSpek({
     val movie = Result.Success(movie())
 
     val webServiceMock = mockk<WebService>()
+    val moviesDatabaseMock = mockk<MoviesDatabase>()
 
     Feature("Movies repository") {
-        val testedClass by memoized { MoviesRepositoryImpl(webServiceMock) }
+        val testedClass by memoized { MoviesRepositoryImpl(webServiceMock, moviesDatabaseMock) }
         Scenario("loading movies") {
             var result: Result<MoviesPage>? = null
             Given("movies page response") {

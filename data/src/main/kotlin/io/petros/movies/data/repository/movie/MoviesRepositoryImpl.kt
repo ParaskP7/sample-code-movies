@@ -1,6 +1,7 @@
 package io.petros.movies.data.repository.movie
 
 import androidx.paging.PagingData
+import io.petros.movies.database.MoviesDatabase
 import io.petros.movies.domain.model.asResult
 import io.petros.movies.domain.model.movie.Movie
 import io.petros.movies.domain.repository.movie.MoviesRepository
@@ -9,6 +10,7 @@ import kotlinx.coroutines.flow.Flow
 
 class MoviesRepositoryImpl(
     private val webService: WebService,
+    private val database: MoviesDatabase,
 ) : MoviesRepository {
 
     override suspend fun loadMovies(year: Int?, month: Int?, page: Int?) = asResult {

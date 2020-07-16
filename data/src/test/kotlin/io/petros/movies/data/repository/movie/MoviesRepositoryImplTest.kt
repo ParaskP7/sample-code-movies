@@ -2,6 +2,7 @@ package io.petros.movies.data.repository.movie
 
 import io.mockk.coEvery
 import io.mockk.mockk
+import io.petros.movies.database.MoviesDatabase
 import io.petros.movies.domain.model.Result
 import io.petros.movies.network.WebService
 import io.petros.movies.test.domain.movie
@@ -32,7 +33,8 @@ class MoviesRepositoryImplTest {
     private val movie = Result.Success(movie())
 
     private val webServiceMock = mockk<WebService>()
-    private val testedClass = MoviesRepositoryImpl(webServiceMock)
+    private val moviesDatabaseMock = mockk<MoviesDatabase>()
+    private val testedClass = MoviesRepositoryImpl(webServiceMock, moviesDatabaseMock)
 
     @Test
     fun `when load movies is triggered, then the movies page is the expected one`() = coroutineScope.runBlockingTest {
