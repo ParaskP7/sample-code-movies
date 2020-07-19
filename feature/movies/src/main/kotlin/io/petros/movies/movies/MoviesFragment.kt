@@ -174,9 +174,9 @@ class MoviesFragment : MviFragment<
         is MoviesSideEffect.MoviesPrependError -> renderErrorSideEffect()
     }
 
-    private fun renderErrorSideEffect() {
+    private fun renderErrorSideEffect() = view?.let { view ->
         snackbar = Snackbar
-            .make(binding.ctrMovies, R.string.sbLoadMoviesError, Snackbar.LENGTH_INDEFINITE)
+            .make(view, R.string.sbLoadMoviesError, Snackbar.LENGTH_INDEFINITE)
             .setAction(R.string.sbLoadMoviesErrorAction) {
                 viewModel.process(
                     MoviesIntent.LoadMovies(
