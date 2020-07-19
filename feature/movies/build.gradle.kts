@@ -43,6 +43,7 @@ dependencies {
     implementation(Deps.Android.Arch.Navigation.COMMON_KTX)
     implementation(Deps.Android.Arch.Navigation.RUNTIME)
     implementation(Deps.Android.Arch.Navigation.FRAGMENT_KTX)
+    implementation(Deps.Android.Arch.Pagination.RUNTIME)
     implementation(Deps.Architecture.Mvi.STATEFUL) { exclude(Deps.Architecture.Mvi.Exclude.KOTLIN) }
     kapt(Deps.Architecture.Mvi.STATEFUL_COMPILER)
     implementation(Deps.Di.Koin.Kotlin.CORE)
