@@ -10,7 +10,6 @@ import androidx.paging.PagingData
 import com.google.android.material.snackbar.Snackbar
 import dev.fanie.stateful.Renders
 import io.petros.movies.core.fragment.MviFragment
-import io.petros.movies.core.list.infinite.InfiniteRecyclerView
 import io.petros.movies.core.view_binding.viewBinding
 import io.petros.movies.domain.model.movie.Movie
 import io.petros.movies.feature.movies.R
@@ -35,8 +34,7 @@ class MoviesFragment : MviFragment<
         MoviesSideEffect,
         >(R.layout.movies_fragment),
     MoviesToolbarCallback,
-    MovieItemCallback,
-    InfiniteRecyclerView.Listener {
+    MovieItemCallback {
 
     companion object {
 
@@ -65,7 +63,6 @@ class MoviesFragment : MviFragment<
         adapter = MoviesPagingAdapter()
         adapter?.itemCallback = this
         binding.recyclerView.adapter = adapter
-        binding.recyclerView.listener = this
     }
 
     override fun onResume() {
@@ -143,17 +140,6 @@ class MoviesFragment : MviFragment<
                 )
             }
         snackbar?.show()
-    }
-
-    /* DATA LOADING */
-
-    override fun loadData(page: Int?) {
-        viewModel.process(
-            MoviesIntent.LoadMovies(
-                year = binding.toolbar.getYear(),
-                month = binding.toolbar.getMonth(),
-            )
-        )
     }
 
     /* NAVIGATION */

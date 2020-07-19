@@ -27,7 +27,7 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <io.petros.movies.core.list.infinite.InfiniteRecyclerView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         style="@style/RecyclerView"
         android:layout_width="match_parent"
