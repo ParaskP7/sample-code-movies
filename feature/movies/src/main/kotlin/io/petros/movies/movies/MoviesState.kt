@@ -27,7 +27,11 @@ sealed class MoviesStatus {
 
 sealed class MoviesSideEffect {
 
-    object Error : MoviesSideEffect()
+    object MoviesRefreshError : MoviesSideEffect()
+
+    object MoviesAppendError : MoviesSideEffect()
+
+    object MoviesPrependError : MoviesSideEffect()
 
 }
 
@@ -118,7 +122,11 @@ object MoviesReducer {
 
     @Suppress("UseIfInsteadOfWhen")
     fun once(action: MoviesAction) = when (action) {
-        is MoviesAction.Error -> MoviesSideEffect.Error
+        is MoviesAction.Error -> when (action.loadType) {
+            LoadType.REFRESH -> MoviesSideEffect.MoviesRefreshError
+            LoadType.APPEND -> MoviesSideEffect.MoviesAppendError
+            LoadType.PREPEND -> MoviesSideEffect.MoviesPrependError
+        }
         else -> throw IllegalArgumentException(
             "This movies action has no side effects associated with it. [Action: $action]"
         )

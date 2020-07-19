@@ -177,14 +177,40 @@ class MoviesStateSpek : Spek({
         Scenario("error") {
             @Suppress("LateinitUsage") lateinit var action: MoviesAction
             var result: MoviesSideEffect? = null
-            Given("an error action") {
+            Given("a refresh error action") {
+                action = MoviesAction.Error(LoadType.REFRESH)
+            }
+            When("once is triggered") {
+                result = MoviesReducer.once(action)
+            }
+            Then("the side effect is the expected one") {
+                expect { that(result).isEqualTo(MoviesSideEffect.MoviesRefreshError) }
+            }
+        }
+        Scenario("error") {
+            @Suppress("LateinitUsage") lateinit var action: MoviesAction
+            var result: MoviesSideEffect? = null
+            Given("an appned error action") {
                 action = MoviesAction.Error(LoadType.APPEND)
             }
             When("once is triggered") {
                 result = MoviesReducer.once(action)
             }
             Then("the side effect is the expected one") {
-                expect { that(result).isEqualTo(MoviesSideEffect.Error) }
+                expect { that(result).isEqualTo(MoviesSideEffect.MoviesAppendError) }
+            }
+        }
+        Scenario("error") {
+            @Suppress("LateinitUsage") lateinit var action: MoviesAction
+            var result: MoviesSideEffect? = null
+            Given("a prepend error action") {
+                action = MoviesAction.Error(LoadType.PREPEND)
+            }
+            When("once is triggered") {
+                result = MoviesReducer.once(action)
+            }
+            Then("the side effect is the expected one") {
+                expect { that(result).isEqualTo(MoviesSideEffect.MoviesPrependError) }
             }
         }
         Scenario("unexpected") {

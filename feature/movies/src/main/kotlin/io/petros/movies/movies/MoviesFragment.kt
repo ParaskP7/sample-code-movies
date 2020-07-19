@@ -28,6 +28,7 @@ import io.petros.movies.utils.doNothing
 import io.petros.movies.utils.slash
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import timber.log.Timber
 
 @Suppress("TooManyFunctions", "unused")
 class MoviesFragment : MviFragment<
@@ -168,7 +169,9 @@ class MoviesFragment : MviFragment<
     /* SIDE EFFECT */
 
     override fun renderSideEffect(sideEffect: MoviesSideEffect) = when (sideEffect) {
-        is MoviesSideEffect.Error -> renderErrorSideEffect()
+        is MoviesSideEffect.MoviesRefreshError -> Timber.d("Paging error during movies refresh.")
+        is MoviesSideEffect.MoviesAppendError -> renderErrorSideEffect()
+        is MoviesSideEffect.MoviesPrependError -> renderErrorSideEffect()
     }
 
     private fun renderErrorSideEffect() {

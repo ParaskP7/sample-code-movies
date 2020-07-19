@@ -151,10 +151,24 @@ class MoviesStateTest {
     }
 
     @Test
-    fun `given an error action, when once is triggered, then the side effect is the expected one`() {
+    fun `given a refresh error action, when once is triggered, then the side effect is the expected one`() {
+        val result = MoviesReducer.once(MoviesAction.Error(LoadType.REFRESH))
+
+        expect { that(result).isEqualTo(MoviesSideEffect.MoviesRefreshError) }
+    }
+
+    @Test
+    fun `given an append error action, when once is triggered, then the side effect is the expected one`() {
         val result = MoviesReducer.once(MoviesAction.Error(LoadType.APPEND))
 
-        expect { that(result).isEqualTo(MoviesSideEffect.Error) }
+        expect { that(result).isEqualTo(MoviesSideEffect.MoviesAppendError) }
+    }
+
+    @Test
+    fun `given a prepend error action, when once is triggered, then the side effect is the expected one`() {
+        val result = MoviesReducer.once(MoviesAction.Error(LoadType.PREPEND))
+
+        expect { that(result).isEqualTo(MoviesSideEffect.MoviesPrependError) }
     }
 
     @Test(expected = IllegalArgumentException::class)
