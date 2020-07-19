@@ -1,16 +1,16 @@
 package io.petros.movies.movies
 
+import androidx.paging.LoadType
+import androidx.paging.PagingData
 import dev.fanie.stateful.Stateful
-import io.petros.movies.domain.model.common.PaginationData
 import io.petros.movies.domain.model.movie.Movie
-import io.petros.movies.domain.model.movie.MoviesPage
 
 @Stateful
 data class MoviesState(
     val year: Int?,
     val month: Int?,
     val status: MoviesStatus,
-    val movies: PaginationData<Movie>,
+    val movies: PagingData<Movie>,
 )
 
 sealed class MoviesStatus {
@@ -41,7 +41,11 @@ sealed class MoviesIntent {
     data class LoadMovies(
         val year: Int? = null,
         val month: Int? = null,
-        val page: Int? = null,
+    ) : MoviesIntent()
+
+    data class ErrorMovies(
+        val error: Throwable,
+        val loadType: LoadType,
     ) : MoviesIntent()
 
     data class ReloadMovies(
@@ -69,10 +73,12 @@ sealed class MoviesAction {
     ) : MoviesAction()
 
     data class Success(
-        val movies: MoviesPage,
+        val movies: PagingData<Movie>,
     ) : MoviesAction()
 
-    object Error : MoviesAction()
+    data class Error(
+        val loadType: LoadType,
+    ) : MoviesAction()
 
 }
 
@@ -82,7 +88,7 @@ object MoviesReducer {
         year = null,
         month = null,
         status = MoviesStatus.Init,
-        movies = PaginationData(),
+        movies = PagingData.empty(),
     )
 
     fun reduce(previousState: MoviesState, action: MoviesAction) = when (action) {
@@ -99,23 +105,14 @@ object MoviesReducer {
         is MoviesAction.Reload -> previousState.copy(
             year = action.year,
             month = action.month,
-            movies = PaginationData(),
+            movies = PagingData.empty(),
         )
         is MoviesAction.Success -> previousState.copy(
             status = MoviesStatus.Loaded,
-            movies = PaginationData(
-                previousState.movies.allPageItems + action.movies.items,
-                action.movies,
-                action.movies.nextPage,
-            ),
+            movies = action.movies,
         )
         is MoviesAction.Error -> previousState.copy(
             status = MoviesStatus.Loaded,
-            movies = PaginationData(
-                previousState.movies.allPageItems,
-                MoviesPage(previousState.movies.nextPage, emptyList()),
-                previousState.movies.nextPage,
-            ),
         )
     }
 

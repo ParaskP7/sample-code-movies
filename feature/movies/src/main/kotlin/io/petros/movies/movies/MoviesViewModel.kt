@@ -1,11 +1,14 @@
 package io.petros.movies.movies
 
 import androidx.lifecycle.viewModelScope
+import androidx.paging.LoadType
+import androidx.paging.PagingData
+import androidx.paging.cachedIn
 import io.petros.movies.core.view_model.MviViewModel
 import io.petros.movies.domain.interactor.movie.LoadMoviesUseCase
-import io.petros.movies.domain.model.Result
-import io.petros.movies.domain.model.movie.MoviesPage
+import io.petros.movies.domain.model.movie.Movie
 import io.petros.movies.utils.exhaustive
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import timber.log.Timber
 
@@ -22,7 +25,8 @@ class MoviesViewModel(
         super.process(intent)
         when (intent) {
             is MoviesIntent.IdleMovies -> idleMovies(intent.year, intent.month)
-            is MoviesIntent.LoadMovies -> loadMovies(intent.year, intent.month, intent.page)
+            is MoviesIntent.LoadMovies -> loadMovies(intent.year, intent.month)
+            is MoviesIntent.ErrorMovies -> onLoadMoviesError(intent.error, intent.loadType)
             is MoviesIntent.ReloadMovies -> reloadMovies(intent.year, intent.month)
         }.exhaustive
     }
@@ -31,23 +35,22 @@ class MoviesViewModel(
         state = MoviesReducer.reduce(state, MoviesAction.Idle(year, month))
     }
 
-    private fun loadMovies(year: Int? = null, month: Int? = null, page: Int? = null) = viewModelScope.launch {
+    private fun loadMovies(year: Int? = null, month: Int? = null) = viewModelScope.launch {
         state = MoviesReducer.reduce(state, MoviesAction.Load(year, month))
-        when (val movies = loadMoviesUseCase.execute(LoadMoviesUseCase.Params(year, month, page))) {
-            is Result.Success -> onLoadMoviesSuccess(movies.value)
-            is Result.Error -> onLoadMoviesError(movies.cause)
-        }.exhaustive
+        loadMoviesUseCase(LoadMoviesUseCase.Params(year, month, null))
+            .cachedIn(viewModelScope)
+            .collectLatest { onLoadMoviesSuccess(it) }
     }
 
-    private fun onLoadMoviesSuccess(movies: MoviesPage) {
+    private fun onLoadMoviesSuccess(movies: PagingData<Movie>) {
         Timber.d("Load movies success. [Movies: $movies]")
         state = MoviesReducer.reduce(state, MoviesAction.Success(movies))
     }
 
-    private fun onLoadMoviesError(error: Exception) {
+    private fun onLoadMoviesError(error: Throwable, loadType: LoadType) {
         Timber.w(error, "Load movies error.")
-        state = MoviesReducer.reduce(state, MoviesAction.Error)
-        sideEffect = MoviesReducer.once(MoviesAction.Error)
+        state = MoviesReducer.reduce(state, MoviesAction.Error(loadType))
+        sideEffect = MoviesReducer.once(MoviesAction.Error(loadType))
     }
 
     private fun reloadMovies(year: Int? = null, month: Int? = null) {

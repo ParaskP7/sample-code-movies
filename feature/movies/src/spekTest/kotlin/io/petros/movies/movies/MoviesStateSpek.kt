@@ -1,9 +1,9 @@
 package io.petros.movies.movies
 
-import io.petros.movies.domain.model.common.PaginationData
+import androidx.paging.LoadType
+import androidx.paging.PagingData
+import io.mockk.mockk
 import io.petros.movies.domain.model.movie.Movie
-import io.petros.movies.domain.model.movie.MoviesPage
-import io.petros.movies.test.domain.movie
 import org.spekframework.spek2.Spek
 import org.spekframework.spek2.style.gherkin.Feature
 import strikt.api.expect
@@ -11,8 +11,6 @@ import strikt.assertions.isA
 import strikt.assertions.isEqualTo
 
 class MoviesStateSpek : Spek({
-
-    val firstPageItems = listOf(movie(id = 1), movie(id = 2), movie(id = 3))
 
     Feature("Movies reducer init") {
         Scenario("init") {
@@ -27,7 +25,7 @@ class MoviesStateSpek : Spek({
                             year = null,
                             month = null,
                             status = MoviesStatus.Init,
-                            movies = PaginationData(),
+                            movies = PagingData.empty(),
                         )
                     )
                 }
@@ -44,7 +42,7 @@ class MoviesStateSpek : Spek({
                     year = null,
                     month = null,
                     status = MoviesStatus.Init,
-                    movies = PaginationData(),
+                    movies = PagingData.empty(),
                 )
             }
             When("reduce is triggered") {
@@ -57,7 +55,7 @@ class MoviesStateSpek : Spek({
                             year = MOVIE_YEAR,
                             month = MOVIE_MONTH,
                             status = MoviesStatus.Idle,
-                            movies = PaginationData(),
+                            movies = PagingData.empty(),
                         )
                     )
                 }
@@ -71,7 +69,7 @@ class MoviesStateSpek : Spek({
                     year = MOVIE_YEAR,
                     month = MOVIE_MONTH,
                     status = MoviesStatus.Idle,
-                    movies = PaginationData(),
+                    movies = PagingData.empty(),
                 )
             }
             When("reduce is triggered") {
@@ -84,7 +82,7 @@ class MoviesStateSpek : Spek({
                             year = MOVIE_YEAR,
                             month = MOVIE_MONTH,
                             status = MoviesStatus.Loading,
-                            movies = PaginationData(),
+                            movies = PagingData.empty(),
                         )
                     )
                 }
@@ -94,16 +92,11 @@ class MoviesStateSpek : Spek({
             @Suppress("LateinitUsage") lateinit var previousState: MoviesState
             var result: MoviesState? = null
             Given("a reload action") {
-                val moviesPage = MoviesPage(SECOND_PAGE, firstPageItems)
                 previousState = MoviesState(
                     year = MOVIE_YEAR,
                     month = MOVIE_MONTH,
                     status = MoviesStatus.Loaded,
-                    movies = PaginationData(
-                        moviesPage.items,
-                        moviesPage,
-                        moviesPage.nextPage,
-                    ),
+                    movies = mockk(),
                 )
             }
             When("reduce is triggered") {
@@ -116,27 +109,26 @@ class MoviesStateSpek : Spek({
                             year = MOVIE_YEAR,
                             month = MOVIE_MONTH,
                             status = MoviesStatus.Loaded,
-                            movies = PaginationData(),
+                            movies = PagingData.empty(),
                         )
                     )
                 }
             }
         }
         Scenario("success") {
-            val moviesPage = MoviesPage(SECOND_PAGE, firstPageItems)
-            val paginationData = PaginationData<Movie>()
             @Suppress("LateinitUsage") lateinit var previousState: MoviesState
+            val movies = PagingData.empty<Movie>()
             var result: MoviesState? = null
             Given("a success action") {
                 previousState = MoviesState(
                     year = MOVIE_YEAR,
                     month = MOVIE_MONTH,
                     status = MoviesStatus.Loading,
-                    movies = paginationData,
+                    movies = mockk(),
                 )
             }
             When("reduce is triggered") {
-                result = MoviesReducer.reduce(previousState, MoviesAction.Success(moviesPage))
+                result = MoviesReducer.reduce(previousState, MoviesAction.Success(movies))
             }
             Then("the initial state is the expected one") {
                 expect {
@@ -145,34 +137,26 @@ class MoviesStateSpek : Spek({
                             year = MOVIE_YEAR,
                             month = MOVIE_MONTH,
                             status = MoviesStatus.Loaded,
-                            movies = PaginationData(
-                                previousState.movies.allPageItems + moviesPage.items,
-                                moviesPage,
-                                moviesPage.nextPage,
-                            ),
+                            movies = movies,
                         )
                     )
                 }
             }
         }
         Scenario("error") {
-            val moviesPage = MoviesPage(SECOND_PAGE, firstPageItems)
             @Suppress("LateinitUsage") lateinit var previousState: MoviesState
+            val movies = PagingData.empty<Movie>()
             var result: MoviesState? = null
             Given("an error action") {
                 previousState = MoviesState(
                     year = MOVIE_YEAR,
                     month = MOVIE_MONTH,
                     status = MoviesStatus.Loading,
-                    movies = PaginationData(
-                        moviesPage.items,
-                        moviesPage,
-                        moviesPage.nextPage,
-                    )
+                    movies = movies,
                 )
             }
             When("reduce is triggered") {
-                result = MoviesReducer.reduce(previousState, MoviesAction.Error)
+                result = MoviesReducer.reduce(previousState, MoviesAction.Error(LoadType.APPEND))
             }
             Then("the initial state is the expected one") {
                 expect {
@@ -181,11 +165,7 @@ class MoviesStateSpek : Spek({
                             year = MOVIE_YEAR,
                             month = MOVIE_MONTH,
                             status = MoviesStatus.Loaded,
-                            movies = PaginationData(
-                                previousState.movies.allPageItems,
-                                MoviesPage(moviesPage.nextPage, emptyList()),
-                                moviesPage.nextPage,
-                            ),
+                            movies = movies,
                         )
                     )
                 }
@@ -198,7 +178,7 @@ class MoviesStateSpek : Spek({
             @Suppress("LateinitUsage") lateinit var action: MoviesAction
             var result: MoviesSideEffect? = null
             Given("an error action") {
-                action = MoviesAction.Error
+                action = MoviesAction.Error(LoadType.APPEND)
             }
             When("once is triggered") {
                 result = MoviesReducer.once(action)
@@ -226,7 +206,6 @@ class MoviesStateSpek : Spek({
 
     companion object {
 
-        private const val SECOND_PAGE = 2
         private const val MOVIE_YEAR = 2018
         private const val MOVIE_MONTH = 7
 

@@ -3,18 +3,19 @@ package io.petros.movies.movies
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.navOptions
+import androidx.paging.PagingData
 import com.google.android.material.snackbar.Snackbar
 import dev.fanie.stateful.Renders
 import io.petros.movies.core.fragment.MviFragment
-import io.petros.movies.core.list.AdapterStatus
 import io.petros.movies.core.list.infinite.InfiniteRecyclerView
 import io.petros.movies.core.view_binding.viewBinding
 import io.petros.movies.domain.model.movie.Movie
 import io.petros.movies.feature.movies.R
 import io.petros.movies.feature.movies.databinding.MoviesFragmentBinding
-import io.petros.movies.movies.list.MoviesAdapter
+import io.petros.movies.movies.list.MoviesPagingAdapter
 import io.petros.movies.movies.list.item.MovieItemCallback
 import io.petros.movies.movies.stateful.moviesstate.StatefulMoviesState
 import io.petros.movies.movies.stateful.moviesstate.stateful
@@ -23,6 +24,7 @@ import io.petros.movies.picker.MovieMonthPickerFragment
 import io.petros.movies.picker.MovieYearPickerFragment
 import io.petros.movies.utils.doNothing
 import io.petros.movies.utils.slash
+import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 @Suppress("TooManyFunctions", "unused")
@@ -48,7 +50,7 @@ class MoviesFragment : MviFragment<
     override val viewModel: MoviesViewModel by viewModel()
     override val stateful by stateful()
 
-    private var adapter: MoviesAdapter? = null
+    private var adapter: MoviesPagingAdapter? = null
     private var snackbar: Snackbar? = null
 
     private var reloadItems = false
@@ -64,7 +66,7 @@ class MoviesFragment : MviFragment<
     }
 
     private fun initRecyclerView() {
-        adapter = MoviesAdapter()
+        adapter = MoviesPagingAdapter()
         adapter?.itemCallback = this
         binding.recyclerView.adapter = adapter
         binding.recyclerView.listener = this
@@ -95,12 +97,9 @@ class MoviesFragment : MviFragment<
             is MoviesStatus.Init -> viewModel.process(
                 MoviesIntent.LoadMovies()
             )
-            is MoviesStatus.Idle -> adapter?.status = AdapterStatus.IDLE
-            is MoviesStatus.Loading -> {
-                adapter?.status = AdapterStatus.LOADING
-                snackbar?.dismiss()
-            }
-            is MoviesStatus.Loaded -> adapter?.status = AdapterStatus.IDLE
+            is MoviesStatus.Idle -> doNothing
+            is MoviesStatus.Loading -> snackbar?.dismiss()
+            is MoviesStatus.Loaded -> doNothing
         }
     }
 
@@ -125,18 +124,9 @@ class MoviesFragment : MviFragment<
         }
     }
 
-    @Suppress("UseCheckOrError")
     @Renders(StatefulMoviesState.Property.MOVIES::class)
-    fun renderMovies(state: MoviesState) {
-        when (state.status) {
-            is MoviesStatus.Init -> doNothing
-            is MoviesStatus.Idle -> adapter?.setItems(state.movies, true)
-            is MoviesStatus.Loading -> throw IllegalStateException("Movies updated during loading status.")
-            is MoviesStatus.Loaded -> {
-                adapter?.setItems(state.movies, reloadItems)
-                reloadItems = false
-            }
-        }
+    fun renderMovies(movies: PagingData<Movie>) {
+        lifecycleScope.launch { adapter?.submitData(movies) }
     }
 
     /* SIDE EFFECT */
@@ -153,7 +143,6 @@ class MoviesFragment : MviFragment<
                     MoviesIntent.LoadMovies(
                         year = binding.toolbar.getYear(),
                         month = binding.toolbar.getMonth(),
-                        page = adapter?.nextPage(),
                     )
                 )
             }
@@ -167,7 +156,6 @@ class MoviesFragment : MviFragment<
             MoviesIntent.LoadMovies(
                 year = binding.toolbar.getYear(),
                 month = binding.toolbar.getMonth(),
-                page = page,
             )
         )
     }
