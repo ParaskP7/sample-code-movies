@@ -177,14 +177,7 @@ class MoviesFragment : MviFragment<
     private fun renderErrorSideEffect() = view?.let { view ->
         snackbar = Snackbar
             .make(view, R.string.sbLoadMoviesError, Snackbar.LENGTH_INDEFINITE)
-            .setAction(R.string.sbLoadMoviesErrorAction) {
-                viewModel.process(
-                    MoviesIntent.LoadMovies(
-                        year = binding.toolbar.getYear(),
-                        month = binding.toolbar.getMonth(),
-                    )
-                )
-            }
+            .setAction(R.string.sbLoadMoviesErrorAction) { adapter?.retry() }
         snackbar?.show()
     }
 
