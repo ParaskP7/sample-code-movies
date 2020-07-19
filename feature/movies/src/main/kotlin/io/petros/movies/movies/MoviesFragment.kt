@@ -6,6 +6,9 @@ import android.view.View
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.navOptions
+import androidx.paging.CombinedLoadStates
+import androidx.paging.LoadState
+import androidx.paging.LoadType
 import androidx.paging.PagingData
 import com.google.android.material.snackbar.Snackbar
 import dev.fanie.stateful.Renders
@@ -62,8 +65,48 @@ class MoviesFragment : MviFragment<
     private fun initRecyclerView() {
         adapter = MoviesPagingAdapter()
         adapter?.itemCallback = this
+        adapter?.addLoadStateListener { handleErrorLoadStates(it) }
         binding.recyclerView.adapter = adapter
     }
+
+    private fun handleErrorLoadStates(loadState: CombinedLoadStates) {
+        refreshErrorState(loadState)?.let {
+            viewModel.process(
+                MoviesIntent.ErrorMovies(
+                    error = it.error,
+                    loadType = LoadType.REFRESH,
+                )
+            )
+        }
+        appendErrorState(loadState)?.let {
+            viewModel.process(
+                MoviesIntent.ErrorMovies(
+                    error = it.error,
+                    loadType = LoadType.APPEND,
+                )
+            )
+        }
+        prependErrorState(loadState)?.let {
+            viewModel.process(
+                MoviesIntent.ErrorMovies(
+                    error = it.error,
+                    loadType = LoadType.PREPEND,
+                )
+            )
+        }
+    }
+
+    private fun refreshErrorState(loadState: CombinedLoadStates) =
+        loadState.source.refresh as? LoadState.Error
+            ?: loadState.refresh as? LoadState.Error
+
+    private fun appendErrorState(loadState: CombinedLoadStates) =
+        loadState.source.append as? LoadState.Error
+            ?: loadState.append as? LoadState.Error
+
+    private fun prependErrorState(loadState: CombinedLoadStates) =
+        loadState.source.prepend as? LoadState.Error
+            ?: loadState.prepend as? LoadState.Error
 
     override fun onResume() {
         super.onResume()
