@@ -40,8 +40,6 @@ class MoviesFragment : MviFragment<
 
     companion object {
 
-        private const val INSTANCE_STATE_KEY_RELOAD_ITEMS = "RELOAD_ITEMS"
-
         private const val MOVIE_DETAILS_DEEP_LINK = "io.petros.movies://movieDetailsFragment"
 
     }
@@ -52,8 +50,6 @@ class MoviesFragment : MviFragment<
 
     private var adapter: MoviesPagingAdapter? = null
     private var snackbar: Snackbar? = null
-
-    private var reloadItems = false
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -228,24 +224,12 @@ class MoviesFragment : MviFragment<
 
     override fun onViewStateRestored(savedInstanceState: Bundle?) {
         super.onViewStateRestored(savedInstanceState)
-        savedInstanceState?.let { bundle ->
-            binding.toolbar.onRestoreInstanceState(bundle)
-            onRestoreDoReloadInstanceState(bundle)
-        }
-    }
-
-    private fun onRestoreDoReloadInstanceState(savedInstanceState: Bundle) {
-        reloadItems = savedInstanceState.getBoolean(INSTANCE_STATE_KEY_RELOAD_ITEMS)
+        savedInstanceState?.let { binding.toolbar.onRestoreInstanceState(it) }
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
         if (view != null) binding.toolbar.onSaveInstanceState(outState)
-        onSaveDoReloadInstanceState(outState)
-    }
-
-    private fun onSaveDoReloadInstanceState(outState: Bundle) {
-        outState.putBoolean(INSTANCE_STATE_KEY_RELOAD_ITEMS, true)
     }
 
 }
