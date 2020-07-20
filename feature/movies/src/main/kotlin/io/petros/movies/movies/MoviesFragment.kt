@@ -151,6 +151,7 @@ class MoviesFragment : MviFragment<
     @Renders(StatefulMoviesState.Property.MOVIES::class)
     fun renderMovies(movies: PagingData<Movie>) {
         lifecycleScope.launch { adapter?.submitData(movies) }
+        if (snackbar?.isShown == true) snackbar?.dismiss()
     }
 
     /* SIDE EFFECT */
