@@ -26,30 +26,6 @@ class MoviesStateTest {
                 MoviesState(
                     year = null,
                     month = null,
-                    status = MoviesStatus.Init,
-                    movies = PagingData.empty(),
-                )
-            )
-        }
-    }
-
-    @Test
-    fun `given an idle action, when reduce is triggered, then the new state is the expected one`() {
-        val previousState = MoviesState(
-            year = null,
-            month = null,
-            status = MoviesStatus.Init,
-            movies = PagingData.empty(),
-        )
-
-        val result = MoviesReducer.reduce(previousState, MoviesAction.Idle(MOVIE_YEAR, MOVIE_MONTH))
-
-        expect {
-            that(result).isEqualTo(
-                MoviesState(
-                    year = MOVIE_YEAR,
-                    month = MOVIE_MONTH,
-                    status = MoviesStatus.Idle,
                     movies = PagingData.empty(),
                 )
             )
@@ -61,7 +37,6 @@ class MoviesStateTest {
         val previousState = MoviesState(
             year = MOVIE_YEAR,
             month = MOVIE_MONTH,
-            status = MoviesStatus.Idle,
             movies = PagingData.empty(),
         )
 
@@ -72,7 +47,6 @@ class MoviesStateTest {
                 MoviesState(
                     year = MOVIE_YEAR,
                     month = MOVIE_MONTH,
-                    status = MoviesStatus.Loading,
                     movies = PagingData.empty(),
                 )
             )
@@ -84,7 +58,6 @@ class MoviesStateTest {
         val previousState = MoviesState(
             year = MOVIE_YEAR,
             month = MOVIE_MONTH,
-            status = MoviesStatus.Loaded,
             movies = mockk(),
         )
 
@@ -95,7 +68,6 @@ class MoviesStateTest {
                 MoviesState(
                     year = MOVIE_YEAR,
                     month = MOVIE_MONTH,
-                    status = MoviesStatus.Loaded,
                     movies = PagingData.empty(),
                 )
             )
@@ -108,7 +80,6 @@ class MoviesStateTest {
         val previousState = MoviesState(
             year = MOVIE_YEAR,
             month = MOVIE_MONTH,
-            status = MoviesStatus.Loading,
             movies = mockk(),
         )
 
@@ -119,7 +90,6 @@ class MoviesStateTest {
                 MoviesState(
                     year = MOVIE_YEAR,
                     month = MOVIE_MONTH,
-                    status = MoviesStatus.Loaded,
                     movies = movies,
                 )
             )
@@ -132,7 +102,6 @@ class MoviesStateTest {
         val previousState = MoviesState(
             year = MOVIE_YEAR,
             month = MOVIE_MONTH,
-            status = MoviesStatus.Loading,
             movies = movies,
         )
 
@@ -143,7 +112,6 @@ class MoviesStateTest {
                 MoviesState(
                     year = MOVIE_YEAR,
                     month = MOVIE_MONTH,
-                    status = MoviesStatus.Loaded,
                     movies = movies,
                 )
             )

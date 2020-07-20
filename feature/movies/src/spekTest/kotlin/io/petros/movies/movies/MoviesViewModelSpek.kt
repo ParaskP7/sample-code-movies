@@ -46,29 +46,6 @@ class MoviesViewModelSpek : ViewModelSpek({
                         MoviesState(
                             year = null,
                             month = null,
-                            status = MoviesStatus.Init,
-                            movies = PagingData.empty(),
-                        )
-                    )
-                }
-            }
-        }
-    }
-
-    Feature("Movies view model for idle") {
-        val testedClass by memoized { MoviesViewModel(loadMoviesUseCaseMock) }
-        Scenario("idling") {
-            When("idling movies") {
-                setupViewModel(testedClass)
-                testedClass.process(MoviesIntent.IdleMovies(MOVIE_YEAR, MOVIE_MONTH))
-            }
-            Then("the expected idling state is posted") {
-                coVerify {
-                    stateMock.onChanged(
-                        MoviesState(
-                            year = MOVIE_YEAR,
-                            month = MOVIE_MONTH,
-                            status = MoviesStatus.Idle,
                             movies = PagingData.empty(),
                         )
                     )
@@ -90,7 +67,6 @@ class MoviesViewModelSpek : ViewModelSpek({
                         MoviesState(
                             year = MOVIE_YEAR,
                             month = MOVIE_MONTH,
-                            status = MoviesStatus.Loading,
                             movies = PagingData.empty(),
                         )
                     )
@@ -115,7 +91,6 @@ class MoviesViewModelSpek : ViewModelSpek({
                         MoviesState(
                             year = MOVIE_YEAR,
                             month = MOVIE_MONTH,
-                            status = MoviesStatus.Loaded,
                             movies = eq(any()),
                         )
                     )
@@ -136,7 +111,6 @@ class MoviesViewModelSpek : ViewModelSpek({
                         MoviesState(
                             year = null,
                             month = null,
-                            status = MoviesStatus.Loaded,
                             movies = PagingData.empty(),
                         )
                     )
@@ -161,7 +135,6 @@ class MoviesViewModelSpek : ViewModelSpek({
                         MoviesState(
                             year = MOVIE_YEAR,
                             month = MOVIE_MONTH,
-                            status = MoviesStatus.Init,
                             movies = PagingData.empty(),
                         )
                     )
@@ -173,7 +146,6 @@ class MoviesViewModelSpek : ViewModelSpek({
                         MoviesState(
                             year = MOVIE_YEAR,
                             month = MOVIE_MONTH,
-                            status = MoviesStatus.Loading,
                             movies = PagingData.empty(),
                         )
                     )
@@ -198,7 +170,6 @@ class MoviesViewModelSpek : ViewModelSpek({
                         MoviesState(
                             year = MOVIE_YEAR,
                             month = MOVIE_MONTH,
-                            status = MoviesStatus.Loaded,
                             movies = eq(any()),
                         )
                     )

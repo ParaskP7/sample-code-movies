@@ -59,25 +59,6 @@ class MoviesViewModelTest {
                 MoviesState(
                     year = null,
                     month = null,
-                    status = MoviesStatus.Init,
-                    movies = PagingData.empty(),
-                )
-            )
-        }
-    }
-
-    /* IDLE */
-
-    @Test
-    fun `when idling movies, then the expected idling state is posted`() {
-        testedClass.process(MoviesIntent.IdleMovies(MOVIE_YEAR, MOVIE_MONTH))
-
-        verify {
-            stateMock.onChanged(
-                MoviesState(
-                    year = MOVIE_YEAR,
-                    month = MOVIE_MONTH,
-                    status = MoviesStatus.Idle,
                     movies = PagingData.empty(),
                 )
             )
@@ -95,7 +76,6 @@ class MoviesViewModelTest {
                 MoviesState(
                     year = MOVIE_YEAR,
                     month = MOVIE_MONTH,
-                    status = MoviesStatus.Loading,
                     movies = PagingData.empty(),
                 )
             )
@@ -121,7 +101,6 @@ class MoviesViewModelTest {
                 MoviesState(
                     year = MOVIE_YEAR,
                     month = MOVIE_MONTH,
-                    status = MoviesStatus.Loaded,
                     movies = eq(any()),
                 )
             )
@@ -139,7 +118,6 @@ class MoviesViewModelTest {
                 MoviesState(
                     year = null,
                     month = null,
-                    status = MoviesStatus.Loaded,
                     movies = PagingData.empty(),
                 )
             )
@@ -166,7 +144,6 @@ class MoviesViewModelTest {
                 MoviesState(
                     year = MOVIE_YEAR,
                     month = MOVIE_MONTH,
-                    status = MoviesStatus.Init,
                     movies = PagingData.empty(),
                 )
             )
@@ -182,7 +159,6 @@ class MoviesViewModelTest {
                 MoviesState(
                     year = MOVIE_YEAR,
                     month = MOVIE_MONTH,
-                    status = MoviesStatus.Loading,
                     movies = PagingData.empty(),
                 )
             )
@@ -208,7 +184,6 @@ class MoviesViewModelTest {
                 MoviesState(
                     year = MOVIE_YEAR,
                     month = MOVIE_MONTH,
-                    status = MoviesStatus.Loaded,
                     movies = eq(any()),
                 )
             )

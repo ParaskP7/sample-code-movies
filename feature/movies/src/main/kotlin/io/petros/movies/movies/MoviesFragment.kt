@@ -24,7 +24,6 @@ import io.petros.movies.movies.stateful.moviesstate.stateful
 import io.petros.movies.movies.toolbar.MoviesToolbarCallback
 import io.petros.movies.picker.MovieMonthPickerFragment
 import io.petros.movies.picker.MovieYearPickerFragment
-import io.petros.movies.utils.doNothing
 import io.petros.movies.utils.slash
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -112,7 +111,7 @@ class MoviesFragment : MviFragment<
     override fun onResume() {
         super.onResume()
         viewModel.process(
-            MoviesIntent.IdleMovies(
+            MoviesIntent.LoadMovies(
                 year = viewModel.state().value?.year,
                 month = viewModel.state().value?.month,
             )
@@ -127,18 +126,6 @@ class MoviesFragment : MviFragment<
     }
 
     /* STATE */
-
-    @Renders(StatefulMoviesState.Property.STATUS::class)
-    fun renderStatus(status: MoviesStatus) {
-        when (status) {
-            is MoviesStatus.Init -> viewModel.process(
-                MoviesIntent.LoadMovies()
-            )
-            is MoviesStatus.Idle -> doNothing
-            is MoviesStatus.Loading -> snackbar?.dismiss()
-            is MoviesStatus.Loaded -> doNothing
-        }
-    }
 
     @Renders(StatefulMoviesState.Property.YEAR::class)
     fun renderYear(year: Int?) {

@@ -24,15 +24,10 @@ class MoviesViewModel(
     override fun process(intent: MoviesIntent) {
         super.process(intent)
         when (intent) {
-            is MoviesIntent.IdleMovies -> idleMovies(intent.year, intent.month)
             is MoviesIntent.LoadMovies -> loadMovies(intent.year, intent.month)
             is MoviesIntent.ErrorMovies -> onLoadMoviesError(intent.error, intent.loadType)
             is MoviesIntent.ReloadMovies -> reloadMovies(intent.year, intent.month)
         }.exhaustive
-    }
-
-    private fun idleMovies(year: Int? = null, month: Int? = null) {
-        state = MoviesReducer.reduce(state, MoviesAction.Idle(year, month))
     }
 
     private fun loadMovies(year: Int? = null, month: Int? = null) = viewModelScope.launch {

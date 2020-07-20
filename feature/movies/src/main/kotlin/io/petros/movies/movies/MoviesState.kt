@@ -9,21 +9,8 @@ import io.petros.movies.domain.model.movie.Movie
 data class MoviesState(
     val year: Int?,
     val month: Int?,
-    val status: MoviesStatus,
     val movies: PagingData<Movie>,
 )
-
-sealed class MoviesStatus {
-
-    object Init : MoviesStatus()
-
-    object Idle : MoviesStatus()
-
-    object Loading : MoviesStatus()
-
-    object Loaded : MoviesStatus()
-
-}
 
 sealed class MoviesSideEffect {
 
@@ -36,11 +23,6 @@ sealed class MoviesSideEffect {
 }
 
 sealed class MoviesIntent {
-
-    data class IdleMovies(
-        val year: Int? = null,
-        val month: Int? = null,
-    ) : MoviesIntent()
 
     data class LoadMovies(
         val year: Int? = null,
@@ -91,7 +73,6 @@ object MoviesReducer {
     fun init() = MoviesState(
         year = null,
         month = null,
-        status = MoviesStatus.Init,
         movies = PagingData.empty(),
     )
 
@@ -99,12 +80,10 @@ object MoviesReducer {
         is MoviesAction.Idle -> previousState.copy(
             year = action.year,
             month = action.month,
-            status = MoviesStatus.Idle,
         )
         is MoviesAction.Load -> previousState.copy(
             year = action.year,
             month = action.month,
-            status = MoviesStatus.Loading,
         )
         is MoviesAction.Reload -> previousState.copy(
             year = action.year,
@@ -112,12 +91,9 @@ object MoviesReducer {
             movies = PagingData.empty(),
         )
         is MoviesAction.Success -> previousState.copy(
-            status = MoviesStatus.Loaded,
             movies = action.movies,
         )
-        is MoviesAction.Error -> previousState.copy(
-            status = MoviesStatus.Loaded,
-        )
+        is MoviesAction.Error -> previousState.copy()
     }
 
     @Suppress("UseIfInsteadOfWhen")
