@@ -9,8 +9,6 @@ plugins {
     id(Plugins.Id.Kotlin.Android.ANDROID)
     id(Plugins.Id.Quality.DETEKT)
     id(Plugins.Id.Dependency.VERSIONS)
-    id(Plugins.Id.Test.JACOCO)
-    id(Plugins.Id.Test.COVERAGE)
 }
 
 android.buildFeatures {
@@ -34,14 +32,6 @@ dependencies {
     implementation(Deps.Architecture.Mvi.STATEFUL) { exclude(Deps.Architecture.Mvi.Exclude.KOTLIN) }
     implementation(Deps.Image.Glide.GLIDE)
     implementation(Deps.Log.TIMBER)
-
-    testImplementation(project(Projects.TestImplementation.Kotlin.TEST))
-    testImplementation(project(Projects.TestImplementation.Android.ANDROID_TEST))
-
-    testImplementation(Deps.Test.JUnit.J_UNIT_4)
-    testImplementation(Deps.Test.Assert.STRIKT) { exclude(Deps.Test.Assert.Exclude.KOTLIN) }
-    testImplementation(Deps.Test.Mock.MOCK_K)
-    testImplementation(Deps.Android.Test.Robolectric.ROBOLECTRIC)
 
     detektPlugins(Plugins.DETEKT_FORMATTING)
 }
