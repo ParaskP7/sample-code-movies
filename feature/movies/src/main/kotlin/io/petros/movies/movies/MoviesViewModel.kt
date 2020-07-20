@@ -24,10 +24,20 @@ class MoviesViewModel(
     override fun process(intent: MoviesIntent) {
         super.process(intent)
         when (intent) {
-            is MoviesIntent.LoadMovies -> loadMovies(intent.year, intent.month)
+            is MoviesIntent.LoadMovies -> loadMovies(doLoadMovies(), intent)
             is MoviesIntent.ErrorMovies -> onLoadMoviesError(intent.error, intent.loadType)
             is MoviesIntent.ReloadMovies -> reloadMovies(intent.year, intent.month)
         }.exhaustive
+    }
+
+    private fun doLoadMovies() = state.movies == PagingData.empty<Movie>()
+
+    private fun loadMovies(doLoadLoad: Boolean, intent: MoviesIntent.LoadMovies) {
+        if (doLoadLoad) {
+            loadMovies(intent.year, intent.month)
+        } else {
+            idleMovies(intent.year, intent.month)
+        }
     }
 
     private fun loadMovies(year: Int? = null, month: Int? = null) = viewModelScope.launch {
@@ -45,6 +55,10 @@ class MoviesViewModel(
         Timber.w(error, "Load movies error.")
         state = MoviesReducer.reduce(state, MoviesAction.Error(loadType))
         sideEffect = MoviesReducer.once(MoviesAction.Error(loadType))
+    }
+
+    private fun idleMovies(year: Int? = null, month: Int? = null) {
+        state = MoviesReducer.reduce(state, MoviesAction.Idle(year, month))
     }
 
     private fun reloadMovies(year: Int? = null, month: Int? = null) {

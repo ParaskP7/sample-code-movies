@@ -57,7 +57,7 @@ class MoviesViewModelSpek : ViewModelSpek({
     Feature("Movies view model for load") {
         val testedClass by memoized { MoviesViewModel(loadMoviesUseCaseMock) }
         Scenario("on success") {
-            Given("a page as a result") {
+            Given("initial load") {
                 setupViewModel(testedClass)
                 coEvery { loadMoviesUseCaseMock(any()) } returns moviesPage
             }
@@ -82,7 +82,7 @@ class MoviesViewModelSpek : ViewModelSpek({
         }
         Scenario("on failure") {
             val error = NetworkError(Exception())
-            Given("a page as a result") {
+            Given("initial load") {
                 setupViewModel(testedClass)
             }
             When("loading movies") {
@@ -103,6 +103,29 @@ class MoviesViewModelSpek : ViewModelSpek({
                 verify { sideEffectMock.onChanged(MoviesReducer.once(MoviesAction.Error(LoadType.APPEND))) }
             }
         }
+        // TODO: Figure out a way to test this scenario.
+        /*Scenario("idling") {
+            Given("subsequent load") {
+                setupViewModel(testedClass)
+            }
+            When("loading movies") {
+                testedClass.process(MoviesIntent.LoadMovies(MOVIE_YEAR, MOVIE_MONTH))
+            }
+            Then("the load movies use case does not execute") {
+                coVerify { loadMoviesUseCaseMock(LoadMoviesUseCase.Params(MOVIE_YEAR, MOVIE_MONTH, null)) }
+            }
+            Then("the expected idle state is posted") {
+                verify {
+                    stateMock.onChanged(
+                        MoviesState(
+                            year = MOVIE_YEAR,
+                            month = MOVIE_MONTH,
+                            movies = eq(any()),
+                        )
+                    )
+                }
+            }
+        }*/
     }
 
     Feature("Movies view model for reload") {

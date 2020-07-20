@@ -33,6 +33,27 @@ class MoviesStateTest {
     }
 
     @Test
+    fun `given an idle action, when reduce is triggered, then the new state is the expected one`() {
+        val previousState = MoviesState(
+            year = null,
+            month = null,
+            movies = PagingData.empty(),
+        )
+
+        val result = MoviesReducer.reduce(previousState, MoviesAction.Idle(MOVIE_YEAR, MOVIE_MONTH))
+
+        expect {
+            that(result).isEqualTo(
+                MoviesState(
+                    year = MOVIE_YEAR,
+                    month = MOVIE_MONTH,
+                    movies = PagingData.empty(),
+                )
+            )
+        }
+    }
+
+    @Test
     fun `given a reload action, when reduce is triggered, then the new state is the expected one`() {
         val previousState = MoviesState(
             year = MOVIE_YEAR,

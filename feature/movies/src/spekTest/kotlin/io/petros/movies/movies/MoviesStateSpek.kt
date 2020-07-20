@@ -33,6 +33,31 @@ class MoviesStateSpek : Spek({
     }
 
     Feature("Movies reducer reduce") {
+        Scenario("idle") {
+            @Suppress("LateinitUsage") lateinit var previousState: MoviesState
+            var result: MoviesState? = null
+            Given("an idle action") {
+                previousState = MoviesState(
+                    year = null,
+                    month = null,
+                    movies = PagingData.empty(),
+                )
+            }
+            When("reduce is triggered") {
+                result = MoviesReducer.reduce(previousState, MoviesAction.Idle(MOVIE_YEAR, MOVIE_MONTH))
+            }
+            Then("the initial state is the expected one") {
+                expect {
+                    that(result).isEqualTo(
+                        MoviesState(
+                            year = MOVIE_YEAR,
+                            month = MOVIE_MONTH,
+                            movies = PagingData.empty(),
+                        )
+                    )
+                }
+            }
+        }
         Scenario("reload") {
             @Suppress("LateinitUsage") lateinit var previousState: MoviesState
             var result: MoviesState? = null

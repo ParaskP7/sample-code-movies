@@ -68,7 +68,7 @@ class MoviesViewModelTest {
     /* LOAD */
 
     @Test
-    fun `when loading movies, then the load movies use case executes`() {
+    fun `given initial load, when loading movies, then the load movies use case executes`() {
         testedClass.process(MoviesIntent.LoadMovies(MOVIE_YEAR, MOVIE_MONTH))
 
         coVerify { loadMoviesUseCaseMock(LoadMoviesUseCase.Params(MOVIE_YEAR, MOVIE_MONTH, null)) }
@@ -116,6 +116,30 @@ class MoviesViewModelTest {
         testedClass.process(MoviesIntent.ErrorMovies(error.cause, LoadType.APPEND))
 
         verify { sideEffectMock.onChanged(MoviesReducer.once(MoviesAction.Error(LoadType.APPEND))) }
+    }
+
+    @Test
+    @Ignore("Figure out a way to test this scenario.")
+    fun `given subsequent load, when loading movies, then the load movies use case does not execute`() {
+        testedClass.process(MoviesIntent.LoadMovies(MOVIE_YEAR, MOVIE_MONTH))
+
+        coVerify(exactly = 0) { loadMoviesUseCaseMock(LoadMoviesUseCase.Params(MOVIE_YEAR, MOVIE_MONTH, null)) }
+    }
+
+    @Test
+    @Ignore("Figure out a way to test this scenario.")
+    fun `given subsequent load, when loading movies, then the expected idle state is posted`() {
+        testedClass.process(MoviesIntent.LoadMovies(MOVIE_YEAR, MOVIE_MONTH))
+
+        verify {
+            stateMock.onChanged(
+                MoviesState(
+                    year = MOVIE_YEAR,
+                    month = MOVIE_MONTH,
+                    movies = eq(any()),
+                )
+            )
+        }
     }
 
     /* RELOAD */

@@ -43,6 +43,11 @@ sealed class MoviesIntent {
 
 sealed class MoviesAction {
 
+    data class Idle(
+        val year: Int?,
+        val month: Int?,
+    ) : MoviesAction()
+
     data class Reload(
         val year: Int?,
         val month: Int?,
@@ -67,6 +72,10 @@ object MoviesReducer {
     )
 
     fun reduce(previousState: MoviesState, action: MoviesAction) = when (action) {
+        is MoviesAction.Idle -> previousState.copy(
+            year = action.year,
+            month = action.month,
+        )
         is MoviesAction.Reload -> previousState.copy(
             year = action.year,
             month = action.month,
