@@ -33,27 +33,6 @@ class MoviesStateTest {
     }
 
     @Test
-    fun `given a load action, when reduce is triggered, then the new state is the expected one`() {
-        val previousState = MoviesState(
-            year = MOVIE_YEAR,
-            month = MOVIE_MONTH,
-            movies = PagingData.empty(),
-        )
-
-        val result = MoviesReducer.reduce(previousState, MoviesAction.Load(MOVIE_YEAR, MOVIE_MONTH))
-
-        expect {
-            that(result).isEqualTo(
-                MoviesState(
-                    year = MOVIE_YEAR,
-                    month = MOVIE_MONTH,
-                    movies = PagingData.empty(),
-                )
-            )
-        }
-    }
-
-    @Test
     fun `given a reload action, when reduce is triggered, then the new state is the expected one`() {
         val previousState = MoviesState(
             year = MOVIE_YEAR,
@@ -141,7 +120,7 @@ class MoviesStateTest {
 
     @Test(expected = IllegalArgumentException::class)
     fun `given an unexpected action, when once is triggered, then throw illegal argument exception`() {
-        MoviesReducer.once(MoviesAction.Load(null, null))
+        MoviesReducer.once(MoviesAction.Reload(null, null))
     }
 
 }

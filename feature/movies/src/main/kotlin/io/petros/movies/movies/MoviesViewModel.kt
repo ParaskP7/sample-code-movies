@@ -31,7 +31,6 @@ class MoviesViewModel(
     }
 
     private fun loadMovies(year: Int? = null, month: Int? = null) = viewModelScope.launch {
-        state = MoviesReducer.reduce(state, MoviesAction.Load(year, month))
         loadMoviesUseCase(LoadMoviesUseCase.Params(year, month, null))
             .cachedIn(viewModelScope)
             .collectLatest { onLoadMoviesSuccess(it) }

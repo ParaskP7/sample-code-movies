@@ -68,21 +68,6 @@ class MoviesViewModelTest {
     /* LOAD */
 
     @Test
-    fun `when loading movies, then the expected loading state is posted`() {
-        testedClass.process(MoviesIntent.LoadMovies(MOVIE_YEAR, MOVIE_MONTH))
-
-        verify {
-            stateMock.onChanged(
-                MoviesState(
-                    year = MOVIE_YEAR,
-                    month = MOVIE_MONTH,
-                    movies = PagingData.empty(),
-                )
-            )
-        }
-    }
-
-    @Test
     fun `when loading movies, then the load movies use case executes`() {
         testedClass.process(MoviesIntent.LoadMovies(MOVIE_YEAR, MOVIE_MONTH))
 

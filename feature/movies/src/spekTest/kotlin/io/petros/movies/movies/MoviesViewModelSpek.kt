@@ -56,23 +56,6 @@ class MoviesViewModelSpek : ViewModelSpek({
 
     Feature("Movies view model for load") {
         val testedClass by memoized { MoviesViewModel(loadMoviesUseCaseMock) }
-        Scenario("loading") {
-            When("loading movies") {
-                setupViewModel(testedClass)
-                testedClass.process(MoviesIntent.LoadMovies(MOVIE_YEAR, MOVIE_MONTH))
-            }
-            Then("the expected loading state is posted") {
-                coVerify {
-                    stateMock.onChanged(
-                        MoviesState(
-                            year = MOVIE_YEAR,
-                            month = MOVIE_MONTH,
-                            movies = PagingData.empty(),
-                        )
-                    )
-                }
-            }
-        }
         Scenario("on success") {
             Given("a page as a result") {
                 setupViewModel(testedClass)
