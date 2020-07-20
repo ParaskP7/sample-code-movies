@@ -190,7 +190,7 @@ class MoviesStateSpek : Spek({
         Scenario("error") {
             @Suppress("LateinitUsage") lateinit var action: MoviesAction
             var result: MoviesSideEffect? = null
-            Given("an appned error action") {
+            Given("an append error action") {
                 action = MoviesAction.Error(LoadType.APPEND)
             }
             When("once is triggered") {
