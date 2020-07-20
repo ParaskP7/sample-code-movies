@@ -110,6 +110,10 @@ class MoviesFragment : MviFragment<
 
     override fun onResume() {
         super.onResume()
+        loadMovies()
+    }
+
+    private fun loadMovies() {
         viewModel.process(
             MoviesIntent.LoadMovies(
                 year = viewModel.state().value?.year,
