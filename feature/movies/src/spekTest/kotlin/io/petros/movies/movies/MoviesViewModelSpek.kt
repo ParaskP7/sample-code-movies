@@ -65,7 +65,7 @@ class MoviesViewModelSpek : ViewModelSpek({
                 testedClass.process(MoviesIntent.LoadMovies(MOVIE_YEAR, MOVIE_MONTH))
             }
             Then("the load movies use case executes") {
-                coVerify { loadMoviesUseCaseMock(LoadMoviesUseCase.Params(MOVIE_YEAR, MOVIE_MONTH, null)) }
+                coVerify { loadMoviesUseCaseMock(LoadMoviesUseCase.Params(MOVIE_YEAR, MOVIE_MONTH)) }
             }
             // TODO: Figure out a way to test this scenario.
             /*Then("the expected loaded state is posted") {
@@ -167,7 +167,7 @@ class MoviesViewModelSpek : ViewModelSpek({
                 testedClass.process(MoviesIntent.ReloadMovies(MOVIE_YEAR, MOVIE_MONTH))
             }
             Then("the load movies use case executes") {
-                coVerify { loadMoviesUseCaseMock(LoadMoviesUseCase.Params(MOVIE_YEAR, MOVIE_MONTH, null)) }
+                coVerify { loadMoviesUseCaseMock(LoadMoviesUseCase.Params(MOVIE_YEAR, MOVIE_MONTH)) }
             }
             // TODO: Figure out a way to test this scenario.
             /*Then("the expected loaded state is posted") {

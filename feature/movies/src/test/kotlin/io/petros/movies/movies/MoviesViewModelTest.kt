@@ -71,7 +71,7 @@ class MoviesViewModelTest {
     fun `given initial load, when loading movies, then the load movies use case executes`() {
         testedClass.process(MoviesIntent.LoadMovies(MOVIE_YEAR, MOVIE_MONTH))
 
-        coVerify { loadMoviesUseCaseMock(LoadMoviesUseCase.Params(MOVIE_YEAR, MOVIE_MONTH, null)) }
+        coVerify { loadMoviesUseCaseMock(LoadMoviesUseCase.Params(MOVIE_YEAR, MOVIE_MONTH)) }
     }
 
     @Test
@@ -123,7 +123,7 @@ class MoviesViewModelTest {
     fun `given subsequent load, when loading movies, then the load movies use case does not execute`() {
         testedClass.process(MoviesIntent.LoadMovies(MOVIE_YEAR, MOVIE_MONTH))
 
-        coVerify(exactly = 0) { loadMoviesUseCaseMock(LoadMoviesUseCase.Params(MOVIE_YEAR, MOVIE_MONTH, null)) }
+        coVerify(exactly = 0) { loadMoviesUseCaseMock(LoadMoviesUseCase.Params(MOVIE_YEAR, MOVIE_MONTH)) }
     }
 
     @Test
@@ -178,7 +178,7 @@ class MoviesViewModelTest {
     fun `when reloading movies, then the load movies use case executes`() {
         testedClass.process(MoviesIntent.ReloadMovies(MOVIE_YEAR, MOVIE_MONTH))
 
-        coVerify { loadMoviesUseCaseMock(LoadMoviesUseCase.Params(MOVIE_YEAR, MOVIE_MONTH, null)) }
+        coVerify { loadMoviesUseCaseMock(LoadMoviesUseCase.Params(MOVIE_YEAR, MOVIE_MONTH)) }
     }
 
     @Test
