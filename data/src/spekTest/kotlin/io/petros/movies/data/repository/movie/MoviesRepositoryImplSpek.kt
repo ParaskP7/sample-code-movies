@@ -5,10 +5,8 @@ import io.mockk.mockk
 import io.petros.movies.database.MoviesDatabase
 import io.petros.movies.domain.model.Result
 import io.petros.movies.domain.model.movie.Movie
-import io.petros.movies.domain.model.movie.MoviesPage
 import io.petros.movies.network.WebService
 import io.petros.movies.test.domain.movie
-import io.petros.movies.test.domain.moviesPage
 import io.petros.movies.test.utils.CoroutineSpek
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.runBlocking
@@ -19,7 +17,6 @@ import strikt.assertions.isEqualTo
 @ExperimentalCoroutinesApi
 class MoviesRepositoryImplSpek : CoroutineSpek({
 
-    val moviesPage = Result.Success(moviesPage())
     val movie = Result.Success(movie())
 
     val webServiceMock = mockk<WebService>()
@@ -27,18 +24,6 @@ class MoviesRepositoryImplSpek : CoroutineSpek({
 
     Feature("Movies repository") {
         val testedClass by memoized { MoviesRepositoryImpl(webServiceMock, moviesDatabaseMock) }
-        Scenario("loading movies") {
-            var result: Result<MoviesPage>? = null
-            Given("movies page response") {
-                coEvery { webServiceMock.loadMovies(MOVIE_YEAR, MOVIE_MONTH, SECOND_PAGE) } returns moviesPage.value
-            }
-            When("load movies is triggered") {
-                runBlocking { result = testedClass.loadMovies(MOVIE_YEAR, MOVIE_MONTH, SECOND_PAGE) }
-            }
-            Then("the movies page is the expected one") {
-                expect { that(result).isEqualTo(moviesPage) }
-            }
-        }
         Scenario("loading movie") {
             var result: Result<Movie>? = null
             Given("movie response") {
@@ -57,10 +42,7 @@ class MoviesRepositoryImplSpek : CoroutineSpek({
 
     companion object {
 
-        private const val SECOND_PAGE = 2
         private const val MOVIE_ID = 419_704
-        private const val MOVIE_YEAR = 2018
-        private const val MOVIE_MONTH = 7
 
     }
 

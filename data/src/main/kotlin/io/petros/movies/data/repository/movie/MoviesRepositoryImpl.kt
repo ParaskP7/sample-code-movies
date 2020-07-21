@@ -17,10 +17,6 @@ class MoviesRepositoryImpl(
     private val database: MoviesDatabase,
 ) : MoviesRepository {
 
-    override suspend fun loadMovies(year: Int?, month: Int?, page: Int?) = asResult {
-        webService.loadMovies(year, month, page)
-    }
-
     // TODO: Figure out a way to add an appropriate test for this function.
     override suspend fun loadMoviesStream(year: Int?, month: Int?): Flow<PagingData<Movie>> {
         return Pager(
