@@ -7,6 +7,8 @@ import kotlinx.coroutines.flow.Flow
 
 interface MoviesRepository {
 
+    suspend fun loadDate(): Result<Pair<Int?, Int?>>
+
     suspend fun loadMoviesStream(year: Int?, month: Int?): Flow<PagingData<Movie>>
 
     suspend fun loadMovie(id: Int): Result<Movie>

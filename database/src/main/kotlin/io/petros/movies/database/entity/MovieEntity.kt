@@ -62,3 +62,5 @@ data class MovieEntity(
     )
 
 }
+
+fun MovieEntity?.toDate(): Pair<Int?, Int?> = this?.let { Pair(year, month) } ?: Pair(null, null)

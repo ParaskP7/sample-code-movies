@@ -4,6 +4,7 @@ import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import io.petros.movies.database.MoviesDatabase
+import io.petros.movies.database.entity.toDate
 import io.petros.movies.domain.model.asResult
 import io.petros.movies.domain.model.movie.Movie
 import io.petros.movies.domain.repository.movie.MoviesRepository
@@ -16,6 +17,10 @@ class MoviesRepositoryImpl(
     private val service: MoviesService,
     private val database: MoviesDatabase,
 ) : MoviesRepository {
+
+    override suspend fun loadDate() = asResult {
+        database.moviesDao().firstMovie().toDate()
+    }
 
     // TODO: Figure out a way to add an appropriate test for this function.
     override suspend fun loadMoviesStream(year: Int?, month: Int?): Flow<PagingData<Movie>> {

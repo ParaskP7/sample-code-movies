@@ -1,8 +1,11 @@
 package io.petros.movies.data.repository.movie
 
 import io.mockk.coEvery
+import io.mockk.every
 import io.mockk.mockk
 import io.petros.movies.database.MoviesDatabase
+import io.petros.movies.database.dao.MoviesDao
+import io.petros.movies.database.entity.MovieEntity
 import io.petros.movies.domain.model.Result
 import io.petros.movies.domain.model.movie.Movie
 import io.petros.movies.network.MoviesService
@@ -15,15 +18,37 @@ import strikt.api.expect
 import strikt.assertions.isEqualTo
 
 @ExperimentalCoroutinesApi
+private fun setupDatabase(databaseMock: MoviesDatabase, moviesDaoMock: MoviesDao) {
+    every { databaseMock.moviesDao() } returns moviesDaoMock
+}
+
+@ExperimentalCoroutinesApi
 class MoviesRepositoryImplSpek : CoroutineSpek({
 
+    val date = Result.Success(Pair(MOVIE_YEAR, MOVIE_MONTH))
     val movie = Result.Success(movie())
+    val movieEntity = MovieEntity.from(null, SECOND_PAGE, date.value.first, date.value.second, movie.value)
+
+    val moviesDaoMock = mockk<MoviesDao>()
 
     val serviceMock = mockk<MoviesService>()
     val databaseMock = mockk<MoviesDatabase>()
 
     Feature("Movies repository") {
         val testedClass by memoized { MoviesRepositoryImpl(serviceMock, databaseMock) }
+        Scenario("loading date") {
+            var result: Result<Pair<Int?, Int?>>? = null
+            Given("date response") {
+                setupDatabase(databaseMock, moviesDaoMock)
+                coEvery { moviesDaoMock.firstMovie() } returns movieEntity
+            }
+            When("load date is triggered") {
+                runBlocking { result = testedClass.loadDate() }
+            }
+            Then("the date is the expected one") {
+                expect { that(result).isEqualTo(date) }
+            }
+        }
         Scenario("loading movie") {
             var result: Result<Movie>? = null
             Given("movie response") {
@@ -41,6 +66,10 @@ class MoviesRepositoryImplSpek : CoroutineSpek({
 }) {
 
     companion object {
+
+        private const val SECOND_PAGE = 2
+        private const val MOVIE_YEAR = 2018
+        private const val MOVIE_MONTH = 7
 
         private const val MOVIE_ID = 419_704
 
