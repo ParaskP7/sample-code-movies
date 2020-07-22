@@ -10,6 +10,13 @@ import io.petros.movies.database.entity.MovieEntity
 @Dao
 interface MoviesDao {
 
+    // The below function is 'Date' related.
+
+    @Query("SELECT * FROM movies LIMIT 1")
+    suspend fun firstMovie(): MovieEntity?
+
+    // The below functions are 'Movies' related.
+
     @Query("DELETE FROM movies")
     suspend fun clear()
 
