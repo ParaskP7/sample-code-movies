@@ -50,7 +50,6 @@ data class MovieEntity(
 
     }
 
-    @Suppress("unused")
     fun toMovie() = Movie(
         id = movieId,
         title = title,
