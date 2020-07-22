@@ -29,8 +29,8 @@ class LoadMoviesUseCaseTest {
 
     private val params = LoadMoviesUseCase.Params(MOVIE_YEAR, MOVIE_MONTH)
 
-    private val moviesPageMock = mockk<PagingData<Movie>>()
-    private val moviesPageStream = flow<PagingData<Movie>> { moviesPageMock }
+    private val moviesPage = mockk<PagingData<Movie>>()
+    private val moviesPageStream = flow<PagingData<Movie>> { moviesPage }
 
     private val moviesRepositoryMock = mockk<MoviesRepository>()
     private val testedClass = LoadMoviesUseCase(moviesRepositoryMock)
@@ -41,7 +41,7 @@ class LoadMoviesUseCaseTest {
 
         val result = testedClass(params)
 
-        result.collectLatest { expect { that(it).isEqualTo(moviesPageMock) } }
+        result.collectLatest { expect { that(it).isEqualTo(moviesPage) } }
     }
 
 }
