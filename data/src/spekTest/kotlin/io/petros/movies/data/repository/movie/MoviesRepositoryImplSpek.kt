@@ -20,10 +20,10 @@ class MoviesRepositoryImplSpek : CoroutineSpek({
     val movie = Result.Success(movie())
 
     val serviceMock = mockk<MoviesService>()
-    val moviesDatabaseMock = mockk<MoviesDatabase>()
+    val databaseMock = mockk<MoviesDatabase>()
 
     Feature("Movies repository") {
-        val testedClass by memoized { MoviesRepositoryImpl(serviceMock, moviesDatabaseMock) }
+        val testedClass by memoized { MoviesRepositoryImpl(serviceMock, databaseMock) }
         Scenario("loading movie") {
             var result: Result<Movie>? = null
             Given("movie response") {

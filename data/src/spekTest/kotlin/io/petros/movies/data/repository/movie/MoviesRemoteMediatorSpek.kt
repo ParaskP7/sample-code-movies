@@ -30,13 +30,13 @@ import strikt.assertions.isEqualTo
 private const val ROOM_DATABASE_KT_STATIC_MOCK = "androidx.room.RoomDatabaseKt"
 
 @ExperimentalCoroutinesApi
-private fun setupDatabase(moviesDatabaseMock: MoviesDatabase, moviesDaoMock: MoviesDao) {
+private fun setupDatabase(databaseMock: MoviesDatabase, moviesDaoMock: MoviesDao) {
     mockkStatic(ROOM_DATABASE_KT_STATIC_MOCK)
     val transactionLambda = slot<suspend () -> Unit>()
-    coEvery { moviesDatabaseMock.withTransaction(capture(transactionLambda)) } coAnswers {
+    coEvery { databaseMock.withTransaction(capture(transactionLambda)) } coAnswers {
         transactionLambda.captured.invoke()
     }
-    every { moviesDatabaseMock.moviesDao() } returns moviesDaoMock
+    every { databaseMock.moviesDao() } returns moviesDaoMock
 }
 
 @ExperimentalCoroutinesApi
@@ -72,14 +72,14 @@ class MoviesRemoteMediatorSpek : CoroutineSpek({
         val moviesDaoMock = mockk<MoviesDao>()
 
         val serviceMock = mockk<MoviesService>()
-        val moviesDatabaseMock = mockk<MoviesDatabase>()
+        val databaseMock = mockk<MoviesDatabase>()
         val testedClass by memoized {
-            MoviesRemoteMediator(serviceMock, moviesDatabaseMock, MOVIE_YEAR, MOVIE_MONTH)
+            MoviesRemoteMediator(serviceMock, databaseMock, MOVIE_YEAR, MOVIE_MONTH)
         }
         Scenario("with next page") {
             var result: MediatorResult.Success? = null
             Given("next page") {
-                setupDatabase(moviesDatabaseMock, moviesDaoMock)
+                setupDatabase(databaseMock, moviesDaoMock)
                 val position = 0
                 every { pagingStateMock.anchorPosition } returns position
                 every { pagingStateMock.closestItemToPosition(position) } returns firstPageMovieEntities[0]
@@ -94,7 +94,7 @@ class MoviesRemoteMediatorSpek : CoroutineSpek({
         }
         Scenario("without next page") {
             Given("no next page") {
-                setupDatabase(moviesDatabaseMock, moviesDaoMock)
+                setupDatabase(databaseMock, moviesDaoMock)
                 every { pagingStateMock.anchorPosition } returns null
             }
             When("load is triggered") {
@@ -107,7 +107,7 @@ class MoviesRemoteMediatorSpek : CoroutineSpek({
         Scenario("with empty list") {
             var result: MediatorResult.Success? = null
             Given("empty list of movies") {
-                setupDatabase(moviesDatabaseMock, moviesDaoMock)
+                setupDatabase(databaseMock, moviesDaoMock)
                 every { pagingStateMock.anchorPosition } returns null
                 coEvery { serviceMock.loadMovies(MOVIE_YEAR, MOVIE_MONTH, MOVIES_STARTING_PAGE) } returns
                         moviesPage(emptyList())
@@ -122,7 +122,7 @@ class MoviesRemoteMediatorSpek : CoroutineSpek({
         Scenario("with list") {
             var result: MediatorResult.Success? = null
             Given("list of movies") {
-                setupDatabase(moviesDatabaseMock, moviesDaoMock)
+                setupDatabase(databaseMock, moviesDaoMock)
                 every { pagingStateMock.anchorPosition } returns null
                 coEvery { serviceMock.loadMovies(MOVIE_YEAR, MOVIE_MONTH, MOVIES_STARTING_PAGE) } returns
                         moviesPage(firstPageMovies)
@@ -147,13 +147,13 @@ class MoviesRemoteMediatorSpek : CoroutineSpek({
         val moviesDaoMock = mockk<MoviesDao>()
 
         val serviceMock = mockk<MoviesService>()
-        val moviesDatabaseMock = mockk<MoviesDatabase>()
+        val databaseMock = mockk<MoviesDatabase>()
         val testedClass by memoized {
-            MoviesRemoteMediator(serviceMock, moviesDatabaseMock, MOVIE_YEAR, MOVIE_MONTH)
+            MoviesRemoteMediator(serviceMock, databaseMock, MOVIE_YEAR, MOVIE_MONTH)
         }
         Scenario("with or without next page") {
             Given("append") {
-                setupDatabase(moviesDatabaseMock, moviesDaoMock)
+                setupDatabase(databaseMock, moviesDaoMock)
                 every { pagingStateMock.pages } returns listOf(firstPage)
             }
             When("load is triggered") {
@@ -166,7 +166,7 @@ class MoviesRemoteMediatorSpek : CoroutineSpek({
         Scenario("with empty list") {
             var result: MediatorResult.Success? = null
             Given("empty list of movies") {
-                setupDatabase(moviesDatabaseMock, moviesDaoMock)
+                setupDatabase(databaseMock, moviesDaoMock)
                 every { pagingStateMock.pages } returns listOf(firstPage)
                 coEvery { serviceMock.loadMovies(MOVIE_YEAR, MOVIE_MONTH, SECOND_PAGE) } returns moviesPage(emptyList())
             }
@@ -180,7 +180,7 @@ class MoviesRemoteMediatorSpek : CoroutineSpek({
         Scenario("with list") {
             var result: MediatorResult.Success? = null
             Given("list of movies") {
-                setupDatabase(moviesDatabaseMock, moviesDaoMock)
+                setupDatabase(databaseMock, moviesDaoMock)
                 every { pagingStateMock.pages } returns listOf(firstPage)
                 coEvery { serviceMock.loadMovies(MOVIE_YEAR, MOVIE_MONTH, SECOND_PAGE) } returns moviesPage(secondPageMovies)
             }
@@ -204,14 +204,14 @@ class MoviesRemoteMediatorSpek : CoroutineSpek({
         val moviesDaoMock = mockk<MoviesDao>()
 
         val serviceMock = mockk<MoviesService>()
-        val moviesDatabaseMock = mockk<MoviesDatabase>()
+        val databaseMock = mockk<MoviesDatabase>()
         val testedClass by memoized {
-            MoviesRemoteMediator(serviceMock, moviesDatabaseMock, MOVIE_YEAR, MOVIE_MONTH)
+            MoviesRemoteMediator(serviceMock, databaseMock, MOVIE_YEAR, MOVIE_MONTH)
         }
         Scenario("without previous page") {
             var result: MediatorResult.Success? = null
             Given("no previous page") {
-                setupDatabase(moviesDatabaseMock, moviesDaoMock)
+                setupDatabase(databaseMock, moviesDaoMock)
                 every { pagingStateMock.pages } returns emptyList()
             }
             When("load is triggered") {
@@ -224,7 +224,7 @@ class MoviesRemoteMediatorSpek : CoroutineSpek({
         }
         Scenario("with previous page") {
             Given("previous page") {
-                setupDatabase(moviesDatabaseMock, moviesDaoMock)
+                setupDatabase(databaseMock, moviesDaoMock)
                 every { pagingStateMock.pages } returns listOf(secondPage)
             }
             When("load is triggered") {
@@ -237,7 +237,7 @@ class MoviesRemoteMediatorSpek : CoroutineSpek({
         Scenario("with empty list") {
             var result: MediatorResult.Success? = null
             Given("empty list of movies") {
-                setupDatabase(moviesDatabaseMock, moviesDaoMock)
+                setupDatabase(databaseMock, moviesDaoMock)
                 every { pagingStateMock.pages } returns listOf(secondPage)
                 coEvery { serviceMock.loadMovies(MOVIE_YEAR, MOVIE_MONTH, FIRST_PAGE) } returns moviesPage(emptyList())
             }
@@ -251,7 +251,7 @@ class MoviesRemoteMediatorSpek : CoroutineSpek({
         Scenario("with list") {
             var result: MediatorResult.Success? = null
             Given("list of movies") {
-                setupDatabase(moviesDatabaseMock, moviesDaoMock)
+                setupDatabase(databaseMock, moviesDaoMock)
                 every { pagingStateMock.pages } returns listOf(secondPage)
                 coEvery { serviceMock.loadMovies(MOVIE_YEAR, MOVIE_MONTH, FIRST_PAGE) } returns moviesPage(firstPageMovies)
             }
@@ -275,15 +275,15 @@ class MoviesRemoteMediatorSpek : CoroutineSpek({
         val moviesDaoMock = mockk<MoviesDao>()
 
         val serviceMock = mockk<MoviesService>()
-        val moviesDatabaseMock = mockk<MoviesDatabase>()
+        val databaseMock = mockk<MoviesDatabase>()
         val testedClass by memoized {
-            MoviesRemoteMediator(serviceMock, moviesDatabaseMock, MOVIE_YEAR, MOVIE_MONTH)
+            MoviesRemoteMediator(serviceMock, databaseMock, MOVIE_YEAR, MOVIE_MONTH)
         }
         Scenario("with exception") {
             val exception = NetworkException(Exception())
             var result: MediatorResult.Error? = null
             Given("exception") {
-                setupDatabase(moviesDatabaseMock, moviesDaoMock)
+                setupDatabase(databaseMock, moviesDaoMock)
                 every { pagingStateMock.anchorPosition } returns null
                 coEvery { serviceMock.loadMovies(MOVIE_YEAR, MOVIE_MONTH, MOVIES_STARTING_PAGE) } throws exception
             }

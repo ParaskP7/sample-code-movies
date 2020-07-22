@@ -28,8 +28,8 @@ class MoviesRepositoryImplTest {
     private val movie = Result.Success(movie())
 
     private val serviceMock = mockk<MoviesService>()
-    private val moviesDatabaseMock = mockk<MoviesDatabase>()
-    private val testedClass = MoviesRepositoryImpl(serviceMock, moviesDatabaseMock)
+    private val databaseMock = mockk<MoviesDatabase>()
+    private val testedClass = MoviesRepositoryImpl(serviceMock, databaseMock)
 
     @Test
     fun `when load movie is triggered, then the movie is the expected one`() = coroutineScope.runBlockingTest {

@@ -76,8 +76,8 @@ class MoviesRemoteMediatorTest {
     private val moviesDaoMock = mockk<MoviesDao>()
 
     private val serviceMock = mockk<MoviesService>()
-    private val moviesDatabaseMock = mockk<MoviesDatabase>()
-    private val testedClass = MoviesRemoteMediator(serviceMock, moviesDatabaseMock, MOVIE_YEAR, MOVIE_MONTH)
+    private val databaseMock = mockk<MoviesDatabase>()
+    private val testedClass = MoviesRemoteMediator(serviceMock, databaseMock, MOVIE_YEAR, MOVIE_MONTH)
 
     @Before
     fun setUp() {
@@ -87,10 +87,10 @@ class MoviesRemoteMediatorTest {
     private fun mockDatabase() {
         mockkStatic(ROOM_DATABASE_KT_STATIC_MOCK)
         val transactionLambda = slot<suspend () -> Unit>()
-        coEvery { moviesDatabaseMock.withTransaction(capture(transactionLambda)) } coAnswers {
+        coEvery { databaseMock.withTransaction(capture(transactionLambda)) } coAnswers {
             transactionLambda.captured.invoke()
         }
-        every { moviesDatabaseMock.moviesDao() } returns moviesDaoMock
+        every { databaseMock.moviesDao() } returns moviesDaoMock
     }
 
     /* REFRESH */
