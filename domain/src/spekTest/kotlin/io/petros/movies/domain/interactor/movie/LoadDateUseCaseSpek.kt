@@ -22,7 +22,7 @@ class LoadDateUseCaseSpek : CoroutineSpek({
         val testedClass by memoized { LoadDateUseCase(moviesRepositoryMock) }
         Scenario("invoke") {
             var result: Result<Pair<Int?, Int?>>? = null
-            Given("movies page stream") {
+            Given("date response") {
                 coEvery { moviesRepositoryMock.loadDate() } returns date
             }
             When("invoking the use case") {
