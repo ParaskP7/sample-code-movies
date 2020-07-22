@@ -8,17 +8,20 @@ import io.petros.movies.domain.repository.movie.MoviesRepository
 import io.petros.movies.test.utils.CoroutineSpek
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.runBlocking
 import org.spekframework.spek2.style.gherkin.Feature
 import strikt.api.expect
 import strikt.assertions.isEqualTo
 
+private val moviesPageMock = mockk<PagingData<Movie>>()
+private val moviesPageStream = flow<PagingData<Movie>> { moviesPageMock }
+
 @ExperimentalCoroutinesApi
 class LoadMoviesUseCaseSpek : CoroutineSpek({
 
     val params = LoadMoviesUseCase.Params(MOVIE_YEAR, MOVIE_MONTH)
-
-    val moviesPageStream = mockk<Flow<PagingData<Movie>>>()
 
     val moviesRepositoryMock = mockk<MoviesRepository>()
 
@@ -33,7 +36,7 @@ class LoadMoviesUseCaseSpek : CoroutineSpek({
                 result = runBlocking { testedClass(params) }
             }
             Then("the movies page stream is the expected one") {
-                expect { that(result).isEqualTo(moviesPageStream) }
+                runBlocking { result?.collectLatest { expect { that(it).isEqualTo(moviesPageMock) } } }
             }
         }
     }

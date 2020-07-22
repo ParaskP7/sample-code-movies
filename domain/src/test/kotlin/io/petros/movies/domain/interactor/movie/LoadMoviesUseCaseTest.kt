@@ -7,7 +7,8 @@ import io.petros.movies.domain.model.movie.Movie
 import io.petros.movies.domain.repository.movie.MoviesRepository
 import io.petros.movies.test.utils.MainCoroutineScopeRule
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Rule
 import org.junit.Test
@@ -28,7 +29,8 @@ class LoadMoviesUseCaseTest {
 
     private val params = LoadMoviesUseCase.Params(MOVIE_YEAR, MOVIE_MONTH)
 
-    private val moviesPageStream = mockk<Flow<PagingData<Movie>>>()
+    private val moviesPageMock = mockk<PagingData<Movie>>()
+    private val moviesPageStream = flow<PagingData<Movie>> { moviesPageMock }
 
     private val moviesRepositoryMock = mockk<MoviesRepository>()
     private val testedClass = LoadMoviesUseCase(moviesRepositoryMock)
@@ -39,7 +41,7 @@ class LoadMoviesUseCaseTest {
 
         val result = testedClass(params)
 
-        expect { that(result).isEqualTo(moviesPageStream) }
+        result.collectLatest { expect { that(it).isEqualTo(moviesPageMock) } }
     }
 
 }
