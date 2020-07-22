@@ -17,6 +17,7 @@ import strikt.api.expect
 import strikt.assertions.isEqualTo
 
 private val movie = Result.Success(movie())
+private val movieStream = flow<Result<Movie>> { movie }
 
 @ExperimentalCoroutinesApi
 class LoadMovieUseCaseSpek : CoroutineSpek({
@@ -28,7 +29,7 @@ class LoadMovieUseCaseSpek : CoroutineSpek({
         Scenario("execute") {
             var result: Flow<Result<Movie>>? = null
             Given("movie stream") {
-                coEvery { moviesRepositoryMock.loadMovieStream(MOVIE_ID) } returns flow { movie }
+                coEvery { moviesRepositoryMock.loadMovieStream(MOVIE_ID) } returns movieStream
             }
             When("executing the use case") {
                 result = runBlocking { testedClass(LoadMovieUseCase.Params(MOVIE_ID)) }

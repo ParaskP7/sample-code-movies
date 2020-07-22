@@ -3,6 +3,7 @@ package io.petros.movies.domain.interactor.movie
 import io.mockk.coEvery
 import io.mockk.mockk
 import io.petros.movies.domain.model.Result
+import io.petros.movies.domain.model.movie.Movie
 import io.petros.movies.domain.repository.movie.MoviesRepository
 import io.petros.movies.test.domain.movie
 import io.petros.movies.test.utils.MainCoroutineScopeRule
@@ -29,13 +30,14 @@ class LoadMovieUseCaseTest {
     private val params = LoadMovieUseCase.Params(MOVIE_ID)
 
     private val movie = Result.Success(movie())
+    private val movieStream = flow<Result<Movie>> { movie }
 
     private val moviesRepositoryMock = mockk<MoviesRepository>()
     private val testedClass = LoadMovieUseCase(moviesRepositoryMock)
 
     @Test
     fun `when executing the use case, then the movie stream is the expected one`() = coroutineScope.runBlockingTest {
-        coEvery { moviesRepositoryMock.loadMovieStream(MOVIE_ID) } returns flow { movie }
+        coEvery { moviesRepositoryMock.loadMovieStream(MOVIE_ID) } returns movieStream
 
         val result = testedClass(params)
 
