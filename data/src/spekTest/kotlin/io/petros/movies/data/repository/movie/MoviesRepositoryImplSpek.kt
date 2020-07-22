@@ -5,7 +5,7 @@ import io.mockk.mockk
 import io.petros.movies.database.MoviesDatabase
 import io.petros.movies.domain.model.Result
 import io.petros.movies.domain.model.movie.Movie
-import io.petros.movies.network.WebService
+import io.petros.movies.network.MoviesService
 import io.petros.movies.test.domain.movie
 import io.petros.movies.test.utils.CoroutineSpek
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -19,15 +19,15 @@ class MoviesRepositoryImplSpek : CoroutineSpek({
 
     val movie = Result.Success(movie())
 
-    val webServiceMock = mockk<WebService>()
+    val serviceMock = mockk<MoviesService>()
     val moviesDatabaseMock = mockk<MoviesDatabase>()
 
     Feature("Movies repository") {
-        val testedClass by memoized { MoviesRepositoryImpl(webServiceMock, moviesDatabaseMock) }
+        val testedClass by memoized { MoviesRepositoryImpl(serviceMock, moviesDatabaseMock) }
         Scenario("loading movie") {
             var result: Result<Movie>? = null
             Given("movie response") {
-                coEvery { webServiceMock.loadMovie(MOVIE_ID) } returns movie.value
+                coEvery { serviceMock.loadMovie(MOVIE_ID) } returns movie.value
             }
             When("load movie is triggered") {
                 runBlocking { result = testedClass.loadMovie(MOVIE_ID) }

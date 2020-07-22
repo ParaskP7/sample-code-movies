@@ -8,13 +8,13 @@ import androidx.room.withTransaction
 import io.petros.movies.database.MoviesDatabase
 import io.petros.movies.database.entity.MovieEntity
 import io.petros.movies.domain.model.movie.Movie
-import io.petros.movies.network.WebService
+import io.petros.movies.network.MoviesService
 import timber.log.Timber
 
 @Suppress("CommentOverPrivateFunction")
 @OptIn(ExperimentalPagingApi::class)
 class MoviesRemoteMediator(
-    private val webService: WebService,
+    private val service: MoviesService,
     private val database: MoviesDatabase,
     private val year: Int?,
     private val month: Int?,
@@ -48,7 +48,7 @@ class MoviesRemoteMediator(
         }
 
         return try {
-            val movies = webService.loadMovies(year, month, page).items
+            val movies = service.loadMovies(year, month, page).items
             if (movies.isNotEmpty()) {
                 updateDatabase(loadType, page, movies)
                 MediatorResult.Success(endOfPaginationReached = false)

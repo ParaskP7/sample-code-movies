@@ -16,8 +16,8 @@ import io.petros.movies.data.repository.movie.MoviesRemoteMediator.Companion.MOV
 import io.petros.movies.database.MoviesDatabase
 import io.petros.movies.database.dao.MoviesDao
 import io.petros.movies.database.entity.MovieEntity
+import io.petros.movies.network.MoviesService
 import io.petros.movies.network.NetworkException
-import io.petros.movies.network.WebService
 import io.petros.movies.test.domain.movie
 import io.petros.movies.test.domain.moviesPage
 import io.petros.movies.test.utils.MainCoroutineScopeRule
@@ -75,9 +75,9 @@ class MoviesRemoteMediatorTest {
     private val pagingStateMock = mockk<PagingState<Int, MovieEntity>>()
     private val moviesDaoMock = mockk<MoviesDao>()
 
-    private val webServiceMock = mockk<WebService>()
+    private val serviceMock = mockk<MoviesService>()
     private val moviesDatabaseMock = mockk<MoviesDatabase>()
-    private val testedClass = MoviesRemoteMediator(webServiceMock, moviesDatabaseMock, MOVIE_YEAR, MOVIE_MONTH)
+    private val testedClass = MoviesRemoteMediator(serviceMock, moviesDatabaseMock, MOVIE_YEAR, MOVIE_MONTH)
 
     @Before
     fun setUp() {
@@ -105,7 +105,7 @@ class MoviesRemoteMediatorTest {
             val result = testedClass.load(LoadType.REFRESH, pagingStateMock) as MediatorResult.Success
 
             expect { that(result.endOfPaginationReached).isEqualTo(false) }
-            coVerify(exactly = 0) { webServiceMock.loadMovies(any(), any(), any()) }
+            coVerify(exactly = 0) { serviceMock.loadMovies(any(), any(), any()) }
         }
 
     @Test
@@ -115,15 +115,14 @@ class MoviesRemoteMediatorTest {
 
             testedClass.load(LoadType.REFRESH, pagingStateMock)
 
-            coVerify { webServiceMock.loadMovies(MOVIE_YEAR, MOVIE_MONTH, MOVIES_STARTING_PAGE) }
+            coVerify { serviceMock.loadMovies(MOVIE_YEAR, MOVIE_MONTH, MOVIES_STARTING_PAGE) }
         }
 
     @Test
     fun `given empty list of movies for refresh, when load movies returns, then success with end of pagination reached`() =
         coroutineScope.runBlockingTest {
             every { pagingStateMock.anchorPosition } returns null
-            coEvery { webServiceMock.loadMovies(MOVIE_YEAR, MOVIE_MONTH, MOVIES_STARTING_PAGE) } returns
-                    moviesPage(emptyList())
+            coEvery { serviceMock.loadMovies(MOVIE_YEAR, MOVIE_MONTH, MOVIES_STARTING_PAGE) } returns moviesPage(emptyList())
 
             val result = testedClass.load(LoadType.REFRESH, pagingStateMock) as MediatorResult.Success
 
@@ -134,7 +133,7 @@ class MoviesRemoteMediatorTest {
     fun `given list of movies for refresh, when load movies returns, then do clear movies from database`() =
         coroutineScope.runBlockingTest {
             every { pagingStateMock.anchorPosition } returns null
-            coEvery { webServiceMock.loadMovies(MOVIE_YEAR, MOVIE_MONTH, MOVIES_STARTING_PAGE) } returns
+            coEvery { serviceMock.loadMovies(MOVIE_YEAR, MOVIE_MONTH, MOVIES_STARTING_PAGE) } returns
                     moviesPage(firstPageMovies)
 
             testedClass.load(LoadType.REFRESH, pagingStateMock)
@@ -146,7 +145,7 @@ class MoviesRemoteMediatorTest {
     fun `given list of movies for refresh, when load movies returns, then insert movies into database`() =
         coroutineScope.runBlockingTest {
             every { pagingStateMock.anchorPosition } returns null
-            coEvery { webServiceMock.loadMovies(MOVIE_YEAR, MOVIE_MONTH, MOVIES_STARTING_PAGE) } returns
+            coEvery { serviceMock.loadMovies(MOVIE_YEAR, MOVIE_MONTH, MOVIES_STARTING_PAGE) } returns
                     moviesPage(firstPageMovies)
 
             testedClass.load(LoadType.REFRESH, pagingStateMock)
@@ -158,7 +157,7 @@ class MoviesRemoteMediatorTest {
     fun `given list of movies for refresh, when load movies returns, then success with end of pagination not reached`() =
         coroutineScope.runBlockingTest {
             every { pagingStateMock.anchorPosition } returns null
-            coEvery { webServiceMock.loadMovies(MOVIE_YEAR, MOVIE_MONTH, MOVIES_STARTING_PAGE) } returns
+            coEvery { serviceMock.loadMovies(MOVIE_YEAR, MOVIE_MONTH, MOVIES_STARTING_PAGE) } returns
                     moviesPage(firstPageMovies)
 
             val result = testedClass.load(LoadType.REFRESH, pagingStateMock) as MediatorResult.Success
@@ -175,15 +174,14 @@ class MoviesRemoteMediatorTest {
 
             testedClass.load(LoadType.APPEND, pagingStateMock)
 
-            coVerify { webServiceMock.loadMovies(MOVIE_YEAR, MOVIE_MONTH, SECOND_PAGE) }
+            coVerify { serviceMock.loadMovies(MOVIE_YEAR, MOVIE_MONTH, SECOND_PAGE) }
         }
 
     @Test
     fun `given empty list of movies for append, when load movies returns, then success with end of pagination reached`() =
         coroutineScope.runBlockingTest {
             every { pagingStateMock.pages } returns listOf(firstPage)
-            coEvery { webServiceMock.loadMovies(MOVIE_YEAR, MOVIE_MONTH, SECOND_PAGE) } returns
-                    moviesPage(emptyList())
+            coEvery { serviceMock.loadMovies(MOVIE_YEAR, MOVIE_MONTH, SECOND_PAGE) } returns moviesPage(emptyList())
 
             val result = testedClass.load(LoadType.APPEND, pagingStateMock) as MediatorResult.Success
 
@@ -194,8 +192,7 @@ class MoviesRemoteMediatorTest {
     fun `given list of movies for append, when load movies returns, then do not clear movies from database`() =
         coroutineScope.runBlockingTest {
             every { pagingStateMock.pages } returns listOf(firstPage)
-            coEvery { webServiceMock.loadMovies(MOVIE_YEAR, MOVIE_MONTH, SECOND_PAGE) } returns
-                    moviesPage(secondPageMovies)
+            coEvery { serviceMock.loadMovies(MOVIE_YEAR, MOVIE_MONTH, SECOND_PAGE) } returns moviesPage(secondPageMovies)
 
             testedClass.load(LoadType.APPEND, pagingStateMock)
 
@@ -206,8 +203,7 @@ class MoviesRemoteMediatorTest {
     fun `given list of movies for append, when load movies returns, then insert movies into database`() =
         coroutineScope.runBlockingTest {
             every { pagingStateMock.pages } returns listOf(firstPage)
-            coEvery { webServiceMock.loadMovies(MOVIE_YEAR, MOVIE_MONTH, SECOND_PAGE) } returns
-                    moviesPage(secondPageMovies)
+            coEvery { serviceMock.loadMovies(MOVIE_YEAR, MOVIE_MONTH, SECOND_PAGE) } returns moviesPage(secondPageMovies)
 
             testedClass.load(LoadType.APPEND, pagingStateMock)
 
@@ -218,8 +214,7 @@ class MoviesRemoteMediatorTest {
     fun `given list of movies for append, when load movies returns, then success with end of pagination not reached`() =
         coroutineScope.runBlockingTest {
             every { pagingStateMock.pages } returns listOf(firstPage)
-            coEvery { webServiceMock.loadMovies(MOVIE_YEAR, MOVIE_MONTH, SECOND_PAGE) } returns
-                    moviesPage(secondPageMovies)
+            coEvery { serviceMock.loadMovies(MOVIE_YEAR, MOVIE_MONTH, SECOND_PAGE) } returns moviesPage(secondPageMovies)
 
             val result = testedClass.load(LoadType.APPEND, pagingStateMock) as MediatorResult.Success
 
@@ -236,7 +231,7 @@ class MoviesRemoteMediatorTest {
             val result = testedClass.load(LoadType.PREPEND, pagingStateMock) as MediatorResult.Success
 
             expect { that(result.endOfPaginationReached).isEqualTo(true) }
-            coVerify(exactly = 0) { webServiceMock.loadMovies(any(), any(), any()) }
+            coVerify(exactly = 0) { serviceMock.loadMovies(any(), any(), any()) }
         }
 
     @Test
@@ -246,15 +241,14 @@ class MoviesRemoteMediatorTest {
 
             testedClass.load(LoadType.PREPEND, pagingStateMock)
 
-            coVerify { webServiceMock.loadMovies(MOVIE_YEAR, MOVIE_MONTH, FIRST_PAGE) }
+            coVerify { serviceMock.loadMovies(MOVIE_YEAR, MOVIE_MONTH, FIRST_PAGE) }
         }
 
     @Test
     fun `given empty list of movies for prepend, when load movies returns, then success with end of pagination reached`() =
         coroutineScope.runBlockingTest {
             every { pagingStateMock.pages } returns listOf(secondPage)
-            coEvery { webServiceMock.loadMovies(MOVIE_YEAR, MOVIE_MONTH, FIRST_PAGE) } returns
-                    moviesPage(emptyList())
+            coEvery { serviceMock.loadMovies(MOVIE_YEAR, MOVIE_MONTH, FIRST_PAGE) } returns moviesPage(emptyList())
 
             val result = testedClass.load(LoadType.PREPEND, pagingStateMock) as MediatorResult.Success
 
@@ -265,8 +259,7 @@ class MoviesRemoteMediatorTest {
     fun `given list of movies for prepend, when load movies returns, then do not clear movies from database`() =
         coroutineScope.runBlockingTest {
             every { pagingStateMock.pages } returns listOf(secondPage)
-            coEvery { webServiceMock.loadMovies(MOVIE_YEAR, MOVIE_MONTH, FIRST_PAGE) } returns
-                    moviesPage(firstPageMovies)
+            coEvery { serviceMock.loadMovies(MOVIE_YEAR, MOVIE_MONTH, FIRST_PAGE) } returns moviesPage(firstPageMovies)
 
             testedClass.load(LoadType.PREPEND, pagingStateMock)
 
@@ -277,8 +270,7 @@ class MoviesRemoteMediatorTest {
     fun `given list of movies for prepend, when load movies returns, then insert movies into database`() =
         coroutineScope.runBlockingTest {
             every { pagingStateMock.pages } returns listOf(secondPage)
-            coEvery { webServiceMock.loadMovies(MOVIE_YEAR, MOVIE_MONTH, FIRST_PAGE) } returns
-                    moviesPage(firstPageMovies)
+            coEvery { serviceMock.loadMovies(MOVIE_YEAR, MOVIE_MONTH, FIRST_PAGE) } returns moviesPage(firstPageMovies)
 
             testedClass.load(LoadType.PREPEND, pagingStateMock)
 
@@ -289,8 +281,7 @@ class MoviesRemoteMediatorTest {
     fun `given list of movies for prepend, when load movies returns, then success with end of pagination not reached`() =
         coroutineScope.runBlockingTest {
             every { pagingStateMock.pages } returns listOf(secondPage)
-            coEvery { webServiceMock.loadMovies(MOVIE_YEAR, MOVIE_MONTH, FIRST_PAGE) } returns
-                    moviesPage(firstPageMovies)
+            coEvery { serviceMock.loadMovies(MOVIE_YEAR, MOVIE_MONTH, FIRST_PAGE) } returns moviesPage(firstPageMovies)
 
             val result = testedClass.load(LoadType.PREPEND, pagingStateMock) as MediatorResult.Success
 
@@ -303,7 +294,7 @@ class MoviesRemoteMediatorTest {
     fun `given exception, when load is triggered, then error with exception`() = coroutineScope.runBlockingTest {
         val exception = NetworkException(Exception())
         every { pagingStateMock.anchorPosition } returns null
-        coEvery { webServiceMock.loadMovies(MOVIE_YEAR, MOVIE_MONTH, MOVIES_STARTING_PAGE) } throws exception
+        coEvery { serviceMock.loadMovies(MOVIE_YEAR, MOVIE_MONTH, MOVIES_STARTING_PAGE) } throws exception
 
         val result = testedClass.load(LoadType.REFRESH, pagingStateMock) as MediatorResult.Error
 

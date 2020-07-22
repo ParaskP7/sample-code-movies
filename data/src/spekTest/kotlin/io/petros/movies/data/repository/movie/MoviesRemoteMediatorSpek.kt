@@ -16,8 +16,8 @@ import io.petros.movies.data.repository.movie.MoviesRemoteMediator.Companion.MOV
 import io.petros.movies.database.MoviesDatabase
 import io.petros.movies.database.dao.MoviesDao
 import io.petros.movies.database.entity.MovieEntity
+import io.petros.movies.network.MoviesService
 import io.petros.movies.network.NetworkException
-import io.petros.movies.network.WebService
 import io.petros.movies.test.domain.movie
 import io.petros.movies.test.domain.moviesPage
 import io.petros.movies.test.utils.CoroutineSpek
@@ -71,10 +71,10 @@ class MoviesRemoteMediatorSpek : CoroutineSpek({
         val pagingStateMock = mockk<PagingState<Int, MovieEntity>>()
         val moviesDaoMock = mockk<MoviesDao>()
 
-        val webServiceMock = mockk<WebService>()
+        val serviceMock = mockk<MoviesService>()
         val moviesDatabaseMock = mockk<MoviesDatabase>()
         val testedClass by memoized {
-            MoviesRemoteMediator(webServiceMock, moviesDatabaseMock, MOVIE_YEAR, MOVIE_MONTH)
+            MoviesRemoteMediator(serviceMock, moviesDatabaseMock, MOVIE_YEAR, MOVIE_MONTH)
         }
         Scenario("with next page") {
             var result: MediatorResult.Success? = null
@@ -89,7 +89,7 @@ class MoviesRemoteMediatorSpek : CoroutineSpek({
             }
             Then("success with end of pagination not reached") {
                 expect { that(result?.endOfPaginationReached).isEqualTo(false) }
-                coVerify(exactly = 0) { webServiceMock.loadMovies(any(), any(), any()) }
+                coVerify(exactly = 0) { serviceMock.loadMovies(any(), any(), any()) }
             }
         }
         Scenario("without next page") {
@@ -101,7 +101,7 @@ class MoviesRemoteMediatorSpek : CoroutineSpek({
                 runBlocking { testedClass.load(LoadType.REFRESH, pagingStateMock) }
             }
             Then("trigger initial load movies from network") {
-                coVerify { webServiceMock.loadMovies(MOVIE_YEAR, MOVIE_MONTH, MOVIES_STARTING_PAGE) }
+                coVerify { serviceMock.loadMovies(MOVIE_YEAR, MOVIE_MONTH, MOVIES_STARTING_PAGE) }
             }
         }
         Scenario("with empty list") {
@@ -109,7 +109,7 @@ class MoviesRemoteMediatorSpek : CoroutineSpek({
             Given("empty list of movies") {
                 setupDatabase(moviesDatabaseMock, moviesDaoMock)
                 every { pagingStateMock.anchorPosition } returns null
-                coEvery { webServiceMock.loadMovies(MOVIE_YEAR, MOVIE_MONTH, MOVIES_STARTING_PAGE) } returns
+                coEvery { serviceMock.loadMovies(MOVIE_YEAR, MOVIE_MONTH, MOVIES_STARTING_PAGE) } returns
                         moviesPage(emptyList())
             }
             When("load movies returns") {
@@ -124,7 +124,7 @@ class MoviesRemoteMediatorSpek : CoroutineSpek({
             Given("list of movies") {
                 setupDatabase(moviesDatabaseMock, moviesDaoMock)
                 every { pagingStateMock.anchorPosition } returns null
-                coEvery { webServiceMock.loadMovies(MOVIE_YEAR, MOVIE_MONTH, MOVIES_STARTING_PAGE) } returns
+                coEvery { serviceMock.loadMovies(MOVIE_YEAR, MOVIE_MONTH, MOVIES_STARTING_PAGE) } returns
                         moviesPage(firstPageMovies)
             }
             When("load movies returns") {
@@ -146,10 +146,10 @@ class MoviesRemoteMediatorSpek : CoroutineSpek({
         val pagingStateMock = mockk<PagingState<Int, MovieEntity>>()
         val moviesDaoMock = mockk<MoviesDao>()
 
-        val webServiceMock = mockk<WebService>()
+        val serviceMock = mockk<MoviesService>()
         val moviesDatabaseMock = mockk<MoviesDatabase>()
         val testedClass by memoized {
-            MoviesRemoteMediator(webServiceMock, moviesDatabaseMock, MOVIE_YEAR, MOVIE_MONTH)
+            MoviesRemoteMediator(serviceMock, moviesDatabaseMock, MOVIE_YEAR, MOVIE_MONTH)
         }
         Scenario("with or without next page") {
             Given("append") {
@@ -160,7 +160,7 @@ class MoviesRemoteMediatorSpek : CoroutineSpek({
                 runBlocking { testedClass.load(LoadType.APPEND, pagingStateMock) }
             }
             Then("trigger load movies from network") {
-                coVerify { webServiceMock.loadMovies(MOVIE_YEAR, MOVIE_MONTH, SECOND_PAGE) }
+                coVerify { serviceMock.loadMovies(MOVIE_YEAR, MOVIE_MONTH, SECOND_PAGE) }
             }
         }
         Scenario("with empty list") {
@@ -168,8 +168,7 @@ class MoviesRemoteMediatorSpek : CoroutineSpek({
             Given("empty list of movies") {
                 setupDatabase(moviesDatabaseMock, moviesDaoMock)
                 every { pagingStateMock.pages } returns listOf(firstPage)
-                coEvery { webServiceMock.loadMovies(MOVIE_YEAR, MOVIE_MONTH, SECOND_PAGE) } returns
-                        moviesPage(emptyList())
+                coEvery { serviceMock.loadMovies(MOVIE_YEAR, MOVIE_MONTH, SECOND_PAGE) } returns moviesPage(emptyList())
             }
             When("load movies returns") {
                 runBlocking { result = testedClass.load(LoadType.APPEND, pagingStateMock) as MediatorResult.Success }
@@ -183,8 +182,7 @@ class MoviesRemoteMediatorSpek : CoroutineSpek({
             Given("list of movies") {
                 setupDatabase(moviesDatabaseMock, moviesDaoMock)
                 every { pagingStateMock.pages } returns listOf(firstPage)
-                coEvery { webServiceMock.loadMovies(MOVIE_YEAR, MOVIE_MONTH, SECOND_PAGE) } returns
-                        moviesPage(secondPageMovies)
+                coEvery { serviceMock.loadMovies(MOVIE_YEAR, MOVIE_MONTH, SECOND_PAGE) } returns moviesPage(secondPageMovies)
             }
             When("load movies returns") {
                 runBlocking { result = testedClass.load(LoadType.APPEND, pagingStateMock) as MediatorResult.Success }
@@ -205,10 +203,10 @@ class MoviesRemoteMediatorSpek : CoroutineSpek({
         val pagingStateMock = mockk<PagingState<Int, MovieEntity>>()
         val moviesDaoMock = mockk<MoviesDao>()
 
-        val webServiceMock = mockk<WebService>()
+        val serviceMock = mockk<MoviesService>()
         val moviesDatabaseMock = mockk<MoviesDatabase>()
         val testedClass by memoized {
-            MoviesRemoteMediator(webServiceMock, moviesDatabaseMock, MOVIE_YEAR, MOVIE_MONTH)
+            MoviesRemoteMediator(serviceMock, moviesDatabaseMock, MOVIE_YEAR, MOVIE_MONTH)
         }
         Scenario("without previous page") {
             var result: MediatorResult.Success? = null
@@ -221,7 +219,7 @@ class MoviesRemoteMediatorSpek : CoroutineSpek({
             }
             Then("success with end of pagination reached") {
                 expect { that(result?.endOfPaginationReached).isEqualTo(true) }
-                coVerify(exactly = 0) { webServiceMock.loadMovies(any(), any(), any()) }
+                coVerify(exactly = 0) { serviceMock.loadMovies(any(), any(), any()) }
             }
         }
         Scenario("with previous page") {
@@ -233,7 +231,7 @@ class MoviesRemoteMediatorSpek : CoroutineSpek({
                 runBlocking { testedClass.load(LoadType.PREPEND, pagingStateMock) }
             }
             Then("trigger load movies from network") {
-                coVerify { webServiceMock.loadMovies(MOVIE_YEAR, MOVIE_MONTH, FIRST_PAGE) }
+                coVerify { serviceMock.loadMovies(MOVIE_YEAR, MOVIE_MONTH, FIRST_PAGE) }
             }
         }
         Scenario("with empty list") {
@@ -241,8 +239,7 @@ class MoviesRemoteMediatorSpek : CoroutineSpek({
             Given("empty list of movies") {
                 setupDatabase(moviesDatabaseMock, moviesDaoMock)
                 every { pagingStateMock.pages } returns listOf(secondPage)
-                coEvery { webServiceMock.loadMovies(MOVIE_YEAR, MOVIE_MONTH, FIRST_PAGE) } returns
-                        moviesPage(emptyList())
+                coEvery { serviceMock.loadMovies(MOVIE_YEAR, MOVIE_MONTH, FIRST_PAGE) } returns moviesPage(emptyList())
             }
             When("load movies returns") {
                 runBlocking { result = testedClass.load(LoadType.PREPEND, pagingStateMock) as MediatorResult.Success }
@@ -256,8 +253,7 @@ class MoviesRemoteMediatorSpek : CoroutineSpek({
             Given("list of movies") {
                 setupDatabase(moviesDatabaseMock, moviesDaoMock)
                 every { pagingStateMock.pages } returns listOf(secondPage)
-                coEvery { webServiceMock.loadMovies(MOVIE_YEAR, MOVIE_MONTH, FIRST_PAGE) } returns
-                        moviesPage(firstPageMovies)
+                coEvery { serviceMock.loadMovies(MOVIE_YEAR, MOVIE_MONTH, FIRST_PAGE) } returns moviesPage(firstPageMovies)
             }
             When("load movies returns") {
                 runBlocking { result = testedClass.load(LoadType.PREPEND, pagingStateMock) as MediatorResult.Success }
@@ -278,10 +274,10 @@ class MoviesRemoteMediatorSpek : CoroutineSpek({
         val pagingStateMock = mockk<PagingState<Int, MovieEntity>>()
         val moviesDaoMock = mockk<MoviesDao>()
 
-        val webServiceMock = mockk<WebService>()
+        val serviceMock = mockk<MoviesService>()
         val moviesDatabaseMock = mockk<MoviesDatabase>()
         val testedClass by memoized {
-            MoviesRemoteMediator(webServiceMock, moviesDatabaseMock, MOVIE_YEAR, MOVIE_MONTH)
+            MoviesRemoteMediator(serviceMock, moviesDatabaseMock, MOVIE_YEAR, MOVIE_MONTH)
         }
         Scenario("with exception") {
             val exception = NetworkException(Exception())
@@ -289,7 +285,7 @@ class MoviesRemoteMediatorSpek : CoroutineSpek({
             Given("exception") {
                 setupDatabase(moviesDatabaseMock, moviesDaoMock)
                 every { pagingStateMock.anchorPosition } returns null
-                coEvery { webServiceMock.loadMovies(MOVIE_YEAR, MOVIE_MONTH, MOVIES_STARTING_PAGE) } throws exception
+                coEvery { serviceMock.loadMovies(MOVIE_YEAR, MOVIE_MONTH, MOVIES_STARTING_PAGE) } throws exception
             }
             When("load is triggered") {
                 runBlocking { result = testedClass.load(LoadType.REFRESH, pagingStateMock) as MediatorResult.Error }

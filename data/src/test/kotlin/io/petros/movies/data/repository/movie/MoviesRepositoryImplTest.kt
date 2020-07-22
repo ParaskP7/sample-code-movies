@@ -4,7 +4,7 @@ import io.mockk.coEvery
 import io.mockk.mockk
 import io.petros.movies.database.MoviesDatabase
 import io.petros.movies.domain.model.Result
-import io.petros.movies.network.WebService
+import io.petros.movies.network.MoviesService
 import io.petros.movies.test.domain.movie
 import io.petros.movies.test.utils.MainCoroutineScopeRule
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -27,13 +27,13 @@ class MoviesRepositoryImplTest {
 
     private val movie = Result.Success(movie())
 
-    private val webServiceMock = mockk<WebService>()
+    private val serviceMock = mockk<MoviesService>()
     private val moviesDatabaseMock = mockk<MoviesDatabase>()
-    private val testedClass = MoviesRepositoryImpl(webServiceMock, moviesDatabaseMock)
+    private val testedClass = MoviesRepositoryImpl(serviceMock, moviesDatabaseMock)
 
     @Test
     fun `when load movie is triggered, then the movie is the expected one`() = coroutineScope.runBlockingTest {
-        coEvery { webServiceMock.loadMovie(MOVIE_ID) } returns movie.value
+        coEvery { serviceMock.loadMovie(MOVIE_ID) } returns movie.value
 
         val result = testedClass.loadMovie(MOVIE_ID)
 

@@ -1,7 +1,7 @@
 package io.petros.movies.network.di.koin
 
 import com.google.gson.Gson
-import io.petros.movies.network.WebService
+import io.petros.movies.network.MoviesService
 import io.petros.movies.network.rest.RestApi
 import io.petros.movies.network.rest.RestClient
 import io.petros.movies.network.rest.THEMOVIEDB_API_KEY
@@ -24,7 +24,7 @@ fun networkModule(
     single { okHttpClient(isDebug, get()) }
     single { retrofit(baseUrl, get(), get()) }
     single { restApi(get()) }
-    single<WebService> { RestClient(get()) }
+    single<MoviesService> { RestClient(get()) }
     THEMOVIEDB_API_KEY = themoviedbApiKey
 }
 

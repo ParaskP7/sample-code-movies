@@ -7,13 +7,13 @@ import io.petros.movies.database.MoviesDatabase
 import io.petros.movies.domain.model.asResult
 import io.petros.movies.domain.model.movie.Movie
 import io.petros.movies.domain.repository.movie.MoviesRepository
-import io.petros.movies.network.WebService
+import io.petros.movies.network.MoviesService
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
 @Suppress("ForbiddenComment")
 class MoviesRepositoryImpl(
-    private val webService: WebService,
+    private val service: MoviesService,
     private val database: MoviesDatabase,
 ) : MoviesRepository {
 
@@ -25,7 +25,7 @@ class MoviesRepositoryImpl(
                 enablePlaceholders = false
             ),
             remoteMediator = MoviesRemoteMediator(
-                webService = webService,
+                service = service,
                 database = database,
                 year = year,
                 month = month,
@@ -37,7 +37,7 @@ class MoviesRepositoryImpl(
     }
 
     override suspend fun loadMovie(id: Int) = asResult {
-        webService.loadMovie(id)
+        service.loadMovie(id)
     }
 
 }
