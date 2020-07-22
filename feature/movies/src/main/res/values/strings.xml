@@ -10,4 +10,7 @@
     <string name="sbLoadMoviesError">There was an error while loading movies!</string>
     <string name="sbLoadMoviesErrorAction">RETRY</string>
 
+    <!-- Toast -->
+    <string name="tsNoConnectivity">Will not interact while offline!</string>
+
 </resources>

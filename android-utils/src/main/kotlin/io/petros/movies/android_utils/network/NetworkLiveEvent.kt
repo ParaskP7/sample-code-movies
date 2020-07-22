@@ -76,7 +76,6 @@ object NetworkLiveEvent : SingleLiveEvent<Boolean>() {
         }
     }
 
-    @Suppress("unused")
     fun isConnected(): Boolean {
         return if (this::connectivityManager.isInitialized) {
             ConnectivityUtil.isConnected(connectivityManager)

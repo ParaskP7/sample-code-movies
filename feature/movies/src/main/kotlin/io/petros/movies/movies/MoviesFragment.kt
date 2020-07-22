@@ -12,6 +12,8 @@ import androidx.paging.LoadType
 import androidx.paging.PagingData
 import com.google.android.material.snackbar.Snackbar
 import dev.fanie.stateful.Renders
+import io.petros.movies.android_utils.network.NetworkLiveEvent
+import io.petros.movies.android_utils.toast
 import io.petros.movies.core.fragment.MviFragment
 import io.petros.movies.core.view_binding.viewBinding
 import io.petros.movies.domain.model.movie.Movie
@@ -191,11 +193,27 @@ class MoviesFragment : MviFragment<
     /* CALLBACK */
 
     override fun onFilterClicked() {
+        if (NetworkLiveEvent.isConnected()) {
+            onFilterClickedOnline()
+        } else {
+            context?.toast(R.string.tsNoConnectivity)
+        }
+    }
+
+    private fun onFilterClickedOnline() {
         binding.toolbar.showCloseIcon()
         binding.toolbar.showYear()
     }
 
     override fun onCloseClicked() {
+        if (NetworkLiveEvent.isConnected()) {
+            onCloseClickedOnline()
+        } else {
+            context?.toast(R.string.tsNoConnectivity)
+        }
+    }
+
+    private fun onCloseClickedOnline() {
         if (binding.toolbar.getYear() != null) {
             viewModel.process(
                 MoviesIntent.ReloadMovies()
@@ -207,6 +225,14 @@ class MoviesFragment : MviFragment<
     }
 
     override fun onYearClicked() {
+        if (NetworkLiveEvent.isConnected()) {
+            onYearClickedOnline()
+        } else {
+            context?.toast(R.string.tsNoConnectivity)
+        }
+    }
+
+    private fun onYearClickedOnline() {
         activity?.supportFragmentManager?.let { fragmentManager ->
             MovieYearPickerFragment { year -> onYearPicked(year) }
                 .show(fragmentManager)
@@ -222,6 +248,14 @@ class MoviesFragment : MviFragment<
     }
 
     override fun onMonthClicked() {
+        if (NetworkLiveEvent.isConnected()) {
+            onMonthClickedOnline()
+        } else {
+            context?.toast(R.string.tsNoConnectivity)
+        }
+    }
+
+    private fun onMonthClickedOnline() {
         activity?.supportFragmentManager?.let { fragmentManager ->
             MovieMonthPickerFragment { month -> onMonthPicked(month) }
                 .show(fragmentManager)
