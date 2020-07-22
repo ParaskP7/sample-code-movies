@@ -64,7 +64,7 @@ class MoviesRepositoryImplTest {
     }
 
     @Test
-    fun `when load movie is triggered, then the movie is the expected one`() = coroutineScope.runBlockingTest {
+    fun `when load movie is triggered, then the movie stream is the expected one`() = coroutineScope.runBlockingTest {
         coEvery { moviesDaoMock.movie(MOVIE_ID) } returns flow { movie.value }
 
         val result = testedClass.loadMovieStream(MOVIE_ID)

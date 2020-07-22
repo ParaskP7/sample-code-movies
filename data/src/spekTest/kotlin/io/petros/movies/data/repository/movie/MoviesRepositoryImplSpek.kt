@@ -60,7 +60,7 @@ class MoviesRepositoryImplSpek : CoroutineSpek({
             When("load movie is triggered") {
                 runBlocking { result = testedClass.loadMovieStream(MOVIE_ID) }
             }
-            Then("the movie is the expected one") {
+            Then("the movie stream is the expected one") {
                 runBlocking { result?.collectLatest { expect { that(it).isEqualTo(movie) } } }
             }
         }
