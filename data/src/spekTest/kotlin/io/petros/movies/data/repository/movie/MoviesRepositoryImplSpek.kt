@@ -25,12 +25,17 @@ private fun setupDatabase(databaseMock: MoviesDatabase, moviesDaoMock: MoviesDao
     every { databaseMock.moviesDao() } returns moviesDaoMock
 }
 
+private const val SECOND_PAGE = 2
+private const val MOVIE_YEAR = 2018
+private const val MOVIE_MONTH = 7
+
+private val date = Result.Success(Pair(MOVIE_YEAR, MOVIE_MONTH))
+private val movie = Result.Success(movie())
+private val movieEntity = MovieEntity.from(null, SECOND_PAGE, date.value.first, date.value.second, movie.value)
+private val movieEntityStream = flow<MovieEntity> { movieEntity }
+
 @ExperimentalCoroutinesApi
 class MoviesRepositoryImplSpek : CoroutineSpek({
-
-    val date = Result.Success(Pair(MOVIE_YEAR, MOVIE_MONTH))
-    val movie = Result.Success(movie())
-    val movieEntity = MovieEntity.from(null, SECOND_PAGE, date.value.first, date.value.second, movie.value)
 
     val moviesDaoMock = mockk<MoviesDao>()
 
@@ -55,7 +60,7 @@ class MoviesRepositoryImplSpek : CoroutineSpek({
         Scenario("loading movie") {
             var result: Flow<Result<Movie>>? = null
             Given("movie response") {
-                coEvery { moviesDaoMock.movie(MOVIE_ID) } returns flow { movie.value }
+                coEvery { moviesDaoMock.movie(MOVIE_ID) } returns movieEntityStream
             }
             When("load movie is triggered") {
                 runBlocking { result = testedClass.loadMovieStream(MOVIE_ID) }
@@ -69,10 +74,6 @@ class MoviesRepositoryImplSpek : CoroutineSpek({
 }) {
 
     companion object {
-
-        private const val SECOND_PAGE = 2
-        private const val MOVIE_YEAR = 2018
-        private const val MOVIE_MONTH = 7
 
         private const val MOVIE_ID = 419_704
 
