@@ -75,21 +75,21 @@ class MoviesViewModel(
 
     private fun onLoadMoviesSuccess(movies: PagingData<Movie>) {
         Timber.d("Load movies success. [Movies: $movies]")
-        state = MoviesReducer.reduce(state, MoviesAction.Success(movies))
+        state = MoviesReducer.reduce(state, MoviesAction.MoviesSuccess(movies))
     }
 
     private fun onLoadMoviesError(error: Throwable, loadType: LoadType) {
         Timber.w(error, "Load movies error.")
-        state = MoviesReducer.reduce(state, MoviesAction.Error(loadType))
-        sideEffect = MoviesReducer.once(MoviesAction.Error(loadType))
+        state = MoviesReducer.reduce(state, MoviesAction.MoviesError(loadType))
+        sideEffect = MoviesReducer.once(MoviesAction.MoviesError(loadType))
     }
 
     private fun idleMovies(year: Int? = null, month: Int? = null) {
-        state = MoviesReducer.reduce(state, MoviesAction.Idle(year, month))
+        state = MoviesReducer.reduce(state, MoviesAction.MoviesIdle(year, month))
     }
 
     private fun reloadMovies(year: Int? = null, month: Int? = null) {
-        state = MoviesReducer.reduce(state, MoviesAction.Reload(year, month))
+        state = MoviesReducer.reduce(state, MoviesAction.MoviesReload(year, month))
         loadMovies(year, month)
     }
 

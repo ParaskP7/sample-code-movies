@@ -88,7 +88,7 @@ class MoviesStateTest {
             movies = PagingData.empty(),
         )
 
-        val result = MoviesReducer.reduce(previousState, MoviesAction.Idle(MOVIE_YEAR, MOVIE_MONTH))
+        val result = MoviesReducer.reduce(previousState, MoviesAction.MoviesIdle(MOVIE_YEAR, MOVIE_MONTH))
 
         expect {
             that(result).isEqualTo(
@@ -109,7 +109,7 @@ class MoviesStateTest {
             movies = mockk(),
         )
 
-        val result = MoviesReducer.reduce(previousState, MoviesAction.Reload(MOVIE_YEAR, MOVIE_MONTH))
+        val result = MoviesReducer.reduce(previousState, MoviesAction.MoviesReload(MOVIE_YEAR, MOVIE_MONTH))
 
         expect {
             that(result).isEqualTo(
@@ -131,7 +131,7 @@ class MoviesStateTest {
             movies = mockk(),
         )
 
-        val result = MoviesReducer.reduce(previousState, MoviesAction.Success(movies))
+        val result = MoviesReducer.reduce(previousState, MoviesAction.MoviesSuccess(movies))
 
         expect {
             that(result).isEqualTo(
@@ -153,7 +153,7 @@ class MoviesStateTest {
             movies = movies,
         )
 
-        val result = MoviesReducer.reduce(previousState, MoviesAction.Error(LoadType.APPEND))
+        val result = MoviesReducer.reduce(previousState, MoviesAction.MoviesError(LoadType.APPEND))
 
         expect {
             that(result).isEqualTo(
@@ -168,28 +168,28 @@ class MoviesStateTest {
 
     @Test
     fun `given a refresh error action, when once is triggered, then the side effect is the expected one`() {
-        val result = MoviesReducer.once(MoviesAction.Error(LoadType.REFRESH))
+        val result = MoviesReducer.once(MoviesAction.MoviesError(LoadType.REFRESH))
 
         expect { that(result).isEqualTo(MoviesSideEffect.MoviesRefreshError) }
     }
 
     @Test
     fun `given an append error action, when once is triggered, then the side effect is the expected one`() {
-        val result = MoviesReducer.once(MoviesAction.Error(LoadType.APPEND))
+        val result = MoviesReducer.once(MoviesAction.MoviesError(LoadType.APPEND))
 
         expect { that(result).isEqualTo(MoviesSideEffect.MoviesAppendError) }
     }
 
     @Test
     fun `given a prepend error action, when once is triggered, then the side effect is the expected one`() {
-        val result = MoviesReducer.once(MoviesAction.Error(LoadType.PREPEND))
+        val result = MoviesReducer.once(MoviesAction.MoviesError(LoadType.PREPEND))
 
         expect { that(result).isEqualTo(MoviesSideEffect.MoviesPrependError) }
     }
 
     @Test(expected = IllegalArgumentException::class)
     fun `given an unexpected action, when once is triggered, then throw illegal argument exception`() {
-        MoviesReducer.once(MoviesAction.Reload(null, null))
+        MoviesReducer.once(MoviesAction.MoviesReload(null, null))
     }
 
 }

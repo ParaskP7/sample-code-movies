@@ -158,7 +158,7 @@ class MoviesViewModelSpek : ViewModelSpek({
                 }
             }
             Then("the expected error side effect is posted") {
-                verify { sideEffectMock.onChanged(MoviesReducer.once(MoviesAction.Error(LoadType.APPEND))) }
+                verify { sideEffectMock.onChanged(MoviesReducer.once(MoviesAction.MoviesError(LoadType.APPEND))) }
             }
         }
         // TODO: Figure out a way to test this scenario.

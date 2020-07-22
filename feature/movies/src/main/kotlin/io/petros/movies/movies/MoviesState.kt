@@ -54,21 +54,21 @@ sealed class MoviesAction {
 
     object DateError : MoviesAction()
 
-    data class Idle(
+    data class MoviesIdle(
         val year: Int?,
         val month: Int?,
     ) : MoviesAction()
 
-    data class Reload(
+    data class MoviesReload(
         val year: Int?,
         val month: Int?,
     ) : MoviesAction()
 
-    data class Success(
+    data class MoviesSuccess(
         val movies: PagingData<Movie>,
     ) : MoviesAction()
 
-    data class Error(
+    data class MoviesError(
         val loadType: LoadType,
     ) : MoviesAction()
 
@@ -91,25 +91,25 @@ object MoviesReducer {
             year = previousState.year,
             month = previousState.month,
         )
-        is MoviesAction.Idle -> previousState.copy(
+        is MoviesAction.MoviesIdle -> previousState.copy(
             year = action.year,
             month = action.month,
         )
-        is MoviesAction.Reload -> previousState.copy(
+        is MoviesAction.MoviesReload -> previousState.copy(
             year = action.year,
             month = action.month,
             movies = PagingData.empty(),
         )
-        is MoviesAction.Success -> previousState.copy(
+        is MoviesAction.MoviesSuccess -> previousState.copy(
             movies = action.movies,
         )
-        is MoviesAction.Error -> previousState.copy()
+        is MoviesAction.MoviesError -> previousState.copy()
     }
 
     @Suppress("UseIfInsteadOfWhen")
     fun once(action: MoviesAction) = when (action) {
         is MoviesAction.DateError -> MoviesSideEffect.DateError
-        is MoviesAction.Error -> when (action.loadType) {
+        is MoviesAction.MoviesError -> when (action.loadType) {
             LoadType.REFRESH -> MoviesSideEffect.MoviesRefreshError
             LoadType.APPEND -> MoviesSideEffect.MoviesAppendError
             LoadType.PREPEND -> MoviesSideEffect.MoviesPrependError

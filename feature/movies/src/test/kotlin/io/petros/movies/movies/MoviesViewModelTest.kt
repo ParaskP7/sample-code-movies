@@ -171,7 +171,7 @@ class MoviesViewModelTest {
 
         testedClass.process(MoviesIntent.ErrorMovies(error.cause, LoadType.APPEND))
 
-        verify { sideEffectMock.onChanged(MoviesReducer.once(MoviesAction.Error(LoadType.APPEND))) }
+        verify { sideEffectMock.onChanged(MoviesReducer.once(MoviesAction.MoviesError(LoadType.APPEND))) }
     }
 
     @Test

@@ -97,7 +97,7 @@ class MoviesStateSpek : Spek({
                 )
             }
             When("reduce is triggered") {
-                result = MoviesReducer.reduce(previousState, MoviesAction.Idle(MOVIE_YEAR, MOVIE_MONTH))
+                result = MoviesReducer.reduce(previousState, MoviesAction.MoviesIdle(MOVIE_YEAR, MOVIE_MONTH))
             }
             Then("the new state is the expected one") {
                 expect {
@@ -122,7 +122,7 @@ class MoviesStateSpek : Spek({
                 )
             }
             When("reduce is triggered") {
-                result = MoviesReducer.reduce(previousState, MoviesAction.Reload(MOVIE_YEAR, MOVIE_MONTH))
+                result = MoviesReducer.reduce(previousState, MoviesAction.MoviesReload(MOVIE_YEAR, MOVIE_MONTH))
             }
             Then("the new state is the expected one") {
                 expect {
@@ -148,7 +148,7 @@ class MoviesStateSpek : Spek({
                 )
             }
             When("reduce is triggered") {
-                result = MoviesReducer.reduce(previousState, MoviesAction.Success(movies))
+                result = MoviesReducer.reduce(previousState, MoviesAction.MoviesSuccess(movies))
             }
             Then("the new state is the expected one") {
                 expect {
@@ -174,7 +174,7 @@ class MoviesStateSpek : Spek({
                 )
             }
             When("reduce is triggered") {
-                result = MoviesReducer.reduce(previousState, MoviesAction.Error(LoadType.APPEND))
+                result = MoviesReducer.reduce(previousState, MoviesAction.MoviesError(LoadType.APPEND))
             }
             Then("the new state is the expected one") {
                 expect {
@@ -195,7 +195,7 @@ class MoviesStateSpek : Spek({
             @Suppress("LateinitUsage") lateinit var action: MoviesAction
             var result: MoviesSideEffect? = null
             Given("a refresh error action") {
-                action = MoviesAction.Error(LoadType.REFRESH)
+                action = MoviesAction.MoviesError(LoadType.REFRESH)
             }
             When("once is triggered") {
                 result = MoviesReducer.once(action)
@@ -208,7 +208,7 @@ class MoviesStateSpek : Spek({
             @Suppress("LateinitUsage") lateinit var action: MoviesAction
             var result: MoviesSideEffect? = null
             Given("an append error action") {
-                action = MoviesAction.Error(LoadType.APPEND)
+                action = MoviesAction.MoviesError(LoadType.APPEND)
             }
             When("once is triggered") {
                 result = MoviesReducer.once(action)
@@ -221,7 +221,7 @@ class MoviesStateSpek : Spek({
             @Suppress("LateinitUsage") lateinit var action: MoviesAction
             var result: MoviesSideEffect? = null
             Given("a prepend error action") {
-                action = MoviesAction.Error(LoadType.PREPEND)
+                action = MoviesAction.MoviesError(LoadType.PREPEND)
             }
             When("once is triggered") {
                 result = MoviesReducer.once(action)
@@ -233,7 +233,7 @@ class MoviesStateSpek : Spek({
         Scenario("unexpected") {
             @Suppress("LateinitUsage") lateinit var action: MoviesAction
             Given("an unexpected action") {
-                action = MoviesAction.Reload(null, null)
+                action = MoviesAction.MoviesReload(null, null)
             }
             When("once is triggered, then throw illegal argument exception") {
                 try {
