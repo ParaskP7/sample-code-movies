@@ -34,7 +34,7 @@ class LoadMovieUseCaseTest {
     private val testedClass = LoadMovieUseCase(moviesRepositoryMock)
 
     @Test
-    fun `when executing the use case, then the movie is the expected one`() = coroutineScope.runBlockingTest {
+    fun `when executing the use case, then the movie stream is the expected one`() = coroutineScope.runBlockingTest {
         coEvery { moviesRepositoryMock.loadMovieStream(MOVIE_ID) } returns flow { movie }
 
         val result = testedClass(params)
