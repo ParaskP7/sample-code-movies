@@ -11,12 +11,12 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface MoviesDao {
 
-    // The below function is 'Date' related.
+    /* DATE */
 
     @Query("SELECT * FROM movies LIMIT 1")
     suspend fun firstMovie(): MovieEntity?
 
-    // The below functions are 'Movies' related.
+    /* MOVIES */
 
     @Query("DELETE FROM movies")
     suspend fun clear()
@@ -27,7 +27,7 @@ interface MoviesDao {
     @Query("SELECT * FROM movies")
     fun movies(): PagingSource<Int, MovieEntity>
 
-    // The below function are 'Movie Details' related.
+    /* MOVIE */
 
     @Query("SELECT * FROM movies WHERE movieId = :movieId")
     fun movie(movieId: Int): Flow<MovieEntity>
