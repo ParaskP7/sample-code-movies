@@ -46,7 +46,7 @@ class MoviesStateSpek : Spek({
             When("reduce is triggered") {
                 result = MoviesReducer.reduce(previousState, MoviesAction.Idle(MOVIE_YEAR, MOVIE_MONTH))
             }
-            Then("the initial state is the expected one") {
+            Then("the new state is the expected one") {
                 expect {
                     that(result).isEqualTo(
                         MoviesState(
@@ -71,7 +71,7 @@ class MoviesStateSpek : Spek({
             When("reduce is triggered") {
                 result = MoviesReducer.reduce(previousState, MoviesAction.Reload(MOVIE_YEAR, MOVIE_MONTH))
             }
-            Then("the initial state is the expected one") {
+            Then("the new state is the expected one") {
                 expect {
                     that(result).isEqualTo(
                         MoviesState(
@@ -97,7 +97,7 @@ class MoviesStateSpek : Spek({
             When("reduce is triggered") {
                 result = MoviesReducer.reduce(previousState, MoviesAction.Success(movies))
             }
-            Then("the initial state is the expected one") {
+            Then("the new state is the expected one") {
                 expect {
                     that(result).isEqualTo(
                         MoviesState(
@@ -123,7 +123,7 @@ class MoviesStateSpek : Spek({
             When("reduce is triggered") {
                 result = MoviesReducer.reduce(previousState, MoviesAction.Error(LoadType.APPEND))
             }
-            Then("the initial state is the expected one") {
+            Then("the new state is the expected one") {
                 expect {
                     that(result).isEqualTo(
                         MoviesState(
