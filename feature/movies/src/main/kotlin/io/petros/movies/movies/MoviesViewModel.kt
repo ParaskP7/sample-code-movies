@@ -5,14 +5,18 @@ import androidx.paging.LoadType
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import io.petros.movies.core.view_model.MviViewModel
+import io.petros.movies.domain.interactor.movie.LoadDateUseCase
 import io.petros.movies.domain.interactor.movie.LoadMoviesUseCase
+import io.petros.movies.domain.model.Result
 import io.petros.movies.domain.model.movie.Movie
 import io.petros.movies.utils.exhaustive
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import timber.log.Timber
 
+@Suppress("TooManyFunctions")
 class MoviesViewModel(
+    private val loadDateUseCase: LoadDateUseCase,
     private val loadMoviesUseCase: LoadMoviesUseCase,
 ) : MviViewModel<MoviesIntent, MoviesState, MoviesSideEffect>() {
 
@@ -24,11 +28,34 @@ class MoviesViewModel(
     override fun process(intent: MoviesIntent) {
         super.process(intent)
         when (intent) {
+            is MoviesIntent.LoadDate -> loadDate()
             is MoviesIntent.LoadMovies -> loadMovies(doLoadMovies(), intent)
             is MoviesIntent.ErrorMovies -> onLoadMoviesError(intent.error, intent.loadType)
             is MoviesIntent.ReloadMovies -> reloadMovies(intent.year, intent.month)
         }.exhaustive
     }
+
+    /* DATE */
+
+    private fun loadDate() = viewModelScope.launch {
+        when (val yearMonth = loadDateUseCase()) {
+            is Result.Success -> onLoadDateSuccess(yearMonth.value)
+            is Result.Error -> onLoadDateError(yearMonth.cause)
+        }.exhaustive
+    }
+
+    private fun onLoadDateSuccess(yearMonth: Pair<Int?, Int?>) {
+        Timber.d("Load date success. [Year: ${yearMonth.first}, Month: ${yearMonth.second}]")
+        state = MoviesReducer.reduce(state, MoviesAction.DateSuccess(yearMonth.first, yearMonth.second))
+    }
+
+    private fun onLoadDateError(error: Exception) {
+        Timber.w(error, "Load date error.")
+        state = MoviesReducer.reduce(state, MoviesAction.DateError)
+        sideEffect = MoviesReducer.once(MoviesAction.DateError)
+    }
+
+    /* MOVIES */
 
     private fun doLoadMovies() = state.movies == PagingData.empty<Movie>()
 

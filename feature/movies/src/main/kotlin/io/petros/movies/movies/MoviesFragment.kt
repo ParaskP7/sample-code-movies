@@ -112,7 +112,16 @@ class MoviesFragment : MviFragment<
 
     override fun onResume() {
         super.onResume()
+        loadDate()
         loadMovies()
+    }
+
+    private fun loadDate() {
+        if (!NetworkLiveEvent.isConnected()) {
+            viewModel.process(
+                MoviesIntent.LoadDate
+            )
+        }
     }
 
     private fun loadMovies() {
@@ -163,6 +172,7 @@ class MoviesFragment : MviFragment<
     /* SIDE EFFECT */
 
     override fun renderSideEffect(sideEffect: MoviesSideEffect) = when (sideEffect) {
+        is MoviesSideEffect.DateError -> Timber.d("Database error during date load while offline.")
         is MoviesSideEffect.MoviesRefreshError -> Timber.d("Paging error during movies refresh.")
         is MoviesSideEffect.MoviesAppendError -> renderErrorSideEffect()
         is MoviesSideEffect.MoviesPrependError -> renderErrorSideEffect()

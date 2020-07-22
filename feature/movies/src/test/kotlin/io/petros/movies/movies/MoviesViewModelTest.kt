@@ -9,8 +9,10 @@ import io.mockk.coVerify
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
+import io.petros.movies.domain.interactor.movie.LoadDateUseCase
 import io.petros.movies.domain.interactor.movie.LoadMoviesUseCase
 import io.petros.movies.domain.model.NetworkError
+import io.petros.movies.domain.model.Result
 import io.petros.movies.domain.model.movie.Movie
 import io.petros.movies.test.utils.MainCoroutineScopeRule
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -33,9 +35,11 @@ class MoviesViewModelTest {
     @get:Rule val coroutineScope = MainCoroutineScopeRule()
     @get:Rule val rule = InstantTaskExecutorRule()
 
+    private val date = Result.Success(Pair(MOVIE_YEAR, MOVIE_MONTH))
     private val moviesPage = mockk<Flow<PagingData<Movie>>>()
 
     @Suppress("LateinitUsage") private lateinit var testedClass: MoviesViewModel
+    private val loadDateUseCaseMock = mockk<LoadDateUseCase>()
     private val loadMoviesUseCaseMock = mockk<LoadMoviesUseCase>()
     private val stateMock = mockk<Observer<MoviesState>>()
     private val sideEffectMock = mockk<Observer<MoviesSideEffect>>()
@@ -43,7 +47,7 @@ class MoviesViewModelTest {
     @Before
     @ExperimentalCoroutinesApi
     fun setUp() {
-        testedClass = MoviesViewModel(loadMoviesUseCaseMock)
+        testedClass = MoviesViewModel(loadDateUseCaseMock, loadMoviesUseCaseMock)
         every { stateMock.onChanged(any()) } answers { }
         testedClass.state().observeForever(stateMock)
         every { sideEffectMock.onChanged(any()) } answers { }
@@ -65,7 +69,59 @@ class MoviesViewModelTest {
         }
     }
 
-    /* LOAD */
+    /* DATE - LOAD */
+
+    @Test
+    fun `when loading date, then the load date use case executes`() {
+        testedClass.process(MoviesIntent.LoadDate)
+
+        coVerify { loadDateUseCaseMock() }
+    }
+
+    @Test
+    fun `when loading date succeeds, then the expected loaded state is posted`() {
+        coEvery { loadDateUseCaseMock() } returns date
+
+        testedClass.process(MoviesIntent.LoadDate)
+
+        verify {
+            stateMock.onChanged(
+                MoviesState(
+                    year = MOVIE_YEAR,
+                    month = MOVIE_MONTH,
+                    movies = PagingData.empty(),
+                )
+            )
+        }
+    }
+
+    @Test
+    fun `when loading date fails, then the expected loaded state is posted`() {
+        coEvery { loadDateUseCaseMock() } returns NetworkError(Exception())
+
+        testedClass.process(MoviesIntent.LoadDate)
+
+        verify {
+            stateMock.onChanged(
+                MoviesState(
+                    year = null,
+                    month = null,
+                    movies = PagingData.empty(),
+                )
+            )
+        }
+    }
+
+    @Test
+    fun `when loading date fails, then the expected error side effect is posted`() {
+        coEvery { loadDateUseCaseMock() } returns NetworkError(Exception())
+
+        testedClass.process(MoviesIntent.LoadDate)
+
+        verify { sideEffectMock.onChanged(MoviesReducer.once(MoviesAction.DateError)) }
+    }
+
+    /* MOVIES - LOAD */
 
     @Test
     fun `given initial load, when loading movies, then the load movies use case executes`() {
@@ -142,7 +198,7 @@ class MoviesViewModelTest {
         }
     }
 
-    /* RELOAD */
+    /* MOVIES - RELOAD */
 
     @Test
     fun `when reloading movies, then the expected reload state is posted`() {

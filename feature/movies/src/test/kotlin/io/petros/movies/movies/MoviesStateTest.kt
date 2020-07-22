@@ -17,6 +17,8 @@ class MoviesStateTest {
 
     }
 
+    /* INIT */
+
     @Test
     fun `when init is triggered, then the initial state is the expected one`() {
         val result = MoviesReducer.init()
@@ -31,6 +33,52 @@ class MoviesStateTest {
             )
         }
     }
+
+    /* DATE */
+
+    @Test
+    fun `given an data success action, when reduce is triggered, then the new state is the expected one`() {
+        val previousState = MoviesState(
+            year = null,
+            month = null,
+            movies = PagingData.empty(),
+        )
+
+        val result = MoviesReducer.reduce(previousState, MoviesAction.DateSuccess(MOVIE_YEAR, MOVIE_MONTH))
+
+        expect {
+            that(result).isEqualTo(
+                MoviesState(
+                    year = MOVIE_YEAR,
+                    month = MOVIE_MONTH,
+                    movies = PagingData.empty(),
+                )
+            )
+        }
+    }
+
+    @Test
+    fun `given an data error action, when reduce is triggered, then the new state is the expected one`() {
+        val previousState = MoviesState(
+            year = MOVIE_YEAR,
+            month = MOVIE_MONTH,
+            movies = PagingData.empty(),
+        )
+
+        val result = MoviesReducer.reduce(previousState, MoviesAction.DateError)
+
+        expect {
+            that(result).isEqualTo(
+                MoviesState(
+                    year = MOVIE_YEAR,
+                    month = MOVIE_MONTH,
+                    movies = PagingData.empty(),
+                )
+            )
+        }
+    }
+
+    /* MOVIES */
 
     @Test
     fun `given an idle action, when reduce is triggered, then the new state is the expected one`() {

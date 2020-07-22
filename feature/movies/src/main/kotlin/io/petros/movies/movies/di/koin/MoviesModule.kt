@@ -5,7 +5,7 @@ import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 private fun viewModelModule() = module {
-    viewModel { MoviesViewModel(get()) }
+    viewModel { MoviesViewModel(get(), get()) }
 }
 
 fun moviesModule() = listOf(

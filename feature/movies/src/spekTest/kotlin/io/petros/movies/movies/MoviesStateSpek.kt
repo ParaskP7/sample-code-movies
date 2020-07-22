@@ -32,6 +32,59 @@ class MoviesStateSpek : Spek({
         }
     }
 
+    Feature("Date reducer reduce") {
+        Scenario("date success") {
+            @Suppress("LateinitUsage") lateinit var previousState: MoviesState
+            var result: MoviesState? = null
+            Given("an date success action") {
+                previousState = MoviesState(
+                    year = null,
+                    month = null,
+                    movies = PagingData.empty(),
+                )
+            }
+            When("reduce is triggered") {
+                result = MoviesReducer.reduce(previousState, MoviesAction.DateSuccess(MOVIE_YEAR, MOVIE_MONTH))
+            }
+            Then("the new state is the expected one") {
+                expect {
+                    that(result).isEqualTo(
+                        MoviesState(
+                            year = MOVIE_YEAR,
+                            month = MOVIE_MONTH,
+                            movies = PagingData.empty(),
+                        )
+                    )
+                }
+            }
+        }
+        Scenario("date error") {
+            @Suppress("LateinitUsage") lateinit var previousState: MoviesState
+            var result: MoviesState? = null
+            Given("an date error action") {
+                previousState = MoviesState(
+                    year = MOVIE_YEAR,
+                    month = MOVIE_MONTH,
+                    movies = PagingData.empty(),
+                )
+            }
+            When("reduce is triggered") {
+                result = MoviesReducer.reduce(previousState, MoviesAction.DateError)
+            }
+            Then("the new state is the expected one") {
+                expect {
+                    that(result).isEqualTo(
+                        MoviesState(
+                            year = MOVIE_YEAR,
+                            month = MOVIE_MONTH,
+                            movies = PagingData.empty(),
+                        )
+                    )
+                }
+            }
+        }
+    }
+
     Feature("Movies reducer reduce") {
         Scenario("idle") {
             @Suppress("LateinitUsage") lateinit var previousState: MoviesState

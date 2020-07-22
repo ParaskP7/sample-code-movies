@@ -14,6 +14,8 @@ data class MoviesState(
 
 sealed class MoviesSideEffect {
 
+    object DateError : MoviesSideEffect()
+
     object MoviesRefreshError : MoviesSideEffect()
 
     object MoviesAppendError : MoviesSideEffect()
@@ -23,6 +25,8 @@ sealed class MoviesSideEffect {
 }
 
 sealed class MoviesIntent {
+
+    object LoadDate : MoviesIntent()
 
     data class LoadMovies(
         val year: Int? = null,
@@ -42,6 +46,13 @@ sealed class MoviesIntent {
 }
 
 sealed class MoviesAction {
+
+    data class DateSuccess(
+        val year: Int?,
+        val month: Int?,
+    ) : MoviesAction()
+
+    object DateError : MoviesAction()
 
     data class Idle(
         val year: Int?,
@@ -72,6 +83,14 @@ object MoviesReducer {
     )
 
     fun reduce(previousState: MoviesState, action: MoviesAction) = when (action) {
+        is MoviesAction.DateSuccess -> previousState.copy(
+            year = action.year,
+            month = action.month,
+        )
+        is MoviesAction.DateError -> previousState.copy(
+            year = previousState.year,
+            month = previousState.month,
+        )
         is MoviesAction.Idle -> previousState.copy(
             year = action.year,
             month = action.month,
@@ -89,6 +108,7 @@ object MoviesReducer {
 
     @Suppress("UseIfInsteadOfWhen")
     fun once(action: MoviesAction) = when (action) {
+        is MoviesAction.DateError -> MoviesSideEffect.DateError
         is MoviesAction.Error -> when (action.loadType) {
             LoadType.REFRESH -> MoviesSideEffect.MoviesRefreshError
             LoadType.APPEND -> MoviesSideEffect.MoviesAppendError
