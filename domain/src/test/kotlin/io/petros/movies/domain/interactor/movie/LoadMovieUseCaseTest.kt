@@ -7,6 +7,8 @@ import io.petros.movies.domain.repository.movie.MoviesRepository
 import io.petros.movies.test.domain.movie
 import io.petros.movies.test.utils.MainCoroutineScopeRule
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Rule
 import org.junit.Test
@@ -33,11 +35,11 @@ class LoadMovieUseCaseTest {
 
     @Test
     fun `when executing the use case, then the movie is the expected one`() = coroutineScope.runBlockingTest {
-        coEvery { moviesRepositoryMock.loadMovie(MOVIE_ID) } returns movie
+        coEvery { moviesRepositoryMock.loadMovieStream(MOVIE_ID) } returns flow { movie }
 
-        val result = testedClass.execute(params)
+        val result = testedClass(params)
 
-        expect { that(result).isEqualTo(movie) }
+        result.collectLatest { expect { that(it).isEqualTo(movie) } }
     }
 
 }

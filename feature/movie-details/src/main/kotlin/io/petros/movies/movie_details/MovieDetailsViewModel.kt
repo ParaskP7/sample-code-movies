@@ -6,6 +6,7 @@ import io.petros.movies.domain.interactor.movie.LoadMovieUseCase
 import io.petros.movies.domain.model.Result
 import io.petros.movies.domain.model.movie.Movie
 import io.petros.movies.utils.exhaustive
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import timber.log.Timber
 
@@ -32,10 +33,13 @@ class MovieDetailsViewModel(
 
     private fun loadMovies(id: Int) = viewModelScope.launch {
         state = MovieDetailsReducer.reduce(state, MovieDetailsAction.Load)
-        when (val movie = loadMovieUseCase.execute(LoadMovieUseCase.Params(id))) {
-            is Result.Success -> onLoadMoviesSuccess(movie.value)
-            is Result.Error -> onLoadMoviesError(movie.cause)
-        }.exhaustive
+        loadMovieUseCase(LoadMovieUseCase.Params(id))
+            .collectLatest { movie ->
+                when (movie) {
+                    is Result.Success -> onLoadMoviesSuccess(movie.value)
+                    is Result.Error -> onLoadMoviesError(movie.cause)
+                }.exhaustive
+            }
     }
 
     private fun onLoadMoviesSuccess(movie: Movie) {

@@ -12,6 +12,9 @@ import io.petros.movies.network.MoviesService
 import io.petros.movies.test.domain.movie
 import io.petros.movies.test.utils.CoroutineSpek
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.runBlocking
 import org.spekframework.spek2.style.gherkin.Feature
 import strikt.api.expect
@@ -50,15 +53,15 @@ class MoviesRepositoryImplSpek : CoroutineSpek({
             }
         }
         Scenario("loading movie") {
-            var result: Result<Movie>? = null
+            var result: Flow<Result<Movie>>? = null
             Given("movie response") {
-                coEvery { serviceMock.loadMovie(MOVIE_ID) } returns movie.value
+                coEvery { moviesDaoMock.movie(MOVIE_ID) } returns flow { movie.value }
             }
             When("load movie is triggered") {
-                runBlocking { result = testedClass.loadMovie(MOVIE_ID) }
+                runBlocking { result = testedClass.loadMovieStream(MOVIE_ID) }
             }
             Then("the movie is the expected one") {
-                expect { that(result).isEqualTo(movie) }
+                runBlocking { result?.collectLatest { expect { that(it).isEqualTo(movie) } } }
             }
         }
     }

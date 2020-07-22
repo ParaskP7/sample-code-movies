@@ -8,11 +8,16 @@ import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
 import io.petros.movies.domain.interactor.movie.LoadMovieUseCase
-import io.petros.movies.domain.model.NetworkError
 import io.petros.movies.domain.model.Result
+import io.petros.movies.domain.model.UnknownError
+import io.petros.movies.domain.model.movie.Movie
 import io.petros.movies.test.domain.movie
 import io.petros.movies.test.utils.MainCoroutineScopeRule
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -30,6 +35,8 @@ class MovieDetailsViewModelTest {
     @get:Rule val rule = InstantTaskExecutorRule()
 
     private val movie = Result.Success(movie())
+    private val movieStream: Flow<Result<Movie>> = flow { movie }
+    private val errorStream: Flow<Result<Movie>> = flow { UnknownError(Exception()) }
 
     @Suppress("LateinitUsage") private lateinit var testedClass: MovieDetailsViewModel
     private val loadMovieUseCaseMock = mockk<LoadMovieUseCase>()
@@ -96,48 +103,54 @@ class MovieDetailsViewModelTest {
     fun `when loading movie, then the load movie use case executes`() {
         testedClass.process(MovieDetailsIntent.LoadMovie(MOVIE_ID))
 
-        coVerify { loadMovieUseCaseMock.execute(LoadMovieUseCase.Params(MOVIE_ID)) }
+        coVerify { loadMovieUseCaseMock(LoadMovieUseCase.Params(MOVIE_ID)) }
     }
 
     @Test
-    fun `when loading movie succeeds, then the expected loaded state is posted`() {
-        coEvery { loadMovieUseCaseMock.execute(any()) } returns movie
+    fun `when loading movie succeeds, then the expected loaded state is posted`() = coroutineScope.runBlockingTest {
+        coEvery { loadMovieUseCaseMock(any()) } returns flow { movieStream }
 
         testedClass.process(MovieDetailsIntent.LoadMovie(MOVIE_ID))
 
-        verify {
-            stateMock.onChanged(
-                MovieDetailsState(
-                    status = MovieDetailsStatus.Loaded,
-                    movie = movie.value,
+        movieStream.collectLatest {
+            verify {
+                stateMock.onChanged(
+                    MovieDetailsState(
+                        status = MovieDetailsStatus.Loaded,
+                        movie = movie.value,
+                    )
                 )
-            )
+            }
         }
     }
 
     @Test
-    fun `when loading movie fails, then the expected loaded state is posted`() {
-        coEvery { loadMovieUseCaseMock.execute(any()) } returns NetworkError(Exception())
+    fun `when loading movie fails, then the expected loaded state is posted`() = coroutineScope.runBlockingTest {
+        coEvery { loadMovieUseCaseMock(any()) } returns errorStream
 
         testedClass.process(MovieDetailsIntent.LoadMovie(MOVIE_ID))
 
-        verify {
-            stateMock.onChanged(
-                MovieDetailsState(
-                    status = MovieDetailsStatus.Loaded,
-                    movie = moviePlaceholder,
+        errorStream.collectLatest {
+            verify {
+                stateMock.onChanged(
+                    MovieDetailsState(
+                        status = MovieDetailsStatus.Loaded,
+                        movie = moviePlaceholder,
+                    )
                 )
-            )
+            }
         }
     }
 
     @Test
-    fun `when loading movie fails, then the expected error side effect is posted`() {
-        coEvery { loadMovieUseCaseMock.execute(any()) } returns NetworkError(Exception())
+    fun `when loading movie fails, then the expected error side effect is posted`() = coroutineScope.runBlockingTest {
+        coEvery { loadMovieUseCaseMock(any()) } returns errorStream
 
         testedClass.process(MovieDetailsIntent.LoadMovie(MOVIE_ID))
 
-        verify { sideEffectMock.onChanged(MovieDetailsReducer.once(MovieDetailsAction.Error)) }
+        errorStream.collectLatest {
+            verify { sideEffectMock.onChanged(MovieDetailsReducer.once(MovieDetailsAction.Error)) }
+        }
     }
 
 }

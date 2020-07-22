@@ -8,10 +8,15 @@ import io.mockk.mockk
 import io.mockk.verify
 import io.petros.movies.android_test.utils.ViewModelSpek
 import io.petros.movies.domain.interactor.movie.LoadMovieUseCase
-import io.petros.movies.domain.model.NetworkError
 import io.petros.movies.domain.model.Result
+import io.petros.movies.domain.model.UnknownError
+import io.petros.movies.domain.model.movie.Movie
 import io.petros.movies.test.domain.movie
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.runBlocking
 import org.spekframework.spek2.style.gherkin.Feature
 
 private val stateMock = mockk<Observer<MovieDetailsState>>()
@@ -25,10 +30,13 @@ private fun setupViewModel(testedClass: MovieDetailsViewModel) {
     testedClass.sideEffect().observeForever(sideEffectMock)
 }
 
+private val movie = Result.Success(movie())
+private val movieStream: Flow<Result<Movie>> = flow { movie }
+private val errorStream: Flow<Result<Movie>> = flow { UnknownError(Exception()) }
+
 @ExperimentalCoroutinesApi
 class MovieDetailsViewModelSpek : ViewModelSpek({
 
-    val movie = Result.Success(movie())
     val loadMovieUseCaseMock = mockk<LoadMovieUseCase>()
 
     Feature("Movie details view model for init") {
@@ -91,48 +99,60 @@ class MovieDetailsViewModelSpek : ViewModelSpek({
         Scenario("on success") {
             Given("a page as a result") {
                 setupViewModel(testedClass)
-                coEvery { loadMovieUseCaseMock.execute(any()) } returns movie
+                coEvery { loadMovieUseCaseMock(any()) } returns movieStream
             }
             When("loading movies") {
                 testedClass.process(MovieDetailsIntent.LoadMovie(MOVIE_ID))
             }
             Then("the load movies use case executes") {
-                coVerify { loadMovieUseCaseMock.execute(LoadMovieUseCase.Params(MOVIE_ID)) }
+                coVerify { loadMovieUseCaseMock(LoadMovieUseCase.Params(MOVIE_ID)) }
             }
             Then("the expected loaded state is posted") {
-                verify {
-                    stateMock.onChanged(
-                        MovieDetailsState(
-                            status = MovieDetailsStatus.Loaded,
-                            movie = movie.value,
-                        )
-                    )
+                runBlocking {
+                    movieStream.collectLatest {
+                        verify {
+                            stateMock.onChanged(
+                                MovieDetailsState(
+                                    status = MovieDetailsStatus.Loaded,
+                                    movie = movie.value,
+                                )
+                            )
+                        }
+                    }
                 }
             }
         }
         Scenario("on failure") {
             Given("a page as a result") {
                 setupViewModel(testedClass)
-                coEvery { loadMovieUseCaseMock.execute(any()) } returns NetworkError(Exception())
+                coEvery { loadMovieUseCaseMock(any()) } returns errorStream
             }
             When("loading movies") {
                 testedClass.process(MovieDetailsIntent.LoadMovie(MOVIE_ID))
             }
             Then("the load movies use case executes") {
-                coVerify { loadMovieUseCaseMock.execute(LoadMovieUseCase.Params(MOVIE_ID)) }
+                coVerify { loadMovieUseCaseMock(LoadMovieUseCase.Params(MOVIE_ID)) }
             }
             Then("the expected loaded state is posted") {
-                verify {
-                    stateMock.onChanged(
-                        MovieDetailsState(
-                            status = MovieDetailsStatus.Loaded,
-                            movie = moviePlaceholder,
-                        )
-                    )
+                runBlocking {
+                    errorStream.collectLatest {
+                        verify {
+                            stateMock.onChanged(
+                                MovieDetailsState(
+                                    status = MovieDetailsStatus.Loaded,
+                                    movie = moviePlaceholder,
+                                )
+                            )
+                        }
+                    }
                 }
             }
             Then("the expected error side effect is posted") {
-                verify { sideEffectMock.onChanged(MovieDetailsReducer.once(MovieDetailsAction.Error)) }
+                runBlocking {
+                    errorStream.collectLatest {
+                        verify { sideEffectMock.onChanged(MovieDetailsReducer.once(MovieDetailsAction.Error)) }
+                    }
+                }
             }
         }
     }

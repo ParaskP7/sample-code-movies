@@ -11,6 +11,8 @@ import io.petros.movies.network.MoviesService
 import io.petros.movies.test.domain.movie
 import io.petros.movies.test.utils.MainCoroutineScopeRule
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Before
 import org.junit.Rule
@@ -63,11 +65,11 @@ class MoviesRepositoryImplTest {
 
     @Test
     fun `when load movie is triggered, then the movie is the expected one`() = coroutineScope.runBlockingTest {
-        coEvery { serviceMock.loadMovie(MOVIE_ID) } returns movie.value
+        coEvery { moviesDaoMock.movie(MOVIE_ID) } returns flow { movie.value }
 
-        val result = testedClass.loadMovie(MOVIE_ID)
+        val result = testedClass.loadMovieStream(MOVIE_ID)
 
-        expect { that(result).isEqualTo(movie) }
+        result.collectLatest { expect { that(it).isEqualTo(movie) } }
     }
 
 }

@@ -8,27 +8,33 @@ import io.petros.movies.domain.repository.movie.MoviesRepository
 import io.petros.movies.test.domain.movie
 import io.petros.movies.test.utils.CoroutineSpek
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.runBlocking
 import org.spekframework.spek2.style.gherkin.Feature
 import strikt.api.expect
 import strikt.assertions.isEqualTo
 
+private val movie = Result.Success(movie())
+
 @ExperimentalCoroutinesApi
 class LoadMovieUseCaseSpek : CoroutineSpek({
 
-    val movie = Result.Success(movie())
     val moviesRepositoryMock = mockk<MoviesRepository>()
-    coEvery { moviesRepositoryMock.loadMovie(MOVIE_ID) } returns movie
 
     Feature("Load movies use case") {
         val testedClass by memoized { LoadMovieUseCase(moviesRepositoryMock) }
         Scenario("execute") {
-            var result: Result<Movie>? = null
+            var result: Flow<Result<Movie>>? = null
+            Given("movie response") {
+                coEvery { moviesRepositoryMock.loadMovieStream(MOVIE_ID) } returns flow { movie }
+            }
             When("executing the use case") {
-                result = runBlocking { testedClass.execute(LoadMovieUseCase.Params(MOVIE_ID)) }
+                result = runBlocking { testedClass(LoadMovieUseCase.Params(MOVIE_ID)) }
             }
             Then("the movie is the expected one") {
-                expect { that(result).isEqualTo(movie) }
+                runBlocking { result?.collectLatest { expect { that(it).isEqualTo(movie) } } }
             }
         }
     }

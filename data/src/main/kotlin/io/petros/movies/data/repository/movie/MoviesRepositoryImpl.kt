@@ -41,8 +41,7 @@ class MoviesRepositoryImpl(
         }
     }
 
-    override suspend fun loadMovie(id: Int) = asResult {
-        service.loadMovie(id)
-    }
+    override suspend fun loadMovieStream(id: Int) = database.moviesDao().movie(id)
+        .map { asResult { it.toMovie() } }
 
 }

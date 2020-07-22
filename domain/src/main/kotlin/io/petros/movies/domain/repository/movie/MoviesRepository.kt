@@ -11,6 +11,6 @@ interface MoviesRepository {
 
     suspend fun loadMoviesStream(year: Int?, month: Int?): Flow<PagingData<Movie>>
 
-    suspend fun loadMovie(id: Int): Result<Movie>
+    suspend fun loadMovieStream(id: Int): Flow<Result<Movie>>
 
 }

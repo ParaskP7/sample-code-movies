@@ -6,6 +6,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import io.petros.movies.database.entity.MovieEntity
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface MoviesDao {
@@ -25,5 +26,10 @@ interface MoviesDao {
 
     @Query("SELECT * FROM movies")
     fun movies(): PagingSource<Int, MovieEntity>
+
+    // The below function are 'Movie Details' related.
+
+    @Query("SELECT * FROM movies WHERE movieId = :movieId")
+    fun movie(movieId: Int): Flow<MovieEntity>
 
 }
