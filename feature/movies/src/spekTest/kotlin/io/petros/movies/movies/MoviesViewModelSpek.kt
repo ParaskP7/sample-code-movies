@@ -15,7 +15,9 @@ import io.petros.movies.domain.model.NetworkError
 import io.petros.movies.domain.model.Result
 import io.petros.movies.domain.model.movie.Movie
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.runBlocking
 import org.spekframework.spek2.style.gherkin.Feature
 
 private val stateMock = mockk<Observer<MoviesState>>()
@@ -29,12 +31,16 @@ private fun setupViewModel(testedClass: MoviesViewModel) {
     testedClass.sideEffect().observeForever(sideEffectMock)
 }
 
+private const val MOVIE_YEAR = 2018
+private const val MOVIE_MONTH = 7
+
+private val date = Result.Success(Pair(MOVIE_YEAR, MOVIE_MONTH))
+private val moviesPage = mockk<PagingData<Movie>>()
+private val moviesPageStream = flow<PagingData<Movie>> { moviesPage }
+
 @Suppress("ForbiddenComment")
 @ExperimentalCoroutinesApi
 class MoviesViewModelSpek : ViewModelSpek({
-
-    val date = Result.Success(Pair(MOVIE_YEAR, MOVIE_MONTH))
-    val moviesPage = mockk<Flow<PagingData<Movie>>>()
 
     val loadDateUseCaseMock = mockk<LoadDateUseCase>()
     val loadMoviesUseCaseMock = mockk<LoadMoviesUseCase>()
@@ -117,7 +123,7 @@ class MoviesViewModelSpek : ViewModelSpek({
         Scenario("on success") {
             Given("initial load") {
                 setupViewModel(testedClass)
-                coEvery { loadMoviesUseCaseMock(any()) } returns moviesPage
+                coEvery { loadMoviesUseCaseMock(any()) } returns moviesPageStream
             }
             When("loading movies") {
                 testedClass.process(MoviesIntent.LoadMovies(MOVIE_YEAR, MOVIE_MONTH))
@@ -125,18 +131,21 @@ class MoviesViewModelSpek : ViewModelSpek({
             Then("the load movies use case executes") {
                 coVerify { loadMoviesUseCaseMock(LoadMoviesUseCase.Params(MOVIE_YEAR, MOVIE_MONTH)) }
             }
-            // TODO: Figure out a way to test this scenario.
-            /*Then("the expected loaded state is posted") {
-                verify {
-                    stateMock.onChanged(
-                        MoviesState(
-                            year = MOVIE_YEAR,
-                            month = MOVIE_MONTH,
-                            movies = eq(any()),
-                        )
-                    )
+            Then("the expected loaded state is posted") {
+                runBlocking {
+                    moviesPageStream.collectLatest {
+                        verify {
+                            stateMock.onChanged(
+                                MoviesState(
+                                    year = MOVIE_YEAR,
+                                    month = MOVIE_MONTH,
+                                    movies = moviesPage,
+                                )
+                            )
+                        }
+                    }
                 }
-            }*/
+            }
         }
         Scenario("on failure") {
             val error = NetworkError(Exception())
@@ -219,7 +228,7 @@ class MoviesViewModelSpek : ViewModelSpek({
         Scenario("on success") {
             Given("a page as a result") {
                 setupViewModel(testedClass)
-                coEvery { loadMoviesUseCaseMock(any()) } returns moviesPage
+                coEvery { loadMoviesUseCaseMock(any()) } returns moviesPageStream
             }
             When("reloading movies") {
                 testedClass.process(MoviesIntent.ReloadMovies(MOVIE_YEAR, MOVIE_MONTH))
@@ -227,28 +236,22 @@ class MoviesViewModelSpek : ViewModelSpek({
             Then("the load movies use case executes") {
                 coVerify { loadMoviesUseCaseMock(LoadMoviesUseCase.Params(MOVIE_YEAR, MOVIE_MONTH)) }
             }
-            // TODO: Figure out a way to test this scenario.
-            /*Then("the expected loaded state is posted") {
-                verify {
-                    stateMock.onChanged(
-                        MoviesState(
-                            year = MOVIE_YEAR,
-                            month = MOVIE_MONTH,
-                            movies = eq(any()),
-                        )
-                    )
+            Then("the expected loaded state is posted") {
+                runBlocking {
+                    moviesPageStream.collectLatest {
+                        verify {
+                            stateMock.onChanged(
+                                MoviesState(
+                                    year = MOVIE_YEAR,
+                                    month = MOVIE_MONTH,
+                                    movies = moviesPage,
+                                )
+                            )
+                        }
+                    }
                 }
-            }*/
+            }
         }
     }
 
-}) {
-
-    companion object {
-
-        private const val MOVIE_YEAR = 2018
-        private const val MOVIE_MONTH = 7
-
-    }
-
-}
+})

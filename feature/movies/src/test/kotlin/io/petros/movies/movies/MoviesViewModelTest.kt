@@ -16,7 +16,9 @@ import io.petros.movies.domain.model.Result
 import io.petros.movies.domain.model.movie.Movie
 import io.petros.movies.test.utils.MainCoroutineScopeRule
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Before
 import org.junit.Ignore
 import org.junit.Rule
@@ -36,7 +38,8 @@ class MoviesViewModelTest {
     @get:Rule val rule = InstantTaskExecutorRule()
 
     private val date = Result.Success(Pair(MOVIE_YEAR, MOVIE_MONTH))
-    private val moviesPage = mockk<Flow<PagingData<Movie>>>()
+    private val moviesPage = mockk<PagingData<Movie>>()
+    private val moviesPageStream = flow<PagingData<Movie>> { moviesPage }
 
     @Suppress("LateinitUsage") private lateinit var testedClass: MoviesViewModel
     private val loadDateUseCaseMock = mockk<LoadDateUseCase>()
@@ -131,20 +134,21 @@ class MoviesViewModelTest {
     }
 
     @Test
-    @Ignore("Figure out a way to test this scenario.")
-    fun `when loading movies succeeds, then the expected loaded state is posted`() {
-        coEvery { loadMoviesUseCaseMock(any()) } returns moviesPage
+    fun `when loading movies succeeds, then the expected loaded state is posted`() = coroutineScope.runBlockingTest {
+        coEvery { loadMoviesUseCaseMock(any()) } returns moviesPageStream
 
         testedClass.process(MoviesIntent.LoadMovies(MOVIE_YEAR, MOVIE_MONTH))
 
-        verify {
-            stateMock.onChanged(
-                MoviesState(
-                    year = MOVIE_YEAR,
-                    month = MOVIE_MONTH,
-                    movies = eq(any()),
+        moviesPageStream.collectLatest {
+            verify {
+                stateMock.onChanged(
+                    MoviesState(
+                        year = MOVIE_YEAR,
+                        month = MOVIE_MONTH,
+                        movies = moviesPage,
+                    )
                 )
-            )
+            }
         }
     }
 
@@ -238,20 +242,21 @@ class MoviesViewModelTest {
     }
 
     @Test
-    @Ignore("Figure out a way to test this scenario.")
-    fun `when reloading movies succeeds, then the expected loaded state is posted`() {
-        coEvery { loadMoviesUseCaseMock(any()) } returns moviesPage
+    fun `when reloading movies succeeds, then the expected loaded state is posted`() = coroutineScope.runBlockingTest {
+        coEvery { loadMoviesUseCaseMock(any()) } returns moviesPageStream
 
         testedClass.process(MoviesIntent.ReloadMovies(MOVIE_YEAR, MOVIE_MONTH))
 
-        verify {
-            stateMock.onChanged(
-                MoviesState(
-                    year = MOVIE_YEAR,
-                    month = MOVIE_MONTH,
-                    movies = eq(any()),
+        moviesPageStream.collectLatest {
+            verify {
+                stateMock.onChanged(
+                    MoviesState(
+                        year = MOVIE_YEAR,
+                        month = MOVIE_MONTH,
+                        movies = moviesPage,
+                    )
                 )
-            )
+            }
         }
     }
 
