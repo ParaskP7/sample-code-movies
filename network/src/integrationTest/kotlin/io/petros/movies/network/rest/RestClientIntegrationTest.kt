@@ -86,7 +86,6 @@ class RestClientIntegrationTest {
 
     private fun expectedFirstMoviesPage(): MoviesPage {
         return moviesPage(
-            nextPage = 2,
             movies = listOf(
                 movie(
                     id = 419_704,
@@ -130,7 +129,6 @@ class RestClientIntegrationTest {
 
     private fun expectedSecondMoviesPage(): MoviesPage {
         return moviesPage(
-            nextPage = 3,
             movies = listOf(
                 movie(
                     id = 181_812,
@@ -172,7 +170,6 @@ class RestClientIntegrationTest {
 
     private fun expectedLastMoviesPage(): MoviesPage {
         return moviesPage(
-            nextPage = null,
             movies = listOf(
                 movie(
                     id = 446_893,

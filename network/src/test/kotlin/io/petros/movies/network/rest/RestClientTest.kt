@@ -37,9 +37,8 @@ class RestClientTest {
 
     @Test
     fun `when load movies is triggered, then the movies page is the expected one`() = coroutineScope.runBlockingTest {
-        val page = 0
-        val moviesPageRaw = MoviesPageRaw(page, 1, emptyList())
-        val moviesPage = moviesPage(page + 1, emptyList())
+        val moviesPageRaw = MoviesPageRaw(emptyList())
+        val moviesPage = moviesPage(emptyList())
         coEvery { restApiMock.loadMovies(RELEASE_DATE_GTE, RELEASE_DATE_LTE, SECOND_PAGE) } returns moviesPageRaw
 
         val result = testedClass.loadMovies(MOVIE_YEAR, MOVIE_MONTH, SECOND_PAGE)

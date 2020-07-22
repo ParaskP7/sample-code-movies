@@ -110,7 +110,7 @@ class MoviesRemoteMediatorSpek : CoroutineSpek({
                 setupDatabase(moviesDatabaseMock, moviesDaoMock)
                 every { pagingStateMock.anchorPosition } returns null
                 coEvery { webServiceMock.loadMovies(MOVIE_YEAR, MOVIE_MONTH, MOVIES_STARTING_PAGE) } returns
-                        moviesPage(SECOND_PAGE, emptyList())
+                        moviesPage(emptyList())
             }
             When("load movies returns") {
                 runBlocking { result = testedClass.load(LoadType.REFRESH, pagingStateMock) as MediatorResult.Success }
@@ -125,7 +125,7 @@ class MoviesRemoteMediatorSpek : CoroutineSpek({
                 setupDatabase(moviesDatabaseMock, moviesDaoMock)
                 every { pagingStateMock.anchorPosition } returns null
                 coEvery { webServiceMock.loadMovies(MOVIE_YEAR, MOVIE_MONTH, MOVIES_STARTING_PAGE) } returns
-                        moviesPage(SECOND_PAGE, firstPageMovies)
+                        moviesPage(firstPageMovies)
             }
             When("load movies returns") {
                 runBlocking { result = testedClass.load(LoadType.REFRESH, pagingStateMock) as MediatorResult.Success }
@@ -169,7 +169,7 @@ class MoviesRemoteMediatorSpek : CoroutineSpek({
                 setupDatabase(moviesDatabaseMock, moviesDaoMock)
                 every { pagingStateMock.pages } returns listOf(firstPage)
                 coEvery { webServiceMock.loadMovies(MOVIE_YEAR, MOVIE_MONTH, SECOND_PAGE) } returns
-                        moviesPage(THIRD_PAGE, emptyList())
+                        moviesPage(emptyList())
             }
             When("load movies returns") {
                 runBlocking { result = testedClass.load(LoadType.APPEND, pagingStateMock) as MediatorResult.Success }
@@ -184,7 +184,7 @@ class MoviesRemoteMediatorSpek : CoroutineSpek({
                 setupDatabase(moviesDatabaseMock, moviesDaoMock)
                 every { pagingStateMock.pages } returns listOf(firstPage)
                 coEvery { webServiceMock.loadMovies(MOVIE_YEAR, MOVIE_MONTH, SECOND_PAGE) } returns
-                        moviesPage(THIRD_PAGE, secondPageMovies)
+                        moviesPage(secondPageMovies)
             }
             When("load movies returns") {
                 runBlocking { result = testedClass.load(LoadType.APPEND, pagingStateMock) as MediatorResult.Success }
@@ -242,7 +242,7 @@ class MoviesRemoteMediatorSpek : CoroutineSpek({
                 setupDatabase(moviesDatabaseMock, moviesDaoMock)
                 every { pagingStateMock.pages } returns listOf(secondPage)
                 coEvery { webServiceMock.loadMovies(MOVIE_YEAR, MOVIE_MONTH, FIRST_PAGE) } returns
-                        moviesPage(SECOND_PAGE, emptyList())
+                        moviesPage(emptyList())
             }
             When("load movies returns") {
                 runBlocking { result = testedClass.load(LoadType.PREPEND, pagingStateMock) as MediatorResult.Success }
@@ -257,7 +257,7 @@ class MoviesRemoteMediatorSpek : CoroutineSpek({
                 setupDatabase(moviesDatabaseMock, moviesDaoMock)
                 every { pagingStateMock.pages } returns listOf(secondPage)
                 coEvery { webServiceMock.loadMovies(MOVIE_YEAR, MOVIE_MONTH, FIRST_PAGE) } returns
-                        moviesPage(SECOND_PAGE, firstPageMovies)
+                        moviesPage(firstPageMovies)
             }
             When("load movies returns") {
                 runBlocking { result = testedClass.load(LoadType.PREPEND, pagingStateMock) as MediatorResult.Success }

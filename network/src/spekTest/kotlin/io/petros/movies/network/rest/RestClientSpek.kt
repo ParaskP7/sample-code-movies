@@ -25,8 +25,8 @@ class RestClientSpek : CoroutineSpek({
     Feature("Rest client for movies") {
         val testedClass by memoized { RestClient(restApiMock) }
         Scenario("loading movies") {
-            val moviesPageRaw = MoviesPageRaw(0, 1, emptyList())
-            val moviesPage = moviesPage(1, emptyList())
+            val moviesPageRaw = MoviesPageRaw(emptyList())
+            val moviesPage = moviesPage(emptyList())
             var result: MoviesPage? = null
             Given("movies page response") {
                 coEvery { restApiMock.loadMovies(RELEASE_DATE_GTE, RELEASE_DATE_LTE, SECOND_PAGE) } returns moviesPageRaw
