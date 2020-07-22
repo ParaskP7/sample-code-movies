@@ -125,6 +125,8 @@ class MoviesRemoteMediator(
             MovieEntity.from(
                 prevPage = if (page == MOVIES_STARTING_PAGE) null else page?.minus(1),
                 nextPage = page?.plus(1),
+                year = year,
+                month = month,
                 movie = movie,
             )
         })

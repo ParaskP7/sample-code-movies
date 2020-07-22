@@ -45,9 +45,9 @@ class MoviesRemoteMediatorSpek : CoroutineSpek({
 
     val firstPageMovies = listOf(movie(id = 1), movie(id = 2), movie(id = 3))
     val firstPageMovieEntities = listOf(
-        MovieEntity.from(null, SECOND_PAGE, firstPageMovies[0]),
-        MovieEntity.from(null, SECOND_PAGE, firstPageMovies[1]),
-        MovieEntity.from(null, SECOND_PAGE, firstPageMovies[2])
+        MovieEntity.from(null, SECOND_PAGE, MOVIE_YEAR, MOVIE_MONTH, firstPageMovies[0]),
+        MovieEntity.from(null, SECOND_PAGE, MOVIE_YEAR, MOVIE_MONTH, firstPageMovies[1]),
+        MovieEntity.from(null, SECOND_PAGE, MOVIE_YEAR, MOVIE_MONTH, firstPageMovies[2])
     )
     val firstPage = PagingSource.LoadResult.Page(
         data = firstPageMovieEntities,
@@ -57,9 +57,9 @@ class MoviesRemoteMediatorSpek : CoroutineSpek({
 
     val secondPageMovies = listOf(movie(id = 4), movie(id = 5), movie(id = 6))
     val secondPageMovieEntities = listOf(
-        MovieEntity.from(FIRST_PAGE, THIRD_PAGE, secondPageMovies[0]),
-        MovieEntity.from(FIRST_PAGE, THIRD_PAGE, secondPageMovies[1]),
-        MovieEntity.from(FIRST_PAGE, THIRD_PAGE, secondPageMovies[2])
+        MovieEntity.from(FIRST_PAGE, THIRD_PAGE, MOVIE_YEAR, MOVIE_MONTH, secondPageMovies[0]),
+        MovieEntity.from(FIRST_PAGE, THIRD_PAGE, MOVIE_YEAR, MOVIE_MONTH, secondPageMovies[1]),
+        MovieEntity.from(FIRST_PAGE, THIRD_PAGE, MOVIE_YEAR, MOVIE_MONTH, secondPageMovies[2])
     )
     val secondPage = PagingSource.LoadResult.Page(
         data = secondPageMovieEntities,

@@ -13,6 +13,9 @@ data class MovieEntity(
     @PrimaryKey(autoGenerate = true) val id: Int = 0,
     val prevPage: Int?,
     val nextPage: Int?,
+    // The below fields are for offline purposes only.
+    val year: Int?,
+    val month: Int?,
     // The below fields are 'Movie' data class related fields.
     val movieId: Int,
     val title: String,
@@ -28,10 +31,14 @@ data class MovieEntity(
         fun from(
             prevPage: Int?,
             nextPage: Int?,
+            year: Int?,
+            month: Int?,
             movie: Movie,
         ) = MovieEntity(
             prevPage = prevPage,
             nextPage = nextPage,
+            year = year,
+            month = month,
             movieId = movie.id,
             title = movie.title,
             releaseDate = movie.releaseDate.toDate(MOVIE_DATE_FORMAT),
