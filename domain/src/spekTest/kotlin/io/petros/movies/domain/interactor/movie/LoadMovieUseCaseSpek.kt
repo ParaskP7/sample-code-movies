@@ -27,7 +27,7 @@ class LoadMovieUseCaseSpek : CoroutineSpek({
         val testedClass by memoized { LoadMovieUseCase(moviesRepositoryMock) }
         Scenario("execute") {
             var result: Flow<Result<Movie>>? = null
-            Given("movie response") {
+            Given("movie stream") {
                 coEvery { moviesRepositoryMock.loadMovieStream(MOVIE_ID) } returns flow { movie }
             }
             When("executing the use case") {
