@@ -231,14 +231,6 @@ object Versions {
 
         }
 
-        @Suppress("MemberNameEqualsClassName")
-        object Hamcrest {
-
-            // Releases: https://github.com/hamcrest/JavaHamcrest/releases
-            const val HAMCREST = "2.2" // Released: 16-10-19
-
-        }
-
         object Assert {
 
             // Releases: https://github.com/robfletcher/strikt/releases
