@@ -10,6 +10,7 @@ import io.petros.movies.domain.interactor.movie.LoadMoviesUseCase
 import io.petros.movies.domain.model.Result
 import io.petros.movies.domain.model.movie.Movie
 import io.petros.movies.utils.exhaustive
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import timber.log.Timber
@@ -19,6 +20,8 @@ class MoviesViewModel(
     private val loadDateUseCase: LoadDateUseCase,
     private val loadMoviesUseCase: LoadMoviesUseCase,
 ) : MviViewModel<MoviesIntent, MoviesState, MoviesSideEffect>() {
+
+    private var loadMoviesJob: Job? = null
 
     init {
         state = MoviesReducer.init()
@@ -67,10 +70,13 @@ class MoviesViewModel(
         }
     }
 
-    private fun loadMovies(year: Int? = null, month: Int? = null) = viewModelScope.launch {
-        loadMoviesUseCase(LoadMoviesUseCase.Params(year, month))
-            .cachedIn(viewModelScope)
-            .collectLatest { onLoadMoviesSuccess(it) }
+    private fun loadMovies(year: Int? = null, month: Int? = null) {
+        loadMoviesJob?.cancel()
+        loadMoviesJob = viewModelScope.launch {
+            loadMoviesUseCase(LoadMoviesUseCase.Params(year, month))
+                .cachedIn(viewModelScope)
+                .collectLatest { onLoadMoviesSuccess(it) }
+        }
     }
 
     private fun onLoadMoviesSuccess(movies: PagingData<Movie>) {
