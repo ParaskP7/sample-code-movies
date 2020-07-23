@@ -35,18 +35,13 @@ class AppInstrumentedRobotTest {
         // MOCK RESPONSES
 
         private const val MOVIES_DIR = "responses/movies"
-        private const val MOVIE_DIR = "responses/movie"
 
-        private const val NO_FILTER_MOVIES_PAGE_FILE = "$MOVIES_DIR/no_filter_movies_page.json"
-        private const val YEAR_FILTER_MOVIES_PAGE_FILE = "$MOVIES_DIR/year_filter_movies_page.json"
-        private const val YEAR_AND_MONTH_FILTER_MOVIES_PAGE_FILE = "$MOVIES_DIR/year_and_month_filter_movies_page.json"
-
-        private const val SONIC_THE_HEDGEHOG_MOVIE_FILE = "$MOVIE_DIR/sonic_the_hedgehog_movie.json"
-        private const val MORTAL_KOMBAT_LEGENDS_MOVIE_FILE = "$MOVIE_DIR/mortal_kombat_legends_movie.json"
-        private const val UNDERWATER_MOVIE_FILE = "$MOVIE_DIR/underwater_movie.json"
-        private const val TROLLS_WORLD_TOUR_MOVIE_FILE = "$MOVIE_DIR/trolls_world_tour_movie.json"
-        private const val LOVE_WEDDING_REPEAT_MOVIE_FILE = "$MOVIE_DIR/love_wedding_repeat_movie.json"
-        private const val BEHIND_YOU_MOVIE_FILE = "$MOVIE_DIR/behind_you_movie.json"
+        private const val NO_FILTER_MOVIES_PAGE_1_FILE = "$MOVIES_DIR/no_filter_movies_page_1.json"
+        private const val NO_FILTER_MOVIES_PAGE_2_FILE = "$MOVIES_DIR/no_filter_movies_page_2.json"
+        private const val YEAR_FILTER_MOVIES_PAGE_1_FILE = "$MOVIES_DIR/year_filter_movies_page_1.json"
+        private const val YEAR_FILTER_MOVIES_PAGE_2_FILE = "$MOVIES_DIR/year_filter_movies_page_2.json"
+        private const val YEAR_AND_MONTH_FILTER_MOVIES_PAGE_1_FILE = "$MOVIES_DIR/year_and_month_filter_movies_page_1.json"
+        private const val YEAR_AND_MONTH_FILTER_MOVIES_PAGE_2_FILE = "$MOVIES_DIR/year_and_month_filter_movies_page_2.json"
 
         // NO FILTER
 
@@ -127,20 +122,14 @@ class AppInstrumentedRobotTest {
     }
 
     private fun enqueueMockResponses() {
-        server.enqueue(mockResponse(NO_FILTER_MOVIES_PAGE_FILE))
-        server.enqueue(mockResponse(SONIC_THE_HEDGEHOG_MOVIE_FILE))
-        server.enqueue(mockResponse(MORTAL_KOMBAT_LEGENDS_MOVIE_FILE))
-        server.enqueue(mockResponse(SONIC_THE_HEDGEHOG_MOVIE_FILE))
-        server.enqueue(mockResponse(YEAR_FILTER_MOVIES_PAGE_FILE))
-        server.enqueue(mockResponse(UNDERWATER_MOVIE_FILE))
-        server.enqueue(mockResponse(TROLLS_WORLD_TOUR_MOVIE_FILE))
-        server.enqueue(mockResponse(UNDERWATER_MOVIE_FILE))
-        server.enqueue(mockResponse(YEAR_AND_MONTH_FILTER_MOVIES_PAGE_FILE))
-        server.enqueue(mockResponse(LOVE_WEDDING_REPEAT_MOVIE_FILE))
-        server.enqueue(mockResponse(BEHIND_YOU_MOVIE_FILE))
-        server.enqueue(mockResponse(LOVE_WEDDING_REPEAT_MOVIE_FILE))
-        server.enqueue(mockResponse(NO_FILTER_MOVIES_PAGE_FILE))
-        server.enqueue(mockResponse(SONIC_THE_HEDGEHOG_MOVIE_FILE))
+        server.enqueue(mockResponse(NO_FILTER_MOVIES_PAGE_1_FILE))
+        server.enqueue(mockResponse(NO_FILTER_MOVIES_PAGE_2_FILE))
+        server.enqueue(mockResponse(YEAR_FILTER_MOVIES_PAGE_1_FILE))
+        server.enqueue(mockResponse(YEAR_FILTER_MOVIES_PAGE_2_FILE))
+        server.enqueue(mockResponse(YEAR_AND_MONTH_FILTER_MOVIES_PAGE_1_FILE))
+        server.enqueue(mockResponse(YEAR_AND_MONTH_FILTER_MOVIES_PAGE_2_FILE))
+        server.enqueue(mockResponse(NO_FILTER_MOVIES_PAGE_1_FILE))
+        server.enqueue(mockResponse(NO_FILTER_MOVIES_PAGE_2_FILE))
     }
 
     @After
