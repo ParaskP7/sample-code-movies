@@ -2,8 +2,6 @@ package io.petros.movies.config.dirs
 
 object Folders {
 
-    const val PARENT = ".."
-
     @Suppress("MemberNameEqualsClassName")
     object Config {
 
@@ -11,7 +9,6 @@ object Folders {
 
         object Subfolder {
 
-            const val KEYS = "keys"
             const val QUALITY = "quality"
 
         }
