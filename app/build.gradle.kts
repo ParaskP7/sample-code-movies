@@ -50,6 +50,7 @@ dependencies {
     implementation(Deps.Android.Core.CONSTRAINT_LAYOUT)
     implementation(Deps.Android.Core.DRAWER_LAYOUT)
     implementation(Deps.Android.Arch.Lifecycle.COMMON)
+    implementation(Deps.Android.Arch.Lifecycle.LIVE_DATA_CORE)
     implementation(Deps.Android.Arch.Lifecycle.PROCESS)
     implementation(Deps.Android.Arch.Navigation.RUNTIME)
     implementation(Deps.Android.Arch.Navigation.RUNTIME_KTX)
