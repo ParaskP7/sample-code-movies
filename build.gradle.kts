@@ -306,6 +306,7 @@ fun LibraryExtension.androidLibrary() {
     variantOptions()
 }
 
+@Suppress("COMPATIBILITY_WARNING")
 fun AppExtension.androidApplication() {
     compileSdkVersion(Android.Sdk.COMPILE)
     defaultConfig { defaultConfig() }
@@ -363,6 +364,7 @@ fun TestOptions.androidTestOptions() {
     unitTests.all { test: Test -> test.testLogging() }
 }
 
+@Suppress("COMPATIBILITY_WARNING")
 fun TestOptionsLegacy.testOptionsJUnit5() {
     junitPlatform { filters { includeEngines(Tests.Engine.JUnit.VINTAGE, Tests.Engine.Spek.SPEK) } }
 }

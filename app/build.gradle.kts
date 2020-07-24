@@ -24,6 +24,7 @@ plugins {
     id(Plugins.Id.Module.GRAPH_ASSERT) version Plugins.Version.MODULE_GRAPH_ASSERT
 }
 
+@Suppress("COMPATIBILITY_WARNING")
 android {
     defaultConfig { defaultConfig() }
     buildTypes { buildTypes() }
