@@ -7,6 +7,7 @@ object Plugins {
     object Version {
 
         // Releases: https://blog.jetbrains.com/kotlin/category/releases
+        // Note: When updating this plugin, make sure to also update the corresponding version within the 'buildSrc' module.
         @Suppress("unused") const val KOTLIN = "1.3.72" // Released: 14-04-20
         const val KOTLIN_EAP = "1.4-M3" // Released: 06-07-20
 
