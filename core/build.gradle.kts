@@ -16,7 +16,6 @@ android.buildFeatures {
 }
 
 dependencies {
-    implementation(project(Projects.Implementation.Kotlin.DOMAIN))
     implementation(project(Projects.Implementation.Android.Core.ANDROID_UTILS))
 
     implementation(Deps.Kotlin.Core.KOTLIN)
@@ -24,7 +23,6 @@ dependencies {
     implementation(Deps.Material.MATERIAL)
     implementation(Deps.Android.Core.APP_COMPAT)
     implementation(Deps.Android.Core.FRAGMENT)
-    implementation(Deps.Android.Core.RECYCLER_VIEW)
     implementation(Deps.Android.Arch.Lifecycle.COMMON)
     implementation(Deps.Android.Arch.Lifecycle.COMMON_JAVA_8)
     implementation(Deps.Android.Arch.Lifecycle.LIVE_DATA_CORE)
@@ -40,13 +38,11 @@ dependencyAnalysis {
     issues {
         onIncorrectConfiguration {
             exclude(
-                Projects.Implementation.Kotlin.DOMAIN, // Ignore change to 'api' advice.
                 Projects.Implementation.Android.Core.ANDROID_UTILS, // Ignore change to 'api' advice.
                 Deps.Kotlin.Core.KOTLIN.identifier(), // Ignore change to 'api' advice.
                 Deps.Material.MATERIAL.identifier(), // Ignore change to 'api' advice.
                 Deps.Android.Core.APP_COMPAT.identifier(), // Ignore change to 'api' advice.
                 Deps.Android.Core.FRAGMENT.identifier(), // Ignore change to 'api' advice.
-                Deps.Android.Core.RECYCLER_VIEW.identifier(), // Ignore change to 'api' advice.
                 Deps.Android.Arch.Lifecycle.LIVE_DATA_CORE.identifier(), // Ignore change to 'api' advice.
                 Deps.Android.Arch.Lifecycle.VIEW_MODEL.identifier(), // Ignore change to 'api' advice.
                 Deps.Architecture.Mvi.STATEFUL.identifier() // Ignore change to 'api' advice.
