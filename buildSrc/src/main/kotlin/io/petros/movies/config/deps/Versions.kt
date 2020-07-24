@@ -140,7 +140,8 @@ object Versions {
             const val ESPRESSO = "3.2.0" // Released: 29-03-19
 
             // Releases: https://github.com/robolectric/robolectric/releases
-            const val ROBOLECTRIC = "4.3.1" // Released: 14-10-19
+            @Suppress("unused") const val ROBOLECTRIC = "4.3.1" // Released: 14-10-19
+            const val ROBOLECTRIC_ALPHA = "4.4-alpha-2" // Released: 23-07-20
 
         }
 
