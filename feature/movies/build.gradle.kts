@@ -81,6 +81,8 @@ dependencyAnalysis {
                 Deps.Android.Core.CONSTRAINT_LAYOUT.identifier(), // Ignore change to 'api' advice.
                 Deps.Android.Core.COORDINATOR_LAYOUT.identifier(), // Ignore change to 'api' advice.
                 Deps.Android.Core.RECYCLER_VIEW.identifier(), // Ignore change to 'api' advice.
+                Deps.Android.Arch.Pagination.COMMON.identifier(), // Ignore change to 'api' advice.
+                Deps.Android.Arch.Pagination.RUNTIME.identifier(), // Ignore change to 'api' advice.
                 Deps.Architecture.Mvi.STATEFUL.identifier() // Ignore change to 'api' advice.
             )
         }
