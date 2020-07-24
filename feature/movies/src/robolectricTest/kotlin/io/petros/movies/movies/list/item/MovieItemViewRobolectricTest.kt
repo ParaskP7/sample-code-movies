@@ -15,8 +15,6 @@ import strikt.assertions.isNull
 @RunWith(CustomRobolectricTestRunner::class)
 class MovieItemViewRobolectricTest {
 
-    private val context = context()
-
     private val movie = movie()
 
     private val callbackMock = mockk<MovieItemCallback>()
