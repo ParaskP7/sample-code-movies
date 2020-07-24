@@ -125,8 +125,20 @@ object Deps {
 
             }
 
+            object Database {
+
+                @Suppress("MemberNameEqualsClassName")
+                object SQLight {
+
+                    val SQLIGHT = "androidx.sqlite:sqlite:${Versions.Android.Arch.Database.SQLight.SQLIGHT}"
+
+                }
+
+            }
+
             object Room {
 
+                val COMMON = "androidx.room:room-common:${Versions.Android.Arch.Room.ROOM_ALPHA}"
                 val RUNTIME = "androidx.room:room-runtime:${Versions.Android.Arch.Room.ROOM_ALPHA}"
                 val KTX = "androidx.room:room-ktx:${Versions.Android.Arch.Room.ROOM_ALPHA}"
                 val COMPILER = "androidx.room:room-compiler:${Versions.Android.Arch.Room.ROOM_ALPHA}"

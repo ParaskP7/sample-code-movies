@@ -16,6 +16,9 @@ dependencies {
     implementation(project(Projects.Implementation.Kotlin.DOMAIN))
 
     implementation(Deps.Kotlin.Core.KOTLIN)
+    implementation(Deps.Kotlin.Coroutines.CORE_JVM)
+    implementation(Deps.Android.Arch.Database.SQLight.SQLIGHT)
+    implementation(Deps.Android.Arch.Room.COMMON)
     api(Deps.Android.Arch.Room.RUNTIME)
     api(Deps.Android.Arch.Room.KTX)
     kapt(Deps.Android.Arch.Room.COMPILER)

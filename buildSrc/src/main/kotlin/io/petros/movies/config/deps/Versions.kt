@@ -96,6 +96,18 @@ object Versions {
 
             }
 
+            object Database {
+
+                @Suppress("MemberNameEqualsClassName")
+                object SQLight {
+
+                    // Releases: https://developer.android.com/jetpack/androidx/releases/sqlite
+                    const val SQLIGHT = "2.1.0" // Release: 22-01-20
+
+                }
+
+            }
+
             @Suppress("MemberNameEqualsClassName")
             object Room {
 
