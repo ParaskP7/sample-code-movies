@@ -67,7 +67,7 @@ object Versions {
             @Suppress("MemberNameEqualsClassName")
             object Core {
 
-                // Releases: https://developer.android.com/jetpack/androidx/releases/arch
+                // Releases: https://developer.android.com/jetpack/androidx/releases/arch-core
                 const val CORE = "2.1.0" // Released: 05-09-19
 
             }
