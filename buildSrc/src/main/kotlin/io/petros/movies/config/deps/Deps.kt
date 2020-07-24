@@ -157,6 +157,7 @@ object Deps {
             object Pagination {
 
                 val COMMON = "androidx.paging:paging-common:${Versions.Android.Arch.Paging.PAGING_ALPHA}"
+
                 val RUNTIME = "androidx.paging:paging-runtime:${Versions.Android.Arch.Paging.PAGING_ALPHA}"
 
             }
