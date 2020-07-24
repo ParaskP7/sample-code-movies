@@ -53,7 +53,7 @@ object Deps {
 
         object Core {
 
-            val APP_COMPAT = "androidx.appcompat:appcompat:${Versions.Android.Core.APP_COMPAT}"
+            val APP_COMPAT = "androidx.appcompat:appcompat:${Versions.Android.Core.APP_COMPAT_RC}"
             val FRAGMENT = "androidx.fragment:fragment:${Versions.Android.Core.FRAGMENT}"
             val RECYCLER_VIEW = "androidx.recyclerview:recyclerview:${Versions.Android.Core.RECYCLER_VIEW}"
             val CONSTRAINT_LAYOUT =
