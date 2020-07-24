@@ -86,6 +86,8 @@ object Deps {
                     "androidx.lifecycle:lifecycle-common:${Versions.Android.Arch.Lifecycle.LIFECYCLE}"
                 val COMMON_JAVA_8 =
                     "androidx.lifecycle:lifecycle-common-java8:${Versions.Android.Arch.Lifecycle.LIFECYCLE}"
+                val RUNTIME_KTX =
+                    "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.Android.Arch.Lifecycle.LIFECYCLE}"
                 val LIVE_DATA_CORE =
                     "androidx.lifecycle:lifecycle-livedata-core:${Versions.Android.Arch.Lifecycle.LIFECYCLE}"
                 val VIEW_MODEL =

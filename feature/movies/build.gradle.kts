@@ -36,6 +36,8 @@ dependencies {
     implementation(Deps.Android.Core.CONSTRAINT_LAYOUT)
     implementation(Deps.Android.Core.COORDINATOR_LAYOUT)
     implementation(Deps.Android.Ktx.CORE)
+    implementation(Deps.Android.Arch.Lifecycle.COMMON)
+    implementation(Deps.Android.Arch.Lifecycle.RUNTIME_KTX)
     implementation(Deps.Android.Arch.Lifecycle.LIVE_DATA_CORE)
     implementation(Deps.Android.Arch.Lifecycle.VIEW_MODEL)
     implementation(Deps.Android.Arch.Lifecycle.VIEW_MODEL_KTX)
@@ -43,6 +45,7 @@ dependencies {
     implementation(Deps.Android.Arch.Navigation.COMMON_KTX)
     implementation(Deps.Android.Arch.Navigation.RUNTIME)
     implementation(Deps.Android.Arch.Navigation.FRAGMENT_KTX)
+    implementation(Deps.Android.Arch.Pagination.COMMON)
     implementation(Deps.Android.Arch.Pagination.RUNTIME)
     implementation(Deps.Architecture.Mvi.STATEFUL) { exclude(Deps.Architecture.Mvi.Exclude.KOTLIN) }
     kapt(Deps.Architecture.Mvi.STATEFUL_COMPILER)
