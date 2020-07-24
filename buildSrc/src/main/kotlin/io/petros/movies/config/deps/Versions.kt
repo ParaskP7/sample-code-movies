@@ -150,8 +150,13 @@ object Versions {
 
         object Mvi {
 
-            // Releases: https://github.com/iFanie/Stateful/releases
-            const val STATEFUL = "0.4.0" // 17-06-20
+            @Suppress("MemberNameEqualsClassName")
+            object Stateful {
+
+                // Releases: https://github.com/iFanie/Stateful/releases
+                const val STATEFUL = "0.4.0" // 17-06-20
+
+            }
 
         }
 

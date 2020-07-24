@@ -47,8 +47,8 @@ dependencies {
     implementation(Deps.Android.Arch.Navigation.FRAGMENT_KTX)
     implementation(Deps.Android.Arch.Pagination.COMMON)
     implementation(Deps.Android.Arch.Pagination.RUNTIME)
-    implementation(Deps.Architecture.Mvi.STATEFUL) { exclude(Deps.Architecture.Mvi.Exclude.KOTLIN) }
-    kapt(Deps.Architecture.Mvi.STATEFUL_COMPILER)
+    implementation(Deps.Architecture.Mvi.Stateful.RUNTIME) { exclude(Deps.Architecture.Mvi.Stateful.Exclude.KOTLIN) }
+    kapt(Deps.Architecture.Mvi.Stateful.COMPILER)
     implementation(Deps.Di.Koin.Kotlin.CORE)
     implementation(Deps.Di.Koin.Android.VIEW_MODEL)
     implementation(Deps.Log.TIMBER)
@@ -83,7 +83,7 @@ dependencyAnalysis {
                 Deps.Android.Core.RECYCLER_VIEW.identifier(), // Ignore change to 'api' advice.
                 Deps.Android.Arch.Pagination.COMMON.identifier(), // Ignore change to 'api' advice.
                 Deps.Android.Arch.Pagination.RUNTIME.identifier(), // Ignore change to 'api' advice.
-                Deps.Architecture.Mvi.STATEFUL.identifier() // Ignore change to 'api' advice.
+                Deps.Architecture.Mvi.Stateful.RUNTIME.identifier() // Ignore change to 'api' advice.
             )
         }
     }

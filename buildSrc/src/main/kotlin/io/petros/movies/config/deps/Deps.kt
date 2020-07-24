@@ -192,12 +192,17 @@ object Deps {
 
         object Mvi {
 
-            val STATEFUL = "dev.fanie:stateful:${Versions.Architecture.Mvi.STATEFUL}"
-            val STATEFUL_COMPILER = "dev.fanie:stateful-compiler:${Versions.Architecture.Mvi.STATEFUL}"
+            @Suppress("MemberNameEqualsClassName")
+            object Stateful {
 
-            object Exclude {
+                val RUNTIME = "dev.fanie:stateful:${Versions.Architecture.Mvi.Stateful.STATEFUL}"
+                val COMPILER = "dev.fanie:stateful-compiler:${Versions.Architecture.Mvi.Stateful.STATEFUL}"
 
-                const val KOTLIN = "org.jetbrains.kotlin"
+                object Exclude {
+
+                    const val KOTLIN = "org.jetbrains.kotlin"
+
+                }
 
             }
 

@@ -27,7 +27,7 @@ dependencies {
     implementation(Deps.Android.Arch.Lifecycle.COMMON_JAVA_8)
     implementation(Deps.Android.Arch.Lifecycle.LIVE_DATA_CORE)
     implementation(Deps.Android.Arch.Lifecycle.VIEW_MODEL)
-    implementation(Deps.Architecture.Mvi.STATEFUL) { exclude(Deps.Architecture.Mvi.Exclude.KOTLIN) }
+    implementation(Deps.Architecture.Mvi.Stateful.RUNTIME) { exclude(Deps.Architecture.Mvi.Stateful.Exclude.KOTLIN) }
     implementation(Deps.Image.Glide.GLIDE)
     implementation(Deps.Log.TIMBER)
 
@@ -45,7 +45,7 @@ dependencyAnalysis {
                 Deps.Android.Core.FRAGMENT.identifier(), // Ignore change to 'api' advice.
                 Deps.Android.Arch.Lifecycle.LIVE_DATA_CORE.identifier(), // Ignore change to 'api' advice.
                 Deps.Android.Arch.Lifecycle.VIEW_MODEL.identifier(), // Ignore change to 'api' advice.
-                Deps.Architecture.Mvi.STATEFUL.identifier() // Ignore change to 'api' advice.
+                Deps.Architecture.Mvi.Stateful.RUNTIME.identifier() // Ignore change to 'api' advice.
             )
         }
     }
