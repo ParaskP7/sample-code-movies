@@ -2,6 +2,7 @@ package io.petros.movies.data.repository.movie
 
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
+import androidx.paging.map
 import io.petros.movies.database.MoviesDatabase
 import io.petros.movies.database.entity.toDate
 import io.petros.movies.domain.model.asResult
@@ -27,6 +28,7 @@ class MoviesRepositoryImpl(
     private fun pager(year: Int?, month: Int?) = Pager(
         config = PagingConfig(
             pageSize = MoviesRemoteMediator.MOVIES_PAGE_SIZE,
+            initialLoadSize = MoviesRemoteMediator.MOVIES_PAGE_SIZE,
             enablePlaceholders = false
         ),
         remoteMediator = MoviesRemoteMediator(
