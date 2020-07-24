@@ -14,7 +14,7 @@ dependencies {
     implementation(project(Projects.Implementation.Kotlin.DOMAIN))
 
     implementation(Deps.Kotlin.Core.KOTLIN)
-    implementation(Deps.Kotlin.Coroutines.CORE_JVM)
+    implementation(Deps.Kotlin.Coroutines.CORE)
     implementation(Deps.Kotlin.Coroutines.Test.TEST)
     implementation(Deps.Net.OkHttp.OK_HTTP)
     implementation(Deps.Net.Gson.GSON)
