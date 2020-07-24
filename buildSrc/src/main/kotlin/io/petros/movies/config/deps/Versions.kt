@@ -118,7 +118,7 @@ object Versions {
             }
 
             @Suppress("MemberNameEqualsClassName")
-            object Paging {
+            object Pagination {
 
                 // Releases: https://developer.android.com/jetpack/androidx/releases/paging
                 @Suppress("unused") const val PAGING = "2.1.2" // Release: 18-03-20
