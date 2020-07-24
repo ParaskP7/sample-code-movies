@@ -76,6 +76,7 @@ object Deps {
             object Core {
 
                 val RUNTIME = "androidx.arch.core:core-runtime:${Versions.Android.Arch.Core.CORE}"
+
                 val TESTING = "androidx.arch.core:core-testing:${Versions.Android.Arch.Core.CORE}"
 
             }
