@@ -342,7 +342,7 @@ Below is a list of all those ```I REALLY WANNA DO``` future architecture and lib
 26. **![#2cb42c](https://placehold.it/15/2cb42c/000000?text=+) `DONE`** Add Offline Support with Room.
     For more info, see [Room](https://developer.android.com/topic/libraries/architecture/room) 
     ```(The Room persistence library provides an abstraction layer over SQLite to allow for more robust database access while harnessing the full power of SQLite)```
-27. **![#ffff00](https://placehold.it/15/ffff00/000000?text=+) `IN PROGRESS`** Replace Manual Pagination with the Paging Architecture Component.
+27. **![#2cb42c](https://placehold.it/15/2cb42c/000000?text=+) `DONE`** Replace Manual Pagination with the Paging Architecture Component.
     For more info, see [Paging Architecture Component](https://developer.android.com/topic/libraries/architecture/paging) 
     ```(The Paging Library makes it easier for you to load data gradually and gracefully within your app's RecyclerView)```
 28. Add Chucker for HTTP Inspection.
