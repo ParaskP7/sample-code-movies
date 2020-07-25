@@ -345,7 +345,7 @@ Below is a list of all those ```I REALLY WANNA DO``` future architecture and lib
 27. **![#2cb42c](https://placehold.it/15/2cb42c/000000?text=+) `DONE`** Replace Manual Pagination with the Paging Architecture Component.
     For more info, see [Paging Architecture Component](https://developer.android.com/topic/libraries/architecture/paging) 
     ```(The Paging Library makes it easier for you to load data gradually and gracefully within your app's RecyclerView)```
-28. Add Chucker for HTTP Inspection.
+28. **![#ffff00](https://placehold.it/15/ffff00/000000?text=+) `IN PROGRESS`** Add Chucker for HTTP Inspection.
     For more info see [Chucker](https://github.com/ChuckerTeam/chucker)
     ```🔎 An HTTP inspector for Android & OkHTTP (like Charles but on device) - More Chucker than Chuck```
 29. Add Bitrise CI.
