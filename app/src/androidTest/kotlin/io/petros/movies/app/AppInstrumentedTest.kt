@@ -184,10 +184,12 @@ class AppInstrumentedTest {
         check_movies_year_filter()
         check_movies_month_picker()
         check_movies_month_filter()
-        check_movies_defaults()
+        check_movies_close_icon()
+        check_movies_no_filter()
     }
 
     private fun check_movies_no_filter() {
+        Thread.sleep(1000)
         check_sonic_the_hedgehog_movie()
         check_mortal_kombat_legends_movie()
         check_sonic_the_hedgehog_movie()
@@ -200,6 +202,7 @@ class AppInstrumentedTest {
     }
 
     private fun check_movies_year_filter() {
+        Thread.sleep(1000)
         check_underwater_movie()
         check_trolls_world_tour_movie()
         check_underwater_movie()
@@ -211,14 +214,10 @@ class AppInstrumentedTest {
     }
 
     private fun check_movies_month_filter() {
+        Thread.sleep(1000)
         check_love_wedding_repeat_movie()
         check_behind_you_movie()
         check_love_wedding_repeat_movie()
-    }
-
-    private fun check_movies_defaults() {
-        check_close_icon()
-        check_sonic_the_hedgehog_movie()
     }
 
     /* TEST CASES */
@@ -359,7 +358,7 @@ class AppInstrumentedTest {
         pressBack()
     }
 
-    private fun check_close_icon() {
+    private fun check_movies_close_icon() {
         checkViewMoviesToolbarYear2020MonthApril(
             withCloseIconClick = true,
         )

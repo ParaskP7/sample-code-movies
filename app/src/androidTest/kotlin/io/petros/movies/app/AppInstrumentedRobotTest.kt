@@ -159,11 +159,13 @@ class AppInstrumentedRobotTest {
             check_movies_year_filter()
             check_movies_month_picker()
             check_movies_month_filter()
-            check_movies_defaults()
+            check_movies_close_icon()
+            check_movies_no_filter()
         }
     }
 
     private fun AppRobot.check_movies_no_filter(): Actions {
+        Thread.sleep(1000)
         check_sonic_the_hedgehog_movie()
         check_mortal_kombat_legends_movie()
         check_sonic_the_hedgehog_movie()
@@ -178,6 +180,7 @@ class AppInstrumentedRobotTest {
     }
 
     private fun AppRobot.check_movies_year_filter(): Actions {
+        Thread.sleep(1000)
         check_underwater_movie()
         check_trolls_world_tour_movie()
         check_underwater_movie()
@@ -191,15 +194,10 @@ class AppInstrumentedRobotTest {
     }
 
     private fun AppRobot.check_movies_month_filter(): Actions {
+        Thread.sleep(1000)
         check_love_wedding_repeat_movie()
         check_behind_you_movie()
         check_love_wedding_repeat_movie()
-        return NoActions
-    }
-
-    private fun AppRobot.check_movies_defaults(): Actions {
-        check_close_icon()
-        check_sonic_the_hedgehog_movie()
         return NoActions
     }
 
@@ -431,7 +429,7 @@ class AppInstrumentedRobotTest {
         performBack()
     }
 
-    private fun AppRobot.check_close_icon() {
+    private fun AppRobot.check_movies_close_icon() {
         inMovies {
             inToolbar {
                 inFilterIcon { isNotShown() }
