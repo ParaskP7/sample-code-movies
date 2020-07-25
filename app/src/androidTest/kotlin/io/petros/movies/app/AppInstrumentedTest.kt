@@ -37,6 +37,8 @@ class AppInstrumentedTest {
 
     companion object {
 
+        private const val THREAD_SLEEP_MILLIS = 1000L
+
         // MOCK RESPONSES
 
         private const val MOVIES_DIR = "responses/movies"
@@ -189,7 +191,7 @@ class AppInstrumentedTest {
     }
 
     private fun check_movies_no_filter() {
-        Thread.sleep(1000)
+        Thread.sleep(THREAD_SLEEP_MILLIS)
         check_sonic_the_hedgehog_movie()
         check_mortal_kombat_legends_movie()
         check_sonic_the_hedgehog_movie()
@@ -202,7 +204,7 @@ class AppInstrumentedTest {
     }
 
     private fun check_movies_year_filter() {
-        Thread.sleep(1000)
+        Thread.sleep(THREAD_SLEEP_MILLIS)
         check_underwater_movie()
         check_trolls_world_tour_movie()
         check_underwater_movie()
@@ -214,7 +216,7 @@ class AppInstrumentedTest {
     }
 
     private fun check_movies_month_filter() {
-        Thread.sleep(1000)
+        Thread.sleep(THREAD_SLEEP_MILLIS)
         check_love_wedding_repeat_movie()
         check_behind_you_movie()
         check_love_wedding_repeat_movie()
