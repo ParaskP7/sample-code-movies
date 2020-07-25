@@ -38,10 +38,16 @@ class AppInstrumentedRobotTest {
 
         private const val NO_FILTER_MOVIES_PAGE_1_FILE = "$MOVIES_DIR/no_filter_movies_page_1.json"
         private const val NO_FILTER_MOVIES_PAGE_2_FILE = "$MOVIES_DIR/no_filter_movies_page_2.json"
+        private const val NO_FILTER_MOVIES_PAGE_3_FILE = "$MOVIES_DIR/no_filter_movies_page_3.json"
+        private const val NO_FILTER_MOVIES_PAGE_4_FILE = "$MOVIES_DIR/no_filter_movies_page_4.json"
         private const val YEAR_FILTER_MOVIES_PAGE_1_FILE = "$MOVIES_DIR/year_filter_movies_page_1.json"
         private const val YEAR_FILTER_MOVIES_PAGE_2_FILE = "$MOVIES_DIR/year_filter_movies_page_2.json"
+        private const val YEAR_FILTER_MOVIES_PAGE_3_FILE = "$MOVIES_DIR/year_filter_movies_page_3.json"
+        private const val YEAR_FILTER_MOVIES_PAGE_4_FILE = "$MOVIES_DIR/year_filter_movies_page_4.json"
         private const val YEAR_AND_MONTH_FILTER_MOVIES_PAGE_1_FILE = "$MOVIES_DIR/year_and_month_filter_movies_page_1.json"
         private const val YEAR_AND_MONTH_FILTER_MOVIES_PAGE_2_FILE = "$MOVIES_DIR/year_and_month_filter_movies_page_2.json"
+        private const val YEAR_AND_MONTH_FILTER_MOVIES_PAGE_3_FILE = "$MOVIES_DIR/year_and_month_filter_movies_page_3.json"
+        private const val YEAR_AND_MONTH_FILTER_MOVIES_PAGE_4_FILE = "$MOVIES_DIR/year_and_month_filter_movies_page_4.json"
 
         // NO FILTER
 
@@ -124,12 +130,20 @@ class AppInstrumentedRobotTest {
     private fun enqueueMockResponses() {
         server.enqueue(mockResponse(NO_FILTER_MOVIES_PAGE_1_FILE))
         server.enqueue(mockResponse(NO_FILTER_MOVIES_PAGE_2_FILE))
+        server.enqueue(mockResponse(NO_FILTER_MOVIES_PAGE_3_FILE))
+        server.enqueue(mockResponse(NO_FILTER_MOVIES_PAGE_4_FILE))
         server.enqueue(mockResponse(YEAR_FILTER_MOVIES_PAGE_1_FILE))
         server.enqueue(mockResponse(YEAR_FILTER_MOVIES_PAGE_2_FILE))
+        server.enqueue(mockResponse(YEAR_FILTER_MOVIES_PAGE_3_FILE))
+        server.enqueue(mockResponse(YEAR_FILTER_MOVIES_PAGE_4_FILE))
         server.enqueue(mockResponse(YEAR_AND_MONTH_FILTER_MOVIES_PAGE_1_FILE))
         server.enqueue(mockResponse(YEAR_AND_MONTH_FILTER_MOVIES_PAGE_2_FILE))
+        server.enqueue(mockResponse(YEAR_AND_MONTH_FILTER_MOVIES_PAGE_3_FILE))
+        server.enqueue(mockResponse(YEAR_AND_MONTH_FILTER_MOVIES_PAGE_4_FILE))
         server.enqueue(mockResponse(NO_FILTER_MOVIES_PAGE_1_FILE))
         server.enqueue(mockResponse(NO_FILTER_MOVIES_PAGE_2_FILE))
+        server.enqueue(mockResponse(NO_FILTER_MOVIES_PAGE_3_FILE))
+        server.enqueue(mockResponse(NO_FILTER_MOVIES_PAGE_4_FILE))
     }
 
     @After
