@@ -41,7 +41,7 @@ object Plugins {
 
         // Releases: https://blog.jetbrains.com/kotlin/category/releases
         @Suppress("unused") const val KOTLIN = "1.3.72" // Released: 14-04-20
-        const val KOTLIN_EAP = "1.4-M3" // Released: 06-07-20
+        const val KOTLIN_EAP = "1.4.0-rc" // Released: 24-07-20
 
     }
 
