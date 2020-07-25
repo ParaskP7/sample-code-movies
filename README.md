@@ -38,6 +38,9 @@ Below is a list of goodies that are being showcased:
     2. [Kotlin Coroutines](https://kotlinlang.org/docs/reference/coroutines.html) ```(Coroutines simplify asynchronous
     programming by putting the complications into libraries. The logic of the program can be expressed sequentially in a
     coroutine, and the underlying library will figure out the asynchrony for us)```
+    3. [Asynchronous Flow](https://kotlinlang.org/docs/reference/coroutines/flow.html) ```(Suspending functions
+    asynchronously returns a single value, but how can we return multiple asynchronously computed values? This is where
+    Kotlin Flows come in)```
 4. Android Support
     1. [AndroidX](https://developer.android.com/topic/libraries/support-library/androidx-overview) ```(A new package
     structure to make it clearer which packages are bundled with the Android operating system, and which are packaged with
