@@ -49,6 +49,9 @@ Below is a list of goodies that are being showcased:
     the Android Jetpack family)```
     3. [View Binding](https://developer.android.com/topic/libraries/view-binding) ```(View binding is a feature that allows 
     you to more easily write code that interacts with views)```
+    4. [Room Persistence Library](https://developer.android.com/topic/libraries/architecture/room) ```(The Room persistence
+    library provides an abstraction layer over SQLite to allow for more robust database access while harnessing the full
+    power of SQLite)```
 5. Android UI
     1. [Material Components](https://github.com/material-components/material-components-android) ```(Modular and customizable 
     Material Design UI components for Android)```
