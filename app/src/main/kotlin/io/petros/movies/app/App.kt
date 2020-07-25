@@ -75,9 +75,10 @@ open class App : Application(),
         }
     }
 
+    @Suppress("ForbiddenComment")
     private fun setThreadPolicyToStrictMode() {
         val strictModeBuilder = StrictMode.ThreadPolicy.Builder()
-            .detectDiskReads()
+            // .detectDiskReads() // FIXME: Check again with a newer version of Stateful
             .detectDiskWrites()
             .detectNetwork()
             .detectCustomSlowCalls()
