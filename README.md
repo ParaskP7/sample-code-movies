@@ -52,6 +52,9 @@ Below is a list of goodies that are being showcased:
     4. [Room Persistence Library](https://developer.android.com/topic/libraries/architecture/room) ```(The Room persistence
     library provides an abstraction layer over SQLite to allow for more robust database access while harnessing the full
     power of SQLite)```
+    5. [Paging Library](https://developer.android.com/topic/libraries/architecture/paging) ```(The Paging Library helps you
+    load and display small chunks of data at a time. Loading partial data on demand reduces usage of network bandwidth and
+    system resources)```
 5. Android UI
     1. [Material Components](https://github.com/material-components/material-components-android) ```(Modular and customizable 
     Material Design UI components for Android)```
