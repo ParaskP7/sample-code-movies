@@ -29,7 +29,7 @@ class MoviesRepositoryImpl(
         config = PagingConfig(
             pageSize = MoviesRemoteMediator.MOVIES_PAGE_SIZE,
             initialLoadSize = MoviesRemoteMediator.MOVIES_PAGE_SIZE,
-            enablePlaceholders = false
+            enablePlaceholders = false,
         ),
         remoteMediator = MoviesRemoteMediator(
             service = service,
