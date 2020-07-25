@@ -28,7 +28,6 @@ class MoviesRepositoryImpl(
     private fun pager(year: Int?, month: Int?) = Pager(
         config = PagingConfig(
             pageSize = MoviesRemoteMediator.MOVIES_PAGE_SIZE,
-            initialLoadSize = MoviesRemoteMediator.MOVIES_PAGE_SIZE,
             enablePlaceholders = false,
         ),
         remoteMediator = MoviesRemoteMediator(
