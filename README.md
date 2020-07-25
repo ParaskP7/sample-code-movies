@@ -339,7 +339,7 @@ Below is a list of all those ```I REALLY WANNA DO``` future architecture and lib
 25. **![#2cb42c](https://placehold.it/15/2cb42c/000000?text=+) `DONE`** Replace Manual Navigation with the Navigation Architecture Component.
     For more info, see [Navigation Architecture Component](https://developer.android.com/topic/libraries/architecture/navigation)
     ```(The Navigation Architecture Component simplifies the implementation of navigation in an Android app)```
-26. **![#ffff00](https://placehold.it/15/ffff00/000000?text=+) `IN PROGRESS`** Add Offline Support with Room. 
+26. **![#2cb42c](https://placehold.it/15/2cb42c/000000?text=+) `DONE`** Add Offline Support with Room.
     For more info, see [Room](https://developer.android.com/topic/libraries/architecture/room) 
     ```(The Room persistence library provides an abstraction layer over SQLite to allow for more robust database access while harnessing the full power of SQLite)```
 27. **![#ffff00](https://placehold.it/15/ffff00/000000?text=+) `IN PROGRESS`** Replace Manual Pagination with the Paging Architecture Component.
