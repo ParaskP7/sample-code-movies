@@ -1,17 +1,20 @@
 digraph G {
 ":app" -> ":domain"
+":app" -> ":android-utils"
 ":app" -> ":data"
 ":app" -> ":core"
 ":app" -> ":feature:movies" [color=red style=bold]
 ":app" -> ":feature:movie-details"
-":domain" -> ":utils" [color=red style=bold]
+":domain" -> ":utils"
+":android-utils" -> ":utils" [color=red style=bold]
 ":data" -> ":domain"
 ":data" -> ":network"
+":data" -> ":database"
 ":network" -> ":utils"
 ":network" -> ":domain"
-":core" -> ":domain" [color=red style=bold]
-":core" -> ":android-utils"
-":android-utils" -> ":utils"
+":database" -> ":utils"
+":database" -> ":domain"
+":core" -> ":android-utils" [color=red style=bold]
 ":feature:movies" -> ":utils"
 ":feature:movies" -> ":domain"
 ":feature:movies" -> ":android-utils"
