@@ -28,13 +28,14 @@ object Deps {
 
         object Coroutines {
 
-            val CORE = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.Kotlin.COROUTINES}"
-            val ANDROID = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.Kotlin.COROUTINES}"
+            val CORE = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.Kotlin.COROUTINES_EAP}"
+            val CORE_JVM = "org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:${Versions.Kotlin.COROUTINES_EAP}"
+            val ANDROID = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.Kotlin.COROUTINES_EAP}"
 
             @Suppress("MemberNameEqualsClassName")
             object Test {
 
-                val TEST = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.Kotlin.COROUTINES}"
+                val TEST = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.Kotlin.COROUTINES_EAP}"
 
             }
 

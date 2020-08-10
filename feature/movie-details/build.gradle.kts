@@ -27,6 +27,7 @@ dependencies {
     implementation(Deps.Kotlin.Core.KOTLIN)
     implementation(Deps.Kotlin.Core.KOTLIN_REFLECT) // Added due to 'stateful' dependency.
     implementation(Deps.Kotlin.Coroutines.CORE)
+    implementation(Deps.Kotlin.Coroutines.CORE_JVM)
     implementation(Deps.Material.MATERIAL)
     implementation(Deps.Android.Core.FRAGMENT)
     implementation(Deps.Android.Core.CONSTRAINT_LAYOUT)
