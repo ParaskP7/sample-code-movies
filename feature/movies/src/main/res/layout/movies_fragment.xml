@@ -34,6 +34,7 @@
         android:layout_height="match_parent"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:itemCount="3"
         tools:listitem="@layout/movie_item_view" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

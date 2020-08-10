@@ -31,7 +31,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/ivItemBackdrop"
-            tools:text="Avengers: Infinity War" />
+            tools:text="@sample/movies.json/data/title" />
 
         <LinearLayout
             android:id="@+id/ctrItemDetails"
@@ -50,7 +50,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                tools:text="2018 (April)" />
+                tools:text="@sample/movies.json/data/release_date" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tvItemVote"
@@ -58,7 +58,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                tools:text="8.3 ★ (7651)" />
+                tools:text="@sample/movies.json/data/vote" />
 
         </LinearLayout>
 
