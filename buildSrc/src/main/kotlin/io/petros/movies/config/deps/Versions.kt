@@ -139,7 +139,7 @@ object Versions {
 
             // Releases: https://github.com/robolectric/robolectric/releases
             @Suppress("unused") const val ROBOLECTRIC = "4.3.1" // Released: 14-10-19
-            const val ROBOLECTRIC_ALPHA = "4.4-alpha-2" // Released: 23-07-20
+            const val ROBOLECTRIC_ALPHA = "4.4-beta-1" // Released: 15-08-20
 
         }
 
