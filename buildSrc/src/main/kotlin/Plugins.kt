@@ -8,8 +8,7 @@ object Plugins {
 
         // Releases: https://blog.jetbrains.com/kotlin/category/releases
         // Note: When updating this plugin, make sure to also update the corresponding version within the 'buildSrc' module.
-        @Suppress("unused") const val KOTLIN = "1.3.72" // Released: 14-04-20
-        const val KOTLIN_EAP = "1.4.0-rc" // Released: 24-07-20
+        const val KOTLIN = "1.4.0" // Released: 14-08-20
 
         // Releases: https://androidstudio.googleblog.com
         @Suppress("unused") const val ANDROID = "4.0.1" // Released: 14-07-20
@@ -39,7 +38,7 @@ object Plugins {
 
     }
 
-    const val KOTLIN = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Version.KOTLIN_EAP}"
+    const val KOTLIN = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Version.KOTLIN}"
     const val ANDROID = "com.android.tools.build:gradle:${Version.ANDROID_CANARY}"
     const val ANDROID_NAVIGATION =
         "androidx.navigation:navigation-safe-args-gradle-plugin:${Versions.Android.Arch.Navigation.NAVIGATION}"
