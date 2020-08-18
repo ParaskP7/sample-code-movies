@@ -20,6 +20,8 @@ import io.petros.movies.config.android.Android
 import io.petros.movies.config.android.App
 import io.petros.movies.config.android.LocalProperties
 import io.petros.movies.config.android.findLocalProperty
+import io.petros.movies.config.deps.Deps
+import io.petros.movies.config.deps.identifier
 import io.petros.movies.config.kotlin.Java
 import io.petros.movies.config.tests.Logs
 import io.petros.movies.config.tests.Tests
@@ -87,9 +89,15 @@ dependencyAnalysis {
             }
             onUnusedDependencies {
                 severity(Config.Dependency.Analysis.Issue.Severity.FAIL)
+                exclude(
+                    Deps.Kotlin.Core.KOTLIN_JDK8.identifier()
+                )
             }
             onUsedTransitiveDependencies {
                 severity(Config.Dependency.Analysis.Issue.Severity.FAIL)
+                exclude(
+                    Deps.Kotlin.Core.KOTLIN.identifier()
+                )
             }
             onIncorrectConfiguration {
                 severity(Config.Dependency.Analysis.Issue.Severity.FAIL)

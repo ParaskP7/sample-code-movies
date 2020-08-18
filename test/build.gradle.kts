@@ -13,7 +13,6 @@ plugins {
 dependencies {
     implementation(project(Projects.Implementation.Kotlin.DOMAIN))
 
-    implementation(Deps.Kotlin.Core.KOTLIN)
     implementation(Deps.Kotlin.Coroutines.CORE_JVM)
     implementation(Deps.Kotlin.Coroutines.Test.TEST)
     implementation(Deps.Net.OkHttp.OK_HTTP)
@@ -35,7 +34,6 @@ dependencyAnalysis {
         onIncorrectConfiguration {
             exclude(
                 Projects.Implementation.Kotlin.DOMAIN, // Ignore change to 'api' advice.
-                Deps.Kotlin.Core.KOTLIN.identifier(), // Ignore change to 'api' advice.
                 Deps.Kotlin.Coroutines.Test.TEST.identifier(), // Ignore change to 'api' advice.
                 Deps.Test.JUnit.J_UNIT_4.identifier(), // Ignore change to 'api' advice.
                 Deps.Test.Spek.DSL.identifier(), // Ignore change to 'api' advice.

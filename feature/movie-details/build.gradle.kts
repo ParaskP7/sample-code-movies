@@ -24,7 +24,6 @@ dependencies {
     implementation(project(Projects.Implementation.Kotlin.DOMAIN))
     implementation(project(Projects.Implementation.Android.Core.CORE))
 
-    implementation(Deps.Kotlin.Core.KOTLIN)
     implementation(Deps.Kotlin.Core.KOTLIN_REFLECT) // Added due to 'stateful' dependency.
     implementation(Deps.Kotlin.Coroutines.CORE)
     implementation(Deps.Kotlin.Coroutines.CORE_JVM)
@@ -64,7 +63,6 @@ dependencyAnalysis {
             exclude(
                 Projects.Implementation.Kotlin.DOMAIN, // Ignore change to 'api' advice.
                 Projects.Implementation.Android.Core.CORE, // Ignore change to 'api' advice.
-                Deps.Kotlin.Core.KOTLIN.identifier(), // Ignore change to 'api' advice.
                 Deps.Material.MATERIAL.identifier(), // Ignore change to 'api' advice.
                 Deps.Architecture.Mvi.Stateful.RUNTIME.identifier() // Ignore change to 'api' advice.
             )

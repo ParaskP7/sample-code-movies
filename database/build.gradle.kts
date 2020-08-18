@@ -16,7 +16,6 @@ dependencies {
     implementation(project(Projects.Implementation.Kotlin.UTILS))
     implementation(project(Projects.Implementation.Kotlin.DOMAIN))
 
-    implementation(Deps.Kotlin.Core.KOTLIN)
     implementation(Deps.Kotlin.Coroutines.CORE_JVM)
     implementation(Deps.Android.Arch.Database.SQLight.SQLIGHT)
     implementation(Deps.Android.Arch.Database.Room.COMMON)
@@ -34,7 +33,6 @@ dependencyAnalysis {
         onIncorrectConfiguration {
             exclude(
                 Projects.Implementation.Kotlin.DOMAIN, // Ignore change to 'api' advice.
-                Deps.Kotlin.Core.KOTLIN.identifier(), // Ignore change to 'api' advice.
                 Deps.Kotlin.Coroutines.CORE_JVM.identifier(), // Ignore change to 'api' advice.
                 Deps.Android.Arch.Database.Room.RUNTIME.identifier(), // Ignore change to 'api' advice.
                 Deps.Android.Arch.Pagination.COMMON.identifier(), // Ignore change to 'api' advice.

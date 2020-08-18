@@ -7,7 +7,6 @@ object Plugins {
     object Version {
 
         // Releases: https://blog.jetbrains.com/kotlin/category/releases
-        // Note: When updating this plugin, make sure to also update the corresponding version within the 'buildSrc' module.
         const val KOTLIN = "1.4.0" // Released: 14-08-20
 
         // Releases: https://androidstudio.googleblog.com

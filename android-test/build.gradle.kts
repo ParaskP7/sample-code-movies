@@ -11,7 +11,6 @@ plugins {
 }
 
 dependencies {
-    implementation(Deps.Kotlin.Core.KOTLIN)
     implementation(Deps.Kotlin.Coroutines.CORE_JVM)
     implementation(Deps.Kotlin.Coroutines.Test.TEST)
     implementation(Deps.Material.MATERIAL)
@@ -37,7 +36,6 @@ dependencyAnalysis {
         }
         onIncorrectConfiguration {
             exclude(
-                Deps.Kotlin.Core.KOTLIN.identifier(), // Ignore change to 'api' advice.
                 Deps.Kotlin.Coroutines.Test.TEST.identifier(), // Ignore change to 'api' advice.
                 Deps.Test.Spek.DSL.identifier(), // Ignore change to 'api' advice.
                 Deps.Android.Test.Robolectric.ROBOLECTRIC.identifier() // Ignore change to 'api' advice.

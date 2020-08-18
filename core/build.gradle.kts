@@ -18,7 +18,6 @@ android.buildFeatures {
 dependencies {
     implementation(project(Projects.Implementation.Android.Core.ANDROID_UTILS))
 
-    implementation(Deps.Kotlin.Core.KOTLIN)
     implementation(Deps.Kotlin.Core.KOTLIN_REFLECT) // Added due to 'stateful' dependency.
     implementation(Deps.Material.MATERIAL)
     implementation(Deps.Android.Core.APP_COMPAT)
@@ -39,7 +38,6 @@ dependencyAnalysis {
         onIncorrectConfiguration {
             exclude(
                 Projects.Implementation.Android.Core.ANDROID_UTILS, // Ignore change to 'api' advice.
-                Deps.Kotlin.Core.KOTLIN.identifier(), // Ignore change to 'api' advice.
                 Deps.Material.MATERIAL.identifier(), // Ignore change to 'api' advice.
                 Deps.Android.Core.APP_COMPAT.identifier(), // Ignore change to 'api' advice.
                 Deps.Android.Core.FRAGMENT.identifier(), // Ignore change to 'api' advice.

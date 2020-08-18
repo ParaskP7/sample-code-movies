@@ -45,7 +45,6 @@ dependencies {
     debugImplementation(Deps.LeakCanary.LEAK_CANARY)
     implementation(Deps.LeakCanary.PLUMBER)
 
-    implementation(Deps.Kotlin.Core.KOTLIN)
     implementation(Deps.Material.MATERIAL)
     implementation(Deps.Android.Core.APP_COMPAT)
     implementation(Deps.Android.Core.CONSTRAINT_LAYOUT)
@@ -81,11 +80,6 @@ dependencyAnalysis {
         onUnusedDependencies {
             exclude(
                 Deps.Android.Arch.Navigation.FRAGMENT_KTX.identifier() // Ignore remove advise. Required for navigation xml.
-            )
-        }
-        onIncorrectConfiguration {
-            exclude(
-                Deps.Kotlin.Core.KOTLIN.identifier() // Ignore change to 'api' advice.
             )
         }
     }

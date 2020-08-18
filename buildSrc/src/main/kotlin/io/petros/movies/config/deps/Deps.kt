@@ -22,6 +22,7 @@ object Deps {
         object Core {
 
             val KOTLIN = "org.jetbrains.kotlin:kotlin-stdlib:${Plugins.Version.KOTLIN}"
+            val KOTLIN_JDK8 = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${Plugins.Version.KOTLIN}"
             val KOTLIN_REFLECT = "org.jetbrains.kotlin:kotlin-reflect:${Plugins.Version.KOTLIN}"
 
         }

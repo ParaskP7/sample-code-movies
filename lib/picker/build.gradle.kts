@@ -14,7 +14,6 @@ plugins {
 dependencies {
     implementation(project(Projects.Implementation.Android.Core.CORE))
 
-    implementation(Deps.Kotlin.Core.KOTLIN)
     implementation(Deps.Android.Core.APP_COMPAT)
     implementation(Deps.Android.Core.FRAGMENT)
     api(Deps.Util.MONTH_YEAR_PICKER) // Usage of api is required because of 'MovieActivity', which cannot access it.
@@ -32,7 +31,6 @@ dependencyAnalysis {
         }
         onIncorrectConfiguration {
             exclude(
-                Deps.Kotlin.Core.KOTLIN.identifier(), // Ignore change to 'api' advice.
                 Deps.Android.Core.FRAGMENT.identifier() // Ignore change to 'api' advice.
             )
         }

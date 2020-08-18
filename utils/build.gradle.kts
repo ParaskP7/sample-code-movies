@@ -2,7 +2,6 @@
 
 import io.petros.movies.config.deps.Deps
 import io.petros.movies.config.deps.Projects
-import io.petros.movies.config.deps.identifier
 
 plugins {
     id(Plugins.Id.Kotlin.KOTLIN)
@@ -13,8 +12,6 @@ plugins {
 }
 
 dependencies {
-    implementation(Deps.Kotlin.Core.KOTLIN)
-
     testImplementation(project(Projects.TestImplementation.Kotlin.TEST))
 
     testImplementation(Deps.Test.JUnit.J_UNIT_4)
@@ -26,14 +23,4 @@ dependencies {
     testImplementation(Deps.Test.Mock.MOCK_K)
 
     detektPlugins(Plugins.DETEKT_FORMATTING)
-}
-
-dependencyAnalysis {
-    issues {
-        onIncorrectConfiguration {
-            exclude(
-                Deps.Kotlin.Core.KOTLIN.identifier() // Ignore change to 'api' advice.
-            )
-        }
-    }
 }

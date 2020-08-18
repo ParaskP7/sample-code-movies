@@ -26,7 +26,6 @@ dependencies {
     implementation(project(Projects.Implementation.Android.Core.CORE))
     implementation(project(Projects.Implementation.Android.Lib.PICKER))
 
-    implementation(Deps.Kotlin.Core.KOTLIN)
     implementation(Deps.Kotlin.Core.KOTLIN_REFLECT) // Added due to 'stateful' dependency.
     implementation(Deps.Kotlin.Coroutines.CORE)
     implementation(Deps.Kotlin.Coroutines.CORE_JVM)
@@ -76,7 +75,6 @@ dependencyAnalysis {
             exclude(
                 Projects.Implementation.Kotlin.DOMAIN, // Ignore change to 'api' advice.
                 Projects.Implementation.Android.Core.CORE, // Ignore change to 'api' advice.
-                Deps.Kotlin.Core.KOTLIN.identifier(), // Ignore change to 'api' advice.
                 Deps.Material.MATERIAL.identifier(), // Ignore change to 'api' advice.
                 Deps.Android.Core.CONSTRAINT_LAYOUT.identifier(), // Ignore change to 'api' advice.
                 Deps.Android.Core.COORDINATOR_LAYOUT.identifier(), // Ignore change to 'api' advice.

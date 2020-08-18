@@ -19,7 +19,6 @@ dependencies {
     implementation(project(Projects.Implementation.Kotlin.NETWORK))
     implementation(project(Projects.Implementation.Android.Core.DATABASE))
 
-    implementation(Deps.Kotlin.Core.KOTLIN)
     implementation(Deps.Kotlin.Coroutines.CORE)
     implementation(Deps.Kotlin.Coroutines.CORE_JVM)
     implementation(Deps.Android.Arch.Database.Room.RUNTIME)
@@ -49,7 +48,6 @@ dependencyAnalysis {
                 Projects.Implementation.Kotlin.DOMAIN, // Ignore change to 'api' advice.
                 Projects.Implementation.Kotlin.NETWORK, // Ignore change to 'api' advice.
                 Projects.Implementation.Android.Core.DATABASE, // Ignore change to 'api' advice.
-                Deps.Kotlin.Core.KOTLIN.identifier(), // Ignore change to 'api' advice.
                 Deps.Android.Arch.Pagination.COMMON.identifier() // Ignore change to 'api' advice.
             )
         }

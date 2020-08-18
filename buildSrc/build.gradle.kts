@@ -35,36 +35,7 @@ object Repos {
 
 }
 
-object Plugins {
-
-    object Version {
-
-        // Releases: https://blog.jetbrains.com/kotlin/category/releases
-        const val KOTLIN = "1.4.0" // Released: 14-08-20
-
-    }
-
-}
-
-object Deps {
-
-    object Kotlin {
-
-        object Core {
-
-            const val KOTLIN = "org.jetbrains.kotlin:kotlin-stdlib:${Plugins.Version.KOTLIN}"
-
-        }
-
-    }
-
-}
-
 repositories {
     jcenter()
     maven(Repos.Url.Kotlin.KOTLIN_EAP)
-}
-
-dependencies {
-    implementation(Deps.Kotlin.Core.KOTLIN)
 }

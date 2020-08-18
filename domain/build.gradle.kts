@@ -2,7 +2,6 @@
 
 import io.petros.movies.config.deps.Deps
 import io.petros.movies.config.deps.Projects
-import io.petros.movies.config.deps.identifier
 
 plugins {
     id(Plugins.Id.Kotlin.KOTLIN)
@@ -15,7 +14,6 @@ plugins {
 dependencies {
     implementation(project(Projects.Implementation.Kotlin.UTILS))
 
-    implementation(Deps.Kotlin.Core.KOTLIN)
     implementation(Deps.Kotlin.Coroutines.CORE)
     implementation(Deps.Kotlin.Coroutines.CORE_JVM)
     implementation(Deps.Android.Arch.Pagination.COMMON)
@@ -33,14 +31,4 @@ dependencies {
     testImplementation(Deps.Test.Mock.MOCK_K)
 
     detektPlugins(Plugins.DETEKT_FORMATTING)
-}
-
-dependencyAnalysis {
-    issues {
-        onIncorrectConfiguration {
-            exclude(
-                Deps.Kotlin.Core.KOTLIN.identifier() // Ignore change to 'api' advice.
-            )
-        }
-    }
 }

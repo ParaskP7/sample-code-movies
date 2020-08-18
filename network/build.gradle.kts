@@ -16,7 +16,6 @@ dependencies {
     implementation(project(Projects.Implementation.Kotlin.UTILS))
     implementation(project(Projects.Implementation.Kotlin.DOMAIN))
 
-    implementation(Deps.Kotlin.Core.KOTLIN)
     implementation(Deps.Di.Koin.Kotlin.CORE)
     implementation(Deps.Net.OkHttp.OK_HTTP)
     implementation(Deps.Net.OkHttp.LOGGING_INTERCEPTOR)
@@ -44,7 +43,6 @@ dependencyAnalysis {
         onIncorrectConfiguration {
             exclude(
                 Projects.Implementation.Kotlin.DOMAIN, // Ignore change to 'api' advice.
-                Deps.Kotlin.Core.KOTLIN.identifier(), // Ignore change to 'api' advice.
                 Deps.Di.Koin.Kotlin.CORE.identifier() // Ignore change to 'api' advice.
             )
         }
