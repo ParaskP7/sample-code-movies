@@ -40,8 +40,7 @@ object Plugins {
     object Version {
 
         // Releases: https://blog.jetbrains.com/kotlin/category/releases
-        @Suppress("unused") const val KOTLIN = "1.3.72" // Released: 14-04-20
-        const val KOTLIN_EAP = "1.4.0-rc" // Released: 24-07-20
+        const val KOTLIN = "1.4.0" // Released: 14-08-20
 
     }
 
@@ -53,7 +52,7 @@ object Deps {
 
         object Core {
 
-            const val KOTLIN = "org.jetbrains.kotlin:kotlin-stdlib:${Plugins.Version.KOTLIN_EAP}"
+            const val KOTLIN = "org.jetbrains.kotlin:kotlin-stdlib:${Plugins.Version.KOTLIN}"
 
         }
 
