@@ -250,7 +250,7 @@ object Versions {
         object Assert {
 
             // Releases: https://github.com/robfletcher/strikt/releases
-            const val STRIKT = "0.26.1" // Released: 11-05-20
+            const val STRIKT = "0.27.0" // Released: 19-08-20
 
         }
 
