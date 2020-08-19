@@ -32,6 +32,13 @@ console-reports:
     # - 'FindingsReport'
     - 'FileBasedFindingsReport'
 
+output-reports:
+  active: true
+  exclude:
+  # - 'TxtOutputReport'
+  # - 'XmlOutputReport'
+  # - 'HtmlOutputReport'
+
 comments:
   active: true
   excludes: [
@@ -42,7 +49,11 @@ comments:
     '**/androidTest/**',
     '**/*.Test.kt',
     '**/*.Spec.kt',
-    '**/*.Spek.kt'
+    '**/*.Spek.kt',
+    '**/commonTest/**',
+    '**/jvmTest/**',
+    '**/jsTest/**',
+    '**/iosTest/**'
   ]
   AbsentOrWrongFileLicense:
     active: false
@@ -124,7 +135,11 @@ complexity:
       '**/androidTest/**',
       '**/*.Test.kt',
       '**/*.Spec.kt',
-      '**/*.Spek.kt'
+      '**/*.Spek.kt',
+      '**/commonTest/**',
+      '**/jvmTest/**',
+      '**/jsTest/**',
+      '**/iosTest/**'
     ]
     threshold: 3
     ignoreAnnotation: true
@@ -140,7 +155,11 @@ complexity:
       '**/androidTest/**',
       '**/*.Test.kt',
       '**/*.Spec.kt',
-      '**/*.Spek.kt'
+      '**/*.Spek.kt',
+      '**/commonTest/**',
+      '**/jvmTest/**',
+      '**/jsTest/**',
+      '**/iosTest/**'
     ]
     thresholdInFiles: 11
     thresholdInClasses: 11
@@ -213,7 +232,11 @@ exceptions:
       '**/androidTest/**',
       '**/*.Test.kt',
       '**/*.Spec.kt',
-      '**/*.Spek.kt'
+      '**/*.Spek.kt',
+      '**/commonTest/**',
+      '**/jvmTest/**',
+      '**/jsTest/**',
+      '**/iosTest/**'
     ]
   NotImplementedDeclaration:
     active: true
@@ -238,10 +261,24 @@ exceptions:
     active: true
   ThrowingExceptionsWithoutMessageOrCause:
     active: true
+    excludes: [
+      '**/test/**',
+      '**/spekTest/**',
+      '**/integrationTest/**',
+      '**/robolectricTest/**',
+      '**/androidTest/**',
+      '**/*.Test.kt',
+      '**/*.Spec.kt',
+      '**/*.Spek.kt',
+      '**/commonTest/**',
+      '**/jvmTest/**',
+      '**/jsTest/**',
+      '**/iosTest/**'
+    ]
     exceptions:
       - IllegalArgumentException
       - IllegalStateException
-      - IOException'
+      - IOException
   ThrowingNewInstanceOfSameException:
     active: true
   TooGenericExceptionCaught:
@@ -254,7 +291,11 @@ exceptions:
       '**/androidTest/**',
       '**/*.Test.kt',
       '**/*.Spec.kt',
-      '**/*.Spek.kt'
+      '**/*.Spek.kt',
+      '**/commonTest/**',
+      '**/jvmTest/**',
+      '**/jsTest/**',
+      '**/iosTest/**'
     ]
     exceptionNames:
       - ArrayIndexOutOfBoundsException
@@ -405,7 +446,11 @@ naming:
       '**/androidTest/**',
       '**/*.Test.kt',
       '**/*.Spec.kt',
-      '**/*.Spek.kt'
+      '**/*.Spek.kt',
+      '**/commonTest/**',
+      '**/jvmTest/**',
+      '**/jsTest/**',
+      '**/iosTest/**'
     ]
     classPattern: '[A-Z$][a-zA-Z0-9$]*'
   ConstructorParameterNaming:
@@ -418,7 +463,11 @@ naming:
       '**/androidTest/**',
       '**/*.Test.kt',
       '**/*.Spec.kt',
-      '**/*.Spek.kt'
+      '**/*.Spek.kt',
+      '**/commonTest/**',
+      '**/jvmTest/**',
+      '**/jsTest/**',
+      '**/iosTest/**'
     ]
     parameterPattern: '[a-z][A-Za-z0-9]*'
     privateParameterPattern: '[a-z][A-Za-z0-9]*'
@@ -434,7 +483,11 @@ naming:
       '**/androidTest/**',
       '**/*.Test.kt',
       '**/*.Spec.kt',
-      '**/*.Spek.kt'
+      '**/*.Spek.kt',
+      '**/commonTest/**',
+      '**/jvmTest/**',
+      '**/jsTest/**',
+      '**/iosTest/**'
     ]
     enumEntryPattern: '[A-Z][_a-zA-Z0-9]*'
   ForbiddenClassName:
@@ -447,7 +500,11 @@ naming:
       '**/androidTest/**',
       '**/*.Test.kt',
       '**/*.Spec.kt',
-      '**/*.Spek.kt'
+      '**/*.Spek.kt',
+      '**/commonTest/**',
+      '**/jvmTest/**',
+      '**/jsTest/**',
+      '**/iosTest/**'
     ]
     forbiddenName: []
   FunctionMaxLength:
@@ -460,7 +517,11 @@ naming:
       '**/androidTest/**',
       '**/*.Test.kt',
       '**/*.Spec.kt',
-      '**/*.Spek.kt'
+      '**/*.Spek.kt',
+      '**/commonTest/**',
+      '**/jvmTest/**',
+      '**/jsTest/**',
+      '**/iosTest/**'
     ]
     maximumFunctionNameLength: 30
   FunctionMinLength:
@@ -473,7 +534,11 @@ naming:
       '**/androidTest/**',
       '**/*.Test.kt',
       '**/*.Spec.kt',
-      '**/*.Spek.kt'
+      '**/*.Spek.kt',
+      '**/commonTest/**',
+      '**/jvmTest/**',
+      '**/jsTest/**',
+      '**/iosTest/**'
     ]
     minimumFunctionNameLength: 3
   FunctionNaming:
@@ -486,7 +551,11 @@ naming:
       '**/androidTest/**',
       '**/*.Test.kt',
       '**/*.Spec.kt',
-      '**/*.Spek.kt'
+      '**/*.Spek.kt',
+      '**/commonTest/**',
+      '**/jvmTest/**',
+      '**/jsTest/**',
+      '**/iosTest/**'
     ]
     functionPattern: '([a-z][a-zA-Z0-9]*)|(`.*`)'
     excludeClassPattern: '$^'
@@ -502,7 +571,11 @@ naming:
       '**/androidTest/**',
       '**/*.Test.kt',
       '**/*.Spec.kt',
-      '**/*.Spek.kt'
+      '**/*.Spek.kt',
+      '**/commonTest/**',
+      '**/jvmTest/**',
+      '**/jsTest/**',
+      '**/iosTest/**'
     ]
     parameterPattern: '[a-z][A-Za-z0-9]*'
     excludeClassPattern: '$^'
@@ -526,7 +599,11 @@ naming:
       '**/androidTest/**',
       '**/*.Test.kt',
       '**/*.Spec.kt',
-      '**/*.Spek.kt'
+      '**/*.Spek.kt',
+      '**/commonTest/**',
+      '**/jvmTest/**',
+      '**/jsTest/**',
+      '**/iosTest/**'
     ]
     constantPattern: '[A-Za-z][_A-Za-z0-9]*'
     propertyPattern: '[A-Za-z][_A-Za-z0-9]*'
@@ -541,7 +618,11 @@ naming:
       '**/androidTest/**',
       '**/*.Test.kt',
       '**/*.Spec.kt',
-      '**/*.Spek.kt'
+      '**/*.Spek.kt',
+      '**/commonTest/**',
+      '**/jvmTest/**',
+      '**/jsTest/**',
+      '**/iosTest/**'
     ]
     packagePattern: '[a-z]+(\.[a-z][A-Za-z0-9]*)*'
   TopLevelPropertyNaming:
@@ -554,7 +635,11 @@ naming:
       '**/androidTest/**',
       '**/*.Test.kt',
       '**/*.Spec.kt',
-      '**/*.Spek.kt'
+      '**/*.Spek.kt',
+      '**/commonTest/**',
+      '**/jvmTest/**',
+      '**/jsTest/**',
+      '**/iosTest/**'
     ]
     constantPattern: '[A-Z][_A-Z0-9]*'
     propertyPattern: '[A-Za-z][_A-Za-z0-9]*'
@@ -569,7 +654,11 @@ naming:
       '**/androidTest/**',
       '**/*.Test.kt',
       '**/*.Spec.kt',
-      '**/*.Spek.kt'
+      '**/*.Spek.kt',
+      '**/commonTest/**',
+      '**/jvmTest/**',
+      '**/jsTest/**',
+      '**/iosTest/**'
     ]
     maximumVariableNameLength: 64
   VariableMinLength:
@@ -582,7 +671,11 @@ naming:
       '**/androidTest/**',
       '**/*.Test.kt',
       '**/*.Spec.kt',
-      '**/*.Spek.kt'
+      '**/*.Spek.kt',
+      '**/commonTest/**',
+      '**/jvmTest/**',
+      '**/jsTest/**',
+      '**/iosTest/**'
     ]
     minimumVariableNameLength: 1
   VariableNaming:
@@ -595,7 +688,11 @@ naming:
       '**/androidTest/**',
       '**/*.Test.kt',
       '**/*.Spec.kt',
-      '**/*.Spek.kt'
+      '**/*.Spek.kt',
+      '**/commonTest/**',
+      '**/jvmTest/**',
+      '**/jsTest/**',
+      '**/iosTest/**'
     ]
     variablePattern: '[a-z][A-Za-z0-9]*'
     privateVariablePattern: '(_)?[a-z][A-Za-z0-9]*'
@@ -616,7 +713,11 @@ performance:
       '**/androidTest/**',
       '**/*.Test.kt',
       '**/*.Spec.kt',
-      '**/*.Spek.kt'
+      '**/*.Spek.kt',
+      '**/commonTest/**',
+      '**/jvmTest/**',
+      '**/jsTest/**',
+      '**/iosTest/**'
     ]
   SpreadOperator:
     active: true
@@ -628,7 +729,11 @@ performance:
       '**/androidTest/**',
       '**/*.Test.kt',
       '**/*.Spec.kt',
-      '**/*.Spek.kt'
+      '**/*.Spek.kt',
+      '**/commonTest/**',
+      '**/jvmTest/**',
+      '**/jsTest/**',
+      '**/iosTest/**'
     ]
   UnnecessaryTemporaryInstantiation:
     active: true
@@ -672,13 +777,19 @@ potential-bugs:
       '**/androidTest/**',
       '**/*.Test.kt',
       '**/*.Spec.kt',
-      '**/*.Spek.kt'
+      '**/*.Spek.kt',
+      '**/commonTest/**',
+      '**/jvmTest/**',
+      '**/jsTest/**',
+      '**/iosTest/**'
     ]
     excludeAnnotatedProperties: []
     ignoreOnClassesPattern: ''
   MapGetWithNotNullAssertionOperator:
     active: true
   MissingWhenCase:
+    active: true
+  NullableToStringCall:
     active: true
   RedundantElseInWhen:
     active: true
@@ -756,6 +867,8 @@ style:
     ]
   LibraryCodeMustSpecifyReturnType:
     active: true
+  LibraryEntitiesShouldNotBePublic:
+    active: true
   LoopWithTooManyJumpStatements:
     active: true
     maxJumpCount: 1
@@ -769,7 +882,11 @@ style:
       '**/androidTest/**',
       '**/*.Test.kt',
       '**/*.Spec.kt',
-      '**/*.Spek.kt'
+      '**/*.Spek.kt',
+      '**/commonTest/**',
+      '**/jvmTest/**',
+      '**/jsTest/**',
+      '**/iosTest/**'
     ]
     ignoreNumbers: [
       '-1',
@@ -873,6 +990,8 @@ style:
     active: true
     excludeAnnotatedClasses: []
     allowVars: false
+  UseEmptyCounterpart:
+    active: true
   UseIfInsteadOfWhen:
     active: true
   UseRequire:
@@ -893,7 +1012,11 @@ style:
       '**/androidTest/**',
       '**/*.Test.kt',
       '**/*.Spec.kt',
-      '**/*.Spek.kt'
+      '**/*.Spek.kt',
+      '**/commonTest/**',
+      '**/jvmTest/**',
+      '**/jsTest/**',
+      '**/iosTest/**'
     ]
     excludeImports: [
       'java.util.*',
