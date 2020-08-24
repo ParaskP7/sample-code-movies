@@ -182,8 +182,8 @@ object Deps {
             @Suppress("MemberNameEqualsClassName")
             object Robolectric {
 
-                val ROBOLECTRIC = "org.robolectric:robolectric:${Versions.Android.Test.ROBOLECTRIC_ALPHA}"
-                val ANNOTATIONS = "org.robolectric:annotations:${Versions.Android.Test.ROBOLECTRIC_ALPHA}"
+                val ROBOLECTRIC = "org.robolectric:robolectric:${Versions.Android.Test.ROBOLECTRIC}"
+                val ANNOTATIONS = "org.robolectric:annotations:${Versions.Android.Test.ROBOLECTRIC}"
 
                 object Exclude {
 
