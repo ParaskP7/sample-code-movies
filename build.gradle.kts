@@ -340,6 +340,7 @@ fun DetektExtension.detekt() {
         xml.enabled = true
         txt.enabled = true
     }
+    autoCorrect = true
 }
 
 fun DefaultConfigLegacy.defaultConfig() {
