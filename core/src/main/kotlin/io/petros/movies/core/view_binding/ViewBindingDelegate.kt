@@ -30,17 +30,21 @@ class ViewBindingDelegate<T : ViewBinding>(
     private var binding: T? = null
 
     init {
-        fragment.lifecycle.addObserver(object : DefaultLifecycleObserver {
-            override fun onCreate(owner: LifecycleOwner) {
-                fragment.viewLifecycleOwnerLiveData.observe(fragment) { viewLifecycleOwner ->
-                    viewLifecycleOwner.lifecycle.addObserver(object : DefaultLifecycleObserver {
-                        override fun onDestroy(owner: LifecycleOwner) {
-                            binding = null
-                        }
-                    })
+        fragment.lifecycle.addObserver(
+            object : DefaultLifecycleObserver {
+                override fun onCreate(owner: LifecycleOwner) {
+                    fragment.viewLifecycleOwnerLiveData.observe(fragment) { viewLifecycleOwner ->
+                        viewLifecycleOwner.lifecycle.addObserver(
+                            object : DefaultLifecycleObserver {
+                                override fun onDestroy(owner: LifecycleOwner) {
+                                    binding = null
+                                }
+                            }
+                        )
+                    }
                 }
             }
-        })
+        )
     }
 
     @Suppress("UseCheckOrError")

@@ -121,15 +121,17 @@ class MoviesRemoteMediator(
      * - Enhance each movie with its year and month for offline purposes.
      */
     private suspend fun insertMovies(page: Int?, movies: List<Movie>) {
-        database.moviesDao().insert(movies.map { movie ->
-            MovieEntity.from(
-                prevPage = if (page == MOVIES_STARTING_PAGE) null else page?.minus(1),
-                nextPage = page?.plus(1),
-                year = year,
-                month = month,
-                movie = movie,
-            )
-        })
+        database.moviesDao().insert(
+            movies.map { movie ->
+                MovieEntity.from(
+                    prevPage = if (page == MOVIES_STARTING_PAGE) null else page?.minus(1),
+                    nextPage = page?.plus(1),
+                    year = year,
+                    month = month,
+                    movie = movie,
+                )
+            }
+        )
     }
 
 }

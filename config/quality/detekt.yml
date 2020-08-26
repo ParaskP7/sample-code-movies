@@ -589,6 +589,22 @@ naming:
   MemberNameEqualsClassName:
     active: true
     ignoreOverridden: true
+  NonBooleanPropertyPrefixedWithIs:
+    active: true
+    excludes: [
+      '**/test/**',
+      '**/spekTest/**',
+      '**/integrationTest/**',
+      '**/robolectricTest/**',
+      '**/androidTest/**',
+      '**/*.Test.kt',
+      '**/*.Spec.kt',
+      '**/*.Spek.kt',
+      '**/commonTest/**',
+      '**/jvmTest/**',
+      '**/jsTest/**',
+      '**/iosTest/**'
+    ]
   ObjectPropertyNaming:
     active: true
     excludes: [
@@ -984,6 +1000,8 @@ style:
     allowedNames: '(_|ignored|expected|serialVersionUID)'
   UseArrayLiteralsInAnnotations:
     active: true
+  UseCheckNotNull:
+    active: true
   UseCheckOrError:
     active: true
   UseDataClass:
@@ -995,6 +1013,8 @@ style:
   UseIfInsteadOfWhen:
     active: true
   UseRequire:
+    active: true
+  UseRequireNotNull:
     active: true
   UselessCallOnNotNull:
     active: true
