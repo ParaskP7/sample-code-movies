@@ -30,7 +30,7 @@ object Plugins {
         const val DEPENDENCY_ANALYSIS = "0.58.0" // Released: 03-09-20
 
         // Releases: https://github.com/runningcode/gradle-doctor/releases
-        const val GRADLE_DOCTOR = "0.4.3" // Released: 16-08-20
+        const val GRADLE_DOCTOR = "0.5.1" // Released: 01-09-20
 
         // Releases: https://github.com/jraska/modules-graph-assert/releases
         const val MODULE_GRAPH_ASSERT = "1.4.0" // Released: 17-08-20
