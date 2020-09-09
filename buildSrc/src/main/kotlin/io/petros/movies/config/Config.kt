@@ -121,9 +121,9 @@ object Config {
         object Versions {
 
             const val GRADLE_RELEASE_CHANNEL = "release-candidate"
-            const val OUTPUT_FORMATTER = "json,xml,txt"
-            const val OUTPUT_DIR = "build/dependencyUpdates"
-            const val REPORT_FILE_NAME = "report"
+            const val OUTPUT_FORMATTER = "plain,json,xml,html"
+            const val OUTPUT_DIR = "build/reports/dependency-updates"
+            const val REPORT_FILE_NAME = "advice"
 
             const val REGEX = "^[0-9,.v-]+(-r)?$"
             val stableKeyword = listOf("RELEASE", "FINAL", "GA")
