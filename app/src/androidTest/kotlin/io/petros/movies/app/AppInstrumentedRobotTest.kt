@@ -1,9 +1,11 @@
 package io.petros.movies.app
 
 import android.content.Intent
+import androidx.test.core.app.ActivityScenario
+import androidx.test.core.app.ApplicationProvider.getApplicationContext
+import androidx.test.core.app.launchActivity
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
-import androidx.test.rule.ActivityTestRule
 import io.petros.movies.app.robot.actions.Actions
 import io.petros.movies.app.robot.actions.NoActions
 import io.petros.movies.app.robot.app.AppRobot
@@ -21,7 +23,6 @@ import io.petros.movies.test.utils.mockResponse
 import okhttp3.mockwebserver.MockWebServer
 import org.junit.After
 import org.junit.Before
-import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 
@@ -117,8 +118,7 @@ class AppInstrumentedRobotTest {
 
     }
 
-    @get:Rule
-    val activityRule = ActivityTestRule(AppActivity::class.java, false, false)
+    @Suppress("LateinitUsage") private lateinit var scenario: ActivityScenario<AppActivity>
 
     private val server = MockWebServer()
 
@@ -126,7 +126,14 @@ class AppInstrumentedRobotTest {
     fun setUp() {
         server.start(MOCK_WEB_SERVER_PORT)
         enqueueMockResponses()
-        activityRule.launchActivity(Intent())
+        scenario = launchActivity(Intent(getApplicationContext(), AppActivity::class.java))
+    }
+
+    @After
+    fun cleanUp() {
+        if (this::scenario.isInitialized) {
+            scenario.close()
+        }
     }
 
     private fun enqueueMockResponses() {

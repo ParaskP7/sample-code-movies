@@ -2,6 +2,9 @@ package io.petros.movies.app
 
 import android.content.Intent
 import androidx.recyclerview.widget.RecyclerView
+import androidx.test.core.app.ActivityScenario
+import androidx.test.core.app.ApplicationProvider.getApplicationContext
+import androidx.test.core.app.launchActivity
 import androidx.test.espresso.AmbiguousViewMatcherException
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.Espresso.pressBack
@@ -14,7 +17,6 @@ import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.withText
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
-import androidx.test.rule.ActivityTestRule
 import io.petros.movies.test.utils.MOCK_WEB_SERVER_PORT
 import io.petros.movies.test.utils.mockResponse
 import okhttp3.mockwebserver.MockWebServer
@@ -22,7 +24,6 @@ import org.hamcrest.Matchers.allOf
 import org.hamcrest.Matchers.not
 import org.junit.After
 import org.junit.Before
-import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import timber.log.Timber
@@ -143,8 +144,7 @@ class AppInstrumentedTest {
 
     }
 
-    @get:Rule
-    val activityRule = ActivityTestRule(AppActivity::class.java, false, false)
+    @Suppress("LateinitUsage") private lateinit var scenario: ActivityScenario<AppActivity>
 
     private val server = MockWebServer()
 
@@ -152,7 +152,14 @@ class AppInstrumentedTest {
     fun setUp() {
         server.start(MOCK_WEB_SERVER_PORT)
         enqueueMockResponses()
-        activityRule.launchActivity(Intent())
+        scenario = launchActivity(Intent(getApplicationContext(), AppActivity::class.java))
+    }
+
+    @After
+    fun cleanUp() {
+        if (this::scenario.isInitialized) {
+            scenario.close()
+        }
     }
 
     private fun enqueueMockResponses() {

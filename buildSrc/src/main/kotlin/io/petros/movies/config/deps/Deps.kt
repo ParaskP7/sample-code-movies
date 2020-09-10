@@ -168,8 +168,9 @@ object Deps {
         object Test {
 
             val CORE = "androidx.test:core:${Versions.Android.Test.CORE}"
+            val CORE_KTX = "androidx.test:core-ktx:${Versions.Android.Test.CORE}"
             val RULES = "androidx.test:rules:${Versions.Android.Test.CORE}"
-            @Suppress("unused") val RUNNER = "androidx.test:runner:${Versions.Android.Test.CORE}"
+            val RUNNER = "androidx.test:runner:${Versions.Android.Test.CORE}"
             val J_UNIT = "androidx.test.ext:junit:${Versions.Android.Test.J_UNIT}"
 
             object Espresso {
