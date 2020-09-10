@@ -66,9 +66,9 @@ dependencies {
 
     androidTestImplementation(Deps.Android.Test.CORE)
     androidTestImplementation(Deps.Android.Test.CORE_KTX)
-    androidTestImplementation(Deps.Android.Test.RULES)
-    androidTestImplementation(Deps.Android.Test.RUNNER)
     androidTestImplementation(Deps.Android.Test.J_UNIT)
+    androidTestImplementation(Deps.Android.Test.RUNNER)
+    androidTestImplementation(Deps.Android.Test.RULES)
     androidTestImplementation(Deps.Android.Test.Espresso.CORE)
     androidTestImplementation(Deps.Android.Test.Espresso.CONTRIB)
     androidTestImplementation(Deps.Test.Integration.MOCK_WEB_SERVER)
