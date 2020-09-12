@@ -348,24 +348,24 @@ Below is a list of all those ```I REALLY WANNA DO``` future architecture and lib
 28. **![#ffff00](https://placehold.it/15/ff0000/000000?text=+) `PAUSED`** Add Chucker for HTTP Inspection.
     For more info see [Chucker](https://github.com/ChuckerTeam/chucker)
     ```🔎 An HTTP inspector for Android & OkHTTP (like Charles but on device) - More Chucker than Chuck```
-29. Add Bitrise CI.
-    For more info see [Bitrise](https://www.bitrise.io)
-    ```(Continuous Integration and Continuous Delivery for mobile apps)```
-30. Add Support for R8 (ProGuard).
-    For more info see [ProGuard and R8: a comparison of optimizers](https://www.guardsquare.com/en/blog/proguard-and-r8)
-    ```(ProGuard and R8 have three important functions, Shrinking or tree shaking: removes unused classes, fields and methods from the application, Code optimization: makes the code smaller and more efficient at the instruction level, Name obfuscation: renames the remaining classes, fields and methods with short meaningless names. At this point, it mostly reduces the size of the code)```
-31. Sing the App.
-    For more info see [App Singing](https://developer.android.com/studio/publish/app-signing)
-    ```(Android requires that all APKs be digitally signed with a certificate before they can be installed. And you need to sign your Android App Bundle before you can upload it to the Play Console.)```
-32. Create an Automated Release Process using Gradle Play Publisher Plugin.
-    For more info see [Gradle Play Publisher](https://github.com/Triple-T/gradle-play-publisher)
-    ```(Gradle plugin to upload your App Bundle or APK and other app details to the Google Play Store)```
-33. Convert APK Upload Format to App Bundles.
-    For more info see [App Bundles](https://developer.android.com/guide/app-bundle)
-    ```(An Android App Bundle is a new upload format that includes all your app’s compiled code and resources, but defers APK generation and signing to Google Play)```
-34. Add Jetpack Compose.
+29. Add Jetpack Compose.
     For more info see [Jetpack Compose](https://developer.android.com/jetpack/compose)
     ```(Jetpack Compose simplifies and accelerates UI development on Android. Quickly bring your app to life with less code, powerful tools, and intuitive Kotlin APIs)```
+30. Add Bitrise CI.
+    For more info see [Bitrise](https://www.bitrise.io)
+    ```(Continuous Integration and Continuous Delivery for mobile apps)```
+31. Add Support for R8 (ProGuard).
+    For more info see [ProGuard and R8: a comparison of optimizers](https://www.guardsquare.com/en/blog/proguard-and-r8)
+    ```(ProGuard and R8 have three important functions, Shrinking or tree shaking: removes unused classes, fields and methods from the application, Code optimization: makes the code smaller and more efficient at the instruction level, Name obfuscation: renames the remaining classes, fields and methods with short meaningless names. At this point, it mostly reduces the size of the code)```
+32. Sing the App.
+    For more info see [App Singing](https://developer.android.com/studio/publish/app-signing)
+    ```(Android requires that all APKs be digitally signed with a certificate before they can be installed. And you need to sign your Android App Bundle before you can upload it to the Play Console.)```
+33. Create an Automated Release Process using Gradle Play Publisher Plugin.
+    For more info see [Gradle Play Publisher](https://github.com/Triple-T/gradle-play-publisher)
+    ```(Gradle plugin to upload your App Bundle or APK and other app details to the Google Play Store)```
+34. Convert APK Upload Format to App Bundles.
+    For more info see [App Bundles](https://developer.android.com/guide/app-bundle)
+    ```(An Android App Bundle is a new upload format that includes all your app’s compiled code and resources, but defers APK generation and signing to Google Play)```
 35. Add Jetpack Benchmark.
     For more info see [Jetpack Benchmark](https://developer.android.com/studio/profile/benchmark)
     ```(The Jetpack Benchmark library allows you to quickly benchmark your Kotlin-based or Java-based code from within Android Studio. The library handles warmup, measures your code performance, and outputs benchmarking results to the Android Studio console)```
