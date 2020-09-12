@@ -348,7 +348,7 @@ Below is a list of all those ```I REALLY WANNA DO``` future architecture and lib
 28. **![#ffff00](https://placehold.it/15/ff0000/000000?text=+) `PAUSED`** Add Chucker for HTTP Inspection.
     For more info see [Chucker](https://github.com/ChuckerTeam/chucker)
     ```🔎 An HTTP inspector for Android & OkHTTP (like Charles but on device) - More Chucker than Chuck```
-29. Add Jetpack Compose.
+29. **![#ffff00](https://placehold.it/15/ffff00/000000?text=+) `IN PROGRESS`** Add Jetpack Compose.
     For more info see [Jetpack Compose](https://developer.android.com/jetpack/compose)
     ```(Jetpack Compose simplifies and accelerates UI development on Android. Quickly bring your app to life with less code, powerful tools, and intuitive Kotlin APIs)```
 30. Add Bitrise CI.
