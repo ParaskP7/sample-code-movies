@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<!--NOTE: To find out more about the material style and colors check the link below:
+<!--All material colors presented in this file were being taken from the official material site:
+    https://material.io/resources/color
+    NOTE: To find out more about the material style and colors check the link below:
     https://www.google.com/design/spec/style/color.html -->
 <resources>
 
