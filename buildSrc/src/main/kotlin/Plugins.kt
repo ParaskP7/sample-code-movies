@@ -12,7 +12,7 @@ object Plugins {
         // Releases: https://androidstudio.googleblog.com
         @Suppress("unused") const val ANDROID = "4.0.1" // Released: 14-07-20
         @Suppress("unused") const val ANDROID_BETA = "4.1.0-rc03" // Released: 15-09-20
-        const val ANDROID_CANARY = "4.2.0-alpha11" // Released: 17-09-20
+        const val ANDROID_CANARY = "4.2.0-alpha12" // Released: 22-09-20
 
         // Releases: https://github.com/GradleUp/auto-manifest/releases
         const val ANDROID_MANIFEST = "1.0.2" // Released: 24-05-20
