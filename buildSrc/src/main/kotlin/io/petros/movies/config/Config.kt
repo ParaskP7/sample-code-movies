@@ -35,6 +35,10 @@ object Config {
             "InvalidPackage"
         )
 
+        val disabledAppIssues = arrayOf(
+            "InvalidFragmentVersionForActivityResult" // From Gradle version 6.7-rc-1 and onwards
+        )
+
     }
 
     object Detekt {

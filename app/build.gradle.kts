@@ -32,6 +32,9 @@ android {
         viewBinding = true
         buildConfig = true
     }
+    lintOptions {
+        disable(*Config.Lint.disabledAppIssues)
+    }
 }
 
 dependencies {
