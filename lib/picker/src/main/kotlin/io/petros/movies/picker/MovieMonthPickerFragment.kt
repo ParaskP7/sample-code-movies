@@ -13,12 +13,6 @@ class MovieMonthPickerFragment(
 ) : DialogFragment(),
     MonthPickerDialog.OnDateSetListener {
 
-    companion object {
-
-        private const val TAG = "MovieMonthPickerFragment"
-
-    }
-
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val year = Calendar.getInstance().get(Calendar.YEAR)
         val month = Calendar.getInstance().get(Calendar.MONTH)
@@ -35,6 +29,12 @@ class MovieMonthPickerFragment(
 
     fun show(manager: FragmentManager) {
         show(manager, TAG)
+    }
+
+    companion object {
+
+        private const val TAG = "MovieMonthPickerFragment"
+
     }
 
 }

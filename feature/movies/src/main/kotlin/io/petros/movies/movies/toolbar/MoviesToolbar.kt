@@ -19,14 +19,6 @@ class MoviesToolbar(
     attrs: AttributeSet? = null,
 ) : LinearLayout(ctx, attrs) {
 
-    companion object {
-
-        @VisibleForTesting const val INSTANCE_STATE_KEY_CLOSE_ICON = "CLOSE_ICON"
-        @VisibleForTesting const val INSTANCE_STATE_KEY_YEAR_FILTER = "YEAR_FILTER"
-        @VisibleForTesting const val INSTANCE_STATE_KEY_MONTH_FILTER = "MONTH_FILTER"
-
-    }
-
     var callback: MoviesToolbarCallback? = null
 
     @VisibleForTesting val binding = MoviesToolbarBinding.inflate(LayoutInflater.from(context), this)
@@ -152,6 +144,14 @@ class MoviesToolbar(
 
     private fun onSaveMonthInstanceState(outState: Bundle) {
         getMonth()?.let { outState.putString(INSTANCE_STATE_KEY_MONTH_FILTER, it.toString()) }
+    }
+
+    companion object {
+
+        @VisibleForTesting const val INSTANCE_STATE_KEY_CLOSE_ICON = "CLOSE_ICON"
+        @VisibleForTesting const val INSTANCE_STATE_KEY_YEAR_FILTER = "YEAR_FILTER"
+        @VisibleForTesting const val INSTANCE_STATE_KEY_MONTH_FILTER = "MONTH_FILTER"
+
     }
 
 }

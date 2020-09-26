@@ -13,13 +13,6 @@ class MovieYearPickerFragment(
 ) : DialogFragment(),
     MonthPickerDialog.OnDateSetListener {
 
-    companion object {
-
-        private const val TAG = "MovieYearPickerFragment"
-        private const val EXTRA_YEARS = 10
-
-    }
-
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val year = Calendar.getInstance().get(Calendar.YEAR)
         return MonthPickerDialog.Builder(context, this, year, 0)
@@ -36,6 +29,13 @@ class MovieYearPickerFragment(
 
     fun show(manager: FragmentManager) {
         show(manager, TAG)
+    }
+
+    companion object {
+
+        private const val TAG = "MovieYearPickerFragment"
+        private const val EXTRA_YEARS = 10
+
     }
 
 }

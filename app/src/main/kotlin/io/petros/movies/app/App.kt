@@ -25,12 +25,6 @@ import timber.log.Timber
 open class App : Application(),
     LifecycleObserver {
 
-    companion object {
-
-        private const val THEMOVIEDB_URL = "https://api.themoviedb.org/"
-
-    }
-
     override fun onCreate() {
         super.onCreate()
         initKoin()
@@ -159,6 +153,12 @@ open class App : Application(),
     @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
     fun onDestroyed() {
         Timber.v("${javaClass.simpleName} destroyed.")
+    }
+
+    companion object {
+
+        private const val THEMOVIEDB_URL = "https://api.themoviedb.org/"
+
     }
 
 }

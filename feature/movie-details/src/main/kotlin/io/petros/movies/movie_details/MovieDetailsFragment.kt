@@ -23,15 +23,6 @@ class MovieDetailsFragment : MviFragment<
         MovieDetailsSideEffect,
         >(R.layout.movie_details_fragment) {
 
-    companion object {
-
-        private const val ARGS_MOVIE_ID = "movie_id"
-
-        private fun getMovieId(arguments: Bundle?): Int = arguments?.getInt(ARGS_MOVIE_ID)
-            ?: throw UninitializedPropertyAccessException("'movie_id' was queried before being initialized.")
-
-    }
-
     override val binding by viewBinding(MovieDetailsFragmentBinding::bind)
     override val viewModel: MovieDetailsViewModel by viewModel()
     override val stateful by stateful()
@@ -94,6 +85,15 @@ class MovieDetailsFragment : MviFragment<
                 )
             }
         snackbar?.show()
+    }
+
+    companion object {
+
+        private const val ARGS_MOVIE_ID = "movie_id"
+
+        private fun getMovieId(arguments: Bundle?): Int = arguments?.getInt(ARGS_MOVIE_ID)
+            ?: throw UninitializedPropertyAccessException("'movie_id' was queried before being initialized.")
+
     }
 
 }

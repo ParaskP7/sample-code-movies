@@ -14,12 +14,6 @@ data class MovieRaw(
     private val release_date: String,
 ) {
 
-    companion object {
-
-        const val IMAGE_URL_PREFIX = "http://image.tmdb.org/t/p/w500"
-
-    }
-
     fun toMovie(): Movie {
         return Movie(
             id = id,
@@ -30,6 +24,12 @@ data class MovieRaw(
             overview = overview,
             backdrop = backdrop_path?.let { IMAGE_URL_PREFIX + it },
         )
+    }
+
+    companion object {
+
+        const val IMAGE_URL_PREFIX = "http://image.tmdb.org/t/p/w500"
+
     }
 
 }

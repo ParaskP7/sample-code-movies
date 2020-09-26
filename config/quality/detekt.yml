@@ -126,6 +126,8 @@ complexity:
   NestedBlockDepth:
     active: true
     threshold: 4
+  ReplaceSafeCallChainWithRun:
+    active: true
   StringLiteralDuplication:
     active: true
     excludes: [
@@ -176,6 +178,8 @@ coroutines:
   GlobalCoroutineUsage:
     active: true
   RedundantSuspendModifier:
+    active: true
+  SuspendFunWithFlowReturnType:
     active: true
 
 empty-blocks:
@@ -322,6 +326,12 @@ formatting:
   autoCorrect: true
   AnnotationOnSeparateLine:
     active: false
+    autoCorrect: true
+  AnnotationSpacing:
+    active: true
+    autoCorrect: true
+  ArgumentListWrapping:
+    active: true
     autoCorrect: true
   ChainWrapping:
     active: true
@@ -829,6 +839,8 @@ potential-bugs:
 
 style:
   active: true
+  ClassOrdering:
+    active: true
   CollapsibleIfStatements:
     active: true
   DataClassContainsFunctions:

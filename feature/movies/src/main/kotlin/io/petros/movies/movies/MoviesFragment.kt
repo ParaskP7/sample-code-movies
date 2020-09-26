@@ -41,12 +41,6 @@ class MoviesFragment : MviFragment<
     MoviesToolbarCallback,
     MovieItemCallback {
 
-    companion object {
-
-        private const val MOVIE_DETAILS_DEEP_LINK = "io.petros.movies://movieDetailsFragment"
-
-    }
-
     override val binding by viewBinding(MoviesFragmentBinding::bind)
     override val viewModel: MoviesViewModel by viewModel()
     override val stateful by stateful()
@@ -291,6 +285,13 @@ class MoviesFragment : MviFragment<
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
         if (view != null) binding.toolbar.onSaveInstanceState(outState)
+    }
+
+    companion object {
+
+        private const val MOVIE_DETAILS_DEEP_LINK = "io.petros.movies://movieDetailsFragment"
+        private const val MOVIE_DETAILS_COMPOSE_DEEP_LINK = "io.petros.movies://movieDetailsComposeFragment"
+
     }
 
 }

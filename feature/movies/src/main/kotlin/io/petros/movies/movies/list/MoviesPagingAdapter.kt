@@ -12,16 +12,6 @@ import io.petros.movies.movies.list.item.MovieItemView
 
 class MoviesPagingAdapter : PagingDataAdapter<Movie, RecyclerView.ViewHolder>(MOVIE_COMPARATOR) {
 
-    companion object {
-
-        private val MOVIE_COMPARATOR = object : DiffUtil.ItemCallback<Movie>() {
-            override fun areItemsTheSame(oldItem: Movie, newItem: Movie) = oldItem.title == newItem.title
-
-            override fun areContentsTheSame(oldItem: Movie, newItem: Movie): Boolean = oldItem == newItem
-        }
-
-    }
-
     @VisibleForTesting(otherwise = VisibleForTesting.PROTECTED)
     var context: Context? = null
 
@@ -48,6 +38,16 @@ class MoviesPagingAdapter : PagingDataAdapter<Movie, RecyclerView.ViewHolder>(MO
     @Suppress("UnsafeCast")
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         getItem(position)?.let { (holder as MovieViewHolder).bind(it) }
+    }
+
+    companion object {
+
+        private val MOVIE_COMPARATOR = object : DiffUtil.ItemCallback<Movie>() {
+            override fun areItemsTheSame(oldItem: Movie, newItem: Movie) = oldItem.title == newItem.title
+
+            override fun areContentsTheSame(oldItem: Movie, newItem: Movie): Boolean = oldItem == newItem
+        }
+
     }
 
 }

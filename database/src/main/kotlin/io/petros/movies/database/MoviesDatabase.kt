@@ -16,6 +16,8 @@ import io.petros.movies.database.entity.MovieEntity
 )
 abstract class MoviesDatabase : RoomDatabase() {
 
+    abstract fun moviesDao(): MoviesDao
+
     companion object {
 
         private const val MOVIES_DATABASE_NAME = "Movies.db"
@@ -34,7 +36,5 @@ abstract class MoviesDatabase : RoomDatabase() {
         ).build()
 
     }
-
-    abstract fun moviesDao(): MoviesDao
 
 }

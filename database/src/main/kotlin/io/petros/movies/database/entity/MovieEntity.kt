@@ -26,6 +26,16 @@ data class MovieEntity(
     val backdrop: String?,
 ) {
 
+    fun toMovie() = Movie(
+        id = movieId,
+        title = title,
+        releaseDate = releaseDate.toDate(MOVIE_DATE_FORMAT),
+        voteAverage = voteAverage,
+        voteCount = voteCount,
+        overview = overview,
+        backdrop = backdrop,
+    )
+
     companion object {
 
         fun from(
@@ -49,16 +59,6 @@ data class MovieEntity(
         )
 
     }
-
-    fun toMovie() = Movie(
-        id = movieId,
-        title = title,
-        releaseDate = releaseDate.toDate(MOVIE_DATE_FORMAT),
-        voteAverage = voteAverage,
-        voteCount = voteCount,
-        overview = overview,
-        backdrop = backdrop,
-    )
 
 }
 

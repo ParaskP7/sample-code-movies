@@ -20,16 +20,6 @@ class MoviesRemoteMediator(
     private val month: Int?,
 ) : RemoteMediator<Int, MovieEntity>() {
 
-    companion object {
-
-        // TMDb page API is 1 based: https://developers.themoviedb.org/3/discover/movie-discover
-        const val MOVIES_STARTING_PAGE = 1
-
-        // TMDb page size is 20 by default and cannot change.
-        const val MOVIES_PAGE_SIZE = 20
-
-    }
-
     @Suppress("ReturnCount", "TooGenericExceptionCaught")
     override suspend fun load(
         loadType: LoadType,
@@ -132,6 +122,16 @@ class MoviesRemoteMediator(
                 )
             }
         )
+    }
+
+    companion object {
+
+        // TMDb page API is 1 based: https://developers.themoviedb.org/3/discover/movie-discover
+        const val MOVIES_STARTING_PAGE = 1
+
+        // TMDb page size is 20 by default and cannot change.
+        const val MOVIES_PAGE_SIZE = 20
+
     }
 
 }
