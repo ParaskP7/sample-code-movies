@@ -43,7 +43,7 @@ object Versions {
             const val RECYCLER_VIEW = "1.1.0" // Released: 20-11-19
 
             // Releases: https://developer.android.com/jetpack/androidx/releases/constraintlayout
-            const val CONSTRAINT_LAYOUT = "2.0.1" // Released: 25-08-20
+            const val CONSTRAINT_LAYOUT = "2.0.2" // Released: 06-10-20
 
             // Releases: https://developer.android.com/jetpack/androidx/releases/drawerlayout
             const val DRAWER_LAYOUT = "1.1.1" // Released: 02-09-20
