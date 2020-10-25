@@ -234,7 +234,7 @@ object Versions {
         object JUnit {
 
             // Releases: https://github.com/junit-team/junit4/releases
-            const val J_UNIT_4 = "4.13" // Released: 01-01-20
+            const val J_UNIT_4 = "4.13.1" // Released: 11-10-20
 
             // Releases: https://github.com/junit-team/junit5/releases
             const val J_UNIT_5 = "5.7.0" // Released: 13-09-20
