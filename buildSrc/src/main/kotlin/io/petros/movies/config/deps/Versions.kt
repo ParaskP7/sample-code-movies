@@ -79,6 +79,15 @@ object Versions {
             }
 
             @Suppress("MemberNameEqualsClassName")
+            object SavedState {
+
+                // Releases: https://developer.android.com/jetpack/androidx/releases/savedstate
+                @Suppress("unused") const val SAVED_STATE = "1.0.0" // Released: 05-09-20
+                const val SAVED_STATE_BETA = "1.1.0-beta01" // Released: 01-10-20
+
+            }
+
+            @Suppress("MemberNameEqualsClassName")
             object Navigation {
 
                 // Releases: https://developer.android.com/jetpack/androidx/releases/navigation
@@ -161,7 +170,7 @@ object Versions {
         object Koin {
 
             // Releases: https://github.com/InsertKoinIO/koin/releases
-            const val KOIN = "2.1.6" // Released: 11-06-20
+            const val KOIN = "2.2.0" // Released: 11-11-20
 
         }
 
