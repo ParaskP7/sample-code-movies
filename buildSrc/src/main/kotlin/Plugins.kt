@@ -10,7 +10,7 @@ object Plugins {
         const val KOTLIN = "1.4.10" // Released: 10-09-20
 
         // Releases: https://androidstudio.googleblog.com
-        @Suppress("unused") const val ANDROID = "4.1" // Released: 12-10-20
+        @Suppress("unused") const val ANDROID = "4.1.1" // Released: 10-11-20
         const val ANDROID_CANARY = "4.2.0-alpha16" // Released: 05-11-20
 
         // Releases: https://github.com/GradleUp/auto-manifest/releases
