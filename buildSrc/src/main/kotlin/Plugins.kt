@@ -14,7 +14,7 @@ object Plugins {
         const val ANDROID_CANARY = "4.2.0-alpha16" // Released: 05-11-20
 
         // Releases: https://github.com/GradleUp/auto-manifest/releases
-        const val ANDROID_MANIFEST = "1.0.2" // Released: 24-05-20
+        const val ANDROID_MANIFEST = "1.0.4" // Released: 13-11-20
 
         // Releases: https://github.com/detekt/detekt/releases
         const val DETEKT = "1.14.2" // Released: 20-10-20
