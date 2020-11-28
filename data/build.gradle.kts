@@ -48,7 +48,8 @@ dependencyAnalysis {
                 Projects.Implementation.Kotlin.DOMAIN, // Ignore change to 'api' advice.
                 Projects.Implementation.Kotlin.NETWORK, // Ignore change to 'api' advice.
                 Projects.Implementation.Android.Core.DATABASE, // Ignore change to 'api' advice.
-                Deps.Android.Arch.Pagination.COMMON.identifier() // Ignore change to 'api' advice.
+                Deps.Android.Arch.Pagination.COMMON.identifier(), // Ignore change to 'api' advice.
+                Deps.Di.Koin.Kotlin.CORE.identifier() // Ignore change to 'api' advice.
             )
         }
     }
