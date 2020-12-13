@@ -65,7 +65,7 @@ class AppInstrumentedTest {
 
         // TODO: Revert to 'April' by specifically selecting this month during testing
         @Suppress("unused") private const val MOVIES_TOOLBAR_FILTER_MONTH_APRIL = "April"
-        private const val MOVIES_TOOLBAR_FILTER_MONTH_SEPTEMBER = "September"
+        private const val MOVIES_TOOLBAR_FILTER_MONTH_DECEMBER = "December"
 
         // PICKER
 
@@ -75,7 +75,7 @@ class AppInstrumentedTest {
 
         // TODO: Revert to 'Apr' by specifically selecting the month during testing
         @Suppress("unused") private const val MOVIE_MONTH_PICKER_MONTH_APR = "Apr"
-        private const val MOVIE_MONTH_PICKER_MONTH_SEPTEMBER = "Sep"
+        private const val MOVIE_MONTH_PICKER_MONTH_DECEMBER = "Dec"
         private const val MOVIE_PICKER_ACTION_OK = "OK"
 
         // NO FILTER
@@ -328,7 +328,7 @@ class AppInstrumentedTest {
     private fun check_month_picker() {
         checkViewMoviesPicker(
             title = MOVIE_MONTH_PICKER_TITLE,
-            month = MOVIE_MONTH_PICKER_MONTH_SEPTEMBER,
+            month = MOVIE_MONTH_PICKER_MONTH_DECEMBER,
             withActionOkClick = true,
         )
     }
@@ -410,7 +410,7 @@ class AppInstrumentedTest {
             filterYearDisplayed = true,
             filterYear = MOVIES_TOOLBAR_FILTER_YEAR_2020,
             filterMonthDisplayed = true,
-            filterMonth = MOVIES_TOOLBAR_FILTER_MONTH_SEPTEMBER,
+            filterMonth = MOVIES_TOOLBAR_FILTER_MONTH_DECEMBER,
         )
     }
 
