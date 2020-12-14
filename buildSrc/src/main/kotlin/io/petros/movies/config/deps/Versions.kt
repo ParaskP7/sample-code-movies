@@ -260,7 +260,7 @@ object Versions {
         object Mock {
 
             // Releases: https://github.com/mockk/mockk/releases
-            const val MOCK_K = "1.10.2" // Released: 29-09-20
+            const val MOCK_K = "1.10.3" // Released: 01-12-20
 
         }
 
