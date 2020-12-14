@@ -5,11 +5,12 @@ import android.content.res.Configuration
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.viewbinding.ViewBinding
 import timber.log.Timber
 
 @Suppress("TooManyFunctions")
 abstract class BaseActivity<
-        BINDING : Any
+        BINDING : ViewBinding
         > : AppCompatActivity() {
 
     abstract val binding: BINDING

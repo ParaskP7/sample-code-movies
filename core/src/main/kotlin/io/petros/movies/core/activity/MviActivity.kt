@@ -1,12 +1,13 @@
 package io.petros.movies.core.activity
 
 import androidx.lifecycle.Observer
+import androidx.viewbinding.ViewBinding
 import dev.fanie.stateful.StatefulInstance
 import io.petros.movies.core.view_model.MviViewModel
 import timber.log.Timber
 
 abstract class MviActivity<
-        BINDING : Any,
+        BINDING : ViewBinding,
         INTENT : Any,
         STATE : Any,
         SIDE_EFFECT : Any,

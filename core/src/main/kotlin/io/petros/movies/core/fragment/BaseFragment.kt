@@ -7,11 +7,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.viewbinding.ViewBinding
 import timber.log.Timber
 
 @Suppress("TooManyFunctions")
 abstract class BaseFragment<
-        BINDING : Any
+        BINDING : ViewBinding
         >(layout: Int) : Fragment(layout) {
 
     abstract val binding: BINDING
