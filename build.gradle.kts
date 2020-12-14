@@ -349,11 +349,16 @@ fun DefaultConfigLegacy.defaultConfig() {
 }
 
 fun PackagingOptions.packagingOptions() {
-    exclude(Android.PackagingOption.Exclude.LICENCE)
-    exclude(Android.PackagingOption.Exclude.LICENCE_NOTICE)
-    exclude(Android.PackagingOption.Exclude.AL)
-    exclude(Android.PackagingOption.Exclude.LGPL)
-    exclude(Android.PackagingOption.Exclude.KOTLIN_COROUTINES)
+    resources {
+        excludes += mutableSetOf(
+            Android.PackagingOption.Exclude.LICENCE,
+            Android.PackagingOption.Exclude.LICENCE,
+            Android.PackagingOption.Exclude.LICENCE_NOTICE,
+            Android.PackagingOption.Exclude.AL,
+            Android.PackagingOption.Exclude.LGPL,
+            Android.PackagingOption.Exclude.KOTLIN_COROUTINES
+        )
+    }
 }
 
 fun CompileOptions.compileOptions() {
@@ -409,14 +414,8 @@ fun BaseExtension.buildFeatures() {
 
 fun LibraryExtension.variantOptions() {
     ignoredVariants {
-        onVariants.withName(it) {
-            enabled = false
-            androidTest {
-                enabled = false
-            }
-            unitTest {
-                enabled = false
-            }
+        variantFilter {
+            if (name == it) ignore = true
         }
     }
 }

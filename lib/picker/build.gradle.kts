@@ -10,6 +10,9 @@ plugins {
     id(Plugins.Id.Quality.DETEKT)
     id(Plugins.Id.Dependency.VERSIONS)
 }
+android.lintOptions {
+    disable(*io.petros.movies.config.Config.Lint.disabledLibIssues)
+}
 
 dependencies {
     implementation(project(Projects.Implementation.Android.Core.CORE))

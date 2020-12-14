@@ -32,11 +32,24 @@ object Config {
             "UnusedIds", // Because of UAST
             "ContentDescription",
             "SelectableText",
-            "InvalidPackage"
+            "InvalidPackage",
+            "UnsafeExperimentalUsageError",
+            "UnsafeExperimentalUsageWarning",
+            "ObsoleteLintCustomCheck",
+            "UnknownIssueId"
         )
 
         val disabledAppIssues = arrayOf(
-            "InvalidFragmentVersionForActivityResult" // From Gradle version 6.7-rc-1 and onwards
+            "InvalidFragmentVersionForActivityResult", // From Gradle version 6.7-rc-1 and onwards
+            "ConvertToWebp" // From Android Gradle Plugin version 7.0.0-alpha01 and onwards
+        )
+
+        val disabledCoreIssues = arrayOf(
+            "UnusedResources" // From Android Gradle Plugin version 7.0.0-alpha01 and onwards
+        )
+
+        val disabledLibIssues = arrayOf(
+            "UnusedResources" // From Android Gradle Plugin version 7.0.0-alpha01 and onwards
         )
 
     }
