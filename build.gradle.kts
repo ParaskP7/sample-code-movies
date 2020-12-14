@@ -55,7 +55,7 @@ buildscript {
         maven(Repos.Url.Kotlin.KOTLIN_EAP)
     }
     dependencies {
-        classpath(Plugins.KOTLIN)
+        classpath(Plugins.KOTLIN_GRADLE)
         classpath(Plugins.ANDROID_GRADLE)
         classpath(Plugins.ANDROID_NAVIGATION)
         classpath(Plugins.ANDROID_MANIFEST)
