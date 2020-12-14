@@ -10,8 +10,8 @@ object Plugins {
         const val KOTLIN = "1.4.20" // Released: 12-11-20
 
         // Releases: https://androidstudio.googleblog.com
-        @Suppress("unused") const val ANDROID = "4.1.1" // Released: 10-11-20
-        const val ANDROID_CANARY = "7.0.0-alpha02" // Released: 03-12-20
+        @Suppress("unused") const val ANDROID_GRADLE = "4.1.1" // Released: 10-11-20
+        const val ANDROID_GRADLE_CANARY = "7.0.0-alpha02" // Released: 03-12-20
 
         // Releases: https://github.com/GradleUp/auto-manifest/releases
         const val ANDROID_MANIFEST = "1.0.4" // Released: 13-11-20
@@ -37,7 +37,7 @@ object Plugins {
     }
 
     const val KOTLIN = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Version.KOTLIN}"
-    const val ANDROID = "com.android.tools.build:gradle:${Version.ANDROID_CANARY}"
+    const val ANDROID_GRADLE = "com.android.tools.build:gradle:${Version.ANDROID_GRADLE_CANARY}"
     const val ANDROID_NAVIGATION =
         "androidx.navigation:navigation-safe-args-gradle-plugin:${Versions.Android.Arch.Navigation.NAVIGATION}"
     const val ANDROID_MANIFEST = "com.gradleup:auto-manifest-plugin:${Version.ANDROID_MANIFEST}"
