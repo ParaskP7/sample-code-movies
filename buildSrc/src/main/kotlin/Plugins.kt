@@ -21,7 +21,7 @@ object Plugins {
         const val DETEKT = "1.15.0" // Released: 18-12-20
 
         // Releases: https://github.com/mannodermaus/android-junit5/releases (not working with 'dependencyUpdates')
-        const val ANDROID_J_UNIT_5 = "1.6.2.0" // Released: 03-05-20
+        const val ANDROID_J_UNIT_5 = "1.7.0.0" // Released: 18-12-20
 
         // Releases: https://github.com/ben-manes/gradle-versions-plugin/releases
         const val DEPENDENCY_VERSIONS = "0.36.0" // Released: 09-11-20
