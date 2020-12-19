@@ -119,10 +119,13 @@ complexity:
     constructorThreshold: 7
     ignoreDefaultParameters: false
     ignoreDataClasses: true
-    ignoreAnnotated: []
+    ignoreAnnotated: [ ]
   MethodOverloading:
     active: true
     threshold: 6
+  NamedArguments:
+    active: true
+    threshold: 3
   NestedBlockDepth:
     active: true
     threshold: 4
@@ -131,8 +134,8 @@ complexity:
   StringLiteralDuplication:
     active: true
     excludes: [
-      '**/test/**',
-      '**/spekTest/**',
+        '**/test/**',
+        '**/spekTest/**',
       '**/integrationTest/**',
       '**/robolectricTest/**',
       '**/androidTest/**',
@@ -463,7 +466,7 @@ naming:
       '**/jsTest/**',
       '**/iosTest/**'
     ]
-    classPattern: '[A-Z$][a-zA-Z0-9$]*'
+    classPattern: '[A-Z][a-zA-Z0-9]*'
   ConstructorParameterNaming:
     active: true
     excludes: [
@@ -816,6 +819,7 @@ potential-bugs:
     active: true
   MissingWhenCase:
     active: true
+    allowElseExpression: true
   NullableToStringCall:
     active: true
   RedundantElseInWhen:
@@ -964,6 +968,8 @@ style:
     active: true
   RedundantExplicitType:
     active: true
+  RedundantHigherOrderMapUsage:
+    active: true
   RedundantVisibilityModifierRule:
     active: true
   ReturnCount:
@@ -1019,9 +1025,11 @@ style:
     active: true
   UseDataClass:
     active: true
-    excludeAnnotatedClasses: []
+    excludeAnnotatedClasses: [ ]
     allowVars: false
   UseEmptyCounterpart:
+    active: true
+  UseIfEmptyOrIfBlank:
     active: true
   UseIfInsteadOfWhen:
     active: true
