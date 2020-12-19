@@ -64,8 +64,8 @@ class MoviesRemoteMediator(
         }
 
     /**
-     * Get the last page that was retrieved, that contained items. From that last page, get the last item. From that item,
-     * get the next page.
+     * Get the last page that was retrieved, that contained items. From that last page, get the last item. From that
+     * item, get the next page.
      */
     private fun getNextPageForLastItem(state: PagingState<Int, MovieEntity>) =
         state.pages.lastOrNull { it.data.isNotEmpty() }?.data?.lastOrNull()?.let { movieEntity ->
@@ -74,8 +74,8 @@ class MoviesRemoteMediator(
         }
 
     /**
-     * Get the first page that was retrieved, that contained items. From that first page, get the first item. From that item,
-     * get the previous page.
+     * Get the first page that was retrieved, that contained items. From that first page, get the first item. From that
+     * item, get the previous page.
      */
     private fun getPreviousPageForFirstItem(state: PagingState<Int, MovieEntity>) =
         state.pages.firstOrNull { it.data.isNotEmpty() }?.data?.firstOrNull()?.let { movieEntity ->
@@ -93,8 +93,8 @@ class MoviesRemoteMediator(
     }
 
     /**
-     * When the load type is refresh, which is either when the app first loads or when a user manually triggers a reload,
-     * then clear the available list of movies from the database to start over.
+     * When the load type is refresh, which is either when the app first loads or when a user manually triggers a
+     * reload, then clear the available list of movies from the database to start over.
      */
     private suspend fun checkAndClearMovies(loadType: LoadType) {
         if (loadType == LoadType.REFRESH) {
