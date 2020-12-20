@@ -1,5 +1,6 @@
 package io.petros.movies.data.repository.movie
 
+import androidx.paging.ExperimentalPagingApi
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.map
@@ -21,10 +22,12 @@ class MoviesRepositoryImpl(
     }
 
     // TODO: Figure out a way to test this function.
+    @ExperimentalPagingApi
     override suspend fun loadMoviesStream(year: Int?, month: Int?) = pager(year, month).map { pagingData ->
         pagingData.map { it.toMovie() }
     }
 
+    @ExperimentalPagingApi
     private fun pager(year: Int?, month: Int?) = Pager(
         config = PagingConfig(
             pageSize = MoviesRemoteMediator.MOVIES_PAGE_SIZE,
