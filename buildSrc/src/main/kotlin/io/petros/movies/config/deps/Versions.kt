@@ -83,7 +83,7 @@ object Versions {
 
                 // Releases: https://developer.android.com/jetpack/androidx/releases/savedstate
                 @Suppress("unused") const val SAVED_STATE = "1.0.0" // Released: 05-09-20
-                const val SAVED_STATE_BETA = "1.1.0-beta01" // Released: 01-10-20
+                const val SAVED_STATE_RC = "1.1.0-rc01" // Released: 16-12-20
 
             }
 

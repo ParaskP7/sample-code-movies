@@ -106,7 +106,7 @@ object Deps {
 
             object SavedState {
 
-                val SAVED_STATE = "androidx.savedstate:savedstate:${Versions.Android.Arch.SavedState.SAVED_STATE_BETA}"
+                val SAVED_STATE = "androidx.savedstate:savedstate:${Versions.Android.Arch.SavedState.SAVED_STATE_RC}"
 
             }
 
