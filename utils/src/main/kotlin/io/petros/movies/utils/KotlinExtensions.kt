@@ -40,9 +40,9 @@ fun Int.withParentheses() = leftParentheses() + this + rightParentheses()
 private const val SIMPLE_DATE_FORMAT_PATTERN = "MMMM"
 
 @Suppress("SwallowedException")
-fun String.toDate(dateFormat: String): Date {
+fun String.toDate(dateFormat: String): Date? {
     try {
-        return SimpleDateFormat(dateFormat, Locale.US).parse(this)
+        return if (!isEmpty()) SimpleDateFormat(dateFormat, Locale.US).parse(this) else null
     } catch (pe: ParseException) {
         throw ParseException("Cannot parse date. [Date Format: $dateFormat]", pe.errorOffset)
     }

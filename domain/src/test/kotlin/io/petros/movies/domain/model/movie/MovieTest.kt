@@ -7,16 +7,19 @@ import strikt.assertions.isEqualTo
 
 class MovieTest {
 
-    private val testedClass = movie()
+    @Test
+    fun `given null release date, when release date string is constructed, then it is the expected one`() {
+        expect { that(movie().copy(releaseDate = null).releaseDate()).isEqualTo("Not Available") }
+    }
 
     @Test
-    fun `when release date string is constructed, then it is the expected one`() {
-        expect { that(testedClass.releaseDate()).isEqualTo("2019 (September)") }
+    fun `given non null release date, when release date string is constructed, then it is the expected one`() {
+        expect { that(movie().releaseDate()).isEqualTo("2019 (September)") }
     }
 
     @Test
     fun `when vote string is constructed, then it is the expected one`() {
-        expect { that(testedClass.vote()).isEqualTo("6.0 ★ (2958)") }
+        expect { that(movie().vote()).isEqualTo("6.0 ★ (2958)") }
     }
 
 }

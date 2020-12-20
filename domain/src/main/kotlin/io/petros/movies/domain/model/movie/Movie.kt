@@ -12,15 +12,25 @@ import java.util.*
 data class Movie(
     val id: Int,
     val title: String,
-    val releaseDate: Date,
+    val releaseDate: Date?,
     val voteAverage: Double,
     val voteCount: Int,
     val overview: String,
     val backdrop: String?,
 ) : Serializable {
 
-    fun releaseDate() = releaseDate.toYear().toString() + space() + releaseDate.toMonth().withParentheses()
+    fun releaseDate() = if (releaseDate != null) {
+        releaseDate.toYear().toString() + space() + releaseDate.toMonth().withParentheses()
+    } else {
+        NOT_AVAILABLE
+    }
 
     fun vote() = voteAverage.toString() + space() + star() + space() + voteCount.withParentheses()
+
+    companion object {
+
+        private const val NOT_AVAILABLE = "Not Available"
+
+    }
 
 }

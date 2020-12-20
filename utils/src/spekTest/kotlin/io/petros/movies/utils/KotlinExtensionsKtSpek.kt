@@ -5,6 +5,7 @@ import org.spekframework.spek2.style.gherkin.Feature
 import strikt.api.expect
 import strikt.assertions.isA
 import strikt.assertions.isEqualTo
+import strikt.assertions.isNull
 import java.text.ParseException
 import java.util.*
 
@@ -97,6 +98,19 @@ class KotlinExtensionsKtSpek : Spek({
     }
 
     Feature("date") {
+        Scenario("empty to date") {
+            var date: String? = null
+            var result: Date? = null
+            Given("empty date as string") {
+                date = ""
+            }
+            When("to date is triggered") {
+                result = date?.toDate(MOVIE_DATE_FORMAT)
+            }
+            Then("a null date is returned") {
+                expect { that(result).isNull() }
+            }
+        }
         Scenario("valid to date") {
             var date: String? = null
             var result: Date? = null

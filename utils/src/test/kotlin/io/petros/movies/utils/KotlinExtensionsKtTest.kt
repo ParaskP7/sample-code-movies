@@ -3,6 +3,7 @@ package io.petros.movies.utils
 import org.junit.Test
 import strikt.api.expect
 import strikt.assertions.isEqualTo
+import strikt.assertions.isNull
 import java.text.ParseException
 import java.util.*
 
@@ -66,6 +67,15 @@ class KotlinExtensionsKtTest {
     }
 
     /* DATE */
+
+    @Test
+    fun `given empty date as string, when to date is triggered, then a null date is returned`() {
+        val date = ""
+
+        val result = date.toDate(MOVIE_DATE_FORMAT)
+
+        expect { that(result).isNull() }
+    }
 
     @Test
     fun `given valid date as string, when to date is triggered, then the expect date is returned`() {

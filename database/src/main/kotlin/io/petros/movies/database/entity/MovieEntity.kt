@@ -19,7 +19,7 @@ data class MovieEntity(
     // The below fields are 'Movie' data class related fields.
     val movieId: Int,
     val title: String,
-    val releaseDate: String,
+    val releaseDate: String?,
     val voteAverage: Double,
     val voteCount: Int,
     val overview: String,
@@ -29,7 +29,7 @@ data class MovieEntity(
     fun toMovie() = Movie(
         id = movieId,
         title = title,
-        releaseDate = releaseDate.toDate(MOVIE_DATE_FORMAT),
+        releaseDate = releaseDate?.toDate(MOVIE_DATE_FORMAT),
         voteAverage = voteAverage,
         voteCount = voteCount,
         overview = overview,
@@ -51,7 +51,7 @@ data class MovieEntity(
             month = month,
             movieId = movie.id,
             title = movie.title,
-            releaseDate = movie.releaseDate.toDate(MOVIE_DATE_FORMAT),
+            releaseDate = movie.releaseDate?.toDate(MOVIE_DATE_FORMAT),
             voteAverage = movie.voteAverage,
             voteCount = movie.voteCount,
             overview = movie.overview,
