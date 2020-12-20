@@ -170,7 +170,7 @@ object Versions {
         object Koin {
 
             // Releases: https://github.com/InsertKoinIO/koin/releases
-            const val KOIN = "2.2.1" // Released: 11-11-20
+            const val KOIN = "2.2.2" // Released: 19-12-20
 
         }
 
