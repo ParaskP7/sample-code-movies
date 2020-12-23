@@ -242,7 +242,7 @@ gradlew dependencyUpdates
 
 Run the project dependency analysis reports using this command:
 ```
-gradlew buildHealth
+gradlew buildHealth ripples
 ```
 
 Run the project module graph assert reports using this command:
