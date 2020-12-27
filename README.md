@@ -111,6 +111,10 @@ Below is a list of goodies that are being showcased:
     6. [Gradle Auto Manifest](https://github.com/GradleUp/auto-manifest) ```(Generates AndroidManifest.xml in simple
     libraries so that you don't have to)```
 
+# Mad Scorecards
+
+- December 2020: [G.O.A.T.](https://madscorecard.withgoogle.com/scorecards/4031909886)
+
 # Screenshots
 
 ![alt tag](https://github.com/ParaskP7/sample-code-movies/blob/master/demo.png)
