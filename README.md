@@ -113,7 +113,8 @@ Below is a list of goodies that are being showcased:
 
 # Mad Scorecards
 
-- December 2020: [G.O.A.T.](https://madscorecard.withgoogle.com/scorecards/4031909886)
+- December 2020 - [G.O.A.T.](https://madscorecard.withgoogle.com/scorecards/4031909886) ```You’re a MAD legend, the
+Greatest Of All Time of Android development.```
 
 # Screenshots
 
