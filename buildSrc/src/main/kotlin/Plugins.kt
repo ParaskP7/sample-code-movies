@@ -10,7 +10,7 @@ object Plugins {
         const val KOTLIN = "1.4.21" // Released: 09-12-20
 
         // Releases: https://androidstudio.googleblog.com
-        @Suppress("unused") const val ANDROID_GRADLE = "4.1.1" // Released: 10-11-20
+        @Suppress("unused") const val ANDROID_GRADLE = "4.1.2" // Released: 19-01-21
         @Suppress("unused") const val ANDROID_GRADLE_BETA = "4.2.0-beta02" // Released: 14-12-20
         const val ANDROID_GRADLE_CANARY = "7.0.0-alpha04" // Released: 06-01-21
 
