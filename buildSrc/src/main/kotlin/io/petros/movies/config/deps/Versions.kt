@@ -149,7 +149,7 @@ object Versions {
             const val J_UNIT = "1.1.2" // Released: 25-08-20
 
             // Releases: https://github.com/robolectric/robolectric/releases
-            const val ROBOLECTRIC = "4.4" // Released: 24-08-20
+            const val ROBOLECTRIC = "4.5" // Released: 22-01-21
 
         }
 
