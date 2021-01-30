@@ -12,7 +12,10 @@ class YearPickerRobot : ScopedActions(idMatcher(R.id.monthPicker)) {
     companion object {
 
         const val MOVIE_YEAR_PICKER_TITLE = "Select Movie Year"
-        const val MOVIE_YEAR_PICKER_YEAR_2020 = "2020"
+
+        // TODO: Revert to '2020' by specifically selecting this year during testing
+        @Suppress("unused") const val MOVIE_YEAR_PICKER_YEAR_2020 = "2020"
+        const val MOVIE_YEAR_PICKER_YEAR_2021 = "2021"
 
         private const val ACTION_OK = "OK"
 

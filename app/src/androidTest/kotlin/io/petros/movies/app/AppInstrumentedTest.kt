@@ -52,30 +52,40 @@ class AppInstrumentedTest {
         private const val YEAR_FILTER_MOVIES_PAGE_2_FILE = "$MOVIES_DIR/year_filter_movies_page_2.json"
         private const val YEAR_FILTER_MOVIES_PAGE_3_FILE = "$MOVIES_DIR/year_filter_movies_page_3.json"
         private const val YEAR_FILTER_MOVIES_PAGE_4_FILE = "$MOVIES_DIR/year_filter_movies_page_4.json"
-        private const val YEAR_AND_MONTH_FILTER_MOVIES_PAGE_1_FILE = "$MOVIES_DIR/year_and_month_filter_movies_page_1.json"
-        private const val YEAR_AND_MONTH_FILTER_MOVIES_PAGE_2_FILE = "$MOVIES_DIR/year_and_month_filter_movies_page_2.json"
-        private const val YEAR_AND_MONTH_FILTER_MOVIES_PAGE_3_FILE = "$MOVIES_DIR/year_and_month_filter_movies_page_3.json"
-        private const val YEAR_AND_MONTH_FILTER_MOVIES_PAGE_4_FILE = "$MOVIES_DIR/year_and_month_filter_movies_page_4.json"
+        private const val YEAR_AND_MONTH_FILTER_MOVIES_PAGE_1_FILE =
+            "$MOVIES_DIR/year_and_month_filter_movies_page_1.json"
+        private const val YEAR_AND_MONTH_FILTER_MOVIES_PAGE_2_FILE =
+            "$MOVIES_DIR/year_and_month_filter_movies_page_2.json"
+        private const val YEAR_AND_MONTH_FILTER_MOVIES_PAGE_3_FILE =
+            "$MOVIES_DIR/year_and_month_filter_movies_page_3.json"
+        private const val YEAR_AND_MONTH_FILTER_MOVIES_PAGE_4_FILE =
+            "$MOVIES_DIR/year_and_month_filter_movies_page_4.json"
 
         // TOOLBAR
 
         private const val MOVIES_TOOLBAR_FILTER_YEAR = "Year"
-        private const val MOVIES_TOOLBAR_FILTER_YEAR_2020 = "2020"
+
+        // TODO: Revert to '2020' by specifically selecting this year during testing
+        @Suppress("unused") private const val MOVIES_TOOLBAR_FILTER_YEAR_2020 = "2020"
+        private const val MOVIES_TOOLBAR_FILTER_YEAR_2021 = "2021"
         private const val MOVIES_TOOLBAR_FILTER_MONTH = "Month"
 
         // TODO: Revert to 'April' by specifically selecting this month during testing
         @Suppress("unused") private const val MOVIES_TOOLBAR_FILTER_MONTH_APRIL = "April"
-        private const val MOVIES_TOOLBAR_FILTER_MONTH_DECEMBER = "December"
+        private const val MOVIES_TOOLBAR_FILTER_MONTH_JANUARY = "January"
 
         // PICKER
 
         private const val MOVIE_YEAR_PICKER_TITLE = "Select Movie Year"
-        private const val MOVIE_YEAR_PICKER_YEAR_2020 = "2020"
+
+        // TODO: Revert to '2020' by specifically selecting this year during testing
+        @Suppress("unused") private const val MOVIE_YEAR_PICKER_YEAR_2020 = "2020"
+        private const val MOVIE_YEAR_PICKER_YEAR_2021 = "2021"
         private const val MOVIE_MONTH_PICKER_TITLE = "Select Movie Month"
 
         // TODO: Revert to 'Apr' by specifically selecting the month during testing
         @Suppress("unused") private const val MOVIE_MONTH_PICKER_MONTH_APR = "Apr"
-        private const val MOVIE_MONTH_PICKER_MONTH_DECEMBER = "Dec"
+        private const val MOVIE_MONTH_PICKER_MONTH_JANUARY = "Jan"
         private const val MOVIE_PICKER_ACTION_OK = "OK"
 
         // NO FILTER
@@ -280,7 +290,7 @@ class AppInstrumentedTest {
     private fun check_year_picker() {
         checkViewMoviesPicker(
             title = MOVIE_YEAR_PICKER_TITLE,
-            year = MOVIE_YEAR_PICKER_YEAR_2020,
+            year = MOVIE_YEAR_PICKER_YEAR_2021,
             withActionOkClick = true,
         )
     }
@@ -328,7 +338,7 @@ class AppInstrumentedTest {
     private fun check_month_picker() {
         checkViewMoviesPicker(
             title = MOVIE_MONTH_PICKER_TITLE,
-            month = MOVIE_MONTH_PICKER_MONTH_DECEMBER,
+            month = MOVIE_MONTH_PICKER_MONTH_JANUARY,
             withActionOkClick = true,
         )
     }
@@ -394,7 +404,7 @@ class AppInstrumentedTest {
             filterIconDisplayed = false,
             closeIconDisplayed = true,
             filterYearDisplayed = true,
-            filterYear = MOVIES_TOOLBAR_FILTER_YEAR_2020,
+            filterYear = MOVIES_TOOLBAR_FILTER_YEAR_2021,
             filterMonthDisplayed = true,
             withFilterMonthClick = withFilterMonthClick,
         )
@@ -408,9 +418,9 @@ class AppInstrumentedTest {
             closeIconDisplayed = true,
             withCloseIconClick = withCloseIconClick,
             filterYearDisplayed = true,
-            filterYear = MOVIES_TOOLBAR_FILTER_YEAR_2020,
+            filterYear = MOVIES_TOOLBAR_FILTER_YEAR_2021,
             filterMonthDisplayed = true,
-            filterMonth = MOVIES_TOOLBAR_FILTER_MONTH_DECEMBER,
+            filterMonth = MOVIES_TOOLBAR_FILTER_MONTH_JANUARY,
         )
     }
 
