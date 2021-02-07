@@ -207,6 +207,9 @@ fun Project.subprojectsTasks() {
     tasks.withType<Zip> {
         duplicatesStrategy = DuplicatesStrategy.INCLUDE
     }
+    tasks.withType<Copy> {
+        duplicatesStrategy = DuplicatesStrategy.INCLUDE
+    }
     afterEvaluate {
         val isKotlinModule = pluginManager.hasPlugin(Plugins.Id.Kotlin.KOTLIN)
         logModule(isKotlinModule)
