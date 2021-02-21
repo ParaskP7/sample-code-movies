@@ -9,6 +9,7 @@ import com.android.build.gradle.BaseExtension
 import com.android.build.gradle.LibraryExtension
 import com.github.benmanes.gradle.versions.VersionsPlugin
 import com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask
+import de.mannodermaus.gradle.plugins.junit5.AndroidJUnitPlatformExtension
 import de.mannodermaus.gradle.plugins.junit5.AndroidJUnitPlatformPlugin
 import de.mannodermaus.gradle.plugins.junit5.junitPlatform
 import io.gitlab.arturbosch.detekt.DetektPlugin
@@ -41,7 +42,6 @@ import com.android.build.gradle.AppPlugin as AndroidApplicationPlugin
 import com.android.build.gradle.LibraryPlugin as AndroidLibraryPlugin
 import com.android.build.gradle.api.AndroidSourceSet as AndroidSourceSetLegacy
 import com.android.build.gradle.internal.dsl.DefaultConfig as DefaultConfigLegacy
-import com.android.build.gradle.internal.dsl.TestOptions as TestOptionsLegacy
 import org.jetbrains.kotlin.gradle.internal.Kapt3GradleSubplugin as KotlinKaptPlugin
 import org.jetbrains.kotlin.gradle.plugin.KotlinAndroidPluginWrapper as KotlinAndroidPlugin
 import org.jetbrains.kotlin.gradle.plugin.KotlinPluginWrapper as KotlinPlugin
@@ -178,7 +178,7 @@ fun Project.subprojectsPlugins() {
     }
     plugins.withType(AndroidJUnitPlatformPlugin::class) {
         logPlugin(Plugins.Id.Test.Android.J_UNIT_5)
-        androidBase { androidBase() }
+        junit5 { testOptionsJUnit5() }
     }
     plugins.withType(VersionsPlugin::class) {
         logPlugin(Plugins.Id.Dependency.VERSIONS)
@@ -244,9 +244,6 @@ fun Project.testOptions() {
 fun Project.kapt(configure: KaptExtension.() -> Unit) =
     extensions.configure(KaptExtension::class.java, configure)
 
-fun Project.androidBase(configure: BaseExtension.() -> Unit) =
-    extensions.configure(BaseExtension::class.java, configure)
-
 fun Project.androidLibrary(configure: LibraryExtension.() -> Unit) =
     extensions.configure(LibraryExtension::class.java, configure)
 
@@ -255,6 +252,9 @@ fun Project.androidApplication(configure: AppExtension.() -> Unit) =
 
 fun Project.detekt(configure: DetektExtension.() -> Unit) =
     extensions.configure(DetektExtension::class.java, configure)
+
+fun Project.junit5(configure: AndroidJUnitPlatformExtension.() -> Unit) =
+    extensions.configure(AndroidJUnitPlatformExtension::class.java, configure)
 
 fun Project.coverage(configure: CoverageExtension.() -> Unit) =
     extensions.configure(CoverageExtension::class.java, configure)
@@ -299,10 +299,6 @@ fun KaptExtension.kapt() {
     strictMode = true
     showProcessorTimings = true
     useBuildCache = true
-}
-
-fun BaseExtension.androidBase() {
-    testOptions { testOptionsJUnit5() }
 }
 
 fun LibraryExtension.androidLibrary() {
@@ -381,8 +377,7 @@ fun TestOptions.androidTestOptions() {
     unitTests.all { test: Test -> test.testLogging() }
 }
 
-@Suppress("COMPATIBILITY_WARNING")
-fun TestOptionsLegacy.testOptionsJUnit5() {
+fun Project.testOptionsJUnit5() {
     junitPlatform { filters { includeEngines(Tests.Engine.JUnit.VINTAGE, Tests.Engine.Spek.SPEK) } }
 }
 
