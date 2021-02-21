@@ -9,7 +9,6 @@ import io.petros.movies.domain.interactor.movie.LoadDateUseCase
 import io.petros.movies.domain.interactor.movie.LoadMoviesUseCase
 import io.petros.movies.domain.model.Result
 import io.petros.movies.domain.model.movie.Movie
-import io.petros.movies.utils.exhaustive
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -35,7 +34,7 @@ class MoviesViewModel(
             is MoviesIntent.LoadMovies -> loadMovies(doLoadMovies(), intent)
             is MoviesIntent.ErrorMovies -> onLoadMoviesError(intent.error, intent.loadType)
             is MoviesIntent.ReloadMovies -> reloadMovies(intent.year, intent.month)
-        }.exhaustive
+        }
     }
 
     /* DATE */
@@ -44,7 +43,7 @@ class MoviesViewModel(
         when (val yearMonth = loadDateUseCase()) {
             is Result.Success -> onLoadDateSuccess(yearMonth.value)
             is Result.Error -> onLoadDateError(yearMonth.cause)
-        }.exhaustive
+        }
     }
 
     private fun onLoadDateSuccess(yearMonth: Pair<Int?, Int?>) {

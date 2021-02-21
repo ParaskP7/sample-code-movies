@@ -5,7 +5,6 @@ import io.petros.movies.core.view_model.MviViewModel
 import io.petros.movies.domain.interactor.movie.LoadMovieUseCase
 import io.petros.movies.domain.model.Result
 import io.petros.movies.domain.model.movie.Movie
-import io.petros.movies.utils.exhaustive
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import timber.log.Timber
@@ -24,7 +23,7 @@ class MovieDetailsViewModel(
         when (intent) {
             is MovieDetailsIntent.IdleMovies -> idleMovieDetails()
             is MovieDetailsIntent.LoadMovie -> loadMovies(intent.id)
-        }.exhaustive
+        }
     }
 
     private fun idleMovieDetails() {
@@ -38,7 +37,7 @@ class MovieDetailsViewModel(
                 when (movie) {
                     is Result.Success -> onLoadMoviesSuccess(movie.value)
                     is Result.Error -> onLoadMoviesError(movie.cause)
-                }.exhaustive
+                }
             }
     }
 
