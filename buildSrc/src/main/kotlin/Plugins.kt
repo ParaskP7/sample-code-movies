@@ -7,7 +7,7 @@ object Plugins {
     object Version {
 
         // Releases: https://blog.jetbrains.com/kotlin/category/releases
-        const val KOTLIN = "1.4.30" // Released: 03-02-21
+        const val KOTLIN = "1.4.31" // Released: 03-02-21
 
         // Releases: https://androidstudio.googleblog.com
         @Suppress("unused") const val ANDROID_GRADLE = "4.1.2" // Released: 19-01-21
