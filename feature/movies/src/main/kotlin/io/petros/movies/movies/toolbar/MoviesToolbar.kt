@@ -149,7 +149,9 @@ class MoviesToolbar(
     companion object {
 
         @VisibleForTesting const val INSTANCE_STATE_KEY_CLOSE_ICON = "CLOSE_ICON"
+
         @VisibleForTesting const val INSTANCE_STATE_KEY_YEAR_FILTER = "YEAR_FILTER"
+
         @VisibleForTesting const val INSTANCE_STATE_KEY_MONTH_FILTER = "MONTH_FILTER"
 
     }
