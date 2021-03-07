@@ -24,7 +24,7 @@ object Plugins {
         const val ANDROID_J_UNIT_5 = "1.7.1.1" // Released: 11-02-20
 
         // Releases: https://github.com/ben-manes/gradle-versions-plugin/releases
-        const val DEPENDENCY_VERSIONS = "0.36.0" // Released: 09-11-20
+        const val DEPENDENCY_VERSIONS = "0.38.0" // Released: 04-02-21
 
         // Releases: https://github.com/autonomousapps/dependency-analysis-android-gradle-plugin/releases
         const val DEPENDENCY_ANALYSIS = "0.71.0" // Released: 08-02-20
