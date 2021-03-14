@@ -15,7 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
-        tools:ignore="GoogleAppIndexingWarning,UnusedAttribute"
+        tools:ignore="GoogleAppIndexingWarning,UnusedAttribute,MediaCapabilities"
         tools:replace="android:label,android:allowBackup">
 
         <activity
