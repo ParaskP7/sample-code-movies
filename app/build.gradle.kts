@@ -45,8 +45,9 @@ dependencies {
     implementation(project(Projects.Implementation.Android.Feature.MOVIES))
     implementation(project(Projects.Implementation.Android.Feature.MOVIE_DETAILS))
 
-    debugImplementation(Deps.LeakCanary.LEAK_CANARY)
-    implementation(Deps.LeakCanary.PLUMBER)
+    // FIXME: Check again with a newer version of Leak Canary (after 2.6)
+    // debugImplementation(Deps.LeakCanary.LEAK_CANARY)
+    // implementation(Deps.LeakCanary.PLUMBER)
 
     implementation(Deps.Material.MATERIAL)
     implementation(Deps.Android.Core.APP_COMPAT)
