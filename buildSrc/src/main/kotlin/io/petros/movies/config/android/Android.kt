@@ -4,9 +4,9 @@ object Android {
 
     object Sdk {
 
-        const val MIN = 21
-        const val TARGET = 30
-        const val COMPILE = 30
+        const val MIN = "21"
+        const val TARGET = "S"
+        const val COMPILE = "android-S"
 
     }
 
