@@ -94,7 +94,7 @@ object Versions {
             object Navigation {
 
                 // Releases: https://developer.android.com/jetpack/androidx/releases/navigation
-                const val NAVIGATION = "2.3.3" // Released: 27-01-21
+                const val NAVIGATION = "2.3.4" // Released: 10-03-21
 
             }
 
