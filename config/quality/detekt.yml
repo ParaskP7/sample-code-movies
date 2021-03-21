@@ -868,6 +868,8 @@ potential-bugs:
     active: true
   UnsafeCast:
     active: true
+  UnusedUnaryOperator:
+    active: true
   UselessPostfixExpression:
     active: true
   WrongEqualsTypeParameter:
