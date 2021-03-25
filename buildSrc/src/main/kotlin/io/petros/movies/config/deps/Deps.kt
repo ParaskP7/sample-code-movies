@@ -327,12 +327,6 @@ object Deps {
 
         }
 
-        object Hamcrest {
-
-            val ALL = "org.hamcrest:hamcrest-all:${Versions.Test.Hamcrest.HAMCREST}"
-
-        }
-
         object Assert {
 
             val STRIKT = "io.strikt:strikt-core:${Versions.Test.Assert.STRIKT}"

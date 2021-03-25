@@ -141,11 +141,11 @@ object Versions {
 
             // Releases: https://developer.android.com/jetpack/androidx/releases/test
             @Suppress("unused") const val CORE = "1.3.0" // Released: 25-08-20
-            const val CORE_ALPHA = "1.4.0-alpha04" // Released: 08-12-20
+            const val CORE_ALPHA = "1.4.0-alpha05" // Released: 15-03-21
             @Suppress("unused") const val ESPRESSO = "3.3.0" // Released: 25-08-20
-            const val ESPRESSO_ALPHA = "3.4.0-alpha04" // Released: 08-12-20
+            const val ESPRESSO_ALPHA = "3.4.0-alpha05" // Released: 15-03-21
             @Suppress("unused") const val J_UNIT = "1.1.2" // Released: 25-08-20
-            const val J_UNIT_ALPHA = "1.1.3-alpha04" // Released: 08-12-20
+            const val J_UNIT_ALPHA = "1.1.3-alpha05" // Released: 15-03-21
 
             // Releases: https://github.com/robolectric/robolectric/releases
             const val ROBOLECTRIC = "4.5.1" // Released: 01-02-21
@@ -253,14 +253,6 @@ object Versions {
 
             // Releases: https://github.com/junit-team/junit5/releases
             const val J_UNIT_5 = "5.7.1" // Released: 04-02-21
-
-        }
-
-        @Suppress("MemberNameEqualsClassName")
-        object Hamcrest {
-
-            // Releases: https://github.com/hamcrest/JavaHamcrest/releases
-            const val HAMCREST = "1.3" // Released: 10-06-12
 
         }
 
