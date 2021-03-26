@@ -55,7 +55,7 @@ object Deps {
 
         object Core {
 
-            val APP_COMPAT = "androidx.appcompat:appcompat:${Versions.Android.Core.APP_COMPAT_BETA}"
+            val APP_COMPAT = "androidx.appcompat:appcompat:${Versions.Android.Core.APP_COMPAT_RC}"
             val FRAGMENT = "androidx.fragment:fragment:${Versions.Android.Core.FRAGMENT}"
             val RECYCLER_VIEW = "androidx.recyclerview:recyclerview:${Versions.Android.Core.RECYCLER_VIEW_BETA}"
             val CONSTRAINT_LAYOUT =
@@ -151,13 +151,13 @@ object Deps {
 
                 object Room {
 
-                    val COMMON = "androidx.room:room-common:${Versions.Android.Arch.Database.Room.ROOM_ALPHA}"
+                    val COMMON = "androidx.room:room-common:${Versions.Android.Arch.Database.Room.ROOM_RC}"
 
-                    val RUNTIME = "androidx.room:room-runtime:${Versions.Android.Arch.Database.Room.ROOM_ALPHA}"
+                    val RUNTIME = "androidx.room:room-runtime:${Versions.Android.Arch.Database.Room.ROOM_RC}"
 
-                    val KTX = "androidx.room:room-ktx:${Versions.Android.Arch.Database.Room.ROOM_ALPHA}"
+                    val KTX = "androidx.room:room-ktx:${Versions.Android.Arch.Database.Room.ROOM_RC}"
 
-                    val COMPILER = "androidx.room:room-compiler:${Versions.Android.Arch.Database.Room.ROOM_ALPHA}"
+                    val COMPILER = "androidx.room:room-compiler:${Versions.Android.Arch.Database.Room.ROOM_RC}"
 
                 }
 
@@ -240,15 +240,15 @@ object Deps {
 
             object Kotlin {
 
-                val CORE = "io.insert-koin:koin-core:${Versions.Di.Koin.KOIN}"
-                val CORE_JVM = "io.insert-koin:koin-core-jvm:${Versions.Di.Koin.KOIN}"
+                val CORE = "io.insert-koin:koin-core:${Versions.Di.Koin.KOIN_BETA}"
+                val CORE_JVM = "io.insert-koin:koin-core-jvm:${Versions.Di.Koin.KOIN_BETA}"
 
             }
 
             @Suppress("MemberNameEqualsClassName")
             object Android {
 
-                val ANDROID = "io.insert-koin:koin-android:${Versions.Di.Koin.KOIN}"
+                val ANDROID = "io.insert-koin:koin-android:${Versions.Di.Koin.KOIN_BETA}"
 
             }
 

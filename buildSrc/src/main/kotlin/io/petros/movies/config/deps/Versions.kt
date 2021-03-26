@@ -35,7 +35,7 @@ object Versions {
 
             // Releases: https://developer.android.com/jetpack/androidx/releases/appcompat
             @Suppress("unused") const val APP_COMPAT = "1.2.0" // Released: 05-08-20
-            const val APP_COMPAT_BETA = "1.3.0-rc01" // Released: 24-03-21
+            const val APP_COMPAT_RC = "1.3.0-rc01" // Released: 24-03-21
 
             // Releases: https://developer.android.com/jetpack/androidx/releases/fragment
             const val FRAGMENT = "1.3.2" // Released: 24-03-21
@@ -46,7 +46,7 @@ object Versions {
 
             // Releases: https://developer.android.com/jetpack/androidx/releases/constraintlayout
             const val CONSTRAINT_LAYOUT = "2.0.4" // Released: 29-10-20
-            @Suppress("unused") const val CONSTRAINT_LAYOUT_ALPHA = "2.1.0-beta01" // Released: 11-03-21
+            @Suppress("unused") const val CONSTRAINT_LAYOUT_BETA = "2.1.0-beta01" // Released: 11-03-21
 
             // Releases: https://developer.android.com/jetpack/androidx/releases/drawerlayout
             const val DRAWER_LAYOUT = "1.1.1" // Released: 02-09-20
@@ -120,7 +120,7 @@ object Versions {
 
                     // Releases: https://developer.android.com/jetpack/androidx/releases/room
                     @Suppress("unused") const val ROOM = "2.2.6" // Release: 16-12-20
-                    const val ROOM_ALPHA = "2.3.0-rc01" // Release: 24-03-21
+                    const val ROOM_RC = "2.3.0-rc01" // Release: 24-03-21
 
                 }
 
@@ -176,7 +176,7 @@ object Versions {
         object Koin {
 
             // Releases: https://github.com/InsertKoinIO/koin/releases
-            const val KOIN = "3.0.1-beta-2" // Released: 23-03-21
+            const val KOIN_BETA = "3.0.1-beta-2" // Released: 23-03-21
 
         }
 
