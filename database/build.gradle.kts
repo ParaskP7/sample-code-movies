@@ -24,6 +24,7 @@ dependencies {
     kapt(Deps.Android.Arch.Database.Room.COMPILER)
     implementation(Deps.Android.Arch.Pagination.COMMON)
     implementation(Deps.Di.Koin.Kotlin.CORE)
+    implementation(Deps.Di.Koin.Kotlin.CORE_JVM)
 
     detektPlugins(Plugins.DETEKT_FORMATTING)
 }
@@ -36,7 +37,8 @@ dependencyAnalysis {
                 Deps.Kotlin.Coroutines.CORE_JVM.identifier(), // Ignore change to 'api' advice.
                 Deps.Android.Arch.Database.Room.RUNTIME.identifier(), // Ignore change to 'api' advice.
                 Deps.Android.Arch.Pagination.COMMON.identifier(), // Ignore change to 'api' advice.
-                Deps.Di.Koin.Kotlin.CORE.identifier() // Ignore change to 'api' advice.
+                Deps.Di.Koin.Kotlin.CORE.identifier(), // Ignore change to 'api' advice.
+                Deps.Di.Koin.Kotlin.CORE_JVM.identifier() // Ignore change to 'api' advice.
             )
         }
     }

@@ -107,7 +107,8 @@ object Deps {
 
             object SavedState {
 
-                val SAVED_STATE = "androidx.savedstate:savedstate:${Versions.Android.Arch.SavedState.SAVED_STATE}"
+                @Suppress("unused") val SAVED_STATE =
+                    "androidx.savedstate:savedstate:${Versions.Android.Arch.SavedState.SAVED_STATE}"
 
             }
 
@@ -239,15 +240,15 @@ object Deps {
 
             object Kotlin {
 
-                val CORE = "org.koin:koin-core:${Versions.Di.Koin.KOIN}"
+                val CORE = "io.insert-koin:koin-core:${Versions.Di.Koin.KOIN}"
+                val CORE_JVM = "io.insert-koin:koin-core-jvm:${Versions.Di.Koin.KOIN}"
 
             }
 
             @Suppress("MemberNameEqualsClassName")
             object Android {
 
-                val ANDROID = "org.koin:koin-android:${Versions.Di.Koin.KOIN}"
-                val VIEW_MODEL = "org.koin:koin-androidx-viewmodel:${Versions.Di.Koin.KOIN}"
+                val ANDROID = "io.insert-koin:koin-android:${Versions.Di.Koin.KOIN}"
 
             }
 

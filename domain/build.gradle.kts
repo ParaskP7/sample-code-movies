@@ -19,6 +19,7 @@ dependencies {
     implementation(Deps.Kotlin.Coroutines.CORE_JVM)
     implementation(Deps.Android.Arch.Pagination.COMMON)
     implementation(Deps.Di.Koin.Kotlin.CORE)
+    implementation(Deps.Di.Koin.Kotlin.CORE_JVM)
 
     testImplementation(project(Projects.TestImplementation.Kotlin.TEST))
 
@@ -38,7 +39,8 @@ dependencyAnalysis {
     issues {
         onIncorrectConfiguration {
             exclude(
-                Deps.Di.Koin.Kotlin.CORE.identifier() // Ignore change to 'api' advice.
+                Deps.Di.Koin.Kotlin.CORE.identifier(), // Ignore change to 'api' advice.
+                Deps.Di.Koin.Kotlin.CORE_JVM.identifier() // Ignore change to 'api' advice.
             )
         }
     }

@@ -17,6 +17,7 @@ dependencies {
     implementation(project(Projects.Implementation.Kotlin.DOMAIN))
 
     implementation(Deps.Di.Koin.Kotlin.CORE)
+    implementation(Deps.Di.Koin.Kotlin.CORE_JVM)
     implementation(Deps.Net.OkHttp.OK_HTTP)
     implementation(Deps.Net.OkHttp.LOGGING_INTERCEPTOR)
     implementation(Deps.Net.Gson.GSON)
@@ -44,6 +45,7 @@ dependencyAnalysis {
             exclude(
                 Projects.Implementation.Kotlin.DOMAIN, // Ignore change to 'api' advice.
                 Deps.Di.Koin.Kotlin.CORE.identifier(), // Ignore change to 'api' advice.
+                Deps.Di.Koin.Kotlin.CORE_JVM.identifier(), // Ignore change to 'api' advice.
                 Deps.Net.Rest.RETROFIT.identifier() // Ignore change to 'api' advice.
             )
         }

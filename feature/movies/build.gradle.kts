@@ -40,7 +40,6 @@ dependencies {
     implementation(Deps.Android.Arch.Lifecycle.LIVE_DATA_CORE)
     implementation(Deps.Android.Arch.Lifecycle.VIEW_MODEL)
     implementation(Deps.Android.Arch.Lifecycle.VIEW_MODEL_KTX)
-    implementation(Deps.Android.Arch.SavedState.SAVED_STATE)
     implementation(Deps.Android.Arch.Navigation.COMMON)
     implementation(Deps.Android.Arch.Navigation.COMMON_KTX)
     implementation(Deps.Android.Arch.Navigation.RUNTIME)
@@ -50,7 +49,8 @@ dependencies {
     implementation(Deps.Architecture.Mvi.Stateful.RUNTIME) { exclude(Deps.Architecture.Mvi.Stateful.Exclude.KOTLIN) }
     kapt(Deps.Architecture.Mvi.Stateful.COMPILER)
     implementation(Deps.Di.Koin.Kotlin.CORE)
-    implementation(Deps.Di.Koin.Android.VIEW_MODEL)
+    implementation(Deps.Di.Koin.Kotlin.CORE_JVM)
+    implementation(Deps.Di.Koin.Android.ANDROID)
     implementation(Deps.Log.TIMBER)
 
     testImplementation(project(Projects.TestImplementation.Kotlin.TEST))
@@ -83,7 +83,8 @@ dependencyAnalysis {
                 Deps.Android.Arch.Pagination.COMMON.identifier(), // Ignore change to 'api' advice.
                 Deps.Android.Arch.Pagination.RUNTIME.identifier(), // Ignore change to 'api' advice.
                 Deps.Architecture.Mvi.Stateful.RUNTIME.identifier(), // Ignore change to 'api' advice.
-                Deps.Di.Koin.Kotlin.CORE.identifier() // Ignore change to 'api' advice.
+                Deps.Di.Koin.Kotlin.CORE.identifier(), // Ignore change to 'api' advice.
+                Deps.Di.Koin.Kotlin.CORE_JVM.identifier() // Ignore change to 'api' advice.
             )
         }
     }

@@ -63,6 +63,7 @@ dependencies {
     implementation(Deps.Android.Arch.Navigation.FRAGMENT_KTX)
     implementation(Deps.Android.Arch.CustomView.CUSTOM_VIEW)
     implementation(Deps.Di.Koin.Kotlin.CORE)
+    implementation(Deps.Di.Koin.Kotlin.CORE_JVM)
     implementation(Deps.Di.Koin.Android.ANDROID)
     implementation(Deps.Log.TIMBER)
 
