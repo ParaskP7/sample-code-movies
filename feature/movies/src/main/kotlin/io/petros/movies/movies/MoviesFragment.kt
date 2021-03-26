@@ -237,10 +237,8 @@ class MoviesFragment : MviFragment<
     }
 
     private fun onYearClickedOnline() {
-        activity?.supportFragmentManager?.let { fragmentManager ->
-            MovieYearPickerFragment { year -> onYearPicked(year) }
-                .show(fragmentManager)
-        }
+        MovieYearPickerFragment { year -> onYearPicked(year) }
+            .show(parentFragmentManager)
     }
 
     private fun onYearPicked(year: Int) {
@@ -260,10 +258,8 @@ class MoviesFragment : MviFragment<
     }
 
     private fun onMonthClickedOnline() {
-        activity?.supportFragmentManager?.let { fragmentManager ->
-            MovieMonthPickerFragment { month -> onMonthPicked(month) }
-                .show(fragmentManager)
-        }
+        MovieMonthPickerFragment { month -> onMonthPicked(month) }
+            .show(parentFragmentManager)
     }
 
     private fun onMonthPicked(month: Int) {
