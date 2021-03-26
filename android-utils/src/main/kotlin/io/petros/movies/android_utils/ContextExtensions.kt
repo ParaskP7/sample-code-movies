@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.annotation.DimenRes
 import androidx.annotation.IntegerRes
 import androidx.annotation.StringRes
+import androidx.fragment.app.Fragment
 
 /* RES */
 
@@ -17,3 +18,7 @@ fun Context.getDimension(@DimenRes resource: Int) = resources.getDimensionPixelO
 /* TOAST */
 
 fun Context.toast(@StringRes message: Int) = Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+
+fun Fragment.toast(@StringRes message: Int) {
+    requireContext().toast(message)
+}

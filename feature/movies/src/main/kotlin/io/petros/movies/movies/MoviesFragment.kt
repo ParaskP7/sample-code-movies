@@ -200,7 +200,7 @@ class MoviesFragment : MviFragment<
         if (NetworkLiveEvent.isConnected()) {
             onFilterClickedOnline()
         } else {
-            requireContext().toast(R.string.tsNoConnectivity)
+            toast(R.string.tsNoConnectivity)
         }
     }
 
@@ -213,7 +213,7 @@ class MoviesFragment : MviFragment<
         if (NetworkLiveEvent.isConnected()) {
             onCloseClickedOnline()
         } else {
-            requireContext().toast(R.string.tsNoConnectivity)
+            toast(R.string.tsNoConnectivity)
         }
     }
 
@@ -232,7 +232,7 @@ class MoviesFragment : MviFragment<
         if (NetworkLiveEvent.isConnected()) {
             onYearClickedOnline()
         } else {
-            requireContext().toast(R.string.tsNoConnectivity)
+            toast(R.string.tsNoConnectivity)
         }
     }
 
@@ -253,7 +253,7 @@ class MoviesFragment : MviFragment<
         if (NetworkLiveEvent.isConnected()) {
             onMonthClickedOnline()
         } else {
-            requireContext().toast(R.string.tsNoConnectivity)
+            toast(R.string.tsNoConnectivity)
         }
     }
 
