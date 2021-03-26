@@ -120,7 +120,7 @@ object Versions {
 
                     // Releases: https://developer.android.com/jetpack/androidx/releases/room
                     @Suppress("unused") const val ROOM = "2.2.6" // Release: 16-12-20
-                    const val ROOM_ALPHA = "2.3.0-beta02" // Release: 18-02-21
+                    const val ROOM_ALPHA = "2.3.0-rc01" // Release: 24-03-21
 
                 }
 
