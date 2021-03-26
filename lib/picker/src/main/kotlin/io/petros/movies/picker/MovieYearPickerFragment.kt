@@ -18,7 +18,7 @@ class MovieYearPickerFragment(
         return MonthPickerDialog.Builder(context, this, year, 0)
             .setActivatedYear(year)
             .setMaxYear(year + EXTRA_YEARS)
-            .setTitle(context?.getString(R.string.dlgMovieYear))
+            .setTitle(requireContext().getString(R.string.dlgMovieYear))
             .showYearOnly()
             .build()
     }

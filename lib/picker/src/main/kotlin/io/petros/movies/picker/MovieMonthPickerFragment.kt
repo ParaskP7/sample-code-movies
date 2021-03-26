@@ -18,7 +18,7 @@ class MovieMonthPickerFragment(
         val month = Calendar.getInstance().get(Calendar.MONTH)
         return MonthPickerDialog.Builder(context, this, year, month)
             .setActivatedMonth(month)
-            .setTitle(context?.getString(R.string.dlgMovieMonth))
+            .setTitle(requireContext().getString(R.string.dlgMovieMonth))
             .showMonthOnly()
             .build()
     }
