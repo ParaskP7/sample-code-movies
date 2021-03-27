@@ -45,9 +45,8 @@ dependencies {
     implementation(project(Projects.Implementation.Android.Feature.MOVIES))
     implementation(project(Projects.Implementation.Android.Feature.MOVIE_DETAILS))
 
-    // FIXME: Check again with a newer version of API S emulator (or use Android 12 preview on a real device).
-    // debugImplementation(Deps.LeakCanary.LEAK_CANARY)
-    // implementation(Deps.LeakCanary.PLUMBER)
+    debugImplementation(Deps.LeakCanary.LEAK_CANARY)
+    implementation(Deps.LeakCanary.PLUMBER)
 
     implementation(Deps.Material.MATERIAL)
     implementation(Deps.Android.Core.APP_COMPAT)
