@@ -9,9 +9,6 @@ import com.android.build.gradle.BaseExtension
 import com.android.build.gradle.LibraryExtension
 import com.github.benmanes.gradle.versions.VersionsPlugin
 import com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask
-import de.mannodermaus.gradle.plugins.junit5.AndroidJUnitPlatformExtension
-import de.mannodermaus.gradle.plugins.junit5.AndroidJUnitPlatformPlugin
-import de.mannodermaus.gradle.plugins.junit5.junitPlatform
 import io.gitlab.arturbosch.detekt.DetektPlugin
 import io.gitlab.arturbosch.detekt.extensions.DetektExtension
 import io.petros.movies.config.Build
@@ -25,7 +22,6 @@ import io.petros.movies.config.deps.Deps
 import io.petros.movies.config.deps.identifier
 import io.petros.movies.config.kotlin.Java
 import io.petros.movies.config.tests.Logs
-import io.petros.movies.config.tests.Tests
 import io.petros.movies.config.utils.Utils
 import io.petros.movies.config.utils.logBuildTools
 import io.petros.movies.config.utils.logCredentials
@@ -61,7 +57,6 @@ buildscript {
         classpath(Plugins.ANDROID_NAVIGATION)
         classpath(Plugins.ANDROID_MANIFEST)
         classpath(Plugins.DETEKT)
-        classpath(Plugins.ANDROID_J_UNIT_5)
         classpath(Plugins.DEPENDENCY_VERSIONS)
         classpath(Plugins.DEPENDENCY_ANALYSIS)
         classpath(Plugins.GRADLE_DOCTOR)
@@ -177,10 +172,6 @@ fun Project.subprojectsPlugins() {
         logPlugin(Plugins.Id.Quality.DETEKT)
         detekt { detekt() }
     }
-    plugins.withType(AndroidJUnitPlatformPlugin::class) {
-        logPlugin(Plugins.Id.Test.Android.J_UNIT_5)
-        junit5 { testOptionsJUnit5() }
-    }
     plugins.withType(VersionsPlugin::class) {
         logPlugin(Plugins.Id.Dependency.VERSIONS)
     }
@@ -238,7 +229,6 @@ fun Project.sourceSets() {
 fun Project.testOptions() {
     tasks.getByName<Test>(Build.Tasks.TEST) {
         testLogging()
-        testJUnit5()
     }
 }
 
@@ -253,9 +243,6 @@ fun Project.androidApplication(configure: AppExtension.() -> Unit) =
 
 fun Project.detekt(configure: DetektExtension.() -> Unit) =
     extensions.configure(DetektExtension::class.java, configure)
-
-fun Project.junit5(configure: AndroidJUnitPlatformExtension.() -> Unit) =
-    extensions.configure(AndroidJUnitPlatformExtension::class.java, configure)
 
 fun Project.coverage(configure: CoverageExtension.() -> Unit) =
     extensions.configure(CoverageExtension::class.java, configure)
@@ -290,10 +277,6 @@ fun Test.testLogging() {
             }
         })
     }
-}
-
-fun Test.testJUnit5() {
-    useJUnitPlatform { includeEngines(Tests.Engine.JUnit.VINTAGE, Tests.Engine.Spek.SPEK) }
 }
 
 fun KaptExtension.kapt() {
@@ -376,10 +359,6 @@ fun TestOptions.androidTestOptions() {
     animationsDisabled = true
     unitTests.isIncludeAndroidResources = true
     unitTests.all { test: Test -> test.testLogging() }
-}
-
-fun Project.testOptionsJUnit5() {
-    junitPlatform { filters { includeEngines(Tests.Engine.JUnit.VINTAGE, Tests.Engine.Spek.SPEK) } }
 }
 
 @Suppress("SpreadOperator")
@@ -534,7 +513,6 @@ fun SourceSetContainer.testSourceSets() {
         java.setSrcDirs(
             arrayListOf(
                 Sources.Test.KOTLIN,
-                Sources.Spek.KOTLIN,
                 Sources.Integration.KOTLIN,
                 Sources.Robolectric.KOTLIN
             )
@@ -542,7 +520,6 @@ fun SourceSetContainer.testSourceSets() {
         resources.setSrcDirs(
             arrayListOf(
                 Sources.Test.RESOURCES,
-                Sources.Spek.RESOURCES,
                 Sources.Integration.RESOURCES,
                 Sources.Robolectric.RESOURCES
             )
@@ -572,7 +549,6 @@ fun NamedDomainObjectContainer<AndroidSourceSetLegacy>.testAndroidSourceSets() {
         java.setSrcDirs(
             arrayListOf(
                 Sources.Test.KOTLIN,
-                Sources.Spek.KOTLIN,
                 Sources.Integration.KOTLIN,
                 Sources.Robolectric.KOTLIN
             )
@@ -580,7 +556,6 @@ fun NamedDomainObjectContainer<AndroidSourceSetLegacy>.testAndroidSourceSets() {
         resources.setSrcDirs(
             arrayListOf(
                 Sources.Test.RESOURCES,
-                Sources.Spek.RESOURCES,
                 Sources.Integration.RESOURCES,
                 Sources.Robolectric.RESOURCES
             )

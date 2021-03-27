@@ -238,21 +238,10 @@ object Versions {
 
     object Test {
 
-        @Suppress("MemberNameEqualsClassName")
-        object Spek {
-
-            // Releases: https://github.com/spekframework/spek/releases
-            const val SPEK = "2.0.15" // Released: 14-12-20
-
-        }
-
         object JUnit {
 
             // Releases: https://github.com/junit-team/junit4/releases
             const val J_UNIT_4 = "4.13.2" // Released: 13-02-21
-
-            // Releases: https://github.com/junit-team/junit5/releases
-            const val J_UNIT_5 = "5.7.1" // Released: 04-02-21
 
         }
 

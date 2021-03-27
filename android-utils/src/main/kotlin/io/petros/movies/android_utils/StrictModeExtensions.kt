@@ -7,12 +7,10 @@ import io.petros.movies.android.utils.BuildConfig
 
 /* DISK */
 
-private const val PREFIX_SPEK = "org.spekframework."
 private const val PREFIX_J_UNIT = "org.junit."
 
 fun permitDiskReads(block: () -> Any?): Any? {
     return when {
-        isTest(PREFIX_SPEK) -> block()
         isTest(PREFIX_J_UNIT) -> block()
         BuildConfig.DEBUG -> {
             val currentThreadPolicy = StrictMode.getThreadPolicy()

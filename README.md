@@ -84,16 +84,15 @@ Below is a list of goodies that are being showcased:
 8. Tests
     1. [JUnit4](https://junit.org/junit4) ```(A programmer-oriented testing framework for Java)```
     2. [JUnit5](https://junit.org/junit5) ```(JUnit 5 is the next generation of JUnit)```
-    3. [Spek](https://spekframework.org) ```(A specification framework for Kotlin)```
-    4. [Strikt](https://strikt.io) ```(Strikt is an assertion library for Kotlin intended for use with a test runner such as 
+    3. [Strikt](https://strikt.io) ```(Strikt is an assertion library for Kotlin intended for use with a test runner such as
     JUnit or Spek)```
-    5. [MockK](https://mockk.io) ```(MockK is a mocking library for Kotlin)```
-    6. [Robolectric](https://github.com/robolectric/robolectric) ```(Android Unit Testing Framework)```
-    7. [MockWebServer](https://github.com/square/okhttp/tree/master/mockwebserver) ```(A scriptable web server for testing 
+    4. [MockK](https://mockk.io) ```(MockK is a mocking library for Kotlin)```
+    5. [Robolectric](https://github.com/robolectric/robolectric) ```(Android Unit Testing Framework)```
+    6. [MockWebServer](https://github.com/square/okhttp/tree/master/mockwebserver) ```(A scriptable web server for testing
     HTTP clients)```
-    8. [Espresso](https://developer.android.com/training/testing/espresso) ```(Use Espresso to write concise, beautiful, 
+    7. [Espresso](https://developer.android.com/training/testing/espresso) ```(Use Espresso to write concise, beautiful,
     and reliable Android UI tests)```
-    9. [Jacoco](https://www.eclemma.org/jacoco/) ```(JaCoCo is a free code coverage library for Java, which has been created 
+    8. [Jacoco](https://www.eclemma.org/jacoco/) ```(JaCoCo is a free code coverage library for Java, which has been created
     by the EclEmma team based on the lessons learned from using and integration existing libraries for many years)```
 9. Debug
     1. [LeakCanary](https://github.com/square/leakcanary) ```(A memory leak detection library for Android and Java)```

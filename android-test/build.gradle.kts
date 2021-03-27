@@ -11,14 +11,10 @@ plugins {
 }
 
 dependencies {
-    implementation(Deps.Kotlin.Coroutines.CORE_JVM)
     implementation(Deps.Kotlin.Coroutines.Test.TEST)
     implementation(Deps.Material.MATERIAL)
-    implementation(Deps.Android.Arch.Core.RUNTIME)
     implementation(Deps.Android.Test.CORE)
     implementation(Deps.Test.JUnit.J_UNIT_4)
-    implementation(Deps.Test.Spek.DSL)
-    implementation(Deps.Test.Spek.J_UNIT_5)
     runtimeOnly(Deps.Kotlin.Core.KOTLIN_REFLECT)
     implementation(Deps.Android.Test.Robolectric.ROBOLECTRIC) { exclude(Deps.Android.Test.Robolectric.Exclude.MAVEN) }
     implementation(Deps.Android.Test.Robolectric.ANNOTATIONS)
@@ -37,7 +33,6 @@ dependencyAnalysis {
         onIncorrectConfiguration {
             exclude(
                 Deps.Kotlin.Coroutines.Test.TEST.identifier(), // Ignore change to 'api' advice.
-                Deps.Test.Spek.DSL.identifier(), // Ignore change to 'api' advice.
                 Deps.Android.Test.Robolectric.ROBOLECTRIC.identifier() // Ignore change to 'api' advice.
             )
         }

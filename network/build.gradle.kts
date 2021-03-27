@@ -28,9 +28,6 @@ dependencies {
 
     testImplementation(Deps.Kotlin.Coroutines.Test.TEST)
     testImplementation(Deps.Test.JUnit.J_UNIT_4)
-    testRuntimeOnly(Deps.Test.JUnit.J_UNIT_5)
-    testImplementation(Deps.Test.Spek.DSL)
-    testImplementation(Deps.Test.Spek.J_UNIT_5)
     testRuntimeOnly(Deps.Kotlin.Core.KOTLIN_REFLECT)
     testImplementation(Deps.Test.Integration.MOCK_WEB_SERVER)
     testImplementation(Deps.Test.Assert.STRIKT) { exclude(Deps.Test.Assert.Exclude.KOTLIN) }

@@ -4,15 +4,9 @@ object Tests {
 
     object Engine {
 
-        @Suppress("MemberNameEqualsClassName")
-        object Spek {
-
-            const val SPEK = "spek2"
-
-        }
-
         object JUnit {
 
+            @Suppress("unused")
             const val VINTAGE = "junit-vintage" // For JUnit 4 based tests.
 
             @Suppress("unused")

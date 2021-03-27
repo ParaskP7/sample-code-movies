@@ -20,9 +20,6 @@ object Plugins {
         // Releases: https://github.com/detekt/detekt/releases
         const val DETEKT = "1.16.0" // Released: 10-03-21
 
-        // Releases: https://github.com/mannodermaus/android-junit5/releases (not working with 'dependencyUpdates')
-        const val ANDROID_J_UNIT_5 = "1.7.1.1" // Released: 11-02-20
-
         // Releases: https://github.com/ben-manes/gradle-versions-plugin/releases
         const val DEPENDENCY_VERSIONS = "0.38.0" // Released: 04-02-21
 
@@ -44,7 +41,6 @@ object Plugins {
     const val ANDROID_MANIFEST = "com.gradleup:auto-manifest-plugin:${Version.ANDROID_MANIFEST}"
     const val DETEKT = "io.gitlab.arturbosch.detekt:detekt-gradle-plugin:${Version.DETEKT}"
     const val DETEKT_FORMATTING = "io.gitlab.arturbosch.detekt:detekt-formatting:${Version.DETEKT}"
-    const val ANDROID_J_UNIT_5 = "de.mannodermaus.gradle.plugins:android-junit5:${Version.ANDROID_J_UNIT_5}"
     const val DEPENDENCY_VERSIONS = "com.github.ben-manes:gradle-versions-plugin:${Version.DEPENDENCY_VERSIONS}"
     const val DEPENDENCY_ANALYSIS = "com.autonomousapps:dependency-analysis-gradle-plugin:${Version.DEPENDENCY_ANALYSIS}"
     const val GRADLE_DOCTOR = "com.osacky.doctor:doctor-plugin:${Version.GRADLE_DOCTOR}"
@@ -81,12 +77,6 @@ object Plugins {
         }
 
         object Test {
-
-            object Android {
-
-                const val J_UNIT_5 = "de.mannodermaus.android-junit5"
-
-            }
 
             const val JACOCO = "jacoco"
             const val COVERAGE = "io.petros.movies.coverage"
