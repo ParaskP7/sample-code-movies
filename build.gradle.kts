@@ -488,7 +488,7 @@ fun KotlinJvmOptions.kotlinOptions() {
 }
 
 fun DependencyUpdatesTask.versionsOptions() {
-    rejectVersionIf { isNonStable(candidate.version) }
+    rejectVersionIf { isAlpha(candidate.version) || isMilestone(candidate.version) }
     gradleReleaseChannel = Config.Dependency.Versions.GRADLE_RELEASE_CHANNEL
     checkConstraints = false
     checkForGradleUpdate = true
@@ -497,6 +497,7 @@ fun DependencyUpdatesTask.versionsOptions() {
     reportfileName = Config.Dependency.Versions.REPORT_FILE_NAME
 }
 
+@Suppress("unused")
 fun isNonStable(version: String): Boolean {
     val regex = Config.Dependency.Versions.REGEX.toRegex()
     val stableKeyword = Config.Dependency.Versions.stableKeyword.any { version.toUpperCase().contains(it) }
@@ -504,6 +505,12 @@ fun isNonStable(version: String): Boolean {
     val isStable = !nonStableKeyword && (stableKeyword || regex.matches(version))
     return isStable.not()
 }
+
+fun isAlpha(version: String) =
+    Config.Dependency.Versions.alphaKeyword.any { version.toLowerCase().contains(it) }
+
+fun isMilestone(version: String) =
+    Config.Dependency.Versions.milestoneKeyword.any { version.toUpperCase().contains(it) }
 
 /* SOURCE SET EXTENSION FUNCTIONS - KOTLIN */
 

@@ -143,8 +143,10 @@ object Config {
             const val REPORT_FILE_NAME = "advice"
 
             const val REGEX = "^[0-9,.v-]+(-r)?$"
+            val alphaKeyword = listOf("alpha")
+            val milestoneKeyword = listOf("M1")
             val stableKeyword = listOf("RELEASE", "FINAL", "GA")
-            val nonStableKeyword = listOf("M1")
+            val nonStableKeyword = listOf<String>() + milestoneKeyword
 
         }
 
