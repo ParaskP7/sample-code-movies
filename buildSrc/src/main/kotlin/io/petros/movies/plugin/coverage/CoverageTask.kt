@@ -115,7 +115,17 @@ open class CoverageTask : DefaultTask() {
         while (coverageTypeSentence.length < COVERAGE_TYPE_SENTENCE_LENGTH) coverageTypeSentence += SPACE
         val actualCoverageMetricSentence = "$actualCoverageMetric$PERCENT"
         val expectedCoverageMetricSentence = "(expecting $expectedCoverageMetric$PERCENT)"
-        return "$coverageTypeSentence $actualCoverageMetricSentence $expectedCoverageMetricSentence)"
+        val diff = actualCoverageMetric - expectedCoverageMetric
+        val coverageResult = coverageTypeSentence + SPACE +
+                actualCoverageMetricSentence + SPACE +
+                expectedCoverageMetricSentence
+        return if (diff == 0.0) {
+            coverageResult
+        } else {
+            val diffCoverageMetricSentence = "- diff: " + if (diff > 0.0) "+$diff" else diff
+            coverageResult + SPACE +
+                    diffCoverageMetricSentence
+        }
     }
 
     private fun printMetricsResults(results: Pair<MutableList<String>, MutableList<String>>) {
