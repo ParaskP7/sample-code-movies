@@ -69,12 +69,17 @@ plugins {
     id(Plugins.Id.Kotlin.Android.ANDROID_MANIFEST) version Plugins.Version.ANDROID_MANIFEST
     id(Plugins.Id.Dependency.ANALYSIS) version Plugins.Version.DEPENDENCY_ANALYSIS
     id(Plugins.Id.Gradle.DOCTOR) version Plugins.Version.GRADLE_DOCTOR
+    id(Plugins.Id.Gradle.JETIFIER) version Plugins.Version.GRADLE_JETIFIER
 }
 
 autoManifest {
     packageName.set(App.APPLICATION_ID)
     applyRecursively.set(true)
     replaceDashesWithDot.set(true)
+}
+
+byeByeJetifier {
+    excludedFilesFromScanning = excludedFilesFromScanning + Config.Dependency.Jetifier.excludedFilesFromScanning
 }
 
 dependencyAnalysis {

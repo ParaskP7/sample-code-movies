@@ -150,6 +150,15 @@ object Config {
 
         }
 
+        object Jetifier {
+
+            val excludedFilesFromScanning = listOf(
+                // com.squareup.leakcanary:com.squareup.curtains:curtains:1.0.1
+                "curtains/internal/WindowCallbackWrapper"
+            )
+
+        }
+
         object Analysis {
 
             object Issue {
