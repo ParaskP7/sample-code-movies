@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <resources>
 
+    <!-- Basic -->
+    <color name="fontBlackDisable">#50000000</color>
+    <color name="fontBlackEnable">#000000</color>
+    <color name="fontWhiteDisable">#85FFFFFF</color>
+    <color name="fontWhiteEnable">#FFF</color>
+
     <!-- Background -->
-    <color name="monthBgSelectedColor">@color/colorPrimary</color>
+    <color name="pickerBgSelectedColor">@color/colorPrimary</color>
 
     <!-- Font -->
-    <color name="monthFontColorNormal">@color/colorPrimary</color>
+    <color name="pickerFontColorNormal">@color/colorPrimary</color>
 
     <!-- Header -->
     <color name="headerBgColor">@color/colorPrimary</color>

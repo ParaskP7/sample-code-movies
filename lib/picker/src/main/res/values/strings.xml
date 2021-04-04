@@ -2,6 +2,11 @@
 
 <resources>
 
+    <!-- Basic -->
+    <string name="label_month">MONTH</string>
+    <string name="label_year">YEAR</string>
+
+    <!-- Dialog -->
     <string name="dlgMovieYear">Select Movie Year</string>
     <string name="dlgMovieMonth">Select Movie Month</string>
 

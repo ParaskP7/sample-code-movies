@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <resources>
 
     <!-- Background -->
-    <color name="monthBgSelectedColor">@color/colorPrimaryVariant</color>
+    <color name="pickerBgSelectedColor">@color/colorPrimaryVariant</color>
 
     <!-- Font -->
-    <color name="monthFontColorNormal">@color/colorPrimaryVariant</color>
+    <color name="pickerFontColorNormal">@color/colorPrimaryVariant</color>
 
     <!-- Header -->
     <color name="headerBgColor">@color/colorPrimaryVariant</color>

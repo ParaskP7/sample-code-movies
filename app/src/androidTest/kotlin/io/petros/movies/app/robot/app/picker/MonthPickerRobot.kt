@@ -8,7 +8,7 @@ import io.petros.movies.app.robot.utils.textMatcher
 import io.petros.movies.lib.picker.R
 
 @Suppress("ForbiddenComment")
-class MonthPickerRobot : ScopedActions(idMatcher(R.id.monthPicker)) {
+class MonthPickerRobot : ScopedActions(idMatcher(R.id.picker)) {
 
     companion object {
 

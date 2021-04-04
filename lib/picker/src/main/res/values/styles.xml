@@ -1,16 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<resources xmlns:tools="http://schemas.android.com/tools" >
+<resources>
 
-    <!-- Do not change style name as it is being used to override 'monthandyearpicker' library's theme. -->
-    <style name="MonthPickerDialogStyle" tools:ignore="UnusedResources">
+    <declare-styleable name="PickerView">
+        <attr name="headerTitleColor" format="color" />
+        <attr name="headerBgColor" format="color" />
+        <attr name="headerFontColorSelected" format="color" />
+        <attr name="headerFontColorNormal" format="color" />
+        <attr name="pickerBgColor" format="color" />
+        <attr name="pickerBgSelectedColor" format="color" />
+        <attr name="pickerFontColorSelected" format="color" />
+        <attr name="pickerFontColorNormal" format="color" />
+        <attr name="pickerFontColorDisabled" format="color" />
+        <attr name="dialogActionButtonColor" format="color" />
+    </declare-styleable>
+
+    <style name="PickerViewStyle">
+        <!-- Customize picker theme here. -->
         <!-- Background -->
-        <item name="monthBgColor">@color/colorBackground</item>
-        <item name="monthBgSelectedColor">@color/monthBgSelectedColor</item>
+        <item name="pickerBgColor">@color/colorBackground</item>
+        <item name="pickerBgSelectedColor">@color/pickerBgSelectedColor</item>
         <!-- Font -->
-        <item name="monthFontColorNormal">?android:attr/textColorPrimary</item>
+        <!-- <item name="pickerFontColorSelected">#ffffff</item> -->
+        <item name="pickerFontColorNormal">?android:attr/textColorPrimary</item>
+        <!-- <item name="pickerFontColorDisabled">#33000000</item> -->
         <!-- Header -->
         <item name="headerBgColor">@color/headerBgColor</item>
+        <!-- <item name="headerFontColorSelected">#ffffff</item> -->
+        <!-- <item name="headerFontColorNormal">#85ffffff</item> -->
+        <!-- <item name="headerTitleColor">#ffffff</item> -->
         <!-- Dialog -->
         <item name="dialogActionButtonColor">@color/dialogActionButtonColor</item>
     </style>

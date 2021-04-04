@@ -220,13 +220,6 @@ object Versions {
 
     }
 
-    object Util {
-
-        // Releases: https://mvnrepository.com/artifact/com.whiteelephant/monthandyearpicker
-        const val MONTH_YEAR_PICKER = "1.3.0" // Released: 04-09-18
-
-    }
-
     object Log {
 
         // Releases: https://github.com/JakeWharton/timber/releases

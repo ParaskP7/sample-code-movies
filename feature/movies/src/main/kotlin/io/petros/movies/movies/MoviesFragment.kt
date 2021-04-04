@@ -24,8 +24,8 @@ import io.petros.movies.movies.list.item.MovieItemCallback
 import io.petros.movies.movies.stateful.moviesstate.StatefulMoviesState
 import io.petros.movies.movies.stateful.moviesstate.stateful
 import io.petros.movies.movies.toolbar.MoviesToolbarCallback
-import io.petros.movies.picker.MovieMonthPickerFragment
-import io.petros.movies.picker.MovieYearPickerFragment
+import io.petros.movies.picker.movie.MovieMonthPickerFragment
+import io.petros.movies.picker.movie.MovieYearPickerFragment
 import io.petros.movies.utils.slash
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -237,7 +237,8 @@ class MoviesFragment : MviFragment<
     }
 
     private fun onYearClickedOnline() {
-        MovieYearPickerFragment { year -> onYearPicked(year) }
+        MovieYearPickerFragment()
+            .onYearPicked { year -> onYearPicked(year) }
             .show(parentFragmentManager)
     }
 
@@ -258,7 +259,8 @@ class MoviesFragment : MviFragment<
     }
 
     private fun onMonthClickedOnline() {
-        MovieMonthPickerFragment { month -> onMonthPicked(month) }
+        MovieMonthPickerFragment()
+            .onMonthPicked { month -> onMonthPicked(month) }
             .show(parentFragmentManager)
     }
 

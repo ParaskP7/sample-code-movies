@@ -18,8 +18,9 @@ dependencies {
     implementation(project(Projects.Implementation.Android.Core.CORE))
 
     implementation(Deps.Android.Core.APP_COMPAT)
+    implementation(Deps.Android.Core.APP_COMPAT_RESOURCES)
     implementation(Deps.Android.Core.FRAGMENT)
-    api(Deps.Util.MONTH_YEAR_PICKER) // Usage of api is required because of 'MovieActivity', which cannot access it.
+    implementation(Deps.Log.TIMBER)
 
     detektPlugins(Plugins.DETEKT_FORMATTING)
 }

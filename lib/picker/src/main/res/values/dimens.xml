@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+    <!-- Basic -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="picker_view_animator_height">50dp</dimen>
+    <dimen name="picker_year_label_height">50dp</dimen>
+
+</resources>

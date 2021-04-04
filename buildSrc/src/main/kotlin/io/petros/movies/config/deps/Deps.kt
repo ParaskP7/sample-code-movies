@@ -56,6 +56,7 @@ object Deps {
         object Core {
 
             val APP_COMPAT = "androidx.appcompat:appcompat:${Versions.Android.Core.APP_COMPAT_RC}"
+            val APP_COMPAT_RESOURCES = "androidx.appcompat:appcompat-resources:${Versions.Android.Core.APP_COMPAT_RC}"
             val FRAGMENT = "androidx.fragment:fragment:${Versions.Android.Core.FRAGMENT}"
             val RECYCLER_VIEW = "androidx.recyclerview:recyclerview:${Versions.Android.Core.RECYCLER_VIEW_RC}"
             val CONSTRAINT_LAYOUT =
@@ -287,12 +288,6 @@ object Deps {
             val GLIDE = "com.github.bumptech.glide:glide:${Versions.Image.Glide.GLIDE}"
 
         }
-
-    }
-
-    object Util {
-
-        val MONTH_YEAR_PICKER = "com.whiteelephant:monthandyearpicker:${Versions.Util.MONTH_YEAR_PICKER}"
 
     }
 

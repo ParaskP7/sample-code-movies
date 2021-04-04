@@ -7,7 +7,7 @@ import io.petros.movies.app.robot.utils.idMatcher
 import io.petros.movies.app.robot.utils.textMatcher
 import io.petros.movies.lib.picker.R
 
-class YearPickerRobot : ScopedActions(idMatcher(R.id.monthPicker)) {
+class YearPickerRobot : ScopedActions(idMatcher(R.id.picker)) {
 
     companion object {
 
