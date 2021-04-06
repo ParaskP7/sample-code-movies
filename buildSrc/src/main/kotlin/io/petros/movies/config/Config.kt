@@ -144,7 +144,7 @@ object Config {
 
             const val REGEX = "^[0-9,.v-]+(-r)?$"
             val alphaKeyword = listOf("alpha")
-            val milestoneKeyword = listOf("M1")
+            val milestoneKeyword = listOf("M1", "M2")
             val stableKeyword = listOf("RELEASE", "FINAL", "GA")
             val nonStableKeyword = listOf<String>() + milestoneKeyword
 
