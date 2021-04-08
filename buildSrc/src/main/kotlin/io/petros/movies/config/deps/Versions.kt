@@ -41,8 +41,7 @@ object Versions {
             const val FRAGMENT = "1.3.2" // Released: 24-03-21
 
             // Releases: https://developer.android.com/jetpack/androidx/releases/recyclerview
-            @Suppress("unused") const val RECYCLER_VIEW = "1.1.0" // Released: 20-11-19
-            const val RECYCLER_VIEW_RC = "1.2.0-rc01" // Released: 24-03-21
+            const val RECYCLER_VIEW = "1.2.0" // Released: 07-04-21
 
             // Releases: https://developer.android.com/jetpack/androidx/releases/constraintlayout
             @Suppress("unused") const val CONSTRAINT_LAYOUT = "2.0.4" // Released: 29-10-20
