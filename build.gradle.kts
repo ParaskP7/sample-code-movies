@@ -44,6 +44,7 @@ import org.jetbrains.kotlin.gradle.plugin.KotlinPluginWrapper as KotlinPlugin
 
 /* BUILD SCRIPT */
 
+@Suppress("JcenterRepositoryObsolete")
 buildscript {
     repositories {
         google()
@@ -121,6 +122,7 @@ dependencyAnalysis {
 
 /* PROJECTS CONFIGURATION */
 
+@Suppress("JcenterRepositoryObsolete")
 allprojects {
     val githubUsername = findLocalProperty(LocalProperties.GitHub.USERNAME)
     val githubPassword = findLocalProperty(LocalProperties.GitHub.PASSWORD)
@@ -128,6 +130,7 @@ allprojects {
     repositories {
         google()
         jcenter()
+        mavenCentral()
         maven(Repos.Url.Kotlin.KOTLIN_EAP)
         maven(Repos.Url.GitHub.STATEFUL) {
             credentials {

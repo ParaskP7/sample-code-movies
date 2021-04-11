@@ -36,6 +36,6 @@ object Repos {
 }
 
 repositories {
-    jcenter()
+    mavenCentral()
     maven(Repos.Url.Kotlin.KOTLIN_EAP)
 }
