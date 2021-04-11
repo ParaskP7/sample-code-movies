@@ -12,6 +12,7 @@ plugins {
     id(Plugins.Id.Dependency.VERSIONS)
 }
 
+@Suppress("SpreadOperator")
 android {
     buildFeatures {
         viewBinding = true

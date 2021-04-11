@@ -24,7 +24,7 @@ plugins {
     id(Plugins.Id.Module.GRAPH_ASSERT) version Plugins.Version.MODULE_GRAPH_ASSERT
 }
 
-@Suppress("COMPATIBILITY_WARNING")
+@Suppress("COMPATIBILITY_WARNING", "SpreadOperator")
 android {
     defaultConfig { defaultConfig() }
     buildTypes { buildTypes() }

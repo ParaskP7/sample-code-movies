@@ -10,6 +10,8 @@ plugins {
     id(Plugins.Id.Quality.DETEKT)
     id(Plugins.Id.Dependency.VERSIONS)
 }
+
+@Suppress("SpreadOperator")
 android.lintOptions {
     disable(*io.petros.movies.config.Config.Lint.disabledLibIssues)
 }
