@@ -42,7 +42,6 @@ object Config {
         )
 
         val disabledAppIssues = arrayOf(
-            "InvalidFragmentVersionForActivityResult", // From Gradle version 6.7-rc-1 and onwards
             "ConvertToWebp", // From Android Gradle Plugin version 7.0.0-alpha01 and onwards
         )
 
