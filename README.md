@@ -152,7 +152,7 @@ Add the 'gradle.ignored.variants' property and assign that to a value. This valu
 there will be then filtered out by the build.
 ```
 This is mainly done in order to speed up build times and complexity during development, thus making developers happier since 
-in most cases developers usually only care about the'debug' build type (and a single build flavor, if that is even available).
+in most cases developers usually only care about the 'debug' build type (and a single build flavor, if that is even available).
 ```
 
 # Building The Project
@@ -340,7 +340,7 @@ Below is a list of all those ```I REALLY WANNA DO``` future architecture and lib
     ```(Dark theme is available in Android 10 (API level 29) and higher)```
 24. **![#2cb42c](https://placehold.it/15/2cb42c/000000?text=+) `DONE`** Enhance MVVM with MVI.
     To get an understanding of MVI and how it applies to MVVM (or MVP), start with this Article [MVI](http://hannesdorfmann.com/android/model-view-intent)
-    ```(Model-View_Intent, is an architecture enhancment that tries to solve the state problem, which most complex application have, especially when the screen complexity grows)```
+    ```(Model-View_Intent, is an architecture enhancement that tries to solve the state problem, which most complex application have, especially when the screen complexity grows)```
 25. **![#2cb42c](https://placehold.it/15/2cb42c/000000?text=+) `DONE`** Replace Manual Navigation with the Navigation Architecture Component.
     For more info, see [Navigation Architecture Component](https://developer.android.com/topic/libraries/architecture/navigation)
     ```(The Navigation Architecture Component simplifies the implementation of navigation in an Android app)```
