@@ -104,9 +104,10 @@ object Deps {
 
             }
 
+            @Suppress("unused")
             object SavedState {
 
-                @Suppress("unused") val SAVED_STATE =
+                val SAVED_STATE =
                     "androidx.savedstate:savedstate:${Versions.Android.Arch.SavedState.SAVED_STATE}"
 
             }
