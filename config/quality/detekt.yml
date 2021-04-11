@@ -457,10 +457,10 @@ formatting:
     active: true
     autoCorrect: true
   SpacingBetweenDeclarationsWithAnnotations:
-    active: true
+    active: false
     autoCorrect: true
   SpacingBetweenDeclarationsWithComments:
-    active: true
+    active: false
     autoCorrect: true
   StringTemplate:
     active: true
