@@ -25,7 +25,7 @@ object Logs {
 
     val events = arrayOf(
         TestLogEvent.SKIPPED,
-        TestLogEvent.FAILED
+        TestLogEvent.FAILED,
     )
 
     val debugEvents = arrayOf(
@@ -34,7 +34,7 @@ object Logs {
         TestLogEvent.SKIPPED,
         TestLogEvent.FAILED,
         TestLogEvent.STANDARD_OUT,
-        TestLogEvent.STANDARD_ERROR
+        TestLogEvent.STANDARD_ERROR,
     )
 
     /**

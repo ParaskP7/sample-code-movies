@@ -38,7 +38,7 @@ dependencyAnalysis {
                 Deps.Android.Arch.Database.Room.RUNTIME.identifier(), // Ignore change to 'api' advice.
                 Deps.Android.Arch.Pagination.COMMON.identifier(), // Ignore change to 'api' advice.
                 Deps.Di.Koin.Kotlin.CORE.identifier(), // Ignore change to 'api' advice.
-                Deps.Di.Koin.Kotlin.CORE_JVM.identifier() // Ignore change to 'api' advice.
+                Deps.Di.Koin.Kotlin.CORE_JVM.identifier(), // Ignore change to 'api' advice.
             )
         }
     }

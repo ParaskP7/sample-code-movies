@@ -37,7 +37,7 @@ dependencyAnalysis {
         onIncorrectConfiguration {
             exclude(
                 Deps.Di.Koin.Kotlin.CORE.identifier(), // Ignore change to 'api' advice.
-                Deps.Di.Koin.Kotlin.CORE_JVM.identifier() // Ignore change to 'api' advice.
+                Deps.Di.Koin.Kotlin.CORE_JVM.identifier(), // Ignore change to 'api' advice.
             )
         }
     }

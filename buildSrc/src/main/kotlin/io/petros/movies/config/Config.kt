@@ -17,7 +17,9 @@ object Config {
 
         object Options {
 
-            val freeCompilerArgs = listOf("-Xopt-in=kotlin.RequiresOptIn")
+            val freeCompilerArgs = listOf(
+                "-Xopt-in=kotlin.RequiresOptIn",
+            )
 
         }
 
@@ -36,20 +38,20 @@ object Config {
             "UnsafeExperimentalUsageError",
             "UnsafeExperimentalUsageWarning",
             "ObsoleteLintCustomCheck",
-            "UnknownIssueId"
+            "UnknownIssueId",
         )
 
         val disabledAppIssues = arrayOf(
             "InvalidFragmentVersionForActivityResult", // From Gradle version 6.7-rc-1 and onwards
-            "ConvertToWebp" // From Android Gradle Plugin version 7.0.0-alpha01 and onwards
+            "ConvertToWebp", // From Android Gradle Plugin version 7.0.0-alpha01 and onwards
         )
 
         val disabledCoreIssues = arrayOf(
-            "UnusedResources" // From Android Gradle Plugin version 7.0.0-alpha01 and onwards
+            "UnusedResources", // From Android Gradle Plugin version 7.0.0-alpha01 and onwards
         )
 
         val disabledLibIssues = arrayOf(
-            "UnusedResources" // From Android Gradle Plugin version 7.0.0-alpha01 and onwards
+            "UnusedResources", // From Android Gradle Plugin version 7.0.0-alpha01 and onwards
         )
 
     }
@@ -64,7 +66,10 @@ object Config {
 
         object Robolectric {
 
-            val excludes = listOf("jdk.internal.*")
+            val excludes = listOf(
+                "jdk.internal.*",
+            )
+
         }
 
         private const val REPORT_DIRECTORY_PATH = "build/reports/jacoco"
@@ -89,7 +94,7 @@ object Config {
 
             fun excludesPair(isKotlinModule: Boolean): Pair<String, Any> {
                 val kotlinExcludes = listOf(
-                    "**/*Module*.*"
+                    "**/*Module*.*",
                 )
                 val androidExcludes = listOf(
                     "**/*Activity*.*",
@@ -98,7 +103,7 @@ object Config {
                     "**/*Stateful*.*",
                     "**/*Module*.*",
                     "**/*Binding*.*",
-                    "**/*Glide*.*"
+                    "**/*Glide*.*",
                 )
                 return "excludes" to if (isKotlinModule) kotlinExcludes else androidExcludes
             }
@@ -114,10 +119,10 @@ object Config {
 
             fun includePair(isKotlinModule: Boolean): Pair<String, Any> {
                 val kotlinExecutionData = listOf(
-                    "jacoco/test.exec"
+                    "jacoco/test.exec",
                 )
                 val androidExecutionData = listOf(
-                    "jacoco/testDebugUnitTest.exec"
+                    "jacoco/testDebugUnitTest.exec",
                 )
                 return "include" to if (isKotlinModule) kotlinExecutionData else androidExecutionData
             }
@@ -143,9 +148,18 @@ object Config {
             const val REPORT_FILE_NAME = "advice"
 
             const val REGEX = "^[0-9,.v-]+(-r)?$"
-            val alphaKeyword = listOf("alpha")
-            val milestoneKeyword = listOf("M1", "M2")
-            val stableKeyword = listOf("RELEASE", "FINAL", "GA")
+            val alphaKeyword = listOf(
+                "alpha",
+            )
+            val milestoneKeyword = listOf(
+                "M1",
+                "M2",
+            )
+            val stableKeyword = listOf(
+                "RELEASE",
+                "FINAL",
+                "GA",
+            )
             val nonStableKeyword = listOf<String>() + milestoneKeyword
 
         }
@@ -154,7 +168,7 @@ object Config {
 
             val excludedFilesFromScanning = listOf(
                 // com.squareup.leakcanary:com.squareup.curtains:curtains:1.0.1
-                "curtains/internal/WindowCallbackWrapper"
+                "curtains/internal/WindowCallbackWrapper",
             )
 
         }
@@ -182,10 +196,19 @@ object Config {
 
             const val MAX_HEIGHT = 5
 
-            val moduleLayers = arrayOf(":feature:\\S*", ":lib:\\S*", ":core\\S*")
+            val moduleLayers = arrayOf(
+                ":feature:\\S*",
+                ":lib:\\S*",
+                ":core\\S*",
+            )
             val moduleLayersExclude = emptyArray<String>()
-            val restricted = arrayOf(":feature-[a-z]* -X> :forbidden-to-depend-on")
-            val configurations = setOf("api", "implementation")
+            val restricted = arrayOf(
+                ":feature-[a-z]* -X> :forbidden-to-depend-on",
+            )
+            val configurations = setOf(
+                "api",
+                "implementation",
+            )
 
         }
 

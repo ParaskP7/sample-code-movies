@@ -85,7 +85,7 @@ dependencyAnalysis {
     issues {
         onUnusedDependencies {
             exclude(
-                Deps.Android.Arch.Navigation.FRAGMENT_KTX.identifier() // Ignore remove advise. Required for navigation.
+                Deps.Android.Arch.Navigation.FRAGMENT_KTX.identifier(), // Ignore remove advise. Required for nav.
             )
         }
     }

@@ -32,7 +32,7 @@ dependencyAnalysis {
             exclude(
                 Deps.Android.Core.FRAGMENT.identifier(), // Ignore change to 'api' advice.
                 Deps.Android.Arch.Lifecycle.COMMON.identifier(), // Ignore change to 'api' advice.
-                Deps.Android.Arch.Lifecycle.LIVE_DATA_CORE.identifier() // Ignore change to 'api' advice.
+                Deps.Android.Arch.Lifecycle.LIVE_DATA_CORE.identifier(), // Ignore change to 'api' advice.
             )
         }
     }

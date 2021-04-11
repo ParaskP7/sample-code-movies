@@ -49,7 +49,7 @@ dependencyAnalysis {
                 Deps.Android.Core.FRAGMENT.identifier(), // Ignore change to 'api' advice.
                 Deps.Android.Arch.Lifecycle.LIVE_DATA_CORE.identifier(), // Ignore change to 'api' advice.
                 Deps.Android.Arch.Lifecycle.VIEW_MODEL.identifier(), // Ignore change to 'api' advice.
-                Deps.Architecture.Mvi.Stateful.RUNTIME.identifier() // Ignore change to 'api' advice.
+                Deps.Architecture.Mvi.Stateful.RUNTIME.identifier(), // Ignore change to 'api' advice.
             )
         }
     }

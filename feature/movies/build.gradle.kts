@@ -80,7 +80,7 @@ dependencyAnalysis {
                 Deps.Android.Arch.Pagination.RUNTIME.identifier(), // Ignore change to 'api' advice.
                 Deps.Architecture.Mvi.Stateful.RUNTIME.identifier(), // Ignore change to 'api' advice.
                 Deps.Di.Koin.Kotlin.CORE.identifier(), // Ignore change to 'api' advice.
-                Deps.Di.Koin.Kotlin.CORE_JVM.identifier() // Ignore change to 'api' advice.
+                Deps.Di.Koin.Kotlin.CORE_JVM.identifier(), // Ignore change to 'api' advice.
             )
         }
     }

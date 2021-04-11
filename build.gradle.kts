@@ -91,13 +91,13 @@ dependencyAnalysis {
             onUnusedDependencies {
                 severity(Config.Dependency.Analysis.Issue.Severity.FAIL)
                 exclude(
-                    Deps.Kotlin.Core.KOTLIN_JDK8.identifier()
+                    Deps.Kotlin.Core.KOTLIN_JDK8.identifier(),
                 )
             }
             onUsedTransitiveDependencies {
                 severity(Config.Dependency.Analysis.Issue.Severity.FAIL)
                 exclude(
-                    Deps.Kotlin.Core.KOTLIN.identifier()
+                    Deps.Kotlin.Core.KOTLIN.identifier(),
                 )
             }
             onIncorrectConfiguration {
@@ -344,7 +344,7 @@ fun PackagingOptions.packagingOptions() {
             Android.PackagingOption.Exclude.LICENCE_NOTICE,
             Android.PackagingOption.Exclude.AL,
             Android.PackagingOption.Exclude.LGPL,
-            Android.PackagingOption.Exclude.KOTLIN_COROUTINES
+            Android.PackagingOption.Exclude.KOTLIN_COROUTINES,
         )
     }
 }
@@ -436,7 +436,7 @@ fun JacocoReport.jacoco(isKotlinModule: Boolean) {
         project.files(
             project.fileTree(
                 Config.Jacoco.ClassDirectories.dirPair(isKotlinModule),
-                Config.Jacoco.ClassDirectories.excludesPair(isKotlinModule)
+                Config.Jacoco.ClassDirectories.excludesPair(isKotlinModule),
             )
         )
     )
@@ -444,7 +444,7 @@ fun JacocoReport.jacoco(isKotlinModule: Boolean) {
         project.files(
             project.fileTree(
                 Config.Jacoco.ExecutionData.dirPair(),
-                Config.Jacoco.ExecutionData.includePair(isKotlinModule)
+                Config.Jacoco.ExecutionData.includePair(isKotlinModule),
             )
         )
     )
@@ -502,12 +502,12 @@ fun SourceSetContainer.mainSourceSets() {
     named(Sources.MAIN) {
         java.setSrcDirs(
             arrayListOf(
-                Sources.Main.KOTLIN
+                Sources.Main.KOTLIN,
             )
         )
         resources.setSrcDirs(
             arrayListOf(
-                Sources.Main.RESOURCES
+                Sources.Main.RESOURCES,
             )
         )
     }
@@ -519,14 +519,14 @@ fun SourceSetContainer.testSourceSets() {
             arrayListOf(
                 Sources.Test.KOTLIN,
                 Sources.Integration.KOTLIN,
-                Sources.Robolectric.KOTLIN
+                Sources.Robolectric.KOTLIN,
             )
         )
         resources.setSrcDirs(
             arrayListOf(
                 Sources.Test.RESOURCES,
                 Sources.Integration.RESOURCES,
-                Sources.Robolectric.RESOURCES
+                Sources.Robolectric.RESOURCES,
             )
         )
     }
@@ -538,12 +538,12 @@ fun NamedDomainObjectContainer<AndroidSourceSetLegacy>.mainAndroidSourceSets() {
     named(Sources.MAIN) {
         java.setSrcDirs(
             arrayListOf(
-                Sources.Main.KOTLIN
+                Sources.Main.KOTLIN,
             )
         )
         resources.setSrcDirs(
             arrayListOf(
-                Sources.Main.RESOURCES
+                Sources.Main.RESOURCES,
             )
         )
     }
@@ -555,14 +555,14 @@ fun NamedDomainObjectContainer<AndroidSourceSetLegacy>.testAndroidSourceSets() {
             arrayListOf(
                 Sources.Test.KOTLIN,
                 Sources.Integration.KOTLIN,
-                Sources.Robolectric.KOTLIN
+                Sources.Robolectric.KOTLIN,
             )
         )
         resources.setSrcDirs(
             arrayListOf(
                 Sources.Test.RESOURCES,
                 Sources.Integration.RESOURCES,
-                Sources.Robolectric.RESOURCES
+                Sources.Robolectric.RESOURCES,
             )
         )
     }
@@ -572,12 +572,12 @@ fun NamedDomainObjectContainer<AndroidSourceSetLegacy>.androidTestAndroidSourceS
     named(Sources.ANDROID_TEST) {
         java.setSrcDirs(
             arrayListOf(
-                Sources.Android.Test.KOTLIN
+                Sources.Android.Test.KOTLIN,
             )
         )
         resources.setSrcDirs(
             arrayListOf(
-                Sources.Android.Test.RESOURCES
+                Sources.Android.Test.RESOURCES,
             )
         )
     }

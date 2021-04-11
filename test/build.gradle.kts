@@ -33,7 +33,7 @@ dependencyAnalysis {
                 Projects.Implementation.Kotlin.DOMAIN, // Ignore change to 'api' advice.
                 Deps.Kotlin.Coroutines.Test.TEST.identifier(), // Ignore change to 'api' advice.
                 Deps.Test.JUnit.J_UNIT_4.identifier(), // Ignore change to 'api' advice.
-                Deps.Test.Integration.MOCK_WEB_SERVER.identifier() // Ignore change to 'api' advice.
+                Deps.Test.Integration.MOCK_WEB_SERVER.identifier(), // Ignore change to 'api' advice.
             )
         }
     }

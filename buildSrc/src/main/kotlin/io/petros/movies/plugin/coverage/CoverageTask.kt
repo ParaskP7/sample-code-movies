@@ -42,7 +42,10 @@ open class CoverageTask : DefaultTask() {
         return metrics
     }
 
-    private fun coverageMetric(counters: List<Node>, type: String): Double {
+    private fun coverageMetric(
+        counters: List<Node>,
+        type: String,
+    ): Double {
         for (counter in counters) {
             if (counter.attribute(JACOCO_XML_NODE_COUNTER_ATTRIBUTE_TYPE) == type) {
                 val covered = (counter.attribute(JACOCO_XML_NODE_COUNTER_ATTRIBUTE_COVERED) as String).toDouble()
@@ -62,7 +65,7 @@ open class CoverageTask : DefaultTask() {
 
     private fun metricsResults(
         actualCoverageMetrics: Map<String, Double>,
-        expectedCoverageMetrics: Properties
+        expectedCoverageMetrics: Properties,
     ): Pair<MutableList<String>, MutableList<String>> {
         val successes = mutableListOf<String>()
         val failures = mutableListOf<String>()
@@ -82,7 +85,7 @@ open class CoverageTask : DefaultTask() {
     private fun coverageResult(
         coverageType: String,
         actualCoverageMetric: Double,
-        expectedCoverageMetric: Double
+        expectedCoverageMetric: Double,
     ): String {
         var coverageTypeSentence = " $DASH $coverageType coverage is: "
         while (coverageTypeSentence.length < COVERAGE_TYPE_SENTENCE_LENGTH) coverageTypeSentence += SPACE
@@ -101,7 +104,10 @@ open class CoverageTask : DefaultTask() {
         }
     }
 
-    private fun printMetricsResults(results: Pair<MutableList<String>, MutableList<String>>) {
+    private fun printMetricsResults(
+        results: Pair<MutableList<String>,
+                MutableList<String>>,
+    ) {
         val successes = results.first
         val failures = results.second
         if (failures.isNotEmpty()) {
@@ -132,7 +138,7 @@ open class CoverageTask : DefaultTask() {
             "LINE",
             "COMPLEXITY",
             "METHOD",
-            "CLASS"
+            "CLASS",
         )
 
         private const val COVERAGE_TYPE_SENTENCE_LENGTH = 28

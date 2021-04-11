@@ -30,12 +30,12 @@ dependencyAnalysis {
         onUnusedDependencies {
             exclude(
                 Projects.Implementation.Android.Core.CORE, // Ignore remove advise. Required for theme purposes.
-                Deps.Android.Core.APP_COMPAT.identifier() // Ignore remove advise. Else, 'AlertDialog' is unresolved.
+                Deps.Android.Core.APP_COMPAT.identifier(), // Ignore remove advise. Else, 'AlertDialog' is unresolved.
             )
         }
         onIncorrectConfiguration {
             exclude(
-                Deps.Android.Core.FRAGMENT.identifier() // Ignore change to 'api' advice.
+                Deps.Android.Core.FRAGMENT.identifier(), // Ignore change to 'api' advice.
             )
         }
     }

@@ -27,13 +27,13 @@ dependencyAnalysis {
         onUnusedDependencies {
             exclude(
                 Deps.Material.MATERIAL.identifier(), // Ignore remove advise. Required for theme purposes.
-                Deps.Test.JUnit.J_UNIT_4.identifier() // Ignore remove advise. Required because of Robolectric.
+                Deps.Test.JUnit.J_UNIT_4.identifier(), // Ignore remove advise. Required because of Robolectric.
             )
         }
         onIncorrectConfiguration {
             exclude(
                 Deps.Kotlin.Coroutines.Test.TEST.identifier(), // Ignore change to 'api' advice.
-                Deps.Android.Test.Robolectric.ROBOLECTRIC.identifier() // Ignore change to 'api' advice.
+                Deps.Android.Test.Robolectric.ROBOLECTRIC.identifier(), // Ignore change to 'api' advice.
             )
         }
     }

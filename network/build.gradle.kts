@@ -43,7 +43,7 @@ dependencyAnalysis {
                 Projects.Implementation.Kotlin.DOMAIN, // Ignore change to 'api' advice.
                 Deps.Di.Koin.Kotlin.CORE.identifier(), // Ignore change to 'api' advice.
                 Deps.Di.Koin.Kotlin.CORE_JVM.identifier(), // Ignore change to 'api' advice.
-                Deps.Net.Rest.RETROFIT.identifier() // Ignore change to 'api' advice.
+                Deps.Net.Rest.RETROFIT.identifier(), // Ignore change to 'api' advice.
             )
         }
     }
