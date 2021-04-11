@@ -302,7 +302,6 @@ fun LibraryExtension.androidLibrary() {
     variantOptions()
 }
 
-@Suppress("COMPATIBILITY_WARNING")
 fun AppExtension.androidApplication() {
     compileSdkVersion(Android.Sdk.COMPILE)
     defaultConfig { defaultConfig() }
