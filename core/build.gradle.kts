@@ -1,6 +1,5 @@
 @file:Suppress("InvalidPackageDeclaration")
 
-import io.petros.movies.config.Config
 import io.petros.movies.config.deps.Deps
 import io.petros.movies.config.deps.Projects
 import io.petros.movies.config.deps.identifier
@@ -12,13 +11,9 @@ plugins {
     id(Plugins.Id.Dependency.VERSIONS)
 }
 
-@Suppress("SpreadOperator")
 android {
     buildFeatures {
         viewBinding = true
-    }
-    lint {
-        disable(*Config.Lint.disabledCoreIssues)
     }
 }
 

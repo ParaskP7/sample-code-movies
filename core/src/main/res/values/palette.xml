@@ -4,7 +4,7 @@
     https://material.io/resources/color
     NOTE: To find out more about the material style and colors check the link below:
     https://www.google.com/design/spec/style/color.html -->
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="UnusedResources">
 
     <!--red-->
     <color name="red_50">#FFEBEE</color>
