@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Background -->
     <color name="pickerBgSelectedColor">@color/colorPrimaryVariant</color>
 
     <!-- Font -->
-    <color name="pickerFontColorNormal">@color/colorPrimaryVariant</color>
+    <color name="pickerFontColorNormal" tools:ignore="UnusedResources">@color/colorPrimaryVariant</color>
 
     <!-- Header -->
     <color name="headerBgColor">@color/colorPrimaryVariant</color>

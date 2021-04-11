@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Basic -->
     <color name="fontBlackDisable">#50000000</color>
@@ -12,7 +12,7 @@
     <color name="pickerBgSelectedColor">@color/colorPrimary</color>
 
     <!-- Font -->
-    <color name="pickerFontColorNormal">@color/colorPrimary</color>
+    <color name="pickerFontColorNormal" tools:ignore="UnusedResources">@color/colorPrimary</color>
 
     <!-- Header -->
     <color name="headerBgColor">@color/colorPrimary</color>

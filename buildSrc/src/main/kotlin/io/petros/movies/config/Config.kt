@@ -50,10 +50,6 @@ object Config {
             "UnusedResources", // From Android Gradle Plugin version 7.0.0-alpha01 and onwards
         )
 
-        val disabledLibIssues = arrayOf(
-            "UnusedResources", // From Android Gradle Plugin version 7.0.0-alpha01 and onwards
-        )
-
     }
 
     object Detekt {
