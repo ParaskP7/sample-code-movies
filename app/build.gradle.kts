@@ -32,7 +32,7 @@ android {
         viewBinding = true
         buildConfig = true
     }
-    lintOptions {
+    lint {
         disable(*Config.Lint.disabledAppIssues)
     }
 }

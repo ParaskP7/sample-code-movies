@@ -17,7 +17,7 @@ android {
     buildFeatures {
         viewBinding = true
     }
-    lintOptions {
+    lint {
         disable(*Config.Lint.disabledCoreIssues)
     }
 }
