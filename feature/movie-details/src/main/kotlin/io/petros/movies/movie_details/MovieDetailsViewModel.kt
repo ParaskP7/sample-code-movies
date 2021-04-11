@@ -32,13 +32,12 @@ class MovieDetailsViewModel(
 
     private fun loadMovies(id: Int) = viewModelScope.launch {
         state = MovieDetailsReducer.reduce(state, MovieDetailsAction.Load)
-        loadMovieUseCase(LoadMovieUseCase.Params(id))
-            .collectLatest { movie ->
-                when (movie) {
-                    is Result.Success -> onLoadMoviesSuccess(movie.value)
-                    is Result.Error -> onLoadMoviesError(movie.cause)
-                }
+        loadMovieUseCase(LoadMovieUseCase.Params(id)).collectLatest { movie ->
+            when (movie) {
+                is Result.Success -> onLoadMoviesSuccess(movie.value)
+                is Result.Error -> onLoadMoviesError(movie.cause)
             }
+        }
     }
 
     private fun onLoadMoviesSuccess(movie: Movie) {
