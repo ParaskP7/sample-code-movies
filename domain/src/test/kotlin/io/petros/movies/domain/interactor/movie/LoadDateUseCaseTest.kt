@@ -15,13 +15,6 @@ import strikt.assertions.isEqualTo
 @ExperimentalCoroutinesApi
 class LoadDateUseCaseTest {
 
-    companion object {
-
-        private const val MOVIE_YEAR = 2018
-        private const val MOVIE_MONTH = 7
-
-    }
-
     @get:Rule val coroutineScope = MainCoroutineScopeRule()
 
     private val date = Result.Success(Pair(MOVIE_YEAR, MOVIE_MONTH))
@@ -36,6 +29,13 @@ class LoadDateUseCaseTest {
         val result = testedClass()
 
         expect { that(result).isEqualTo(date) }
+    }
+
+    companion object {
+
+        private const val MOVIE_YEAR = 2018
+        private const val MOVIE_MONTH = 7
+
     }
 
 }

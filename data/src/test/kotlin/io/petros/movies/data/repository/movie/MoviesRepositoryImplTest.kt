@@ -23,16 +23,6 @@ import strikt.assertions.isEqualTo
 @ExperimentalCoroutinesApi
 class MoviesRepositoryImplTest {
 
-    companion object {
-
-        private const val SECOND_PAGE = 2
-        private const val MOVIE_YEAR = 2018
-        private const val MOVIE_MONTH = 7
-
-        private const val MOVIE_ID = 419_704
-
-    }
-
     @get:Rule val coroutineScope = MainCoroutineScopeRule()
 
     private val date = Result.Success(Pair(MOVIE_YEAR, MOVIE_MONTH))
@@ -71,6 +61,16 @@ class MoviesRepositoryImplTest {
         val result = testedClass.loadMovieStream(MOVIE_ID)
 
         result.collectLatest { expect { that(it).isEqualTo(movie) } }
+    }
+
+    companion object {
+
+        private const val SECOND_PAGE = 2
+        private const val MOVIE_YEAR = 2018
+        private const val MOVIE_MONTH = 7
+
+        private const val MOVIE_ID = 419_704
+
     }
 
 }

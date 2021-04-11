@@ -18,17 +18,6 @@ import java.io.IOException
 @ExperimentalCoroutinesApi
 class ExceptionsKtTest {
 
-    companion object {
-
-        private const val SECOND_PAGE = 2
-        private const val MOVIE_YEAR = 2018
-        private const val MOVIE_MONTH = 7
-
-        private const val RELEASE_DATE_GTE = "2018-08-01"
-        private const val RELEASE_DATE_LTE = "2018-08-31"
-
-    }
-
     @get:Rule val coroutineScope = MainCoroutineScopeRule()
 
     private val restApiMock = mockk<RestApi>()
@@ -58,6 +47,17 @@ class ExceptionsKtTest {
         val result = NetworkException(Exception()).toError()
 
         expect { that(result).isA<NetworkError>() }
+    }
+
+    companion object {
+
+        private const val SECOND_PAGE = 2
+        private const val MOVIE_YEAR = 2018
+        private const val MOVIE_MONTH = 7
+
+        private const val RELEASE_DATE_GTE = "2018-08-01"
+        private const val RELEASE_DATE_LTE = "2018-08-31"
+
     }
 
 }

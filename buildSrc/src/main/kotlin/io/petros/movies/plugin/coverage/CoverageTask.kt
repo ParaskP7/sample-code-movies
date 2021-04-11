@@ -12,35 +12,6 @@ import java.util.*
 
 open class CoverageTask : DefaultTask() {
 
-    companion object {
-
-        private const val XML_FEATURE_LOAD_EXTERNAL_DTD = "http://apache.org/xml/features/nonvalidating/load-external-dtd"
-        private const val XML_FEATURE_DISALLOW_DOCTYPE_DECL = "http://apache.org/xml/features/disallow-doctype-decl"
-
-        private const val HUNDRED_PERCENT = 100
-        private const val JACOCO_XML_NODE_COUNTER = "counter"
-        private const val JACOCO_XML_NODE_COUNTER_ATTRIBUTE_TYPE = "type"
-        private const val JACOCO_XML_NODE_COUNTER_ATTRIBUTE_COVERED = "covered"
-        private const val JACOCO_XML_NODE_COUNTER_ATTRIBUTE_MISSED = "missed"
-        private val JACOCO_XML_NODE_COUNTER_ATTRIBUTE_TYPE_VALUES = listOf(
-            "INSTRUCTION",
-            "LINE",
-            "COMPLEXITY",
-            "METHOD",
-            "CLASS"
-        )
-
-        private const val COVERAGE_TYPE_SENTENCE_LENGTH = 28
-        private const val SPACE = " "
-        private const val DASH = "-"
-        private const val PERCENT = "%"
-
-        private const val CODE_COVERAGE_SUCCESS_RESULT_LINE = "---------------- Code Coverage Success ----------------"
-        private const val CODE_COVERAGE_FAILURE_RESULT_INE = "---------------- Code Coverage Failure ----------------"
-        private const val CODE_COVERAGE_END_RESULT_LINE = "-------------------------------------------------------"
-
-    }
-
     private val xmlParser = XmlParser().apply {
         setFeature(XML_FEATURE_LOAD_EXTERNAL_DTD, false)
         setFeature(XML_FEATURE_DISALLOW_DOCTYPE_DECL, false)
@@ -143,6 +114,36 @@ open class CoverageTask : DefaultTask() {
             successes.forEach { logger.quiet(it) }
             logger.quiet("\n$CODE_COVERAGE_END_RESULT_LINE")
         }
+    }
+
+    companion object {
+
+        private const val XML_FEATURE_LOAD_EXTERNAL_DTD =
+            "http://apache.org/xml/features/nonvalidating/load-external-dtd"
+        private const val XML_FEATURE_DISALLOW_DOCTYPE_DECL = "http://apache.org/xml/features/disallow-doctype-decl"
+
+        private const val HUNDRED_PERCENT = 100
+        private const val JACOCO_XML_NODE_COUNTER = "counter"
+        private const val JACOCO_XML_NODE_COUNTER_ATTRIBUTE_TYPE = "type"
+        private const val JACOCO_XML_NODE_COUNTER_ATTRIBUTE_COVERED = "covered"
+        private const val JACOCO_XML_NODE_COUNTER_ATTRIBUTE_MISSED = "missed"
+        private val JACOCO_XML_NODE_COUNTER_ATTRIBUTE_TYPE_VALUES = listOf(
+            "INSTRUCTION",
+            "LINE",
+            "COMPLEXITY",
+            "METHOD",
+            "CLASS"
+        )
+
+        private const val COVERAGE_TYPE_SENTENCE_LENGTH = 28
+        private const val SPACE = " "
+        private const val DASH = "-"
+        private const val PERCENT = "%"
+
+        private const val CODE_COVERAGE_SUCCESS_RESULT_LINE = "---------------- Code Coverage Success ----------------"
+        private const val CODE_COVERAGE_FAILURE_RESULT_INE = "---------------- Code Coverage Failure ----------------"
+        private const val CODE_COVERAGE_END_RESULT_LINE = "-------------------------------------------------------"
+
     }
 
 }

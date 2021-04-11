@@ -18,18 +18,6 @@ import java.util.*
 @ExperimentalCoroutinesApi
 class RestClientTest {
 
-    companion object {
-
-        private const val SECOND_PAGE = 2
-        private const val MOVIE_ID = 419_704
-        private const val MOVIE_YEAR = 2018
-        private const val MOVIE_MONTH = 7
-
-        private const val RELEASE_DATE_GTE = "2018-08-01"
-        private const val RELEASE_DATE_LTE = "2018-08-31"
-
-    }
-
     @get:Rule val coroutineScope = MainCoroutineScopeRule()
 
     private val restApiMock = mockk<RestApi>()
@@ -81,6 +69,18 @@ class RestClientTest {
         val result = testedClass.loadMovie(MOVIE_ID)
 
         expect { that(result).isEqualTo(movie) }
+    }
+
+    companion object {
+
+        private const val SECOND_PAGE = 2
+        private const val MOVIE_ID = 419_704
+        private const val MOVIE_YEAR = 2018
+        private const val MOVIE_MONTH = 7
+
+        private const val RELEASE_DATE_GTE = "2018-08-01"
+        private const val RELEASE_DATE_LTE = "2018-08-31"
+
     }
 
 }

@@ -9,6 +9,14 @@ import io.petros.movies.feature.movies.R
 @Suppress("ForbiddenComment")
 class MoviesToolbarRobot : ScopedActions(idMatcher(R.id.toolbar)) {
 
+    fun inFilterIcon(action: UiActions.() -> Actions) = UiActions(idMatcher(R.id.ivToolbarFilterIcon)).action()
+
+    fun inCloseIcon(action: UiActions.() -> Actions) = UiActions(idMatcher(R.id.ivToolbarCloseIcon)).action()
+
+    fun inYearFilter(action: UiActions.() -> Actions) = UiActions(idMatcher(R.id.tvToolbarFilterYear)).action()
+
+    fun inMonthFilter(action: UiActions.() -> Actions) = UiActions(idMatcher(R.id.tvToolbarFilterMonth)).action()
+
     companion object {
 
         const val MOVIES_TOOLBAR_FILTER_YEAR = "Year"
@@ -23,13 +31,5 @@ class MoviesToolbarRobot : ScopedActions(idMatcher(R.id.toolbar)) {
         @Suppress("unused") const val MOVIES_TOOLBAR_FILTER_MONTH_MARCH = "March"
 
     }
-
-    fun inFilterIcon(action: UiActions.() -> Actions) = UiActions(idMatcher(R.id.ivToolbarFilterIcon)).action()
-
-    fun inCloseIcon(action: UiActions.() -> Actions) = UiActions(idMatcher(R.id.ivToolbarCloseIcon)).action()
-
-    fun inYearFilter(action: UiActions.() -> Actions) = UiActions(idMatcher(R.id.tvToolbarFilterYear)).action()
-
-    fun inMonthFilter(action: UiActions.() -> Actions) = UiActions(idMatcher(R.id.tvToolbarFilterMonth)).action()
 
 }

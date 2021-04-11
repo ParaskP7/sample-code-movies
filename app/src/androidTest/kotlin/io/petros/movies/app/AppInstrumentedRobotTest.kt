@@ -31,93 +31,6 @@ import org.junit.runner.RunWith
 @RunWith(AndroidJUnit4::class)
 class AppInstrumentedRobotTest {
 
-    companion object {
-
-        private const val THREAD_SLEEP_MILLIS = 1000L
-
-        // MOCK RESPONSES
-
-        private const val MOVIES_DIR = "responses/movies"
-
-        private const val NO_FILTER_MOVIES_PAGE_1_FILE = "$MOVIES_DIR/no_filter_movies_page_1.json"
-        private const val NO_FILTER_MOVIES_PAGE_2_FILE = "$MOVIES_DIR/no_filter_movies_page_2.json"
-        private const val NO_FILTER_MOVIES_PAGE_3_FILE = "$MOVIES_DIR/no_filter_movies_page_3.json"
-        private const val NO_FILTER_MOVIES_PAGE_4_FILE = "$MOVIES_DIR/no_filter_movies_page_4.json"
-        private const val YEAR_FILTER_MOVIES_PAGE_1_FILE = "$MOVIES_DIR/year_filter_movies_page_1.json"
-        private const val YEAR_FILTER_MOVIES_PAGE_2_FILE = "$MOVIES_DIR/year_filter_movies_page_2.json"
-        private const val YEAR_FILTER_MOVIES_PAGE_3_FILE = "$MOVIES_DIR/year_filter_movies_page_3.json"
-        private const val YEAR_FILTER_MOVIES_PAGE_4_FILE = "$MOVIES_DIR/year_filter_movies_page_4.json"
-        private const val YEAR_AND_MONTH_FILTER_MOVIES_PAGE_1_FILE = "$MOVIES_DIR/year_and_month_filter_movies_page_1.json"
-        private const val YEAR_AND_MONTH_FILTER_MOVIES_PAGE_2_FILE = "$MOVIES_DIR/year_and_month_filter_movies_page_2.json"
-        private const val YEAR_AND_MONTH_FILTER_MOVIES_PAGE_3_FILE = "$MOVIES_DIR/year_and_month_filter_movies_page_3.json"
-        private const val YEAR_AND_MONTH_FILTER_MOVIES_PAGE_4_FILE = "$MOVIES_DIR/year_and_month_filter_movies_page_4.json"
-
-        // NO FILTER
-
-        private const val SONIC_THE_HEDGEHOG_ITEM_POSITION = 1
-        private const val SONIC_THE_HEDGEHOG_ITEM_TITLE = "Sonic the Hedgehog"
-        private const val SONIC_THE_HEDGEHOG_ITEM_RELEASE_DATE = "2020 (February)"
-        private const val SONIC_THE_HEDGEHOG_ITEM_VOTE = "7.6 ★ (3013)"
-        private const val SONIC_THE_HEDGEHOG_ITEM_OVERVIEW =
-            "Based on the global blockbuster videogame franchise from Sega, Sonic the Hedgehog tells the story of the " +
-                    "world’s speediest hedgehog as he embraces his new home on Earth. In this live-action adventure " +
-                    "comedy, Sonic and his new best friend team up to defend the planet from the evil genius Dr. " +
-                    "Robotnik and his plans for world domination."
-
-        private const val MORTAL_KOMBAT_LEGENDS_ITEM_POSITION = 10
-        private const val MORTAL_KOMBAT_LEGENDS_ITEM_TITLE = "Mortal Kombat Legends: Scorpion’s Revenge"
-        private const val MORTAL_KOMBAT_LEGENDS_ITEM_RELEASE_DATE = "2020 (April)"
-        private const val MORTAL_KOMBAT_LEGENDS_ITEM_VOTE = "8.5 ★ (192)"
-        private const val MORTAL_KOMBAT_LEGENDS_ITEM_OVERVIEW =
-            "After the vicious slaughter of his family by stone-cold mercenary Sub-Zero, Hanzo Hasashi is exiled to " +
-                    "the torturous Netherrealm. There, in exchange for his servitude to the sinister Quan Chi, he’s " +
-                    "given a chance to avenge his family – and is resurrected as Scorpion, a lost soul bent on revenge. " +
-                    "Back on Earthrealm, Lord Raiden gathers a team of elite warriors – Shaolin monk Liu Kang, Special " +
-                    "Forces officer Sonya Blade and action star Johnny Cage – an unlikely band of heroes with one chance " +
-                    "to save humanity. To do this, they must defeat Shang Tsung’s horde of Outworld gladiators and reign " +
-                    "over the Mortal Kombat tournament."
-
-        // YEAR FILTER
-
-        private const val UNDERWATER_ITEM_POSITION = 1
-        private const val UNDERWATER_ITEM_TITLE = "Underwater"
-        private const val UNDERWATER_ITEM_RELEASE_DATE = "2020 (January)"
-        private const val UNDERWATER_ITEM_VOTE = "6.4 ★ (864)"
-        private const val UNDERWATER_ITEM_OVERVIEW =
-            "After an earthquake destroys their underwater station, six researchers must navigate two miles along the " +
-                    "dangerous, unknown depths of the ocean floor to make it to safety in a race against time."
-
-        private const val TROLLS_WORLD_TOUR_ITEM_POSITION = 10
-        private const val TROLLS_WORLD_TOUR_ITEM_TITLE = "Trolls World Tour"
-        private const val TROLLS_WORLD_TOUR_ITEM_RELEASE_DATE = "2020 (March)"
-        private const val TROLLS_WORLD_TOUR_ITEM_VOTE = "7.7 ★ (397)"
-        private const val TROLLS_WORLD_TOUR_ITEM_OVERVIEW =
-            "Queen Poppy and Branch make a surprising discovery — there are other Troll worlds beyond their own, and " +
-                    "their distinct differences create big clashes between these various tribes. When a mysterious " +
-                    "threat puts all of the Trolls across the land in danger, Poppy, Branch, and their band of friends " +
-                    "must embark on an epic quest to create harmony among the feuding Trolls to unite them against " +
-                    "certain doom."
-
-        // MONTH FILTER
-
-        private const val LOVE_WEDDING_REPEAT_ITEM_POSITION = 1
-        private const val LOVE_WEDDING_REPEAT_ITEM_TITLE = "Love Wedding Repeat"
-        private const val LOVE_WEDDING_REPEAT_ITEM_RELEASE_DATE = "2020 (April)"
-        private const val LOVE_WEDDING_REPEAT_ITEM_VOTE = "5.8 ★ (176)"
-        private const val LOVE_WEDDING_REPEAT_ITEM_OVERVIEW = "While trying to make his sister's wedding day go " +
-                "smoothly, Jack finds himself juggling an angry ex-girlfriend, an uninvited guest with a secret, a " +
-                "misplaced sleep sedative, and the girl that got away in alternate versions of the same day."
-
-        private const val BEHIND_YOU_ITEM_POSITION = 10
-        private const val BEHIND_YOU_ITEM_TITLE = "Behind You"
-        private const val BEHIND_YOU_ITEM_RELEASE_DATE = "2020 (April)"
-        private const val BEHIND_YOU_ITEM_VOTE = "6.0 ★ (8)"
-        private const val BEHIND_YOU_ITEM_OVERVIEW = "Two young sisters find that all the mirrors in their estranged " +
-                "aunt's house are covered or hidden. When one of them happens upon a mirror in the basement, she " +
-                "unknowingly releases a malicious demon."
-
-    }
-
     @Suppress("LateinitUsage") private lateinit var scenario: ActivityScenario<AppActivity>
 
     private val server = MockWebServer()
@@ -448,6 +361,97 @@ class AppInstrumentedRobotTest {
                 inCloseIcon { performClick() }
             }
         }
+    }
+
+    companion object {
+
+        private const val THREAD_SLEEP_MILLIS = 1000L
+
+        // MOCK RESPONSES
+
+        private const val MOVIES_DIR = "responses/movies"
+
+        private const val NO_FILTER_MOVIES_PAGE_1_FILE = "$MOVIES_DIR/no_filter_movies_page_1.json"
+        private const val NO_FILTER_MOVIES_PAGE_2_FILE = "$MOVIES_DIR/no_filter_movies_page_2.json"
+        private const val NO_FILTER_MOVIES_PAGE_3_FILE = "$MOVIES_DIR/no_filter_movies_page_3.json"
+        private const val NO_FILTER_MOVIES_PAGE_4_FILE = "$MOVIES_DIR/no_filter_movies_page_4.json"
+        private const val YEAR_FILTER_MOVIES_PAGE_1_FILE = "$MOVIES_DIR/year_filter_movies_page_1.json"
+        private const val YEAR_FILTER_MOVIES_PAGE_2_FILE = "$MOVIES_DIR/year_filter_movies_page_2.json"
+        private const val YEAR_FILTER_MOVIES_PAGE_3_FILE = "$MOVIES_DIR/year_filter_movies_page_3.json"
+        private const val YEAR_FILTER_MOVIES_PAGE_4_FILE = "$MOVIES_DIR/year_filter_movies_page_4.json"
+        private const val YEAR_AND_MONTH_FILTER_MOVIES_PAGE_1_FILE =
+            "$MOVIES_DIR/year_and_month_filter_movies_page_1.json"
+        private const val YEAR_AND_MONTH_FILTER_MOVIES_PAGE_2_FILE =
+            "$MOVIES_DIR/year_and_month_filter_movies_page_2.json"
+        private const val YEAR_AND_MONTH_FILTER_MOVIES_PAGE_3_FILE =
+            "$MOVIES_DIR/year_and_month_filter_movies_page_3.json"
+        private const val YEAR_AND_MONTH_FILTER_MOVIES_PAGE_4_FILE =
+            "$MOVIES_DIR/year_and_month_filter_movies_page_4.json"
+
+        // NO FILTER
+
+        private const val SONIC_THE_HEDGEHOG_ITEM_POSITION = 1
+        private const val SONIC_THE_HEDGEHOG_ITEM_TITLE = "Sonic the Hedgehog"
+        private const val SONIC_THE_HEDGEHOG_ITEM_RELEASE_DATE = "2020 (February)"
+        private const val SONIC_THE_HEDGEHOG_ITEM_VOTE = "7.6 ★ (3013)"
+        private const val SONIC_THE_HEDGEHOG_ITEM_OVERVIEW =
+            "Based on the global blockbuster videogame franchise from Sega, Sonic the Hedgehog tells the story of " +
+                    "the world’s speediest hedgehog as he embraces his new home on Earth. In this live-action " +
+                    "adventure comedy, Sonic and his new best friend team up to defend the planet from the evil " +
+                    "genius Dr. Robotnik and his plans for world domination."
+
+        private const val MORTAL_KOMBAT_LEGENDS_ITEM_POSITION = 10
+        private const val MORTAL_KOMBAT_LEGENDS_ITEM_TITLE = "Mortal Kombat Legends: Scorpion’s Revenge"
+        private const val MORTAL_KOMBAT_LEGENDS_ITEM_RELEASE_DATE = "2020 (April)"
+        private const val MORTAL_KOMBAT_LEGENDS_ITEM_VOTE = "8.5 ★ (192)"
+        private const val MORTAL_KOMBAT_LEGENDS_ITEM_OVERVIEW =
+            "After the vicious slaughter of his family by stone-cold mercenary Sub-Zero, Hanzo Hasashi is exiled to " +
+                    "the torturous Netherrealm. There, in exchange for his servitude to the sinister Quan Chi, he’s " +
+                    "given a chance to avenge his family – and is resurrected as Scorpion, a lost soul bent on " +
+                    "revenge. Back on Earthrealm, Lord Raiden gathers a team of elite warriors – Shaolin monk " +
+                    "Liu Kang, Special Forces officer Sonya Blade and action star Johnny Cage – an unlikely band of " +
+                    "heroes with one chance to save humanity. To do this, they must defeat Shang Tsung’s horde of " +
+                    "Outworld gladiators and reign over the Mortal Kombat tournament."
+
+        // YEAR FILTER
+
+        private const val UNDERWATER_ITEM_POSITION = 1
+        private const val UNDERWATER_ITEM_TITLE = "Underwater"
+        private const val UNDERWATER_ITEM_RELEASE_DATE = "2020 (January)"
+        private const val UNDERWATER_ITEM_VOTE = "6.4 ★ (864)"
+        private const val UNDERWATER_ITEM_OVERVIEW =
+            "After an earthquake destroys their underwater station, six researchers must navigate two miles along " +
+                    "the dangerous, unknown depths of the ocean floor to make it to safety in a race against time."
+
+        private const val TROLLS_WORLD_TOUR_ITEM_POSITION = 10
+        private const val TROLLS_WORLD_TOUR_ITEM_TITLE = "Trolls World Tour"
+        private const val TROLLS_WORLD_TOUR_ITEM_RELEASE_DATE = "2020 (March)"
+        private const val TROLLS_WORLD_TOUR_ITEM_VOTE = "7.7 ★ (397)"
+        private const val TROLLS_WORLD_TOUR_ITEM_OVERVIEW =
+            "Queen Poppy and Branch make a surprising discovery — there are other Troll worlds beyond their own, and " +
+                    "their distinct differences create big clashes between these various tribes. When a mysterious " +
+                    "threat puts all of the Trolls across the land in danger, Poppy, Branch, and their band of " +
+                    "friends must embark on an epic quest to create harmony among the feuding Trolls to unite them " +
+                    "against certain doom."
+
+        // MONTH FILTER
+
+        private const val LOVE_WEDDING_REPEAT_ITEM_POSITION = 1
+        private const val LOVE_WEDDING_REPEAT_ITEM_TITLE = "Love Wedding Repeat"
+        private const val LOVE_WEDDING_REPEAT_ITEM_RELEASE_DATE = "2020 (April)"
+        private const val LOVE_WEDDING_REPEAT_ITEM_VOTE = "5.8 ★ (176)"
+        private const val LOVE_WEDDING_REPEAT_ITEM_OVERVIEW = "While trying to make his sister's wedding day go " +
+                "smoothly, Jack finds himself juggling an angry ex-girlfriend, an uninvited guest with a secret, a " +
+                "misplaced sleep sedative, and the girl that got away in alternate versions of the same day."
+
+        private const val BEHIND_YOU_ITEM_POSITION = 10
+        private const val BEHIND_YOU_ITEM_TITLE = "Behind You"
+        private const val BEHIND_YOU_ITEM_RELEASE_DATE = "2020 (April)"
+        private const val BEHIND_YOU_ITEM_VOTE = "6.0 ★ (8)"
+        private const val BEHIND_YOU_ITEM_OVERVIEW = "Two young sisters find that all the mirrors in their estranged " +
+                "aunt's house are covered or hidden. When one of them happens upon a mirror in the basement, she " +
+                "unknowingly releases a malicious demon."
+
     }
 
 }

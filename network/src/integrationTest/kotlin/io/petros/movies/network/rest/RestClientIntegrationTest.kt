@@ -18,19 +18,6 @@ import java.util.*
 
 class RestClientIntegrationTest {
 
-    companion object {
-
-        private const val MOVIES_DIR = "responses/movies"
-        private const val MOVIE_DIR = "responses/movie"
-
-        private const val FIRST_MOVIES_PAGE_FILE = "$MOVIES_DIR/movies_page_first.json"
-        private const val SECOND_MOVIES_PAGE_FILE = "$MOVIES_DIR/movies_page_second.json"
-        private const val LAST_MOVIES_PAGE_FILE = "$MOVIES_DIR/movies_page_last.json"
-
-        private const val MOVIE_FILE = "$MOVIE_DIR/movie.json"
-
-    }
-
     @Suppress("LateinitUsage") private lateinit var testedClass: RestClient
     private val server = MockWebServer()
 
@@ -201,6 +188,19 @@ class RestClientIntegrationTest {
                     "from the evil genius Dr. Robotnik and his plans for world domination.",
             backdrop = "http://image.tmdb.org/t/p/w500/stmYfCUGd8Iy6kAMBr6AmWqx8Bq.jpg",
         )
+    }
+
+    companion object {
+
+        private const val MOVIES_DIR = "responses/movies"
+        private const val MOVIE_DIR = "responses/movie"
+
+        private const val FIRST_MOVIES_PAGE_FILE = "$MOVIES_DIR/movies_page_first.json"
+        private const val SECOND_MOVIES_PAGE_FILE = "$MOVIES_DIR/movies_page_second.json"
+        private const val LAST_MOVIES_PAGE_FILE = "$MOVIES_DIR/movies_page_last.json"
+
+        private const val MOVIE_FILE = "$MOVIE_DIR/movie.json"
+
     }
 
 }

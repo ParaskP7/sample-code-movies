@@ -27,13 +27,6 @@ import org.junit.Test
 @ExperimentalCoroutinesApi
 class MoviesViewModelTest {
 
-    companion object {
-
-        private const val MOVIE_YEAR = 2018
-        private const val MOVIE_MONTH = 7
-
-    }
-
     @get:Rule val coroutineScope = MainCoroutineScopeRule()
     @get:Rule val rule = InstantTaskExecutorRule()
 
@@ -258,6 +251,13 @@ class MoviesViewModelTest {
                 )
             }
         }
+    }
+
+    companion object {
+
+        private const val MOVIE_YEAR = 2018
+        private const val MOVIE_MONTH = 7
+
     }
 
 }

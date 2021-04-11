@@ -25,12 +25,6 @@ import org.junit.Test
 @ExperimentalCoroutinesApi
 class MovieDetailsViewModelTest {
 
-    companion object {
-
-        private const val MOVIE_ID = 419_704
-
-    }
-
     @get:Rule val coroutineScope = MainCoroutineScopeRule()
     @get:Rule val rule = InstantTaskExecutorRule()
 
@@ -151,6 +145,12 @@ class MovieDetailsViewModelTest {
         errorStream.collectLatest {
             verify { sideEffectMock.onChanged(MovieDetailsReducer.once(MovieDetailsAction.Error)) }
         }
+    }
+
+    companion object {
+
+        private const val MOVIE_ID = 419_704
+
     }
 
 }

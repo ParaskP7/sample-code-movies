@@ -17,12 +17,6 @@ import strikt.assertions.isNull
 @RunWith(CustomRobolectricTestRunner::class)
 class MoviesPagingAdapterRobolectricTest {
 
-    companion object {
-
-        private const val PROTECTED_ADAPTER_GET_ITEM_FUNCTION = "getItem"
-
-    }
-
     private val context = context()
     private val recyclerView = RecyclerView(context())
 
@@ -85,6 +79,12 @@ class MoviesPagingAdapterRobolectricTest {
         testedClass.onBindViewHolder(viewHolderMock, position)
 
         verify { viewHolderMock.bind(movie) }
+    }
+
+    companion object {
+
+        private const val PROTECTED_ADAPTER_GET_ITEM_FUNCTION = "getItem"
+
     }
 
 }

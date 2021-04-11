@@ -33,19 +33,6 @@ import strikt.assertions.isEqualTo
 @OptIn(ExperimentalPagingApi::class)
 class MoviesRemoteMediatorTest {
 
-    companion object {
-
-        private const val ROOM_DATABASE_KT_STATIC_MOCK = "androidx.room.RoomDatabaseKt"
-
-        private const val MOVIE_YEAR = 2018
-        private const val MOVIE_MONTH = 7
-
-        private const val FIRST_PAGE = 1
-        private const val SECOND_PAGE = 2
-        private const val THIRD_PAGE = 3
-
-    }
-
     @get:Rule val coroutineScope = MainCoroutineScopeRule()
 
     private val firstPageMovies = listOf(movie(id = 1), movie(id = 2), movie(id = 3))
@@ -299,6 +286,19 @@ class MoviesRemoteMediatorTest {
         val result = testedClass.load(LoadType.REFRESH, pagingStateMock) as MediatorResult.Error
 
         expect { that(result.throwable).isEqualTo(exception) }
+    }
+
+    companion object {
+
+        private const val ROOM_DATABASE_KT_STATIC_MOCK = "androidx.room.RoomDatabaseKt"
+
+        private const val MOVIE_YEAR = 2018
+        private const val MOVIE_MONTH = 7
+
+        private const val FIRST_PAGE = 1
+        private const val SECOND_PAGE = 2
+        private const val THIRD_PAGE = 3
+
     }
 
 }

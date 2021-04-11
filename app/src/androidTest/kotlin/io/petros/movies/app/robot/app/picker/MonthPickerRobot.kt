@@ -10,6 +10,12 @@ import io.petros.movies.lib.picker.R
 @Suppress("ForbiddenComment")
 class MonthPickerRobot : ScopedActions(idMatcher(R.id.picker)) {
 
+    fun inTitle(action: UiActions.() -> Actions) = UiActions(idMatcher(R.id.title)).action()
+
+    fun inMonth(action: UiActions.() -> Actions) = UiActions(idMatcher(R.id.month)).action()
+
+    fun onActionOk(action: UiActions.() -> Actions) = UiActions(textMatcher(ACTION_OK)).action()
+
     companion object {
 
         const val MOVIE_MONTH_PICKER_TITLE = "Select Movie Month"
@@ -21,11 +27,5 @@ class MonthPickerRobot : ScopedActions(idMatcher(R.id.picker)) {
         private const val ACTION_OK = "OK"
 
     }
-
-    fun inTitle(action: UiActions.() -> Actions) = UiActions(idMatcher(R.id.title)).action()
-
-    fun inMonth(action: UiActions.() -> Actions) = UiActions(idMatcher(R.id.month)).action()
-
-    fun onActionOk(action: UiActions.() -> Actions) = UiActions(textMatcher(ACTION_OK)).action()
 
 }

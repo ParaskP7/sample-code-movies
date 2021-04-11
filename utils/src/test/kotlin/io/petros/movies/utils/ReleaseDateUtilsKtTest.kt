@@ -7,13 +7,6 @@ import strikt.assertions.isNull
 
 class ReleaseDateUtilsKtTest {
 
-    companion object {
-
-        private const val MOVIE_YEAR = 2018
-        private const val MOVIE_MONTH = 7
-
-    }
-
     @Test
     fun `given no year and month, when converting (greater than or equal), then null is returned`() {
         expect { that(releaseDateGte(null, null)).isNull() }
@@ -52,6 +45,13 @@ class ReleaseDateUtilsKtTest {
     @Test
     fun `given year and month, when converting (less than or equal), then expected range is returned`() {
         expect { that(releaseDateLte(MOVIE_YEAR, MOVIE_MONTH)).isEqualTo("2018-08-31") }
+    }
+
+    companion object {
+
+        private const val MOVIE_YEAR = 2018
+        private const val MOVIE_MONTH = 7
+
     }
 
 }

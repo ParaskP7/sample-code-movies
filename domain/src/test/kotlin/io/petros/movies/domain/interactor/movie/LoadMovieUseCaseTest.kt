@@ -19,12 +19,6 @@ import strikt.assertions.isEqualTo
 @ExperimentalCoroutinesApi
 class LoadMovieUseCaseTest {
 
-    companion object {
-
-        private const val MOVIE_ID = 419_704
-
-    }
-
     @get:Rule val coroutineScope = MainCoroutineScopeRule()
 
     private val params = LoadMovieUseCase.Params(MOVIE_ID)
@@ -42,6 +36,12 @@ class LoadMovieUseCaseTest {
         val result = testedClass(params)
 
         result.collectLatest { expect { that(it).isEqualTo(movie) } }
+    }
+
+    companion object {
+
+        private const val MOVIE_ID = 419_704
+
     }
 
 }

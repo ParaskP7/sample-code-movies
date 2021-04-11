@@ -18,13 +18,6 @@ import strikt.assertions.isEqualTo
 @ExperimentalCoroutinesApi
 class LoadMoviesUseCaseTest {
 
-    companion object {
-
-        private const val MOVIE_YEAR = 2018
-        private const val MOVIE_MONTH = 7
-
-    }
-
     @get:Rule val coroutineScope = MainCoroutineScopeRule()
 
     private val params = LoadMoviesUseCase.Params(MOVIE_YEAR, MOVIE_MONTH)
@@ -44,5 +37,12 @@ class LoadMoviesUseCaseTest {
 
             result.collectLatest { expect { that(it).isEqualTo(moviesPage) } }
         }
+
+    companion object {
+
+        private const val MOVIE_YEAR = 2018
+        private const val MOVIE_MONTH = 7
+
+    }
 
 }

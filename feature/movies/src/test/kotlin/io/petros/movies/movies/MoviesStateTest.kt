@@ -10,13 +10,6 @@ import strikt.assertions.isEqualTo
 
 class MoviesStateTest {
 
-    companion object {
-
-        private const val MOVIE_YEAR = 2018
-        private const val MOVIE_MONTH = 7
-
-    }
-
     /* INIT */
 
     @Test
@@ -190,6 +183,13 @@ class MoviesStateTest {
     @Test(expected = IllegalArgumentException::class)
     fun `given an unexpected action, when once is triggered, then throw illegal argument exception`() {
         MoviesReducer.once(MoviesAction.MoviesReload(null, null))
+    }
+
+    companion object {
+
+        private const val MOVIE_YEAR = 2018
+        private const val MOVIE_MONTH = 7
+
     }
 
 }
