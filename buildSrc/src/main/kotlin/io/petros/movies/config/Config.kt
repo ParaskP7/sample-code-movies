@@ -140,6 +140,7 @@ object Config {
 
     object Dependency {
 
+        @Suppress("MemberVisibilityCanBePrivate")
         object Versions {
 
             const val GRADLE_RELEASE_CHANNEL = "release-candidate"
