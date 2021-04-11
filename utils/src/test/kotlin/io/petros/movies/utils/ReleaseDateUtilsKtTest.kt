@@ -35,22 +35,22 @@ class ReleaseDateUtilsKtTest {
     }
 
     @Test
-    fun `given year but no month, when converting year (greater than or equal), then expected range is returned`() {
+    fun `given year but no month, when converting (greater than or equal), then expected range is returned`() {
         expect { that(releaseDateGte(MOVIE_YEAR, null)).isEqualTo("2018-01-01") }
     }
 
     @Test
-    fun `given year but no month, when converting year (less than or equal), then expected range is returned`() {
+    fun `given year but no month, when converting (less than or equal), then expected range is returned`() {
         expect { that(releaseDateLte(MOVIE_YEAR, null)).isEqualTo("2018-12-31") }
     }
 
     @Test
-    fun `given year and month, When converting year and month (greater than or equal), then expected range is returned`() {
+    fun `given year and month, when converting (greater than or equal), then expected range is returned`() {
         expect { that(releaseDateGte(MOVIE_YEAR, MOVIE_MONTH)).isEqualTo("2018-08-01") }
     }
 
     @Test
-    fun `given year and month, When converting year and month (less than or equal), then expected range is returned`() {
+    fun `given year and month, when converting (less than or equal), then expected range is returned`() {
         expect { that(releaseDateLte(MOVIE_YEAR, MOVIE_MONTH)).isEqualTo("2018-08-31") }
     }
 

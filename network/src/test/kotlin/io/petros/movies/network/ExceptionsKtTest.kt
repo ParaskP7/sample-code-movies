@@ -37,7 +37,8 @@ class ExceptionsKtTest {
     @Test(expected = NetworkException::class)
     fun `given io exception, when network call is triggered, then throw network exception`() =
         coroutineScope.runBlockingTest {
-            coEvery { restApiMock.loadMovies(RELEASE_DATE_GTE, RELEASE_DATE_LTE, SECOND_PAGE) } throws IOException(empty())
+            coEvery { restApiMock.loadMovies(RELEASE_DATE_GTE, RELEASE_DATE_LTE, SECOND_PAGE) } throws
+                    IOException(empty())
 
             testedClass.loadMovies(MOVIE_YEAR, MOVIE_MONTH, SECOND_PAGE)
         }

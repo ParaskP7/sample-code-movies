@@ -36,12 +36,13 @@ class LoadMoviesUseCaseTest {
     private val testedClass = LoadMoviesUseCase(moviesRepositoryMock)
 
     @Test
-    fun `when invoking the use case, then the movies page stream is the expected one`() = coroutineScope.runBlockingTest {
-        coEvery { moviesRepositoryMock.loadMoviesStream(MOVIE_YEAR, MOVIE_MONTH) } returns moviesPageStream
+    fun `when invoking the use case, then the movies page stream is the expected one`() =
+        coroutineScope.runBlockingTest {
+            coEvery { moviesRepositoryMock.loadMoviesStream(MOVIE_YEAR, MOVIE_MONTH) } returns moviesPageStream
 
-        val result = testedClass(params)
+            val result = testedClass(params)
 
-        result.collectLatest { expect { that(it).isEqualTo(moviesPage) } }
-    }
+            result.collectLatest { expect { that(it).isEqualTo(moviesPage) } }
+        }
 
 }

@@ -85,7 +85,7 @@ dependencyAnalysis {
     issues {
         onUnusedDependencies {
             exclude(
-                Deps.Android.Arch.Navigation.FRAGMENT_KTX.identifier() // Ignore remove advise. Required for navigation xml.
+                Deps.Android.Arch.Navigation.FRAGMENT_KTX.identifier() // Ignore remove advise. Required for navigation.
             )
         }
     }
@@ -117,7 +117,10 @@ fun NamedDomainObjectContainer<BuildType>.buildTypes() {
     }
     named(Android.BuildTypes.RELEASE) {
         isMinifyEnabled = false
-        proguardFiles(getDefaultProguardFile(Files.Txt.PROGUARD_ANDROID, layout.buildDirectory), Files.Pro.PROGUARD_RULES)
+        proguardFiles(
+            getDefaultProguardFile(Files.Txt.PROGUARD_ANDROID, layout.buildDirectory),
+            Files.Pro.PROGUARD_RULES
+        )
         buildConfigField(BuildConfig.Field.STRING, Config.Gradle.THEMOVIEDB_API_KEY_CONST, themoviedbApiKey)
     }
 }

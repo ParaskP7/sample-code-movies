@@ -65,7 +65,9 @@ open class CoverageTask : DefaultTask() {
         val node = xmlParser.parse(report)
         val counters = node[JACOCO_XML_NODE_COUNTER] as List<Node>
         val metrics = linkedMapOf<String, Double>()
-        JACOCO_XML_NODE_COUNTER_ATTRIBUTE_TYPE_VALUES.forEach { metrics[it.toLowerCase()] = coverageMetric(counters, it) }
+        JACOCO_XML_NODE_COUNTER_ATTRIBUTE_TYPE_VALUES.forEach {
+            metrics[it.toLowerCase()] = coverageMetric(counters, it)
+        }
         return metrics
     }
 
