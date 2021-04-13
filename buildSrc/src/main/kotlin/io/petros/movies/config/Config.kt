@@ -32,7 +32,6 @@ object Config {
         val disabledIssues = arrayOf(
             "UnusedIds", // Because of UAST
             "InvalidPackage",
-            "UnsafeExperimentalUsageWarning",
             "ObsoleteLintCustomCheck",
             "UnknownIssueId",
         )
