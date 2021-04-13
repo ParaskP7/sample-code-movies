@@ -25,6 +25,7 @@
         android:layout_gravity="center"
         android:paddingTop="20dp"
         android:textColor="@android:color/primary_text_dark_nodisable"
+        android:textIsSelectable="false"
         android:textSize="30sp" />
 
     <TextView
@@ -34,6 +35,7 @@
         android:gravity="center"
         android:paddingTop="8dp"
         android:textColor="@android:color/primary_text_dark_nodisable"
+        android:textIsSelectable="false"
         android:textSize="30sp" />
 
 </LinearLayout>

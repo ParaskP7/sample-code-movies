@@ -31,7 +31,6 @@ object Config {
 
         val disabledIssues = arrayOf(
             "UnusedIds", // Because of UAST
-            "SelectableText",
             "InvalidPackage",
             "UnsafeExperimentalUsageError",
             "UnsafeExperimentalUsageWarning",

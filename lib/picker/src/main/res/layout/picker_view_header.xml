@@ -31,6 +31,7 @@
             android:paddingRight="10dp"
             android:paddingBottom="20dp"
             android:textColor="@android:color/primary_text_dark_nodisable"
+            android:textIsSelectable="false"
             android:textSize="35sp"
             tools:text="@string/label_month" />
 
@@ -42,6 +43,7 @@
             android:paddingRight="30dp"
             android:paddingBottom="20dp"
             android:textColor="@android:color/primary_text_dark_nodisable"
+            android:textIsSelectable="false"
             android:textSize="35sp"
             tools:text="@string/label_year" />
 
