@@ -30,7 +30,6 @@ object Config {
         const val CONFIG_FILE_PATH = "$QUALITY_DIRECTORY/${Files.Xml.LINT}"
 
         val disabledIssues = arrayOf(
-            "MissingRegistered", // Because of UAST
             "UnusedIds", // Because of UAST
             "ContentDescription",
             "SelectableText",
