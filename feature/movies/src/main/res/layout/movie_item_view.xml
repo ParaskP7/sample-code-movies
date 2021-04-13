@@ -20,11 +20,11 @@
             style="@style/ivItemBackdrop"
             android:layout_width="match_parent"
             android:layout_height="@dimen/ivItemBackdropHeight"
+            android:contentDescription="@string/ivItemBackdropContentDescription"
             app:layout_constraintBottom_toTopOf="@id/ctrItemDetails"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="ContentDescription"
             tools:src="@android:color/darker_gray" />
 
         <com.google.android.material.textview.MaterialTextView

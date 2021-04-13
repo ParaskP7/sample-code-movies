@@ -18,13 +18,13 @@
             style="@style/ivBackdrop"
             android:layout_width="match_parent"
             android:layout_height="@dimen/ivBackdropHeight"
+            android:contentDescription="@string/ivBackdropContentDescription"
             app:layout_constraintBottom_toTopOf="@+id/tvTitle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0"
             app:layout_constraintVertical_chainStyle="packed"
-            tools:ignore="ContentDescription"
             tools:src="@android:color/darker_gray" />
 
         <ProgressBar

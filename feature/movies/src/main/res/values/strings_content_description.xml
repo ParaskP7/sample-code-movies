@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+    <!-- Movie Item -->
+    <string name="ivItemBackdropContentDescription">Movie item image</string>
+
+    <!-- Movies Toolbar -->
+    <string name="ivToolbarFilterIconContentDescription">Movies toolbar filter icon</string>
+    <string name="ivToolbarCloseIconContentDescription">Movies toolbar close icon</string>
+
+</resources>

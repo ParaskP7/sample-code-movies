@@ -9,9 +9,9 @@
         style="@style/ivToolbarIcon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:contentDescription="@string/ivToolbarFilterIconContentDescription"
         android:src="@drawable/ic_filter"
         android:visibility="visible"
-        tools:ignore="ContentDescription"
         tools:visibility="gone" />
 
     <com.google.android.material.imageview.ShapeableImageView
@@ -19,9 +19,9 @@
         style="@style/ivToolbarIcon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:contentDescription="@string/ivToolbarCloseIconContentDescription"
         android:src="@drawable/ic_close"
         android:visibility="gone"
-        tools:ignore="ContentDescription"
         tools:visibility="visible" />
 
     <com.google.android.material.textview.MaterialTextView
