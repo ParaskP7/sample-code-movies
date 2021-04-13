@@ -33,7 +33,6 @@ object Config {
             "UnusedIds", // Because of UAST
             "InvalidPackage",
             "ObsoleteLintCustomCheck",
-            "UnknownIssueId",
         )
 
         val disabledAppIssues = arrayOf(
