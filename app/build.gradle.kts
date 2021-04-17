@@ -88,6 +88,11 @@ dependencyAnalysis {
                 Deps.Android.Arch.Navigation.FRAGMENT_KTX.identifier(), // Ignore remove advise. Required for nav.
             )
         }
+        onIncorrectConfiguration {
+            exclude(
+                Deps.Kotlin.Core.KOTLIN.identifier(), // Ignore change to 'implementation' advice.
+            )
+        }
     }
 }
 
