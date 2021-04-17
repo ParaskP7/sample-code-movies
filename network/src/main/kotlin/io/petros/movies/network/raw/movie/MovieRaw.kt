@@ -11,14 +11,14 @@ data class MovieRaw(
     private val title: String,
     private val backdrop_path: String?,
     private val overview: String,
-    private val release_date: String,
+    private val release_date: String?,
 ) {
 
     fun toMovie(): Movie {
         return Movie(
             id = id,
             title = title,
-            releaseDate = release_date.toDate(MOVIE_DATE_FORMAT),
+            releaseDate = release_date?.toDate(MOVIE_DATE_FORMAT),
             voteAverage = vote_average,
             voteCount = vote_count,
             overview = overview,
