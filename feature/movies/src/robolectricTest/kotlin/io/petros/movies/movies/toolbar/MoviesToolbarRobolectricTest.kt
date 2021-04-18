@@ -112,14 +112,16 @@ class MoviesToolbarRobolectricTest {
     fun `given no year, when show year is triggered, then the default year is shown`() {
         expect { that(testedClass.binding.tvToolbarFilterYear.isInvisible).isTrue() }
         expect {
-            that(testedClass.binding.tvToolbarFilterYear.text).isEqualTo(context.getString(R.string.tvToolbarFilterYear))
+            that(testedClass.binding.tvToolbarFilterYear.text)
+                .isEqualTo(context.getString(R.string.tvToolbarFilterYear))
         }
 
         testedClass.showYear()
 
         expect { that(testedClass.binding.tvToolbarFilterYear.isInvisible).isFalse() }
         expect {
-            that(testedClass.binding.tvToolbarFilterYear.text).isEqualTo(context.getString(R.string.tvToolbarFilterYear))
+            that(testedClass.binding.tvToolbarFilterYear.text)
+                .isEqualTo(context.getString(R.string.tvToolbarFilterYear))
         }
     }
 
@@ -127,7 +129,8 @@ class MoviesToolbarRobolectricTest {
     fun `given a year, when show year is triggered, then the given year is shown`() {
         expect { that(testedClass.binding.tvToolbarFilterYear.isInvisible).isTrue() }
         expect {
-            that(testedClass.binding.tvToolbarFilterYear.text).isEqualTo(context.getString(R.string.tvToolbarFilterYear))
+            that(testedClass.binding.tvToolbarFilterYear.text)
+                .isEqualTo(context.getString(R.string.tvToolbarFilterYear))
         }
         val year = "2020"
 
@@ -148,7 +151,8 @@ class MoviesToolbarRobolectricTest {
 
         expect { that(testedClass.binding.tvToolbarFilterYear.isInvisible).isTrue() }
         expect {
-            that(testedClass.binding.tvToolbarFilterYear.text).isEqualTo(context.getString(R.string.tvToolbarFilterYear))
+            that(testedClass.binding.tvToolbarFilterYear.text)
+                .isEqualTo(context.getString(R.string.tvToolbarFilterYear))
         }
     }
 
@@ -156,14 +160,16 @@ class MoviesToolbarRobolectricTest {
     fun `given no month, when show month is triggered, then the default month is shown`() {
         expect { that(testedClass.binding.tvToolbarFilterMonth.isInvisible).isTrue() }
         expect {
-            that(testedClass.binding.tvToolbarFilterMonth.text).isEqualTo(context.getString(R.string.tvToolbarFilterMonth))
+            that(testedClass.binding.tvToolbarFilterMonth.text)
+                .isEqualTo(context.getString(R.string.tvToolbarFilterMonth))
         }
 
         testedClass.showMonth()
 
         expect { that(testedClass.binding.tvToolbarFilterMonth.isInvisible).isFalse() }
         expect {
-            that(testedClass.binding.tvToolbarFilterMonth.text).isEqualTo(context.getString(R.string.tvToolbarFilterMonth))
+            that(testedClass.binding.tvToolbarFilterMonth.text)
+                .isEqualTo(context.getString(R.string.tvToolbarFilterMonth))
         }
     }
 
@@ -171,7 +177,8 @@ class MoviesToolbarRobolectricTest {
     fun `given a month, when show month is triggered, then the month year is shown`() {
         expect { that(testedClass.binding.tvToolbarFilterMonth.isInvisible).isTrue() }
         expect {
-            that(testedClass.binding.tvToolbarFilterMonth.text).isEqualTo(context.getString(R.string.tvToolbarFilterMonth))
+            that(testedClass.binding.tvToolbarFilterMonth.text)
+                .isEqualTo(context.getString(R.string.tvToolbarFilterMonth))
         }
         val month = MonthOfYear.JANUARY.label
 
@@ -192,7 +199,8 @@ class MoviesToolbarRobolectricTest {
 
         expect { that(testedClass.binding.tvToolbarFilterMonth.isInvisible).isTrue() }
         expect {
-            that(testedClass.binding.tvToolbarFilterMonth.text).isEqualTo(context.getString(R.string.tvToolbarFilterMonth))
+            that(testedClass.binding.tvToolbarFilterMonth.text)
+                .isEqualTo(context.getString(R.string.tvToolbarFilterMonth))
         }
     }
 
@@ -201,7 +209,8 @@ class MoviesToolbarRobolectricTest {
     @Test
     fun `when set year is triggered, then the correct year label is set on the filter year`() {
         expect {
-            that(testedClass.binding.tvToolbarFilterYear.text).isEqualTo(context.getString(R.string.tvToolbarFilterYear))
+            that(testedClass.binding.tvToolbarFilterYear.text)
+                .isEqualTo(context.getString(R.string.tvToolbarFilterYear))
         }
         val year = 2020
 
@@ -255,7 +264,8 @@ class MoviesToolbarRobolectricTest {
     @Test
     fun `when set month is triggered, then the correct month label is set on the filter month`() {
         expect {
-            that(testedClass.binding.tvToolbarFilterMonth.text).isEqualTo(context.getString(R.string.tvToolbarFilterMonth))
+            that(testedClass.binding.tvToolbarFilterMonth.text)
+                .isEqualTo(context.getString(R.string.tvToolbarFilterMonth))
         }
         val month = MonthOfYear.JANUARY
 
@@ -467,7 +477,10 @@ class MoviesToolbarRobolectricTest {
 
         testedClass.onSaveInstanceState(savedInstanceState)
 
-        expect { that(savedInstanceState.getBoolean(MoviesToolbar.INSTANCE_STATE_KEY_CLOSE_ICON)).isEqualTo(closeIconState) }
+        expect {
+            that(savedInstanceState.getBoolean(MoviesToolbar.INSTANCE_STATE_KEY_CLOSE_ICON))
+                .isEqualTo(closeIconState)
+        }
     }
 
     @Test
@@ -479,7 +492,10 @@ class MoviesToolbarRobolectricTest {
 
         testedClass.onSaveInstanceState(savedInstanceState)
 
-        expect { that(savedInstanceState.getBoolean(MoviesToolbar.INSTANCE_STATE_KEY_CLOSE_ICON)).isEqualTo(closeIconState) }
+        expect {
+            that(savedInstanceState.getBoolean(MoviesToolbar.INSTANCE_STATE_KEY_CLOSE_ICON))
+                .isEqualTo(closeIconState)
+        }
     }
 
     @Test
