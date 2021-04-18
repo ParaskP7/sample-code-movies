@@ -1,5 +1,6 @@
 package io.petros.movies.movie_details
 
+import io.petros.movies.domain.model.movie.Movie
 import io.petros.movies.test.domain.movie
 import org.junit.Test
 import strikt.api.expect
@@ -17,7 +18,7 @@ class MovieDetailsStateTest {
             that(result).isEqualTo(
                 MovieDetailsState(
                     status = MovieDetailsStatus.Init,
-                    movie = moviePlaceholder,
+                    movie = Movie.Default,
                 )
             )
         }
@@ -27,7 +28,7 @@ class MovieDetailsStateTest {
     fun `given an idle action, when reduce is triggered, then the new state is the expected one`() {
         val previousState = MovieDetailsState(
             status = MovieDetailsStatus.Init,
-            movie = moviePlaceholder,
+            movie = Movie.Default,
         )
 
         val result = MovieDetailsReducer.reduce(previousState, MovieDetailsAction.Idle)
@@ -36,7 +37,7 @@ class MovieDetailsStateTest {
             that(result).isEqualTo(
                 MovieDetailsState(
                     status = MovieDetailsStatus.Idle,
-                    movie = moviePlaceholder,
+                    movie = Movie.Default,
                 )
             )
         }
@@ -46,7 +47,7 @@ class MovieDetailsStateTest {
     fun `given a load action, when reduce is triggered, then the new state is the expected one`() {
         val previousState = MovieDetailsState(
             status = MovieDetailsStatus.Idle,
-            movie = moviePlaceholder,
+            movie = Movie.Default,
         )
 
         val result = MovieDetailsReducer.reduce(previousState, MovieDetailsAction.Load)
@@ -55,7 +56,7 @@ class MovieDetailsStateTest {
             that(result).isEqualTo(
                 MovieDetailsState(
                     status = MovieDetailsStatus.Loading,
-                    movie = moviePlaceholder,
+                    movie = Movie.Default,
                 )
             )
         }
@@ -65,7 +66,7 @@ class MovieDetailsStateTest {
     fun `given a success action, when reduce is triggered, then the new state is the expected one`() {
         val previousState = MovieDetailsState(
             status = MovieDetailsStatus.Loading,
-            movie = moviePlaceholder,
+            movie = Movie.Default,
         )
 
         val result = MovieDetailsReducer.reduce(previousState, MovieDetailsAction.Success(movie))
@@ -84,7 +85,7 @@ class MovieDetailsStateTest {
     fun `given an error action, when reduce is triggered, then the new state is the expected one`() {
         val previousState = MovieDetailsState(
             status = MovieDetailsStatus.Loading,
-            movie = moviePlaceholder,
+            movie = Movie.Default,
         )
 
         val result = MovieDetailsReducer.reduce(previousState, MovieDetailsAction.Error)
@@ -93,7 +94,7 @@ class MovieDetailsStateTest {
             that(result).isEqualTo(
                 MovieDetailsState(
                     status = MovieDetailsStatus.Loaded,
-                    movie = moviePlaceholder,
+                    movie = Movie.Default,
                 )
             )
         }
