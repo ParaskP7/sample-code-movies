@@ -96,6 +96,11 @@ class MoviesToolbar(
         }
     }
 
+    fun clearYear() {
+        hideYear()
+        hideMonth()
+    }
+
     /* MONTH */
 
     fun setMonth(month: Int) {

@@ -259,6 +259,38 @@ class MoviesToolbarRobolectricTest {
         expect { that(result).isEqualTo(year) }
     }
 
+    @Test
+    fun `when clean year is triggered, then the year gets hidden`() {
+        val year = "2020"
+        testedClass.showYear(year)
+        expect { that(testedClass.binding.tvToolbarFilterYear.isInvisible).isFalse() }
+        expect { that(testedClass.binding.tvToolbarFilterYear.text).isEqualTo(year) }
+
+        testedClass.clearYear()
+
+        expect { that(testedClass.binding.tvToolbarFilterYear.isInvisible).isTrue() }
+        expect {
+            that(testedClass.binding.tvToolbarFilterYear.text)
+                .isEqualTo(context.getString(R.string.tvToolbarFilterYear))
+        }
+    }
+
+    @Test
+    fun `when clean year is triggered, then the month gets hidden`() {
+        val month = MonthOfYear.JANUARY.label
+        testedClass.showMonth(month)
+        expect { that(testedClass.binding.tvToolbarFilterMonth.isInvisible).isFalse() }
+        expect { that(testedClass.binding.tvToolbarFilterMonth.text).isEqualTo(month) }
+
+        testedClass.clearYear()
+
+        expect { that(testedClass.binding.tvToolbarFilterMonth.isInvisible).isTrue() }
+        expect {
+            that(testedClass.binding.tvToolbarFilterMonth.text)
+                .isEqualTo(context.getString(R.string.tvToolbarFilterMonth))
+        }
+    }
+
     /* MONTH */
 
     @Test

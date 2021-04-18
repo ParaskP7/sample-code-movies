@@ -144,16 +144,13 @@ class MoviesFragment : MviFragment<
             binding.toolbar.setYear(year)
         } else {
             binding.toolbar.showFilterIcon()
-            binding.toolbar.hideYear()
-            binding.toolbar.hideMonth()
+            binding.toolbar.clearYear()
         }
     }
 
     private fun renderMonth(month: Int?) {
         if (month != null) {
             binding.toolbar.setMonth(month)
-        } else {
-            binding.toolbar.hideMonth()
         }
     }
 
@@ -223,7 +220,7 @@ class MoviesFragment : MviFragment<
             )
         } else {
             binding.toolbar.showFilterIcon()
-            binding.toolbar.hideYear()
+            binding.toolbar.clearYear()
         }
     }
 
