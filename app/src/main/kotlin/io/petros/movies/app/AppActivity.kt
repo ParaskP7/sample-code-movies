@@ -18,7 +18,7 @@ class AppActivity : BaseActivity<AppActivityBinding>() {
 
     override val binding by viewBinding(AppActivityBinding::inflate)
 
-    @Suppress("LateinitUsage") private lateinit var appBarConfiguration: AppBarConfiguration
+    private val configuration by lazy { AppBarConfiguration(setOf(R.id.moviesFragment), binding.ctrApp) }
 
     private var snackbar: Snackbar? = null
 
@@ -42,19 +42,15 @@ class AppActivity : BaseActivity<AppActivityBinding>() {
     private fun initActionBar() {
         setSupportActionBar(binding.toolbar)
         val navController = findNavController(R.id.navHostFragment)
-        appBarConfiguration = AppBarConfiguration(setOf(R.id.moviesFragment), binding.ctrApp)
-        setupActionBarWithNavController(navController, appBarConfiguration)
+        setupActionBarWithNavController(navController, configuration)
     }
 
     private fun initObservers() {
         NetworkLiveEvent.observe(this, connectivity)
     }
 
-    override fun onSupportNavigateUp() = if (this::appBarConfiguration.isInitialized) {
-        findNavController(R.id.navHostFragment).navigateUp(appBarConfiguration)
-    } else {
-        false
-    }
+    override fun onSupportNavigateUp() = findNavController(R.id.navHostFragment)
+        .navigateUp(configuration)
 
     override fun onResume() {
         super.onResume()
