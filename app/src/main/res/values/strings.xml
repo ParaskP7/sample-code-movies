@@ -4,6 +4,11 @@
 
     <string name="appName">Movies</string>
 
+    <!-- Drawer -->
+    <string name="drawerHeaderTitle">Android Studio</string>
+    <string name="drawerHeaderEmail">android.studio@android.com</string>
+    <string name="drawerMenuItemJetpackCompose">Jetpack Compose</string>
+
     <!-- Toolbar -->
     <string name="navMoviesLabel">Movies</string>
     <string name="navMovieDetailsLabel">Movie Details</string>
