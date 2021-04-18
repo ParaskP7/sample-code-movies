@@ -3,15 +3,12 @@ package io.petros.movies.movie_details
 import android.os.Bundle
 import androidx.core.view.isVisible
 import com.google.android.material.snackbar.Snackbar
-import dev.fanie.stateful.Renders
 import io.petros.movies.core.fragment.MviFragment
 import io.petros.movies.core.image.glide.displayImage
 import io.petros.movies.core.view_binding.viewBinding
 import io.petros.movies.domain.model.movie.Movie
 import io.petros.movies.feature.movie.details.R
 import io.petros.movies.feature.movie.details.databinding.MovieDetailsFragmentBinding
-import io.petros.movies.movie_details.stateful.moviedetailsstate.StatefulMovieDetailsState
-import io.petros.movies.movie_details.stateful.moviedetailsstate.stateful
 import io.petros.movies.utils.doNothing
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -25,7 +22,6 @@ class MovieDetailsFragment : MviFragment<
 
     override val binding by viewBinding(MovieDetailsFragmentBinding::bind)
     override val viewModel: MovieDetailsViewModel by viewModel()
-    override val stateful by stateful()
     private val movieId: Int by lazy { getMovieId(arguments) }
 
     private var snackbar: Snackbar? = null
@@ -45,8 +41,12 @@ class MovieDetailsFragment : MviFragment<
 
     /* STATE */
 
-    @Renders(StatefulMovieDetailsState.Property.STATUS::class)
-    fun renderStatus(status: MovieDetailsStatus) {
+    override fun renderState(state: MovieDetailsState) {
+        renderStatus(state.status)
+        renderMovie(state.movie)
+    }
+
+    private fun renderStatus(status: MovieDetailsStatus) {
         when (status) {
             is MovieDetailsStatus.Init -> viewModel.process(
                 MovieDetailsIntent.LoadMovie(
@@ -59,8 +59,7 @@ class MovieDetailsFragment : MviFragment<
         }
     }
 
-    @Renders(StatefulMovieDetailsState.Property.MOVIE::class)
-    fun renderMovie(movie: Movie) {
+    private fun renderMovie(movie: Movie) {
         binding.ivBackdrop.displayImage(movie.backdrop)
         binding.tvTitle.text = movie.title
         binding.tvReleaseDate.text = movie.releaseDate()

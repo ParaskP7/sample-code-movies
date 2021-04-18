@@ -85,7 +85,6 @@ object Config {
                     "**/*Activity*.*",
                     "**/*Fragment*.*",
                     "**/*Mvi*.*",
-                    "**/*Stateful*.*",
                     "**/*Module*.*",
                     "**/*Binding*.*",
                     "**/*Glide*.*",

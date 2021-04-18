@@ -212,28 +212,6 @@ object Deps {
 
     }
 
-    object Architecture {
-
-        object Mvi {
-
-            @Suppress("MemberNameEqualsClassName")
-            object Stateful {
-
-                val RUNTIME = "dev.fanie:stateful:${Versions.Architecture.Mvi.Stateful.STATEFUL}"
-                val COMPILER = "dev.fanie:stateful-compiler:${Versions.Architecture.Mvi.Stateful.STATEFUL}"
-
-                object Exclude {
-
-                    const val KOTLIN = "org.jetbrains.kotlin"
-
-                }
-
-            }
-
-        }
-
-    }
-
     object Di {
 
         object Koin {

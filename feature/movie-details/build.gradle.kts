@@ -7,7 +7,6 @@ import io.petros.movies.config.deps.identifier
 plugins {
     id(Plugins.Id.Android.LIBRARY)
     id(Plugins.Id.Kotlin.Android.ANDROID)
-    id(Plugins.Id.Kotlin.KAPT)
     id(Plugins.Id.Quality.DETEKT)
     id(Plugins.Id.Dependency.VERSIONS)
     id(Plugins.Id.Test.JACOCO)
@@ -23,7 +22,6 @@ dependencies {
     implementation(project(Projects.Implementation.Kotlin.DOMAIN))
     implementation(project(Projects.Implementation.Android.Core.CORE))
 
-    implementation(Deps.Kotlin.Core.KOTLIN_REFLECT) // Added due to 'stateful' dependency.
     implementation(Deps.Kotlin.Coroutines.CORE)
     implementation(Deps.Kotlin.Coroutines.CORE_JVM)
     implementation(Deps.Material.MATERIAL)
@@ -33,8 +31,6 @@ dependencies {
     implementation(Deps.Android.Arch.Lifecycle.LIVE_DATA_CORE)
     implementation(Deps.Android.Arch.Lifecycle.VIEW_MODEL)
     implementation(Deps.Android.Arch.Lifecycle.VIEW_MODEL_KTX)
-    implementation(Deps.Architecture.Mvi.Stateful.RUNTIME) { exclude(Deps.Architecture.Mvi.Stateful.Exclude.KOTLIN) }
-    kapt(Deps.Architecture.Mvi.Stateful.COMPILER)
     implementation(Deps.Di.Koin.Kotlin.CORE)
     implementation(Deps.Di.Koin.Kotlin.CORE_JVM)
     implementation(Deps.Di.Koin.Android.ANDROID)
@@ -62,7 +58,6 @@ dependencyAnalysis {
                 Projects.Implementation.Android.Core.CORE, // Ignore change to 'api' advice.
                 Deps.Material.MATERIAL.identifier(), // Ignore change to 'api' advice.
                 Deps.Android.Arch.Lifecycle.LIVE_DATA_CORE.identifier(), // Ignore change to 'testImpl' advice.
-                Deps.Architecture.Mvi.Stateful.RUNTIME.identifier(), // Ignore change to 'api' advice.
                 Deps.Di.Koin.Kotlin.CORE.identifier(), // Ignore change to 'api' advice.
                 Deps.Di.Koin.Kotlin.CORE_JVM.identifier(), // Ignore change to 'api' advice.
             )

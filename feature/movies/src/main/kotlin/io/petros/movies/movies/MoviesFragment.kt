@@ -11,7 +11,6 @@ import androidx.paging.LoadState
 import androidx.paging.LoadType
 import androidx.paging.PagingData
 import com.google.android.material.snackbar.Snackbar
-import dev.fanie.stateful.Renders
 import io.petros.movies.android_utils.network.NetworkLiveEvent
 import io.petros.movies.android_utils.toast
 import io.petros.movies.core.fragment.MviFragment
@@ -21,8 +20,6 @@ import io.petros.movies.feature.movies.R
 import io.petros.movies.feature.movies.databinding.MoviesFragmentBinding
 import io.petros.movies.movies.list.MoviesPagingAdapter
 import io.petros.movies.movies.list.item.MovieItemCallback
-import io.petros.movies.movies.stateful.moviesstate.StatefulMoviesState
-import io.petros.movies.movies.stateful.moviesstate.stateful
 import io.petros.movies.movies.toolbar.MoviesToolbarCallback
 import io.petros.movies.picker.movie.MovieMonthPickerFragment
 import io.petros.movies.picker.movie.MovieYearPickerFragment
@@ -43,7 +40,6 @@ class MoviesFragment : MviFragment<
 
     override val binding by viewBinding(MoviesFragmentBinding::bind)
     override val viewModel: MoviesViewModel by viewModel()
-    override val stateful by stateful()
 
     private var adapter: MoviesPagingAdapter? = null
     private var snackbar: Snackbar? = null
@@ -136,8 +132,13 @@ class MoviesFragment : MviFragment<
 
     /* STATE */
 
-    @Renders(StatefulMoviesState.Property.YEAR::class)
-    fun renderYear(year: Int?) {
+    override fun renderState(state: MoviesState) {
+        renderYear(state.year)
+        renderMonth(state.month)
+        renderMovies(state.movies)
+    }
+
+    private fun renderYear(year: Int?) {
         if (year != null) {
             binding.toolbar.showCloseIcon()
             binding.toolbar.setYear(year)
@@ -148,8 +149,7 @@ class MoviesFragment : MviFragment<
         }
     }
 
-    @Renders(StatefulMoviesState.Property.MONTH::class)
-    fun renderMonth(month: Int?) {
+    private fun renderMonth(month: Int?) {
         if (month != null) {
             binding.toolbar.setMonth(month)
         } else {
@@ -157,8 +157,7 @@ class MoviesFragment : MviFragment<
         }
     }
 
-    @Renders(StatefulMoviesState.Property.MOVIES::class)
-    fun renderMovies(movies: PagingData<Movie>) {
+    private fun renderMovies(movies: PagingData<Movie>) {
         lifecycleScope.launch { adapter?.submitData(movies) }
         if (snackbar?.isShown == true) snackbar?.dismiss()
     }

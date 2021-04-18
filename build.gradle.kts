@@ -24,7 +24,6 @@ import io.petros.movies.config.kotlin.Java
 import io.petros.movies.config.tests.Logs
 import io.petros.movies.config.utils.Utils
 import io.petros.movies.config.utils.logBuildTools
-import io.petros.movies.config.utils.logCredentials
 import io.petros.movies.config.utils.logModule
 import io.petros.movies.config.utils.logPlugin
 import io.petros.movies.config.utils.logVariant
@@ -86,9 +85,6 @@ byeByeJetifier {
 dependencyAnalysis {
     issues {
         all {
-            onRedundantPlugins {
-                severity(Config.Dependency.Analysis.Issue.Severity.WARN) // Because of 'kotlin-kapt' and no excludes.
-            }
             onUnusedDependencies {
                 severity(Config.Dependency.Analysis.Issue.Severity.FAIL)
                 exclude(
@@ -124,20 +120,11 @@ dependencyAnalysis {
 
 @Suppress("JcenterRepositoryObsolete")
 allprojects {
-    val githubUsername = findLocalProperty(LocalProperties.GitHub.USERNAME)
-    val githubPassword = findLocalProperty(LocalProperties.GitHub.PASSWORD)
-    logCredentials(Pair(githubUsername, githubPassword))
     repositories {
         google()
         jcenter()
         mavenCentral()
         maven(Repos.Url.Kotlin.KOTLIN_EAP)
-        maven(Repos.Url.GitHub.STATEFUL) {
-            credentials {
-                username = githubUsername
-                password = githubPassword
-            }
-        }
     }
 }
 

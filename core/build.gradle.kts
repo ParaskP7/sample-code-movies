@@ -20,7 +20,6 @@ android {
 dependencies {
     implementation(project(Projects.Implementation.Android.Core.ANDROID_UTILS))
 
-    implementation(Deps.Kotlin.Core.KOTLIN_REFLECT) // Added due to 'stateful' dependency.
     implementation(Deps.Material.MATERIAL)
     implementation(Deps.Android.Core.APP_COMPAT)
     implementation(Deps.Android.Core.FRAGMENT)
@@ -28,7 +27,6 @@ dependencies {
     implementation(Deps.Android.Arch.Lifecycle.COMMON_JAVA_8)
     implementation(Deps.Android.Arch.Lifecycle.LIVE_DATA_CORE)
     implementation(Deps.Android.Arch.Lifecycle.VIEW_MODEL)
-    implementation(Deps.Architecture.Mvi.Stateful.RUNTIME) { exclude(Deps.Architecture.Mvi.Stateful.Exclude.KOTLIN) }
     implementation(Deps.Image.Glide.GLIDE)
     implementation(Deps.Log.TIMBER)
 
@@ -45,7 +43,6 @@ dependencyAnalysis {
                 Deps.Android.Core.FRAGMENT.identifier(), // Ignore change to 'api' advice.
                 Deps.Android.Arch.Lifecycle.LIVE_DATA_CORE.identifier(), // Ignore change to 'api' advice.
                 Deps.Android.Arch.Lifecycle.VIEW_MODEL.identifier(), // Ignore change to 'api' advice.
-                Deps.Architecture.Mvi.Stateful.RUNTIME.identifier(), // Ignore change to 'api' advice.
             )
         }
     }

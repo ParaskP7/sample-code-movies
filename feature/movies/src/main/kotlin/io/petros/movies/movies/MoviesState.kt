@@ -2,10 +2,8 @@ package io.petros.movies.movies
 
 import androidx.paging.LoadType
 import androidx.paging.PagingData
-import dev.fanie.stateful.Stateful
 import io.petros.movies.domain.model.movie.Movie
 
-@Stateful
 data class MoviesState(
     val year: Int?,
     val month: Int?,
