@@ -167,13 +167,13 @@ object Deps {
 
                 object Room {
 
-                    val COMMON = "androidx.room:room-common:${Versions.Android.Arch.Database.Room.ROOM_RC}"
+                    val COMMON = "androidx.room:room-common:${Versions.Android.Arch.Database.Room.ROOM}"
 
-                    val RUNTIME = "androidx.room:room-runtime:${Versions.Android.Arch.Database.Room.ROOM_RC}"
+                    val RUNTIME = "androidx.room:room-runtime:${Versions.Android.Arch.Database.Room.ROOM}"
 
-                    val KTX = "androidx.room:room-ktx:${Versions.Android.Arch.Database.Room.ROOM_RC}"
+                    val KTX = "androidx.room:room-ktx:${Versions.Android.Arch.Database.Room.ROOM}"
 
-                    val COMPILER = "androidx.room:room-compiler:${Versions.Android.Arch.Database.Room.ROOM_RC}"
+                    val COMPILER = "androidx.room:room-compiler:${Versions.Android.Arch.Database.Room.ROOM}"
 
                 }
 
