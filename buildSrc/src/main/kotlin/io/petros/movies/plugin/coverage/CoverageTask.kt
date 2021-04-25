@@ -98,7 +98,7 @@ open class CoverageTask : DefaultTask() {
         return if (diff == 0.0) {
             coverageResult
         } else {
-            val diffCoverageMetricSentence = "- diff: " + if (diff > 0.0) "+$diff" else diff
+            val diffCoverageMetricSentence = "# diff: " + if (diff > 0.0) "+$diff" else diff
             coverageResult + SPACE +
                     diffCoverageMetricSentence
         }
