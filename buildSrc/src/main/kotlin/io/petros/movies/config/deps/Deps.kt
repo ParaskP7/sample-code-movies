@@ -140,6 +140,22 @@ object Deps {
 
             }
 
+            object DataStore {
+
+                val CORE = "androidx.datastore:datastore-core:${Versions.Android.Arch.DataStore.DATASTORE}"
+
+                @Suppress("MemberNameEqualsClassName")
+                object Preferences {
+
+                    val CORE =
+                        "androidx.datastore:datastore-preferences-core:${Versions.Android.Arch.DataStore.DATASTORE}"
+                    val PREFERENCES =
+                        "androidx.datastore:datastore-preferences:${Versions.Android.Arch.DataStore.DATASTORE}"
+
+                }
+
+            }
+
             object Database {
 
                 @Suppress("MemberNameEqualsClassName")
