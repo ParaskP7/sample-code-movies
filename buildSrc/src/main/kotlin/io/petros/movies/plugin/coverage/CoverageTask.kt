@@ -91,7 +91,7 @@ open class CoverageTask : DefaultTask() {
         while (coverageTypeSentence.length < COVERAGE_TYPE_SENTENCE_LENGTH) coverageTypeSentence += SPACE
         val actualCoverageMetricSentence = "$actualCoverageMetric$PERCENT"
         val expectedCoverageMetricSentence = "(expecting $expectedCoverageMetric$PERCENT)"
-        val diff = actualCoverageMetric - expectedCoverageMetric
+        val diff = (actualCoverageMetric - expectedCoverageMetric).round()
         val coverageResult = coverageTypeSentence + SPACE +
                 actualCoverageMetricSentence + SPACE +
                 expectedCoverageMetricSentence
