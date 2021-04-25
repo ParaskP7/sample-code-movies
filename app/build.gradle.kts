@@ -48,11 +48,13 @@ dependencies {
     debugImplementation(Deps.LeakCanary.LEAK_CANARY)
     implementation(Deps.LeakCanary.PLUMBER)
 
+    implementation(Deps.Kotlin.Coroutines.CORE_JVM)
     implementation(Deps.Material.MATERIAL)
     implementation(Deps.Android.Core.APP_COMPAT)
     implementation(Deps.Android.Core.CONSTRAINT_LAYOUT)
     implementation(Deps.Android.Core.DRAWER_LAYOUT)
     implementation(Deps.Android.Arch.Lifecycle.COMMON)
+    implementation(Deps.Android.Arch.Lifecycle.RUNTIME_KTX)
     implementation(Deps.Android.Arch.Lifecycle.LIVE_DATA_CORE)
     implementation(Deps.Android.Arch.Lifecycle.PROCESS)
     implementation(Deps.Android.Arch.Navigation.RUNTIME)

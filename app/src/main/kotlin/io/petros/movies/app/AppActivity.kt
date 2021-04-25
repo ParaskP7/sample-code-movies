@@ -3,6 +3,7 @@ package io.petros.movies.app
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.lifecycle.Observer
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
@@ -14,11 +15,16 @@ import io.petros.movies.android_utils.network.NetworkLiveEvent
 import io.petros.movies.core.activity.BaseActivity
 import io.petros.movies.core.view_binding.viewBinding
 import io.petros.movies.databinding.AppActivityBinding
+import io.petros.movies.domain.repository.settings.SettingsRepository
+import kotlinx.coroutines.launch
+import org.koin.android.ext.android.inject
 
 @Suppress("GoogleAppIndexingApiWarning", "TooManyFunctions")
 class AppActivity : BaseActivity<AppActivityBinding>() {
 
     override val binding by viewBinding(AppActivityBinding::inflate)
+
+    private val settings: SettingsRepository by inject()
 
     private val configuration by lazy { AppBarConfiguration(setOf(R.id.moviesFragment), binding.ctrApp) }
 
@@ -58,14 +64,19 @@ class AppActivity : BaseActivity<AppActivityBinding>() {
         initComposeMenuItemSwitchListener(switch)
     }
 
-    @Suppress("ForbiddenComment", "UnusedPrivateMember")
-    private fun initComposeMenuItemSwitchState(@Suppress("UNUSED_PARAMETER") switch: SwitchMaterial) {
-        // TODO: Implement settings.
+    private fun initComposeMenuItemSwitchState(switch: SwitchMaterial) {
+        lifecycleScope.launch {
+            switch.isChecked = settings.isComposeEnabled()
+        }
     }
 
-    @Suppress("FunctionMaxLength", "ForbiddenComment", "UnusedPrivateMember")
-    private fun initComposeMenuItemSwitchListener(@Suppress("UNUSED_PARAMETER") switch: SwitchMaterial) {
-        // TODO: Implement settings.
+    @Suppress("FunctionMaxLength")
+    private fun initComposeMenuItemSwitchListener(switch: SwitchMaterial) {
+        switch.setOnCheckedChangeListener { _, isChecked ->
+            lifecycleScope.launch {
+                settings.setComposeEnabled(isChecked)
+            }
+        }
     }
 
     private fun initObservers() {
