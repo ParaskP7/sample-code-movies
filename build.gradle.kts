@@ -1,6 +1,9 @@
 @file:Suppress("InvalidPackageDeclaration", "DEPRECATION")
 
+import com.android.build.api.dsl.AndroidSourceSet
+import com.android.build.api.dsl.ApplicationDefaultConfig
 import com.android.build.api.dsl.CompileOptions
+import com.android.build.api.dsl.LibraryDefaultConfig
 import com.android.build.api.dsl.LintOptions
 import com.android.build.api.dsl.PackagingOptions
 import com.android.build.api.dsl.TestOptions
@@ -35,8 +38,6 @@ import org.jetbrains.kotlin.gradle.plugin.KaptExtension
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import com.android.build.gradle.AppPlugin as AndroidApplicationPlugin
 import com.android.build.gradle.LibraryPlugin as AndroidLibraryPlugin
-import com.android.build.gradle.api.AndroidSourceSet as AndroidSourceSetLegacy
-import com.android.build.gradle.internal.dsl.DefaultConfig as DefaultConfigLegacy
 import org.jetbrains.kotlin.gradle.internal.Kapt3GradleSubplugin as KotlinKaptPlugin
 import org.jetbrains.kotlin.gradle.plugin.KotlinAndroidPluginWrapper as KotlinAndroidPlugin
 import org.jetbrains.kotlin.gradle.plugin.KotlinPluginWrapper as KotlinPlugin
@@ -216,8 +217,8 @@ fun Project.java(configure: JavaPluginExtension.() -> Unit) =
 
 fun Project.sourceSets() {
     configure<SourceSetContainer> {
-        mainSourceSets()
-        testSourceSets()
+        named(Sources.MAIN) { mainSourceSets() }
+        named(Sources.TEST) { testSourceSets() }
     }
 }
 
@@ -284,10 +285,14 @@ fun KaptExtension.kapt() {
 
 fun LibraryExtension.androidLibrary() {
     compileSdkVersion(Android.Sdk.COMPILE)
-    defaultConfig { defaultConfig() }
+    defaultConfig { libDefaultConfig() }
     packagingOptions { packagingOptions() }
     compileOptions { compileOptions() }
-    sourceSets { androidSourceSets() }
+    sourceSets {
+        named(Sources.MAIN) { mainAndroidSourceSets() }
+        named(Sources.TEST) { testAndroidSourceSets() }
+        named(Sources.ANDROID_TEST) { androidTestAndroidSourceSets() }
+    }
     testOptions { androidTestOptions() }
     lintOptions { lintOptions() }
     buildFeatures()
@@ -296,10 +301,14 @@ fun LibraryExtension.androidLibrary() {
 
 fun AppExtension.androidApplication() {
     compileSdkVersion(Android.Sdk.COMPILE)
-    defaultConfig { defaultConfig() }
+    defaultConfig { appDefaultConfig() }
     packagingOptions { packagingOptions() }
     compileOptions { compileOptions() }
-    sourceSets { androidSourceSets() }
+    sourceSets {
+        named(Sources.MAIN) { mainAndroidSourceSets() }
+        named(Sources.TEST) { testAndroidSourceSets() }
+        named(Sources.ANDROID_TEST) { androidTestAndroidSourceSets() }
+    }
     testOptions { androidTestOptions() }
     lintOptions { lintOptions() }
     buildFeatures()
@@ -322,7 +331,12 @@ fun DetektExtension.detekt() {
     autoCorrect = true
 }
 
-fun DefaultConfigLegacy.defaultConfig() {
+fun LibraryDefaultConfig.libDefaultConfig() {
+    minSdkVersion(Android.Sdk.MIN)
+    targetSdkVersion(Android.Sdk.TARGET)
+}
+
+fun ApplicationDefaultConfig.appDefaultConfig() {
     minSdkVersion(Android.Sdk.MIN)
     targetSdkVersion(Android.Sdk.TARGET)
 }
@@ -343,12 +357,6 @@ fun PackagingOptions.packagingOptions() {
 fun CompileOptions.compileOptions() {
     sourceCompatibility = Java.version
     targetCompatibility = Java.version
-}
-
-fun NamedDomainObjectContainer<AndroidSourceSetLegacy>.androidSourceSets() {
-    mainAndroidSourceSets()
-    testAndroidSourceSets()
-    androidTestAndroidSourceSets()
 }
 
 fun TestOptions.androidTestOptions() {
@@ -489,87 +497,73 @@ fun isMilestone(version: String) =
 
 /* SOURCE SET EXTENSION FUNCTIONS - KOTLIN */
 
-fun SourceSetContainer.mainSourceSets() {
-    named(Sources.MAIN) {
-        java.setSrcDirs(
-            arrayListOf(
-                Sources.Main.KOTLIN,
-            )
+fun SourceSet.mainSourceSets() {
+    java.setSrcDirs(
+        arrayListOf(
+            Sources.Main.KOTLIN,
         )
-        resources.setSrcDirs(
-            arrayListOf(
-                Sources.Main.RESOURCES,
-            )
+    )
+    resources.setSrcDirs(
+        arrayListOf(
+            Sources.Main.RESOURCES,
         )
-    }
+    )
 }
 
-fun SourceSetContainer.testSourceSets() {
-    named(Sources.TEST) {
-        java.setSrcDirs(
-            arrayListOf(
-                Sources.Test.KOTLIN,
-                Sources.Integration.KOTLIN,
-                Sources.Robolectric.KOTLIN,
-            )
+fun SourceSet.testSourceSets() {
+    java.setSrcDirs(
+        arrayListOf(
+            Sources.Test.KOTLIN,
+            Sources.Integration.KOTLIN,
         )
-        resources.setSrcDirs(
-            arrayListOf(
-                Sources.Test.RESOURCES,
-                Sources.Integration.RESOURCES,
-                Sources.Robolectric.RESOURCES,
-            )
+    )
+    resources.setSrcDirs(
+        arrayListOf(
+            Sources.Test.RESOURCES,
+            Sources.Integration.RESOURCES,
         )
-    }
+    )
 }
 
 /* SOURCE SET EXTENSION FUNCTIONS - ANDROID */
 
-fun NamedDomainObjectContainer<AndroidSourceSetLegacy>.mainAndroidSourceSets() {
-    named(Sources.MAIN) {
-        java.setSrcDirs(
-            arrayListOf(
-                Sources.Main.KOTLIN,
-            )
+fun AndroidSourceSet.mainAndroidSourceSets() {
+    java.setSrcDirs(
+        arrayListOf(
+            Sources.Main.KOTLIN,
         )
-        resources.setSrcDirs(
-            arrayListOf(
-                Sources.Main.RESOURCES,
-            )
+    )
+    resources.setSrcDirs(
+        arrayListOf(
+            Sources.Main.RESOURCES,
         )
-    }
+    )
 }
 
-fun NamedDomainObjectContainer<AndroidSourceSetLegacy>.testAndroidSourceSets() {
-    named(Sources.TEST) {
-        java.setSrcDirs(
-            arrayListOf(
-                Sources.Test.KOTLIN,
-                Sources.Integration.KOTLIN,
-                Sources.Robolectric.KOTLIN,
-            )
+fun AndroidSourceSet.testAndroidSourceSets() {
+    java.setSrcDirs(
+        arrayListOf(
+            Sources.Test.KOTLIN,
+            Sources.Robolectric.KOTLIN,
         )
-        resources.setSrcDirs(
-            arrayListOf(
-                Sources.Test.RESOURCES,
-                Sources.Integration.RESOURCES,
-                Sources.Robolectric.RESOURCES,
-            )
+    )
+    resources.setSrcDirs(
+        arrayListOf(
+            Sources.Test.RESOURCES,
+            Sources.Robolectric.RESOURCES,
         )
-    }
+    )
 }
 
-fun NamedDomainObjectContainer<AndroidSourceSetLegacy>.androidTestAndroidSourceSets() {
-    named(Sources.ANDROID_TEST) {
-        java.setSrcDirs(
-            arrayListOf(
-                Sources.Android.Test.KOTLIN,
-            )
+fun AndroidSourceSet.androidTestAndroidSourceSets() {
+    java.setSrcDirs(
+        arrayListOf(
+            Sources.Android.Test.KOTLIN,
         )
-        resources.setSrcDirs(
-            arrayListOf(
-                Sources.Android.Test.RESOURCES,
-            )
+    )
+    resources.setSrcDirs(
+        arrayListOf(
+            Sources.Android.Test.RESOURCES,
         )
-    }
+    )
 }

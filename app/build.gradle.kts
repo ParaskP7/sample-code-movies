@@ -1,8 +1,8 @@
 @file:Suppress("InvalidPackageDeclaration")
 
+import com.android.build.api.dsl.ApplicationBuildType
+import com.android.build.api.dsl.ApplicationDefaultConfig
 import com.android.build.gradle.ProguardFiles.getDefaultProguardFile
-import com.android.build.gradle.internal.dsl.BuildType
-import com.android.build.gradle.internal.dsl.DefaultConfig
 import io.petros.movies.config.Config
 import io.petros.movies.config.android.Android
 import io.petros.movies.config.android.App
@@ -108,14 +108,14 @@ moduleGraphAssert {
 
 /* CONFIGURATION EXTENSION FUNCTIONS */
 
-fun DefaultConfig.defaultConfig() {
+fun ApplicationDefaultConfig.defaultConfig() {
     applicationId = App.APPLICATION_ID
     versionCode = App.Version.CODE
     versionName = App.Version.NAME
     testInstrumentationRunner = Android.DefaultConfig.Test.CUSTOM_INSTRUMENTATION_RUNNER
 }
 
-fun NamedDomainObjectContainer<BuildType>.buildTypes() {
+fun NamedDomainObjectContainer<ApplicationBuildType>.buildTypes() {
     val themoviedbApiKey = findLocalProperty(LocalProperties.TheMoviesDb.API_KEY).asString()
     logApiKey(themoviedbApiKey)
     named(Android.BuildTypes.DEBUG) {
