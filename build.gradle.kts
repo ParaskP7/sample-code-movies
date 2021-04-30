@@ -284,7 +284,7 @@ fun KaptExtension.kapt() {
 }
 
 fun LibraryExtension.androidLibrary() {
-    compileSdkVersion(Android.Sdk.COMPILE)
+    compileSdk = Android.Sdk.COMPILE
     defaultConfig { libDefaultConfig() }
     packagingOptions { packagingOptions() }
     compileOptions { compileOptions() }
@@ -332,13 +332,13 @@ fun DetektExtension.detekt() {
 }
 
 fun LibraryDefaultConfig.libDefaultConfig() {
-    minSdkVersion(Android.Sdk.MIN)
-    targetSdkVersion(Android.Sdk.TARGET)
+    minSdk = Android.Sdk.MIN
+    targetSdk = Android.Sdk.TARGET
 }
 
 fun ApplicationDefaultConfig.appDefaultConfig() {
-    minSdkVersion(Android.Sdk.MIN)
-    targetSdkVersion(Android.Sdk.TARGET)
+    minSdk = Android.Sdk.MIN
+    targetSdk = Android.Sdk.TARGET
 }
 
 fun PackagingOptions.packagingOptions() {
