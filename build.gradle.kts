@@ -1,4 +1,4 @@
-@file:Suppress("InvalidPackageDeclaration", "DEPRECATION")
+@file:Suppress("InvalidPackageDeclaration")
 
 import com.android.build.api.dsl.AndroidSourceSet
 import com.android.build.api.dsl.ApplicationDefaultConfig
@@ -44,10 +44,10 @@ import org.jetbrains.kotlin.gradle.plugin.KotlinPluginWrapper as KotlinPlugin
 
 /* BUILD SCRIPT */
 
-@Suppress("JcenterRepositoryObsolete")
 buildscript {
     repositories {
         google()
+        @Suppress("JcenterRepositoryObsolete", "DEPRECATION")
         jcenter()
         mavenCentral()
         maven(Repos.Url.Kotlin.KOTLIN_EAP)
@@ -119,10 +119,10 @@ dependencyAnalysis {
 
 /* PROJECTS CONFIGURATION */
 
-@Suppress("JcenterRepositoryObsolete")
 allprojects {
     repositories {
         google()
+        @Suppress("JcenterRepositoryObsolete", "DEPRECATION")
         jcenter()
         mavenCentral()
         maven(Repos.Url.Kotlin.KOTLIN_EAP)
@@ -389,6 +389,7 @@ fun BaseExtension.buildFeatures() {
         shaders = false
         viewBinding = false
         dataBinding {
+            @Suppress("DEPRECATION")
             isEnabled = false
         }
     }
