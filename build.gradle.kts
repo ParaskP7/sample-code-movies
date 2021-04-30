@@ -4,7 +4,7 @@ import com.android.build.api.dsl.AndroidSourceSet
 import com.android.build.api.dsl.ApplicationDefaultConfig
 import com.android.build.api.dsl.CompileOptions
 import com.android.build.api.dsl.LibraryDefaultConfig
-import com.android.build.api.dsl.LintOptions
+import com.android.build.api.dsl.Lint
 import com.android.build.api.dsl.PackagingOptions
 import com.android.build.api.dsl.TestOptions
 import com.android.build.gradle.AppExtension
@@ -294,7 +294,7 @@ fun LibraryExtension.androidLibrary() {
         named(Sources.ANDROID_TEST) { androidTestAndroidSourceSets() }
     }
     testOptions { androidTestOptions() }
-    lintOptions { lintOptions() }
+    lint { lint() }
     buildFeatures()
     variantOptions()
 }
@@ -310,7 +310,7 @@ fun AppExtension.androidApplication() {
         named(Sources.ANDROID_TEST) { androidTestAndroidSourceSets() }
     }
     testOptions { androidTestOptions() }
-    lintOptions { lintOptions() }
+    lintOptions { lint() }
     buildFeatures()
     variantOptions()
 }
@@ -366,7 +366,7 @@ fun TestOptions.androidTestOptions() {
 }
 
 @Suppress("SpreadOperator")
-fun LintOptions.lintOptions() {
+fun Lint.lint() {
     isAbortOnError = true
     isCheckAllWarnings = true
     isIgnoreWarnings = false
