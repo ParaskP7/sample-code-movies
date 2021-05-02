@@ -47,8 +47,6 @@ import org.jetbrains.kotlin.gradle.plugin.KotlinPluginWrapper as KotlinPlugin
 buildscript {
     repositories {
         google()
-        @Suppress("JcenterRepositoryObsolete", "DEPRECATION")
-        jcenter()
         mavenCentral()
         maven(Repos.Url.Kotlin.KOTLIN_EAP)
     }
@@ -122,8 +120,6 @@ dependencyAnalysis {
 allprojects {
     repositories {
         google()
-        @Suppress("JcenterRepositoryObsolete", "DEPRECATION")
-        jcenter()
         mavenCentral()
         maven(Repos.Url.Kotlin.KOTLIN_EAP)
     }

@@ -71,6 +71,8 @@ comments:
     active: true
   CommentOverPrivateProperty:
     active: true
+  DeprecatedBlockTag:
+    active: true
   EndOfSentenceFormat:
     active: true
     endOfSentenceFormat: '([.?!][ \t\n\r\f<])|([.?!:]$)'
@@ -346,8 +348,10 @@ formatting:
     active: true
     autoCorrect: true
   ArgumentListWrapping:
-    active: true
+    active: false
     autoCorrect: true
+    indentSize: 4
+    maxLineLength: 120
   ChainWrapping:
     active: true
     autoCorrect: true
@@ -366,7 +370,7 @@ formatting:
   ImportOrdering:
     active: false
     autoCorrect: true
-    layout: 'idea'
+    layout: '*,java.**,javax.**,kotlin.**,^'
   Indentation:
     active: false
     autoCorrect: true
@@ -375,6 +379,7 @@ formatting:
   MaximumLineLength:
     active: true
     maxLineLength: 120
+    ignoreBackTickedIdentifier: false
   ModifierOrdering:
     active: true
     autoCorrect: true
@@ -423,6 +428,7 @@ formatting:
     active: true
     autoCorrect: true
     indentSize: 4
+    maxLineLength: 120
   SpacingAroundAngleBrackets:
     active: true
     autoCorrect: true
@@ -796,6 +802,8 @@ potential-bugs:
   Deprecation:
     active: true
   DontDowncastCollectionTypes:
+    active: true
+  DoubleMutabilityForCollection:
     active: true
   DuplicateCaseInWhenExpression:
     active: true
