@@ -49,20 +49,7 @@ output-reports:
 
 comments:
   active: true
-  excludes: [
-    '**/test/**',
-    '**/spekTest/**',
-    '**/integrationTest/**',
-    '**/robolectricTest/**',
-    '**/androidTest/**',
-    '**/*.Test.kt',
-    '**/*.Spec.kt',
-    '**/*.Spek.kt',
-    '**/commonTest/**',
-    '**/jvmTest/**',
-    '**/jsTest/**',
-    '**/iosTest/**'
-  ]
+  excludes: [ ]
   AbsentOrWrongFileLicense:
     active: false
     licenseTemplateFile: 'license.template'
@@ -116,7 +103,7 @@ complexity:
     ]
   LabeledExpression:
     active: true
-    ignoredLabels: []
+    ignoredLabels: [ ]
   LargeClass:
     active: true
     threshold: 600
@@ -143,20 +130,7 @@ complexity:
     active: true
   StringLiteralDuplication:
     active: true
-    excludes: [
-        '**/test/**',
-        '**/spekTest/**',
-      '**/integrationTest/**',
-      '**/robolectricTest/**',
-      '**/androidTest/**',
-      '**/*.Test.kt',
-      '**/*.Spec.kt',
-      '**/*.Spek.kt',
-      '**/commonTest/**',
-      '**/jvmTest/**',
-      '**/jsTest/**',
-      '**/iosTest/**'
-    ]
+    excludes: [ ]
     threshold: 3
     ignoreAnnotation: true
     excludeStringsWithLessThan5Characters: true
@@ -165,13 +139,10 @@ complexity:
     active: true
     excludes: [
       '**/test/**',
-      '**/spekTest/**',
       '**/integrationTest/**',
       '**/robolectricTest/**',
       '**/androidTest/**',
       '**/*.Test.kt',
-      '**/*.Spec.kt',
-      '**/*.Spek.kt',
       '**/commonTest/**',
       '**/jvmTest/**',
       '**/jsTest/**',
@@ -244,20 +215,7 @@ exceptions:
     ]
   InstanceOfCheckForException:
     active: true
-    excludes: [
-      '**/test/**',
-      '**/spekTest/**',
-      '**/integrationTest/**',
-      '**/robolectricTest/**',
-      '**/androidTest/**',
-      '**/*.Test.kt',
-      '**/*.Spec.kt',
-      '**/*.Spek.kt',
-      '**/commonTest/**',
-      '**/jvmTest/**',
-      '**/jsTest/**',
-      '**/iosTest/**'
-    ]
+    excludes: [ ]
   NotImplementedDeclaration:
     active: true
   ObjectExtendsThrowable:
@@ -283,20 +241,7 @@ exceptions:
     active: true
   ThrowingExceptionsWithoutMessageOrCause:
     active: true
-    excludes: [
-      '**/test/**',
-      '**/spekTest/**',
-      '**/integrationTest/**',
-      '**/robolectricTest/**',
-      '**/androidTest/**',
-      '**/*.Test.kt',
-      '**/*.Spec.kt',
-      '**/*.Spek.kt',
-      '**/commonTest/**',
-      '**/jvmTest/**',
-      '**/jsTest/**',
-      '**/iosTest/**'
-    ]
+    excludes: [ ]
     exceptions:
       - IllegalArgumentException
       - IllegalStateException
@@ -305,20 +250,7 @@ exceptions:
     active: true
   TooGenericExceptionCaught:
     active: true
-    excludes: [
-      '**/test/**',
-      '**/spekTest/**',
-      '**/integrationTest/**',
-      '**/robolectricTest/**',
-      '**/androidTest/**',
-      '**/*.Test.kt',
-      '**/*.Spec.kt',
-      '**/*.Spek.kt',
-      '**/commonTest/**',
-      '**/jvmTest/**',
-      '**/jsTest/**',
-      '**/iosTest/**'
-    ]
+    excludes: [ ]
     exceptionNames:
       - ArrayIndexOutOfBoundsException
       - Error
@@ -476,86 +408,31 @@ naming:
   active: true
   ClassNaming:
     active: true
-    excludes: [
-      '**/test/**',
-      '**/spekTest/**',
-      '**/integrationTest/**',
-      '**/robolectricTest/**',
-      '**/androidTest/**',
-      '**/*.Test.kt',
-      '**/*.Spec.kt',
-      '**/*.Spek.kt',
-      '**/commonTest/**',
-      '**/jvmTest/**',
-      '**/jsTest/**',
-      '**/iosTest/**'
-    ]
+    excludes: [ ]
     classPattern: '[A-Z][a-zA-Z0-9]*'
   ConstructorParameterNaming:
     active: true
-    excludes: [
-      '**/test/**',
-      '**/spekTest/**',
-      '**/integrationTest/**',
-      '**/robolectricTest/**',
-      '**/androidTest/**',
-      '**/*.Test.kt',
-      '**/*.Spec.kt',
-      '**/*.Spek.kt',
-      '**/commonTest/**',
-      '**/jvmTest/**',
-      '**/jsTest/**',
-      '**/iosTest/**'
-    ]
+    excludes: [ ]
     parameterPattern: '[a-z][A-Za-z0-9]*'
     privateParameterPattern: '[a-z][A-Za-z0-9]*'
     excludeClassPattern: '.*Raw'
     ignoreOverridden: true
   EnumNaming:
     active: true
-    excludes: [
-      '**/test/**',
-      '**/spekTest/**',
-      '**/integrationTest/**',
-      '**/robolectricTest/**',
-      '**/androidTest/**',
-      '**/*.Test.kt',
-      '**/*.Spec.kt',
-      '**/*.Spek.kt',
-      '**/commonTest/**',
-      '**/jvmTest/**',
-      '**/jsTest/**',
-      '**/iosTest/**'
-    ]
+    excludes: [ ]
     enumEntryPattern: '[A-Z][_a-zA-Z0-9]*'
   ForbiddenClassName:
     active: true
-    excludes: [
-      '**/test/**',
-      '**/spekTest/**',
-      '**/integrationTest/**',
-      '**/robolectricTest/**',
-      '**/androidTest/**',
-      '**/*.Test.kt',
-      '**/*.Spec.kt',
-      '**/*.Spek.kt',
-      '**/commonTest/**',
-      '**/jvmTest/**',
-      '**/jsTest/**',
-      '**/iosTest/**'
-    ]
-    forbiddenName: []
+    excludes: [ ]
+    forbiddenName: [ ]
   FunctionMaxLength:
     active: true
     excludes: [
       '**/test/**',
-      '**/spekTest/**',
       '**/integrationTest/**',
       '**/robolectricTest/**',
       '**/androidTest/**',
       '**/*.Test.kt',
-      '**/*.Spec.kt',
-      '**/*.Spek.kt',
       '**/commonTest/**',
       '**/jvmTest/**',
       '**/jsTest/**',
@@ -564,57 +441,18 @@ naming:
     maximumFunctionNameLength: 30
   FunctionMinLength:
     active: true
-    excludes: [
-      '**/test/**',
-      '**/spekTest/**',
-      '**/integrationTest/**',
-      '**/robolectricTest/**',
-      '**/androidTest/**',
-      '**/*.Test.kt',
-      '**/*.Spec.kt',
-      '**/*.Spek.kt',
-      '**/commonTest/**',
-      '**/jvmTest/**',
-      '**/jsTest/**',
-      '**/iosTest/**'
-    ]
+    excludes: [ ]
     minimumFunctionNameLength: 3
   FunctionNaming:
     active: true
-    excludes: [
-      '**/test/**',
-      '**/spekTest/**',
-      '**/integrationTest/**',
-      '**/robolectricTest/**',
-      '**/androidTest/**',
-      '**/*.Test.kt',
-      '**/*.Spec.kt',
-      '**/*.Spek.kt',
-      '**/commonTest/**',
-      '**/jvmTest/**',
-      '**/jsTest/**',
-      '**/iosTest/**'
-    ]
+    excludes: [ ]
     functionPattern: '([a-z][a-zA-Z0-9]*)|(`.*`)'
     excludeClassPattern: '$^'
     ignoreOverridden: true
     ignoreAnnotated: ['Composable']
   FunctionParameterNaming:
     active: true
-    excludes: [
-      '**/test/**',
-      '**/spekTest/**',
-      '**/integrationTest/**',
-      '**/robolectricTest/**',
-      '**/androidTest/**',
-      '**/*.Test.kt',
-      '**/*.Spec.kt',
-      '**/*.Spek.kt',
-      '**/commonTest/**',
-      '**/jvmTest/**',
-      '**/jsTest/**',
-      '**/iosTest/**'
-    ]
+    excludes: [ ]
     parameterPattern: '[a-z][A-Za-z0-9]*'
     excludeClassPattern: '$^'
     ignoreOverridden: true
@@ -632,125 +470,34 @@ naming:
     active: true
   NonBooleanPropertyPrefixedWithIs:
     active: true
-    excludes: [
-      '**/test/**',
-      '**/spekTest/**',
-      '**/integrationTest/**',
-      '**/robolectricTest/**',
-      '**/androidTest/**',
-      '**/*.Test.kt',
-      '**/*.Spec.kt',
-      '**/*.Spek.kt',
-      '**/commonTest/**',
-      '**/jvmTest/**',
-      '**/jsTest/**',
-      '**/iosTest/**'
-    ]
+    excludes: [ ]
   ObjectPropertyNaming:
     active: true
-    excludes: [
-      '**/test/**',
-      '**/spekTest/**',
-      '**/integrationTest/**',
-      '**/robolectricTest/**',
-      '**/androidTest/**',
-      '**/*.Test.kt',
-      '**/*.Spec.kt',
-      '**/*.Spek.kt',
-      '**/commonTest/**',
-      '**/jvmTest/**',
-      '**/jsTest/**',
-      '**/iosTest/**'
-    ]
+    excludes: [ ]
     constantPattern: '[A-Za-z][_A-Za-z0-9]*'
     propertyPattern: '[A-Za-z][_A-Za-z0-9]*'
     privatePropertyPattern: '(_)?[A-Za-z][_A-Za-z0-9]*'
   PackageNaming:
     active: false
-    excludes: [
-      '**/test/**',
-      '**/spekTest/**',
-      '**/integrationTest/**',
-      '**/robolectricTest/**',
-      '**/androidTest/**',
-      '**/*.Test.kt',
-      '**/*.Spec.kt',
-      '**/*.Spek.kt',
-      '**/commonTest/**',
-      '**/jvmTest/**',
-      '**/jsTest/**',
-      '**/iosTest/**'
-    ]
+    excludes: [ ]
     packagePattern: '[a-z]+(\.[a-z][A-Za-z0-9]*)*'
   TopLevelPropertyNaming:
     active: true
-    excludes: [
-      '**/test/**',
-      '**/spekTest/**',
-      '**/integrationTest/**',
-      '**/robolectricTest/**',
-      '**/androidTest/**',
-      '**/*.Test.kt',
-      '**/*.Spec.kt',
-      '**/*.Spek.kt',
-      '**/commonTest/**',
-      '**/jvmTest/**',
-      '**/jsTest/**',
-      '**/iosTest/**'
-    ]
+    excludes: [ ]
     constantPattern: '[A-Z][_A-Z0-9]*'
     propertyPattern: '[A-Za-z][_A-Za-z0-9]*'
     privatePropertyPattern: '_?[A-Za-z][_A-Za-z0-9]*'
   VariableMaxLength:
     active: true
-    excludes: [
-      '**/test/**',
-      '**/spekTest/**',
-      '**/integrationTest/**',
-      '**/robolectricTest/**',
-      '**/androidTest/**',
-      '**/*.Test.kt',
-      '**/*.Spec.kt',
-      '**/*.Spek.kt',
-      '**/commonTest/**',
-      '**/jvmTest/**',
-      '**/jsTest/**',
-      '**/iosTest/**'
-    ]
+    excludes: [ ]
     maximumVariableNameLength: 64
   VariableMinLength:
     active: true
-    excludes: [
-      '**/test/**',
-      '**/spekTest/**',
-      '**/integrationTest/**',
-      '**/robolectricTest/**',
-      '**/androidTest/**',
-      '**/*.Test.kt',
-      '**/*.Spec.kt',
-      '**/*.Spek.kt',
-      '**/commonTest/**',
-      '**/jvmTest/**',
-      '**/jsTest/**',
-      '**/iosTest/**'
-    ]
+    excludes: [ ]
     minimumVariableNameLength: 1
   VariableNaming:
     active: true
-    excludes: [
-      '**/test/**',
-      '**/spekTest/**',
-      '**/integrationTest/**',
-      '**/robolectricTest/**',
-      '**/androidTest/**',
-      '**/*.Test.kt',
-      '**/*.Spec.kt',
-      '**/*.Spek.kt',
-      '**/commonTest/**',
-      '**/jvmTest/**',
-      '**/jsTest/**',
-      '**/iosTest/**'
-    ]
+    excludes: [ ]
     variablePattern: '[a-z][A-Za-z0-9]*'
     privateVariablePattern: '(_)?[a-z][A-Za-z0-9]*'
     excludeClassPattern: '$^'
@@ -762,36 +509,10 @@ performance:
     active: true
   ForEachOnRange:
     active: true
-    excludes: [
-      '**/test/**',
-      '**/spekTest/**',
-      '**/integrationTest/**',
-      '**/robolectricTest/**',
-      '**/androidTest/**',
-      '**/*.Test.kt',
-      '**/*.Spec.kt',
-      '**/*.Spek.kt',
-      '**/commonTest/**',
-      '**/jvmTest/**',
-      '**/jsTest/**',
-      '**/iosTest/**'
-    ]
+    excludes: [ ]
   SpreadOperator:
     active: true
-    excludes: [
-      '**/test/**',
-      '**/spekTest/**',
-      '**/integrationTest/**',
-      '**/robolectricTest/**',
-      '**/androidTest/**',
-      '**/*.Test.kt',
-      '**/*.Spec.kt',
-      '**/*.Spek.kt',
-      '**/commonTest/**',
-      '**/jvmTest/**',
-      '**/jsTest/**',
-      '**/iosTest/**'
-    ]
+    excludes: [ ]
   UnnecessaryTemporaryInstantiation:
     active: true
 
@@ -837,21 +558,8 @@ potential-bugs:
     active: true
   LateinitUsage:
     active: true
-    excludes: [
-      '**/test/**',
-      '**/spekTest/**',
-      '**/integrationTest/**',
-      '**/robolectricTest/**',
-      '**/androidTest/**',
-      '**/*.Test.kt',
-      '**/*.Spec.kt',
-      '**/*.Spek.kt',
-      '**/commonTest/**',
-      '**/jvmTest/**',
-      '**/jsTest/**',
-      '**/iosTest/**'
-    ]
-    excludeAnnotatedProperties: []
+    excludes: [ ]
+    excludeAnnotatedProperties: [ ]
     ignoreOnClassesPattern: ''
   MapGetWithNotNullAssertionOperator:
     active: true
@@ -918,7 +626,7 @@ style:
     allowedPatterns: ''
   ForbiddenImport:
     active: true
-    imports: []
+    imports: [ ]
     forbiddenPatterns: ''
   ForbiddenMethodCall:
     active: true
@@ -958,13 +666,10 @@ style:
     active: true
     excludes: [
       '**/test/**',
-      '**/spekTest/**',
       '**/integrationTest/**',
       '**/robolectricTest/**',
       '**/androidTest/**',
       '**/*.Test.kt',
-      '**/*.Spec.kt',
-      '**/*.Spek.kt',
       '**/commonTest/**',
       '**/jvmTest/**',
       '**/jsTest/**',
@@ -1103,20 +808,7 @@ style:
     active: true
   WildcardImport:
     active: true
-    excludes: [
-      '**/test/**',
-      '**/spekTest/**',
-      '**/integrationTest/**',
-      '**/robolectricTest/**',
-      '**/androidTest/**',
-      '**/*.Test.kt',
-      '**/*.Spec.kt',
-      '**/*.Spek.kt',
-      '**/commonTest/**',
-      '**/jvmTest/**',
-      '**/jsTest/**',
-      '**/iosTest/**'
-    ]
+    excludes: [ ]
     excludeImports: [
       'java.util.*',
       'kotlinx.android.synthetic.*'
