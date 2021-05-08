@@ -83,21 +83,37 @@ object Deps {
 
             object UI {
 
+                val UI = "androidx.compose.ui:ui:${Versions.Android.Compose.COMPOSE}"
                 val GRAPHICS = "androidx.compose.ui:ui-graphics:${Versions.Android.Compose.COMPOSE}"
                 val TEXT = "androidx.compose.ui:ui-text:${Versions.Android.Compose.COMPOSE}"
                 val UNIT = "androidx.compose.ui:ui-unit:${Versions.Android.Compose.COMPOSE}"
+                val TOOLING = "androidx.compose.ui:ui-tooling:${Versions.Android.Compose.COMPOSE}"
 
             }
 
             object Foundation {
 
                 val FOUNDATION = "androidx.compose.foundation:foundation:${Versions.Android.Compose.COMPOSE}"
+                val LAYOUT = "androidx.compose.foundation:foundation-layout:${Versions.Android.Compose.COMPOSE}"
 
             }
 
             object Material {
 
                 val MATERIAL = "androidx.compose.material:material:${Versions.Android.Compose.COMPOSE}"
+
+            }
+
+            object ConstraintLayout {
+
+                val CONSTRAINT_LAYOUT =
+                    "androidx.constraintlayout:constraintlayout-compose:${Versions.Android.Compose.ConstraintLayout.CONSTRAINT_LAYOUT}"
+            }
+
+            object Accompanist {
+
+                val COIL =
+                    "com.google.accompanist:accompanist-coil:${Versions.Android.Compose.Accompanist.ACCOMPANIST}"
 
             }
 
