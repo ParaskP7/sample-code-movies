@@ -46,7 +46,7 @@ object Versions {
 
             // Releases: https://developer.android.com/jetpack/androidx/releases/constraintlayout
             @Suppress("unused") const val CONSTRAINT_LAYOUT = "2.0.4" // Released: 29-10-20
-            const val CONSTRAINT_LAYOUT_BETA = "2.1.0-beta01" // Released: 11-03-21
+            const val CONSTRAINT_LAYOUT_BETA = "2.1.0-beta02" // Released: 04-05-21
 
             // Releases: https://developer.android.com/jetpack/androidx/releases/drawerlayout
             const val DRAWER_LAYOUT = "1.1.1" // Released: 02-09-20
