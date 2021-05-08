@@ -169,6 +169,7 @@ fun Project.subprojectsPlugins() {
     }
     plugins.withType(JacocoPlugin::class) {
         logPlugin(Plugins.Id.Test.JACOCO)
+        jacoco { jacoco() }
         jacocoRobolectric()
     }
     plugins.withType(CoveragePlugin::class) {
@@ -235,6 +236,9 @@ fun Project.androidApplication(configure: AppExtension.() -> Unit) =
 
 fun Project.detekt(configure: DetektExtension.() -> Unit) =
     extensions.configure(DetektExtension::class.java, configure)
+
+fun Project.jacoco(configure: JacocoPluginExtension.() -> Unit) =
+    extensions.configure(JacocoPluginExtension::class.java, configure)
 
 fun Project.coverage(configure: CoverageExtension.() -> Unit) =
     extensions.configure(CoverageExtension::class.java, configure)
@@ -413,6 +417,10 @@ fun ignoredVariants(variantOptions: (String) -> Unit) {
         logVariant(it)
         variantOptions(it)
     }
+}
+
+fun JacocoPluginExtension.jacoco() {
+    toolVersion = Plugins.Version.JACOCO
 }
 
 fun JacocoReport.jacoco(isKotlinModule: Boolean) {

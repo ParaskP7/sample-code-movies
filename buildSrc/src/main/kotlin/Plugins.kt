@@ -35,6 +35,9 @@ object Plugins {
         // Releases: https://github.com/jraska/modules-graph-assert/releases
         const val MODULE_GRAPH_ASSERT = "1.4.0" // Released: 17-08-20
 
+        // Releases: https://github.com/jacoco/jacoco/releases
+        const val JACOCO = "0.8.7" // Released: 04-05-21
+
     }
 
     const val KOTLIN_GRADLE = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Version.KOTLIN}"
