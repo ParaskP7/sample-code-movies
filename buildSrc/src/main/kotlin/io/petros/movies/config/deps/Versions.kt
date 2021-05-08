@@ -25,7 +25,8 @@ object Versions {
     object Material {
 
         // Releases: https://github.com/material-components/material-components-android/releases
-        const val MATERIAL = "1.3.0" // Released: 04-02-21
+        @Suppress("unused") const val MATERIAL = "1.3.0" // Released: 04-02-21
+        const val MATERIAL_BETA = "1.4.0-beta01" // Released: 07-05-21
 
     }
 
