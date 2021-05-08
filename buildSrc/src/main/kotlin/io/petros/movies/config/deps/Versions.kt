@@ -64,6 +64,13 @@ object Versions {
 
         }
 
+        object Compose {
+
+            // Releases: https://developer.android.com/jetpack/androidx/releases/compose
+            const val COMPOSE = "1.0.0-beta06" // Released: 05-05-21
+
+        }
+
         object Arch {
 
             @Suppress("MemberNameEqualsClassName")

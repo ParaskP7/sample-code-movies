@@ -73,6 +73,36 @@ object Deps {
 
         }
 
+        object Compose {
+
+            object Runtime {
+
+                val RUNTIME = "androidx.compose.runtime:runtime:${Versions.Android.Compose.COMPOSE}"
+
+            }
+
+            object UI {
+
+                val GRAPHICS = "androidx.compose.ui:ui-graphics:${Versions.Android.Compose.COMPOSE}"
+                val TEXT = "androidx.compose.ui:ui-text:${Versions.Android.Compose.COMPOSE}"
+                val UNIT = "androidx.compose.ui:ui-unit:${Versions.Android.Compose.COMPOSE}"
+
+            }
+
+            object Foundation {
+
+                val FOUNDATION = "androidx.compose.foundation:foundation:${Versions.Android.Compose.COMPOSE}"
+
+            }
+
+            object Material {
+
+                val MATERIAL = "androidx.compose.material:material:${Versions.Android.Compose.COMPOSE}"
+
+            }
+
+        }
+
         object Arch {
 
             object Core {
