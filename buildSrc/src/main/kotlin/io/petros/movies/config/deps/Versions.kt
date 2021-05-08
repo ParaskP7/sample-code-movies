@@ -137,8 +137,7 @@ object Versions {
             object Pagination {
 
                 // Releases: https://developer.android.com/jetpack/androidx/releases/paging
-                @Suppress("unused") const val PAGING = "2.1.2" // Release: 18-03-20
-                const val PAGING_RC = "3.0.0-rc01" // Release: 21-04-21
+                const val PAGING = "3.0.0" // Release: 05-05-21
 
             }
 
