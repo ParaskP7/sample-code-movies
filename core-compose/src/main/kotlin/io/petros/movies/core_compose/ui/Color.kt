@@ -23,6 +23,9 @@ object LightColor {
         onError = Color.White,
     )
 
+    /* APP */
+    val containerBackground = colors.background
+
 }
 
 object DarkColor {
@@ -41,5 +44,8 @@ object DarkColor {
         error = darkError,
         onError = Color.Black,
     )
+
+    /* APP */
+    val containerBackground = colors.primaryVariant
 
 }
