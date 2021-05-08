@@ -37,7 +37,7 @@ console-reports:
     - 'ProjectStatisticsReport'
     - 'ComplexityReport'
     - 'NotificationReport'
-  # - 'FindingsReport'
+    # - 'FindingsReport'
     - 'FileBasedFindingsReport'
 
 output-reports:
@@ -91,15 +91,15 @@ complexity:
     ignoreSimpleWhenEntries: false
     ignoreNestingFunctions: false
     nestingFunctions: [
-      run,
-      let,
-      apply,
-      with,
-      also,
-      use,
-      forEach,
-      isNotNull,
-      ifNull
+        'run',
+        'let',
+        'apply',
+        'with',
+        'also',
+        'use',
+        'forEach',
+        'isNotNull',
+        'ifNull'
     ]
   LabeledExpression:
     active: true
@@ -138,15 +138,15 @@ complexity:
   TooManyFunctions:
     active: true
     excludes: [
-      '**/test/**',
-      '**/integrationTest/**',
-      '**/robolectricTest/**',
-      '**/androidTest/**',
-      '**/*.Test.kt',
-      '**/commonTest/**',
-      '**/jvmTest/**',
-      '**/jsTest/**',
-      '**/iosTest/**'
+        '**/test/**',
+        '**/integrationTest/**',
+        '**/robolectricTest/**',
+        '**/androidTest/**',
+        '**/*.Test.kt',
+        '**/commonTest/**',
+        '**/jvmTest/**',
+        '**/jsTest/**',
+        '**/iosTest/**'
     ]
     thresholdInFiles: 11
     thresholdInClasses: 11
@@ -208,10 +208,10 @@ exceptions:
   ExceptionRaisedInUnexpectedLocation:
     active: true
     methodNames: [
-      toString,
-      hashCode,
-      equals,
-      finalize
+        toString,
+        hashCode,
+        equals,
+        finalize
     ]
   InstanceOfCheckForException:
     active: true
@@ -428,15 +428,15 @@ naming:
   FunctionMaxLength:
     active: true
     excludes: [
-      '**/test/**',
-      '**/integrationTest/**',
-      '**/robolectricTest/**',
-      '**/androidTest/**',
-      '**/*.Test.kt',
-      '**/commonTest/**',
-      '**/jvmTest/**',
-      '**/jsTest/**',
-      '**/iosTest/**'
+        '**/test/**',
+        '**/integrationTest/**',
+        '**/robolectricTest/**',
+        '**/androidTest/**',
+        '**/*.Test.kt',
+        '**/commonTest/**',
+        '**/jvmTest/**',
+        '**/jsTest/**',
+        '**/iosTest/**'
     ]
     maximumFunctionNameLength: 30
   FunctionMinLength:
@@ -449,7 +449,9 @@ naming:
     functionPattern: '([a-z][a-zA-Z0-9]*)|(`.*`)'
     excludeClassPattern: '$^'
     ignoreOverridden: true
-    ignoreAnnotated: ['Composable']
+    ignoreAnnotated: [
+        'Composable'
+    ]
   FunctionParameterNaming:
     active: true
     excludes: [ ]
@@ -458,7 +460,9 @@ naming:
     ignoreOverridden: true
   InvalidPackageDeclaration:
     active: true
-    excludes: ['*.kts']
+    excludes: [
+        '*.kts'
+    ]
     rootPackage: ''
   MatchingDeclarationName:
     active: true
@@ -542,8 +546,8 @@ potential-bugs:
     active: true
     restrictToAnnotatedMethods: true
     returnValueAnnotations: [
-      '*.CheckReturnValue',
-      '*.CheckResult'
+        '*.CheckReturnValue',
+        '*.CheckResult'
     ]
   ImplicitDefaultLocale:
     active: true
@@ -619,9 +623,9 @@ style:
   ForbiddenComment:
     active: true
     values: [
-      'TODO:',
-      'FIXME:',
-      'STOPSHIP:'
+        'TODO:',
+        'FIXME:',
+        'STOPSHIP:'
     ]
     allowedPatterns: ''
   ForbiddenImport:
@@ -631,15 +635,17 @@ style:
   ForbiddenMethodCall:
     active: true
     methods: [
-      'kotlin.io.println',
-      'kotlin.io.print'
+        'kotlin.io.println',
+        'kotlin.io.print'
     ]
   ForbiddenPublicDataClass:
     active: true
-    excludes: [ '**' ]
+    excludes: [
+        '**'
+    ]
     ignorePackages: [
-      '*.internal',
-      '*.internal.*'
+        '*.internal',
+        '*.internal.*'
     ]
   ForbiddenVoid:
     active: true
@@ -651,35 +657,39 @@ style:
     ignoreActualFunction: true
     excludedFunctions: 'describeContents'
     excludeAnnotatedFunction: [
-      'dagger.Provides'
+        'dagger.Provides'
     ]
   LibraryCodeMustSpecifyReturnType:
     active: true
-    excludes: [ '**' ]
+    excludes: [
+        '**'
+    ]
   LibraryEntitiesShouldNotBePublic:
     active: true
-    excludes: [ '**' ]
+    excludes: [
+        '**'
+    ]
   LoopWithTooManyJumpStatements:
     active: true
     maxJumpCount: 1
   MagicNumber:
     active: true
     excludes: [
-      '**/test/**',
-      '**/integrationTest/**',
-      '**/robolectricTest/**',
-      '**/androidTest/**',
-      '**/*.Test.kt',
-      '**/commonTest/**',
-      '**/jvmTest/**',
-      '**/jsTest/**',
-      '**/iosTest/**'
+        '**/test/**',
+        '**/integrationTest/**',
+        '**/robolectricTest/**',
+        '**/androidTest/**',
+        '**/*.Test.kt',
+        '**/commonTest/**',
+        '**/jvmTest/**',
+        '**/jsTest/**',
+        '**/iosTest/**'
     ]
     ignoreNumbers: [
-      '-1',
-      '0',
-      '1',
-      '2'
+        '-1',
+        '0',
+        '1',
+        '2'
     ]
     ignoreHashCodeFunction: true
     ignorePropertyDeclaration: false
@@ -753,7 +763,7 @@ style:
   UnnecessaryAbstractClass:
     active: true
     excludeAnnotatedClasses: [
-      'dagger.Module'
+        'dagger.Module'
     ]
   UnnecessaryAnnotationUseSiteTarget:
     active: true
@@ -810,6 +820,6 @@ style:
     active: true
     excludes: [ ]
     excludeImports: [
-      'java.util.*',
-      'kotlinx.android.synthetic.*'
+        'java.util.*',
+        'kotlinx.android.synthetic.*'
     ]
