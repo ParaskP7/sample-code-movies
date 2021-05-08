@@ -28,6 +28,7 @@ include(":app")
 /* CORE MODULES */
 
 include(":core")
+include(":core-compose")
 
 /* LIB MODULES */
 

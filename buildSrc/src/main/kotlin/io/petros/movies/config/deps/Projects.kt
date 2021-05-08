@@ -16,7 +16,7 @@ object Projects {
 
         object Android {
 
-            @Suppress("MemberNameEqualsClassName")
+            @Suppress("MemberNameEqualsClassName", "MemberVisibilityCanBePrivate")
             object Core {
 
                 const val ANDROID_UTILS = "${Utils.COLON}android-utils"
@@ -24,6 +24,7 @@ object Projects {
                 const val DATABASE = "${Utils.COLON}database"
                 const val DATA = "${Utils.COLON}data"
                 const val CORE = "${Utils.COLON}core"
+                @Suppress("unused") const val CORE_COMPOSE = "$CORE-compose"
 
             }
 
