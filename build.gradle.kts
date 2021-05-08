@@ -342,6 +342,9 @@ fun ApplicationDefaultConfig.appDefaultConfig() {
 }
 
 fun PackagingOptions.packagingOptions() {
+    jniLibs {
+        useLegacyPackaging = false
+    }
     resources {
         excludes += mutableSetOf(
             Android.PackagingOption.Exclude.LICENCE,
