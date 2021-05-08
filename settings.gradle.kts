@@ -38,3 +38,4 @@ include(":lib:picker")
 
 include(":feature:movies")
 include(":feature:movie-details")
+include(":feature:movie-details-compose")
