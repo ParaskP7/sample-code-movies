@@ -723,6 +723,8 @@ style:
     active: true
   NoTabs:
     active: true
+  ObjectLiteralToLambda:
+    active: true
   OptionalAbstractKeyword:
     active: true
   OptionalUnit:
