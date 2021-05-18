@@ -237,16 +237,16 @@ object Deps {
 
         object Test {
 
-            val CORE = "androidx.test:core:${Versions.Android.Test.CORE_ALPHA}"
-            val CORE_KTX = "androidx.test:core-ktx:${Versions.Android.Test.CORE_ALPHA}"
-            val J_UNIT = "androidx.test.ext:junit:${Versions.Android.Test.J_UNIT_ALPHA}"
-            val RUNNER = "androidx.test:runner:${Versions.Android.Test.CORE_ALPHA}"
-            val RULES = "androidx.test:rules:${Versions.Android.Test.CORE_ALPHA}"
+            val CORE = "androidx.test:core:${Versions.Android.Test.CORE_BETA}"
+            val CORE_KTX = "androidx.test:core-ktx:${Versions.Android.Test.CORE_BETA}"
+            val J_UNIT = "androidx.test.ext:junit:${Versions.Android.Test.J_UNIT_BETA}"
+            val RUNNER = "androidx.test:runner:${Versions.Android.Test.CORE_BETA}"
+            val RULES = "androidx.test:rules:${Versions.Android.Test.CORE_BETA}"
 
             object Espresso {
 
-                val CORE = "androidx.test.espresso:espresso-core:${Versions.Android.Test.ESPRESSO_ALPHA}"
-                val CONTRIB = "androidx.test.espresso:espresso-contrib:${Versions.Android.Test.ESPRESSO_ALPHA}"
+                val CORE = "androidx.test.espresso:espresso-core:${Versions.Android.Test.ESPRESSO_BETA}"
+                val CONTRIB = "androidx.test.espresso:espresso-contrib:${Versions.Android.Test.ESPRESSO_BETA}"
 
                 object Exclude {
 
