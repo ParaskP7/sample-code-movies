@@ -55,8 +55,8 @@ object Deps {
 
         object Core {
 
-            val APP_COMPAT = "androidx.appcompat:appcompat:${Versions.Android.Core.APP_COMPAT_RC}"
-            val APP_COMPAT_RESOURCES = "androidx.appcompat:appcompat-resources:${Versions.Android.Core.APP_COMPAT_RC}"
+            val APP_COMPAT = "androidx.appcompat:appcompat:${Versions.Android.Core.APP_COMPAT}"
+            val APP_COMPAT_RESOURCES = "androidx.appcompat:appcompat-resources:${Versions.Android.Core.APP_COMPAT}"
             val FRAGMENT = "androidx.fragment:fragment:${Versions.Android.Core.FRAGMENT}"
             val RECYCLER_VIEW = "androidx.recyclerview:recyclerview:${Versions.Android.Core.RECYCLER_VIEW}"
             val CONSTRAINT_LAYOUT =
@@ -248,6 +248,7 @@ object Deps {
                 val CORE = "androidx.test.espresso:espresso-core:${Versions.Android.Test.ESPRESSO_BETA}"
                 val CONTRIB = "androidx.test.espresso:espresso-contrib:${Versions.Android.Test.ESPRESSO_BETA}"
 
+                @Suppress("unused")
                 object Exclude {
 
                     const val HAMCREST = "org.hamcrest"
@@ -354,6 +355,7 @@ object Deps {
 
         }
 
+        @Suppress("unused")
         object Hamcrest {
 
             val ALL = "org.hamcrest:hamcrest-all:${Versions.Test.Hamcrest.HAMCREST}"

@@ -35,8 +35,7 @@ object Versions {
         object Core {
 
             // Releases: https://developer.android.com/jetpack/androidx/releases/appcompat
-            @Suppress("unused") const val APP_COMPAT = "1.2.0" // Released: 05-08-20
-            const val APP_COMPAT_RC = "1.3.0-rc01" // Released: 24-03-21
+            const val APP_COMPAT = "1.3.0" // Released: 18-05-20
 
             // Releases: https://developer.android.com/jetpack/androidx/releases/fragment
             const val FRAGMENT = "1.3.3" // Released: 21-04-21
