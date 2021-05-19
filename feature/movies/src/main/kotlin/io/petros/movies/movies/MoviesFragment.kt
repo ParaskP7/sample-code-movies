@@ -1,5 +1,6 @@
 package io.petros.movies.movies
 
+import android.annotation.SuppressLint
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
@@ -123,6 +124,7 @@ class MoviesFragment : MviFragment<
         )
     }
 
+    @SuppressLint("MissingSuperCall")
     override fun onDestroyView() {
         adapter = null
         snackbar?.dismiss()
@@ -271,6 +273,7 @@ class MoviesFragment : MviFragment<
 
     /* CONFIGURATION CHANGE */
 
+    @SuppressLint("MissingSuperCall")
     override fun onViewStateRestored(savedInstanceState: Bundle?) {
         super.onViewStateRestored(savedInstanceState)
         savedInstanceState?.let { binding.toolbar.onRestoreInstanceState(it) }

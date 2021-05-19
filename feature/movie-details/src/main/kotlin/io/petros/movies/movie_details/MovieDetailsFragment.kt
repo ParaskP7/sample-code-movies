@@ -1,5 +1,6 @@
 package io.petros.movies.movie_details
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.core.view.isVisible
 import com.google.android.material.snackbar.Snackbar
@@ -33,6 +34,7 @@ class MovieDetailsFragment : MviFragment<
         )
     }
 
+    @SuppressLint("MissingSuperCall")
     override fun onDestroyView() {
         snackbar?.dismiss()
         snackbar = null
