@@ -59,7 +59,7 @@ object Versions {
 
             // Releases: https://developer.android.com/jetpack/androidx/releases/core
             @Suppress("unused") const val CORE = "1.3.2" // Released: 01-10-20
-            const val CORE_RC = "1.5.0-rc02" // Released: 05-05-21
+            const val CORE_BETA = "1.6.0-beta01" // Released: 18-05-21
 
         }
 
