@@ -66,19 +66,19 @@ object Versions {
         object Compose {
 
             // Releases: https://developer.android.com/jetpack/androidx/releases/compose
-            const val COMPOSE = "1.0.0-beta06" // Released: 05-05-21
+            const val COMPOSE = "1.0.0-beta07" // Released: 18-05-21
 
             object ConstraintLayout {
 
                 // Releases: https://developer.android.com/jetpack/androidx/releases/constraintlayout
-                const val CONSTRAINT_LAYOUT = "1.0.0-alpha06" // Released: 04-05-21
+                const val CONSTRAINT_LAYOUT = "1.0.0-alpha07" // Released: 18-05-21
 
             }
 
             object Accompanist {
 
                 // Releases: https://github.com/chrisbanes/accompanist/releases
-                const val ACCOMPANIST = "0.9.1" // Released: 08-05-21
+                const val ACCOMPANIST = "0.10.0" // Released: 18-05-21
 
             }
 
