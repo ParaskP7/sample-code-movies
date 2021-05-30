@@ -30,7 +30,7 @@ object Plugins {
         const val GRADLE_DOCTOR = "0.7.0" // Released: 04-10-20
 
         // Releases: https://github.com/dipien/bye-bye-jetifier/releases
-        const val GRADLE_JETIFIER = "1.1.2" // Released: 16-02-21
+        const val GRADLE_JETIFIER = "1.1.3" // Released: 24-05-21
 
         // Releases: https://github.com/jraska/modules-graph-assert/releases
         const val MODULE_GRAPH_ASSERT = "1.4.0" // Released: 17-08-20
