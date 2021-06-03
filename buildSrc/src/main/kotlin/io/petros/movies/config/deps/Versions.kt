@@ -63,6 +63,7 @@ object Versions {
 
         }
 
+        @Suppress("MemberNameEqualsClassName")
         object Compose {
 
             // Releases: https://developer.android.com/jetpack/androidx/releases/compose
