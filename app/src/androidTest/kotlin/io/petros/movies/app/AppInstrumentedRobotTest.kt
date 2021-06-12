@@ -10,10 +10,10 @@ import io.petros.movies.app.robot.actions.Actions
 import io.petros.movies.app.robot.actions.NoActions
 import io.petros.movies.app.robot.app.AppRobot
 import io.petros.movies.app.robot.app.movies.MoviesToolbarRobot.Companion.MOVIES_TOOLBAR_FILTER_MONTH
-import io.petros.movies.app.robot.app.movies.MoviesToolbarRobot.Companion.MOVIES_TOOLBAR_FILTER_MONTH_MAY
+import io.petros.movies.app.robot.app.movies.MoviesToolbarRobot.Companion.MOVIES_TOOLBAR_FILTER_MONTH_JUNE
 import io.petros.movies.app.robot.app.movies.MoviesToolbarRobot.Companion.MOVIES_TOOLBAR_FILTER_YEAR
 import io.petros.movies.app.robot.app.movies.MoviesToolbarRobot.Companion.MOVIES_TOOLBAR_FILTER_YEAR_2021
-import io.petros.movies.app.robot.app.picker.MonthPickerRobot.Companion.MOVIE_MONTH_PICKER_MONTH_MAY
+import io.petros.movies.app.robot.app.picker.MonthPickerRobot.Companion.MOVIE_MONTH_PICKER_MONTH_JUN
 import io.petros.movies.app.robot.app.picker.MonthPickerRobot.Companion.MOVIE_MONTH_PICKER_TITLE
 import io.petros.movies.app.robot.app.picker.YearPickerRobot.Companion.MOVIE_YEAR_PICKER_TITLE
 import io.petros.movies.app.robot.app.picker.YearPickerRobot.Companion.MOVIE_YEAR_PICKER_YEAR_2021
@@ -289,7 +289,7 @@ class AppInstrumentedRobotTest {
         inMovies {
             inMonthPicker {
                 inTitle { hasText(MOVIE_MONTH_PICKER_TITLE) }
-                inMonth { hasTextInside(MOVIE_MONTH_PICKER_MONTH_MAY) }
+                inMonth { hasTextInside(MOVIE_MONTH_PICKER_MONTH_JUN) }
                 onActionOk { performClick() }
             }
         }
@@ -301,7 +301,7 @@ class AppInstrumentedRobotTest {
                 inFilterIcon { isNotShown() }
                 inCloseIcon { isShown() }
                 inYearFilter { hasText(MOVIES_TOOLBAR_FILTER_YEAR_2021) }
-                inMonthFilter { hasText(MOVIES_TOOLBAR_FILTER_MONTH_MAY) }
+                inMonthFilter { hasText(MOVIES_TOOLBAR_FILTER_MONTH_JUNE) }
             }
             inList {
                 inItem(LOVE_WEDDING_REPEAT_ITEM_POSITION) {
@@ -329,7 +329,7 @@ class AppInstrumentedRobotTest {
                 inFilterIcon { isNotShown() }
                 inCloseIcon { isShown() }
                 inYearFilter { hasText(MOVIES_TOOLBAR_FILTER_YEAR_2021) }
-                inMonthFilter { hasText(MOVIES_TOOLBAR_FILTER_MONTH_MAY) }
+                inMonthFilter { hasText(MOVIES_TOOLBAR_FILTER_MONTH_JUNE) }
             }
             inList {
                 inItem(BEHIND_YOU_ITEM_POSITION) {
@@ -357,7 +357,7 @@ class AppInstrumentedRobotTest {
                 inFilterIcon { isNotShown() }
                 inCloseIcon { isShown() }
                 inYearFilter { hasText(MOVIES_TOOLBAR_FILTER_YEAR_2021) }
-                inMonthFilter { hasText(MOVIES_TOOLBAR_FILTER_MONTH_MAY) }
+                inMonthFilter { hasText(MOVIES_TOOLBAR_FILTER_MONTH_JUNE) }
                 inCloseIcon { performClick() }
             }
         }
