@@ -33,7 +33,7 @@ object Plugins {
         const val GRADLE_JETIFIER = "1.1.3" // Released: 24-05-21
 
         // Releases: https://github.com/jraska/modules-graph-assert/releases
-        const val MODULE_GRAPH_ASSERT = "1.4.0" // Released: 17-08-20
+        const val MODULE_GRAPH_ASSERT = "1.5.1" // Released: 04-06-21
 
         // Releases: https://github.com/jacoco/jacoco/releases
         const val JACOCO = "0.8.7" // Released: 04-05-21
