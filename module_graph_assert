@@ -5,10 +5,12 @@ digraph G {
 ":app" -> ":core"
 ":app" -> ":feature:movies" [color=red style=bold]
 ":app" -> ":feature:movie-details"
+":app" -> ":feature:movie-details-compose"
 ":domain" -> ":utils"
 ":android-utils" -> ":utils" [color=red style=bold]
 ":data" -> ":domain"
 ":data" -> ":network"
+":data" -> ":datastore"
 ":data" -> ":database"
 ":network" -> ":utils"
 ":network" -> ":domain"
@@ -24,4 +26,8 @@ digraph G {
 ":feature:movie-details" -> ":utils"
 ":feature:movie-details" -> ":domain"
 ":feature:movie-details" -> ":core"
+":feature:movie-details-compose" -> ":domain"
+":feature:movie-details-compose" -> ":core-compose"
+":feature:movie-details-compose" -> ":test"
+":test" -> ":domain"
 }
