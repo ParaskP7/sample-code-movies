@@ -130,7 +130,7 @@ object Versions {
             object DataStore {
 
                 // Releases: https://developer.android.com/jetpack/androidx/releases/datastore
-                const val DATASTORE = "1.0.0-beta01" // Release: 21-04-21
+                const val DATASTORE = "1.0.0-beta02" // Release: 16-06-21
 
             }
 
