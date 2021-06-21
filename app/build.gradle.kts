@@ -44,6 +44,7 @@ dependencies {
     implementation(project(Projects.Implementation.Android.Core.CORE))
     implementation(project(Projects.Implementation.Android.Feature.MOVIES))
     implementation(project(Projects.Implementation.Android.Feature.MOVIE_DETAILS))
+    implementation(project(Projects.Implementation.Android.Feature.MOVIE_DETAILS_COMPOSE))
 
     debugImplementation(Deps.LeakCanary.LEAK_CANARY)
     implementation(Deps.LeakCanary.PLUMBER)
@@ -75,9 +76,14 @@ dependencies {
     androidTestImplementation(Deps.Android.Test.J_UNIT)
     androidTestImplementation(Deps.Android.Test.RUNNER)
     androidTestImplementation(Deps.Android.Test.RULES)
-    androidTestImplementation(Deps.Android.Test.Espresso.CORE)
-    androidTestImplementation(Deps.Android.Test.Espresso.CONTRIB)
+    androidTestImplementation(Deps.Android.Test.Espresso.CORE) {
+        exclude(Deps.Android.Test.Espresso.Exclude.HAMCREST)
+    }
+    androidTestImplementation(Deps.Android.Test.Espresso.CONTRIB) {
+        exclude(Deps.Android.Test.Espresso.Exclude.HAMCREST)
+    }
     androidTestImplementation(Deps.Test.Integration.MOCK_WEB_SERVER)
+    androidTestImplementation(Deps.Test.Hamcrest.ALL)
     androidTestImplementation(Deps.Test.Assert.STRIKT) { exclude(Deps.Test.Assert.Exclude.KOTLIN) }
 
     detektPlugins(Plugins.DETEKT_FORMATTING)

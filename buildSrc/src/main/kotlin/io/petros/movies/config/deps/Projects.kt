@@ -39,7 +39,7 @@ object Projects {
 
                 const val MOVIES = "${Utils.COLON}feature${Utils.COLON}movies"
                 const val MOVIE_DETAILS = "${Utils.COLON}feature${Utils.COLON}movie-details"
-                @Suppress("unused") const val MOVIE_DETAILS_COMPOSE = "$MOVIE_DETAILS-compose"
+                const val MOVIE_DETAILS_COMPOSE = "$MOVIE_DETAILS-compose"
 
             }
 

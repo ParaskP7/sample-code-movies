@@ -17,6 +17,7 @@ import io.petros.movies.android_utils.toast
 import io.petros.movies.core.fragment.MviFragment
 import io.petros.movies.core.view_binding.viewBinding
 import io.petros.movies.domain.model.movie.Movie
+import io.petros.movies.domain.repository.settings.SettingsRepository
 import io.petros.movies.feature.movies.R
 import io.petros.movies.feature.movies.databinding.MoviesFragmentBinding
 import io.petros.movies.movies.list.MoviesPagingAdapter
@@ -26,6 +27,7 @@ import io.petros.movies.picker.movie.MovieMonthPickerFragment
 import io.petros.movies.picker.movie.MovieYearPickerFragment
 import io.petros.movies.utils.slash
 import kotlinx.coroutines.launch
+import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import timber.log.Timber
 
@@ -41,6 +43,8 @@ class MoviesFragment : MviFragment<
 
     override val binding by viewBinding(MoviesFragmentBinding::bind)
     override val viewModel: MoviesViewModel by viewModel()
+
+    private val settings: SettingsRepository by inject()
 
     private var adapter: MoviesPagingAdapter? = null
     private var snackbar: Snackbar? = null
@@ -180,7 +184,12 @@ class MoviesFragment : MviFragment<
     /* NAVIGATION */
 
     override fun onClick(movie: Movie) {
-        val uri = Uri.parse(MOVIE_DETAILS_DEEP_LINK + slash() + movie.id)
+        lifecycleScope.launch { onClick(movie, settings.isComposeEnabled()) }
+    }
+
+    @Suppress("UseIfInsteadOfWhen")
+    private fun onClick(movie: Movie, isComposeEnabled: Boolean) {
+        val uri = Uri.parse(movieDetailsDeepLink(isComposeEnabled) + slash() + movie.id)
         val options = navOptions {
             anim {
                 enter = R.anim.slide_in_right
@@ -191,6 +200,9 @@ class MoviesFragment : MviFragment<
         }
         findNavController().navigate(uri, options)
     }
+
+    private fun movieDetailsDeepLink(isComposeEnabled: Boolean) =
+        if (isComposeEnabled) MOVIE_DETAILS_COMPOSE_DEEP_LINK else MOVIE_DETAILS_DEEP_LINK
 
     /* CALLBACK */
 
@@ -287,7 +299,7 @@ class MoviesFragment : MviFragment<
     companion object {
 
         private const val MOVIE_DETAILS_DEEP_LINK = "io.petros.movies://movieDetailsFragment"
-        private const val MOVIE_DETAILS_COMPOSE_DEEP_LINK = "io.petros.movies://movieDetailsComposeFragment"
+        private const val MOVIE_DETAILS_COMPOSE_DEEP_LINK = "io.petros.movies://movieDetailsFragmentCompose"
 
     }
 

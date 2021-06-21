@@ -12,6 +12,7 @@
     <!-- Toolbar -->
     <string name="navMoviesLabel">Movies</string>
     <string name="navMovieDetailsLabel">Movie Details</string>
+    <string name="navMovieDetailsComposeLabel">Movie Details Compose</string>
 
     <!-- Snackbar -->
     <string name="sbNoConnectivity">Watch out, you are currently offline!</string>

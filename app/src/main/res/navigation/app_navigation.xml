@@ -15,6 +15,10 @@
             android:id="@+id/toMovieDetails"
             app:destination="@id/movieDetailsFragment" />
 
+        <action
+            android:id="@+id/toMovieDetailsCompose"
+            app:destination="@id/movieDetailsFragmentCompose" />
+
     </fragment>
 
     <fragment
@@ -28,6 +32,19 @@
             app:argType="integer" />
 
         <deepLink app:uri="io.petros.movies://movieDetailsFragment/{movie_id}" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/movieDetailsFragmentCompose"
+        android:name="io.petros.movies.movie_details_compose.MovieDetailsFragment"
+        android:label="@string/navMovieDetailsComposeLabel">
+
+        <argument
+            android:name="movie_id"
+            app:argType="integer" />
+
+        <deepLink app:uri="io.petros.movies://movieDetailsFragmentCompose/{movie_id}" />
 
     </fragment>
 
