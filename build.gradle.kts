@@ -476,7 +476,6 @@ fun CoverageExtension.coverage() {
 fun KotlinJvmOptions.kotlinOptions() {
     jvmTarget = Java.version.toString()
     allWarningsAsErrors = true
-    useIR = true
 }
 
 fun DependencyUpdatesTask.versionsOptions() {
