@@ -430,12 +430,12 @@ fun JacocoReport.jacoco(isKotlinModule: Boolean) {
     group = Config.Jacoco.GROUP
     description = Config.Jacoco.DESCRIPTION
     reports {
-        html.isEnabled = true
-        html.destination = project.file(Config.Jacoco.REPORT_HTML_DIRECTORY_PATH)
-        xml.isEnabled = true
-        xml.destination = project.file(Config.Jacoco.REPORT_XML_FILE_PATH)
-        csv.isEnabled = true
-        csv.destination = project.file(Config.Jacoco.REPORT_CSV_FILE_PATH)
+        html.required.set(true)
+        html.outputLocation.set(project.file(Config.Jacoco.REPORT_HTML_DIRECTORY_PATH))
+        xml.required.set(true)
+        xml.outputLocation.set(project.file(Config.Jacoco.REPORT_XML_FILE_PATH))
+        csv.required.set(true)
+        csv.outputLocation.set(project.file(Config.Jacoco.REPORT_CSV_FILE_PATH))
     }
     sourceDirectories.setFrom(project.files(Sources.Main.KOTLIN))
     additionalSourceDirs.setFrom(project.files(Sources.Main.KOTLIN))
