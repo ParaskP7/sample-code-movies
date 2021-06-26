@@ -73,6 +73,7 @@ object Deps {
 
         }
 
+        @Suppress("MemberNameEqualsClassName")
         object Compose {
 
             object Runtime {
