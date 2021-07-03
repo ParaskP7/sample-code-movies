@@ -11,7 +11,7 @@ object Plugins {
 
         // Releases: https://androidstudio.googleblog.com
         @Suppress("unused") const val ANDROID_GRADLE = "4.2.2" // Released: 30-06-21
-        @Suppress("unused") const val ANDROID_GRADLE_BETA = "7.0.0-beta03" // Released: 28-05-21
+        @Suppress("unused") const val ANDROID_GRADLE_BETA = "7.0.0-beta05" // Released: 03-07-21
         const val ANDROID_GRADLE_CANARY = "7.1.0-alpha02" // Released: 27-05-21
 
         // Releases: https://github.com/GradleUp/auto-manifest/releases
