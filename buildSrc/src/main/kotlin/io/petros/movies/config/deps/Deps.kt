@@ -69,7 +69,7 @@ object Deps {
 
         object Ktx {
 
-            val CORE = "androidx.core:core-ktx:${Versions.Android.Ktx.CORE_RC}"
+            val CORE = "androidx.core:core-ktx:${Versions.Android.Ktx.CORE}"
 
         }
 
