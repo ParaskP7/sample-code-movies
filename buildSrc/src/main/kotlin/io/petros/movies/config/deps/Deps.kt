@@ -238,16 +238,16 @@ object Deps {
 
         object Test {
 
-            val CORE = "androidx.test:core:${Versions.Android.Test.CORE_RC}"
-            val CORE_KTX = "androidx.test:core-ktx:${Versions.Android.Test.CORE_RC}"
-            val J_UNIT = "androidx.test.ext:junit:${Versions.Android.Test.J_UNIT_RC}"
-            val RUNNER = "androidx.test:runner:${Versions.Android.Test.CORE_RC}"
-            val RULES = "androidx.test:rules:${Versions.Android.Test.CORE_RC}"
+            val CORE = "androidx.test:core:${Versions.Android.Test.CORE}"
+            val CORE_KTX = "androidx.test:core-ktx:${Versions.Android.Test.CORE}"
+            val J_UNIT = "androidx.test.ext:junit:${Versions.Android.Test.J_UNIT}"
+            val RUNNER = "androidx.test:runner:${Versions.Android.Test.CORE}"
+            val RULES = "androidx.test:rules:${Versions.Android.Test.CORE}"
 
             object Espresso {
 
-                val CORE = "androidx.test.espresso:espresso-core:${Versions.Android.Test.ESPRESSO_RC}"
-                val CONTRIB = "androidx.test.espresso:espresso-contrib:${Versions.Android.Test.ESPRESSO_RC}"
+                val CORE = "androidx.test.espresso:espresso-core:${Versions.Android.Test.ESPRESSO}"
+                val CONTRIB = "androidx.test.espresso:espresso-contrib:${Versions.Android.Test.ESPRESSO}"
 
                 @Suppress("unused")
                 object Exclude {
