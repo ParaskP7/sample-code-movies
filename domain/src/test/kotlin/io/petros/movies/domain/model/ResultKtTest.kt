@@ -6,6 +6,7 @@ import strikt.api.expect
 import strikt.assertions.isA
 import strikt.assertions.isEqualTo
 
+@Suppress("ThrowingExceptionsWithoutMessageOrCause")
 class ResultKtTest {
 
     @Test

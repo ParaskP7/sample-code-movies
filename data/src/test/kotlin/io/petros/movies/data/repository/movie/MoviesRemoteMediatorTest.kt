@@ -31,6 +31,7 @@ import strikt.assertions.isEqualTo
 
 @ExperimentalCoroutinesApi
 @OptIn(ExperimentalPagingApi::class)
+@Suppress("ThrowingExceptionsWithoutMessageOrCause")
 class MoviesRemoteMediatorTest {
 
     @get:Rule val coroutineScope = MainCoroutineScopeRule()

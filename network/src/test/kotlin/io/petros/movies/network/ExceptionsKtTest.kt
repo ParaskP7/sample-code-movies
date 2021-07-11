@@ -16,6 +16,7 @@ import strikt.assertions.isA
 import java.io.IOException
 
 @ExperimentalCoroutinesApi
+@Suppress("ThrowingExceptionsWithoutMessageOrCause")
 class ExceptionsKtTest {
 
     @get:Rule val coroutineScope = MainCoroutineScopeRule()

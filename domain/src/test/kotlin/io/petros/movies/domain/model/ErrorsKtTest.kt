@@ -4,6 +4,7 @@ import org.junit.Test
 import strikt.api.expect
 import strikt.assertions.isA
 
+@Suppress("ThrowingExceptionsWithoutMessageOrCause")
 class ErrorsKtTest {
 
     data class MappableTestError(override val cause: Exception) : Result.Error(cause)

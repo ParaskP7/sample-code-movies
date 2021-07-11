@@ -23,6 +23,7 @@ import org.junit.Rule
 import org.junit.Test
 
 @ExperimentalCoroutinesApi
+@Suppress("ThrowingExceptionsWithoutMessageOrCause")
 class MovieDetailsViewModelTest {
 
     @get:Rule val coroutineScope = MainCoroutineScopeRule()
