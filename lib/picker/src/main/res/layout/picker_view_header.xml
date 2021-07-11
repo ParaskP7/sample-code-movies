@@ -33,6 +33,7 @@
             android:textColor="@android:color/primary_text_dark_nodisable"
             android:textIsSelectable="false"
             android:textSize="35sp"
+            tools:ignore="RtlSymmetry,RtlHardcoded"
             tools:text="@string/label_month" />
 
         <TextView
@@ -45,6 +46,7 @@
             android:textColor="@android:color/primary_text_dark_nodisable"
             android:textIsSelectable="false"
             android:textSize="35sp"
+            tools:ignore="RtlSymmetry,RtlHardcoded"
             tools:text="@string/label_year" />
 
     </LinearLayout>

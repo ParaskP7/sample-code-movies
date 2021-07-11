@@ -30,7 +30,8 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:paddingRight="20dp"
-                android:paddingBottom="10dp">
+                android:paddingBottom="10dp"
+                tools:ignore="RtlSymmetry,RtlHardcoded">
 
                 <TextView
                     android:id="@+id/ok_action"
