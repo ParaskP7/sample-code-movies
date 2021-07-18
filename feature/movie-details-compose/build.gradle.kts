@@ -36,7 +36,7 @@ dependencies {
     implementation(Deps.Android.Compose.Foundation.LAYOUT)
     implementation(Deps.Android.Compose.Material.MATERIAL)
     implementation(Deps.Android.Compose.ConstraintLayout.CONSTRAINT_LAYOUT)
-    implementation(Deps.Android.Compose.Accompanist.COIL)
+    implementation(Deps.Image.Coil.COMPOSE)
     implementation(Deps.Android.Core.FRAGMENT)
     implementation(Deps.Android.Arch.Lifecycle.VIEW_MODEL)
     implementation(Deps.Android.Arch.Lifecycle.VIEW_MODEL_KTX)

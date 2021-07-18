@@ -111,13 +111,6 @@ object Deps {
                         Versions.Android.Compose.ConstraintLayout.CONSTRAINT_LAYOUT_ALPHA
             }
 
-            object Accompanist {
-
-                val COIL =
-                    "com.google.accompanist:accompanist-coil:${Versions.Android.Compose.Accompanist.ACCOMPANIST}"
-
-            }
-
         }
 
         object Arch {
@@ -329,6 +322,12 @@ object Deps {
         object Glide {
 
             val GLIDE = "com.github.bumptech.glide:glide:${Versions.Image.Glide.GLIDE}"
+
+        }
+
+        object Coil {
+
+            val COMPOSE = "io.coil-kt:coil-compose:${Versions.Image.Coil.COIL}"
 
         }
 

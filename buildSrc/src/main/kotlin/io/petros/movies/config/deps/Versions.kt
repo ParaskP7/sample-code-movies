@@ -74,13 +74,6 @@ object Versions {
 
             }
 
-            object Accompanist {
-
-                // Releases: https://github.com/chrisbanes/accompanist/releases
-                const val ACCOMPANIST = "0.14.0" // Released: 14-07-21
-
-            }
-
         }
 
         object Arch {
@@ -222,6 +215,14 @@ object Versions {
 
             // Releases: https://github.com/bumptech/glide/releases
             const val GLIDE = "4.12.0" // Released: 29-01-21
+
+        }
+
+        @Suppress("MemberNameEqualsClassName")
+        object Coil {
+
+            // Releases: https://github.com/coil-kt/coil/releases
+            const val COIL = "1.3.0" // Released: 10-07-21
 
         }
 
