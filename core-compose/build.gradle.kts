@@ -2,6 +2,7 @@
 
 import io.petros.movies.config.deps.Deps
 import io.petros.movies.config.deps.Versions
+import io.petros.movies.config.deps.identifier
 
 plugins {
     id(Plugins.Id.Android.LIBRARY)
@@ -28,4 +29,15 @@ dependencies {
     implementation(Deps.Android.Compose.Material.MATERIAL)
 
     detektPlugins(Plugins.DETEKT_FORMATTING)
+}
+
+dependencyAnalysis {
+    issues {
+        onIncorrectConfiguration {
+            exclude(
+                Deps.Android.Compose.Runtime.RUNTIME.identifier(), // Ignore change to 'api' advice.
+                Deps.Android.Compose.Material.MATERIAL.identifier(), // Ignore change to 'api' advice.
+            )
+        }
+    }
 }

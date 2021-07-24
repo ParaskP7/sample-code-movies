@@ -38,6 +38,7 @@ dependencies {
     testRuntimeOnly(Deps.Kotlin.Core.KOTLIN_REFLECT)
     testImplementation(Deps.Test.Assert.STRIKT) { exclude(Deps.Test.Assert.Exclude.KOTLIN) }
     testImplementation(Deps.Test.Mock.MOCK_K)
+    testImplementation(Deps.Test.Mock.DSL_JVM)
     testImplementation(Deps.Android.Test.Robolectric.ROBOLECTRIC)
 
     detektPlugins(Plugins.DETEKT_FORMATTING)
@@ -45,6 +46,11 @@ dependencies {
 
 dependencyAnalysis {
     issues {
+        onUnusedDependencies {
+            exclude(
+                Deps.Android.Test.Robolectric.ROBOLECTRIC.identifier(), // Ignore remove advise. Required for tests.
+            )
+        }
         onIncorrectConfiguration {
             exclude(
                 Projects.Implementation.Kotlin.DOMAIN, // Ignore change to 'api' advice.

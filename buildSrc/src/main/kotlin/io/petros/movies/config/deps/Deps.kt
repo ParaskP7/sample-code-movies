@@ -327,7 +327,9 @@ object Deps {
 
         object Coil {
 
+            val COIL_BASE = "io.coil-kt:coil-base:${Versions.Image.Coil.COIL}"
             val COMPOSE = "io.coil-kt:coil-compose:${Versions.Image.Coil.COIL}"
+            val COMPOSE_BASE = "io.coil-kt:coil-compose-base:${Versions.Image.Coil.COIL}"
 
         }
 
@@ -377,6 +379,7 @@ object Deps {
         object Mock {
 
             val MOCK_K = "io.mockk:mockk:${Versions.Test.Mock.MOCK_K}"
+            val DSL_JVM = "io.mockk:mockk-dsl-jvm:${Versions.Test.Mock.MOCK_K}"
 
         }
 

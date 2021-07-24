@@ -28,6 +28,7 @@ dependencies {
     testRuntimeOnly(Deps.Kotlin.Core.KOTLIN_REFLECT)
     testImplementation(Deps.Test.Assert.STRIKT) { exclude(Deps.Test.Assert.Exclude.KOTLIN) }
     testImplementation(Deps.Test.Mock.MOCK_K)
+    testImplementation(Deps.Test.Mock.DSL_JVM)
 
     detektPlugins(Plugins.DETEKT_FORMATTING)
 }

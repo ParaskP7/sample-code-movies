@@ -16,6 +16,7 @@ dependencies {
     implementation(project(Projects.Implementation.Kotlin.UTILS))
     implementation(project(Projects.Implementation.Kotlin.DOMAIN))
 
+    implementation(Deps.Kotlin.Coroutines.CORE_JVM)
     implementation(Deps.Di.Koin.Kotlin.CORE)
     implementation(Deps.Di.Koin.Kotlin.CORE_JVM)
     implementation(Deps.Net.OkHttp.OK_HTTP)
@@ -32,6 +33,7 @@ dependencies {
     testImplementation(Deps.Test.Integration.MOCK_WEB_SERVER)
     testImplementation(Deps.Test.Assert.STRIKT) { exclude(Deps.Test.Assert.Exclude.KOTLIN) }
     testImplementation(Deps.Test.Mock.MOCK_K)
+    testImplementation(Deps.Test.Mock.DSL_JVM)
 
     detektPlugins(Plugins.DETEKT_FORMATTING)
 }

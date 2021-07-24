@@ -3,6 +3,7 @@
 import io.petros.movies.config.deps.Deps
 import io.petros.movies.config.deps.Projects
 import io.petros.movies.config.deps.Versions
+import io.petros.movies.config.deps.identifier
 
 plugins {
     id(Plugins.Id.Android.LIBRARY)
@@ -36,7 +37,9 @@ dependencies {
     implementation(Deps.Android.Compose.Foundation.LAYOUT)
     implementation(Deps.Android.Compose.Material.MATERIAL)
     implementation(Deps.Android.Compose.ConstraintLayout.CONSTRAINT_LAYOUT)
+    implementation(Deps.Image.Coil.COIL_BASE)
     implementation(Deps.Image.Coil.COMPOSE)
+    implementation(Deps.Image.Coil.COMPOSE_BASE)
     implementation(Deps.Android.Core.FRAGMENT)
     implementation(Deps.Android.Arch.Lifecycle.VIEW_MODEL)
     implementation(Deps.Android.Arch.Lifecycle.VIEW_MODEL_KTX)
@@ -48,4 +51,24 @@ dependencies {
     implementation(project(Projects.TestImplementation.Kotlin.TEST))
 
     detektPlugins(Plugins.DETEKT_FORMATTING)
+}
+
+dependencyAnalysis {
+    issues {
+        onUnusedDependencies {
+            exclude(
+                Deps.Android.Compose.UI.TOOLING.identifier(), // Ignore remove advise. Required for 'Preview'.
+            )
+        }
+        onIncorrectConfiguration {
+            exclude(
+                Projects.Implementation.Kotlin.DOMAIN, // Ignore change to 'api' advice.
+                Deps.Android.Compose.Runtime.RUNTIME.identifier(), // Ignore change to 'api' advice.
+                Deps.Android.Compose.UI.UI.identifier(), // Ignore change to 'api' advice.
+                Deps.Android.Core.FRAGMENT.identifier(), // Ignore change to 'api' advice.
+                Deps.Android.Arch.Lifecycle.VIEW_MODEL.identifier(), // Ignore change to 'api' advice.
+                Deps.Di.Koin.Kotlin.CORE_JVM.identifier(), // Ignore change to 'api' advice.
+            )
+        }
+    }
 }

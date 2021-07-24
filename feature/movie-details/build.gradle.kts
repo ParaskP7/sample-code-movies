@@ -38,13 +38,13 @@ dependencies {
 
     testImplementation(project(Projects.Implementation.Android.Core.ANDROID_UTILS))
     testImplementation(project(Projects.TestImplementation.Kotlin.TEST))
-    testImplementation(project(Projects.TestImplementation.Android.ANDROID_TEST))
 
     testImplementation(Deps.Kotlin.Coroutines.Test.TEST)
     testImplementation(Deps.Test.JUnit.J_UNIT_4)
     testRuntimeOnly(Deps.Kotlin.Core.KOTLIN_REFLECT)
     testImplementation(Deps.Test.Assert.STRIKT) { exclude(Deps.Test.Assert.Exclude.KOTLIN) }
     testImplementation(Deps.Test.Mock.MOCK_K)
+    testImplementation(Deps.Test.Mock.DSL_JVM)
     testImplementation(Deps.Android.Arch.Core.TESTING)
 
     detektPlugins(Plugins.DETEKT_FORMATTING)
@@ -52,6 +52,11 @@ dependencies {
 
 dependencyAnalysis {
     issues {
+        onUnusedDependencies {
+            exclude(
+                Deps.Android.Ktx.CORE.identifier(), // Ignore remove advise. Required for 'is(In)Visible'.
+            )
+        }
         onIncorrectConfiguration {
             exclude(
                 Projects.Implementation.Kotlin.DOMAIN, // Ignore change to 'api' advice.
