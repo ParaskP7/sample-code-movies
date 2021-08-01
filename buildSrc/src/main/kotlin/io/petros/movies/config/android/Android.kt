@@ -4,7 +4,7 @@ object Android {
 
     object Sdk {
 
-        const val MIN = 21
+        const val MIN = 24
         const val TARGET = 30
         @Suppress("unused") const val TARGET_PREVIEW = "S"
         const val COMPILE = 30

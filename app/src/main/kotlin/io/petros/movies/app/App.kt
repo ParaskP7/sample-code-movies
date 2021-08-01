@@ -82,9 +82,7 @@ open class App : Application(),
     }
 
     private fun addAndroidMThreadPolicy(strictModeBuilder: StrictMode.ThreadPolicy.Builder) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            strictModeBuilder.detectResourceMismatches()
-        }
+        strictModeBuilder.detectResourceMismatches()
     }
 
     private fun addAndroidOThreadPolicy(strictModeBuilder: StrictMode.ThreadPolicy.Builder) {
