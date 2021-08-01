@@ -65,12 +65,12 @@ object Versions {
         object Compose {
 
             // Releases: https://developer.android.com/jetpack/androidx/releases/compose
-            const val COMPOSE_RC = "1.0.0-rc02" // Released: 14-07-21
+            const val COMPOSE = "1.0.0" // Released: 28-07-21
 
             object ConstraintLayout {
 
                 // Releases: https://developer.android.com/jetpack/androidx/releases/constraintlayout
-                const val CONSTRAINT_LAYOUT_ALPHA = "1.0.0-alpha07" // Released: 18-05-21
+                const val CONSTRAINT_LAYOUT_BETA = "1.0.0-beta02" // Released: 30-07-21
 
             }
 
