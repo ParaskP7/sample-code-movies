@@ -148,7 +148,7 @@ object Versions {
             object Pagination {
 
                 // Releases: https://developer.android.com/jetpack/androidx/releases/paging
-                const val PAGING = "3.0.0" // Release: 05-05-21
+                const val PAGING = "3.0.1" // Release: 21-07-21
 
             }
 
