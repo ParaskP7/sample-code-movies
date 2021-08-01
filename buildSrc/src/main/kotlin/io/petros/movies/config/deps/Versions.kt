@@ -37,7 +37,7 @@ object Versions {
             const val APP_COMPAT = "1.3.1" // Released: 21-07-20
 
             // Releases: https://developer.android.com/jetpack/androidx/releases/fragment
-            const val FRAGMENT = "1.3.5" // Released: 16-06-21
+            const val FRAGMENT = "1.3.6" // Released: 21-07-21
 
             // Releases: https://developer.android.com/jetpack/androidx/releases/recyclerview
             const val RECYCLER_VIEW = "1.2.1" // Released: 02-06-21
