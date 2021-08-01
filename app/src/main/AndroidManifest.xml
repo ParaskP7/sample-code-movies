@@ -8,7 +8,6 @@
 
     <application
         android:name=".app.App"
-        android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/appName"
         android:roundIcon="@mipmap/ic_launcher_round"
@@ -16,7 +15,7 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning,UnusedAttribute,MediaCapabilities"
-        tools:replace="android:label,android:allowBackup">
+        tools:replace="android:label">
 
         <activity
             android:name=".app.AppActivity"
