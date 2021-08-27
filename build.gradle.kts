@@ -105,6 +105,9 @@ dependencyAnalysis {
             onUnusedAnnotationProcessors {
                 severity(Config.Dependency.Analysis.Issue.Severity.FAIL)
             }
+            onRedundantPlugins {
+                severity(Config.Dependency.Analysis.Issue.Severity.FAIL)
+            }
         }
     }
     abi {
