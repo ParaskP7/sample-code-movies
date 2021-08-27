@@ -230,7 +230,7 @@ object Versions {
     object Log {
 
         // Releases: https://github.com/JakeWharton/timber/releases
-        const val TIMBER = "4.7.1" // Released: 28-06-18
+        const val TIMBER = "5.0.1" // Released: 13-08-18
 
     }
 
