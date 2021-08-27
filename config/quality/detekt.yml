@@ -93,15 +93,15 @@ complexity:
     ignoreSimpleWhenEntries: false
     ignoreNestingFunctions: false
     nestingFunctions:
-      - 'run'
-      - 'let'
-      - 'apply'
-      - 'with'
       - 'also'
-      - 'use'
+      - 'apply'
       - 'forEach'
       - 'isNotNull'
       - 'ifNull'
+      - 'let'
+      - 'run'
+      - 'use'
+      - 'with'
   LabeledExpression:
     active: true
     ignoredLabels: [ ]
@@ -210,10 +210,10 @@ exceptions:
   ExceptionRaisedInUnexpectedLocation:
     active: true
     methodNames:
-      - 'toString'
-      - 'hashCode'
       - 'equals'
       - 'finalize'
+      - 'hashCode'
+      - 'toString'
   InstanceOfCheckForException:
     active: true
     excludes: [ ]
@@ -231,10 +231,10 @@ exceptions:
   SwallowedException:
     active: true
     ignoredExceptionTypes:
-      - 'NumberFormatException'
       - 'InterruptedException'
-      - 'ParseException'
       - 'MalformedURLException'
+      - 'NumberFormatException'
+      - 'ParseException'
     allowedExceptionNameRegex: '_|(ignore|expected).*'
   ThrowingExceptionFromFinally:
     active: true
@@ -247,9 +247,11 @@ exceptions:
       - 'ArrayIndexOutOfBoundsException'
       - 'Error'
       - 'Exception'
+      - 'IllegalArgumentException'
       - 'IllegalMonitorStateException'
-      - 'NullPointerException'
+      - 'IllegalStateException'
       - 'IndexOutOfBoundsException'
+      - 'NullPointerException'
       - 'RuntimeException'
       - 'Throwable'
   ThrowingNewInstanceOfSameException:
@@ -262,8 +264,8 @@ exceptions:
       - 'Error'
       - 'Exception'
       - 'IllegalMonitorStateException'
-      - 'NullPointerException'
       - 'IndexOutOfBoundsException'
+      - 'NullPointerException'
       - 'RuntimeException'
       - 'Throwable'
     allowedExceptionNameRegex: '_|(ignore|expected).*'
@@ -272,8 +274,8 @@ exceptions:
     exceptionNames:
       - 'Error'
       - 'Exception'
-      - 'Throwable'
       - 'RuntimeException'
+      - 'Throwable'
 
 formatting:
   active: true
@@ -412,6 +414,10 @@ formatting:
 
 naming:
   active: true
+  BooleanPropertyNaming:
+    active: true
+    excludes: [ ]
+    allowedPattern: '^(is|has|are)'
   ClassNaming:
     active: true
     excludes: [ ]
@@ -527,6 +533,10 @@ performance:
 
 potential-bugs:
   active: true
+  AvoidReferentialEquality:
+    active: true
+    forbiddenTypePatterns:
+      - 'kotlin.String'
   CastToNullableType:
     active: true
   Deprecation:
@@ -551,8 +561,10 @@ potential-bugs:
     active: true
     restrictToAnnotatedMethods: true
     returnValueAnnotations:
-      - '*.CheckReturnValue'
       - '*.CheckResult'
+      - '*.CheckReturnValue'
+    ignoreReturnValueAnnotations:
+      - '*.CanIgnoreReturnValue'
   ImplicitDefaultLocale:
     active: true
   ImplicitUnitReturnType:
@@ -627,9 +639,9 @@ style:
   ForbiddenComment:
     active: true
     values:
-      - 'TODO:'
       - 'FIXME:'
       - 'STOPSHIP:'
+      - 'TODO:'
     allowedPatterns: ''
   ForbiddenImport:
     active: true
@@ -638,8 +650,8 @@ style:
   ForbiddenMethodCall:
     active: true
     methods:
-      - 'kotlin.io.println'
       - 'kotlin.io.print'
+      - 'kotlin.io.println'
   ForbiddenPublicDataClass:
     active: true
     excludes: [
