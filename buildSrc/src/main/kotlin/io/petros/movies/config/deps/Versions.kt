@@ -194,7 +194,7 @@ object Versions {
         object Gson {
 
             // Releases: https://github.com/google/gson/releases
-            const val GSON = "2.8.7" // Released: 25-05-21
+            const val GSON = "2.8.8" // Released: 80-08-21
 
         }
 
