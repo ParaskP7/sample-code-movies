@@ -245,7 +245,6 @@ exceptions:
     excludes: [ ]
     exceptions:
       - 'ArrayIndexOutOfBoundsException'
-      - 'Error'
       - 'Exception'
       - 'IllegalArgumentException'
       - 'IllegalMonitorStateException'
