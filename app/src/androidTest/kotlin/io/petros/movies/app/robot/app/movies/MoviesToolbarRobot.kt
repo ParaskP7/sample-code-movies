@@ -28,7 +28,7 @@ class MoviesToolbarRobot : ScopedActions(idMatcher(R.id.toolbar)) {
 
         // TODO: Revert to 'April' by specifically selecting this month during testing
         @Suppress("unused") const val MOVIES_TOOLBAR_FILTER_MONTH_APRIL = "April"
-        const val MOVIES_TOOLBAR_FILTER_MONTH_VALUE = "August"
+        const val MOVIES_TOOLBAR_FILTER_MONTH_VALUE = "September"
 
     }
 
