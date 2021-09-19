@@ -15,12 +15,12 @@ abstract class MviFragment<
     abstract val viewModel: MviViewModel<INTENT, STATE, SIDE_EFFECT>
 
     private val state = Observer<STATE> {
-        Timber.v("${javaClass.simpleName} observed state. [State: $it]")
+        Timber.v("Observed state. [State: $it]")
         renderState(it)
     }
 
     private val sideEffect = Observer<SIDE_EFFECT> {
-        Timber.v("${javaClass.simpleName} observed side effect. [Side Effect: $it]")
+        Timber.v("Observed side effect. [Side Effect: $it]")
     }
 
     override fun onResume() {

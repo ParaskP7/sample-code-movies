@@ -46,7 +46,7 @@ abstract class MviViewModel<
     fun sideEffect(): SingleLiveEvent<SIDE_EFFECT> = _sideEffectLiveData
 
     override fun onCleared() {
-        Timber.v("${javaClass.simpleName} cleared.")
+        Timber.v("Cleared.")
         super.onCleared()
     }
 

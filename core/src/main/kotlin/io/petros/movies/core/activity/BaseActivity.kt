@@ -20,58 +20,58 @@ abstract class BaseActivity<
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         constructContentView()?.let { setContentView(it) }
-        Timber.v("${javaClass.simpleName} created. [Bundle: $savedInstanceState]")
+        Timber.v("Created. [Bundle: $savedInstanceState]")
     }
 
     protected abstract fun constructContentView(): View?
 
     override fun onNewIntent(intent: Intent) {
         super.onNewIntent(intent)
-        Timber.v("${javaClass.simpleName} new intent. [Intent: $intent]")
+        Timber.v("New intent. [Intent: $intent]")
     }
 
     override fun onRestart() {
         super.onRestart()
-        Timber.v("${javaClass.simpleName} restarted.")
+        Timber.v("Restarted.")
     }
 
     override fun onStart() {
         super.onStart()
-        Timber.v("${javaClass.simpleName} started.")
+        Timber.v("Started.")
     }
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         super.onRestoreInstanceState(savedInstanceState)
-        Timber.v("${javaClass.simpleName} instance state restored. [Bundle: $savedInstanceState]")
+        Timber.v("Instance state restored. [Bundle: $savedInstanceState]")
     }
 
     override fun onResume() {
         super.onResume()
-        Timber.v("${javaClass.simpleName} resumed.")
+        Timber.v("Resumed.")
     }
 
     override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)
-        Timber.v("${javaClass.simpleName} new config. [Config: $newConfig]")
+        Timber.v("New config. [Config: $newConfig]")
     }
 
     override fun onPause() {
-        Timber.v("${javaClass.simpleName} paused.")
+        Timber.v("Paused.")
         super.onPause()
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
-        Timber.v("${javaClass.simpleName} instance state saved. [Bundle: %s]", outState)
+        Timber.v("Instance state saved. [Bundle: %s]", outState)
         super.onSaveInstanceState(outState)
     }
 
     override fun onStop() {
-        Timber.v("${javaClass.simpleName} stopped.")
+        Timber.v("Stopped.")
         super.onStop()
     }
 
     override fun onDestroy() {
-        Timber.v("${javaClass.simpleName} destroyed.")
+        Timber.v("Destroyed.")
         super.onDestroy()
     }
 

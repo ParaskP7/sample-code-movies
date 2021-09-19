@@ -31,7 +31,7 @@ open class App : Application(),
         initStrictMode()
         initLifecycleObserver()
         initNetworkConnectivity()
-        Timber.i("${getString(R.string.appName)} created.")
+        Timber.i("${getString(R.string.appName)} app created.")
     }
 
     private fun initKoin() {
@@ -55,7 +55,7 @@ open class App : Application(),
     private fun initLogging() {
         if (BuildConfig.DEBUG) {
             Timber.plant(Timber.DebugTree())
-            Timber.v("${javaClass.simpleName} logging initialised.")
+            Timber.v("Logging initialised.")
         }
     }
 
@@ -63,7 +63,7 @@ open class App : Application(),
         if (BuildConfig.DEBUG) {
             setThreadPolicyToStrictMode()
             setVmPolicyToStrictMode()
-            Timber.v("${javaClass.simpleName} strict mode initialised.")
+            Timber.v("Strict mode initialised.")
         }
     }
 
@@ -122,13 +122,13 @@ open class App : Application(),
 
     override fun onStateChanged(source: LifecycleOwner, event: Lifecycle.Event) {
         when (event) {
-            Lifecycle.Event.ON_CREATE -> Timber.v("${javaClass.simpleName} created.")
-            Lifecycle.Event.ON_START -> Timber.v("${javaClass.simpleName} started. [App In Foreground]")
-            Lifecycle.Event.ON_RESUME -> Timber.v("${javaClass.simpleName} resumed.")
-            Lifecycle.Event.ON_PAUSE -> Timber.v("${javaClass.simpleName} paused.")
-            Lifecycle.Event.ON_STOP -> Timber.v("${javaClass.simpleName} stopped. [App In Background]")
-            Lifecycle.Event.ON_DESTROY -> Timber.v("${javaClass.simpleName} destroyed.")
-            Lifecycle.Event.ON_ANY -> Timber.v("${javaClass.simpleName} any.")
+            Lifecycle.Event.ON_CREATE -> Timber.v("Created.")
+            Lifecycle.Event.ON_START -> Timber.v("Started. [In Foreground]")
+            Lifecycle.Event.ON_RESUME -> Timber.v("Resumed.")
+            Lifecycle.Event.ON_PAUSE -> Timber.v("Paused.")
+            Lifecycle.Event.ON_STOP -> Timber.v("Stopped. [In Background]")
+            Lifecycle.Event.ON_DESTROY -> Timber.v("Destroyed.")
+            Lifecycle.Event.ON_ANY -> Timber.v("Any!")
         }
     }
 
