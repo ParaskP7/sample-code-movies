@@ -6,8 +6,8 @@ import android.app.Application
 import android.os.Build
 import android.os.StrictMode
 import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.LifecycleObserver
-import androidx.lifecycle.OnLifecycleEvent
+import androidx.lifecycle.LifecycleEventObserver
+import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ProcessLifecycleOwner
 import io.petros.movies.BuildConfig
 import io.petros.movies.R
@@ -22,7 +22,7 @@ import timber.log.Timber
 
 @Suppress("TooManyFunctions")
 open class App : Application(),
-    LifecycleObserver {
+    LifecycleEventObserver {
 
     override fun onCreate() {
         super.onCreate()
@@ -120,34 +120,16 @@ open class App : Application(),
 
     /* LIFECYCLE */
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
-    fun onCreated() {
-        Timber.v("${javaClass.simpleName} created.")
-    }
-
-    @OnLifecycleEvent(Lifecycle.Event.ON_START)
-    fun onStart() {
-        Timber.v("${javaClass.simpleName} started. [App In Foreground]")
-    }
-
-    @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
-    fun onResume() {
-        Timber.v("${javaClass.simpleName} resumed.")
-    }
-
-    @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
-    fun onPause() {
-        Timber.v("${javaClass.simpleName} paused.")
-    }
-
-    @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
-    fun onStop() {
-        Timber.v("${javaClass.simpleName} stopped. [App In Background]")
-    }
-
-    @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
-    fun onDestroyed() {
-        Timber.v("${javaClass.simpleName} destroyed.")
+    override fun onStateChanged(source: LifecycleOwner, event: Lifecycle.Event) {
+        when (event) {
+            Lifecycle.Event.ON_CREATE -> Timber.v("${javaClass.simpleName} created.")
+            Lifecycle.Event.ON_START -> Timber.v("${javaClass.simpleName} started. [App In Foreground]")
+            Lifecycle.Event.ON_RESUME -> Timber.v("${javaClass.simpleName} resumed.")
+            Lifecycle.Event.ON_PAUSE -> Timber.v("${javaClass.simpleName} paused.")
+            Lifecycle.Event.ON_STOP -> Timber.v("${javaClass.simpleName} stopped. [App In Background]")
+            Lifecycle.Event.ON_DESTROY -> Timber.v("${javaClass.simpleName} destroyed.")
+            Lifecycle.Event.ON_ANY -> Timber.v("${javaClass.simpleName} any.")
+        }
     }
 
     companion object {
