@@ -28,7 +28,7 @@ object Plugins {
         const val DEPENDENCY_ANALYSIS = "0.78.0" // Released: 16-09-20
 
         // Releases: https://github.com/runningcode/gradle-doctor/releases
-        const val GRADLE_DOCTOR = "0.7.1" // Released: 21-07-21
+        const val GRADLE_DOCTOR = "0.7.3" // Released: 18-09-21
 
         // Releases: https://github.com/dipien/bye-bye-jetifier/releases
         const val GRADLE_JETIFIER = "1.2.0" // Released: 26-08-21
