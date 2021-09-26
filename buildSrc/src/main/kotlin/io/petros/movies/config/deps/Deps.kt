@@ -108,7 +108,7 @@ object Deps {
             object ConstraintLayout {
 
                 val CONSTRAINT_LAYOUT = "androidx.constraintlayout:constraintlayout-compose:" +
-                        Versions.Android.Compose.ConstraintLayout.CONSTRAINT_LAYOUT_BETA
+                        Versions.Android.Compose.ConstraintLayout.CONSTRAINT_LAYOUT_RC
             }
 
         }
