@@ -22,12 +22,11 @@ class MoviesRepositoryImpl(
     }
 
     // TODO: Figure out a way to test this function.
-    @ExperimentalPagingApi
     override suspend fun loadMoviesStream(year: Int?, month: Int?) = pager(year, month).map { pagingData ->
         pagingData.map { it.toMovie() }
     }
 
-    @ExperimentalPagingApi
+    @OptIn(ExperimentalPagingApi::class)
     private fun pager(year: Int?, month: Int?) = Pager(
         config = PagingConfig(
             pageSize = MoviesRemoteMediator.MOVIES_PAGE_SIZE,

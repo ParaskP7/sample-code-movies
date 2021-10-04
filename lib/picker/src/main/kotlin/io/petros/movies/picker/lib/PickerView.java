@@ -25,7 +25,7 @@ import io.petros.movies.lib.picker.R;
 import timber.log.Timber;
 
 @SuppressLint("SyntheticAccessor")
-@SuppressWarnings("unused")
+@SuppressWarnings({"unused", "deprecation", "CommentedOutCode"})
 public class PickerView extends FrameLayout {
 
     static int _minYear = 1900;
