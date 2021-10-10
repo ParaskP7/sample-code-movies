@@ -8,7 +8,8 @@ object Plugins {
 
         // Releases: https://blog.jetbrains.com/kotlin/category/releases
         // Release: https://github.com/JetBrains/kotlin/releases/tag/v1.5.30
-        const val KOTLIN = "1.5.30" // Released: 24-08-21
+        const val KOTLIN_JETPACK_COMPOSE = "1.5.30" // Released: 24-08-21
+        @Suppress("unused") const val KOTLIN = "1.5.31" // Released: 20-09-21
 
         // Releases: https://androidstudio.googleblog.com
         @Suppress("unused") const val ANDROID_GRADLE_OLD = "4.2.2" // Released: 30-06-21
@@ -41,7 +42,7 @@ object Plugins {
 
     }
 
-    const val KOTLIN_GRADLE = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Version.KOTLIN}"
+    const val KOTLIN_GRADLE = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Version.KOTLIN_JETPACK_COMPOSE}"
     const val ANDROID_GRADLE = "com.android.tools.build:gradle:${Version.ANDROID_GRADLE_CANARY}"
     const val ANDROID_NAVIGATION =
         "androidx.navigation:navigation-safe-args-gradle-plugin:${Versions.Android.Arch.Navigation.NAVIGATION}"
