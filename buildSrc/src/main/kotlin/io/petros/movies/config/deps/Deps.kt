@@ -156,8 +156,6 @@ object Deps {
 
                 val COMMON =
                     "androidx.navigation:navigation-common:${Versions.Android.Arch.Navigation.NAVIGATION_BETA}"
-                val COMMON_KTX =
-                    "androidx.navigation:navigation-common-ktx:${Versions.Android.Arch.Navigation.NAVIGATION_BETA}"
 
                 val RUNTIME =
                     "androidx.navigation:navigation-runtime:${Versions.Android.Arch.Navigation.NAVIGATION_BETA}"
@@ -166,8 +164,6 @@ object Deps {
 
                 val UI =
                     "androidx.navigation:navigation-ui:${Versions.Android.Arch.Navigation.NAVIGATION_BETA}"
-                val UI_KTX =
-                    "androidx.navigation:navigation-ui-ktx:${Versions.Android.Arch.Navigation.NAVIGATION_BETA}"
 
                 val FRAGMENT =
                     "androidx.navigation:navigation-fragment:${Versions.Android.Arch.Navigation.NAVIGATION_BETA}"
