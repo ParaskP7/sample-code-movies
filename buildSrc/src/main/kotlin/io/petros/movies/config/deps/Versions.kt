@@ -92,8 +92,7 @@ object Versions {
             object Lifecycle {
 
                 // Releases: https://developer.android.com/jetpack/androidx/releases/lifecycle
-                @Suppress("unused") const val LIFECYCLE = "2.3.1" // Released: 24-03-21
-                const val LIFECYCLE_RC = "2.4.0-rc01" // Released: 29-09-20
+                const val LIFECYCLE = "2.4.0" // Released: 27-10-21
 
             }
 
