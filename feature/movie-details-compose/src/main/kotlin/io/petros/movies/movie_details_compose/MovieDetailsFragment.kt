@@ -4,6 +4,7 @@ package io.petros.movies.movie_details_compose
 
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.Fragment
@@ -20,7 +21,7 @@ class MovieDetailsFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?,
-    ) = ComposeView(requireContext()).apply {
+    ): View = ComposeView(requireContext()).apply {
         setContent {
             MoviesTheme {
                 MovieDetailsScreen(
