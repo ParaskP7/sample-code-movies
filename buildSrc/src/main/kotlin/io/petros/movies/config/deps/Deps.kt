@@ -203,19 +203,21 @@ object Deps {
                 @Suppress("MemberNameEqualsClassName")
                 object SQLight {
 
-                    val SQLIGHT = "androidx.sqlite:sqlite:${Versions.Android.Arch.Database.SQLight.SQLIGHT}"
+                    val SQLIGHT = "androidx.sqlite:sqlite:${Versions.Android.Arch.Database.SQLight.SQLIGHT_BETA}"
 
                 }
 
                 object Room {
 
-                    val COMMON = "androidx.room:room-common:${Versions.Android.Arch.Database.Room.ROOM}"
+                    val COMMON = "androidx.room:room-common:${Versions.Android.Arch.Database.Room.ROOM_BETA}"
 
-                    val RUNTIME = "androidx.room:room-runtime:${Versions.Android.Arch.Database.Room.ROOM}"
+                    val RUNTIME = "androidx.room:room-runtime:${Versions.Android.Arch.Database.Room.ROOM_BETA}"
 
-                    val KTX = "androidx.room:room-ktx:${Versions.Android.Arch.Database.Room.ROOM}"
+                    val KTX = "androidx.room:room-ktx:${Versions.Android.Arch.Database.Room.ROOM_BETA}"
 
-                    val COMPILER = "androidx.room:room-compiler:${Versions.Android.Arch.Database.Room.ROOM}"
+                    val PAGING = "androidx.room:room-paging:${Versions.Android.Arch.Database.Room.ROOM_BETA}"
+
+                    val COMPILER = "androidx.room:room-compiler:${Versions.Android.Arch.Database.Room.ROOM_BETA}"
 
                 }
 
@@ -223,9 +225,9 @@ object Deps {
 
             object Pagination {
 
-                val COMMON = "androidx.paging:paging-common:${Versions.Android.Arch.Pagination.PAGING}"
+                val COMMON = "androidx.paging:paging-common:${Versions.Android.Arch.Pagination.PAGING_BETA}"
 
-                val RUNTIME = "androidx.paging:paging-runtime:${Versions.Android.Arch.Pagination.PAGING}"
+                val RUNTIME = "androidx.paging:paging-runtime:${Versions.Android.Arch.Pagination.PAGING_BETA}"
 
             }
 

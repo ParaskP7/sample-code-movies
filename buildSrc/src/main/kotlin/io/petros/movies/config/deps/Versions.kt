@@ -135,7 +135,8 @@ object Versions {
                 object SQLight {
 
                     // Releases: https://developer.android.com/jetpack/androidx/releases/sqlite
-                    const val SQLIGHT = "2.1.0" // Release: 22-01-20
+                    @Suppress("unused") const val SQLIGHT = "2.1.0" // Release: 22-01-20
+                    const val SQLIGHT_BETA = "2.2.0-beta01" // Release: 13-10-21
 
                 }
 
@@ -143,7 +144,8 @@ object Versions {
                 object Room {
 
                     // Releases: https://developer.android.com/jetpack/androidx/releases/room
-                    const val ROOM = "2.3.0" // Release: 21-04-21
+                    @Suppress("unused") const val ROOM = "2.3.0" // Release: 21-04-21
+                    const val ROOM_BETA = "2.4.0-beta01" // Release: 13-10-21
 
                 }
 
@@ -153,7 +155,8 @@ object Versions {
             object Pagination {
 
                 // Releases: https://developer.android.com/jetpack/androidx/releases/paging
-                const val PAGING = "3.0.1" // Release: 21-07-21
+                @Suppress("unused") const val PAGING = "3.0.1" // Release: 21-07-21
+                const val PAGING_BETA = "3.1.0-beta01" // Release: 13-10-21
 
             }
 

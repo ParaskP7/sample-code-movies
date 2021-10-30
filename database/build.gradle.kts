@@ -21,6 +21,7 @@ dependencies {
     implementation(Deps.Android.Arch.Database.Room.COMMON)
     implementation(Deps.Android.Arch.Database.Room.RUNTIME)
     implementation(Deps.Android.Arch.Database.Room.KTX)
+    implementation(Deps.Android.Arch.Database.Room.PAGING)
     kapt(Deps.Android.Arch.Database.Room.COMPILER)
     implementation(Deps.Android.Arch.Pagination.COMMON)
     implementation(Deps.Di.Koin.Kotlin.CORE)
