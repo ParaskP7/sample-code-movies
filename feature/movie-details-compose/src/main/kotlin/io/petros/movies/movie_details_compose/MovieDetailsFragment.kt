@@ -8,7 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.Fragment
-import io.petros.movies.core_compose.ui.MoviesTheme
+import io.petros.movies.core_compose.ui.Theme
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 @Suppress("SyntheticAccessor")
@@ -23,7 +23,7 @@ class MovieDetailsFragment : Fragment() {
         savedInstanceState: Bundle?,
     ): View = ComposeView(requireContext()).apply {
         setContent {
-            MoviesTheme {
+            Theme {
                 MovieDetailsScreen(
                     state = viewModel.state,
                     sideEffect = viewModel.sideEffect,

@@ -4,7 +4,7 @@ package io.petros.movies.movie_details_compose
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
-import io.petros.movies.core_compose.ui.MoviesTheme
+import io.petros.movies.core_compose.ui.Theme
 import io.petros.movies.test.domain.movie
 
 @Preview(
@@ -13,7 +13,7 @@ import io.petros.movies.test.domain.movie
 )
 @Composable
 fun MovieDetailsLightPreview() {
-    MoviesTheme(darkTheme = false) {
+    Theme(darkTheme = false) {
         MovieDetailsScreen(
             state = MovieDetailsState(
                 status = MovieDetailsStatus.Loaded,
@@ -32,7 +32,7 @@ fun MovieDetailsLightPreview() {
 )
 @Composable
 fun MovieDetailsDarkPreview() {
-    MoviesTheme(darkTheme = true) {
+    Theme(darkTheme = true) {
         MovieDetailsScreen(
             state = MovieDetailsState(
                 status = MovieDetailsStatus.Loaded,
