@@ -15,10 +15,17 @@ object Plugins {
         const val KOTLIN_JETPACK_COMPOSE = KOTLIN // Released: 20-09-21
 
         // Releases: https://androidstudio.googleblog.com
+        // Release: https://androidstudio.googleblog.com/2021/06/android-studio-422-available.html
         @Suppress("unused") const val ANDROID_GRADLE_OLD = "4.2.2" // Released: 30-06-21
+
+        // Release: https://androidstudio.googleblog.com/2021/10/android-studio-arctic-fox-202031-patch.html
         @Suppress("unused") const val ANDROID_GRADLE_NEW = "7.0.3" // Released: 11-10-21
+
+        // Release: https://androidstudio.googleblog.com/2021/11/android-studio-bumblebee-beta-3-now.html
         @Suppress("unused") const val ANDROID_GRADLE_BETA = "7.1.0-beta03" // Released: 09-11-21
-        const val ANDROID_GRADLE_CANARY = "7.2.0-alpha04" // Released: 09-11-21
+
+        // Release: https://androidstudio.googleblog.com/2021/11/android-studio-chipmunk-canary-4-now.html
+        const val ANDROID_GRADLE_CANARY = "7.2.0-alpha05" // Released: 15-11-21
 
         // Releases: https://github.com/GradleUp/auto-manifest/releases
         const val ANDROID_MANIFEST = "1.0.4" // Released: 13-11-20
