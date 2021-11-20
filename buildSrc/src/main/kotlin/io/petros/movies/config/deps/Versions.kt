@@ -50,7 +50,8 @@ object Versions {
             const val DRAWER_LAYOUT = "1.1.1" // Released: 02-09-20
 
             // Releases: https://developer.android.com/jetpack/androidx/releases/coordinatorlayout
-            const val COORDINATOR_LAYOUT = "1.1.0" // Released: 04-12-19
+            @Suppress("unused") const val COORDINATOR_LAYOUT = "1.1.0" // Released: 04-12-19
+            const val COORDINATOR_LAYOUT_BETA = "1.2.0-beta01" // Released: 17-11-21
 
         }
 
