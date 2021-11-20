@@ -48,8 +48,6 @@ dependencies {
     implementation(Deps.Di.Koin.Android.ANDROID)
     implementation(Deps.Log.TIMBER)
 
-    implementation(project(Projects.TestImplementation.Kotlin.TEST))
-
     detektPlugins(Plugins.DETEKT_FORMATTING)
 }
 
