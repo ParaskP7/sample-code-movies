@@ -39,6 +39,7 @@ console-reports:
     - 'NotificationReport'
     # - 'FindingsReport'
     - 'FileBasedFindingsReport'
+    - 'LiteFindingsReport'
 
 output-reports:
   active: true
@@ -62,6 +63,10 @@ comments:
   EndOfSentenceFormat:
     active: true
     endOfSentenceFormat: '([.?!][ \t\n\r\f<])|([.?!:]$)'
+  OutdatedDocumentation:
+    active: true
+    matchTypeParameters: true
+    matchDeclarationsOrder: true
   UndocumentedPublicClass:
     active: false
     excludes: [ ]
@@ -111,14 +116,13 @@ complexity:
   LongMethod:
     active: true
     threshold: 60
-    ignoreAnnotated: [ ]
   LongParameterList:
     active: true
     functionThreshold: 6
     constructorThreshold: 7
     ignoreDefaultParameters: false
     ignoreDataClasses: true
-    ignoreAnnotated: [ ]
+    ignoreAnnotatedParameter: [ ]
   MethodOverloading:
     active: true
     threshold: 6
@@ -163,6 +167,12 @@ coroutines:
   active: true
   GlobalCoroutineUsage:
     active: true
+  InjectDispatcher:
+    active: true
+    dispatcherNames:
+      - 'IO'
+      - 'Default'
+      - 'Unconfined'
   RedundantSuspendModifier:
     active: true
   SleepInsteadOfDelay:
@@ -470,10 +480,11 @@ naming:
     ignoreOverridden: true
   InvalidPackageDeclaration:
     active: true
-    excludes: [
-        '**/*.kts'
-    ]
     rootPackage: ''
+  LambdaParameterNaming:
+    active: true
+    excludes: [ ]
+    parameterPattern: '[a-z][A-Za-z0-9]*|_'
   MatchingDeclarationName:
     active: true
     mustBeFirst: true
@@ -578,10 +589,14 @@ potential-bugs:
   LateinitUsage:
     active: true
     excludes: [ ]
-    excludeAnnotatedProperties: [ ]
     ignoreOnClassesPattern: ''
   MapGetWithNotNullAssertionOperator:
     active: true
+  MissingPackageDeclaration:
+    active: true
+    excludes: [
+        '**/*.kts'
+    ]
   MissingWhenCase:
     active: true
     allowElseExpression: true
@@ -601,6 +616,7 @@ potential-bugs:
     active: true
   UnsafeCallOnNullableType:
     active: true
+    excludes: [ ]
   UnsafeCast:
     active: true
   UnusedUnaryOperator:
@@ -642,6 +658,7 @@ style:
       - 'STOPSHIP:'
       - 'TODO:'
     allowedPatterns: ''
+    customMessage: ''
   ForbiddenImport:
     active: true
     imports: [ ]
@@ -668,8 +685,6 @@ style:
     ignoreOverridableFunction: true
     ignoreActualFunction: true
     excludedFunctions: 'describeContents'
-    excludeAnnotatedFunction:
-      - 'dagger.Provides'
   LibraryCodeMustSpecifyReturnType:
     active: true
     excludes: [
@@ -772,11 +787,9 @@ style:
     active: true
   UnderscoresInNumericLiterals:
     active: true
-    acceptableDecimalLength: 5
+    acceptableLength: 4
   UnnecessaryAbstractClass:
     active: true
-    excludeAnnotatedClasses:
-      - 'dagger.Module'
   UnnecessaryAnnotationUseSiteTarget:
     active: true
   UnnecessaryApply:
@@ -798,6 +811,8 @@ style:
   UnusedPrivateMember:
     active: true
     allowedNames: '(_|ignored|expected|serialVersionUID)'
+  UseAnyOrNoneInsteadOfFind:
+    active: true
   UseArrayLiteralsInAnnotations:
     active: true
   UseCheckNotNull:
@@ -806,7 +821,6 @@ style:
     active: true
   UseDataClass:
     active: true
-    excludeAnnotatedClasses: [ ]
     allowVars: false
   UseEmptyCounterpart:
     active: true
@@ -833,4 +847,3 @@ style:
     excludes: [ ]
     excludeImports:
       - 'java.util.*'
-      - 'kotlinx.android.synthetic.*'
