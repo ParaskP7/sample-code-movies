@@ -21,10 +21,10 @@ object Plugins {
         // Release: https://androidstudio.googleblog.com/2021/10/android-studio-arctic-fox-202031-patch.html
         @Suppress("unused") const val ANDROID_GRADLE_NEW = "7.0.3" // Released: 11-10-21
 
-        // Release: https://androidstudio.googleblog.com/2021/11/android-studio-bumblebee-beta-3-now.html
-        @Suppress("unused") const val ANDROID_GRADLE_BETA = "7.1.0-beta03" // Released: 09-11-21
+        // Release: https://androidstudio.googleblog.com/2021/11/android-studio-bumblebee-beta-4-now.html
+        @Suppress("unused") const val ANDROID_GRADLE_BETA = "7.1.0-beta04" // Released: 23-11-21
 
-        // Release: https://androidstudio.googleblog.com/2021/11/android-studio-chipmunk-canary-4-now.html
+        // Release: https://androidstudio.googleblog.com/2021/11/android-studio-chipmunk-canary-5-now.html
         const val ANDROID_GRADLE_CANARY = "7.2.0-alpha05" // Released: 15-11-21
 
         // Releases: https://github.com/GradleUp/auto-manifest/releases
