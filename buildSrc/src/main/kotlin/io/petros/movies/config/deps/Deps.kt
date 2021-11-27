@@ -144,7 +144,6 @@ object Deps {
 
             }
 
-            @Suppress("unused")
             object SavedState {
 
                 val SAVED_STATE =
