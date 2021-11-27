@@ -328,7 +328,6 @@ object Deps {
 
             val COIL_BASE = "io.coil-kt:coil-base:${Versions.Image.Coil.COIL}"
             val COMPOSE = "io.coil-kt:coil-compose:${Versions.Image.Coil.COIL}"
-            val COMPOSE_BASE = "io.coil-kt:coil-compose-base:${Versions.Image.Coil.COIL}"
 
         }
 

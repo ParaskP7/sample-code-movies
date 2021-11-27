@@ -29,7 +29,7 @@ import androidx.constraintlayout.compose.ConstrainedLayoutReference
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.ConstraintLayoutScope
 import coil.annotation.ExperimentalCoilApi
-import coil.compose.rememberImagePainter
+import coil.compose.AsyncImage
 import io.petros.movies.core_compose.ui.DarkColor
 import io.petros.movies.core_compose.ui.LightColor
 import io.petros.movies.domain.model.movie.Movie
@@ -112,8 +112,8 @@ private fun BackdropImage(
     backdrop: String? = null,
 ) {
     backdrop?.let {
-        Image(
-            painter = rememberImagePainter(it),
+        AsyncImage(
+            model = it,
             modifier = modifier,
             contentScale = contentScale,
             contentDescription = stringResource(R.string.ivBackdropContentDescription),
