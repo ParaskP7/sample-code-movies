@@ -100,8 +100,6 @@ dependencyAnalysis {
 moduleGraphAssert {
     maxHeight = Config.Module.GraphAssert.MAX_HEIGHT
     allowed = Config.Module.GraphAssert.allowed
-    moduleLayers = Config.Module.GraphAssert.moduleLayers
-    moduleLayersExclude = Config.Module.GraphAssert.moduleLayersExclude
     restricted = Config.Module.GraphAssert.restricted
     configurations = Config.Module.GraphAssert.configurations
 }

@@ -206,12 +206,6 @@ object Config {
                 ":android-utils\\S* -> :utils\\S*",
                 ":test\\S* -> :domain\\S*",
             )
-            val moduleLayers = arrayOf(
-                ":feature:\\S*",
-                ":lib:\\S*",
-                ":core\\S*",
-            )
-            val moduleLayersExclude = emptyArray<String>()
             val restricted = arrayOf(
                 ":feature-[a-z]* -X> :forbidden-to-depend-on",
             )
