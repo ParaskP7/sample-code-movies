@@ -198,21 +198,21 @@ object Deps {
                 @Suppress("MemberNameEqualsClassName")
                 object SQLight {
 
-                    val SQLIGHT = "androidx.sqlite:sqlite:${Versions.Android.Arch.Database.SQLight.SQLIGHT_BETA}"
+                    val SQLIGHT = "androidx.sqlite:sqlite:${Versions.Android.Arch.Database.SQLight.SQLIGHT_RC}"
 
                 }
 
                 object Room {
 
-                    val COMMON = "androidx.room:room-common:${Versions.Android.Arch.Database.Room.ROOM_BETA}"
+                    val COMMON = "androidx.room:room-common:${Versions.Android.Arch.Database.Room.ROOM_RC}"
 
-                    val RUNTIME = "androidx.room:room-runtime:${Versions.Android.Arch.Database.Room.ROOM_BETA}"
+                    val RUNTIME = "androidx.room:room-runtime:${Versions.Android.Arch.Database.Room.ROOM_RC}"
 
-                    val KTX = "androidx.room:room-ktx:${Versions.Android.Arch.Database.Room.ROOM_BETA}"
+                    val KTX = "androidx.room:room-ktx:${Versions.Android.Arch.Database.Room.ROOM_RC}"
 
-                    val PAGING = "androidx.room:room-paging:${Versions.Android.Arch.Database.Room.ROOM_BETA}"
+                    val PAGING = "androidx.room:room-paging:${Versions.Android.Arch.Database.Room.ROOM_RC}"
 
-                    val COMPILER = "androidx.room:room-compiler:${Versions.Android.Arch.Database.Room.ROOM_BETA}"
+                    val COMPILER = "androidx.room:room-compiler:${Versions.Android.Arch.Database.Room.ROOM_RC}"
 
                 }
 

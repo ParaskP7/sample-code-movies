@@ -135,7 +135,7 @@ object Versions {
 
                     // Releases: https://developer.android.com/jetpack/androidx/releases/sqlite
                     @Suppress("unused") const val SQLIGHT = "2.1.0" // Release: 22-01-20
-                    const val SQLIGHT_BETA = "2.2.0-beta01" // Release: 13-10-21
+                    const val SQLIGHT_RC = "2.2.0-rc01" // Release: 01-12-21
 
                 }
 
@@ -144,7 +144,7 @@ object Versions {
 
                     // Releases: https://developer.android.com/jetpack/androidx/releases/room
                     @Suppress("unused") const val ROOM = "2.3.0" // Release: 21-04-21
-                    const val ROOM_BETA = "2.4.0-beta02" // Release: 17-11-21
+                    const val ROOM_RC = "2.4.0-rc01" // Release: 01-12-21
 
                 }
 
