@@ -39,9 +39,6 @@ object Plugins {
         // Releases: https://github.com/runningcode/gradle-doctor/releases
         const val GRADLE_DOCTOR = "0.7.3" // Released: 18-09-21
 
-        // Releases: https://github.com/dipien/bye-bye-jetifier/releases
-        const val GRADLE_JETIFIER = "1.2.0" // Released: 26-08-21
-
         // Releases: https://github.com/jraska/modules-graph-assert/releases
         const val MODULE_GRAPH_ASSERT = "2.0.0" // Released: 23-11-21
 
@@ -110,7 +107,6 @@ object Plugins {
         object Gradle {
 
             const val DOCTOR = "com.osacky.doctor"
-            const val JETIFIER = "com.dipien.byebyejetifier"
 
         }
 
