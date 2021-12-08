@@ -15,8 +15,8 @@ object Plugins {
         // Release: https://androidstudio.googleblog.com/2021/06/android-studio-422-available.html
         @Suppress("unused") const val ANDROID_GRADLE_OLD = "4.2.2" // Released: 30-06-21
 
-        // Release: https://androidstudio.googleblog.com/2021/10/android-studio-arctic-fox-202031-patch.html
-        @Suppress("unused") const val ANDROID_GRADLE_NEW = "7.0.3" // Released: 11-10-21
+        // Release: https://androidstudio.googleblog.com/2021/12/android-studio-arctic-fox-202031-patch.html
+        @Suppress("unused") const val ANDROID_GRADLE_NEW = "7.0.4" // Released: 08-12-21
 
         // Release: https://androidstudio.googleblog.com/2021/11/android-studio-bumblebee-beta-4-now.html
         @Suppress("unused") const val ANDROID_GRADLE_BETA = "7.1.0-beta04" // Released: 23-11-21
