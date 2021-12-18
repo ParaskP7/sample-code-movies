@@ -155,20 +155,20 @@ object Deps {
             object Navigation {
 
                 val COMMON =
-                    "androidx.navigation:navigation-common:${Versions.Android.Arch.Navigation.NAVIGATION_BETA}"
+                    "androidx.navigation:navigation-common:${Versions.Android.Arch.Navigation.NAVIGATION_RC}"
 
                 val RUNTIME =
-                    "androidx.navigation:navigation-runtime:${Versions.Android.Arch.Navigation.NAVIGATION_BETA}"
+                    "androidx.navigation:navigation-runtime:${Versions.Android.Arch.Navigation.NAVIGATION_RC}"
                 val RUNTIME_KTX =
-                    "androidx.navigation:navigation-runtime-ktx:${Versions.Android.Arch.Navigation.NAVIGATION_BETA}"
+                    "androidx.navigation:navigation-runtime-ktx:${Versions.Android.Arch.Navigation.NAVIGATION_RC}"
 
                 val UI =
-                    "androidx.navigation:navigation-ui:${Versions.Android.Arch.Navigation.NAVIGATION_BETA}"
+                    "androidx.navigation:navigation-ui:${Versions.Android.Arch.Navigation.NAVIGATION_RC}"
 
                 val FRAGMENT =
-                    "androidx.navigation:navigation-fragment:${Versions.Android.Arch.Navigation.NAVIGATION_BETA}"
+                    "androidx.navigation:navigation-fragment:${Versions.Android.Arch.Navigation.NAVIGATION_RC}"
                 val FRAGMENT_KTX =
-                    "androidx.navigation:navigation-fragment-ktx:${Versions.Android.Arch.Navigation.NAVIGATION_BETA}"
+                    "androidx.navigation:navigation-fragment-ktx:${Versions.Android.Arch.Navigation.NAVIGATION_RC}"
 
             }
 
