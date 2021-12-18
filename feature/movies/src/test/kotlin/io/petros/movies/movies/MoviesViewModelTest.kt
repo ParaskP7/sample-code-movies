@@ -1,14 +1,11 @@
 package io.petros.movies.movies
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import androidx.lifecycle.Observer
 import androidx.paging.LoadType
 import androidx.paging.PagingData
 import io.mockk.coEvery
 import io.mockk.coVerify
-import io.mockk.every
 import io.mockk.mockk
-import io.mockk.verify
 import io.petros.movies.domain.interactor.movie.LoadDateUseCase
 import io.petros.movies.domain.interactor.movie.LoadMoviesUseCase
 import io.petros.movies.domain.model.NetworkError
@@ -29,6 +26,8 @@ import org.junit.Before
 import org.junit.Ignore
 import org.junit.Rule
 import org.junit.Test
+import strikt.api.expect
+import strikt.assertions.isEqualTo
 
 @ExperimentalCoroutinesApi
 @Suppress("ThrowingExceptionsWithoutMessageOrCause")
@@ -44,17 +43,15 @@ class MoviesViewModelTest {
     @Suppress("LateinitUsage") private lateinit var testedClass: MoviesViewModel
     private val loadDateUseCaseMock = mockk<LoadDateUseCase>()
     private val loadMoviesUseCaseMock = mockk<LoadMoviesUseCase>()
-    private val stateMock = mockk<Observer<MoviesState>>()
-    private val sideEffectMock = mockk<Observer<MoviesSideEffect>>()
+    private val state = mutableListOf<MoviesState>()
+    private val sideEffect = mutableListOf<MoviesSideEffect>()
 
     @Before
     fun setUp() {
         Dispatchers.setMain(StandardTestDispatcher(scope.testScheduler))
         testedClass = MoviesViewModel(loadDateUseCaseMock, loadMoviesUseCaseMock)
-        every { stateMock.onChanged(any()) } answers { }
-        testedClass.state().observeForever(stateMock)
-        every { sideEffectMock.onChanged(any()) } answers { }
-        testedClass.sideEffect().observeForever(sideEffectMock)
+        testedClass.state().observeForever { state.add(it) }
+        testedClass.sideEffect().observeForever { sideEffect.add(it) }
     }
 
     @After
@@ -66,8 +63,10 @@ class MoviesViewModelTest {
 
     @Test
     fun `when initing movies, then the expected initing state is posted`() {
-        verify {
-            stateMock.onChanged(
+        expect {
+            that(state.size).isEqualTo(1)
+            that(sideEffect.size).isEqualTo(0)
+            that(state.first()).isEqualTo(
                 MoviesState(
                     year = null,
                     month = null,
@@ -96,8 +95,17 @@ class MoviesViewModelTest {
         testedClass.process(MoviesIntent.LoadDate)
         scope.advanceUntilIdle()
 
-        verify {
-            stateMock.onChanged(
+        expect {
+            that(state.size).isEqualTo(2)
+            that(sideEffect.size).isEqualTo(0)
+            that(state.first()).isEqualTo(
+                MoviesState(
+                    year = null,
+                    month = null,
+                    movies = PagingData.empty(),
+                )
+            )
+            that(state.last()).isEqualTo(
                 MoviesState(
                     year = MOVIE_YEAR,
                     month = MOVIE_MONTH,
@@ -114,8 +122,17 @@ class MoviesViewModelTest {
         testedClass.process(MoviesIntent.LoadDate)
         scope.advanceUntilIdle()
 
-        verify {
-            stateMock.onChanged(
+        expect {
+            that(state.size).isEqualTo(2)
+            that(sideEffect.size).isEqualTo(1)
+            that(state.first()).isEqualTo(
+                MoviesState(
+                    year = null,
+                    month = null,
+                    movies = PagingData.empty(),
+                )
+            )
+            that(state.last()).isEqualTo(
                 MoviesState(
                     year = null,
                     month = null,
@@ -132,7 +149,15 @@ class MoviesViewModelTest {
         testedClass.process(MoviesIntent.LoadDate)
         scope.advanceUntilIdle()
 
-        verify { sideEffectMock.onChanged(MoviesReducer.once(MoviesAction.DateError)) }
+        expect {
+            that(state.size).isEqualTo(2)
+            that(sideEffect.size).isEqualTo(1)
+            that(sideEffect.first()).isEqualTo(
+                MoviesReducer.once(
+                    action = MoviesAction.DateError
+                )
+            )
+        }
     }
 
     /* MOVIES - LOAD */
@@ -155,8 +180,10 @@ class MoviesViewModelTest {
         testedClass.process(MoviesIntent.LoadMovies(MOVIE_YEAR, MOVIE_MONTH))
 
         moviesPageStream.collectLatest {
-            verify {
-                stateMock.onChanged(
+            expect {
+                that(state.size).isEqualTo(1)
+                that(sideEffect.size).isEqualTo(0)
+                that(state.first()).isEqualTo(
                     MoviesState(
                         year = MOVIE_YEAR,
                         month = MOVIE_MONTH,
@@ -173,8 +200,17 @@ class MoviesViewModelTest {
 
         testedClass.process(MoviesIntent.ErrorMovies(error.cause, LoadType.APPEND))
 
-        verify {
-            stateMock.onChanged(
+        expect {
+            that(state.size).isEqualTo(2)
+            that(sideEffect.size).isEqualTo(1)
+            that(state.first()).isEqualTo(
+                MoviesState(
+                    year = null,
+                    month = null,
+                    movies = PagingData.empty(),
+                )
+            )
+            that(state.last()).isEqualTo(
                 MoviesState(
                     year = null,
                     month = null,
@@ -190,7 +226,15 @@ class MoviesViewModelTest {
 
         testedClass.process(MoviesIntent.ErrorMovies(error.cause, LoadType.APPEND))
 
-        verify { sideEffectMock.onChanged(MoviesReducer.once(MoviesAction.MoviesError(LoadType.APPEND))) }
+        expect {
+            that(state.size).isEqualTo(2)
+            that(sideEffect.size).isEqualTo(1)
+            that(sideEffect.first()).isEqualTo(
+                MoviesReducer.once(
+                    action = MoviesAction.MoviesError(LoadType.APPEND)
+                )
+            )
+        }
     }
 
     @Test
@@ -206,12 +250,14 @@ class MoviesViewModelTest {
     fun `given subsequent load, when loading movies, then the expected idle state is posted`() {
         testedClass.process(MoviesIntent.LoadMovies(MOVIE_YEAR, MOVIE_MONTH))
 
-        verify {
-            stateMock.onChanged(
+        expect {
+            that(state.size).isEqualTo(1)
+            that(sideEffect.size).isEqualTo(0)
+            that(state.first()).isEqualTo(
                 MoviesState(
                     year = MOVIE_YEAR,
                     month = MOVIE_MONTH,
-                    movies = eq(any()),
+                    movies = PagingData.empty(),
                 )
             )
         }
@@ -223,8 +269,17 @@ class MoviesViewModelTest {
     fun `when reloading movies, then the expected reload state is posted`() {
         testedClass.process(MoviesIntent.ReloadMovies(MOVIE_YEAR, MOVIE_MONTH))
 
-        verify {
-            stateMock.onChanged(
+        expect {
+            that(state.size).isEqualTo(2)
+            that(sideEffect.size).isEqualTo(0)
+            that(state.first()).isEqualTo(
+                MoviesState(
+                    year = null,
+                    month = null,
+                    movies = PagingData.empty(),
+                )
+            )
+            that(state.last()).isEqualTo(
                 MoviesState(
                     year = MOVIE_YEAR,
                     month = MOVIE_MONTH,
@@ -238,8 +293,17 @@ class MoviesViewModelTest {
     fun `when reloading movies, then the expected loading state is posted`() {
         testedClass.process(MoviesIntent.ReloadMovies(MOVIE_YEAR, MOVIE_MONTH))
 
-        verify {
-            stateMock.onChanged(
+        expect {
+            that(state.size).isEqualTo(2)
+            that(sideEffect.size).isEqualTo(0)
+            that(state.first()).isEqualTo(
+                MoviesState(
+                    year = null,
+                    month = null,
+                    movies = PagingData.empty(),
+                )
+            )
+            that(state.last()).isEqualTo(
                 MoviesState(
                     year = MOVIE_YEAR,
                     month = MOVIE_MONTH,
@@ -267,8 +331,10 @@ class MoviesViewModelTest {
         testedClass.process(MoviesIntent.ReloadMovies(MOVIE_YEAR, MOVIE_MONTH))
 
         moviesPageStream.collectLatest {
-            verify {
-                stateMock.onChanged(
+            expect {
+                that(state.size).isEqualTo(1)
+                that(sideEffect.size).isEqualTo(0)
+                that(state.first()).isEqualTo(
                     MoviesState(
                         year = MOVIE_YEAR,
                         month = MOVIE_MONTH,

@@ -1,12 +1,9 @@
 package io.petros.movies.movie_details
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import androidx.lifecycle.Observer
 import io.mockk.coEvery
 import io.mockk.coVerify
-import io.mockk.every
 import io.mockk.mockk
-import io.mockk.verify
 import io.petros.movies.domain.interactor.movie.LoadMovieUseCase
 import io.petros.movies.domain.model.Result
 import io.petros.movies.domain.model.UnknownError
@@ -26,6 +23,8 @@ import org.junit.After
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
+import strikt.api.expect
+import strikt.assertions.isEqualTo
 
 @ExperimentalCoroutinesApi
 @Suppress("ThrowingExceptionsWithoutMessageOrCause")
@@ -40,17 +39,15 @@ class MovieDetailsViewModelTest {
 
     @Suppress("LateinitUsage") private lateinit var testedClass: MovieDetailsViewModel
     private val loadMovieUseCaseMock = mockk<LoadMovieUseCase>()
-    private val stateMock = mockk<Observer<MovieDetailsState>>()
-    private val sideEffectMock = mockk<Observer<MovieDetailsSideEffect>>()
+    private val state = mutableListOf<MovieDetailsState>()
+    private val sideEffect = mutableListOf<MovieDetailsSideEffect>()
 
     @Before
     fun setUp() {
         Dispatchers.setMain(StandardTestDispatcher(scope.testScheduler))
         testedClass = MovieDetailsViewModel(loadMovieUseCaseMock)
-        every { stateMock.onChanged(any()) } answers { }
-        testedClass.state().observeForever(stateMock)
-        every { sideEffectMock.onChanged(any()) } answers { }
-        testedClass.sideEffect().observeForever(sideEffectMock)
+        testedClass.state().observeForever { state.add(it) }
+        testedClass.sideEffect().observeForever { sideEffect.add(it) }
     }
 
     @After
@@ -62,8 +59,10 @@ class MovieDetailsViewModelTest {
 
     @Test
     fun `when initing movie, then the expected initing state is posted`() {
-        verify {
-            stateMock.onChanged(
+        expect {
+            that(state.size).isEqualTo(1)
+            that(sideEffect.size).isEqualTo(0)
+            that(state.first()).isEqualTo(
                 MovieDetailsState(
                     status = MovieDetailsStatus.Init,
                     movie = Movie.Default,
@@ -78,8 +77,16 @@ class MovieDetailsViewModelTest {
     fun `when idling movie, then the expected idling state is posted`() {
         testedClass.process(MovieDetailsIntent.IdleMovies)
 
-        verify {
-            stateMock.onChanged(
+        expect {
+            that(state.size).isEqualTo(2)
+            that(sideEffect.size).isEqualTo(0)
+            that(state.first()).isEqualTo(
+                MovieDetailsState(
+                    status = MovieDetailsStatus.Init,
+                    movie = Movie.Default,
+                )
+            )
+            that(state.last()).isEqualTo(
                 MovieDetailsState(
                     status = MovieDetailsStatus.Idle,
                     movie = Movie.Default,
@@ -97,8 +104,10 @@ class MovieDetailsViewModelTest {
         testedClass.process(MovieDetailsIntent.LoadMovie(MOVIE_ID))
 
         movieStream.collectLatest {
-            verify {
-                stateMock.onChanged(
+            expect {
+                that(state.size).isEqualTo(1)
+                that(sideEffect.size).isEqualTo(0)
+                that(state.first()).isEqualTo(
                     MovieDetailsState(
                         status = MovieDetailsStatus.Loading,
                         movie = Movie.Default,
@@ -126,8 +135,10 @@ class MovieDetailsViewModelTest {
         testedClass.process(MovieDetailsIntent.LoadMovie(MOVIE_ID))
 
         movieStream.collectLatest {
-            verify {
-                stateMock.onChanged(
+            expect {
+                that(state.size).isEqualTo(1)
+                that(sideEffect.size).isEqualTo(0)
+                that(state.first()).isEqualTo(
                     MovieDetailsState(
                         status = MovieDetailsStatus.Loaded,
                         movie = movie.value,
@@ -144,8 +155,10 @@ class MovieDetailsViewModelTest {
         testedClass.process(MovieDetailsIntent.LoadMovie(MOVIE_ID))
 
         errorStream.collectLatest {
-            verify {
-                stateMock.onChanged(
+            expect {
+                that(state.size).isEqualTo(1)
+                that(sideEffect.size).isEqualTo(0)
+                that(state.first()).isEqualTo(
                     MovieDetailsState(
                         status = MovieDetailsStatus.Loaded,
                         movie = Movie.Default,
@@ -162,7 +175,15 @@ class MovieDetailsViewModelTest {
         testedClass.process(MovieDetailsIntent.LoadMovie(MOVIE_ID))
 
         errorStream.collectLatest {
-            verify { sideEffectMock.onChanged(MovieDetailsReducer.once(MovieDetailsAction.Error)) }
+            expect {
+                that(state.size).isEqualTo(0)
+                that(sideEffect.size).isEqualTo(1)
+                that(sideEffect.first()).isEqualTo(
+                    MovieDetailsReducer.once(
+                        action = MovieDetailsAction.Error
+                    )
+                )
+            }
         }
     }
 
