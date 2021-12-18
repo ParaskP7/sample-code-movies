@@ -136,8 +136,7 @@ object Versions {
                 object SQLight {
 
                     // Releases: https://developer.android.com/jetpack/androidx/releases/sqlite
-                    @Suppress("unused") const val SQLIGHT = "2.1.0" // Release: 22-01-20
-                    const val SQLIGHT_RC = "2.2.0-rc01" // Release: 01-12-21
+                    const val SQLIGHT = "2.2.0" // Release: 15-12-21
 
                 }
 
@@ -145,8 +144,7 @@ object Versions {
                 object Room {
 
                     // Releases: https://developer.android.com/jetpack/androidx/releases/room
-                    @Suppress("unused") const val ROOM = "2.3.0" // Release: 21-04-21
-                    const val ROOM_RC = "2.4.0-rc01" // Release: 01-12-21
+                    const val ROOM = "2.4.0" // Release: 15-12-21
 
                 }
 
