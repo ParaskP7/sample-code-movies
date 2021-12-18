@@ -52,7 +52,7 @@ object Versions {
 
             // Releases: https://developer.android.com/jetpack/androidx/releases/coordinatorlayout
             @Suppress("unused") const val COORDINATOR_LAYOUT = "1.1.0" // Released: 04-12-19
-            const val COORDINATOR_LAYOUT_BETA = "1.2.0-beta01" // Released: 17-11-21
+            const val COORDINATOR_LAYOUT_RC = "1.2.0-rc01" // Released: 15-12-21
 
         }
 
