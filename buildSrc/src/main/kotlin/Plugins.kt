@@ -19,10 +19,10 @@ object Plugins {
         @Suppress("unused") const val ANDROID_GRADLE_NEW = "7.0.4" // Released: 08-12-21
 
         // Release: https://androidstudio.googleblog.com/2021/11/android-studio-bumblebee-beta-4-now.html
-        @Suppress("unused") const val ANDROID_GRADLE_BETA = "7.1.0-beta04" // Released: 23-11-21
+        @Suppress("unused") const val ANDROID_GRADLE_BETA = "7.1.0-beta05" // Released: 13-12-21
 
         // Release: https://androidstudio.googleblog.com/2021/11/android-studio-chipmunk-canary-5-now.html
-        const val ANDROID_GRADLE_CANARY = "7.2.0-alpha05" // Released: 15-11-21
+        const val ANDROID_GRADLE_CANARY = "7.2.0-alpha06" // Released: 15-12-21
 
         // Releases: https://github.com/GradleUp/auto-manifest/releases
         const val ANDROID_MANIFEST = "1.0.4" // Released: 13-11-20
