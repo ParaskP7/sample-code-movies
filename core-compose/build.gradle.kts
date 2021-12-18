@@ -16,7 +16,7 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = Versions.Android.Compose.COMPOSE_BETA
+        kotlinCompilerExtensionVersion = Versions.Android.Compose.COMPOSE_RC2
     }
 }
 
