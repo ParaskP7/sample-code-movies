@@ -6,20 +6,16 @@ import io.petros.movies.domain.model.Result
 import io.petros.movies.domain.model.movie.Movie
 import io.petros.movies.domain.repository.movie.MoviesRepository
 import io.petros.movies.test.domain.movie
-import io.petros.movies.test.utils.MainCoroutineScopeRule
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.test.runBlockingTest
-import org.junit.Rule
+import kotlinx.coroutines.test.runTest
 import org.junit.Test
 import strikt.api.expect
 import strikt.assertions.isEqualTo
 
 @ExperimentalCoroutinesApi
 class LoadMovieUseCaseTest {
-
-    @get:Rule val coroutineScope = MainCoroutineScopeRule()
 
     private val params = LoadMovieUseCase.Params(MOVIE_ID)
 
@@ -30,7 +26,7 @@ class LoadMovieUseCaseTest {
     private val testedClass = LoadMovieUseCase(moviesRepositoryMock)
 
     @Test
-    fun `when executing the use case, then the movie stream is the expected one`() = coroutineScope.runBlockingTest {
+    fun `when executing the use case, then the movie stream is the expected one`() = runTest {
         coEvery { moviesRepositoryMock.loadMovieStream(MOVIE_ID) } returns movieStream
 
         val result = testedClass(params)

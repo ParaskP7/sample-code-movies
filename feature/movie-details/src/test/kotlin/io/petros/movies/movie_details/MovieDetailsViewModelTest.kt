@@ -12,12 +12,17 @@ import io.petros.movies.domain.model.Result
 import io.petros.movies.domain.model.UnknownError
 import io.petros.movies.domain.model.movie.Movie
 import io.petros.movies.test.domain.movie
-import io.petros.movies.test.utils.MainCoroutineScopeRule
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.test.runBlockingTest
+import kotlinx.coroutines.test.StandardTestDispatcher
+import kotlinx.coroutines.test.TestScope
+import kotlinx.coroutines.test.resetMain
+import kotlinx.coroutines.test.runTest
+import kotlinx.coroutines.test.setMain
+import org.junit.After
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -26,7 +31,7 @@ import org.junit.Test
 @Suppress("ThrowingExceptionsWithoutMessageOrCause")
 class MovieDetailsViewModelTest {
 
-    @get:Rule val coroutineScope = MainCoroutineScopeRule()
+    private val scope = TestScope()
     @get:Rule val rule = InstantTaskExecutorRule()
 
     private val movie = Result.Success(movie())
@@ -39,13 +44,18 @@ class MovieDetailsViewModelTest {
     private val sideEffectMock = mockk<Observer<MovieDetailsSideEffect>>()
 
     @Before
-    @ExperimentalCoroutinesApi
     fun setUp() {
+        Dispatchers.setMain(StandardTestDispatcher(scope.testScheduler))
         testedClass = MovieDetailsViewModel(loadMovieUseCaseMock)
         every { stateMock.onChanged(any()) } answers { }
         testedClass.state().observeForever(stateMock)
         every { sideEffectMock.onChanged(any()) } answers { }
         testedClass.sideEffect().observeForever(sideEffectMock)
+    }
+
+    @After
+    fun tearDown() {
+        Dispatchers.resetMain()
     }
 
     /* INIT */
@@ -81,28 +91,36 @@ class MovieDetailsViewModelTest {
     /* LOAD */
 
     @Test
-    fun `when loading movie, then the expected loading state is posted`() {
+    fun `when loading movie, then the expected loading state is posted`() = scope.runTest {
+        coEvery { loadMovieUseCaseMock(any()) } returns flow { movieStream }
+
         testedClass.process(MovieDetailsIntent.LoadMovie(MOVIE_ID))
 
-        verify {
-            stateMock.onChanged(
-                MovieDetailsState(
-                    status = MovieDetailsStatus.Loading,
-                    movie = Movie.Default,
+        movieStream.collectLatest {
+            verify {
+                stateMock.onChanged(
+                    MovieDetailsState(
+                        status = MovieDetailsStatus.Loading,
+                        movie = Movie.Default,
+                    )
                 )
-            )
+            }
         }
     }
 
     @Test
-    fun `when loading movie, then the load movie use case executes`() {
+    fun `when loading movie, then the load movie use case executes`() = scope.runTest {
+        coEvery { loadMovieUseCaseMock(any()) } returns flow { movieStream }
+
         testedClass.process(MovieDetailsIntent.LoadMovie(MOVIE_ID))
 
-        coVerify { loadMovieUseCaseMock(LoadMovieUseCase.Params(MOVIE_ID)) }
+        movieStream.collectLatest {
+            coVerify { loadMovieUseCaseMock(LoadMovieUseCase.Params(MOVIE_ID)) }
+        }
     }
 
     @Test
-    fun `when loading movie succeeds, then the expected loaded state is posted`() = coroutineScope.runBlockingTest {
+    fun `when loading movie succeeds, then the expected loaded state is posted`() = scope.runTest {
         coEvery { loadMovieUseCaseMock(any()) } returns flow { movieStream }
 
         testedClass.process(MovieDetailsIntent.LoadMovie(MOVIE_ID))
@@ -120,7 +138,7 @@ class MovieDetailsViewModelTest {
     }
 
     @Test
-    fun `when loading movie fails, then the expected loaded state is posted`() = coroutineScope.runBlockingTest {
+    fun `when loading movie fails, then the expected loaded state is posted`() = scope.runTest {
         coEvery { loadMovieUseCaseMock(any()) } returns errorStream
 
         testedClass.process(MovieDetailsIntent.LoadMovie(MOVIE_ID))
@@ -138,7 +156,7 @@ class MovieDetailsViewModelTest {
     }
 
     @Test
-    fun `when loading movie fails, then the expected error side effect is posted`() = coroutineScope.runBlockingTest {
+    fun `when loading movie fails, then the expected error side effect is posted`() = scope.runTest {
         coEvery { loadMovieUseCaseMock(any()) } returns errorStream
 
         testedClass.process(MovieDetailsIntent.LoadMovie(MOVIE_ID))

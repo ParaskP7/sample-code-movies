@@ -9,21 +9,17 @@ import io.petros.movies.database.entity.MovieEntity
 import io.petros.movies.domain.model.Result
 import io.petros.movies.network.MoviesService
 import io.petros.movies.test.domain.movie
-import io.petros.movies.test.utils.MainCoroutineScopeRule
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.test.runBlockingTest
+import kotlinx.coroutines.test.runTest
 import org.junit.Before
-import org.junit.Rule
 import org.junit.Test
 import strikt.api.expect
 import strikt.assertions.isEqualTo
 
 @ExperimentalCoroutinesApi
 class MoviesRepositoryImplTest {
-
-    @get:Rule val coroutineScope = MainCoroutineScopeRule()
 
     private val date = Result.Success(Pair(MOVIE_YEAR, MOVIE_MONTH))
     private val movie = Result.Success(movie())
@@ -46,7 +42,7 @@ class MoviesRepositoryImplTest {
     }
 
     @Test
-    fun `when load date is triggered, then the date is the expected one`() = coroutineScope.runBlockingTest {
+    fun `when load date is triggered, then the date is the expected one`() = runTest {
         coEvery { moviesDaoMock.firstMovie() } returns movieEntity
 
         val result = testedClass.loadDate()
@@ -55,7 +51,7 @@ class MoviesRepositoryImplTest {
     }
 
     @Test
-    fun `when load movie is triggered, then the movie stream is the expected one`() = coroutineScope.runBlockingTest {
+    fun `when load movie is triggered, then the movie stream is the expected one`() = runTest {
         coEvery { moviesDaoMock.movie(MOVIE_ID) } returns movieEntityStream
 
         val result = testedClass.loadMovieStream(MOVIE_ID)

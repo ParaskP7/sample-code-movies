@@ -6,10 +6,8 @@ import io.petros.movies.network.raw.movie.MovieRaw
 import io.petros.movies.network.raw.movie.MoviesPageRaw
 import io.petros.movies.test.domain.movie
 import io.petros.movies.test.domain.moviesPage
-import io.petros.movies.test.utils.MainCoroutineScopeRule
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.test.runBlockingTest
-import org.junit.Rule
+import kotlinx.coroutines.test.runTest
 import org.junit.Test
 import strikt.api.expect
 import strikt.assertions.isEqualTo
@@ -18,13 +16,11 @@ import java.util.*
 @ExperimentalCoroutinesApi
 class RestClientTest {
 
-    @get:Rule val coroutineScope = MainCoroutineScopeRule()
-
     private val restApiMock = mockk<RestApi>()
     private val testedClass = RestClient(restApiMock)
 
     @Test
-    fun `when load movies is triggered, then the movies page is the expected one`() = coroutineScope.runBlockingTest {
+    fun `when load movies is triggered, then the movies page is the expected one`() = runTest {
         val moviesPageRaw = MoviesPageRaw(emptyList())
         val moviesPage = moviesPage(emptyList())
         coEvery { restApiMock.loadMovies(RELEASE_DATE_GTE, RELEASE_DATE_LTE, SECOND_PAGE) } returns moviesPageRaw
@@ -35,7 +31,7 @@ class RestClientTest {
     }
 
     @Test
-    fun `when load movie is triggered, then the movie is the expected one`() = coroutineScope.runBlockingTest {
+    fun `when load movie is triggered, then the movie is the expected one`() = runTest {
         val title = "Ad Astra"
         val releaseDate = "2019-09-17"
         val voteAverage = 6.0
