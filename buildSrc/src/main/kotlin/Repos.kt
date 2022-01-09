@@ -10,6 +10,12 @@ object Repos {
 
         }
 
+        object Gradle {
+
+            const val M2 = "https://plugins.gradle.org/m2"
+
+        }
+
     }
 
 }

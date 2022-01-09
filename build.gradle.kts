@@ -48,6 +48,7 @@ buildscript {
     repositories {
         google()
         mavenCentral()
+        maven(Repos.Url.Gradle.M2)
         maven(Repos.Url.Kotlin.KOTLIN_EAP)
     }
     dependencies {
