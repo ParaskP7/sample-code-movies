@@ -20,15 +20,13 @@ class MoviesToolbarRobot : ScopedActions(idMatcher(R.id.toolbar)) {
     companion object {
 
         const val MOVIES_TOOLBAR_FILTER_YEAR = "Year"
-
-        // TODO: Revert to '2020' by specifically selecting this year during testing
-        @Suppress("unused") const val MOVIES_TOOLBAR_FILTER_YEAR_2020 = "2020"
-        const val MOVIES_TOOLBAR_FILTER_YEAR_2021 = "2021"
         const val MOVIES_TOOLBAR_FILTER_MONTH = "Month"
 
-        // TODO: Revert to 'April' by specifically selecting this month during testing
+        // TODO: Revert to original value by specifically selecting the year/month during testing
+        @Suppress("unused") const val MOVIES_TOOLBAR_FILTER_YEAR_2020 = "2020"
         @Suppress("unused") const val MOVIES_TOOLBAR_FILTER_MONTH_APRIL = "April"
-        const val MOVIES_TOOLBAR_FILTER_MONTH_VALUE = "December"
+        const val MOVIES_TOOLBAR_FILTER_YEAR_VALUE = "2022"
+        const val MOVIES_TOOLBAR_FILTER_MONTH_VALUE = "January"
 
     }
 
