@@ -31,7 +31,7 @@ object Plugins {
         const val DETEKT = "1.19.0" // Released: 30-11-21
 
         // Releases: https://github.com/ben-manes/gradle-versions-plugin/releases
-        const val DEPENDENCY_VERSIONS = "0.39.0" // Released: 27-05-21
+        const val DEPENDENCY_VERSIONS = "0.41.0" // Released: 05-01-22
 
         // Releases: https://github.com/autonomousapps/dependency-analysis-android-gradle-plugin/releases
         const val DEPENDENCY_ANALYSIS = "0.78.0" // Released: 16-09-20
