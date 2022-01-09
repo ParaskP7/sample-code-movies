@@ -16,7 +16,6 @@ dependencies {
     implementation(project(Projects.Implementation.Kotlin.UTILS))
     implementation(project(Projects.Implementation.Kotlin.DOMAIN))
 
-    implementation(Deps.Kotlin.Coroutines.CORE_JVM)
     implementation(Deps.Di.Koin.Kotlin.CORE)
     implementation(Deps.Di.Koin.Kotlin.CORE_JVM)
     implementation(Deps.Net.OkHttp.OK_HTTP)
@@ -27,6 +26,7 @@ dependencies {
 
     testImplementation(project(Projects.TestImplementation.Kotlin.TEST))
 
+    testImplementation(Deps.Kotlin.Coroutines.CORE_JVM)
     testImplementation(Deps.Kotlin.Coroutines.Test.TEST)
     testImplementation(Deps.Kotlin.Coroutines.Test.TEST_JVM)
     testImplementation(Deps.Test.JUnit.J_UNIT_4)
