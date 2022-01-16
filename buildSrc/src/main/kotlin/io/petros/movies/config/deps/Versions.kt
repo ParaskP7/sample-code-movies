@@ -71,7 +71,7 @@ object Versions {
             object ConstraintLayout {
 
                 // Releases: https://developer.android.com/jetpack/androidx/releases/constraintlayout
-                const val CONSTRAINT_LAYOUT_RC = "1.0.0-rc02" // Released: 16-11-21
+                const val CONSTRAINT_LAYOUT = "1.0.0" // Released: 14-01-22
 
             }
 
