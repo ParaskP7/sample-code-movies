@@ -226,7 +226,7 @@ object Versions {
 
             // Releases: https://github.com/coil-kt/coil/releases
             @Suppress("unused") const val COIL = "1.4.0" // Released: 06-10-21
-            const val COIL_ALPHA = "2.0.0-alpha05" // Released: 28-11-21
+            const val COIL_ALPHA = "2.0.0-alpha06" // Released: 24-12-21
 
         }
 
