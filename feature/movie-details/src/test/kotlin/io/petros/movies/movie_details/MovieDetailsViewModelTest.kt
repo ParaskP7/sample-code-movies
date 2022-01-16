@@ -9,17 +9,12 @@ import io.petros.movies.domain.model.Result
 import io.petros.movies.domain.model.UnknownError
 import io.petros.movies.domain.model.movie.Movie
 import io.petros.movies.test.domain.movie
-import kotlinx.coroutines.Dispatchers
+import io.petros.movies.test.utils.UnconfinedTestDispatcherRule
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.test.StandardTestDispatcher
-import kotlinx.coroutines.test.TestScope
-import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.runTest
-import kotlinx.coroutines.test.setMain
-import org.junit.After
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -30,8 +25,8 @@ import strikt.assertions.isEqualTo
 @Suppress("ThrowingExceptionsWithoutMessageOrCause")
 class MovieDetailsViewModelTest {
 
-    private val scope = TestScope()
-    @get:Rule val rule = InstantTaskExecutorRule()
+    @get:Rule val dispatcherRule = UnconfinedTestDispatcherRule()
+    @get:Rule val archRule = InstantTaskExecutorRule()
 
     private val movie = Result.Success(movie())
     private val movieStream: Flow<Result<Movie>> = flow { movie }
@@ -44,15 +39,9 @@ class MovieDetailsViewModelTest {
 
     @Before
     fun setUp() {
-        Dispatchers.setMain(StandardTestDispatcher(scope.testScheduler))
         testedClass = MovieDetailsViewModel(loadMovieUseCaseMock)
         testedClass.state().observeForever { state.add(it) }
         testedClass.sideEffect().observeForever { sideEffect.add(it) }
-    }
-
-    @After
-    fun tearDown() {
-        Dispatchers.resetMain()
     }
 
     /* INIT */
@@ -98,7 +87,7 @@ class MovieDetailsViewModelTest {
     /* LOAD */
 
     @Test
-    fun `when loading movie, then the expected loading state is posted`() = scope.runTest {
+    fun `when loading movie, then the expected loading state is posted`() = runTest {
         coEvery { loadMovieUseCaseMock(any()) } returns flow { movieStream }
 
         testedClass.process(MovieDetailsIntent.LoadMovie(MOVIE_ID))
@@ -118,7 +107,7 @@ class MovieDetailsViewModelTest {
     }
 
     @Test
-    fun `when loading movie, then the load movie use case executes`() = scope.runTest {
+    fun `when loading movie, then the load movie use case executes`() = runTest {
         coEvery { loadMovieUseCaseMock(any()) } returns flow { movieStream }
 
         testedClass.process(MovieDetailsIntent.LoadMovie(MOVIE_ID))
@@ -129,7 +118,7 @@ class MovieDetailsViewModelTest {
     }
 
     @Test
-    fun `when loading movie succeeds, then the expected loaded state is posted`() = scope.runTest {
+    fun `when loading movie succeeds, then the expected loaded state is posted`() = runTest {
         coEvery { loadMovieUseCaseMock(any()) } returns flow { movieStream }
 
         testedClass.process(MovieDetailsIntent.LoadMovie(MOVIE_ID))
@@ -149,7 +138,7 @@ class MovieDetailsViewModelTest {
     }
 
     @Test
-    fun `when loading movie fails, then the expected loaded state is posted`() = scope.runTest {
+    fun `when loading movie fails, then the expected loaded state is posted`() = runTest {
         coEvery { loadMovieUseCaseMock(any()) } returns errorStream
 
         testedClass.process(MovieDetailsIntent.LoadMovie(MOVIE_ID))
@@ -169,7 +158,7 @@ class MovieDetailsViewModelTest {
     }
 
     @Test
-    fun `when loading movie fails, then the expected error side effect is posted`() = scope.runTest {
+    fun `when loading movie fails, then the expected error side effect is posted`() = runTest {
         coEvery { loadMovieUseCaseMock(any()) } returns errorStream
 
         testedClass.process(MovieDetailsIntent.LoadMovie(MOVIE_ID))

@@ -11,17 +11,11 @@ import io.petros.movies.domain.interactor.movie.LoadMoviesUseCase
 import io.petros.movies.domain.model.NetworkError
 import io.petros.movies.domain.model.Result
 import io.petros.movies.domain.model.movie.Movie
-import kotlinx.coroutines.Dispatchers
+import io.petros.movies.test.utils.UnconfinedTestDispatcherRule
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.test.StandardTestDispatcher
-import kotlinx.coroutines.test.TestScope
-import kotlinx.coroutines.test.advanceUntilIdle
-import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.runTest
-import kotlinx.coroutines.test.setMain
-import org.junit.After
 import org.junit.Before
 import org.junit.Ignore
 import org.junit.Rule
@@ -33,8 +27,8 @@ import strikt.assertions.isEqualTo
 @Suppress("ThrowingExceptionsWithoutMessageOrCause")
 class MoviesViewModelTest {
 
-    private val scope = TestScope()
-    @get:Rule val rule = InstantTaskExecutorRule()
+    @get:Rule val dispatcherRule = UnconfinedTestDispatcherRule()
+    @get:Rule val archRule = InstantTaskExecutorRule()
 
     private val date = Result.Success(Pair(MOVIE_YEAR, MOVIE_MONTH))
     private val moviesPage = mockk<PagingData<Movie>>()
@@ -48,15 +42,9 @@ class MoviesViewModelTest {
 
     @Before
     fun setUp() {
-        Dispatchers.setMain(StandardTestDispatcher(scope.testScheduler))
         testedClass = MoviesViewModel(loadDateUseCaseMock, loadMoviesUseCaseMock)
         testedClass.state().observeForever { state.add(it) }
         testedClass.sideEffect().observeForever { sideEffect.add(it) }
-    }
-
-    @After
-    fun tearDown() {
-        Dispatchers.resetMain()
     }
 
     /* INIT */
@@ -79,21 +67,19 @@ class MoviesViewModelTest {
     /* DATE - LOAD */
 
     @Test
-    fun `when loading date, then the load date use case executes`() = scope.runTest {
+    fun `when loading date, then the load date use case executes`() = runTest {
         coEvery { loadDateUseCaseMock() } returns date
 
         testedClass.process(MoviesIntent.LoadDate)
-        scope.advanceUntilIdle()
 
         coVerify { loadDateUseCaseMock.invoke() }
     }
 
     @Test
-    fun `when loading date succeeds, then the expected loaded state is posted`() = scope.runTest {
+    fun `when loading date succeeds, then the expected loaded state is posted`() = runTest {
         coEvery { loadDateUseCaseMock() } returns date
 
         testedClass.process(MoviesIntent.LoadDate)
-        scope.advanceUntilIdle()
 
         expect {
             that(state.size).isEqualTo(2)
@@ -116,11 +102,10 @@ class MoviesViewModelTest {
     }
 
     @Test
-    fun `when loading date fails, then the expected loaded state is posted`() = scope.runTest {
+    fun `when loading date fails, then the expected loaded state is posted`() = runTest {
         coEvery { loadDateUseCaseMock() } returns NetworkError(Exception())
 
         testedClass.process(MoviesIntent.LoadDate)
-        scope.advanceUntilIdle()
 
         expect {
             that(state.size).isEqualTo(2)
@@ -143,11 +128,10 @@ class MoviesViewModelTest {
     }
 
     @Test
-    fun `when loading date fails, then the expected error side effect is posted`() = scope.runTest {
+    fun `when loading date fails, then the expected error side effect is posted`() = runTest {
         coEvery { loadDateUseCaseMock() } returns NetworkError(Exception())
 
         testedClass.process(MoviesIntent.LoadDate)
-        scope.advanceUntilIdle()
 
         expect {
             that(state.size).isEqualTo(2)
@@ -163,7 +147,7 @@ class MoviesViewModelTest {
     /* MOVIES - LOAD */
 
     @Test
-    fun `given initial load, when loading movies, then the load movies use case executes`() = scope.runTest {
+    fun `given initial load, when loading movies, then the load movies use case executes`() = runTest {
         coEvery { loadMoviesUseCaseMock(any()) } returns moviesPageStream
 
         testedClass.process(MoviesIntent.LoadMovies(MOVIE_YEAR, MOVIE_MONTH))
@@ -174,7 +158,7 @@ class MoviesViewModelTest {
     }
 
     @Test
-    fun `when loading movies succeeds, then the expected loaded state is posted`() = scope.runTest {
+    fun `when loading movies succeeds, then the expected loaded state is posted`() = runTest {
         coEvery { loadMoviesUseCaseMock(any()) } returns moviesPageStream
 
         testedClass.process(MoviesIntent.LoadMovies(MOVIE_YEAR, MOVIE_MONTH))
@@ -314,7 +298,7 @@ class MoviesViewModelTest {
     }
 
     @Test
-    fun `when reloading movies, then the load movies use case executes`() = scope.runTest {
+    fun `when reloading movies, then the load movies use case executes`() = runTest {
         coEvery { loadMoviesUseCaseMock(any()) } returns moviesPageStream
 
         testedClass.process(MoviesIntent.ReloadMovies(MOVIE_YEAR, MOVIE_MONTH))
@@ -325,7 +309,7 @@ class MoviesViewModelTest {
     }
 
     @Test
-    fun `when reloading movies succeeds, then the expected loaded state is posted`() = scope.runTest {
+    fun `when reloading movies succeeds, then the expected loaded state is posted`() = runTest {
         coEvery { loadMoviesUseCaseMock(any()) } returns moviesPageStream
 
         testedClass.process(MoviesIntent.ReloadMovies(MOVIE_YEAR, MOVIE_MONTH))
