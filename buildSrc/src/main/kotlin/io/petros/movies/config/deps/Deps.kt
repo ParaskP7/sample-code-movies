@@ -29,15 +29,15 @@ object Deps {
 
         object Coroutines {
 
-            val CORE = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.Kotlin.COROUTINES_RC}"
-            val CORE_JVM = "org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:${Versions.Kotlin.COROUTINES_RC}"
-            val ANDROID = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.Kotlin.COROUTINES_RC}"
+            val CORE = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.Kotlin.COROUTINES}"
+            val CORE_JVM = "org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:${Versions.Kotlin.COROUTINES}"
+            val ANDROID = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.Kotlin.COROUTINES}"
 
             @Suppress("MemberNameEqualsClassName")
             object Test {
 
-                val TEST = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.Kotlin.COROUTINES_RC}"
-                val TEST_JVM = "org.jetbrains.kotlinx:kotlinx-coroutines-test-jvm:${Versions.Kotlin.COROUTINES_RC}"
+                val TEST = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.Kotlin.COROUTINES}"
+                val TEST_JVM = "org.jetbrains.kotlinx:kotlinx-coroutines-test-jvm:${Versions.Kotlin.COROUTINES}"
 
             }
 
