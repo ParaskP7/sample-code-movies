@@ -22,7 +22,7 @@ object Plugins {
         @Suppress("unused") const val ANDROID_GRADLE_RC = "7.1.0-rc01" // Released: 13-12-21
 
         // Release: https://androidstudio.googleblog.com/2021/11/android-studio-chipmunk-canary-5-now.html
-        const val ANDROID_GRADLE_CANARY = "7.2.0-alpha06" // Released: 15-12-21
+        const val ANDROID_GRADLE_CANARY = "7.2.0-alpha07" // Released: 10-01-22
 
         // Releases: https://github.com/GradleUp/auto-manifest/releases
         const val ANDROID_MANIFEST = "1.0.4" // Released: 13-11-20
