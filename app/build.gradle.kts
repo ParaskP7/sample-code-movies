@@ -86,6 +86,7 @@ dependencyAnalysis {
     issues {
         onUnusedDependencies {
             exclude(
+                Deps.LeakCanary.LEAK_CANARY.identifier(), // Ignore remove advise. Required for nav.
                 Deps.Android.Arch.Navigation.FRAGMENT_KTX.identifier(), // Ignore remove advise. Required for nav.
             )
         }

@@ -8,7 +8,7 @@ object Versions {
     object LeakCanary {
 
         // Releases: https://github.com/square/leakcanary/releases
-        const val LEAK_CANARY = "2.7" // Released: 26-03-21
+        const val LEAK_CANARY = "2.8.1" // Released: 06-01-22
 
     }
 
