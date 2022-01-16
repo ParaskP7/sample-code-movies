@@ -141,7 +141,7 @@ object Versions {
                 object Room {
 
                     // Releases: https://developer.android.com/jetpack/androidx/releases/room
-                    const val ROOM = "2.4.0" // Release: 15-12-21
+                    const val ROOM = "2.4.1" // Release: 12-01-22
 
                 }
 
