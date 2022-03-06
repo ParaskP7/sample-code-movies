@@ -296,6 +296,7 @@ object Deps {
         object OkHttp {
 
             val OK_HTTP = "com.squareup.okhttp3:okhttp:${Versions.Net.OkHttp.OK_HTTP_ALPHA}"
+            val OK_HTTP_JVM = "com.squareup.okhttp3:okhttp-jvm:${Versions.Net.OkHttp.OK_HTTP_ALPHA}"
             val LOGGING_INTERCEPTOR = "com.squareup.okhttp3:logging-interceptor:${Versions.Net.OkHttp.OK_HTTP_ALPHA}"
 
         }

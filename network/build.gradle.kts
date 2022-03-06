@@ -19,6 +19,7 @@ dependencies {
     implementation(Deps.Di.Koin.Kotlin.CORE)
     implementation(Deps.Di.Koin.Kotlin.CORE_JVM)
     implementation(Deps.Net.OkHttp.OK_HTTP)
+    implementation(Deps.Net.OkHttp.OK_HTTP_JVM)
     implementation(Deps.Net.OkHttp.LOGGING_INTERCEPTOR)
     implementation(Deps.Net.Gson.GSON)
     implementation(Deps.Net.Rest.RETROFIT)

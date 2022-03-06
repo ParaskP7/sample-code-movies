@@ -17,6 +17,7 @@ dependencies {
     implementation(Deps.Kotlin.Coroutines.Test.TEST)
     implementation(Deps.Kotlin.Coroutines.Test.TEST_JVM)
     implementation(Deps.Net.OkHttp.OK_HTTP)
+    implementation(Deps.Net.OkHttp.OK_HTTP_JVM)
     implementation(Deps.Net.Gson.GSON)
     implementation(Deps.Net.Rest.RETROFIT)
     implementation(Deps.Net.Rest.RETROFIT_GSON)
