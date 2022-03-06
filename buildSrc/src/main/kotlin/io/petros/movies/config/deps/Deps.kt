@@ -275,15 +275,15 @@ object Deps {
 
             object Kotlin {
 
-                val CORE = "io.insert-koin:koin-core:${Versions.Di.Koin.KOIN}"
-                val CORE_JVM = "io.insert-koin:koin-core-jvm:${Versions.Di.Koin.KOIN}"
+                val CORE = "io.insert-koin:koin-core:${Versions.Di.Koin.KOIN_BETA}"
+                val CORE_JVM = "io.insert-koin:koin-core-jvm:${Versions.Di.Koin.KOIN_BETA}"
 
             }
 
             @Suppress("MemberNameEqualsClassName")
             object Android {
 
-                val ANDROID = "io.insert-koin:koin-android:${Versions.Di.Koin.KOIN}"
+                val ANDROID = "io.insert-koin:koin-android:${Versions.Di.Koin.KOIN_BETA}"
 
             }
 
