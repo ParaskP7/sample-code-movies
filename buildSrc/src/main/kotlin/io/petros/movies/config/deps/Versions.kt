@@ -89,7 +89,7 @@ object Versions {
             object Lifecycle {
 
                 // Releases: https://developer.android.com/jetpack/androidx/releases/lifecycle
-                const val LIFECYCLE = "2.4.0" // Released: 27-10-21
+                const val LIFECYCLE = "2.4.1" // Released: 09-02-22
 
             }
 
