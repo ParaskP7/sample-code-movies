@@ -7,8 +7,10 @@ object Plugins {
     object Version {
 
         // Releases: https://blog.jetbrains.com/kotlin/category/releases
-        // Release: https://github.com/JetBrains/kotlin/releases/tag/v1.6.0
+        // Release: https://github.com/JetBrains/kotlin/releases/tag/v1.6.10
         private const val KOTLIN = "1.6.10" // Released: 14-12-21
+        // Release: https://github.com/JetBrains/kotlin/releases/tag/v1.6.20-RC
+        @Suppress("unused") private const val KOTLIN_RC = "1.6.20-RC" // Released: 01-03-22
         const val KOTLIN_JETPACK_COMPOSE = KOTLIN // Released: 14-12-21
 
         // Releases: https://androidstudio.googleblog.com
