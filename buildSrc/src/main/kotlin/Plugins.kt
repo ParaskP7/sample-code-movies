@@ -34,6 +34,7 @@ object Plugins {
 
         // Releases: https://github.com/detekt/detekt/releases
         const val DETEKT = "1.19.0" // Released: 30-11-21
+        @Suppress("unused") const val DETEKT_RC = "1.20.0-RC1" // Released: 28-02-22
 
         // Releases: https://github.com/ben-manes/gradle-versions-plugin/releases
         const val DEPENDENCY_VERSIONS = "0.41.0" // Released: 05-01-22
