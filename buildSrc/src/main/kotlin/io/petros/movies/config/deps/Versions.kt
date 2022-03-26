@@ -189,7 +189,7 @@ object Versions {
             // Releases: https://github.com/square/okhttp/releases
             @Suppress("unused") const val OK_HTTP = "4.9.3" // Released: 21-11-21
             @Suppress("unused") const val OK_HTTP_RC = "4.10.0-RC1" // Released: 07-10-21
-            const val OK_HTTP_ALPHA = "5.0.0-alpha.5" // Released: 21-02-22
+            const val OK_HTTP_ALPHA = "5.0.0-alpha.6" // Released: 24-03-22
 
         }
 
