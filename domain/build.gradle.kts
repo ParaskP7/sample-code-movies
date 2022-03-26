@@ -17,7 +17,7 @@ dependencies {
 
     implementation(Deps.Kotlin.Coroutines.CORE)
     implementation(Deps.Kotlin.Coroutines.CORE_JVM)
-    implementation(Deps.Android.Arch.Pagination.COMMON)
+    implementation(Deps.Android.Arch.Paging.COMMON)
     implementation(Deps.Di.Koin.Kotlin.CORE)
     implementation(Deps.Di.Koin.Kotlin.CORE_JVM)
 

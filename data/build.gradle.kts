@@ -25,7 +25,7 @@ dependencies {
     implementation(Deps.Android.Arch.DataStore.Preferences.CORE)
     implementation(Deps.Android.Arch.Database.Room.RUNTIME)
     implementation(Deps.Android.Arch.Database.Room.KTX)
-    implementation(Deps.Android.Arch.Pagination.COMMON)
+    implementation(Deps.Android.Arch.Paging.COMMON)
     implementation(Deps.Di.Koin.Kotlin.CORE)
     implementation(Deps.Di.Koin.Kotlin.CORE_JVM)
     implementation(Deps.Log.TIMBER)
@@ -58,7 +58,7 @@ dependencyAnalysis {
                 Projects.Implementation.Kotlin.NETWORK, // Ignore change to 'api' advice.
                 Projects.Implementation.Android.Core.DATASTORE, // Ignore change to 'api' advice.
                 Projects.Implementation.Android.Core.DATABASE, // Ignore change to 'api' advice.
-                Deps.Android.Arch.Pagination.COMMON.identifier(), // Ignore change to 'api' advice.
+                Deps.Android.Arch.Paging.COMMON.identifier(), // Ignore change to 'api' advice.
                 Deps.Di.Koin.Kotlin.CORE.identifier(), // Ignore change to 'api' advice.
                 Deps.Di.Koin.Kotlin.CORE_JVM.identifier(), // Ignore change to 'api' advice.
             )

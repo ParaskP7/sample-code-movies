@@ -23,7 +23,7 @@ dependencies {
     implementation(Deps.Android.Arch.Database.Room.KTX)
     implementation(Deps.Android.Arch.Database.Room.PAGING)
     kapt(Deps.Android.Arch.Database.Room.COMPILER)
-    implementation(Deps.Android.Arch.Pagination.COMMON)
+    implementation(Deps.Android.Arch.Paging.COMMON)
     implementation(Deps.Di.Koin.Kotlin.CORE)
     implementation(Deps.Di.Koin.Kotlin.CORE_JVM)
 
@@ -37,7 +37,7 @@ dependencyAnalysis {
                 Projects.Implementation.Kotlin.DOMAIN, // Ignore change to 'api' advice.
                 Deps.Kotlin.Coroutines.CORE_JVM.identifier(), // Ignore change to 'api' advice.
                 Deps.Android.Arch.Database.Room.RUNTIME.identifier(), // Ignore change to 'api' advice.
-                Deps.Android.Arch.Pagination.COMMON.identifier(), // Ignore change to 'api' advice.
+                Deps.Android.Arch.Paging.COMMON.identifier(), // Ignore change to 'api' advice.
                 Deps.Di.Koin.Kotlin.CORE.identifier(), // Ignore change to 'api' advice.
                 Deps.Di.Koin.Kotlin.CORE_JVM.identifier(), // Ignore change to 'api' advice.
             )

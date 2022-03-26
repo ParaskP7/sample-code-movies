@@ -41,8 +41,8 @@ dependencies {
     implementation(Deps.Android.Arch.Navigation.COMMON)
     implementation(Deps.Android.Arch.Navigation.RUNTIME)
     implementation(Deps.Android.Arch.Navigation.FRAGMENT)
-    implementation(Deps.Android.Arch.Pagination.COMMON)
-    implementation(Deps.Android.Arch.Pagination.RUNTIME)
+    implementation(Deps.Android.Arch.Paging.COMMON)
+    implementation(Deps.Android.Arch.Paging.RUNTIME)
     implementation(Deps.Di.Koin.Kotlin.CORE)
     implementation(Deps.Di.Koin.Kotlin.CORE_JVM)
     implementation(Deps.Di.Koin.Android.ANDROID)
@@ -80,8 +80,8 @@ dependencyAnalysis {
                 Deps.Android.Core.CONSTRAINT_LAYOUT.identifier(), // Ignore change to 'api' advice.
                 Deps.Android.Core.COORDINATOR_LAYOUT.identifier(), // Ignore change to 'api' advice.
                 Deps.Android.Core.RECYCLER_VIEW.identifier(), // Ignore change to 'api' advice.
-                Deps.Android.Arch.Pagination.COMMON.identifier(), // Ignore change to 'api' advice.
-                Deps.Android.Arch.Pagination.RUNTIME.identifier(), // Ignore change to 'api' advice.
+                Deps.Android.Arch.Paging.COMMON.identifier(), // Ignore change to 'api' advice.
+                Deps.Android.Arch.Paging.RUNTIME.identifier(), // Ignore change to 'api' advice.
                 Deps.Di.Koin.Kotlin.CORE.identifier(), // Ignore change to 'api' advice.
                 Deps.Di.Koin.Kotlin.CORE_JVM.identifier(), // Ignore change to 'api' advice.
             )
