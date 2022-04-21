@@ -8,11 +8,11 @@ object Plugins {
 
         // Releases: https://blog.jetbrains.com/kotlin/category/releases
         // Release: https://github.com/JetBrains/kotlin/releases/tag/v1.6.10
-        private const val KOTLIN = "1.6.10" // Released: 14-12-21
+        private const val KOTLIN_1610 = "1.6.10" // Released: 14-12-21
 
-        // Release: https://github.com/JetBrains/kotlin/releases/tag/v1.6.20-RC2
-        @Suppress("unused") private const val KOTLIN_RC = "1.6.20-RC2" // Released: 23-03-22
-        const val KOTLIN_JETPACK_COMPOSE = KOTLIN // Released: 14-12-21
+        // Release: https://github.com/JetBrains/kotlin/releases/tag/v1.6.20
+        @Suppress("unused") private const val KOTLIN = "1.6.21" // Released: 20-04-22
+        const val KOTLIN_JETPACK_COMPOSE = KOTLIN_1610 // Released: 14-12-21
 
         // Releases: https://androidstudio.googleblog.com
         // Release: https://androidstudio.googleblog.com/2021/06/android-studio-422-available.html
