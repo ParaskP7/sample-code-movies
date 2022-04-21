@@ -21,14 +21,14 @@ object Plugins {
         // Release: https://androidstudio.googleblog.com/2021/12/android-studio-arctic-fox-202031-patch.html
         @Suppress("unused") const val ANDROID_GRADLE_NEW = "7.0.4" // Released: 08-12-21
 
-        // Release: https://androidstudio.googleblog.com/2022/02/android-studio-bumblebee-202111-patch-2.html
-        @Suppress("unused") const val ANDROID_GRADLE = "7.1.2" // Released: 23-02-22
+        // Release: https://androidstudio.googleblog.com/2022/04/android-studio-bumblebee-202111-patch-3.html
+        @Suppress("unused") const val ANDROID_GRADLE = "7.1.3" // Released: 07-04-22
 
-        // Release: https://androidstudio.googleblog.com/2022/03/android-studio-chipmunk-beta-4-now.html
-        @Suppress("unused") const val ANDROID_GRADLE_BETA = "7.2.0-beta04" // Released: 09-03-22
+        // Release: https://androidstudio.googleblog.com/2022/04/android-studio-chipmunk-rc-1-now.html
+        @Suppress("unused") const val ANDROID_GRADLE_BETA = "7.2.0-rc01" // Released: 20-04-22
 
-        // Release: https://androidstudio.googleblog.com/2022/03/android-studio-dolphin-canary-7-now.html
-        const val ANDROID_GRADLE_CANARY = "7.3.0-alpha07" // Released: 17-03-22
+        // Release: https://androidstudio.googleblog.com/2022/04/android-studio-dolphin-canary-8-now.html
+        const val ANDROID_GRADLE_CANARY = "7.3.0-alpha08" // Released: 12-04-22
 
         // Releases: https://github.com/GradleUp/auto-manifest/releases
         const val ANDROID_MANIFEST = "1.0.4" // Released: 13-11-20
