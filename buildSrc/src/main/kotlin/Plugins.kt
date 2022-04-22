@@ -27,8 +27,8 @@ object Plugins {
         // Release: https://androidstudio.googleblog.com/2022/04/android-studio-chipmunk-rc-1-now.html
         @Suppress("unused") const val ANDROID_GRADLE_BETA = "7.2.0-rc01" // Released: 20-04-22
 
-        // Release: https://androidstudio.googleblog.com/2022/04/android-studio-dolphin-canary-8-now.html
-        const val ANDROID_GRADLE_CANARY = "7.3.0-alpha08" // Released: 12-04-22
+        // Release: https://androidstudio.googleblog.com/2022/04/android-studio-dolphin-canary-9-now.html
+        const val ANDROID_GRADLE_CANARY = "7.3.0-alpha09" // Released: 22-04-22
 
         // Releases: https://github.com/GradleUp/auto-manifest/releases
         const val ANDROID_MANIFEST = "1.0.4" // Released: 13-11-20
