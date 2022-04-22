@@ -50,7 +50,7 @@ object Plugins {
         const val MODULE_GRAPH_ASSERT = "2.2.0" // Released: 18-01-22
 
         // Releases: https://github.com/jacoco/jacoco/releases
-        const val JACOCO = "0.8.7" // Released: 04-05-21
+        const val JACOCO = "0.8.8" // Released: 05-04-22
 
     }
 
