@@ -38,7 +38,7 @@ object Plugins {
         @Suppress("unused") const val DETEKT_RC = "1.20.0-RC1" // Released: 28-02-22
 
         // Releases: https://github.com/ben-manes/gradle-versions-plugin/releases
-        const val DEPENDENCY_VERSIONS = "0.41.0" // Released: 05-01-22
+        const val DEPENDENCY_VERSIONS = "0.42.0" // Released: 04-02-22
 
         // Releases: https://github.com/autonomousapps/dependency-analysis-android-gradle-plugin/releases
         const val DEPENDENCY_ANALYSIS = "0.79.0" // Released: 14-01-22
