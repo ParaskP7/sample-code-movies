@@ -89,7 +89,7 @@ object Deps {
                 val GRAPHICS = "androidx.compose.ui:ui-graphics:${Versions.Android.Compose.COMPOSE}"
                 val TEXT = "androidx.compose.ui:ui-text:${Versions.Android.Compose.COMPOSE}"
                 val UNIT = "androidx.compose.ui:ui-unit:${Versions.Android.Compose.COMPOSE}"
-                val TOOLING = "androidx.compose.ui:ui-tooling:${Versions.Android.Compose.COMPOSE}"
+                val TOOLING_PREVIEW = "androidx.compose.ui:ui-tooling-preview:${Versions.Android.Compose.COMPOSE}"
 
             }
 

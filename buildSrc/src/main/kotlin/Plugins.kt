@@ -41,7 +41,7 @@ object Plugins {
         const val DEPENDENCY_VERSIONS = "0.42.0" // Released: 04-02-22
 
         // Releases: https://github.com/autonomousapps/dependency-analysis-android-gradle-plugin/releases
-        const val DEPENDENCY_ANALYSIS = "0.79.0" // Released: 14-01-22
+        const val DEPENDENCY_ANALYSIS = "1.1.0" // Released: 15-04-22
 
         // Releases: https://github.com/runningcode/gradle-doctor/releases
         const val GRADLE_DOCTOR = "0.7.3" // Released: 18-09-21

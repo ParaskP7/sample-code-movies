@@ -32,7 +32,7 @@ dependencies {
     implementation(Deps.Android.Compose.UI.GRAPHICS)
     implementation(Deps.Android.Compose.UI.TEXT)
     implementation(Deps.Android.Compose.UI.UNIT)
-    implementation(Deps.Android.Compose.UI.TOOLING)
+    implementation(Deps.Android.Compose.UI.TOOLING_PREVIEW)
     implementation(Deps.Android.Compose.Foundation.FOUNDATION)
     implementation(Deps.Android.Compose.Foundation.LAYOUT)
     implementation(Deps.Android.Compose.Material.MATERIAL)
@@ -53,11 +53,6 @@ dependencies {
 
 dependencyAnalysis {
     issues {
-        onUnusedDependencies {
-            exclude(
-                Deps.Android.Compose.UI.TOOLING.identifier(), // Ignore remove advise. Required for 'Preview'.
-            )
-        }
         onIncorrectConfiguration {
             exclude(
                 Projects.Implementation.Kotlin.DOMAIN, // Ignore change to 'api' advice.
