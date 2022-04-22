@@ -31,7 +31,7 @@ object Plugins {
         const val ANDROID_GRADLE_CANARY = "7.3.0-alpha09" // Released: 22-04-22
 
         // Releases: https://github.com/GradleUp/auto-manifest/releases
-        const val ANDROID_MANIFEST = "1.0.4" // Released: 13-11-20
+        const val ANDROID_MANIFEST = "2.0" // Released: 16-04-22
 
         // Releases: https://github.com/detekt/detekt/releases
         const val DETEKT = "1.19.0" // Released: 30-11-21
