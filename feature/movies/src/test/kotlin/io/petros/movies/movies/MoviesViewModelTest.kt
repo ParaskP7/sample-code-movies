@@ -28,6 +28,7 @@ import strikt.assertions.isEqualTo
 class MoviesViewModelTest {
 
     @get:Rule val dispatcherRule = UnconfinedTestDispatcherRule()
+
     @get:Rule val archRule = InstantTaskExecutorRule()
 
     private val date = Result.Success(Pair(MOVIE_YEAR, MOVIE_MONTH))

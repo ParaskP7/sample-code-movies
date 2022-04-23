@@ -26,6 +26,7 @@ import strikt.assertions.isEqualTo
 class MovieDetailsViewModelTest {
 
     @get:Rule val dispatcherRule = UnconfinedTestDispatcherRule()
+
     @get:Rule val archRule = InstantTaskExecutorRule()
 
     private val movie = Result.Success(movie())
