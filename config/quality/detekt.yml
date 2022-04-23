@@ -347,6 +347,7 @@ formatting:
   KdocWrapping:
     active: true
     autoCorrect: true
+    indentSize: 4
   MaximumLineLength:
     active: true
     maxLineLength: 120
