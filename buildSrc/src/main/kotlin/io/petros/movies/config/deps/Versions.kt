@@ -110,7 +110,8 @@ object Versions {
             object Navigation {
 
                 // Releases: https://developer.android.com/jetpack/androidx/releases/navigation
-                const val NAVIGATION = "2.4.1" // Released: 23-02-22
+                @Suppress("unused") const val NAVIGATION = "2.4.1" // Released: 23-02-22
+                const val NAVIGATION_BETA = "2.5.0-beta01" // Released: 20-04-22
 
             }
 

@@ -18,7 +18,7 @@ object Config {
         object Options {
 
             val freeCompilerArgs = listOf(
-                "-Xopt-in=kotlin.RequiresOptIn",
+                "-opt-in=kotlin.RequiresOptIn",
             )
 
         }

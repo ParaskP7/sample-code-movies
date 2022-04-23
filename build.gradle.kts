@@ -54,7 +54,6 @@ buildscript {
     dependencies {
         classpath(Plugins.KOTLIN_GRADLE)
         classpath(Plugins.ANDROID_GRADLE)
-        classpath(Plugins.ANDROID_NAVIGATION)
         classpath(Plugins.ANDROID_MANIFEST)
         classpath(Plugins.DETEKT)
         classpath(Plugins.DEPENDENCY_VERSIONS)
