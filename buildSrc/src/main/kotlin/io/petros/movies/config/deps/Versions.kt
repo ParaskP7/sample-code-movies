@@ -58,7 +58,8 @@ object Versions {
         object Ktx {
 
             // Releases: https://developer.android.com/jetpack/androidx/releases/core
-            const val CORE = "1.7.0" // Released: 27-10-21
+            @Suppress("unused") const val CORE = "1.7.0" // Released: 27-10-21
+            const val CORE_BETA = "1.8.0-beta01" // Released: 20-04-21
 
         }
 
