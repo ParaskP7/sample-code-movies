@@ -357,7 +357,7 @@ formatting:
   ModifierListSpacing:
     active: true
     autoCorrect: true
-  ModifierOrdering:
+  ModifierOrdering: # This rules overlaps with style>ModifierOrder from Detekt rules.
     active: true
     autoCorrect: true
   MultiLineIfElse:
@@ -783,8 +783,8 @@ style:
     excludeCommentStatements: false
   MayBeConst:
     active: true
-  ModifierOrder:
-    active: true
+  ModifierOrder: # This rules overlaps with formatting>ModifierOrdering from KtLint rules.
+    active: false
   MultilineLambdaItParameter:
     active: true
   NestedClassesVisibility:
