@@ -34,7 +34,8 @@ class MoviesViewModelTest {
     private val moviesPage = mockk<PagingData<Movie>>()
     private val moviesPageStream = flow<PagingData<Movie>> { moviesPage }
 
-    @Suppress("LateinitUsage") private lateinit var testedClass: MoviesViewModel
+    @Suppress("LateinitUsage")
+    private lateinit var testedClass: MoviesViewModel
     private val loadDateUseCaseMock = mockk<LoadDateUseCase>()
     private val loadMoviesUseCaseMock = mockk<LoadMoviesUseCase>()
     private val state = mutableListOf<MoviesState>()

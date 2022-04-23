@@ -295,7 +295,7 @@ formatting:
   android: true
   autoCorrect: true
   AnnotationOnSeparateLine:
-    active: false
+    active: true
     autoCorrect: true
   AnnotationSpacing:
     active: true

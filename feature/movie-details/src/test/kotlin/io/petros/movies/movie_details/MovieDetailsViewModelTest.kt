@@ -32,7 +32,8 @@ class MovieDetailsViewModelTest {
     private val movieStream: Flow<Result<Movie>> = flow { movie }
     private val errorStream: Flow<Result<Movie>> = flow { UnknownError(Exception()) }
 
-    @Suppress("LateinitUsage") private lateinit var testedClass: MovieDetailsViewModel
+    @Suppress("LateinitUsage")
+    private lateinit var testedClass: MovieDetailsViewModel
     private val loadMovieUseCaseMock = mockk<LoadMovieUseCase>()
     private val state = mutableListOf<MovieDetailsState>()
     private val sideEffect = mutableListOf<MovieDetailsSideEffect>()

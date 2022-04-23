@@ -10,7 +10,8 @@ import timber.log.Timber
 
 object NetworkLiveEvent : SingleLiveEvent<Boolean>() {
 
-    @Suppress("LateinitUsage") private lateinit var connectivityManager: ConnectivityManager
+    @Suppress("LateinitUsage")
+    private lateinit var connectivityManager: ConnectivityManager
 
     private val networkCallback = object : ConnectivityManager.NetworkCallback() {
         private val netIds = mutableSetOf<Int>()
