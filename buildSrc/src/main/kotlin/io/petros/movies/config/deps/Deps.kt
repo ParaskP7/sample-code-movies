@@ -125,23 +125,23 @@ object Deps {
             object Lifecycle {
 
                 val COMMON =
-                    "androidx.lifecycle:lifecycle-common:${Versions.Android.Arch.Lifecycle.LIFECYCLE}"
+                    "androidx.lifecycle:lifecycle-common:${Versions.Android.Arch.Lifecycle.LIFECYCLE_BETA}"
                 val COMMON_JAVA_8 =
-                    "androidx.lifecycle:lifecycle-common-java8:${Versions.Android.Arch.Lifecycle.LIFECYCLE}"
+                    "androidx.lifecycle:lifecycle-common-java8:${Versions.Android.Arch.Lifecycle.LIFECYCLE_BETA}"
 
                 val RUNTIME_KTX =
-                    "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.Android.Arch.Lifecycle.LIFECYCLE}"
+                    "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.Android.Arch.Lifecycle.LIFECYCLE_BETA}"
 
                 val LIVE_DATA_CORE =
-                    "androidx.lifecycle:lifecycle-livedata-core:${Versions.Android.Arch.Lifecycle.LIFECYCLE}"
+                    "androidx.lifecycle:lifecycle-livedata-core:${Versions.Android.Arch.Lifecycle.LIFECYCLE_BETA}"
 
                 val VIEW_MODEL =
-                    "androidx.lifecycle:lifecycle-viewmodel:${Versions.Android.Arch.Lifecycle.LIFECYCLE}"
+                    "androidx.lifecycle:lifecycle-viewmodel:${Versions.Android.Arch.Lifecycle.LIFECYCLE_BETA}"
                 val VIEW_MODEL_KTX =
-                    "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.Android.Arch.Lifecycle.LIFECYCLE}"
+                    "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.Android.Arch.Lifecycle.LIFECYCLE_BETA}"
 
                 val PROCESS =
-                    "androidx.lifecycle:lifecycle-process:${Versions.Android.Arch.Lifecycle.LIFECYCLE}"
+                    "androidx.lifecycle:lifecycle-process:${Versions.Android.Arch.Lifecycle.LIFECYCLE_BETA}"
 
             }
 
