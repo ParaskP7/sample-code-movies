@@ -330,10 +330,10 @@ formatting:
     active: true
     autoCorrect: true
     insertFinalNewLine: true
-  FunctionTypeReferenceSpacing:
+  FunKeywordSpacing:
     active: true
     autoCorrect: true
-  FunKeywordSpacing:
+  FunctionTypeReferenceSpacing:
     active: true
     autoCorrect: true
   ImportOrdering:
