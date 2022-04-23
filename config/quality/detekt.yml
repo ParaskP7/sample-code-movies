@@ -349,8 +349,9 @@ formatting:
     active: true
     autoCorrect: true
     indentSize: 4
-  MaximumLineLength:
+  MaximumLineLength: # This rules overlaps with style>MaxLineLength from Detekt rules.
     active: true
+    autoCorrect: true
     maxLineLength: 120
     ignoreBackTickedIdentifier: false
   ModifierListSpacing:
@@ -774,8 +775,8 @@ style:
     active: true
   MandatoryBracesLoops:
     active: true
-  MaxLineLength:
-    active: true
+  MaxLineLength: # This rules overlaps with formatting>MaximumLineLength from KtLint rules.
+    active: false
     maxLineLength: 120
     excludePackageStatements: true
     excludeImportStatements: true
