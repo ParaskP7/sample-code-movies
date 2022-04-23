@@ -317,6 +317,7 @@ formatting:
   CommentWrapping:
     active: true
     autoCorrect: true
+    indentSize: 4
   DiscouragedCommentLocation:
     active: true
     autoCorrect: true
