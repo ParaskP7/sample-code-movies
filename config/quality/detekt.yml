@@ -324,8 +324,9 @@ formatting:
   EnumEntryNameCase:
     active: true
     autoCorrect: true
-  Filename:
+  Filename: # This rules overlaps with naming>MatchingDeclarationName from Detekt rules.
     active: true
+    autoCorrect: true
   FinalNewline:
     active: true
     autoCorrect: true
@@ -519,8 +520,8 @@ naming:
   LambdaParameterNaming:
     active: true
     parameterPattern: '[a-z][A-Za-z0-9]*|_'
-  MatchingDeclarationName:
-    active: true
+  MatchingDeclarationName: # This rules overlaps with formatting>Filename from KtLint rules.
+    active: false
     mustBeFirst: true
   MemberNameEqualsClassName:
     active: true
