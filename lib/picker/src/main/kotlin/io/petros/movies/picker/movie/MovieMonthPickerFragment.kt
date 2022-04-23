@@ -8,7 +8,8 @@ import io.petros.movies.lib.picker.R
 import io.petros.movies.picker.lib.PickerDialog
 import java.util.*
 
-class MovieMonthPickerFragment : DialogFragment(),
+class MovieMonthPickerFragment :
+    DialogFragment(),
     PickerDialog.OnDateSetListener {
 
     private var onMonthPicked: ((Int) -> Unit)? = null

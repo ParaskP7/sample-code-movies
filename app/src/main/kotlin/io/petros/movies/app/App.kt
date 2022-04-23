@@ -22,7 +22,8 @@ import org.koin.core.logger.Level
 import timber.log.Timber
 
 @Suppress("TooManyFunctions")
-open class App : Application(),
+open class App :
+    Application(),
     LifecycleEventObserver {
 
     override fun onCreate() {

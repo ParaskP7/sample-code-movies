@@ -454,7 +454,7 @@ formatting:
     active: true
     autoCorrect: true
   Wrapping:
-    active: false
+    active: true
     autoCorrect: true
 
 naming:

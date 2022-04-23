@@ -32,10 +32,11 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 import timber.log.Timber
 
 @Suppress("TooManyFunctions", "unused")
-class MoviesFragment : MviFragment<MoviesFragmentBinding,
-        MoviesIntent,
-        MoviesState,
-        MoviesSideEffect>(R.layout.movies_fragment),
+class MoviesFragment :
+    MviFragment<MoviesFragmentBinding,
+            MoviesIntent,
+            MoviesState,
+            MoviesSideEffect>(R.layout.movies_fragment),
     MoviesToolbarCallback,
     MovieItemCallback {
 
