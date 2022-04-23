@@ -398,6 +398,7 @@ formatting:
     autoCorrect: true
   NoWildcardImports:
     active: true
+    autoCorrect: true
     packagesToUseImportOnDemandProperty: 'java.util.*,kotlinx.android.synthetic.**'
   PackageName:
     active: false
