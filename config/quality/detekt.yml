@@ -343,7 +343,6 @@ formatting:
     active: false
     autoCorrect: true
     indentSize: 4
-    continuationIndentSize: 4
   KdocWrapping:
     active: true
     autoCorrect: true
