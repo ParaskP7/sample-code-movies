@@ -48,7 +48,7 @@ object Deps {
     @Suppress("MemberNameEqualsClassName")
     object Material {
 
-        val MATERIAL = "com.google.android.material:material:${Versions.Material.MATERIAL_BETA}"
+        val MATERIAL = "com.google.android.material:material:${Versions.Material.MATERIAL_RC}"
 
     }
 
