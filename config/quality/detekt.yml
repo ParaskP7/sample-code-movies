@@ -449,6 +449,8 @@ formatting:
   TrailingComma:
     active: false
     autoCorrect: true
+    allowTrailingComma: false
+    allowTrailingCommaOnCallSite: false
   TypeArgumentListSpacing:
     active: true
     autoCorrect: true
