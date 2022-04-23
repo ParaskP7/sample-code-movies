@@ -32,8 +32,7 @@ object Plugins {
         const val ANDROID_MANIFEST = "2.0" // Released: 16-04-22
 
         // Releases: https://github.com/detekt/detekt/releases
-        const val DETEKT = "1.19.0" // Released: 30-11-21
-        @Suppress("unused") const val DETEKT_RC = "1.20.0-RC1" // Released: 28-02-22
+        const val DETEKT = "1.20.0" // Released: 15-04-22
 
         // Releases: https://github.com/ben-manes/gradle-versions-plugin/releases
         const val DEPENDENCY_VERSIONS = "0.42.0" // Released: 04-02-22

@@ -37,9 +37,9 @@ console-reports:
     - 'ProjectStatisticsReport'
     - 'ComplexityReport'
     - 'NotificationReport'
-    # - 'FindingsReport'
+    - 'FindingsReport'
     - 'FileBasedFindingsReport'
-    - 'LiteFindingsReport'
+  #  - 'LiteFindingsReport'
 
 output-reports:
   active: true
@@ -67,6 +67,7 @@ comments:
     active: true
     matchTypeParameters: true
     matchDeclarationsOrder: true
+    allowParamOnConstructorProperties: false
   UndocumentedPublicClass:
     active: false
     excludes: [ ]
@@ -129,6 +130,7 @@ complexity:
   NamedArguments:
     active: true
     threshold: 3
+    ignoreArgumentsMatchingNames: false
   NestedBlockDepth:
     active: true
     threshold: 4
@@ -176,6 +178,8 @@ coroutines:
   RedundantSuspendModifier:
     active: true
   SleepInsteadOfDelay:
+    active: true
+  SuspendFunWithCoroutineScopeReceiver:
     active: true
   SuspendFunWithFlowReturnType:
     active: true
@@ -301,10 +305,19 @@ formatting:
     autoCorrect: true
     indentSize: 4
     maxLineLength: 120
+  BlockCommentInitialStarAlignment:
+    active: true
+    autoCorrect: true
   ChainWrapping:
     active: true
     autoCorrect: true
   CommentSpacing:
+    active: true
+    autoCorrect: true
+  CommentWrapping:
+    active: true
+    autoCorrect: true
+  DiscouragedCommentLocation:
     active: true
     autoCorrect: true
   EnumEntryNameCase:
@@ -316,6 +329,12 @@ formatting:
     active: true
     autoCorrect: true
     insertFinalNewLine: true
+  FunctionTypeReferenceSpacing:
+    active: true
+    autoCorrect: true
+  FunKeywordSpacing:
+    active: true
+    autoCorrect: true
   ImportOrdering:
     active: false
     autoCorrect: true
@@ -325,10 +344,16 @@ formatting:
     autoCorrect: true
     indentSize: 4
     continuationIndentSize: 4
+  KdocWrapping:
+    active: true
+    autoCorrect: true
   MaximumLineLength:
     active: true
     maxLineLength: 120
     ignoreBackTickedIdentifier: false
+  ModifierListSpacing:
+    active: true
+    autoCorrect: true
   ModifierOrdering:
     active: true
     autoCorrect: true
@@ -420,31 +445,39 @@ formatting:
   StringTemplate:
     active: true
     autoCorrect: true
+  TrailingComma:
+    active: false
+    autoCorrect: true
+  TypeArgumentListSpacing:
+    active: false
+    autoCorrect: true
+  UnnecessaryParenthesesBeforeTrailingLambda:
+    active: true
+    autoCorrect: true
+  Wrapping:
+    active: false
+    autoCorrect: true
 
 naming:
   active: true
   BooleanPropertyNaming:
     active: true
-    excludes: [ ]
     allowedPattern: '^(is|has|are)'
+    ignoreOverridden: false
   ClassNaming:
     active: true
-    excludes: [ ]
     classPattern: '[A-Z][a-zA-Z0-9]*'
   ConstructorParameterNaming:
     active: true
-    excludes: [ ]
     parameterPattern: '[a-z][A-Za-z0-9]*'
     privateParameterPattern: '[a-z][A-Za-z0-9]*'
     excludeClassPattern: '.*Raw'
     ignoreOverridden: true
   EnumNaming:
     active: true
-    excludes: [ ]
     enumEntryPattern: '[A-Z][_a-zA-Z0-9]*'
   ForbiddenClassName:
     active: true
-    excludes: [ ]
     forbiddenName: [ ]
   FunctionMaxLength:
     active: true
@@ -462,7 +495,6 @@ naming:
     maximumFunctionNameLength: 30
   FunctionMinLength:
     active: true
-    excludes: [ ]
     minimumFunctionNameLength: 3
   FunctionNaming:
     active: true
@@ -474,16 +506,15 @@ naming:
       - 'Composable'
   FunctionParameterNaming:
     active: true
-    excludes: [ ]
     parameterPattern: '[a-z][A-Za-z0-9]*'
     excludeClassPattern: '$^'
     ignoreOverridden: true
   InvalidPackageDeclaration:
     active: true
     rootPackage: ''
+    requireRootInDeclaration: true
   LambdaParameterNaming:
     active: true
-    excludes: [ ]
     parameterPattern: '[a-z][A-Za-z0-9]*|_'
   MatchingDeclarationName:
     active: true
@@ -495,34 +526,27 @@ naming:
     active: true
   NonBooleanPropertyPrefixedWithIs:
     active: true
-    excludes: [ ]
   ObjectPropertyNaming:
     active: true
-    excludes: [ ]
     constantPattern: '[A-Za-z][_A-Za-z0-9]*'
     propertyPattern: '[A-Za-z][_A-Za-z0-9]*'
     privatePropertyPattern: '(_)?[A-Za-z][_A-Za-z0-9]*'
   PackageNaming:
     active: false
-    excludes: [ ]
     packagePattern: '[a-z]+(\.[a-z][A-Za-z0-9]*)*'
   TopLevelPropertyNaming:
     active: true
-    excludes: [ ]
     constantPattern: '[A-Z][_A-Z0-9]*'
     propertyPattern: '[A-Za-z][_A-Za-z0-9]*'
     privatePropertyPattern: '_?[A-Za-z][_A-Za-z0-9]*'
   VariableMaxLength:
     active: true
-    excludes: [ ]
     maximumVariableNameLength: 64
   VariableMinLength:
     active: true
-    excludes: [ ]
     minimumVariableNameLength: 1
   VariableNaming:
     active: true
-    excludes: [ ]
     variablePattern: '[a-z][A-Za-z0-9]*'
     privateVariablePattern: '(_)?[a-z][A-Za-z0-9]*'
     excludeClassPattern: '$^'
@@ -555,7 +579,18 @@ potential-bugs:
     active: true
   DoubleMutabilityForCollection:
     active: true
+    mutableTypes:
+      - 'kotlin.collections.MutableList'
+      - 'kotlin.collections.MutableMap'
+      - 'kotlin.collections.MutableSet'
+      - 'java.util.ArrayList'
+      - 'java.util.LinkedHashSet'
+      - 'java.util.HashSet'
+      - 'java.util.LinkedHashMap'
+      - 'java.util.HashMap'
   DuplicateCaseInWhenExpression:
+    active: true
+  ElseCaseInsteadOfExhaustiveWhen:
     active: true
   EqualsAlwaysReturnsTrueOrFalse:
     active: true
@@ -575,6 +610,7 @@ potential-bugs:
       - '*.CheckReturnValue'
     ignoreReturnValueAnnotations:
       - '*.CanIgnoreReturnValue'
+    ignoreFunctionCall: [ ]
   ImplicitDefaultLocale:
     active: true
   ImplicitUnitReturnType:
@@ -595,11 +631,13 @@ potential-bugs:
   MissingPackageDeclaration:
     active: true
     excludes: [
-        '**/*.kts'
+      '**/*.kts'
     ]
   MissingWhenCase:
     active: true
     allowElseExpression: true
+  NullCheckOnMutableProperty:
+    active: true
   NullableToStringCall:
     active: true
   RedundantElseInWhen:
@@ -628,6 +666,8 @@ potential-bugs:
 
 style:
   active: true
+  CanBeNonNullable:
+    active: true
   ClassOrdering:
     active: true
   CollapsibleIfStatements:
@@ -788,6 +828,7 @@ style:
   UnderscoresInNumericLiterals:
     active: true
     acceptableLength: 4
+    allowNonStandardGrouping: false
   UnnecessaryAbstractClass:
     active: true
   UnnecessaryAnnotationUseSiteTarget:
@@ -797,6 +838,8 @@ style:
   UnnecessaryFilter:
     active: true
   UnnecessaryInheritance:
+    active: true
+  UnnecessaryInnerClass:
     active: true
   UnnecessaryLet:
     active: true
