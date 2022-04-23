@@ -14,12 +14,10 @@ import io.petros.movies.utils.doNothing
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 @Suppress("SyntheticAccessor", "unused")
-class MovieDetailsFragment : MviFragment<
-        MovieDetailsFragmentBinding,
+class MovieDetailsFragment : MviFragment<MovieDetailsFragmentBinding,
         MovieDetailsIntent,
         MovieDetailsState,
-        MovieDetailsSideEffect,
-        >(R.layout.movie_details_fragment) {
+        MovieDetailsSideEffect>(R.layout.movie_details_fragment) {
 
     override val binding by viewBinding(MovieDetailsFragmentBinding::bind)
     override val viewModel: MovieDetailsViewModel by viewModel()

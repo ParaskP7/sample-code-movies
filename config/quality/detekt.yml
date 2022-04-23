@@ -448,7 +448,7 @@ formatting:
     active: false
     autoCorrect: true
   TypeArgumentListSpacing:
-    active: false
+    active: true
     autoCorrect: true
   UnnecessaryParenthesesBeforeTrailingLambda:
     active: true
