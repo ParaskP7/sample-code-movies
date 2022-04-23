@@ -327,7 +327,7 @@ formatting:
   Filename: # This rules overlaps with naming>MatchingDeclarationName from Detekt rules.
     active: true
     autoCorrect: true
-  FinalNewline:
+  FinalNewline: # This rules overlaps with style>NewLineAtEndOfFile from Detekt rules.
     active: true
     autoCorrect: true
     insertFinalNewLine: true
@@ -788,8 +788,8 @@ style:
     active: true
   NestedClassesVisibility:
     active: true
-  NewLineAtEndOfFile:
-    active: true
+  NewLineAtEndOfFile: # This rules overlaps with formatting>FinalNewline from KtLint rules.
+    active: false
   NoTabs:
     active: true
   ObjectLiteralToLambda:
