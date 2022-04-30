@@ -22,11 +22,11 @@ object Plugins {
         // Release: https://androidstudio.googleblog.com/2022/04/android-studio-bumblebee-202111-patch-3.html
         @Suppress("unused") const val ANDROID_GRADLE = "7.1.3" // Released: 07-04-22
 
-        // Release: https://androidstudio.googleblog.com/2022/04/android-studio-chipmunk-rc-1-now.html
-        @Suppress("unused") const val ANDROID_GRADLE_BETA = "7.2.0-rc01" // Released: 20-04-22
+        // Release: https://androidstudio.googleblog.com/2022/04/android-studio-chipmunk-rc1-now.html
+        @Suppress("unused") const val ANDROID_GRADLE_BETA = "7.2.0-rc01" // Released: 28-04-22
 
         // Release: https://androidstudio.googleblog.com/2022/04/android-studio-dolphin-canary-9-now.html
-        const val ANDROID_GRADLE_CANARY = "7.3.0-alpha09" // Released: 22-04-22
+        const val ANDROID_GRADLE_CANARY = "7.3.0-alpha09" // Released: 28-04-22
 
         // Releases: https://github.com/GradleUp/auto-manifest/releases
         const val ANDROID_MANIFEST = "2.0" // Released: 16-04-22
