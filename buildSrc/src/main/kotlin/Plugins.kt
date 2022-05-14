@@ -13,20 +13,14 @@ object Plugins {
         const val KOTLIN_JETPACK_COMPOSE = KOTLIN_1610 // Released: 14-12-21
 
         // Releases: https://androidstudio.googleblog.com
-        // Release: https://androidstudio.googleblog.com/2021/06/android-studio-422-available.html
-        @Suppress("unused") const val ANDROID_GRADLE_OLD = "4.2.2" // Released: 30-06-21
+        // Release: https://androidstudio.googleblog.com/2022/05/android-studio-chipmunk-available-in.html
+        @Suppress("unused") const val ANDROID_GRADLE = "7.2.0" // Released: 09-05-22
 
-        // Release: https://androidstudio.googleblog.com/2021/12/android-studio-arctic-fox-202031-patch.html
-        @Suppress("unused") const val ANDROID_GRADLE_NEW = "7.0.4" // Released: 08-12-21
+        // Release: https://androidstudio.googleblog.com/2022/05/android-studio-dolphin-beta-1-now.html
+        @Suppress("unused") const val ANDROID_GRADLE_BETA = "7.3.0-beta01" // Released: 11-05-22
 
-        // Release: https://androidstudio.googleblog.com/2022/04/android-studio-bumblebee-202111-patch-3.html
-        @Suppress("unused") const val ANDROID_GRADLE = "7.1.3" // Released: 07-04-22
-
-        // Release: https://androidstudio.googleblog.com/2022/04/android-studio-chipmunk-rc1-now.html
-        @Suppress("unused") const val ANDROID_GRADLE_BETA = "7.2.0-rc01" // Released: 28-04-22
-
-        // Release: https://androidstudio.googleblog.com/2022/04/android-studio-dolphin-canary-9-now.html
-        const val ANDROID_GRADLE_CANARY = "7.3.0-alpha09" // Released: 28-04-22
+        // Release: https://androidstudio.googleblog.com/2022/05/android-studio-electric-eel-canary-2.html
+        const val ANDROID_GRADLE_CANARY = "7.4.0-alpha02" // Released: 13-05-22
 
         // Releases: https://github.com/GradleUp/auto-manifest/releases
         const val ANDROID_MANIFEST = "2.0" // Released: 16-04-22
