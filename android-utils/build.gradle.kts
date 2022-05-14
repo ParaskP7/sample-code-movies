@@ -1,5 +1,6 @@
 @file:Suppress("InvalidPackageDeclaration")
 
+import io.petros.movies.config.Config
 import io.petros.movies.config.deps.Deps
 import io.petros.movies.config.deps.Projects
 import io.petros.movies.config.deps.identifier
@@ -11,8 +12,13 @@ plugins {
     id(Plugins.Id.Dependency.VERSIONS)
 }
 
-android.buildFeatures {
-    buildConfig = true
+android {
+    buildFeatures {
+        buildConfig = true
+    }
+    lint {
+        disable += Config.Lint.disabledAndroidUtilsIssues
+    }
 }
 
 dependencies {

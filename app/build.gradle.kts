@@ -24,16 +24,12 @@ plugins {
     id(Plugins.Id.Module.GRAPH_ASSERT) version Plugins.Version.MODULE_GRAPH_ASSERT
 }
 
-@Suppress("SpreadOperator")
 android {
     defaultConfig { defaultConfig() }
     buildTypes { buildTypes() }
     buildFeatures {
         viewBinding = true
         buildConfig = true
-    }
-    lintOptions {
-        disable(*Config.Lint.disabledAppIssues)
     }
 }
 

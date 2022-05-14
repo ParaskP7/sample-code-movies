@@ -32,11 +32,10 @@ object Config {
         val disabledIssues = arrayOf(
             "UnusedIds", // Because of UAST
             "InvalidPackage",
-            "ObsoleteLintCustomCheck",
         )
 
-        val disabledAppIssues = arrayOf(
-            "ConvertToWebp", // From Android Gradle Plugin version 7.0.0-alpha01 and onwards
+        val disabledAndroidUtilsIssues = arrayOf(
+            "DialogFragmentCallbacksDetector", // From Android Gradle Plugin version 7.4.0-alpha02 and onwards
         )
 
     }

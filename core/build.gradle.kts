@@ -15,6 +15,9 @@ android {
     buildFeatures {
         viewBinding = true
     }
+    lint {
+        disable += Config.Lint.disabledAndroidUtilsIssues
+    }
 }
 
 dependencies {
