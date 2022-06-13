@@ -8,8 +8,8 @@ object Plugins {
         // Release: https://github.com/JetBrains/kotlin/releases/tag/v1.6.10
         private const val KOTLIN_1610 = "1.6.10" // Released: 14-12-21
 
-        // Release: https://github.com/JetBrains/kotlin/releases/tag/v1.6.20
-        @Suppress("unused") private const val KOTLIN = "1.6.21" // Released: 20-04-22
+        // Release: https://github.com/JetBrains/kotlin/releases/tag/v1.7.0
+        @Suppress("unused") private const val KOTLIN = "1.7.0" // Released: 09-06-22
         const val KOTLIN_JETPACK_COMPOSE = KOTLIN_1610 // Released: 14-12-21
 
         // Releases: https://androidstudio.googleblog.com
