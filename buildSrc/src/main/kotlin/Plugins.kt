@@ -17,10 +17,10 @@ object Plugins {
         @Suppress("unused") const val ANDROID_GRADLE = "7.2.1" // Released: 25-05-22
 
         // Release: https://androidstudio.googleblog.com/2022/06/android-studio-dolphin-beta-2-now.html
-        @Suppress("unused") const val ANDROID_GRADLE_BETA = "7.3.0-beta02" // Released: 06-06-22
+        @Suppress("unused") const val ANDROID_GRADLE_BETA = "7.3.0-beta03" // Released: 06-06-22
 
         // Release: https://androidstudio.googleblog.com/2022/06/android-studio-electric-eel-canary-3.html
-        const val ANDROID_GRADLE_CANARY = "7.4.0-alpha03" // Released: 06-06-22
+        const val ANDROID_GRADLE_CANARY = "7.4.0-alpha04" // Released: 13-06-22
 
         // Releases: https://github.com/GradleUp/auto-manifest/releases
         const val ANDROID_MANIFEST = "2.0" // Released: 16-04-22
