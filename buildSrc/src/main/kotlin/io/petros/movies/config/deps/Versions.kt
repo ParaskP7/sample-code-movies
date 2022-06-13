@@ -25,8 +25,7 @@ object Versions {
     object Material {
 
         // Releases: https://github.com/material-components/material-components-android/releases
-        @Suppress("unused") const val MATERIAL = "1.5.0" // Released: 13-01-22
-        const val MATERIAL_RC = "1.6.0-rc01" // Released: 19-04-22
+        const val MATERIAL = "1.6.1" // Released: 31-05-22
 
     }
 
