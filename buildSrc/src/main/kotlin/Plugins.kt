@@ -34,6 +34,7 @@ object Plugins {
 
         // Releases: https://github.com/autonomousapps/dependency-analysis-android-gradle-plugin/releases
         const val DEPENDENCY_ANALYSIS = "1.4.0" // Released: 30-05-22
+        // const val DEPENDENCY_ANALYSIS = "1.5.0" // Released: 07-06-22 // TODO: Try with newer version of the plugin.
 
         // Releases: https://github.com/runningcode/gradle-doctor/releases
         const val GRADLE_DOCTOR = "0.8.1" // Released: 31-05-22
