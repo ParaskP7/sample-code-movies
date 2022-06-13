@@ -63,6 +63,9 @@ comments:
   EndOfSentenceFormat:
     active: true
     endOfSentenceFormat: '([.?!][ \t\n\r\f<])|([.?!:]$)'
+  KDocReferencesNonPublicProperty:
+    active: true
+    excludes: [ ]
   OutdatedDocumentation:
     active: true
     matchTypeParameters: true
@@ -134,6 +137,15 @@ complexity:
   NestedBlockDepth:
     active: true
     threshold: 4
+  NestedScopeFunctions:
+    active: true
+    threshold: 1
+    functions:
+      - 'kotlin.apply'
+      - 'kotlin.run'
+      - 'kotlin.with'
+      - 'kotlin.let'
+      - 'kotlin.also'
   ReplaceSafeCallChainWithRun:
     active: true
   StringLiteralDuplication:
@@ -290,180 +302,6 @@ exceptions:
       - 'RuntimeException'
       - 'Throwable'
 
-formatting:
-  active: true
-  android: true
-  autoCorrect: true
-  AnnotationOnSeparateLine:
-    active: true
-    autoCorrect: true
-  AnnotationSpacing:
-    active: true
-    autoCorrect: true
-  ArgumentListWrapping:
-    active: true
-    autoCorrect: true
-    indentSize: 4
-    maxLineLength: 120
-  BlockCommentInitialStarAlignment:
-    active: true
-    autoCorrect: true
-  ChainWrapping:
-    active: true
-    autoCorrect: true
-  CommentSpacing:
-    active: true
-    autoCorrect: true
-  CommentWrapping:
-    active: true
-    autoCorrect: true
-    indentSize: 4
-  DiscouragedCommentLocation:
-    active: true
-    autoCorrect: true
-  EnumEntryNameCase:
-    active: true
-    autoCorrect: true
-  Filename: # This rules overlaps with naming>MatchingDeclarationName from Detekt rules.
-    active: true
-    autoCorrect: true
-  FinalNewline: # This rules overlaps with style>NewLineAtEndOfFile from Detekt rules.
-    active: true
-    autoCorrect: true
-    insertFinalNewLine: true
-  FunKeywordSpacing:
-    active: true
-    autoCorrect: true
-  FunctionTypeReferenceSpacing:
-    active: true
-    autoCorrect: true
-  ImportOrdering:
-    active: true
-    autoCorrect: true
-    layout: '*,java.**,javax.**,kotlin.**,^'
-  Indentation:
-    active: false
-    autoCorrect: true
-    indentSize: 4
-  KdocWrapping:
-    active: true
-    autoCorrect: true
-    indentSize: 4
-  MaximumLineLength: # This rules overlaps with style>MaxLineLength from Detekt rules.
-    active: true
-    autoCorrect: true
-    maxLineLength: 120
-    ignoreBackTickedIdentifier: false
-  ModifierListSpacing:
-    active: true
-    autoCorrect: true
-  ModifierOrdering: # This rules overlaps with style>ModifierOrder from Detekt rules.
-    active: true
-    autoCorrect: true
-  MultiLineIfElse:
-    active: true
-    autoCorrect: true
-  NoBlankLineBeforeRbrace:
-    active: false
-    autoCorrect: true
-  NoConsecutiveBlankLines:
-    active: true
-    autoCorrect: true
-  NoEmptyClassBody:
-    active: true
-    autoCorrect: true
-  NoEmptyFirstLineInMethodBlock:
-    active: true
-    autoCorrect: true
-  NoLineBreakAfterElse:
-    active: true
-    autoCorrect: true
-  NoLineBreakBeforeAssignment:
-    active: true
-    autoCorrect: true
-  NoMultipleSpaces:
-    active: true
-    autoCorrect: true
-  NoSemicolons:
-    active: true
-    autoCorrect: true
-  NoTrailingSpaces:
-    active: true
-    autoCorrect: true
-  NoUnitReturn:
-    active: true
-    autoCorrect: true
-  NoUnusedImports:
-    active: true
-    autoCorrect: true
-  NoWildcardImports:
-    active: true
-    autoCorrect: true
-    packagesToUseImportOnDemandProperty: 'java.util.*,kotlinx.android.synthetic.**'
-  PackageName:
-    active: false
-    autoCorrect: true
-  ParameterListWrapping:
-    active: true
-    autoCorrect: true
-    maxLineLength: 120
-  SpacingAroundAngleBrackets:
-    active: true
-    autoCorrect: true
-  SpacingAroundColon:
-    active: true
-    autoCorrect: true
-  SpacingAroundComma:
-    active: true
-    autoCorrect: true
-  SpacingAroundCurly:
-    active: true
-    autoCorrect: true
-  SpacingAroundDot:
-    active: true
-    autoCorrect: true
-  SpacingAroundDoubleColon:
-    active: true
-    autoCorrect: true
-  SpacingAroundKeyword:
-    active: true
-    autoCorrect: true
-  SpacingAroundOperators:
-    active: true
-    autoCorrect: true
-  SpacingAroundParens:
-    active: true
-    autoCorrect: true
-  SpacingAroundRangeOperator:
-    active: true
-    autoCorrect: true
-  SpacingAroundUnaryOperator:
-    active: true
-    autoCorrect: true
-  SpacingBetweenDeclarationsWithAnnotations:
-    active: true
-    autoCorrect: true
-  SpacingBetweenDeclarationsWithComments:
-    active: true
-    autoCorrect: true
-  StringTemplate:
-    active: true
-    autoCorrect: true
-  TrailingComma:
-    active: false
-    autoCorrect: true
-    allowTrailingComma: false
-    allowTrailingCommaOnCallSite: false
-  TypeArgumentListSpacing:
-    active: true
-    autoCorrect: true
-  UnnecessaryParenthesesBeforeTrailingLambda:
-    active: true
-    autoCorrect: true
-  Wrapping:
-    active: true
-    autoCorrect: true
-
 naming:
   active: true
   BooleanPropertyNaming:
@@ -562,6 +400,9 @@ performance:
   active: true
   ArrayPrimitive:
     active: true
+  CouldBeSequence:
+    active: true
+    threshold: 3
   ForEachOnRange:
     active: true
     excludes: [ ]
@@ -794,6 +635,8 @@ style:
     active: false
   NoTabs:
     active: true
+  NullableBooleanCheck:
+    active: true
   ObjectLiteralToLambda:
     active: true
   OptionalAbstractKeyword:
@@ -840,6 +683,8 @@ style:
   UnnecessaryAnnotationUseSiteTarget:
     active: true
   UnnecessaryApply:
+    active: true
+  UnnecessaryBackticks:
     active: true
   UnnecessaryFilter:
     active: true
@@ -891,8 +736,183 @@ style:
     active: true
   VarCouldBeVal:
     active: true
+    ignoreLateinitVar: false
   WildcardImport:
     active: true
     excludes: [ ]
     excludeImports:
       - 'java.util.*'
+
+formatting:
+  active: true
+  android: true
+  autoCorrect: true
+  AnnotationOnSeparateLine:
+    active: true
+    autoCorrect: true
+  AnnotationSpacing:
+    active: true
+    autoCorrect: true
+  ArgumentListWrapping:
+    active: true
+    autoCorrect: true
+    indentSize: 4
+    maxLineLength: 120
+  BlockCommentInitialStarAlignment:
+    active: true
+    autoCorrect: true
+  ChainWrapping:
+    active: true
+    autoCorrect: true
+  CommentSpacing:
+    active: true
+    autoCorrect: true
+  CommentWrapping:
+    active: true
+    autoCorrect: true
+    indentSize: 4
+  DiscouragedCommentLocation:
+    active: true
+    autoCorrect: true
+  EnumEntryNameCase:
+    active: true
+    autoCorrect: true
+  Filename: # This rules overlaps with naming>MatchingDeclarationName from Detekt rules.
+    active: true
+    autoCorrect: true
+  FinalNewline: # This rules overlaps with style>NewLineAtEndOfFile from Detekt rules.
+    active: true
+    autoCorrect: true
+    insertFinalNewLine: true
+  FunKeywordSpacing:
+    active: true
+    autoCorrect: true
+  FunctionTypeReferenceSpacing:
+    active: true
+    autoCorrect: true
+  ImportOrdering:
+    active: true
+    autoCorrect: true
+    layout: '*,java.**,javax.**,kotlin.**,^'
+  Indentation:
+    active: false
+    autoCorrect: true
+    indentSize: 4
+  KdocWrapping:
+    active: true
+    autoCorrect: true
+    indentSize: 4
+  MaximumLineLength: # This rules overlaps with style>MaxLineLength from Detekt rules.
+    active: true
+    autoCorrect: true
+    maxLineLength: 120
+    ignoreBackTickedIdentifier: false
+  ModifierListSpacing:
+    active: true
+    autoCorrect: true
+  ModifierOrdering: # This rules overlaps with style>ModifierOrder from Detekt rules.
+    active: true
+    autoCorrect: true
+  MultiLineIfElse:
+    active: true
+    autoCorrect: true
+  NoBlankLineBeforeRbrace:
+    active: false
+    autoCorrect: true
+  NoConsecutiveBlankLines:
+    active: true
+    autoCorrect: true
+  NoEmptyClassBody:
+    active: true
+    autoCorrect: true
+  NoEmptyFirstLineInMethodBlock:
+    active: true
+    autoCorrect: true
+  NoLineBreakAfterElse:
+    active: true
+    autoCorrect: true
+  NoLineBreakBeforeAssignment:
+    active: true
+    autoCorrect: true
+  NoMultipleSpaces:
+    active: true
+    autoCorrect: true
+  NoSemicolons:
+    active: true
+    autoCorrect: true
+  NoTrailingSpaces:
+    active: true
+    autoCorrect: true
+  NoUnitReturn:
+    active: true
+    autoCorrect: true
+  NoUnusedImports:
+    active: true
+    autoCorrect: true
+  NoWildcardImports:
+    active: true
+    autoCorrect: true
+    packagesToUseImportOnDemandProperty: 'java.util.*,kotlinx.android.synthetic.**'
+  PackageName:
+    active: false
+    autoCorrect: true
+  ParameterListWrapping:
+    active: true
+    autoCorrect: true
+    maxLineLength: 120
+  SpacingAroundAngleBrackets:
+    active: true
+    autoCorrect: true
+  SpacingAroundColon:
+    active: true
+    autoCorrect: true
+  SpacingAroundComma:
+    active: true
+    autoCorrect: true
+  SpacingAroundCurly:
+    active: true
+    autoCorrect: true
+  SpacingAroundDot:
+    active: true
+    autoCorrect: true
+  SpacingAroundDoubleColon:
+    active: true
+    autoCorrect: true
+  SpacingAroundKeyword:
+    active: true
+    autoCorrect: true
+  SpacingAroundOperators:
+    active: true
+    autoCorrect: true
+  SpacingAroundParens:
+    active: true
+    autoCorrect: true
+  SpacingAroundRangeOperator:
+    active: true
+    autoCorrect: true
+  SpacingAroundUnaryOperator:
+    active: true
+    autoCorrect: true
+  SpacingBetweenDeclarationsWithAnnotations:
+    active: true
+    autoCorrect: true
+  SpacingBetweenDeclarationsWithComments:
+    active: true
+    autoCorrect: true
+  StringTemplate:
+    active: true
+    autoCorrect: true
+  TrailingComma:
+    active: false
+    autoCorrect: true
+    allowTrailingComma: false
+    allowTrailingCommaOnCallSite: false
+  TypeArgumentListSpacing:
+    active: true
+    autoCorrect: true
+  UnnecessaryParenthesesBeforeTrailingLambda:
+    active: true
+    autoCorrect: true
+  Wrapping:
+    active: true
+    autoCorrect: true

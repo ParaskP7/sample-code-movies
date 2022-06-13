@@ -315,7 +315,7 @@ fun AppExtension.androidApplication() {
 }
 
 fun DetektExtension.detekt() {
-    toolVersion = Plugins.Version.DETEKT
+    toolVersion = Plugins.Version.DETEKT_RC
     parallel = false
     config = files(Config.Detekt.CONFIG_FILE_PATH)
     buildUponDefaultConfig = false
