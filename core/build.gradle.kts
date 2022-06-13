@@ -11,13 +11,8 @@ plugins {
     id(Plugins.Id.Dependency.VERSIONS)
 }
 
-android {
-    buildFeatures {
-        viewBinding = true
-    }
-    lint {
-        disable += Config.Lint.disabledAndroidUtilsIssues
-    }
+android.buildFeatures {
+    viewBinding = true
 }
 
 dependencies {
