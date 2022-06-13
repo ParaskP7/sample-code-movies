@@ -37,7 +37,6 @@ dependencies {
     implementation(Deps.Android.Compose.Foundation.LAYOUT)
     implementation(Deps.Android.Compose.Material.MATERIAL)
     implementation(Deps.Android.Compose.ConstraintLayout.CONSTRAINT_LAYOUT)
-    implementation(Deps.Android.Arch.SavedState.SAVED_STATE)
     implementation(Deps.Image.Coil.COIL_BASE)
     implementation(Deps.Image.Coil.COMPOSE)
     implementation(Deps.Android.Core.FRAGMENT)

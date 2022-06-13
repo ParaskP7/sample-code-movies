@@ -38,7 +38,6 @@ dependencies {
     implementation(Deps.Android.Arch.Lifecycle.LIVE_DATA_CORE)
     implementation(Deps.Android.Arch.Lifecycle.VIEW_MODEL)
     implementation(Deps.Android.Arch.Lifecycle.VIEW_MODEL_KTX)
-    implementation(Deps.Android.Arch.SavedState.SAVED_STATE)
     implementation(Deps.Android.Arch.Navigation.COMMON)
     implementation(Deps.Android.Arch.Navigation.RUNTIME)
     implementation(Deps.Android.Arch.Navigation.FRAGMENT)
