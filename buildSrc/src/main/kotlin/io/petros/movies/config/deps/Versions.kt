@@ -67,7 +67,8 @@ object Versions {
         object Compose {
 
             // Releases: https://developer.android.com/jetpack/androidx/releases/compose
-            const val COMPOSE = "1.1.1" // Released: 23-02-22
+            @Suppress("unused") const val COMPOSE = "1.1.1" // Released: 23-02-22
+            const val COMPOSE_BETA = "1.2.0-beta02" // Released: 18-05-22
 
             object ConstraintLayout {
 

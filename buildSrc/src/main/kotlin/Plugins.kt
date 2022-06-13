@@ -5,12 +5,12 @@ object Plugins {
     object Version {
 
         // Releases: https://blog.jetbrains.com/kotlin/category/releases
-        // Release: https://github.com/JetBrains/kotlin/releases/tag/v1.6.10
-        private const val KOTLIN_1610 = "1.6.10" // Released: 14-12-21
+        // Release: https://github.com/JetBrains/kotlin/releases/tag/v1.6.21
+        private const val KOTLIN_1621 = "1.6.21" // Released: 20-04-22
 
         // Release: https://github.com/JetBrains/kotlin/releases/tag/v1.7.0
         @Suppress("unused") private const val KOTLIN = "1.7.0" // Released: 09-06-22
-        const val KOTLIN_JETPACK_COMPOSE = KOTLIN_1610 // Released: 14-12-21
+        const val KOTLIN_JETPACK_COMPOSE = KOTLIN_1621 // Released: 20-04-22
 
         // Releases: https://androidstudio.googleblog.com
         // Release: https://androidstudio.googleblog.com/2022/05/android-studio-chipmunk-available-in.html
