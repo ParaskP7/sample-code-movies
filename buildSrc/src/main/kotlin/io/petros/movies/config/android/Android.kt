@@ -5,9 +5,9 @@ object Android {
     object Sdk {
 
         const val MIN = 24
-        const val TARGET = 31
+        const val TARGET = 33
         @Suppress("unused") const val TARGET_PREVIEW = "S"
-        const val COMPILE = 31
+        const val COMPILE = 33
         @Suppress("unused") const val COMPILE_PREVIEW = "android-S"
 
     }
