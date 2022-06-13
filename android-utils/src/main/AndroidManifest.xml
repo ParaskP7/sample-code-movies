@@ -4,5 +4,6 @@
     package="io.petros.movies.android.utils">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
 </manifest>
