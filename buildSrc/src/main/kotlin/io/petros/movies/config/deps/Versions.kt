@@ -219,7 +219,7 @@ object Versions {
         object Glide {
 
             // Releases: https://github.com/bumptech/glide/releases
-            const val GLIDE = "4.13.1" // Released: 23-02-22
+            const val GLIDE = "4.13.2" // Released: 04-05-22
 
         }
 
