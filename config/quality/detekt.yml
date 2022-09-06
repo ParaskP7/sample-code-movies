@@ -1,4 +1,7 @@
-# Default Detekt Config: https://github.com/detekt/detekt/blob/master/detekt-core/src/main/resources/default-detekt-config.yml
+# Default Config: https://github.com/detekt/detekt/blob/main/detekt-core/src/main/resources/default-detekt-config.yml
+# Formatting Config: https://github.com/detekt/detekt/blob/main/detekt-formatting/src/main/resources/config/config.yml
+# Compose Config: https://detekt.dev/docs/introduction/compose/
+
 build:
   maxIssues: 0
   excludeCorrectable: false
@@ -47,6 +50,7 @@ output-reports:
   # - 'TxtOutputReport'
   # - 'XmlOutputReport'
   # - 'HtmlOutputReport'
+  # - 'MdOutputReport'
 
 comments:
   active: true
@@ -477,9 +481,7 @@ potential-bugs:
     active: true
   MissingPackageDeclaration:
     active: true
-    excludes: [
-      '**/*.kts'
-    ]
+    excludes: [ '**/*.kts' ]
   MissingWhenCase:
     active: true
     allowElseExpression: true
@@ -515,6 +517,9 @@ style:
   active: true
   CanBeNonNullable:
     active: true
+  CascadingCallWrapping:
+    active: true
+    includeElvis: true
   ClassOrdering:
     active: true
   CollapsibleIfStatements:
@@ -557,12 +562,13 @@ style:
       - 'kotlin.io.println'
   ForbiddenPublicDataClass:
     active: true
-    excludes: [
-        '**'
-    ]
+    excludes: [ '**' ]
     ignorePackages:
       - '*.internal'
       - '*.internal.*'
+  ForbiddenSuppress:
+    active: true
+    rules: [ ]
   ForbiddenVoid:
     active: true
     ignoreOverridden: false
@@ -574,14 +580,10 @@ style:
     excludedFunctions: 'describeContents'
   LibraryCodeMustSpecifyReturnType:
     active: true
-    excludes: [
-        '**'
-    ]
+    excludes: [ '**' ]
   LibraryEntitiesShouldNotBePublic:
     active: true
-    excludes: [
-        '**'
-    ]
+    excludes: [ '**' ]
   LoopWithTooManyJumpStatements:
     active: true
     maxJumpCount: 1
@@ -617,6 +619,9 @@ style:
     active: true
   MandatoryBracesLoops:
     active: true
+  MaxChainedCallsOnSameLine:
+    active: true
+    maxChainedCalls: 5
   MaxLineLength: # This rules overlaps with formatting>MaximumLineLength from KtLint rules.
     active: false
     maxLineLength: 120

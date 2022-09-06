@@ -15,7 +15,8 @@ fun permitDiskReads(block: () -> Any?): Any? {
         BuildConfig.DEBUG -> {
             val currentThreadPolicy = StrictMode.getThreadPolicy()
             val tmpThreadPolicy = StrictMode.ThreadPolicy.Builder(currentThreadPolicy)
-                .permitDiskReads().build()
+                .permitDiskReads()
+                .build()
             StrictMode.setThreadPolicy(tmpThreadPolicy)
             val value = block()
             StrictMode.setThreadPolicy(currentThreadPolicy)
