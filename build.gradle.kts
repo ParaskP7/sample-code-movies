@@ -278,7 +278,7 @@ fun Test.testLogging() {
 
 fun KaptExtension.kapt() {
     strictMode = true
-    showProcessorTimings = true
+    showProcessorStats = true
     useBuildCache = true
 }
 
