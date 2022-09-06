@@ -43,7 +43,6 @@ dependencies {
     implementation(project(Projects.Implementation.Android.Feature.MOVIE_DETAILS_COMPOSE))
 
     debugImplementation(Deps.LeakCanary.LEAK_CANARY)
-    implementation(Deps.LeakCanary.PLUMBER)
 
     implementation(Deps.Kotlin.Coroutines.CORE_JVM)
     implementation(Deps.Material.MATERIAL)

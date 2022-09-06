@@ -11,7 +11,6 @@ object Deps {
     object LeakCanary {
 
         val LEAK_CANARY = "com.squareup.leakcanary:leakcanary-android:${Versions.LeakCanary.LEAK_CANARY}"
-        val PLUMBER = "com.squareup.leakcanary:plumber-android:${Versions.LeakCanary.LEAK_CANARY}"
 
     }
 
