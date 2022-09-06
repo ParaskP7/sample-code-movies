@@ -200,7 +200,7 @@ object Versions {
         object Gson {
 
             // Releases: https://github.com/google/gson/releases
-            const val GSON = "2.9.0" // Released: 11-02-22
+            const val GSON = "2.9.1" // Released: 01-08-22
 
         }
 
