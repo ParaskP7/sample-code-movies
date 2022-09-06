@@ -47,6 +47,7 @@ dependencies {
     implementation(Deps.Kotlin.Coroutines.CORE_JVM)
     implementation(Deps.Material.MATERIAL)
     implementation(Deps.Android.Core.APP_COMPAT)
+    implementation(Deps.Android.Core.ANNOTATION)
     implementation(Deps.Android.Core.CONSTRAINT_LAYOUT)
     implementation(Deps.Android.Core.DRAWER_LAYOUT)
     implementation(Deps.Android.Arch.Lifecycle.COMMON)
