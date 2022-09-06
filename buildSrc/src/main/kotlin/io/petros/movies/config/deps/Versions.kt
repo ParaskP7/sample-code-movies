@@ -42,7 +42,8 @@ object Versions {
             const val FRAGMENT = "1.5.2" // Released: 24-08-22
 
             // Releases: https://developer.android.com/jetpack/androidx/releases/recyclerview
-            const val RECYCLER_VIEW = "1.2.1" // Released: 02-06-21
+            @Suppress("unused") const val RECYCLER_VIEW = "1.2.1" // Released: 02-06-21
+            const val RECYCLER_VIEW_BETA = "1.3.0-beta02" // Released: 10-08-22
 
             // Releases: https://developer.android.com/jetpack/androidx/releases/constraintlayout
             const val CONSTRAINT_LAYOUT = "2.1.4" // Released: 20-05-22
