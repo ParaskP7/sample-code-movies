@@ -99,6 +99,7 @@ moduleGraphAssert {
     allowed = Config.Module.GraphAssert.allowed
     restricted = Config.Module.GraphAssert.restricted
     configurations = Config.Module.GraphAssert.configurations
+    assertOnAnyBuild = true
 }
 
 /* CONFIGURATION EXTENSION FUNCTIONS */

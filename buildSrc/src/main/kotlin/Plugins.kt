@@ -39,7 +39,7 @@ object Plugins {
         const val GRADLE_DOCTOR = "0.8.1" // Released: 31-05-22
 
         // Releases: https://github.com/jraska/modules-graph-assert/releases
-        const val MODULE_GRAPH_ASSERT = "2.2.0" // Released: 18-01-22
+        const val MODULE_GRAPH_ASSERT = "2.3.0" // Released: 03-09-22
 
         // Releases: https://github.com/jacoco/jacoco/releases
         const val JACOCO = "0.8.8" // Released: 05-04-22

@@ -28,6 +28,4 @@ digraph G {
 ":feature:movie-details" -> ":core"
 ":feature:movie-details-compose" -> ":domain"
 ":feature:movie-details-compose" -> ":core-compose"
-":feature:movie-details-compose" -> ":test"
-":test" -> ":domain"
 }
