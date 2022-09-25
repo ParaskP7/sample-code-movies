@@ -36,7 +36,7 @@ object Versions {
 
             // Releases: https://developer.android.com/jetpack/androidx/releases/appcompat
             @Suppress("unused") const val APP_COMPAT = "1.5.0" // Released: 10-08-22
-            const val APP_COMPAT_BETA = "1.6.0-beta01" // Released: 10-08-22
+            const val APP_COMPAT_RC = "1.6.0-rc01" // Released: 07-09-22
 
             // Releases: https://developer.android.com/jetpack/androidx/releases/appcompat
             @Suppress("unused") const val ANNOTATION = "1.4.0" // Released: 15-06-22
