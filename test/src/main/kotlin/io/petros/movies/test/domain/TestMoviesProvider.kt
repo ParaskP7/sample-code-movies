@@ -5,7 +5,11 @@ import io.petros.movies.domain.model.movie.MoviesPage
 import java.util.*
 
 fun moviesPage(
-    movies: List<Movie> = arrayListOf(movie(), movie(), movie()),
+    movies: List<Movie> = arrayListOf(
+        movie(),
+        movie(),
+        movie(),
+    ),
 ): MoviesPage {
     return MoviesPage(
         movies,

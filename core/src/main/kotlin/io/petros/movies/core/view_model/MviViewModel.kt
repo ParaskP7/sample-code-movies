@@ -1,3 +1,5 @@
+@file:Suppress("TypeParameterListSpacing")
+
 package io.petros.movies.core.view_model
 
 import androidx.annotation.CallSuper

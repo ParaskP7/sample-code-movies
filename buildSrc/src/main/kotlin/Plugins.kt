@@ -26,7 +26,8 @@ object Plugins {
         const val ANDROID_MANIFEST = "2.0" // Released: 16-04-22
 
         // Releases: https://github.com/detekt/detekt/releases
-        const val DETEKT = "1.21.0" // Released: 17-07-22
+        @Suppress("unused") const val DETEKT = "1.21.0" // Released: 17-07-22
+        const val DETEKT_RC = "1.22.0-RC1" // Released: 21-09-22
 
         // Releases: https://github.com/ben-manes/gradle-versions-plugin/releases
         const val DEPENDENCY_VERSIONS = "0.42.0" // Released: 04-02-22
@@ -48,8 +49,8 @@ object Plugins {
     const val KOTLIN_GRADLE = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Version.KOTLIN_JETPACK_COMPOSE}"
     const val ANDROID_GRADLE = "com.android.tools.build:gradle:${Version.ANDROID_GRADLE_CANARY}"
     const val ANDROID_MANIFEST = "com.gradleup:auto-manifest-plugin:${Version.ANDROID_MANIFEST}"
-    const val DETEKT = "io.gitlab.arturbosch.detekt:detekt-gradle-plugin:${Version.DETEKT}"
-    const val DETEKT_FORMATTING = "io.gitlab.arturbosch.detekt:detekt-formatting:${Version.DETEKT}"
+    const val DETEKT = "io.gitlab.arturbosch.detekt:detekt-gradle-plugin:${Version.DETEKT_RC}"
+    const val DETEKT_FORMATTING = "io.gitlab.arturbosch.detekt:detekt-formatting:${Version.DETEKT_RC}"
     const val DEPENDENCY_VERSIONS = "com.github.ben-manes:gradle-versions-plugin:${Version.DEPENDENCY_VERSIONS}"
     const val DEPENDENCY_ANALYSIS =
         "com.autonomousapps:dependency-analysis-gradle-plugin:${Version.DEPENDENCY_ANALYSIS}"

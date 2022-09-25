@@ -41,13 +41,10 @@ fun Any.mockResponse(file: String, timeoutMillis: Long? = null): MockResponse {
 
 private fun Any.jsonFromFile(filePath: String): String {
     val resource = this::class.java.classLoader.getResource(filePath)
-    if (resource != null) {
-        val inputStream = resource.openStream()
-        val stringBuilder = StringBuilder()
-        val bufferedReader = InputStreamReader(inputStream, StandardCharsets.UTF_8)
-        bufferedReader.use { stringBuilder.append(it.readText()) }
-        return stringBuilder.toString()
-    } else {
-        throw IllegalArgumentException("File not found. [File Path: $filePath]")
-    }
+    requireNotNull(resource) { "File not found. [File Path: $filePath]" }
+    val inputStream = resource.openStream()
+    val stringBuilder = StringBuilder()
+    val bufferedReader = InputStreamReader(inputStream, StandardCharsets.UTF_8)
+    bufferedReader.use { stringBuilder.append(it.readText()) }
+    return stringBuilder.toString()
 }

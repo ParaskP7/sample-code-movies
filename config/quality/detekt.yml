@@ -14,6 +14,7 @@ build:
 config:
   validation: true
   warningsAsErrors: true
+  checkExhaustiveness: true
   # when writing own rules with new properties, exclude the property path e.g.: 'my_rule_set,.*>.*>[my_property]'
   excludes: ''
 
@@ -37,11 +38,11 @@ processors:
 console-reports:
   active: true
   exclude:
-    - 'ProjectStatisticsReport'
-    - 'ComplexityReport'
-    - 'NotificationReport'
-    - 'FindingsReport'
-    - 'FileBasedFindingsReport'
+     - 'ProjectStatisticsReport'
+     - 'ComplexityReport'
+     - 'NotificationReport'
+     - 'FindingsReport'
+     - 'FileBasedFindingsReport'
   #  - 'LiteFindingsReport'
 
 output-reports:
@@ -69,7 +70,7 @@ comments:
     endOfSentenceFormat: '([.?!][ \t\n\r\f<])|([.?!:]$)'
   KDocReferencesNonPublicProperty:
     active: true
-    excludes: [ ]
+    excludes: []
   OutdatedDocumentation:
     active: true
     matchTypeParameters: true
@@ -77,17 +78,20 @@ comments:
     allowParamOnConstructorProperties: false
   UndocumentedPublicClass:
     active: false
-    excludes: [ ]
+    excludes: []
     searchInNestedClass: true
     searchInInnerClass: true
     searchInInnerObject: true
     searchInInnerInterface: true
+    searchInProtectedClass: true
   UndocumentedPublicFunction:
     active: false
-    excludes: [ ]
+    excludes: []
+    searchProtectedFunction: true
   UndocumentedPublicProperty:
     active: false
-    excludes: [ ]
+    excludes: []
+    searchProtectedProperty: true
 
 complexity:
   active: true
@@ -99,6 +103,7 @@ complexity:
     threshold: 10
     includeStaticDeclarations: true
     includePrivateDeclarations: true
+    ignoreOverloaded: false
   ComplexMethod:
     active: true
     threshold: 15
@@ -117,7 +122,7 @@ complexity:
       - 'with'
   LabeledExpression:
     active: true
-    ignoredLabels: [ ]
+    ignoredLabels: []
   LargeClass:
     active: true
     threshold: 600
@@ -130,7 +135,7 @@ complexity:
     constructorThreshold: 7
     ignoreDefaultParameters: false
     ignoreDataClasses: true
-    ignoreAnnotatedParameter: [ ]
+    ignoreAnnotatedParameter: []
   MethodOverloading:
     active: true
     threshold: 6
@@ -154,7 +159,7 @@ complexity:
     active: true
   StringLiteralDuplication:
     active: true
-    excludes: [ ]
+    excludes: []
     threshold: 3
     ignoreAnnotation: true
     excludeStringsWithLessThan5Characters: true
@@ -246,7 +251,7 @@ exceptions:
       - 'toString'
   InstanceOfCheckForException:
     active: true
-    excludes: [ ]
+    excludes: []
   NotImplementedDeclaration:
     active: true
   ObjectExtendsThrowable:
@@ -272,7 +277,7 @@ exceptions:
     active: true
   ThrowingExceptionsWithoutMessageOrCause:
     active: true
-    excludes: [ ]
+    excludes: []
     exceptions:
       - 'ArrayIndexOutOfBoundsException'
       - 'Exception'
@@ -287,7 +292,7 @@ exceptions:
     active: true
   TooGenericExceptionCaught:
     active: true
-    excludes: [ ]
+    excludes: []
     exceptionNames:
       - 'ArrayIndexOutOfBoundsException'
       - 'Error'
@@ -326,7 +331,7 @@ naming:
     enumEntryPattern: '[A-Z][_a-zA-Z0-9]*'
   ForbiddenClassName:
     active: true
-    forbiddenName: [ ]
+    forbiddenName: []
   FunctionMaxLength:
     active: true
     excludes: [
@@ -346,8 +351,8 @@ naming:
     minimumFunctionNameLength: 3
   FunctionNaming:
     active: true
-    excludes: [ ]
-    functionPattern: '([a-z][a-zA-Z0-9]*)|(`.*`)'
+    excludes: []
+    functionPattern:  '([a-z][a-zA-Z0-9]*)|(`.*`)'
     excludeClassPattern: '$^'
     ignoreOverridden: true
     ignoreAnnotated:
@@ -409,10 +414,12 @@ performance:
     threshold: 3
   ForEachOnRange:
     active: true
-    excludes: [ ]
+    excludes: []
   SpreadOperator:
     active: true
-    excludes: [ ]
+    excludes: []
+  UnnecessaryPartOfBinaryExpression:
+    active: true
   UnnecessaryTemporaryInstantiation:
     active: true
 
@@ -455,13 +462,17 @@ potential-bugs:
     active: true
   IgnoredReturnValue:
     active: true
-    restrictToAnnotatedMethods: true
+    restrictToConfig: true
     returnValueAnnotations:
       - '*.CheckResult'
       - '*.CheckReturnValue'
     ignoreReturnValueAnnotations:
       - '*.CanIgnoreReturnValue'
-    ignoreFunctionCall: [ ]
+    returnValueTypes:
+      - 'kotlin.sequences.Sequence'
+      - 'kotlinx.coroutines.flow.*Flow'
+      - 'java.util.stream.*Stream'
+    ignoreFunctionCall: []
   ImplicitDefaultLocale:
     active: true
   ImplicitUnitReturnType:
@@ -475,13 +486,13 @@ potential-bugs:
     active: true
   LateinitUsage:
     active: true
-    excludes: [ ]
+    excludes: []
     ignoreOnClassesPattern: ''
   MapGetWithNotNullAssertionOperator:
     active: true
   MissingPackageDeclaration:
     active: true
-    excludes: [ '**/*.kts' ]
+    excludes: ['**/*.kts']
   MissingWhenCase:
     active: true
     allowElseExpression: true
@@ -503,7 +514,7 @@ potential-bugs:
     active: true
   UnsafeCallOnNullableType:
     active: true
-    excludes: [ ]
+    excludes: []
   UnsafeCast:
     active: true
   UnusedUnaryOperator:
@@ -526,7 +537,8 @@ style:
     active: true
   DataClassContainsFunctions:
     active: true
-    conversionFunctionPrefix: 'to'
+    conversionFunctionPrefix:
+      - 'to'
   DataClassShouldBeImmutable:
     active: true
   DestructuringDeclarationWithTooManyEntries:
@@ -553,22 +565,24 @@ style:
     customMessage: ''
   ForbiddenImport:
     active: true
-    imports: [ ]
+    imports: []
     forbiddenPatterns: ''
   ForbiddenMethodCall:
     active: true
     methods:
-      - 'kotlin.io.print'
-      - 'kotlin.io.println'
+      - reason: 'print does not allow you to configure the output stream. Use a logger instead.'
+        value: 'kotlin.io.print'
+      - reason: 'println does not allow you to configure the output stream. Use a logger instead.'
+        value: 'kotlin.io.println'
   ForbiddenPublicDataClass:
     active: true
-    excludes: [ '**' ]
+    excludes: ['**']
     ignorePackages:
       - '*.internal'
       - '*.internal.*'
   ForbiddenSuppress:
     active: true
-    rules: [ ]
+    rules: []
   ForbiddenVoid:
     active: true
     ignoreOverridden: false
@@ -577,13 +591,13 @@ style:
     active: true
     ignoreOverridableFunction: true
     ignoreActualFunction: true
-    excludedFunctions: 'describeContents'
+    excludedFunctions: []
   LibraryCodeMustSpecifyReturnType:
     active: true
-    excludes: [ '**' ]
+    excludes: ['**']
   LibraryEntitiesShouldNotBePublic:
     active: true
-    excludes: [ '**' ]
+    excludes: ['**']
   LoopWithTooManyJumpStatements:
     active: true
     maxJumpCount: 1
@@ -628,12 +642,16 @@ style:
     excludePackageStatements: true
     excludeImportStatements: true
     excludeCommentStatements: false
+    excludeRawStrings: true
   MayBeConst:
     active: true
   ModifierOrder: # This rules overlaps with formatting>ModifierOrdering from KtLint rules.
     active: false
   MultilineLambdaItParameter:
     active: true
+  MultilineRawStringIndentation:
+    active: true
+    indentSize: 4
   NestedClassesVisibility:
     active: true
   NewLineAtEndOfFile: # This rules overlaps with formatting>FinalNewline from KtLint rules.
@@ -663,7 +681,8 @@ style:
   ReturnCount:
     active: true
     max: 2
-    excludedFunctions: 'equals'
+    excludedFunctions:
+      - 'equals'
     excludeLabeled: false
     excludeReturnFromLambda: true
     excludeGuardClauses: false
@@ -678,6 +697,8 @@ style:
     max: 2
     excludeGuardClauses: false
   TrailingWhitespace:
+    active: true
+  TrimMultilineRawString:
     active: true
   UnderscoresInNumericLiterals:
     active: true
@@ -701,6 +722,7 @@ style:
     active: true
   UnnecessaryParentheses:
     active: true
+    allowForUnclearPrecedence: false
   UntilInsteadOfRangeTo:
     active: true
   UnusedImports:
@@ -744,7 +766,6 @@ style:
     ignoreLateinitVar: false
   WildcardImport:
     active: true
-    excludes: [ ]
     excludeImports:
       - 'java.util.*'
 
@@ -792,6 +813,19 @@ formatting:
   FunKeywordSpacing:
     active: true
     autoCorrect: true
+  FunctionReturnTypeSpacing:
+    active: true
+    autoCorrect: true
+  FunctionSignature: # TODO: Check this rule again later.
+    active: false
+    autoCorrect: true
+    forceMultilineWhenParameterCountGreaterOrEqualThan: 2147483647
+    functionBodyExpressionWrapping: 'default'
+    maxLineLength: 120
+    indentSize: 4
+  FunctionStartOfBodySpacing:
+    active: true
+    autoCorrect: true
   FunctionTypeReferenceSpacing:
     active: true
     autoCorrect: true
@@ -807,7 +841,7 @@ formatting:
     active: true
     autoCorrect: true
     indentSize: 4
-  MaximumLineLength: # This rules overlaps with style>MaxLineLength from Detekt rules.
+  MaximumLineLength: # This rules overlaps with style>MaxLineLength from Detekt rules. TODO: Check this rule again later.
     active: true
     autoCorrect: true
     maxLineLength: 120
@@ -823,6 +857,9 @@ formatting:
     autoCorrect: true
   NoBlankLineBeforeRbrace:
     active: false
+    autoCorrect: true
+  NoBlankLinesInChainedMethodCalls:
+    active: true
     autoCorrect: true
   NoConsecutiveBlankLines:
     active: true
@@ -858,7 +895,13 @@ formatting:
     active: true
     autoCorrect: true
     packagesToUseImportOnDemandProperty: 'java.util.*,kotlinx.android.synthetic.**'
+  NullableTypeSpacing:
+    active: true
+    autoCorrect: true
   PackageName:
+    active: false
+    autoCorrect: true
+  ParameterListSpacing:
     active: false
     autoCorrect: true
   ParameterListWrapping:
@@ -904,6 +947,9 @@ formatting:
   SpacingBetweenDeclarationsWithComments:
     active: true
     autoCorrect: true
+  SpacingBetweenFunctionNameAndOpeningParenthesis:
+    active: true
+    autoCorrect: true
   StringTemplate:
     active: true
     autoCorrect: true
@@ -915,9 +961,13 @@ formatting:
   TypeArgumentListSpacing:
     active: true
     autoCorrect: true
+  TypeParameterListSpacing:
+    active: true
+    autoCorrect: true
   UnnecessaryParenthesesBeforeTrailingLambda:
     active: true
     autoCorrect: true
   Wrapping:
     active: true
     autoCorrect: true
+    indentSize: 4

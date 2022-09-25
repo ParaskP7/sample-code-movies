@@ -4,6 +4,7 @@ import io.petros.movies.domain.model.movie.Movie
 import io.petros.movies.utils.MOVIE_DATE_FORMAT
 import io.petros.movies.utils.toDate
 
+@Suppress("LambdaParameterNaming")
 data class MovieRaw(
     private val vote_count: Int,
     private val id: Int,

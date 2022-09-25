@@ -1,3 +1,5 @@
+@file:Suppress("Filename")
+
 package io.petros.movies.movie_details_compose.di.koin
 
 import io.petros.movies.movie_details_compose.MovieDetailsViewModel

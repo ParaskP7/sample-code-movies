@@ -31,9 +31,12 @@ class MoviesPagingAdapter : PagingDataAdapter<Movie, RecyclerView.ViewHolder>(MO
 
     /* ITEM VIEW HOLDER */
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
-        context?.let { MovieViewHolder(MovieItemView(it), itemCallback) }
-            ?: throw IllegalArgumentException("Context not initialised.")
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = context?.let {
+        MovieViewHolder(
+            MovieItemView(it),
+            itemCallback
+        )
+    } ?: throw IllegalArgumentException("Context not initialised.")
 
     @Suppress("UnsafeCast")
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {

@@ -10,10 +10,9 @@ class SettingsRepositoryImpl(
     private val datastore: MoviesDatastore,
 ) : SettingsRepository {
 
-    override suspend fun isComposeEnabled() =
-        datastore.settings().data
-            .map { it[datastore.isComposeEnabled()] ?: false }
-            .first()
+    override suspend fun isComposeEnabled() = datastore.settings().data
+        .map { it[datastore.isComposeEnabled()] ?: false }
+        .first()
 
     override suspend fun setComposeEnabled(isEnabled: Boolean) {
         datastore.settings().edit {

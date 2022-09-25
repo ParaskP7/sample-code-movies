@@ -5,12 +5,11 @@ import java.util.*
 
 const val MOVIE_DATE_FORMAT = "yyyy-MM-dd"
 
-fun releaseDateGte(year: Int?, month: Int?) =
-    year?.let {
-        month?.let {
-            releaseDateGte(year, month)
-        } ?: releaseDateGte(year)
-    }?.let { SimpleDateFormat(MOVIE_DATE_FORMAT, Locale.US).format(it) }
+fun releaseDateGte(year: Int?, month: Int?) = year?.let {
+    month?.let {
+        releaseDateGte(year, month)
+    } ?: releaseDateGte(year)
+}?.let { SimpleDateFormat(MOVIE_DATE_FORMAT, Locale.US).format(it) }
 
 private fun releaseDateGte(year: Int): Date {
     val calendar = Calendar.getInstance()
@@ -24,12 +23,11 @@ private fun releaseDateGte(year: Int, month: Int): Date {
     return calendar.time
 }
 
-fun releaseDateLte(year: Int?, month: Int?) =
-    year?.let {
-        month?.let {
-            releaseDateLte(year, month)
-        } ?: releaseDateLte(year)
-    }?.let { SimpleDateFormat(MOVIE_DATE_FORMAT, Locale.US).format(it) }
+fun releaseDateLte(year: Int?, month: Int?) = year?.let {
+    month?.let {
+        releaseDateLte(year, month)
+    } ?: releaseDateLte(year)
+}?.let { SimpleDateFormat(MOVIE_DATE_FORMAT, Locale.US).format(it) }
 
 private fun releaseDateLte(year: Int): Date {
     val calendar = Calendar.getInstance()

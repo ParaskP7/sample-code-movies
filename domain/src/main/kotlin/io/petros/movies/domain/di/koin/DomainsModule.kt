@@ -1,3 +1,5 @@
+@file:Suppress("Filename")
+
 package io.petros.movies.domain.di.koin
 
 import io.petros.movies.domain.interactor.movie.LoadDateUseCase

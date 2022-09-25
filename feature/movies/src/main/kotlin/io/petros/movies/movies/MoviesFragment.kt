@@ -92,17 +92,14 @@ class MoviesFragment :
         }
     }
 
-    private fun refreshErrorState(loadState: CombinedLoadStates) =
-        loadState.source.refresh as? LoadState.Error
-            ?: loadState.refresh as? LoadState.Error
+    private fun refreshErrorState(loadState: CombinedLoadStates) = loadState.source.refresh as? LoadState.Error
+        ?: loadState.refresh as? LoadState.Error
 
-    private fun appendErrorState(loadState: CombinedLoadStates) =
-        loadState.source.append as? LoadState.Error
-            ?: loadState.append as? LoadState.Error
+    private fun appendErrorState(loadState: CombinedLoadStates) = loadState.source.append as? LoadState.Error
+        ?: loadState.append as? LoadState.Error
 
-    private fun prependErrorState(loadState: CombinedLoadStates) =
-        loadState.source.prepend as? LoadState.Error
-            ?: loadState.prepend as? LoadState.Error
+    private fun prependErrorState(loadState: CombinedLoadStates) = loadState.source.prepend as? LoadState.Error
+        ?: loadState.prepend as? LoadState.Error
 
     override fun onResume() {
         super.onResume()
@@ -200,8 +197,11 @@ class MoviesFragment :
         findNavController().navigate(uri, options)
     }
 
-    private fun movieDetailsDeepLink(isComposeEnabled: Boolean) =
-        if (isComposeEnabled) MOVIE_DETAILS_COMPOSE_DEEP_LINK else MOVIE_DETAILS_DEEP_LINK
+    private fun movieDetailsDeepLink(isComposeEnabled: Boolean) = if (isComposeEnabled) {
+        MOVIE_DETAILS_COMPOSE_DEEP_LINK
+    } else {
+        MOVIE_DETAILS_DEEP_LINK
+    }
 
     /* CALLBACK */
 

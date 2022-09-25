@@ -1,3 +1,5 @@
+@file:Suppress("MaximumLineLength")
+
 package io.petros.movies.data.repository.movie
 
 import androidx.paging.ExperimentalPagingApi

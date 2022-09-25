@@ -1,4 +1,4 @@
-@file:Suppress("unused")
+@file:Suppress("unused", "Filename", "MaximumLineLength")
 
 package io.petros.movies.android_utils
 

@@ -1,3 +1,5 @@
+@file:Suppress("TypeParameterListSpacing")
+
 package io.petros.movies.core.fragment
 
 import android.content.Context

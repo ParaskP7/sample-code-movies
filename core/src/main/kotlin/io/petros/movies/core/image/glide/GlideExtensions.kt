@@ -1,3 +1,5 @@
+@file:Suppress("Filename")
+
 package io.petros.movies.core.image.glide
 
 import com.bumptech.glide.Glide
