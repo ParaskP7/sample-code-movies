@@ -26,6 +26,7 @@ dependencies {
     implementation(Deps.Kotlin.Coroutines.CORE_JVM)
     implementation(Deps.Material.MATERIAL)
     implementation(Deps.Android.Core.FRAGMENT)
+    implementation(Deps.Android.Core.FRAGMENT_KTX)
     implementation(Deps.Android.Core.CONSTRAINT_LAYOUT)
     implementation(Deps.Android.Ktx.CORE)
     implementation(Deps.Android.Arch.Lifecycle.LIVE_DATA_CORE)

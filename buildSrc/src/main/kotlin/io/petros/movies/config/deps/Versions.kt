@@ -42,7 +42,7 @@ object Versions {
             const val ANNOTATION = "1.5.0" // Released: 21-09-22
 
             // Releases: https://developer.android.com/jetpack/androidx/releases/fragment
-            const val FRAGMENT = "1.5.2" // Released: 24-08-22
+            const val FRAGMENT = "1.5.3" // Released: 21-09-22
 
             // Releases: https://developer.android.com/jetpack/androidx/releases/recyclerview
             @Suppress("unused") const val RECYCLER_VIEW = "1.2.1" // Released: 02-06-21

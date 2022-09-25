@@ -40,6 +40,7 @@ dependencies {
     implementation(Deps.Image.Coil.COIL_BASE)
     implementation(Deps.Image.Coil.COMPOSE)
     implementation(Deps.Android.Core.FRAGMENT)
+    implementation(Deps.Android.Core.FRAGMENT_KTX)
     implementation(Deps.Android.Arch.Lifecycle.VIEW_MODEL)
     implementation(Deps.Android.Arch.Lifecycle.VIEW_MODEL_KTX)
     implementation(Deps.Di.Koin.Kotlin.CORE)
