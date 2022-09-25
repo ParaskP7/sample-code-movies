@@ -13,14 +13,14 @@ object Plugins {
         const val KOTLIN_JETPACK_COMPOSE = KOTLIN // Released: 20-04-22
 
         // Releases: https://androidstudio.googleblog.com
-        // Release: https://androidstudio.googleblog.com/2022/08/android-studio-chipmunk-202121-patch-2.html
-        @Suppress("unused") const val ANDROID_GRADLE = "7.2.2" // Released: 03-08-22
+        // Release: https://androidstudio.googleblog.com/2022/09/android-studio-dolphin-available-in.html
+        @Suppress("unused") const val ANDROID_GRADLE = "7.3.0" // Released: 15-09-22
 
-        // Release: https://androidstudio.googleblog.com/2022/08/android-studio-dolphin-rc1-now-available.html
-        @Suppress("unused") const val ANDROID_GRADLE_BETA = "7.3.0-rc01" // Released: 16-08-22
+        // Release: https://androidstudio.googleblog.com/2022/09/android-studio-electric-eel-beta-1-now.html
+        @Suppress("unused") const val ANDROID_GRADLE_BETA = "7.4.0-beta01" // Released: 22-09-22
 
-        // Release: https://androidstudio.googleblog.com/2022/08/android-studio-electric-eel-canary-10.html
-        const val ANDROID_GRADLE_CANARY = "7.4.0-alpha10" // Released: 26-08-22
+        // Release: https://androidstudio.googleblog.com/2022/09/android-studio-flamingo-canary-1.html
+        const val ANDROID_GRADLE_CANARY = "8.0.0-alpha01" // Released: 22-09-22
 
         // Releases: https://github.com/GradleUp/auto-manifest/releases
         const val ANDROID_MANIFEST = "2.0" // Released: 16-04-22
