@@ -80,30 +80,30 @@ object Deps {
 
             object Runtime {
 
-                val RUNTIME = "androidx.compose.runtime:runtime:${Versions.Android.Compose.COMPOSE_BETA}"
+                val RUNTIME = "androidx.compose.runtime:runtime:${Versions.Android.Compose.Libraries.LIBRARIES_BETA}"
 
             }
 
             object UI {
 
-                val UI = "androidx.compose.ui:ui:${Versions.Android.Compose.COMPOSE_BETA}"
-                val GRAPHICS = "androidx.compose.ui:ui-graphics:${Versions.Android.Compose.COMPOSE_BETA}"
-                val TEXT = "androidx.compose.ui:ui-text:${Versions.Android.Compose.COMPOSE_BETA}"
-                val UNIT = "androidx.compose.ui:ui-unit:${Versions.Android.Compose.COMPOSE_BETA}"
-                val TOOLING_PREVIEW = "androidx.compose.ui:ui-tooling-preview:${Versions.Android.Compose.COMPOSE_BETA}"
+                val UI = "androidx.compose.ui:ui:${Versions.Android.Compose.Libraries.LIBRARIES_BETA}"
+                val GRAPHICS = "androidx.compose.ui:ui-graphics:${Versions.Android.Compose.Libraries.LIBRARIES_BETA}"
+                val TEXT = "androidx.compose.ui:ui-text:${Versions.Android.Compose.Libraries.LIBRARIES_BETA}"
+                val UNIT = "androidx.compose.ui:ui-unit:${Versions.Android.Compose.Libraries.LIBRARIES_BETA}"
+                val TOOLING_PREVIEW = "androidx.compose.ui:ui-tooling-preview:${Versions.Android.Compose.Libraries.LIBRARIES_BETA}"
 
             }
 
             object Foundation {
 
-                val FOUNDATION = "androidx.compose.foundation:foundation:${Versions.Android.Compose.COMPOSE_BETA}"
-                val LAYOUT = "androidx.compose.foundation:foundation-layout:${Versions.Android.Compose.COMPOSE_BETA}"
+                val FOUNDATION = "androidx.compose.foundation:foundation:${Versions.Android.Compose.Libraries.LIBRARIES_BETA}"
+                val LAYOUT = "androidx.compose.foundation:foundation-layout:${Versions.Android.Compose.Libraries.LIBRARIES_BETA}"
 
             }
 
             object Material {
 
-                val MATERIAL = "androidx.compose.material:material:${Versions.Android.Compose.COMPOSE_BETA}"
+                val MATERIAL = "androidx.compose.material:material:${Versions.Android.Compose.Libraries.LIBRARIES_BETA}"
 
             }
 

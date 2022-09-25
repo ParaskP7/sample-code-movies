@@ -69,9 +69,20 @@ object Versions {
         @Suppress("MemberNameEqualsClassName")
         object Compose {
 
-            // Releases: https://developer.android.com/jetpack/androidx/releases/compose
-            const val COMPOSE = "1.3.0" // Released: 10-08-22
-            const val COMPOSE_BETA = "1.3.0-beta01" // Released: 24-08-22
+            object Compiler {
+
+                // Releases: https://developer.android.com/jetpack/androidx/releases/compose-compiler
+                const val COMPILER = "1.3.1" // Released: 07-09-22
+
+            }
+
+            object Libraries {
+
+                // Releases: https://developer.android.com/jetpack/androidx/releases/compose
+                @Suppress("unused") const val LIBRARIES = "1.2.1" // Released: 10-08-22
+                const val LIBRARIES_BETA = "1.3.0-beta03" // Released: 21-09-22
+
+            }
 
             object ConstraintLayout {
 
