@@ -46,7 +46,7 @@ object Versions {
 
             // Releases: https://developer.android.com/jetpack/androidx/releases/recyclerview
             @Suppress("unused") const val RECYCLER_VIEW = "1.2.1" // Released: 02-06-21
-            const val RECYCLER_VIEW_BETA = "1.3.0-beta02" // Released: 10-08-22
+            const val RECYCLER_VIEW_RC = "1.3.0-rc01" // Released: 21-09-22
 
             // Releases: https://developer.android.com/jetpack/androidx/releases/constraintlayout
             const val CONSTRAINT_LAYOUT = "2.1.4" // Released: 20-05-22

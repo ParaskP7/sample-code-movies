@@ -60,7 +60,7 @@ object Deps {
             val ANNOTATION = "androidx.annotation:annotation:${Versions.Android.Core.ANNOTATION}"
             val FRAGMENT = "androidx.fragment:fragment:${Versions.Android.Core.FRAGMENT}"
             val FRAGMENT_KTX = "androidx.fragment:fragment-ktx:${Versions.Android.Core.FRAGMENT}"
-            val RECYCLER_VIEW = "androidx.recyclerview:recyclerview:${Versions.Android.Core.RECYCLER_VIEW_BETA}"
+            val RECYCLER_VIEW = "androidx.recyclerview:recyclerview:${Versions.Android.Core.RECYCLER_VIEW_RC}"
             val CONSTRAINT_LAYOUT =
                 "androidx.constraintlayout:constraintlayout:${Versions.Android.Core.CONSTRAINT_LAYOUT}"
             val DRAWER_LAYOUT = "androidx.drawerlayout:drawerlayout:${Versions.Android.Core.DRAWER_LAYOUT}"
