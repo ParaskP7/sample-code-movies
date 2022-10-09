@@ -25,6 +25,7 @@ plugins {
 }
 
 android {
+    namespace = App.APPLICATION_ID
     defaultConfig { defaultConfig() }
     buildTypes { buildTypes() }
     buildFeatures {

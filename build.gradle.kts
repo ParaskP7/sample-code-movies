@@ -55,7 +55,6 @@ buildscript {
     dependencies {
         classpath(Plugins.KOTLIN_GRADLE)
         classpath(Plugins.ANDROID_GRADLE)
-        classpath(Plugins.ANDROID_MANIFEST)
         classpath(Plugins.DETEKT)
         classpath(Plugins.DEPENDENCY_VERSIONS)
         classpath(Plugins.DEPENDENCY_ANALYSIS)
@@ -66,15 +65,8 @@ buildscript {
 /* PLUGINS */
 
 plugins {
-    id(Plugins.Id.Kotlin.Android.ANDROID_MANIFEST) version Plugins.Version.ANDROID_MANIFEST
     id(Plugins.Id.Dependency.ANALYSIS) version Plugins.Version.DEPENDENCY_ANALYSIS
     id(Plugins.Id.Gradle.DOCTOR) version Plugins.Version.GRADLE_DOCTOR
-}
-
-autoManifest {
-    packageName.set(App.APPLICATION_ID)
-    applyRecursively.set(true)
-    replaceDashesWithDot.set(true)
 }
 
 dependencyAnalysis {

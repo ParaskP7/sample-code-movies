@@ -64,3 +64,7 @@ object Projects {
     }
 
 }
+
+fun String.namespace() = this
+    .replace(Utils.COLON, Utils.DOT)
+    .replace(Utils.DASH, Utils.DOT)

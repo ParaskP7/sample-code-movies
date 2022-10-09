@@ -1,8 +1,10 @@
 @file:Suppress("InvalidPackageDeclaration")
 
+import io.petros.movies.config.android.App
 import io.petros.movies.config.deps.Deps
 import io.petros.movies.config.deps.Projects
 import io.petros.movies.config.deps.identifier
+import io.petros.movies.config.deps.namespace
 
 plugins {
     id(Plugins.Id.Android.LIBRARY)
@@ -11,6 +13,10 @@ plugins {
     id(Plugins.Id.Dependency.VERSIONS)
     id(Plugins.Id.Test.JACOCO)
     id(Plugins.Id.Test.COVERAGE)
+}
+
+android {
+    namespace = App.APPLICATION_ID + Projects.Implementation.Android.Core.DATA.namespace()
 }
 
 dependencies {

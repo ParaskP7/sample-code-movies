@@ -1,8 +1,10 @@
 @file:Suppress("InvalidPackageDeclaration")
 
+import io.petros.movies.config.android.App
 import io.petros.movies.config.deps.Deps
 import io.petros.movies.config.deps.Projects
 import io.petros.movies.config.deps.identifier
+import io.petros.movies.config.deps.namespace
 
 plugins {
     id(Plugins.Id.Android.LIBRARY)
@@ -13,8 +15,11 @@ plugins {
     id(Plugins.Id.Test.COVERAGE)
 }
 
-android.buildFeatures {
-    viewBinding = true
+android {
+    namespace = App.APPLICATION_ID + Projects.Implementation.Android.Feature.MOVIES.namespace()
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 dependencies {

@@ -4,6 +4,7 @@ object Utils {
 
     const val EMPTY = ""
     const val SPACE = " "
+    const val DOT = "."
     const val COMMA = ","
     const val COLON = ":"
     const val DASH = "-"
