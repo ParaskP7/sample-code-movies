@@ -1,5 +1,6 @@
 @file:Suppress("InvalidPackageDeclaration")
 
+import io.petros.movies.config.Config
 import io.petros.movies.config.android.App
 import io.petros.movies.config.deps.Deps
 import io.petros.movies.config.deps.Projects
@@ -16,6 +17,9 @@ plugins {
 
 android {
     namespace = App.APPLICATION_ID + Projects.Implementation.Android.Core.DATABASE.namespace()
+    lint {
+        disable += Config.Lint.disabledDatabaseIssues
+    }
 }
 
 dependencies {

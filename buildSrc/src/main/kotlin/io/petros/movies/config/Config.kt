@@ -36,6 +36,12 @@ object Config {
             "UnknownIssueId", // From Android Gradle Plugin version 7.4.0-alpha02 and onwards
         )
 
+        val disabledDatabaseIssues = arrayOf(
+            "RestrictedApi", // From Android Gradle Plugin version 8.0.0-alpha03 and onwards
+            "SyntheticAccessor", // From Android Gradle Plugin version 8.0.0-alpha03 and onwards
+            "UnknownNullness", // From Android Gradle Plugin version 8.0.0-alpha03 and onwards
+        )
+
     }
 
     object Detekt {

@@ -16,11 +16,11 @@ object Plugins {
         // Release: https://androidstudio.googleblog.com/2022/09/android-studio-dolphin-available-in.html
         @Suppress("unused") const val ANDROID_GRADLE = "7.3.0" // Released: 15-09-22
 
-        // Release: https://androidstudio.googleblog.com/2022/09/android-studio-electric-eel-beta-1-now.html
-        @Suppress("unused") const val ANDROID_GRADLE_BETA = "7.4.0-beta01" // Released: 22-09-22
+        // Release: https://androidstudio.googleblog.com/2022/10/android-studio-electric-eel-beta-2-now.html
+        @Suppress("unused") const val ANDROID_GRADLE_BETA = "7.4.0-beta02" // Released: 03-10-22
 
-        // Release: https://androidstudio.googleblog.com/2022/09/android-studio-flamingo-canary-1.html
-        const val ANDROID_GRADLE_CANARY = "8.0.0-alpha01" // Released: 22-09-22
+        // Release: https://androidstudio.googleblog.com/2022/10/android-studio-flamingo-canary-3-now.html
+        const val ANDROID_GRADLE_CANARY = "8.0.0-alpha03" // Released: 07-10-22
 
         // Releases: https://github.com/detekt/detekt/releases
         @Suppress("unused") const val DETEKT = "1.21.0" // Released: 17-07-22
