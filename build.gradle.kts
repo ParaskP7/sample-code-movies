@@ -482,7 +482,11 @@ fun KotlinJvmOptions.kotlinOptions() {
 }
 
 fun DependencyUpdatesTask.versionsOptions() {
-    rejectVersionIf { isAlpha(candidate.version) || isMilestone(candidate.version) }
+    rejectVersionIf {
+        isDev(candidate.version) ||
+                isAlpha(candidate.version) ||
+                isMilestone(candidate.version)
+    }
     gradleReleaseChannel = Config.Dependency.Versions.GRADLE_RELEASE_CHANNEL
     checkConstraints = false
     checkForGradleUpdate = true
@@ -499,6 +503,9 @@ fun isNonStable(version: String): Boolean {
     val isStable = !nonStableKeyword && (stableKeyword || regex.matches(version))
     return isStable.not()
 }
+
+fun isDev(version: String) =
+    Config.Dependency.Versions.devKeyword.any { version.toLowerCase().contains(it) }
 
 fun isAlpha(version: String) =
     Config.Dependency.Versions.alphaKeyword.any { version.toLowerCase().contains(it) }

@@ -136,6 +136,9 @@ object Config {
             const val REPORT_FILE_NAME = "advice"
 
             const val REGEX = "^[0-9,.v-]+(-r)?$"
+            val devKeyword = listOf(
+                "dev",
+            )
             val alphaKeyword = listOf(
                 "alpha",
             )
