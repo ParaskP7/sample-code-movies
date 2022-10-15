@@ -12,7 +12,7 @@ class CustomRobolectricTestRunner(
     override fun buildGlobalConfig(): Config {
         return Config.Builder()
             .setApplication(TestApp::class.java)
-            .setSdk(Build.VERSION_CODES.S_V2)
+            .setSdk(Build.VERSION_CODES.TIRAMISU)
             .build()
     }
 
