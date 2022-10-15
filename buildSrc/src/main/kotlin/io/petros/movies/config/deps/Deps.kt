@@ -80,30 +80,30 @@ object Deps {
 
             object Runtime {
 
-                val RUNTIME = "androidx.compose.runtime:runtime:${Versions.Android.Compose.Libraries.LIBRARIES_BETA}"
+                val RUNTIME = "androidx.compose.runtime:runtime:${Versions.Android.Compose.Libraries.LIBRARIES_RC}"
 
             }
 
             object UI {
 
-                val UI = "androidx.compose.ui:ui:${Versions.Android.Compose.Libraries.LIBRARIES_BETA}"
-                val GRAPHICS = "androidx.compose.ui:ui-graphics:${Versions.Android.Compose.Libraries.LIBRARIES_BETA}"
-                val TEXT = "androidx.compose.ui:ui-text:${Versions.Android.Compose.Libraries.LIBRARIES_BETA}"
-                val UNIT = "androidx.compose.ui:ui-unit:${Versions.Android.Compose.Libraries.LIBRARIES_BETA}"
-                val TOOLING_PREVIEW = "androidx.compose.ui:ui-tooling-preview:${Versions.Android.Compose.Libraries.LIBRARIES_BETA}"
+                val UI = "androidx.compose.ui:ui:${Versions.Android.Compose.Libraries.LIBRARIES_RC}"
+                val GRAPHICS = "androidx.compose.ui:ui-graphics:${Versions.Android.Compose.Libraries.LIBRARIES_RC}"
+                val TEXT = "androidx.compose.ui:ui-text:${Versions.Android.Compose.Libraries.LIBRARIES_RC}"
+                val UNIT = "androidx.compose.ui:ui-unit:${Versions.Android.Compose.Libraries.LIBRARIES_RC}"
+                val TOOLING_PREVIEW = "androidx.compose.ui:ui-tooling-preview:${Versions.Android.Compose.Libraries.LIBRARIES_RC}"
 
             }
 
             object Foundation {
 
-                val FOUNDATION = "androidx.compose.foundation:foundation:${Versions.Android.Compose.Libraries.LIBRARIES_BETA}"
-                val LAYOUT = "androidx.compose.foundation:foundation-layout:${Versions.Android.Compose.Libraries.LIBRARIES_BETA}"
+                val FOUNDATION = "androidx.compose.foundation:foundation:${Versions.Android.Compose.Libraries.LIBRARIES_RC}"
+                val LAYOUT = "androidx.compose.foundation:foundation-layout:${Versions.Android.Compose.Libraries.LIBRARIES_RC}"
 
             }
 
             object Material {
 
-                val MATERIAL = "androidx.compose.material:material:${Versions.Android.Compose.Libraries.LIBRARIES_BETA}"
+                val MATERIAL = "androidx.compose.material:material:${Versions.Android.Compose.Libraries.LIBRARIES_RC}"
 
             }
 

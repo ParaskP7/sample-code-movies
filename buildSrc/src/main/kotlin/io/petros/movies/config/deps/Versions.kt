@@ -72,7 +72,7 @@ object Versions {
             object Compiler {
 
                 // Releases: https://developer.android.com/jetpack/androidx/releases/compose-compiler
-                const val COMPILER = "1.3.1" // Released: 07-09-22
+                const val COMPILER = "1.3.2" // Released: 04-10-22
 
             }
 
@@ -80,7 +80,7 @@ object Versions {
 
                 // Releases: https://developer.android.com/jetpack/androidx/releases/compose
                 @Suppress("unused") const val LIBRARIES = "1.2.1" // Released: 10-08-22
-                const val LIBRARIES_BETA = "1.3.0-beta03" // Released: 21-09-22
+                const val LIBRARIES_RC = "1.3.0-rc01" // Released: 05-10-22
 
             }
 
