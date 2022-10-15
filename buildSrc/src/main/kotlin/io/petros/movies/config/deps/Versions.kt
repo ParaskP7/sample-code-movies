@@ -178,9 +178,12 @@ object Versions {
         object Test {
 
             // Releases: https://developer.android.com/jetpack/androidx/releases/test
-            const val CORE = "1.4.0" // Released: 30-06-21
-            const val ESPRESSO = "3.4.0" // Released: 30-06-21
-            const val J_UNIT = "1.1.3" // Released: 30-06-21
+            @Suppress("unused") const val CORE = "1.4.0" // Released: 30-06-21
+            const val CORE_BETA = "1.5.0-beta01" // Released: ??-10-22
+            @Suppress("unused") const val ESPRESSO = "3.4.0" // Released: 30-06-21
+            const val ESPRESSO_BETA = "3.5.0-beta01" // Released: ??-10-22
+            @Suppress("unused") const val J_UNIT = "1.1.3" // Released: 30-06-21
+            const val J_UNIT_BETA = "1.1.4-beta01" // Released: ??-10-22
 
             // Releases: https://github.com/robolectric/robolectric/releases
             const val ROBOLECTRIC = "4.8.2" // Released: 22-08-22
