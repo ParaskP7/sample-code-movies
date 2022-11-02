@@ -26,7 +26,7 @@ class MoviesToolbarRobot : ScopedActions(idMatcher(R.id.toolbar)) {
         @Suppress("unused") const val MOVIES_TOOLBAR_FILTER_YEAR_2020 = "2020"
         @Suppress("unused") const val MOVIES_TOOLBAR_FILTER_MONTH_APRIL = "April"
         const val MOVIES_TOOLBAR_FILTER_YEAR_VALUE = "2022"
-        const val MOVIES_TOOLBAR_FILTER_MONTH_VALUE = "October"
+        const val MOVIES_TOOLBAR_FILTER_MONTH_VALUE = "November"
 
     }
 
