@@ -181,6 +181,7 @@ object Config {
             val allowed = arrayOf(
                 ":app\\S* -> :feature:\\S*",
                 ":app\\S* -> :core\\S*",
+                ":app\\S* -> :utils\\S*",
                 ":app\\S* -> :android-utils\\S*",
                 ":app\\S* -> :data\\S*",
                 ":app\\S* -> :domain\\S*",

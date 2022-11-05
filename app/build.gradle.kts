@@ -64,6 +64,7 @@ dependencies {
     implementation(Deps.Di.Koin.Android.ANDROID)
     implementation(Deps.Log.TIMBER)
 
+    androidTestImplementation(project(Projects.Implementation.Kotlin.UTILS))
     androidTestImplementation(project(Projects.TestImplementation.Kotlin.TEST))
 
     androidTestImplementation(Deps.Android.Test.CORE)

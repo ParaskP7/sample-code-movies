@@ -7,7 +7,6 @@ import io.petros.movies.app.robot.utils.idMatcher
 import io.petros.movies.app.robot.utils.textMatcher
 import io.petros.movies.lib.picker.R
 
-@Suppress("ForbiddenComment")
 class MonthPickerRobot : ScopedActions(idMatcher(R.id.picker)) {
 
     fun inTitle(action: UiActions.() -> Actions) = UiActions(idMatcher(R.id.title)).action()
@@ -19,10 +18,6 @@ class MonthPickerRobot : ScopedActions(idMatcher(R.id.picker)) {
     companion object {
 
         const val MOVIE_MONTH_PICKER_TITLE = "Select Movie Month"
-
-        // TODO: Revert to original value by specifically selecting the month during testing
-        @Suppress("unused") const val MOVIE_MONTH_PICKER_MONTH_APR = "Apr"
-        const val MOVIE_MONTH_PICKER_MONTH_VALUE = "Nov"
 
         private const val ACTION_OK = "OK"
 

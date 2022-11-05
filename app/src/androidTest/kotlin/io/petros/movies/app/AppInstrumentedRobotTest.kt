@@ -9,22 +9,20 @@ import androidx.test.filters.LargeTest
 import io.petros.movies.app.robot.actions.Actions
 import io.petros.movies.app.robot.actions.NoActions
 import io.petros.movies.app.robot.app.AppRobot
-import io.petros.movies.app.robot.app.movies.MoviesToolbarRobot.Companion.MOVIES_TOOLBAR_FILTER_MONTH
-import io.petros.movies.app.robot.app.movies.MoviesToolbarRobot.Companion.MOVIES_TOOLBAR_FILTER_MONTH_VALUE
-import io.petros.movies.app.robot.app.movies.MoviesToolbarRobot.Companion.MOVIES_TOOLBAR_FILTER_YEAR
-import io.petros.movies.app.robot.app.movies.MoviesToolbarRobot.Companion.MOVIES_TOOLBAR_FILTER_YEAR_VALUE
-import io.petros.movies.app.robot.app.picker.MonthPickerRobot.Companion.MOVIE_MONTH_PICKER_MONTH_VALUE
-import io.petros.movies.app.robot.app.picker.MonthPickerRobot.Companion.MOVIE_MONTH_PICKER_TITLE
-import io.petros.movies.app.robot.app.picker.YearPickerRobot.Companion.MOVIE_YEAR_PICKER_TITLE
-import io.petros.movies.app.robot.app.picker.YearPickerRobot.Companion.MOVIE_YEAR_PICKER_YEAR_VALUE
+import io.petros.movies.app.robot.app.movies.MoviesToolbarRobot
+import io.petros.movies.app.robot.app.picker.MonthPickerRobot
+import io.petros.movies.app.robot.app.picker.YearPickerRobot
 import io.petros.movies.app.robot.app.robot
 import io.petros.movies.test.utils.MOCK_WEB_SERVER_PORT
 import io.petros.movies.test.utils.mockResponse
+import io.petros.movies.utils.toMonth
+import io.petros.movies.utils.toYear
 import okhttp3.mockwebserver.MockWebServer
 import org.junit.After
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
+import java.util.*
 
 @LargeTest
 @Suppress("LongMethod")
@@ -198,7 +196,7 @@ class AppInstrumentedRobotTest {
             inToolbar {
                 inFilterIcon { isNotShown() }
                 inCloseIcon { isShown() }
-                inYearFilter { hasText(MOVIES_TOOLBAR_FILTER_YEAR) }
+                inYearFilter { hasText(MoviesToolbarRobot.MOVIES_TOOLBAR_FILTER_YEAR) }
                 inMonthFilter { isNotShown() }
                 inYearFilter { performClick() }
             }
@@ -208,8 +206,8 @@ class AppInstrumentedRobotTest {
     private fun AppRobot.check_year_picker() {
         inMovies {
             inYearPicker {
-                inTitle { hasText(MOVIE_YEAR_PICKER_TITLE) }
-                inYear { hasTextInside(MOVIE_YEAR_PICKER_YEAR_VALUE) }
+                inTitle { hasText(YearPickerRobot.MOVIE_YEAR_PICKER_TITLE) }
+                inYear { hasTextInside(Date().toYear().toString()) }
                 onActionOk { performClick() }
             }
         }
@@ -220,8 +218,8 @@ class AppInstrumentedRobotTest {
             inToolbar {
                 inFilterIcon { isNotShown() }
                 inCloseIcon { isShown() }
-                inYearFilter { hasText(MOVIES_TOOLBAR_FILTER_YEAR_VALUE) }
-                inMonthFilter { hasText(MOVIES_TOOLBAR_FILTER_MONTH) }
+                inYearFilter { hasText(Date().toYear().toString()) }
+                inMonthFilter { hasText(MoviesToolbarRobot.MOVIES_TOOLBAR_FILTER_MONTH) }
             }
             inList {
                 inItem(UNDERWATER_ITEM_POSITION) {
@@ -248,8 +246,8 @@ class AppInstrumentedRobotTest {
             inToolbar {
                 inFilterIcon { isNotShown() }
                 inCloseIcon { isShown() }
-                inYearFilter { hasText(MOVIES_TOOLBAR_FILTER_YEAR_VALUE) }
-                inMonthFilter { hasText(MOVIES_TOOLBAR_FILTER_MONTH) }
+                inYearFilter { hasText(Date().toYear().toString()) }
+                inMonthFilter { hasText(MoviesToolbarRobot.MOVIES_TOOLBAR_FILTER_MONTH) }
             }
             inList {
                 inItem(TROLLS_WORLD_TOUR_ITEM_POSITION) {
@@ -276,9 +274,9 @@ class AppInstrumentedRobotTest {
             inToolbar {
                 inFilterIcon { isNotShown() }
                 inCloseIcon { isShown() }
-                inYearFilter { hasText(MOVIES_TOOLBAR_FILTER_YEAR_VALUE) }
+                inYearFilter { hasText(Date().toYear().toString()) }
                 inMonthFilter {
-                    hasText(MOVIES_TOOLBAR_FILTER_MONTH)
+                    hasText(MoviesToolbarRobot.MOVIES_TOOLBAR_FILTER_MONTH)
                     performClick()
                 }
             }
@@ -288,8 +286,8 @@ class AppInstrumentedRobotTest {
     private fun AppRobot.check_month_picker() {
         inMovies {
             inMonthPicker {
-                inTitle { hasText(MOVIE_MONTH_PICKER_TITLE) }
-                inMonth { hasTextInside(MOVIE_MONTH_PICKER_MONTH_VALUE) }
+                inTitle { hasText(MonthPickerRobot.MOVIE_MONTH_PICKER_TITLE) }
+                inMonth { hasTextInside(Date().toMonth().substring(0..2)) }
                 onActionOk { performClick() }
             }
         }
@@ -300,8 +298,8 @@ class AppInstrumentedRobotTest {
             inToolbar {
                 inFilterIcon { isNotShown() }
                 inCloseIcon { isShown() }
-                inYearFilter { hasText(MOVIES_TOOLBAR_FILTER_YEAR_VALUE) }
-                inMonthFilter { hasText(MOVIES_TOOLBAR_FILTER_MONTH_VALUE) }
+                inYearFilter { hasText(Date().toYear().toString()) }
+                inMonthFilter { hasText(Date().toMonth()) }
             }
             inList {
                 inItem(LOVE_WEDDING_REPEAT_ITEM_POSITION) {
@@ -328,8 +326,8 @@ class AppInstrumentedRobotTest {
             inToolbar {
                 inFilterIcon { isNotShown() }
                 inCloseIcon { isShown() }
-                inYearFilter { hasText(MOVIES_TOOLBAR_FILTER_YEAR_VALUE) }
-                inMonthFilter { hasText(MOVIES_TOOLBAR_FILTER_MONTH_VALUE) }
+                inYearFilter { hasText(Date().toYear().toString()) }
+                inMonthFilter { hasText(Date().toMonth()) }
             }
             inList {
                 inItem(BEHIND_YOU_ITEM_POSITION) {
@@ -356,8 +354,8 @@ class AppInstrumentedRobotTest {
             inToolbar {
                 inFilterIcon { isNotShown() }
                 inCloseIcon { isShown() }
-                inYearFilter { hasText(MOVIES_TOOLBAR_FILTER_YEAR_VALUE) }
-                inMonthFilter { hasText(MOVIES_TOOLBAR_FILTER_MONTH_VALUE) }
+                inYearFilter { hasText(Date().toYear().toString()) }
+                inMonthFilter { hasText(Date().toMonth()) }
                 inCloseIcon { performClick() }
             }
         }

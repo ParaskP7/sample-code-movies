@@ -78,7 +78,7 @@ class KotlinExtensionsKtTest {
     }
 
     @Test
-    fun `given valid date as string, when to date is triggered, then the expect date is returned`() {
+    fun `given valid date as string, when to date is triggered, then the expected date is returned`() {
         val date = "2019-09-17"
 
         val result = date.toDate(MOVIE_DATE_FORMAT)
@@ -94,7 +94,7 @@ class KotlinExtensionsKtTest {
     }
 
     @Test
-    fun `when to date is triggered, then the expect date is returned`() {
+    fun `when to date is triggered, then the expected date is returned`() {
         val date = GregorianCalendar(2019, Calendar.SEPTEMBER, 17).time
 
         val result = date.toDate(MOVIE_DATE_FORMAT)
@@ -103,7 +103,7 @@ class KotlinExtensionsKtTest {
     }
 
     @Test
-    fun `when to year is triggered, then the expect year is returned`() {
+    fun `when to year is triggered, then the expected year is returned`() {
         val year = 2019
         val date = GregorianCalendar(year, Calendar.SEPTEMBER, 17).time
 
@@ -113,7 +113,7 @@ class KotlinExtensionsKtTest {
     }
 
     @Test
-    fun `when to month is triggered, then the expect month is returned`() {
+    fun `when to month is triggered, then the expected month is returned`() {
         val month = MonthOfYear.SEPTEMBER
         val date = GregorianCalendar(2019, month.number, 17).time
 
