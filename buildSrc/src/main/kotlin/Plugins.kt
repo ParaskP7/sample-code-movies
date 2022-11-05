@@ -10,14 +10,14 @@ object Plugins {
         const val KOTLIN_JETPACK_COMPOSE = KOTLIN // Released: 20-04-22
 
         // Releases: https://androidstudio.googleblog.com
-        // Release: https://androidstudio.googleblog.com/2022/09/android-studio-dolphin-available-in.html
-        @Suppress("unused") const val ANDROID_GRADLE = "7.3.0" // Released: 15-09-22
+        // Release: https://androidstudio.googleblog.com/2022/10/android-studio-dolphin-202131-patch-1.html
+        @Suppress("unused") const val ANDROID_GRADLE = "7.3.1" // Released: 13-10-22
 
-        // Release: https://androidstudio.googleblog.com/2022/10/android-studio-electric-eel-beta-2-now.html
-        @Suppress("unused") const val ANDROID_GRADLE_BETA = "7.4.0-beta02" // Released: 03-10-22
+        // Release: https://androidstudio.googleblog.com/2022/10/android-studio-electric-eel-beta-4-now.html
+        @Suppress("unused") const val ANDROID_GRADLE_BETA = "7.4.0-beta04" // Released: 31-10-22
 
-        // Release: https://androidstudio.googleblog.com/2022/10/android-studio-flamingo-canary-5-now.html
-        const val ANDROID_GRADLE_CANARY = "8.0.0-alpha05" // Released: 18-10-22
+        // Release: https://androidstudio.googleblog.com/2022/11/android-studio-flamingo-canary-7-now.html
+        const val ANDROID_GRADLE_CANARY = "8.0.0-alpha07" // Released: 03-11-22
 
         // Releases: https://github.com/detekt/detekt/releases
         @Suppress("unused") const val DETEKT = "1.21.0" // Released: 17-07-22
