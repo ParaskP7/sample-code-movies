@@ -1,39 +1,31 @@
-@file:Suppress("InvalidPackageDeclaration")
-
-import io.petros.movies.config.android.App
-import io.petros.movies.config.deps.Deps
-import io.petros.movies.config.deps.Projects
-import io.petros.movies.config.deps.identifier
-import io.petros.movies.config.deps.namespace
+import io.petros.movies.Projects
+import io.petros.movies.enableViewBinding
+import io.petros.movies.identifier
+import io.petros.movies.libNamespace
 
 plugins {
-    id(Plugins.Id.Android.LIBRARY)
-    id(Plugins.Id.Kotlin.Android.ANDROID)
-    id(Plugins.Id.Quality.DETEKT)
-    id(Plugins.Id.Dependency.VERSIONS)
+    id("custom.android.library")
+    id("custom.detekt")
+    id("custom.dependency.versions")
 }
 
 android {
-    namespace = App.APPLICATION_ID + Projects.Implementation.Android.Core.CORE.namespace()
-    buildFeatures {
-        viewBinding = true
-    }
+    libNamespace(Projects.Implementation.Android.Core.CORE)
+    enableViewBinding()
 }
 
 dependencies {
     implementation(project(Projects.Implementation.Android.Core.ANDROID_UTILS))
 
-    implementation(Deps.Material.MATERIAL)
-    implementation(Deps.Android.Core.APP_COMPAT)
-    implementation(Deps.Android.Core.FRAGMENT)
-    implementation(Deps.Android.Arch.Lifecycle.COMMON)
-    implementation(Deps.Android.Arch.Lifecycle.COMMON_JAVA_8)
-    implementation(Deps.Android.Arch.Lifecycle.LIVE_DATA_CORE)
-    implementation(Deps.Android.Arch.Lifecycle.VIEW_MODEL)
-    implementation(Deps.Image.Glide.GLIDE)
-    implementation(Deps.Log.TIMBER)
-
-    detektPlugins(Plugins.DETEKT_FORMATTING)
+    implementation(libs.material)
+    implementation(libs.androidx.app.compat.main)
+    implementation(libs.androidx.fragment.main)
+    implementation(libs.androidx.lifecycle.common.main)
+    implementation(libs.androidx.lifecycle.common.java8)
+    implementation(libs.androidx.lifecycle.livedata.core)
+    implementation(libs.androidx.lifecycle.view.model.main)
+    implementation(libs.glide)
+    implementation(libs.timber)
 }
 
 dependencyAnalysis {
@@ -41,11 +33,11 @@ dependencyAnalysis {
         onIncorrectConfiguration {
             exclude(
                 Projects.Implementation.Android.Core.ANDROID_UTILS, // Ignore change to 'api' advice.
-                Deps.Material.MATERIAL.identifier(), // Ignore change to 'api' advice.
-                Deps.Android.Core.APP_COMPAT.identifier(), // Ignore change to 'api' advice.
-                Deps.Android.Core.FRAGMENT.identifier(), // Ignore change to 'api' advice.
-                Deps.Android.Arch.Lifecycle.LIVE_DATA_CORE.identifier(), // Ignore change to 'api' advice.
-                Deps.Android.Arch.Lifecycle.VIEW_MODEL.identifier(), // Ignore change to 'api' advice.
+                libs.material.identifier(), // Ignore change to 'api' advice.
+                libs.androidx.app.compat.main.identifier(), // Ignore change to 'api' advice.
+                libs.androidx.fragment.main.identifier(), // Ignore change to 'api' advice.
+                libs.androidx.lifecycle.livedata.core.identifier(), // Ignore change to 'api' advice.
+                libs.androidx.lifecycle.view.model.main.identifier(), // Ignore change to 'api' advice.
             )
         }
     }

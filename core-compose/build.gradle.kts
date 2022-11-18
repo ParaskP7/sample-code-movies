@@ -1,46 +1,33 @@
-@file:Suppress("InvalidPackageDeclaration")
-
-import io.petros.movies.config.android.App
-import io.petros.movies.config.deps.Deps
-import io.petros.movies.config.deps.Projects
-import io.petros.movies.config.deps.Versions
-import io.petros.movies.config.deps.identifier
-import io.petros.movies.config.deps.namespace
+import io.petros.movies.Projects
+import io.petros.movies.identifier
+import io.petros.movies.libNamespace
 
 plugins {
-    id(Plugins.Id.Android.LIBRARY)
-    id(Plugins.Id.Kotlin.Android.ANDROID)
-    id(Plugins.Id.Quality.DETEKT)
-    id(Plugins.Id.Dependency.VERSIONS)
+    id("custom.android.library")
+    id("custom.android.library.compose")
+    id("custom.detekt")
+    id("custom.dependency.versions")
 }
 
 android {
-    namespace = App.APPLICATION_ID + Projects.Implementation.Android.Core.CORE_COMPOSE.namespace()
-    buildFeatures {
-        compose = true
-    }
-    composeOptions {
-        kotlinCompilerExtensionVersion = Versions.Android.Compose.Compiler.COMPILER
-    }
+    libNamespace(Projects.Implementation.Android.Core.CORE_COMPOSE)
 }
 
 dependencies {
-    implementation(Deps.Android.Compose.Runtime.RUNTIME)
-    implementation(Deps.Android.Compose.UI.GRAPHICS)
-    implementation(Deps.Android.Compose.UI.TEXT)
-    implementation(Deps.Android.Compose.UI.UNIT)
-    implementation(Deps.Android.Compose.Foundation.FOUNDATION)
-    implementation(Deps.Android.Compose.Material.MATERIAL)
-
-    detektPlugins(Plugins.DETEKT_FORMATTING)
+    implementation(libs.androidx.compose.runtime)
+    implementation(libs.androidx.compose.ui.graphics)
+    implementation(libs.androidx.compose.ui.text)
+    implementation(libs.androidx.compose.ui.unit)
+    implementation(libs.androidx.compose.foundation.main)
+    implementation(libs.androidx.compose.material)
 }
 
 dependencyAnalysis {
     issues {
         onIncorrectConfiguration {
             exclude(
-                Deps.Android.Compose.Runtime.RUNTIME.identifier(), // Ignore change to 'api' advice.
-                Deps.Android.Compose.Material.MATERIAL.identifier(), // Ignore change to 'api' advice.
+                libs.androidx.compose.runtime.identifier(), // Ignore change to 'api' advice.
+                libs.androidx.compose.material.identifier(), // Ignore change to 'api' advice.
             )
         }
     }

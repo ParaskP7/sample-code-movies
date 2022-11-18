@@ -1,25 +1,18 @@
-@file:Suppress("InvalidPackageDeclaration")
-
-import io.petros.movies.config.android.App
-import io.petros.movies.config.deps.Deps
-import io.petros.movies.config.deps.Projects
-import io.petros.movies.config.deps.identifier
-import io.petros.movies.config.deps.namespace
+import io.petros.movies.Projects
+import io.petros.movies.enableViewBinding
+import io.petros.movies.identifier
+import io.petros.movies.libNamespace
 
 plugins {
-    id(Plugins.Id.Android.LIBRARY)
-    id(Plugins.Id.Kotlin.Android.ANDROID)
-    id(Plugins.Id.Quality.DETEKT)
-    id(Plugins.Id.Dependency.VERSIONS)
-    id(Plugins.Id.Test.JACOCO)
-    id(Plugins.Id.Test.COVERAGE)
+    id("custom.android.library")
+    id("custom.detekt")
+    id("custom.dependency.versions")
+    id("custom.jacoco")
 }
 
 android {
-    namespace = App.APPLICATION_ID + Projects.Implementation.Android.Feature.MOVIE_DETAILS.namespace()
-    buildFeatures {
-        viewBinding = true
-    }
+    libNamespace(Projects.Implementation.Android.Feature.MOVIE_DETAILS)
+    enableViewBinding()
 }
 
 dependencies {
@@ -27,51 +20,43 @@ dependencies {
     implementation(project(Projects.Implementation.Kotlin.DOMAIN))
     implementation(project(Projects.Implementation.Android.Core.CORE))
 
-    implementation(Deps.Kotlin.Coroutines.CORE)
-    implementation(Deps.Kotlin.Coroutines.CORE_JVM)
-    implementation(Deps.Material.MATERIAL)
-    implementation(Deps.Android.Core.FRAGMENT)
-    implementation(Deps.Android.Core.FRAGMENT_KTX)
-    implementation(Deps.Android.Core.CONSTRAINT_LAYOUT)
-    implementation(Deps.Android.Ktx.CORE)
-    implementation(Deps.Android.Arch.Lifecycle.LIVE_DATA_CORE)
-    implementation(Deps.Android.Arch.Lifecycle.VIEW_MODEL)
-    implementation(Deps.Android.Arch.Lifecycle.VIEW_MODEL_KTX)
-    implementation(Deps.Di.Koin.Kotlin.CORE)
-    implementation(Deps.Di.Koin.Kotlin.CORE_JVM)
-    implementation(Deps.Di.Koin.Android.ANDROID)
-    implementation(Deps.Log.TIMBER)
+    implementation(libs.kotlinx.coroutines.core.main)
+    implementation(libs.kotlinx.coroutines.core.jvm)
+    implementation(libs.material)
+    implementation(libs.androidx.fragment.main)
+    implementation(libs.androidx.fragment.ktx)
+    implementation(libs.androidx.constraint.layout)
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.lifecycle.livedata.core)
+    implementation(libs.androidx.lifecycle.view.model.main)
+    implementation(libs.androidx.lifecycle.view.model.ktx)
+    implementation(libs.koin.core.main)
+    implementation(libs.koin.core.jvm)
+    implementation(libs.koin.android)
+    implementation(libs.timber)
 
     testImplementation(project(Projects.Implementation.Android.Core.ANDROID_UTILS))
     testImplementation(project(Projects.TestImplementation.Kotlin.TEST))
 
-    testImplementation(Deps.Kotlin.Coroutines.Test.TEST)
-    testImplementation(Deps.Kotlin.Coroutines.Test.TEST_JVM)
-    testImplementation(Deps.Test.JUnit.J_UNIT_4)
-    testRuntimeOnly(Deps.Kotlin.Core.KOTLIN_REFLECT)
-    testImplementation(Deps.Test.Assert.STRIKT) { exclude(Deps.Test.Assert.Exclude.KOTLIN) }
-    testImplementation(Deps.Test.Mock.MOCK_K)
-    testImplementation(Deps.Test.Mock.DSL_JVM)
-    testImplementation(Deps.Android.Arch.Core.TESTING)
-
-    detektPlugins(Plugins.DETEKT_FORMATTING)
+    testImplementation(libs.kotlinx.coroutines.test.main)
+    testImplementation(libs.kotlinx.coroutines.test.jvm)
+    testImplementation(libs.junit4)
+    testRuntimeOnly(libs.kotlin.reflect)
+    testImplementation(libs.strikt)
+    testImplementation(libs.mockk.main)
+    testImplementation(libs.mockk.dsl.jvm)
+    testImplementation(libs.androidx.arch.core.testing)
 }
 
 dependencyAnalysis {
     issues {
-        onUnusedDependencies {
-            exclude(
-                Deps.Android.Ktx.CORE.identifier(), // Ignore remove advise. Required for 'is(In)Visible'.
-            )
-        }
         onIncorrectConfiguration {
             exclude(
                 Projects.Implementation.Kotlin.DOMAIN, // Ignore change to 'api' advice.
                 Projects.Implementation.Android.Core.CORE, // Ignore change to 'api' advice.
-                Deps.Material.MATERIAL.identifier(), // Ignore change to 'api' advice.
-                Deps.Android.Arch.Lifecycle.LIVE_DATA_CORE.identifier(), // Ignore change to 'testImpl' advice.
-                Deps.Di.Koin.Kotlin.CORE.identifier(), // Ignore change to 'api' advice.
-                Deps.Di.Koin.Kotlin.CORE_JVM.identifier(), // Ignore change to 'api' advice.
+                libs.material.identifier(), // Ignore change to 'api' advice.
+                libs.androidx.lifecycle.livedata.core.identifier(), // Ignore change to 'testImpl' advice.
+                libs.koin.core.jvm.identifier(), // Ignore change to 'api' advice.
             )
         }
     }

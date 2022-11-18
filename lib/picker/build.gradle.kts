@@ -1,44 +1,31 @@
-@file:Suppress("InvalidPackageDeclaration")
-
-import io.petros.movies.config.android.App
-import io.petros.movies.config.deps.Deps
-import io.petros.movies.config.deps.Projects
-import io.petros.movies.config.deps.identifier
-import io.petros.movies.config.deps.namespace
+import io.petros.movies.Projects
+import io.petros.movies.identifier
+import io.petros.movies.libNamespace
 
 plugins {
-    id(Plugins.Id.Android.LIBRARY)
-    id(Plugins.Id.Kotlin.Android.ANDROID)
-    id(Plugins.Id.Quality.DETEKT)
-    id(Plugins.Id.Dependency.VERSIONS)
+    id("custom.android.library")
+    id("custom.detekt")
+    id("custom.dependency.versions")
 }
 
 android {
-    namespace = App.APPLICATION_ID + Projects.Implementation.Android.Lib.PICKER.namespace()
+    libNamespace(Projects.Implementation.Android.Lib.PICKER)
 }
 
 dependencies {
     implementation(project(Projects.Implementation.Android.Core.CORE))
 
-    implementation(Deps.Android.Core.APP_COMPAT)
-    implementation(Deps.Android.Core.APP_COMPAT_RESOURCES)
-    implementation(Deps.Android.Core.FRAGMENT)
-    implementation(Deps.Log.TIMBER)
-
-    detektPlugins(Plugins.DETEKT_FORMATTING)
+    implementation(libs.androidx.app.compat.main)
+    implementation(libs.androidx.app.compat.resources)
+    implementation(libs.androidx.fragment.main)
+    implementation(libs.timber)
 }
 
 dependencyAnalysis {
     issues {
-        onUnusedDependencies {
-            exclude(
-                Projects.Implementation.Android.Core.CORE, // Ignore remove advise. Required for theme purposes.
-                Deps.Android.Core.APP_COMPAT.identifier(), // Ignore remove advise. Else, 'AlertDialog' is unresolved.
-            )
-        }
         onIncorrectConfiguration {
             exclude(
-                Deps.Android.Core.FRAGMENT.identifier(), // Ignore change to 'api' advice.
+                libs.androidx.fragment.main.identifier(), // Ignore change to 'api' advice.
             )
         }
     }

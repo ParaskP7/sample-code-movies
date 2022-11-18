@@ -1,41 +1,33 @@
-@file:Suppress("InvalidPackageDeclaration")
-
-import io.petros.movies.config.android.App
-import io.petros.movies.config.deps.Deps
-import io.petros.movies.config.deps.Projects
-import io.petros.movies.config.deps.identifier
-import io.petros.movies.config.deps.namespace
+import io.petros.movies.Projects
+import io.petros.movies.identifier
+import io.petros.movies.libNamespace
 
 plugins {
-    id(Plugins.Id.Android.LIBRARY)
-    id(Plugins.Id.Kotlin.Android.ANDROID)
-    id(Plugins.Id.Quality.DETEKT)
-    id(Plugins.Id.Dependency.VERSIONS)
+    id("custom.android.library")
+    id("custom.detekt")
+    id("custom.dependency.versions")
 }
 
 android {
-    namespace = App.APPLICATION_ID + Projects.Implementation.Android.Core.DATASTORE.namespace()
+    libNamespace(Projects.Implementation.Android.Core.DATASTORE)
 }
 
 dependencies {
-    implementation(Deps.Kotlin.Coroutines.CORE_JVM)
-    implementation(Deps.Android.Arch.DataStore.CORE)
-    implementation(Deps.Android.Arch.DataStore.Preferences.CORE)
-    implementation(Deps.Android.Arch.DataStore.Preferences.PREFERENCES)
-    implementation(Deps.Di.Koin.Kotlin.CORE)
-    implementation(Deps.Di.Koin.Kotlin.CORE_JVM)
-
-    detektPlugins(Plugins.DETEKT_FORMATTING)
+    implementation(libs.kotlinx.coroutines.core.jvm)
+    implementation(libs.androidx.datastore.core)
+    implementation(libs.androidx.datastore.preferences.core)
+    implementation(libs.androidx.datastore.preferences.main)
+    implementation(libs.koin.core.main)
+    implementation(libs.koin.core.jvm)
 }
 
 dependencyAnalysis {
     issues {
         onIncorrectConfiguration {
             exclude(
-                Deps.Android.Arch.DataStore.CORE.identifier(), // Ignore change to 'api' advice.
-                Deps.Android.Arch.DataStore.Preferences.CORE.identifier(), // Ignore change to 'api' advice.
-                Deps.Di.Koin.Kotlin.CORE.identifier(), // Ignore change to 'api' advice.
-                Deps.Di.Koin.Kotlin.CORE_JVM.identifier(), // Ignore change to 'api' advice.
+                libs.androidx.datastore.core.identifier(), // Ignore change to 'api' advice.
+                libs.androidx.datastore.preferences.core.identifier(), // Ignore change to 'api' advice.
+                libs.koin.core.jvm.identifier(), // Ignore change to 'api' advice.
             )
         }
     }

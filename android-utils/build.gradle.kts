@@ -1,43 +1,35 @@
-@file:Suppress("InvalidPackageDeclaration")
-
-import io.petros.movies.config.android.App
-import io.petros.movies.config.deps.Deps
-import io.petros.movies.config.deps.Projects
-import io.petros.movies.config.deps.identifier
-import io.petros.movies.config.deps.namespace
+import io.petros.movies.Projects
+import io.petros.movies.enableBuildConfig
+import io.petros.movies.identifier
+import io.petros.movies.libNamespace
 
 plugins {
-    id(Plugins.Id.Android.LIBRARY)
-    id(Plugins.Id.Kotlin.Android.ANDROID)
-    id(Plugins.Id.Quality.DETEKT)
-    id(Plugins.Id.Dependency.VERSIONS)
+    id("custom.android.library")
+    id("custom.detekt")
+    id("custom.dependency.versions")
 }
 
 android {
-    namespace = App.APPLICATION_ID + Projects.Implementation.Android.Core.ANDROID_UTILS.namespace()
-    buildFeatures {
-        buildConfig = true
-    }
+    libNamespace(Projects.Implementation.Android.Core.ANDROID_UTILS)
+    enableBuildConfig()
 }
 
 dependencies {
     implementation(project(Projects.Implementation.Kotlin.UTILS))
 
-    implementation(Deps.Android.Core.FRAGMENT)
-    implementation(Deps.Android.Arch.Lifecycle.COMMON)
-    implementation(Deps.Android.Arch.Lifecycle.LIVE_DATA_CORE)
-    implementation(Deps.Log.TIMBER)
-
-    detektPlugins(Plugins.DETEKT_FORMATTING)
+    implementation(libs.androidx.fragment.main)
+    implementation(libs.androidx.lifecycle.common.main)
+    implementation(libs.androidx.lifecycle.livedata.core)
+    implementation(libs.timber)
 }
 
 dependencyAnalysis {
     issues {
         onIncorrectConfiguration {
             exclude(
-                Deps.Android.Core.FRAGMENT.identifier(), // Ignore change to 'api' advice.
-                Deps.Android.Arch.Lifecycle.COMMON.identifier(), // Ignore change to 'api' advice.
-                Deps.Android.Arch.Lifecycle.LIVE_DATA_CORE.identifier(), // Ignore change to 'api' advice.
+                libs.androidx.fragment.main.identifier(), // Ignore change to 'api' advice.
+                libs.androidx.lifecycle.common.main.identifier(), // Ignore change to 'api' advice.
+                libs.androidx.lifecycle.livedata.core.identifier(), // Ignore change to 'api' advice.
             )
         }
     }

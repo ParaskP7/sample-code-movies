@@ -1,46 +1,38 @@
-@file:Suppress("InvalidPackageDeclaration")
-
-import io.petros.movies.config.android.App
-import io.petros.movies.config.deps.Deps
-import io.petros.movies.config.deps.Projects
-import io.petros.movies.config.deps.identifier
-import io.petros.movies.config.deps.namespace
+import io.petros.movies.Projects
+import io.petros.movies.identifier
+import io.petros.movies.libNamespace
 
 plugins {
-    id(Plugins.Id.Android.LIBRARY)
-    id(Plugins.Id.Kotlin.Android.ANDROID)
-    id(Plugins.Id.Quality.DETEKT)
-    id(Plugins.Id.Dependency.VERSIONS)
+    id("custom.android.library")
+    id("custom.detekt")
+    id("custom.dependency.versions")
 }
 
 android {
-    namespace = App.APPLICATION_ID + Projects.TestImplementation.Android.ANDROID_TEST.namespace()
+    libNamespace(Projects.TestImplementation.Android.ANDROID_TEST)
 }
 
 dependencies {
-    implementation(Deps.Kotlin.Coroutines.Test.TEST)
-    implementation(Deps.Material.MATERIAL)
-    implementation(Deps.Android.Test.CORE)
-    implementation(Deps.Test.JUnit.J_UNIT_4)
-    runtimeOnly(Deps.Kotlin.Core.KOTLIN_REFLECT)
-    implementation(Deps.Android.Test.Robolectric.ROBOLECTRIC) { exclude(Deps.Android.Test.Robolectric.Exclude.MAVEN) }
-    implementation(Deps.Android.Test.Robolectric.ANNOTATIONS)
-
-    detektPlugins(Plugins.DETEKT_FORMATTING)
+    implementation(libs.kotlinx.coroutines.test.main)
+    implementation(libs.material)
+    implementation(libs.androidx.test.core.main)
+    implementation(libs.junit4)
+    runtimeOnly(libs.kotlin.reflect)
+    implementation(libs.robolectric.main)
+    implementation(libs.robolectric.annotations)
 }
 
 dependencyAnalysis {
     issues {
         onUnusedDependencies {
             exclude(
-                Deps.Material.MATERIAL.identifier(), // Ignore remove advise. Required for theme purposes.
-                Deps.Test.JUnit.J_UNIT_4.identifier(), // Ignore remove advise. Required because of Robolectric.
+                libs.material.identifier(), // Ignore remove advise. Required for theme purposes.
+                libs.junit4.identifier(), // Ignore remove advise. Required because of Robolectric.
             )
         }
         onIncorrectConfiguration {
             exclude(
-                Deps.Kotlin.Coroutines.Test.TEST.identifier(), // Ignore change to 'api' advice.
-                Deps.Android.Test.Robolectric.ROBOLECTRIC.identifier(), // Ignore change to 'api' advice.
+                libs.robolectric.main.identifier(), // Ignore change to 'api' advice.
             )
         }
     }

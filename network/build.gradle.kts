@@ -1,43 +1,37 @@
-@file:Suppress("InvalidPackageDeclaration")
-
-import io.petros.movies.config.deps.Deps
-import io.petros.movies.config.deps.Projects
-import io.petros.movies.config.deps.identifier
+import io.petros.movies.Projects
+import io.petros.movies.identifier
 
 plugins {
-    id(Plugins.Id.Kotlin.KOTLIN)
-    id(Plugins.Id.Quality.DETEKT)
-    id(Plugins.Id.Dependency.VERSIONS)
-    id(Plugins.Id.Test.JACOCO)
-    id(Plugins.Id.Test.COVERAGE)
+    id("custom.kotlin")
+    id("custom.detekt")
+    id("custom.dependency.versions")
+    id("custom.jacoco")
 }
 
 dependencies {
     implementation(project(Projects.Implementation.Kotlin.UTILS))
     implementation(project(Projects.Implementation.Kotlin.DOMAIN))
 
-    implementation(Deps.Di.Koin.Kotlin.CORE)
-    implementation(Deps.Di.Koin.Kotlin.CORE_JVM)
-    implementation(Deps.Net.OkHttp.OK_HTTP)
-    implementation(Deps.Net.OkHttp.OK_HTTP_JVM)
-    implementation(Deps.Net.OkHttp.LOGGING_INTERCEPTOR)
-    implementation(Deps.Net.Gson.GSON)
-    implementation(Deps.Net.Rest.RETROFIT)
-    implementation(Deps.Net.Rest.RETROFIT_GSON)
+    implementation(libs.koin.core.main)
+    implementation(libs.koin.core.jvm)
+    implementation(libs.okhttp.main)
+    implementation(libs.okhttp.jvm)
+    implementation(libs.okhttp.logging)
+    implementation(libs.gson)
+    implementation(libs.retrofit.main)
+    implementation(libs.retrofit.gson)
 
     testImplementation(project(Projects.TestImplementation.Kotlin.TEST))
 
-    testImplementation(Deps.Kotlin.Coroutines.CORE_JVM)
-    testImplementation(Deps.Kotlin.Coroutines.Test.TEST)
-    testImplementation(Deps.Kotlin.Coroutines.Test.TEST_JVM)
-    testImplementation(Deps.Test.JUnit.J_UNIT_4)
-    testRuntimeOnly(Deps.Kotlin.Core.KOTLIN_REFLECT)
-    testImplementation(Deps.Test.Integration.MOCK_WEB_SERVER)
-    testImplementation(Deps.Test.Assert.STRIKT) { exclude(Deps.Test.Assert.Exclude.KOTLIN) }
-    testImplementation(Deps.Test.Mock.MOCK_K)
-    testImplementation(Deps.Test.Mock.DSL_JVM)
-
-    detektPlugins(Plugins.DETEKT_FORMATTING)
+    testImplementation(libs.kotlinx.coroutines.core.jvm)
+    testImplementation(libs.kotlinx.coroutines.test.main)
+    testImplementation(libs.kotlinx.coroutines.test.jvm)
+    testImplementation(libs.junit4)
+    testRuntimeOnly(libs.kotlin.reflect)
+    testImplementation(libs.okhttp.mock.web.server)
+    testImplementation(libs.strikt)
+    testImplementation(libs.mockk.main)
+    testImplementation(libs.mockk.dsl.jvm)
 }
 
 dependencyAnalysis {
@@ -45,9 +39,8 @@ dependencyAnalysis {
         onIncorrectConfiguration {
             exclude(
                 Projects.Implementation.Kotlin.DOMAIN, // Ignore change to 'api' advice.
-                Deps.Di.Koin.Kotlin.CORE.identifier(), // Ignore change to 'api' advice.
-                Deps.Di.Koin.Kotlin.CORE_JVM.identifier(), // Ignore change to 'api' advice.
-                Deps.Net.Rest.RETROFIT.identifier(), // Ignore change to 'api' advice.
+                libs.koin.core.jvm.identifier(), // Ignore change to 'api' advice.
+                libs.retrofit.main.identifier(), // Ignore change to 'api' advice.
             )
         }
     }

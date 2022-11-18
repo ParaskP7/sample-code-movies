@@ -1,43 +1,40 @@
-@file:Suppress("InvalidPackageDeclaration")
-
-import io.petros.movies.config.Config
-import io.petros.movies.config.android.App
-import io.petros.movies.config.deps.Deps
-import io.petros.movies.config.deps.Projects
-import io.petros.movies.config.deps.identifier
-import io.petros.movies.config.deps.namespace
+import io.petros.movies.Projects
+import io.petros.movies.disabledDatabaseIssues
+import io.petros.movies.identifier
+import io.petros.movies.libNamespace
 
 plugins {
-    id(Plugins.Id.Android.LIBRARY)
-    id(Plugins.Id.Kotlin.Android.ANDROID)
-    id(Plugins.Id.Kotlin.KAPT)
-    id(Plugins.Id.Quality.DETEKT)
-    id(Plugins.Id.Dependency.VERSIONS)
+    id("custom.android.library")
+    id("kotlin-kapt")
+    id("custom.detekt")
+    id("custom.dependency.versions")
 }
 
 android {
-    namespace = App.APPLICATION_ID + Projects.Implementation.Android.Core.DATABASE.namespace()
-    lint {
-        disable += Config.Lint.disabledDatabaseIssues
-    }
+    libNamespace(Projects.Implementation.Android.Core.DATABASE)
+    disabledDatabaseIssues()
+}
+
+kapt {
+    strictMode = true
+    showProcessorStats = true
+    useBuildCache = true
 }
 
 dependencies {
     implementation(project(Projects.Implementation.Kotlin.UTILS))
     implementation(project(Projects.Implementation.Kotlin.DOMAIN))
 
-    implementation(Deps.Kotlin.Coroutines.CORE_JVM)
-    implementation(Deps.Android.Arch.Database.SQLight.SQLIGHT)
-    implementation(Deps.Android.Arch.Database.Room.COMMON)
-    implementation(Deps.Android.Arch.Database.Room.RUNTIME)
-    implementation(Deps.Android.Arch.Database.Room.KTX)
-    implementation(Deps.Android.Arch.Database.Room.PAGING)
-    kapt(Deps.Android.Arch.Database.Room.COMPILER)
-    implementation(Deps.Android.Arch.Paging.COMMON)
-    implementation(Deps.Di.Koin.Kotlin.CORE)
-    implementation(Deps.Di.Koin.Kotlin.CORE_JVM)
-
-    detektPlugins(Plugins.DETEKT_FORMATTING)
+    implementation(libs.kotlinx.coroutines.core.jvm)
+    implementation(libs.androidx.sqlite)
+    implementation(libs.androidx.room.common)
+    implementation(libs.androidx.room.runtime)
+    implementation(libs.androidx.room.ktx)
+    implementation(libs.androidx.room.paging)
+    kapt(libs.androidx.room.compiler)
+    implementation(libs.androidx.paging.common)
+    implementation(libs.koin.core.main)
+    implementation(libs.koin.core.jvm)
 }
 
 dependencyAnalysis {
@@ -45,11 +42,10 @@ dependencyAnalysis {
         onIncorrectConfiguration {
             exclude(
                 Projects.Implementation.Kotlin.DOMAIN, // Ignore change to 'api' advice.
-                Deps.Kotlin.Coroutines.CORE_JVM.identifier(), // Ignore change to 'api' advice.
-                Deps.Android.Arch.Database.Room.RUNTIME.identifier(), // Ignore change to 'api' advice.
-                Deps.Android.Arch.Paging.COMMON.identifier(), // Ignore change to 'api' advice.
-                Deps.Di.Koin.Kotlin.CORE.identifier(), // Ignore change to 'api' advice.
-                Deps.Di.Koin.Kotlin.CORE_JVM.identifier(), // Ignore change to 'api' advice.
+                libs.kotlinx.coroutines.core.jvm.identifier(), // Ignore change to 'api' advice.
+                libs.androidx.room.runtime.identifier(), // Ignore change to 'api' advice.
+                libs.androidx.paging.common.identifier(), // Ignore change to 'api' advice.
+                libs.koin.core.jvm.identifier(), // Ignore change to 'api' advice.
             )
         }
     }

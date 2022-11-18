@@ -1,25 +1,18 @@
-@file:Suppress("InvalidPackageDeclaration")
-
-import io.petros.movies.config.android.App
-import io.petros.movies.config.deps.Deps
-import io.petros.movies.config.deps.Projects
-import io.petros.movies.config.deps.identifier
-import io.petros.movies.config.deps.namespace
+import io.petros.movies.Projects
+import io.petros.movies.enableViewBinding
+import io.petros.movies.identifier
+import io.petros.movies.libNamespace
 
 plugins {
-    id(Plugins.Id.Android.LIBRARY)
-    id(Plugins.Id.Kotlin.Android.ANDROID)
-    id(Plugins.Id.Quality.DETEKT)
-    id(Plugins.Id.Dependency.VERSIONS)
-    id(Plugins.Id.Test.JACOCO)
-    id(Plugins.Id.Test.COVERAGE)
+    id("custom.android.library")
+    id("custom.detekt")
+    id("custom.dependency.versions")
+    id("custom.jacoco")
 }
 
 android {
-    namespace = App.APPLICATION_ID + Projects.Implementation.Android.Feature.MOVIES.namespace()
-    buildFeatures {
-        viewBinding = true
-    }
+    libNamespace(Projects.Implementation.Android.Feature.MOVIES)
+    enableViewBinding()
 }
 
 dependencies {
@@ -29,67 +22,63 @@ dependencies {
     implementation(project(Projects.Implementation.Android.Core.CORE))
     implementation(project(Projects.Implementation.Android.Lib.PICKER))
 
-    implementation(Deps.Kotlin.Coroutines.CORE)
-    implementation(Deps.Kotlin.Coroutines.CORE_JVM)
-    implementation(Deps.Material.MATERIAL)
-    implementation(Deps.Android.Core.APP_COMPAT)
-    implementation(Deps.Android.Core.FRAGMENT)
-    implementation(Deps.Android.Core.FRAGMENT_KTX)
-    implementation(Deps.Android.Core.RECYCLER_VIEW)
-    implementation(Deps.Android.Core.CONSTRAINT_LAYOUT)
-    implementation(Deps.Android.Core.COORDINATOR_LAYOUT)
-    implementation(Deps.Android.Ktx.CORE)
-    implementation(Deps.Android.Arch.Lifecycle.COMMON)
-    implementation(Deps.Android.Arch.Lifecycle.RUNTIME_KTX)
-    implementation(Deps.Android.Arch.Lifecycle.LIVE_DATA_CORE)
-    implementation(Deps.Android.Arch.Lifecycle.VIEW_MODEL)
-    implementation(Deps.Android.Arch.Lifecycle.VIEW_MODEL_KTX)
-    implementation(Deps.Android.Arch.Navigation.COMMON)
-    implementation(Deps.Android.Arch.Navigation.RUNTIME)
-    implementation(Deps.Android.Arch.Navigation.FRAGMENT)
-    implementation(Deps.Android.Arch.Paging.COMMON)
-    implementation(Deps.Android.Arch.Paging.RUNTIME)
-    implementation(Deps.Di.Koin.Kotlin.CORE)
-    implementation(Deps.Di.Koin.Kotlin.CORE_JVM)
-    implementation(Deps.Di.Koin.Android.ANDROID)
-    implementation(Deps.Log.TIMBER)
+    implementation(libs.kotlinx.coroutines.core.main)
+    implementation(libs.kotlinx.coroutines.core.jvm)
+    implementation(libs.material)
+    implementation(libs.androidx.app.compat.main)
+    implementation(libs.androidx.fragment.main)
+    implementation(libs.androidx.fragment.ktx)
+    implementation(libs.androidx.recycler.view)
+    implementation(libs.androidx.constraint.layout)
+    implementation(libs.androidx.coordinator.layout)
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.lifecycle.common.main)
+    implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation(libs.androidx.lifecycle.livedata.core)
+    implementation(libs.androidx.lifecycle.view.model.main)
+    implementation(libs.androidx.lifecycle.view.model.ktx)
+    implementation(libs.androidx.navigation.common)
+    implementation(libs.androidx.navigation.runtime)
+    implementation(libs.androidx.navigation.fragment.main)
+    implementation(libs.androidx.paging.common)
+    implementation(libs.androidx.paging.runtime)
+    implementation(libs.koin.core.main)
+    implementation(libs.koin.core.jvm)
+    implementation(libs.koin.android)
+    implementation(libs.timber)
 
     testImplementation(project(Projects.TestImplementation.Kotlin.TEST))
     testImplementation(project(Projects.TestImplementation.Android.ANDROID_TEST))
 
-    testImplementation(Deps.Kotlin.Coroutines.Test.TEST)
-    testImplementation(Deps.Kotlin.Coroutines.Test.TEST_JVM)
-    testImplementation(Deps.Test.JUnit.J_UNIT_4)
-    testRuntimeOnly(Deps.Kotlin.Core.KOTLIN_REFLECT)
-    testImplementation(Deps.Test.Assert.STRIKT) { exclude(Deps.Test.Assert.Exclude.KOTLIN) }
-    testImplementation(Deps.Test.Mock.MOCK_K)
-    testImplementation(Deps.Test.Mock.DSL_JVM)
-    testImplementation(Deps.Android.Arch.Core.TESTING)
-    testImplementation(Deps.Android.Test.Robolectric.ROBOLECTRIC)
-
-    detektPlugins(Plugins.DETEKT_FORMATTING)
+    testImplementation(libs.kotlinx.coroutines.test.main)
+    testImplementation(libs.kotlinx.coroutines.test.jvm)
+    testImplementation(libs.junit4)
+    testRuntimeOnly(libs.kotlin.reflect)
+    testImplementation(libs.strikt)
+    testImplementation(libs.mockk.main)
+    testImplementation(libs.mockk.dsl.jvm)
+    testImplementation(libs.androidx.arch.core.testing)
+    testImplementation(libs.robolectric.main)
 }
 
 dependencyAnalysis {
     issues {
         onUnusedDependencies {
             exclude(
-                Deps.Android.Ktx.CORE.identifier(), // Ignore remove advise. Required for 'is(In)Visible'.
-                Deps.Android.Test.Robolectric.ROBOLECTRIC.identifier(), // Ignore remove advise. Required for tests.
+                libs.robolectric.main.identifier(), // Ignore remove advise. Required for tests.
             )
         }
         onIncorrectConfiguration {
             exclude(
                 Projects.Implementation.Kotlin.DOMAIN, // Ignore change to 'api' advice.
                 Projects.Implementation.Android.Core.CORE, // Ignore change to 'api' advice.
-                Deps.Material.MATERIAL.identifier(), // Ignore change to 'api' advice.
-                Deps.Android.Core.CONSTRAINT_LAYOUT.identifier(), // Ignore change to 'api' advice.
-                Deps.Android.Core.COORDINATOR_LAYOUT.identifier(), // Ignore change to 'api' advice.
-                Deps.Android.Core.RECYCLER_VIEW.identifier(), // Ignore change to 'api' advice.
-                Deps.Android.Arch.Paging.COMMON.identifier(), // Ignore change to 'api' advice.
-                Deps.Android.Arch.Paging.RUNTIME.identifier(), // Ignore change to 'api' advice.
-                Deps.Di.Koin.Kotlin.CORE.identifier(), // Ignore change to 'api' advice.
-                Deps.Di.Koin.Kotlin.CORE_JVM.identifier(), // Ignore change to 'api' advice.
+                libs.material.identifier(), // Ignore change to 'api' advice.
+                libs.androidx.constraint.layout.identifier(), // Ignore change to 'api' advice.
+                libs.androidx.coordinator.layout.identifier(), // Ignore change to 'api' advice.
+                libs.androidx.recycler.view.identifier(), // Ignore change to 'api' advice.
+                libs.androidx.paging.common.identifier(), // Ignore change to 'api' advice.
+                libs.androidx.paging.runtime.identifier(), // Ignore change to 'api' advice.
+                libs.koin.core.jvm.identifier(), // Ignore change to 'api' advice.
             )
         }
     }
