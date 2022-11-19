@@ -14,14 +14,6 @@ internal fun configureJava(
 /* COMPATIBILITY */
 
 fun JavaPluginExtension.compatibility() {
-    sourceCompatibility = Java.version
-    targetCompatibility = Java.version
-}
-
-/* CONFIG */
-
-object Java {
-
-    val version = JavaVersion.VERSION_11
-
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
 }

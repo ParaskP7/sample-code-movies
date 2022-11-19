@@ -1,5 +1,6 @@
 package io.petros.movies
 
+import org.gradle.api.JavaVersion
 import org.gradle.api.Project
 import org.gradle.api.tasks.SourceSet
 import org.gradle.api.tasks.SourceSetContainer
@@ -32,7 +33,7 @@ fun Project.kotlinOptions() {
 
 @Suppress("SuspiciousCollectionReassignment")
 fun KotlinJvmOptions.kotlinOptions() {
-    jvmTarget = Java.version.toString()
+    jvmTarget = JavaVersion.VERSION_11.toString()
     allWarningsAsErrors = true
     freeCompilerArgs += Kotlin.Options.freeCompilerArgs
 }
