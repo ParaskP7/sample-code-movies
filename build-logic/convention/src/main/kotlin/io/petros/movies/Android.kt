@@ -5,6 +5,7 @@ package io.petros.movies
 import com.android.build.api.dsl.AndroidSourceSet
 import com.android.build.api.dsl.CommonExtension
 import com.android.build.api.dsl.LibraryExtension
+import com.android.build.api.variant.AndroidComponentsExtension
 import com.android.build.gradle.ProguardFiles
 import com.android.build.gradle.internal.dsl.BaseAppModuleExtension
 import org.gradle.api.JavaVersion
@@ -26,6 +27,19 @@ internal fun Project.configureKotlinAndroid(
         testOptions()
         packagingOptions()
         sourceSets()
+    }
+}
+
+internal fun Project.configureIgnoredVariants(
+    androidComponentsExtension: AndroidComponentsExtension<*, *, *>,
+) {
+    androidComponentsExtension.apply {
+        val ignoredVariants = findLocalProperty(Config.LocalProperties.Gradle.IGNORED_VARIANTS)?.split(Utils.COMMA)
+        ignoredVariants?.forEach { ignoredVariant ->
+            beforeVariants { variant ->
+                if (variant.name == ignoredVariant) variant.enable = false
+            }
+        }
     }
 }
 

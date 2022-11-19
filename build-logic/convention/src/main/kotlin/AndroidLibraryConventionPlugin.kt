@@ -1,9 +1,8 @@
+import com.android.build.api.variant.LibraryAndroidComponentsExtension
 import com.android.build.gradle.LibraryExtension
-import io.petros.movies.Config.LocalProperties
 import io.petros.movies.Plugins
-import io.petros.movies.Utils
+import io.petros.movies.configureIgnoredVariants
 import io.petros.movies.configureKotlinAndroid
-import io.petros.movies.findLocalProperty
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
@@ -17,13 +16,9 @@ class AndroidLibraryConventionPlugin : Plugin<Project> {
             }
             extensions.configure<LibraryExtension> {
                 configureKotlinAndroid(this)
-                val ignoredVariants = findLocalProperty(LocalProperties.Gradle.IGNORED_VARIANTS)?.split(Utils.COMMA)
-                ignoredVariants?.forEach {
-                    @Suppress("DEPRECATION", "ForbiddenComment") // TODO: Think about 'ignoredVariants!
-                    variantFilter {
-                        if (name == it) ignore = true
-                    }
-                }
+            }
+            extensions.configure<LibraryAndroidComponentsExtension> {
+                configureIgnoredVariants(this)
             }
         }
     }
