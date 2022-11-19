@@ -81,16 +81,15 @@ Below is a list of goodies that are being showcased:
     2. [Detekt](https://github.com/arturbosch/detekt) ```(Static code analysis for Kotlin)```
 8. Tests
     1. [JUnit4](https://junit.org/junit4) ```(A programmer-oriented testing framework for Java)```
-    2. [JUnit5](https://junit.org/junit5) ```(JUnit 5 is the next generation of JUnit)```
-    3. [Strikt](https://strikt.io) ```(Strikt is an assertion library for Kotlin intended for use with a test runner such as
+    2. [Strikt](https://strikt.io) ```(Strikt is an assertion library for Kotlin intended for use with a test runner such as
     JUnit or Spek)```
-    4. [MockK](https://mockk.io) ```(MockK is a mocking library for Kotlin)```
-    5. [Robolectric](https://github.com/robolectric/robolectric) ```(Android Unit Testing Framework)```
-    6. [MockWebServer](https://github.com/square/okhttp/tree/master/mockwebserver) ```(A scriptable web server for testing
+    3. [MockK](https://mockk.io) ```(MockK is a mocking library for Kotlin)```
+    4. [Robolectric](https://github.com/robolectric/robolectric) ```(Android Unit Testing Framework)```
+    5. [MockWebServer](https://github.com/square/okhttp/tree/master/mockwebserver) ```(A scriptable web server for testing
     HTTP clients)```
-    7. [Espresso](https://developer.android.com/training/testing/espresso) ```(Use Espresso to write concise, beautiful,
+    6. [Espresso](https://developer.android.com/training/testing/espresso) ```(Use Espresso to write concise, beautiful,
     and reliable Android UI tests)```
-    8. [Jacoco](https://www.eclemma.org/jacoco/) ```(JaCoCo is a free code coverage library for Java, which has been created
+    7. [Jacoco](https://www.eclemma.org/jacoco/) ```(JaCoCo is a free code coverage library for Java, which has been created
     by the EclEmma team based on the lessons learned from using and integration existing libraries for many years)```
 9. Debug
     1. [LeakCanary](https://github.com/square/leakcanary) ```(A memory leak detection library for Android and Java)```
@@ -102,11 +101,9 @@ Below is a list of goodies that are being showcased:
     updates)```
     3. [Dependency Analysis](https://github.com/autonomousapps/dependency-analysis-android-gradle-plugin) ```(Gradle plugin
     for Java, Kotlin, and Android projects. Provides advice for managing dependencies and other applied plugins)```
-    4. [Module Graph Assert](https://github.com/jraska/modules-graph-assert) ```(Gradle plugin to keep your modules graph
+    4. [Gradle Doctor](https://github.com/runningcode/gradle-doctor) ```(The right prescription for your Gradle build)```
+    5. [Module Graph Assert](https://github.com/jraska/modules-graph-assert) ```(Gradle plugin to keep your modules graph
     healthy and lean.)```
-    5. [Gradle Doctor](https://github.com/runningcode/gradle-doctor) ```(The right prescription for your Gradle build)```
-    6. [Gradle Auto Manifest](https://github.com/GradleUp/auto-manifest) ```(Generates AndroidManifest.xml in simple
-    libraries so that you don't have to)```
 
 # Mad Scorecards
 
@@ -154,18 +151,18 @@ in most cases developers usually only care about the 'debug' build type (and a s
 
 All set, use the below command to build the project in order to install it on an Android device for demonstration:
 ```
-gradlew clean build -x check
+./gradlew clean build -x check
 ```
 
 Or faster yet and targeting a specific build type (in our case the debug build type):
 ```
-gradlew clean assembleDebug
+./gradlew clean assembleDebug
 ```
 
 Open an emulator or connect a physical device to experiment with the sample app, use the below command, which first 
 uninstalls and then installs the sample app:
 ```
-gradlew uninstallDebug | gradlew installDebug
+./gradlew uninstallDebug | ./gradlew installDebug
 ```
 
 Or faster yet, target a specific device (in our case an emulator):
@@ -176,18 +173,18 @@ adb -s emulator-5554 install app\build\outputs\apk\debug\app-debug.apk
 
 Use this command in order to run the static code analysis for the project:
 ```
-gradlew check -x test
+./gradlew check -x test
 ```
 
 Or if you want to be more specific, run the below commands to run the code quality tool or your choice (in isolation):
 ```
-gradlew detekt
-gradlew lintDebug
+./gradlew detekt
+./gradlew lintDebug
 ```
 
 Run the project unit tests using this command (this includes Robolectric):
 ```
-gradlew test
+./gradlew test
 ```
 
 There might be a possibility that you encounter a Java version related problem while having the Robolectric tests run. In 
@@ -197,13 +194,13 @@ should get fixed in subsequent Robolectric releases.
 
 Now, if you want to be more specific, run the below commands to run the tests or your choice (per module):
 ```
-gradlew <kotlin_module>:test
-gradlew <android_module>:testDebugUnitTest
+./gradlew <kotlin_module>:test
+./gradlew <android_module>:testDebugUnitTest
 ```
 
 Run the project instrumentation tests using this command (Espresso):
 ```
-gradlew connectedDebugAndroidTest
+./gradlew connectedDebugAndroidTest
 ```
 
 In order to run successfully the instrumentation tests and avoid flakiness, you need to turn off system animations on the 
@@ -215,17 +212,12 @@ within the 'DRAWING' section:
 
 Now, if you want to be more specific, run the below command to run the instrumentation tests or your choice (for app module):
 ```
-gradlew app:connectedDebugAndroidTest
+./gradlew app:connectedDebugAndroidTest
 ```
 
-Run the project coverage reports using this command:
+Run the project Jacoco reports using this command:
 ```
-gradlew coverage
-```
-
-Or if you want to just run the Jacoco reports without comparing the results with each other, use the below command:
-```
-gradlew jacoco
+./gradlew jacoco
 ```
 
 If you feel like it you can also unleash the 'monkey' and stress test the app with some random instructions (10K of them
@@ -236,24 +228,23 @@ adb shell monkey -p io.petros.movies.debug -v 10000
 
 Use this command in order to check dependency updates for the project:
 ```
-gradlew dependencyUpdates
+./gradlew dependencyUpdates
 ```
 
 Run the project dependency analysis reports using this command:
 ```
-gradlew buildHealth
-gradlew ripples --id :app
+./gradlew buildHealth
 ```
 
 Run the project module graph assert reports using this command:
 ```
-gradlew assertModuleGraph
+./gradlew assertModuleGraph
 ```
 
 And if you feel like it you can also generate 'Graphviz' files to visualise the modularization result, see below commands:
 ```
-gradlew generateModulesGraphvizText -Pmodules.graph.print.statistics=true (command line visualization)
-gradlew generateModulesGraphvizText -Pmodules.graph.output.gv=module_graph_assert (file output for Graphviz visualization)
+./gradlew generateModulesGraphvizText -Pmodules.graph.print.statistics=true (command line visualization)
+./gradlew generateModulesGraphvizText -Pmodules.graph.output.gv=module_graph_assert (file output for Graphviz visualization)
 dot -T png modules_graph -O (convert the above generated .dot file to a .png file, you need to install Graphviz first)
 ```
 
@@ -264,181 +255,196 @@ dot -T png modules_graph -O (convert the above generated .dot file to a .png fil
 # Future
 
 Below is a list of all those ```I REALLY WANNA DO``` future architecture and library enhancements:
-01. **![#2cb42c](https://placehold.it/15/2cb42c/000000?text=+) `DONE`** Update Gradle to the Latest Version. 
+01. ✅ `DONE` Update Gradle to the Latest Version. 
     For more info, see [Gradle Release Notes](https://docs.gradle.org/current/release-notes.html)
-02. **![#2cb42c](https://placehold.it/15/2cb42c/000000?text=+) `DONE`** Update Android Studio to the Latest Canary Version. 
+02. ✅ `DONE` Update Android Studio to the Latest Canary Version. 
     For more info, see [Android Studio Release Updates](https://androidstudio.googleblog.com)
-03. **![#2cb42c](https://placehold.it/15/2cb42c/000000?text=+) `DONE`** Replace current to the new AndroidX Package Structure. 
+03. ✅ `DONE` Replace current to the new AndroidX Package Structure. 
     For more info, see [AndroidX](https://developer.android.com/topic/libraries/support-library/androidx-overview) 
     ```(A new package structure to make it clearer which packages are bundled with the Android operating system, and which are packaged with your app's APK)```
-04. **![#2cb42c](https://placehold.it/15/2cb42c/000000?text=+) `DONE`** Replace Manual Android Extensions with Android KTX. 
+04. ✅ `DONE` Replace Manual Android Extensions with Android KTX. 
     For more info, see [Android KTX](https://developer.android.com/kotlin/ktx) 
     ```(Android KTX is a set of Kotlin extensions that is part of the Android Jetpack family)```
-05. **![#2cb42c](https://placehold.it/15/2cb42c/000000?text=+) `DONE`** Replace Gradle Groovy with Kotlin DSL. 
+05. ✅ `DONE` Replace Gradle Groovy with Kotlin DSL. 
     For more info, see [Gradle Kotlin DSL](https://github.com/gradle/kotlin-dsl)
     ``` (Kotlin language support for Gradle build scripts)```
-06. **![#2cb42c](https://placehold.it/15/2cb42c/000000?text=+) `DONE`** Replace RxJava with Coroutines.
+06. ✅ `DONE` Replace RxJava with Coroutines.
     For more info, see [Coroutines](https://kotlinlang.org/docs/reference/coroutines.html) 
     ```(Coroutines simplify asynchronous programming by putting the complications into libraries. The logic of the program can be expressed sequentially in a coroutine, and the underlying library will figure out the asynchrony for us)```
-07. **![#2cb42c](https://placehold.it/15/2cb42c/000000?text=+) `DONE`** Replace Dagger with Koin.
+07. ✅ `DONE` Replace Dagger with Koin.
     For more info, see [Koin](https://github.com/InsertKoinIO/koin) 
     ```(A pragmatic lightweight dependency injection framework for Kotlin)```
-08. **![#2cb42c](https://placehold.it/15/2cb42c/000000?text=+) `DONE`** Replace AssertJ with Strikt.
+08. ✅ `DONE` Replace AssertJ with Strikt.
     For more info see [Strikt](https://strikt.io) 
     ```(Strikt is an assertion library for Kotlin intended for use with a test runner such as JUnit or Spek)```
-09. **![#2cb42c](https://placehold.it/15/2cb42c/000000?text=+) `DONE`** Replace Mockito Kotlin with MockK.
+09. ✅ `DONE` Replace Mockito Kotlin with MockK.
     For more info see [MockK](https://mockk.io) 
     ```(MockK is a mocking library for Kotlin)```
-10. **![#2cb42c](https://placehold.it/15/2cb42c/000000?text=+) `DONE`** Upgrade JUnit4 to Spek Framework and JUnit5. 
+10. ✅ `DONE` Upgrade JUnit4 to Spek Framework and JUnit5. 
     For more info, see [Spek](https://spekframework.org) 
     ```(A specification framework for Kotlin)``` 
     and [JUnit5](https://junit.org/junit5) 
     ```(JUnit 5 is the next generation of JUnit)```
-11. **![#2cb42c](https://placehold.it/15/2cb42c/000000?text=+) `DONE`** Support Android 10 (Target SDK 29). 
+11. ✅ `DONE` Support Android 10 (Target SDK 29). 
     For more info, see [Android 10](https://developer.android.com/about/versions/10)
     ```(Build app experiences with dark theme and gesture navigation. Support new protections for user privacy and security)```
-12. **![#2cb42c](https://placehold.it/15/2cb42c/000000?text=+) `DONE`** Re-add Detekt Plugin.
+12. ✅ `DONE` Re-add Detekt Plugin.
     For more info, see [Detekt](https://arturbosch.github.io/detekt) 
     ```(Static code analysis for Kotlin)```
-13. **![#2cb42c](https://placehold.it/15/2cb42c/000000?text=+) `DONE`** Find new Versions Plugin.
+13. ✅ `DONE` Find new Versions Plugin.
     For example, see [Gradle Versions Plugin](https://github.com/ben-manes/gradle-versions-plugin)
     ```(Gradle plugin to discover dependency updates)```
-14. **![#ffff00](https://placehold.it/15/ff0000/000000?text=+) `PAUSED`** Find new Dexcount Plugin.
+14. ⏸️ `PAUSED` Find new Dexcount Plugin.
     For example, see [Dexcount Gradle Plugin](https://github.com/KeepSafe/dexcount-gradle-plugin)
     ```(A Gradle plugin to report the number of method references in your APK on every build)```
-15. **![#2cb42c](https://placehold.it/15/2cb42c/000000?text=+) `DONE`** Migrate to View Binding (From Kotlin Android Extensions Plugin). 
+15. ✅ `DONE` Migrate to View Binding (From Kotlin Android Extensions Plugin). 
     For more info, see [View Binding](https://developer.android.com/topic/libraries/view-binding) 
     ```(View binding is a feature that allows you to more easily write code that interacts with views. Once view binding is enabled in a module, it generates a binding class for each XML layout file present in that module. An instance of a binding class contains direct references to all views that have an ID in the corresponding layout)```
-16. **![#2cb42c](https://placehold.it/15/2cb42c/000000?text=+) `DONE`** Modularize the App Horizontally by Features.
+16. ✅ `DONE` Modularize the App Horizontally by Features.
     To get an understanding of Modularization and how to it applies to an Android project, start with this Article [Modularization](https://medium.com/google-developer-experts/modularizing-android-applications-9e2d18f244a0)
     ```(To take advantage of new distribution features (Instant apps, app bundles) from Google, or even just create a clear separation of concerns to make our project easier to work with— modularizing our applications can help us to achieve all of these things)```
-17. **![#2cb42c](https://placehold.it/15/2cb42c/000000?text=+) `DONE`** Add Result for Error Handling.
+17. ✅ `DONE` Add Result for Error Handling.
     To get an understanding of the power of types for errors, start with this Article [Designing Errors with Kotlin](https://arturdryomov.dev/posts/designing-errors-with-kotlin/)
     ```(Exceptions! Developers adore exceptions. It is so easy to throw an error and forget about consequences. Is it a good idea though? Should Kotlin follow the same path? Fortunately enough there are many good languages we can learn from)```
-18. **![#2cb42c](https://placehold.it/15/2cb42c/000000?text=+) `DONE`** Add Code Coverage Reports for Tests with Jacoco.
+18. ✅ `DONE` Add Code Coverage Reports for Tests with Jacoco.
     For more info see [Jacoco](https://github.com/jacoco/jacoco)
     ```(Java Code Coverage Library)```
-19. **![#2cb42c](https://placehold.it/15/2cb42c/000000?text=+) `DONE`** Add Integration Tests with MockWebServer (See `MIT` comment which stands for `Missing Integration Tests`).
+19. ✅ `DONE` Add Integration Tests with MockWebServer (See `MIT` comment which stands for `Missing Integration Tests`).
     For more info, see [MockWebServer](https://github.com/square/okhttp/tree/master/mockwebserver)
     ```(A scriptable web server for testing HTTP clients)``` 
-20. **![#2cb42c](https://placehold.it/15/2cb42c/000000?text=+) `DONE`** Add missing Unit Tests (See `MUT` comment which stands for `Missing Unit Tests`).
+20. ✅ `DONE` Add missing Unit Tests (See `MUT` comment which stands for `Missing Unit Tests`).
     For more info, see [JUnit4](https://junit.org/junit4/)
     ```(JUnit is a simple framework to write repeatable tests. It is an instance of the xUnit architecture for unit testing frameworks)``` 
-21. **![#2cb42c](https://placehold.it/15/2cb42c/000000?text=+) `DONE`** Add missing Robolectric Tests (See `MRT` comment which stands for `Missing Robolectric Tests`).
+21. ✅ `DONE` Add missing Robolectric Tests (See `MRT` comment which stands for `Missing Robolectric Tests`).
     For more info, see [Robolectric](http://robolectric.org)
     ```(Robolectric is a framework that brings fast and reliable unit tests to Android)``` 
-22. **![#2cb42c](https://placehold.it/15/2cb42c/000000?text=+) `DONE`** Add missing Espresso Tests (See `MET` comment which stands for `Missing Espresso Tests`).
+22. ✅ `DONE` Add missing Espresso Tests (See `MET` comment which stands for `Missing Espresso Tests`).
     For more info, see [Espresso](https://developer.android.com/training/testing/espresso)
     ```(Use Espresso to write concise, beautiful, and reliable Android UI tests)``` 
-23. **![#2cb42c](https://placehold.it/15/2cb42c/000000?text=+) `DONE`** Add Support for Dark Theme.
+23. ✅ `DONE` Add Support for Dark Theme.
     For more info see [Dark Theme](https://developer.android.com/guide/topics/ui/look-and-feel/darktheme)
     ```(Dark theme is available in Android 10 (API level 29) and higher)```
-24. **![#2cb42c](https://placehold.it/15/2cb42c/000000?text=+) `DONE`** Enhance MVVM with MVI.
+24. ✅ `DONE` Enhance MVVM with MVI.
     To get an understanding of MVI and how it applies to MVVM (or MVP), start with this Article [MVI](http://hannesdorfmann.com/android/model-view-intent)
     ```(Model-View_Intent, is an architecture enhancement that tries to solve the state problem, which most complex application have, especially when the screen complexity grows)```
-25. **![#2cb42c](https://placehold.it/15/2cb42c/000000?text=+) `DONE`** Replace Manual Navigation with the Navigation Architecture Component.
+25. ✅ `DONE` Replace Manual Navigation with the Navigation Architecture Component.
     For more info, see [Navigation Architecture Component](https://developer.android.com/topic/libraries/architecture/navigation)
     ```(The Navigation Architecture Component simplifies the implementation of navigation in an Android app)```
-26. **![#2cb42c](https://placehold.it/15/2cb42c/000000?text=+) `DONE`** Add Offline Support with Room.
+26. ✅ `DONE` Add Offline Support with Room.
     For more info, see [Room](https://developer.android.com/topic/libraries/architecture/room) 
     ```(The Room persistence library provides an abstraction layer over SQLite to allow for more robust database access while harnessing the full power of SQLite)```
-27. **![#2cb42c](https://placehold.it/15/2cb42c/000000?text=+) `DONE`** Replace Manual Pagination with the Paging Architecture Component.
+27. ✅ `DONE` Replace Manual Pagination with the Paging Architecture Component.
     For more info, see [Paging Architecture Component](https://developer.android.com/topic/libraries/architecture/paging) 
     ```(The Paging Library makes it easier for you to load data gradually and gracefully within your app's RecyclerView)```
-28. **![#ffff00](https://placehold.it/15/ff0000/000000?text=+) `PAUSED`** Add Chucker for HTTP Inspection.
+28. ⏸️ `PAUSED` Add Chucker for HTTP Inspection.
     For more info see [Chucker](https://github.com/ChuckerTeam/chucker)
     ```🔎 An HTTP inspector for Android & OkHTTP (like Charles but on device) - More Chucker than Chuck```
-29. **![#ffff00](https://placehold.it/15/ffff00/000000?text=+) `IN PROGRESS`** Add Jetpack Compose.
+29. ⚙️ `IN PROGRESS` Add Jetpack Compose.
     For more info see [Jetpack Compose](https://developer.android.com/jetpack/compose)
     ```(Jetpack Compose simplifies and accelerates UI development on Android. Quickly bring your app to life with less code, powerful tools, and intuitive Kotlin APIs)```
-30. Add Bitrise CI.
+30. 🛑 `STOPPED` Add Bitrise CI.
     For more info see [Bitrise](https://www.bitrise.io)
     ```(Continuous Integration and Continuous Delivery for mobile apps)```
-31. Add Support for R8 (ProGuard).
+31. ✅ `DONE` Add GitHub Actions (instead of Bitrise CI).
+    For more info see [GitHub Actions](https://docs.github.com/actions)
+    ```(Automate, customize, and execute your software development workflows right in your repository with GitHub Actions. You can discover, create, and share actions to perform any job you'd like, including CI/CD, and combine actions in a completely customized workflow.)```
+32. ✅ `DONE` Add Gradle Wrapper Validation Action.
+    For more info see [Gradle Wrapper Validation Action](https://github.com/gradle/wrapper-validation-action)
+    ```(This action validates the checksums of Gradle Wrapper JAR files present in the source tree and fails if unknown Gradle Wrapper JAR files are found.)```
+33. ✅ `DONE` Add Dependabot.
+    For more info see [Dependabot](https://docs.github.com/code-security/dependabot)
+    ```(Monitor vulnerabilities in dependencies used in your project and keep your dependencies up-to-date with Dependabot.)```
+34. ✅ `DONE` Add Version Catalog.
+    For more info see [Version Catalog](https://docs.gradle.org/current/userguide/platforms.html)
+    ```(A version catalog is a list of dependencies, represented as dependency coordinates, that a user can pick from when declaring dependencies in a build script.)```
+35. ✅ `DONE` Migrate to Convention Plugins with Build Logic (from `buildSrc`).
+    For more info see [Convention Plugins with Build Logic](https://docs.gradle.org/current/samples/sample_convention_plugins.html#compiling_convention_plugins)
+    ```(Convention plugins are Gradle’s way of sharing your build logic between modules.)```
+36. Add Support for R8 (ProGuard).
     For more info see [ProGuard and R8: a comparison of optimizers](https://www.guardsquare.com/en/blog/proguard-and-r8)
     ```(ProGuard and R8 have three important functions, Shrinking or tree shaking: removes unused classes, fields and methods from the application, Code optimization: makes the code smaller and more efficient at the instruction level, Name obfuscation: renames the remaining classes, fields and methods with short meaningless names. At this point, it mostly reduces the size of the code)```
-32. Sing the App.
+37. Sing the App.
     For more info see [App Singing](https://developer.android.com/studio/publish/app-signing)
     ```(Android requires that all APKs be digitally signed with a certificate before they can be installed. And you need to sign your Android App Bundle before you can upload it to the Play Console.)```
-33. Create an Automated Release Process using Gradle Play Publisher Plugin.
+38. Create an Automated Release Process using Gradle Play Publisher Plugin.
     For more info see [Gradle Play Publisher](https://github.com/Triple-T/gradle-play-publisher)
     ```(Gradle plugin to upload your App Bundle or APK and other app details to the Google Play Store)```
-34. Convert APK Upload Format to App Bundles.
+39. Convert APK Upload Format to App Bundles.
     For more info see [App Bundles](https://developer.android.com/guide/app-bundle)
     ```(An Android App Bundle is a new upload format that includes all your app’s compiled code and resources, but defers APK generation and signing to Google Play)```
-35. Add Jetpack Benchmark.
+40. Add Jetpack Benchmark.
     For more info see [Jetpack Benchmark](https://developer.android.com/studio/profile/benchmark)
     ```(The Jetpack Benchmark library allows you to quickly benchmark your Kotlin-based or Java-based code from within Android Studio. The library handles warmup, measures your code performance, and outputs benchmarking results to the Android Studio console)```
-36. Integrate Maps into the App. 
+41. Integrate Maps into the App. 
     For more info see [Maps SDK for Android](https://developers.google.com/maps/documentation/android-sdk/intro) 
     ```(With the Maps SDK for Android, you can add maps based on Google Maps data to your application)```
-37. Add Background Support with Work Manager.
+42. Add Background Support with Work Manager.
     For more info see [Work Manager](https://developer.android.com/topic/libraries/architecture/workmanager)
     ```(The WorkManager API makes it easy to specify deferrable, asynchronous tasks and when they should run)```
-38. Add Support for Material Design 2.0.
+43. Add Support for Material Design 2.0.
     For more info see [Material Design 2.0](https://material.io)
     ```(Make beautiful products, faster. Material is a design system – backed by open-source code – that helps teams build digital experiences)```
-39. Enhance ConstraintLayout with MotionLayout. 
+44. Enhance ConstraintLayout with MotionLayout. 
     For more info see [MotionLayout](https://developer.android.com/reference/android/support/constraint/motion/MotionLayout) 
     ```(A MotionLayout is a ConstraintLayout which allows you to animate layouts between various states)```
-40. Add Support for App Shortcuts.
+45. Add Support for App Shortcuts.
     For more info see [App Shortcuts](https://developer.android.com/guide/topics/ui/shortcuts) 
     ```(Define shortcuts to perform specific actions in your app. These shortcuts can be displayed in a supported launcher and help your users quickly start common or recommended tasks within your app)```
-41. Add Runtime Permissions with Permissions Dispatcher Library.
+46. Add Runtime Permissions with Permissions Dispatcher Library.
     For more info see [Permissions Dispatcher](https://github.com/permissions-dispatcher/PermissionsDispatcher) 
     ```(Simple annotation-based API to handle runtime permissions.)```
-42. Add Settings Screen. 
+47. Add Settings Screen. 
     For more info see [Settings](https://developer.android.com/guide/topics/ui/settings) 
     ```(Settings allow users to change the functionality and behavior of an application)```
-43. Add Support for Firebase Crashlytics.
+48. Add Support for Firebase Crashlytics.
     For more info see [Firebase Crashlytics](https://firebase.google.com/docs/crashlytics)
     ```(Get clear, actionable insight into app issues with this powerful crash reporting solution for Android and iOS)```
-44. Add Support for Firebase Performance Monitoring.
+49. Add Support for Firebase Performance Monitoring.
     For more info see [Firebase Performance Monitoring](https://firebase.google.com/docs/perf-mon)
     ```(Gain insight into your app's performance issues)```
-45. Add Support for Firebase Remote Config. 
+50. Add Support for Firebase Remote Config. 
     For more info see [Firebase Remote Config](https://firebase.google.com/docs/remote-config) 
     ```(Change the behavior and appearance of your app without publishing an app update, at no cost, for unlimited daily active users.)```
-46. Add Support for Firebase Push Notifications. 
+51. Add Support for Firebase Push Notifications. 
     For more info see [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging) 
     ```(Firebase Cloud Messaging (FCM) is a cross-platform messaging solution that lets you reliably deliver messages at no cost)```
-47. Create a Continue Integration Environment using GitLab.
+52. Create a Continue Integration Environment using GitLab.
     For more info see [GitLab Continuous Integration & Delivery](https://about.gitlab.com/product/continuous-integration)
     ```(GitLab has integrated CI/CD pipelines to build, test, deploy, and monitor your code)```
-48. Enable Deep Links and Android App Links.
+53. Enable Deep Links and Android App Links.
     For more info see [Android App Links](https://developer.android.com/training/app-links)
     ```(Set up Android App Links to take users to a link's specific content directly in your app, bypassing the app-selection dialog, also known as the disambiguation dialog)```
-49. Add Support for Finger Print Login.
+54. Add Support for Finger Print Login.
     For more info see [Fingerprint Authentication](https://developer.android.com/about/versions/marshmallow/android-6.0#fingerprint-authentication) 
     ```(New APIs to let you authenticate users by using their fingerprint scans on supported devices)```
-50. Add Support for Instant Apps.
+55. Add Support for Instant Apps.
     For more info see [Google Play Instant](https://developer.android.com/topic/google-play-instant/overview)
     ```(Google Play Instant enables native apps and games to launch on devices running Android 5.0 (API level 21) without being installed)```
-51. Add Support for Slices.
+56. Add Support for Slices.
     For more info see [Slices](https://developer.android.com/guide/slices)
     ```(Slices are UI templates that can display rich, dynamic, and interactive content from your app from within the Google Search app and  later in other places like the Google Assistant)```
-52. Add AdMob as a Source of App Monetization.
+57. Add AdMob as a Source of App Monetization.
     For more info see [AdMob](https://admob.google.com/home)
     ```(AdMob makes earning revenue easy with in-app ads, actionable insights, and powerful, easy-to-use tools that grow your app business)```
-53. Add Google Play Billing as a Source of App Monetization.
+58. Add Google Play Billing as a Source of App Monetization.
     For more info see [Google Play Billing Library](https://developer.android.com/google/play/billing/billing_overview) 
     ```(Google Play Billing is a service that lets you sell digital content from inside an Android app, or in-app)```
-54. Add Support for Machine Learning.
+59. Add Support for Machine Learning.
     For more info see [ML Kit](https://developers.google.com/ml-kit)
     ```(ML Kit beta brings Google’s machine learning expertise to mobile developers in a powerful and easy-to-use package)```
-55. Make the App compliant with Android's Accessibility Features and Services. 
+60. Make the App compliant with Android's Accessibility Features and Services. 
     For more info see [Accessibility](https://developer.android.com/guide/topics/ui/accessibility) 
     ```(Accessibility is an important part of any app. Whether you're developing a new app or improving an existing one, consider the accessibility of your app's components)```
-56. Convert Imperative to Functional Programming.
+61. Convert Imperative to Functional Programming.
     For more info see [Arrow](https://arrow-kt.io)
     ```(Functional companion to Kotlin's Standard Library)```
-57. Add Kotlin Native Support to Build the iOS equivalent App. 
+62. Add Kotlin Native Support to Build the iOS equivalent App. 
     For more info see [Kotlin Native](https://kotlinlang.org/docs/reference/native-overview.html) 
     ```(Kotlin/Native is a technology for compiling Kotlin code to native binaries, which can run without a virtual machine)```
-58. Add Kotlin Multiplatform Support to Share Code between the Android and iOS App.
+63. Add Kotlin Multiplatform Support to Share Code between the Android and iOS App.
     For more info see [Kotlin Multiplatform](https://kotlinlang.org/docs/reference/multiplatform.html) 
     ```(Kotlin Multiplatform brings the invaluable benefit of reuse for code and expertise, saving the effort for tasks more challenging than implementing everything twice or multiple times)```
-59. Last but not least, Convert the whole thing to Flutter. 
+64. Last but not least, Convert the whole thing to Flutter. 
     For more info see [Flutter](https://flutter.io)
     ```(JUST KIDDING 😛 ...OR AM I!)```
 
