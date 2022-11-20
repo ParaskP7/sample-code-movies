@@ -32,7 +32,8 @@ gradleDoctor = "0.8.1"
 gson = "2.10"
 jacoco = "0.8.8"
 junit4 = "4.13.2"
-koin = "3.2.2"
+koinAndroid = "3.3.0"
+koinCore = "3.2.2"
 kotlin = "1.7.20"
 kotlinCompose = "1.7.20"
 ksp = "1.7.20-1.0.8"
@@ -117,9 +118,9 @@ detekt-formatting = { group = "io.gitlab.arturbosch.detekt", name = "detekt-form
 glide = { group = "com.github.bumptech.glide", name = "glide", version.ref = "glide" }
 gson = { group = "com.google.code.gson", name = "gson", version.ref = "gson" }
 junit4 = { group = "junit", name = "junit", version.ref = "junit4" }
-koin-android = { group = "io.insert-koin", name = "koin-android", version.ref = "koin" }
-koin-core-main = { group = "io.insert-koin", name = "koin-core", version.ref = "koin" }
-koin-core-jvm = { group = "io.insert-koin", name = "koin-core-jvm", version.ref = "koin" }
+koin-android = { group = "io.insert-koin", name = "koin-android", version.ref = "koinAndroid" }
+koin-core-main = { group = "io.insert-koin", name = "koin-core", version.ref = "koinCore" }
+koin-core-jvm = { group = "io.insert-koin", name = "koin-core-jvm", version.ref = "koinCore" }
 kotlin-reflect = { group = "org.jetbrains.kotlin", name = "kotlin-reflect", version.ref = "kotlinCompose" }
 kotlinx-coroutines-core-main = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "kotlinxCoroutines" }
 kotlinx-coroutines-core-jvm = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core-jvm", version.ref = "kotlinxCoroutines" }
