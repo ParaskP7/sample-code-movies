@@ -21,7 +21,7 @@ import io.petros.movies.lib.picker.R;
 import timber.log.Timber;
 
 @SuppressLint("SyntheticAccessor")
-@SuppressWarnings("unused")
+@SuppressWarnings("all")
 public class PickerDialog extends AlertDialog implements OnClickListener, OnDateChangedListener {
     @NonNull private final PickerView _picker;
     @Nullable private final OnDateSetListener _callBack;
