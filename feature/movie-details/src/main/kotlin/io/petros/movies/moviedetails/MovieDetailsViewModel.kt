@@ -17,7 +17,6 @@ class MovieDetailsViewModel(
         state = MovieDetailsReducer.init()
     }
 
-    @Suppress("IMPLICIT_CAST_TO_ANY")
     override fun process(intent: MovieDetailsIntent) {
         super.process(intent)
         when (intent) {
