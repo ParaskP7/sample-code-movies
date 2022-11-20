@@ -889,7 +889,7 @@ formatting:
     active: true
     autoCorrect: true
   PackageName:
-    active: false
+    active: true
     autoCorrect: true
   ParameterListSpacing:
     active: false

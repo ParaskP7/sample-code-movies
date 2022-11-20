@@ -4,7 +4,7 @@ package io.petros.movies.core.activity
 
 import androidx.lifecycle.Observer
 import androidx.viewbinding.ViewBinding
-import io.petros.movies.core.view_model.MviViewModel
+import io.petros.movies.core.viewmodel.MviViewModel
 import timber.log.Timber
 
 abstract class MviActivity<

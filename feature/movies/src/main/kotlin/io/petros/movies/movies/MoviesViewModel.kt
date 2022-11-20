@@ -4,7 +4,7 @@ import androidx.lifecycle.viewModelScope
 import androidx.paging.LoadType
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
-import io.petros.movies.core.view_model.MviViewModel
+import io.petros.movies.core.viewmodel.MviViewModel
 import io.petros.movies.domain.interactor.movie.LoadDateUseCase
 import io.petros.movies.domain.interactor.movie.LoadMoviesUseCase
 import io.petros.movies.domain.model.Result

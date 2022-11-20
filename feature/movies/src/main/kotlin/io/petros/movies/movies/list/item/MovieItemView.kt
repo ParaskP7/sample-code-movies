@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.annotation.VisibleForTesting
 import com.google.android.material.card.MaterialCardView
-import io.petros.movies.android_utils.getDimension
+import io.petros.movies.androidutils.getDimension
 import io.petros.movies.core.image.glide.displayImage
 import io.petros.movies.domain.model.movie.Movie
 import io.petros.movies.feature.movies.R

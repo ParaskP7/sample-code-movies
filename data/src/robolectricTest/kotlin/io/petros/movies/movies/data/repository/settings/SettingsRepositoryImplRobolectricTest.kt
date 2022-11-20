@@ -1,7 +1,7 @@
 package io.petros.movies.movies.data.repository.settings
 
-import io.petros.movies.android_test.context.TestContextProvider.context
-import io.petros.movies.android_test.runner.CustomRobolectricTestRunner
+import io.petros.movies.androidtest.context.TestContextProvider.context
+import io.petros.movies.androidtest.runner.CustomRobolectricTestRunner
 import io.petros.movies.data.repository.settings.SettingsRepositoryImpl
 import io.petros.movies.datastore.MoviesDatastore
 import kotlinx.coroutines.runBlocking

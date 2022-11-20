@@ -9,7 +9,7 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ProcessLifecycleOwner
 import io.petros.movies.BuildConfig
 import io.petros.movies.R
-import io.petros.movies.android_utils.network.NetworkLiveEvent
+import io.petros.movies.androidutils.network.NetworkLiveEvent
 import io.petros.movies.app.di.koin.appModule
 import io.petros.movies.data.di.koin.dataModule
 import io.petros.movies.domain.di.koin.domainModule

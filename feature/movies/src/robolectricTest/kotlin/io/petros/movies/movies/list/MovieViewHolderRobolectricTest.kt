@@ -2,7 +2,7 @@ package io.petros.movies.movies.list
 
 import io.mockk.mockk
 import io.mockk.verify
-import io.petros.movies.android_test.runner.CustomRobolectricTestRunner
+import io.petros.movies.androidtest.runner.CustomRobolectricTestRunner
 import io.petros.movies.movies.list.item.MovieItemCallback
 import io.petros.movies.movies.list.item.MovieItemView
 import io.petros.movies.test.domain.movie

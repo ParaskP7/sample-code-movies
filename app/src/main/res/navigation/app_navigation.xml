@@ -23,7 +23,7 @@
 
     <fragment
         android:id="@+id/movieDetailsFragment"
-        android:name="io.petros.movies.movie_details.MovieDetailsFragment"
+        android:name="io.petros.movies.moviedetails.MovieDetailsFragment"
         android:label="@string/navMovieDetailsLabel"
         android:layout="@layout/movie_details_fragment">
 
@@ -37,7 +37,7 @@
 
     <fragment
         android:id="@+id/movieDetailsFragmentCompose"
-        android:name="io.petros.movies.movie_details_compose.MovieDetailsFragment"
+        android:name="io.petros.movies.moviedetailscompose.MovieDetailsFragment"
         android:label="@string/navMovieDetailsComposeLabel">
 
         <argument

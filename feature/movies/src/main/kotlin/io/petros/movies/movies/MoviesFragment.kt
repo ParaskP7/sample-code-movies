@@ -12,10 +12,10 @@ import androidx.paging.LoadState
 import androidx.paging.LoadType
 import androidx.paging.PagingData
 import com.google.android.material.snackbar.Snackbar
-import io.petros.movies.android_utils.network.NetworkLiveEvent
-import io.petros.movies.android_utils.toast
+import io.petros.movies.androidutils.network.NetworkLiveEvent
+import io.petros.movies.androidutils.toast
 import io.petros.movies.core.fragment.MviFragment
-import io.petros.movies.core.view_binding.viewBinding
+import io.petros.movies.core.viewbinding.viewBinding
 import io.petros.movies.domain.model.movie.Movie
 import io.petros.movies.domain.repository.settings.SettingsRepository
 import io.petros.movies.feature.movies.R
