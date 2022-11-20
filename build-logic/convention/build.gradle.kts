@@ -12,6 +12,7 @@ java {
 dependencies {
     compileOnly(libs.android.gradle.plugin)
     compileOnly(libs.kotlin.gradle.plugin)
+    compileOnly(libs.ksp.gradle.plugin)
     compileOnly(libs.detekt.gradle.plugin)
     compileOnly(libs.dependency.analysis.gradle.plugin)
     compileOnly(libs.dependency.versions.gradle.plugin)
@@ -26,6 +27,10 @@ gradlePlugin {
         register("kotlin") {
             id = "custom.kotlin"
             implementationClass = "KotlinConventionPlugin"
+        }
+        register("kotlinKsp") {
+            id = "custom.ksp"
+            implementationClass = "KspConventionPlugin"
         }
 
         /* ANDROID PLUGINS - APPLICATION */

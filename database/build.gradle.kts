@@ -4,8 +4,8 @@ import io.petros.movies.identifier
 import io.petros.movies.libNamespace
 
 plugins {
+    id("custom.ksp")
     id("custom.android.library")
-    id("kotlin-kapt")
     id("custom.detekt")
     id("custom.dependency.versions")
 }
@@ -13,12 +13,6 @@ plugins {
 android {
     libNamespace(Projects.Implementation.Android.Core.DATABASE)
     disabledDatabaseIssues()
-}
-
-kapt {
-    strictMode = true
-    showProcessorStats = true
-    useBuildCache = true
 }
 
 dependencies {
@@ -31,7 +25,7 @@ dependencies {
     implementation(libs.androidx.room.runtime)
     implementation(libs.androidx.room.ktx)
     implementation(libs.androidx.room.paging)
-    kapt(libs.androidx.room.compiler)
+    ksp(libs.androidx.room.compiler)
     implementation(libs.androidx.paging.common)
     implementation(libs.koin.core.main)
     implementation(libs.koin.core.jvm)

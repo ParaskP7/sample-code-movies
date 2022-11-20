@@ -8,6 +8,7 @@ object Plugins {
         object Kotlin {
 
             const val KOTLIN = "kotlin"
+            const val KSP = "com.google.devtools.ksp"
             const val ANDROID = "org.jetbrains.kotlin.android"
 
         }

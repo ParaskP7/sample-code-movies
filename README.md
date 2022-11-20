@@ -33,10 +33,14 @@ Below is a list of goodies that are being showcased:
     LiveData Class)```
 3. Kotlin
     1. [Kotlin](https://kotlinlang.org/) ```(A modern programming language that makes developers happier)```
-    2. [Kotlin Coroutines](https://kotlinlang.org/docs/reference/coroutines.html) ```(Coroutines simplify asynchronous
+    2. [Kotlin Symbol Processing](https://kotlinlang.org/docs/ksp-overview.html) ```(Kotlin Symbol Processing (KSP) is
+    an API that you can use to develop lightweight compiler plugins. KSP provides a simplified compiler plugin API that
+    leverages the power of Kotlin while keeping the learning curve at a minimum. Compared to kapt, annotation processors
+    that use KSP can run up to 2 times faster)```
+    3. [Kotlin Coroutines](https://kotlinlang.org/docs/reference/coroutines.html) ```(Coroutines simplify asynchronous
     programming by putting the complications into libraries. The logic of the program can be expressed sequentially in a
     coroutine, and the underlying library will figure out the asynchrony for us)```
-    3. [Asynchronous Flow](https://kotlinlang.org/docs/reference/coroutines/flow.html) ```(Suspending functions
+    4. [Asynchronous Flow](https://kotlinlang.org/docs/reference/coroutines/flow.html) ```(Suspending functions
     asynchronously returns a single value, but how can we return multiple asynchronously computed values? This is where
     Kotlin Flows come in)```
 4. Android Support
@@ -360,93 +364,92 @@ Below is a list of all those ```I REALLY WANNA DO``` future architecture and lib
 35. ✅ `DONE` Migrate to Convention Plugins with Build Logic (from `buildSrc`).
     For more info see [Convention Plugins with Build Logic](https://docs.gradle.org/current/samples/sample_convention_plugins.html#compiling_convention_plugins)
     ```(Convention plugins are Gradle’s way of sharing your build logic between modules.)```
-36. Add Support for R8 (ProGuard).
+36. ✅ `DONE` Migrate to KSP (from `kapt`).
+    For more info see [Kotlin Symbol Processing](https://kotlinlang.org/docs/ksp-overview.html)
+    ```(Kotlin Symbol Processing (KSP) is an API that you can use to develop lightweight compiler plugins. KSP provides a simplified compiler plugin API that leverages the power of Kotlin while keeping the learning curve at a minimum. Compared to kapt, annotation processors that use KSP can run up to 2 times faster.)```
+37. Add Support for R8 (ProGuard).
     For more info see [ProGuard and R8: a comparison of optimizers](https://www.guardsquare.com/en/blog/proguard-and-r8)
     ```(ProGuard and R8 have three important functions, Shrinking or tree shaking: removes unused classes, fields and methods from the application, Code optimization: makes the code smaller and more efficient at the instruction level, Name obfuscation: renames the remaining classes, fields and methods with short meaningless names. At this point, it mostly reduces the size of the code)```
-37. Sing the App.
+38. Sing the App.
     For more info see [App Singing](https://developer.android.com/studio/publish/app-signing)
     ```(Android requires that all APKs be digitally signed with a certificate before they can be installed. And you need to sign your Android App Bundle before you can upload it to the Play Console.)```
-38. Create an Automated Release Process using Gradle Play Publisher Plugin.
+39. Create an Automated Release Process using Gradle Play Publisher Plugin.
     For more info see [Gradle Play Publisher](https://github.com/Triple-T/gradle-play-publisher)
     ```(Gradle plugin to upload your App Bundle or APK and other app details to the Google Play Store)```
-39. Convert APK Upload Format to App Bundles.
+40. Convert APK Upload Format to App Bundles.
     For more info see [App Bundles](https://developer.android.com/guide/app-bundle)
     ```(An Android App Bundle is a new upload format that includes all your app’s compiled code and resources, but defers APK generation and signing to Google Play)```
-40. Add Jetpack Benchmark.
+41. Add Jetpack Benchmark.
     For more info see [Jetpack Benchmark](https://developer.android.com/studio/profile/benchmark)
     ```(The Jetpack Benchmark library allows you to quickly benchmark your Kotlin-based or Java-based code from within Android Studio. The library handles warmup, measures your code performance, and outputs benchmarking results to the Android Studio console)```
-41. Integrate Maps into the App. 
+42. Integrate Maps into the App. 
     For more info see [Maps SDK for Android](https://developers.google.com/maps/documentation/android-sdk/intro) 
     ```(With the Maps SDK for Android, you can add maps based on Google Maps data to your application)```
-42. Add Background Support with Work Manager.
+43. Add Background Support with Work Manager.
     For more info see [Work Manager](https://developer.android.com/topic/libraries/architecture/workmanager)
     ```(The WorkManager API makes it easy to specify deferrable, asynchronous tasks and when they should run)```
-43. Add Support for Material Design 2.0.
+44. Add Support for Material Design 2.0.
     For more info see [Material Design 2.0](https://material.io)
     ```(Make beautiful products, faster. Material is a design system – backed by open-source code – that helps teams build digital experiences)```
-44. Enhance ConstraintLayout with MotionLayout. 
+45. Enhance ConstraintLayout with MotionLayout. 
     For more info see [MotionLayout](https://developer.android.com/reference/android/support/constraint/motion/MotionLayout) 
     ```(A MotionLayout is a ConstraintLayout which allows you to animate layouts between various states)```
-45. Add Support for App Shortcuts.
+46. Add Support for App Shortcuts.
     For more info see [App Shortcuts](https://developer.android.com/guide/topics/ui/shortcuts) 
     ```(Define shortcuts to perform specific actions in your app. These shortcuts can be displayed in a supported launcher and help your users quickly start common or recommended tasks within your app)```
-46. Add Runtime Permissions with Permissions Dispatcher Library.
+47. Add Runtime Permissions with Permissions Dispatcher Library.
     For more info see [Permissions Dispatcher](https://github.com/permissions-dispatcher/PermissionsDispatcher) 
     ```(Simple annotation-based API to handle runtime permissions.)```
-47. Add Settings Screen. 
+48. Add Settings Screen. 
     For more info see [Settings](https://developer.android.com/guide/topics/ui/settings) 
     ```(Settings allow users to change the functionality and behavior of an application)```
-48. Add Support for Firebase Crashlytics.
+49. Add Support for Firebase Crashlytics.
     For more info see [Firebase Crashlytics](https://firebase.google.com/docs/crashlytics)
     ```(Get clear, actionable insight into app issues with this powerful crash reporting solution for Android and iOS)```
-49. Add Support for Firebase Performance Monitoring.
+50. Add Support for Firebase Performance Monitoring.
     For more info see [Firebase Performance Monitoring](https://firebase.google.com/docs/perf-mon)
     ```(Gain insight into your app's performance issues)```
-50. Add Support for Firebase Remote Config. 
+51. Add Support for Firebase Remote Config. 
     For more info see [Firebase Remote Config](https://firebase.google.com/docs/remote-config) 
     ```(Change the behavior and appearance of your app without publishing an app update, at no cost, for unlimited daily active users.)```
-51. Add Support for Firebase Push Notifications. 
+52. Add Support for Firebase Push Notifications. 
     For more info see [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging) 
     ```(Firebase Cloud Messaging (FCM) is a cross-platform messaging solution that lets you reliably deliver messages at no cost)```
-52. Create a Continue Integration Environment using GitLab.
+53. Create a Continue Integration Environment using GitLab.
     For more info see [GitLab Continuous Integration & Delivery](https://about.gitlab.com/product/continuous-integration)
     ```(GitLab has integrated CI/CD pipelines to build, test, deploy, and monitor your code)```
-53. Enable Deep Links and Android App Links.
+54. Enable Deep Links and Android App Links.
     For more info see [Android App Links](https://developer.android.com/training/app-links)
     ```(Set up Android App Links to take users to a link's specific content directly in your app, bypassing the app-selection dialog, also known as the disambiguation dialog)```
-54. Add Support for Finger Print Login.
+55. Add Support for Finger Print Login.
     For more info see [Fingerprint Authentication](https://developer.android.com/about/versions/marshmallow/android-6.0#fingerprint-authentication) 
     ```(New APIs to let you authenticate users by using their fingerprint scans on supported devices)```
-55. Add Support for Instant Apps.
+56. Add Support for Instant Apps.
     For more info see [Google Play Instant](https://developer.android.com/topic/google-play-instant/overview)
     ```(Google Play Instant enables native apps and games to launch on devices running Android 5.0 (API level 21) without being installed)```
-56. Add Support for Slices.
+57. Add Support for Slices.
     For more info see [Slices](https://developer.android.com/guide/slices)
     ```(Slices are UI templates that can display rich, dynamic, and interactive content from your app from within the Google Search app and  later in other places like the Google Assistant)```
-57. Add AdMob as a Source of App Monetization.
+58. Add AdMob as a Source of App Monetization.
     For more info see [AdMob](https://admob.google.com/home)
     ```(AdMob makes earning revenue easy with in-app ads, actionable insights, and powerful, easy-to-use tools that grow your app business)```
-58. Add Google Play Billing as a Source of App Monetization.
+59. Add Google Play Billing as a Source of App Monetization.
     For more info see [Google Play Billing Library](https://developer.android.com/google/play/billing/billing_overview) 
     ```(Google Play Billing is a service that lets you sell digital content from inside an Android app, or in-app)```
-59. Add Support for Machine Learning.
+60. Add Support for Machine Learning.
     For more info see [ML Kit](https://developers.google.com/ml-kit)
     ```(ML Kit beta brings Google’s machine learning expertise to mobile developers in a powerful and easy-to-use package)```
-60. Make the App compliant with Android's Accessibility Features and Services. 
+61. Make the App compliant with Android's Accessibility Features and Services. 
     For more info see [Accessibility](https://developer.android.com/guide/topics/ui/accessibility) 
     ```(Accessibility is an important part of any app. Whether you're developing a new app or improving an existing one, consider the accessibility of your app's components)```
-61. Convert Imperative to Functional Programming.
+62. Convert Imperative to Functional Programming.
     For more info see [Arrow](https://arrow-kt.io)
     ```(Functional companion to Kotlin's Standard Library)```
-62. Add Kotlin Native Support to Build the iOS equivalent App. 
+63. Add Kotlin Native Support to Build the iOS equivalent App. 
     For more info see [Kotlin Native](https://kotlinlang.org/docs/reference/native-overview.html) 
     ```(Kotlin/Native is a technology for compiling Kotlin code to native binaries, which can run without a virtual machine)```
-63. Add Kotlin Multiplatform Support to Share Code between the Android and iOS App.
+64. Add Kotlin Multiplatform Support to Share Code between the Android and iOS App.
     For more info see [Kotlin Multiplatform](https://kotlinlang.org/docs/reference/multiplatform.html) 
     ```(Kotlin Multiplatform brings the invaluable benefit of reuse for code and expertise, saving the effort for tasks more challenging than implementing everything twice or multiple times)```
-64. Last but not least, Convert the whole thing to Flutter. 
-    For more info see [Flutter](https://flutter.io)
-    ```(JUST KIDDING 😛 ...OR AM I!)```
-
 
 **THANK YOU**

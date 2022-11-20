@@ -35,6 +35,7 @@ junit4 = "4.13.2"
 koin = "3.2.2"
 kotlin = "1.7.20"
 kotlinCompose = "1.7.20"
+ksp = "1.7.20-1.0.8"
 kotlinxCoroutines = "1.6.4"
 leakCanary = "2.9.1"
 material = "1.7.0-rc01"
@@ -54,6 +55,7 @@ dependency-versions-gradle-plugin = { group = "com.github.ben-manes", name = "gr
 detekt-gradle-plugin = { group = "io.gitlab.arturbosch.detekt", name = "detekt-gradle-plugin", version.ref = "detekt" }
 gradle-doctor-gradle-plugin = { group = "com.osacky.doctor", name = "doctor-plugin", version.ref = "gradleDoctor" }
 kotlin-gradle-plugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlinCompose" }
+ksp-gradle-plugin = { group = "com.google.devtools.ksp", name = "symbol-processing-gradle-plugin", version.ref = "ksp" }
 modules-graph-assert-gradle-plugin = { group = "com.jraska.module.graph.assertion", name = "plugin", version.ref = "modulesGraphAssert" }
 
 # PROJECT
@@ -147,4 +149,5 @@ dependency-versions = { id = "com.github.ben-manes.versions", version.ref = "dep
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
 gradle-doctor = { id = "com.osacky.doctor", version.ref = "gradleDoctor" }
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlinCompose" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 modules-graph-assert = { id = "com.jraska.module.graph.assertion", version.ref = "modulesGraphAssert" }
