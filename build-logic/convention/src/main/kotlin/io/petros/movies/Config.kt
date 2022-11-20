@@ -54,8 +54,6 @@ object Config {
 
         object Gradle {
 
-            const val THEMOVIEDB_API_KEY_CONST = "THEMOVIEDB_API_KEY"
-
             const val IGNORED_VARIANTS = "gradle.ignored.variants"
 
         }
