@@ -24,7 +24,6 @@ dependencies {
     implementation(libs.kotlinx.coroutines.core.jvm)
     implementation(libs.material)
     implementation(libs.androidx.fragment.main)
-    implementation(libs.androidx.fragment.ktx)
     implementation(libs.androidx.constraint.layout)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.livedata.core)

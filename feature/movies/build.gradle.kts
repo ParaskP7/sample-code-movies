@@ -27,7 +27,6 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.app.compat.main)
     implementation(libs.androidx.fragment.main)
-    implementation(libs.androidx.fragment.ktx)
     implementation(libs.androidx.recycler.view)
     implementation(libs.androidx.constraint.layout)
     implementation(libs.androidx.coordinator.layout)

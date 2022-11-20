@@ -32,7 +32,6 @@ dependencies {
     implementation(libs.coil.base)
     implementation(libs.coil.compose)
     implementation(libs.androidx.fragment.main)
-    implementation(libs.androidx.fragment.ktx)
     implementation(libs.androidx.lifecycle.view.model.main)
     implementation(libs.androidx.lifecycle.view.model.ktx)
     implementation(libs.koin.core.main)
