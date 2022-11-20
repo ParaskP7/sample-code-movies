@@ -13,7 +13,7 @@ import io.petros.movies.feature.movie.details.databinding.MovieDetailsFragmentBi
 import io.petros.movies.utils.doNothing
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-@Suppress("SyntheticAccessor", "unused")
+@Suppress("SyntheticAccessor")
 class MovieDetailsFragment : MviFragment<MovieDetailsFragmentBinding,
         MovieDetailsIntent,
         MovieDetailsState,

@@ -10,7 +10,6 @@ private fun viewModelModule() = module {
     viewModel { MovieDetailsViewModel(get()) }
 }
 
-@Suppress("unused")
 fun movieDetailsComposeModule() = listOf(
     viewModelModule(),
 )

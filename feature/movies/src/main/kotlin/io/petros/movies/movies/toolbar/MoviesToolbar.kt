@@ -13,7 +13,7 @@ import io.petros.movies.feature.movies.databinding.MoviesToolbarBinding
 import io.petros.movies.utils.MonthOfYear
 import timber.log.Timber
 
-@Suppress("TooManyFunctions", "MemberVisibilityCanBePrivate")
+@Suppress("TooManyFunctions")
 class MoviesToolbar(
     ctx: Context,
     attrs: AttributeSet? = null,

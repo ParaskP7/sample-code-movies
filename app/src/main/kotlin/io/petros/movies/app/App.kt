@@ -1,5 +1,3 @@
-@file:Suppress("unused")
-
 package io.petros.movies.app
 
 import android.app.Application

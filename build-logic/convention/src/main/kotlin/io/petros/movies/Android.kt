@@ -136,14 +136,12 @@ fun BaseAppModuleExtension.enableViewBindingAndBuildConfig() {
     }
 }
 
-@Suppress("UnstableApiUsage")
 fun LibraryExtension.enableViewBinding() {
     buildFeatures {
         viewBinding = true
     }
 }
 
-@Suppress("UnstableApiUsage")
 fun LibraryExtension.enableBuildConfig() {
     buildFeatures {
         buildConfig = true
