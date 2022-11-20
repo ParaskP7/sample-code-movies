@@ -65,7 +65,7 @@ private fun ConstraintLayoutScope.MovieDetailsScreenMain(
 }
 
 @Composable
-@Suppress("UNUSED_PARAMETER", "ControlFlowWithEmptyBody", "ForbiddenComment")
+@Suppress("UNUSED_PARAMETER", "UnusedReceiverParameter", "ControlFlowWithEmptyBody", "ForbiddenComment")
 private fun ConstraintLayoutScope.MovieDetailsScreenSnackbar(
     sideEffect: MovieDetailsSideEffect,
     onRetry: () -> Unit,
