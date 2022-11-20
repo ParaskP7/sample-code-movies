@@ -29,7 +29,6 @@ dependencies {
     implementation(libs.androidx.compose.foundation.layout)
     implementation(libs.androidx.compose.material)
     implementation(libs.androidx.compose.constraint.layout)
-    implementation(libs.coil.base)
     implementation(libs.coil.compose)
     implementation(libs.androidx.fragment.main)
     implementation(libs.androidx.lifecycle.view.model.main)
