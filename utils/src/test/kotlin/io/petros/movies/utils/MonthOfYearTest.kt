@@ -33,7 +33,7 @@ class MonthOfYearTest {
 
     @Test
     fun `given unknown label, when getting month of year from label, then an unknown enum is returned`() {
-        expect { that(MonthOfYear.from("Undecimber")).isEqualTo(MonthOfYear.UNKNOWN_MONTH) }
+        expect { that(MonthOfYear.from("Un-december")).isEqualTo(MonthOfYear.UNKNOWN_MONTH) }
     }
 
 }
