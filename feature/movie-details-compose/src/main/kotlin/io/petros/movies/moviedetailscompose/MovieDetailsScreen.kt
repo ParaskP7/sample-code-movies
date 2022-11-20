@@ -28,7 +28,6 @@ import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstrainedLayoutReference
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.ConstraintLayoutScope
-import coil.annotation.ExperimentalCoilApi
 import coil.compose.AsyncImage
 import io.petros.movies.corecompose.ui.DarkColor
 import io.petros.movies.corecompose.ui.LightColor
@@ -104,7 +103,6 @@ private fun ConstraintLayoutScope.MovieImageMain(
     )
 }
 
-@OptIn(ExperimentalCoilApi::class)
 @Composable
 private fun BackdropImage(
     modifier: Modifier = Modifier,
