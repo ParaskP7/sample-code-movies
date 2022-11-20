@@ -17,9 +17,8 @@ androidxLifecycle = "2.5.1"
 androidxNavigation = "2.5.3"
 androidxPaging = "3.1.1"
 androidxRecyclerView = "1.3.0-rc01"
-androidxRoom = "2.4.3"
-androidxRoomBeta = "2.4.3"
-androidxSqlite = "2.3.0-beta01"
+androidxRoom = "2.5.0-beta02"
+androidxSqlite = "2.3.0-beta02"
 androidxTestCore = "1.5.0-beta01"
 androidxTestEspresso = "3.5.0-beta01"
 androidxTestJunit = "1.1.4-beta01"
@@ -98,11 +97,11 @@ androidx-navigation-fragment-ktx = { group = "androidx.navigation", name = "navi
 androidx-paging-common = { group = "androidx.paging", name = "paging-common", version.ref = "androidxPaging" }
 androidx-paging-runtime = { group = "androidx.paging", name = "paging-runtime", version.ref = "androidxPaging" }
 androidx-recycler-view = { group = "androidx.recyclerview", name = "recyclerview", version.ref = "androidxRecyclerView" }
-androidx-room-common = { group = "androidx.room", name = "room-common", version.ref = "androidxRoomBeta" }
-androidx-room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "androidxRoomBeta" }
-androidx-room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "androidxRoomBeta" }
-androidx-room-paging = { group = "androidx.room", name = "room-paging", version.ref = "androidxRoomBeta" }
-androidx-room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "androidxRoomBeta" }
+androidx-room-common = { group = "androidx.room", name = "room-common", version.ref = "androidxRoom" }
+androidx-room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "androidxRoom" }
+androidx-room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "androidxRoom" }
+androidx-room-paging = { group = "androidx.room", name = "room-paging", version.ref = "androidxRoom" }
+androidx-room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "androidxRoom" }
 androidx-sqlite = { group = "androidx.sqlite", name = "sqlite", version.ref = "androidxSqlite" }
 androidx-test-core-main = { group = "androidx.test", name = "core", version.ref = "androidxTestCore" }
 androidx-test-core-ktx = { group = "androidx.test", name = "core-ktx", version.ref = "androidxTestCore" }
