@@ -9,8 +9,8 @@ interface MoviesRepository {
 
     suspend fun loadDate(): Result<Pair<Int?, Int?>>
 
-    suspend fun loadMoviesStream(year: Int?, month: Int?): Flow<PagingData<Movie>>
+    fun loadMoviesStream(year: Int?, month: Int?): Flow<PagingData<Movie>>
 
-    suspend fun loadMovieStream(id: Int): Flow<Result<Movie>>
+    fun loadMovieStream(id: Int): Flow<Result<Movie>>
 
 }

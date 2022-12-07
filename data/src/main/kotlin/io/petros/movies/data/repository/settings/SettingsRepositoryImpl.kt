@@ -11,7 +11,7 @@ class SettingsRepositoryImpl(
 ) : SettingsRepository {
 
     override suspend fun isComposeEnabled() = datastore.settings().data
-        .map { it[datastore.isComposeEnabled()] ?: false }
+        .map { it[datastore.isComposeEnabled()] == true }
         .first()
 
     override suspend fun setComposeEnabled(isEnabled: Boolean) {

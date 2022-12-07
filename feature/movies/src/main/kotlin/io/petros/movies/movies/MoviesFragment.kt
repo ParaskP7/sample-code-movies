@@ -150,6 +150,7 @@ class MoviesFragment :
         }
     }
 
+    @Suppress("CanBeNonNullable")
     private fun renderMonth(month: Int?) {
         if (month != null) {
             binding.toolbar.setMonth(month)

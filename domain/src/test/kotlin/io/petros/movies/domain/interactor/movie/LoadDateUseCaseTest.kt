@@ -13,7 +13,7 @@ import strikt.assertions.isEqualTo
 @ExperimentalCoroutinesApi
 class LoadDateUseCaseTest {
 
-    private val date = Result.Success(Pair(MOVIE_YEAR, MOVIE_MONTH))
+    private val date = Result.Success(MOVIE_YEAR to MOVIE_MONTH)
 
     private val moviesRepositoryMock = mockk<MoviesRepository>()
     private val testedClass = LoadDateUseCase(moviesRepositoryMock)

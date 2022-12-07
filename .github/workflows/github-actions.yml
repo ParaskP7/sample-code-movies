@@ -32,8 +32,12 @@ jobs:
         run: ./gradlew assembleDebug
       - name: Dependency Analysis - Build Health
         run: ./gradlew assembleDebug
-      - name: Static Analysis - Detekt
+      - name: Static Analysis - Detekt without Type Resolution
         run: ./gradlew detekt
+      - name: Static Analysis - Detekt with Type Resolution (Main)
+        run: ./gradlew detektMain
+      - name: Static Analysis - Detekt with Type Resolution (Test)
+        run: ./gradlew detektTest
       - name: Static Analysis - Lint (Debug)
         run: ./gradlew lintDebug
       - name: Test - Unit Test - Kotlin Modules

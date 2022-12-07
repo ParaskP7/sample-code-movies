@@ -75,13 +75,15 @@ object MovieDetailsReducer {
         )
     }
 
-    @Suppress("UseIfInsteadOfWhen")
     fun once(action: MovieDetailsAction) = when (action) {
-        is MovieDetailsAction.Load -> MovieDetailsSideEffect.Loading
-        is MovieDetailsAction.Error -> MovieDetailsSideEffect.Error
-        else -> throw IllegalArgumentException(
-            "This movie details action has no side effects associated with it. [Action: $action]"
+        is MovieDetailsAction.Idle -> throw IllegalArgumentException(
+            "This movie details action has no side effects associated with idle action."
         )
+        is MovieDetailsAction.Load -> MovieDetailsSideEffect.Loading
+        is MovieDetailsAction.Success -> throw IllegalArgumentException(
+            "This movie details action has no side effects associated with success action."
+        )
+        is MovieDetailsAction.Error -> MovieDetailsSideEffect.Error
     }
 
 }

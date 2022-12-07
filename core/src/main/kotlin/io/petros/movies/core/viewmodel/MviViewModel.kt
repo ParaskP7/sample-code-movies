@@ -9,7 +9,7 @@ import androidx.lifecycle.ViewModel
 import io.petros.movies.androidutils.SingleLiveEvent
 import timber.log.Timber
 
-abstract class MviViewModel<
+open class MviViewModel<
         INTENT : Any,
         STATE : Any,
         SIDE_EFFECT : Any,

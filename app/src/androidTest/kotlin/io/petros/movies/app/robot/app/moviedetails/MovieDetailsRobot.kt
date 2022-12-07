@@ -1,4 +1,4 @@
-package io.petros.movies.app.robot.app.movie_details
+package io.petros.movies.app.robot.app.moviedetails
 
 import io.petros.movies.app.robot.actions.Actions
 import io.petros.movies.app.robot.actions.ScopedActions

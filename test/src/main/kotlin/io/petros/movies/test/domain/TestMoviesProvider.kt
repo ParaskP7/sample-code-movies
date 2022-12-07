@@ -31,12 +31,12 @@ fun movie(
     backdrop: String? = "http://image.tmdb.org/t/p/w500/5BwqwxMEjeFtdknRV792Svo0K1v.jpg",
 ): Movie {
     return Movie(
-        id,
-        title,
-        releaseDate,
-        voteAverage,
-        voteCount,
-        overview,
-        backdrop,
+        id = id,
+        title = title,
+        releaseDate = releaseDate,
+        voteAverage = voteAverage,
+        voteCount = voteCount,
+        overview = overview,
+        backdrop = backdrop,
     )
 }

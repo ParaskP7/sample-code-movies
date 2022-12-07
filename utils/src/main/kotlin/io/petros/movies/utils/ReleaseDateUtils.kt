@@ -5,6 +5,7 @@ import java.util.*
 
 const val MOVIE_DATE_FORMAT = "yyyy-MM-dd"
 
+@Suppress("NestedScopeFunctions", "ReplaceSafeCallChainWithRun")
 fun releaseDateGte(year: Int?, month: Int?) = year?.let {
     month?.let {
         releaseDateGte(year, month)
@@ -23,6 +24,7 @@ private fun releaseDateGte(year: Int, month: Int): Date {
     return calendar.time
 }
 
+@Suppress("NestedScopeFunctions", "ReplaceSafeCallChainWithRun")
 fun releaseDateLte(year: Int?, month: Int?) = year?.let {
     month?.let {
         releaseDateLte(year, month)

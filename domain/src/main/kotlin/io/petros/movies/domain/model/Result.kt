@@ -6,7 +6,7 @@ sealed class Result<out T : Any> {
         val value: T
     ) : Result<T>()
 
-    abstract class Error(
+    open class Error(
         open val cause: Exception
     ) : Result<Nothing>()
 

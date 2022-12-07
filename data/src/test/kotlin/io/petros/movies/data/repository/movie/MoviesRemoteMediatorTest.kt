@@ -36,9 +36,27 @@ class MoviesRemoteMediatorTest {
 
     private val firstPageMovies = listOf(movie(id = 1), movie(id = 2), movie(id = 3))
     private val firstPageMovieEntities = listOf(
-        MovieEntity.from(null, SECOND_PAGE, MOVIE_YEAR, MOVIE_MONTH, firstPageMovies[0]),
-        MovieEntity.from(null, SECOND_PAGE, MOVIE_YEAR, MOVIE_MONTH, firstPageMovies[1]),
-        MovieEntity.from(null, SECOND_PAGE, MOVIE_YEAR, MOVIE_MONTH, firstPageMovies[2])
+        MovieEntity.from(
+            prevPage = null,
+            nextPage = SECOND_PAGE,
+            year = MOVIE_YEAR,
+            month = MOVIE_MONTH,
+            movie = firstPageMovies[0]
+        ),
+        MovieEntity.from(
+            prevPage = null,
+            nextPage = SECOND_PAGE,
+            year = MOVIE_YEAR,
+            month = MOVIE_MONTH,
+            movie = firstPageMovies[1]
+        ),
+        MovieEntity.from(
+            prevPage = null,
+            nextPage = SECOND_PAGE,
+            year = MOVIE_YEAR,
+            month = MOVIE_MONTH,
+            movie = firstPageMovies[2]
+        )
     )
     private val firstPage = Page(
         data = firstPageMovieEntities,
@@ -48,9 +66,27 @@ class MoviesRemoteMediatorTest {
 
     private val secondPageMovies = listOf(movie(id = 4), movie(id = 5), movie(id = 6))
     private val secondPageMovieEntities = listOf(
-        MovieEntity.from(FIRST_PAGE, THIRD_PAGE, MOVIE_YEAR, MOVIE_MONTH, secondPageMovies[0]),
-        MovieEntity.from(FIRST_PAGE, THIRD_PAGE, MOVIE_YEAR, MOVIE_MONTH, secondPageMovies[1]),
-        MovieEntity.from(FIRST_PAGE, THIRD_PAGE, MOVIE_YEAR, MOVIE_MONTH, secondPageMovies[2])
+        MovieEntity.from(
+            prevPage = FIRST_PAGE,
+            nextPage = THIRD_PAGE,
+            year = MOVIE_YEAR,
+            month = MOVIE_MONTH,
+            movie = secondPageMovies[0]
+        ),
+        MovieEntity.from(
+            prevPage = FIRST_PAGE,
+            nextPage = THIRD_PAGE,
+            year = MOVIE_YEAR,
+            month = MOVIE_MONTH,
+            movie = secondPageMovies[1]
+        ),
+        MovieEntity.from(
+            prevPage = FIRST_PAGE,
+            nextPage = THIRD_PAGE,
+            year = MOVIE_YEAR,
+            month = MOVIE_MONTH,
+            movie = secondPageMovies[2]
+        )
     )
     private val secondPage = Page(
         data = secondPageMovieEntities,
@@ -63,7 +99,12 @@ class MoviesRemoteMediatorTest {
 
     private val serviceMock = mockk<MoviesService>()
     private val databaseMock = mockk<MoviesDatabase>()
-    private val testedClass = MoviesRemoteMediator(serviceMock, databaseMock, MOVIE_YEAR, MOVIE_MONTH)
+    private val testedClass = MoviesRemoteMediator(
+        service = serviceMock,
+        database = databaseMock,
+        year = MOVIE_YEAR,
+        month = MOVIE_MONTH
+    )
 
     @Before
     fun setUp() {

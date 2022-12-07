@@ -2,7 +2,7 @@ package io.petros.movies.app.robot.app
 
 import io.petros.movies.app.robot.Robot
 import io.petros.movies.app.robot.actions.Actions
-import io.petros.movies.app.robot.app.movie_details.MovieDetailsRobot
+import io.petros.movies.app.robot.app.moviedetails.MovieDetailsRobot
 import io.petros.movies.app.robot.app.movies.MoviesRobot
 
 class AppRobot : Robot(), Actions {

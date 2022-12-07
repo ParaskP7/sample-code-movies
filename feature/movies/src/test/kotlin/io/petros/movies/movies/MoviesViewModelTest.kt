@@ -31,7 +31,7 @@ class MoviesViewModelTest {
 
     @get:Rule val archRule = InstantTaskExecutorRule()
 
-    private val date = Result.Success(Pair(MOVIE_YEAR, MOVIE_MONTH))
+    private val date = Result.Success(MOVIE_YEAR to MOVIE_MONTH)
     private val moviesPage = mockk<PagingData<Movie>>()
     private val moviesPageStream = flow<PagingData<Movie>> { moviesPage }
 
@@ -149,6 +149,7 @@ class MoviesViewModelTest {
     /* MOVIES - LOAD */
 
     @Test
+    @Suppress("IgnoredReturnValue")
     fun `given initial load, when loading movies, then the load movies use case executes`() = runTest {
         coEvery { loadMoviesUseCaseMock(any()) } returns moviesPageStream
 
@@ -224,6 +225,7 @@ class MoviesViewModelTest {
     }
 
     @Test
+    @Suppress("IgnoredReturnValue")
     @Ignore("Figure out a way to test this scenario.")
     fun `given subsequent load, when loading movies, then the load movies use case does not execute`() {
         testedClass.process(MoviesIntent.LoadMovies(MOVIE_YEAR, MOVIE_MONTH))
@@ -300,6 +302,7 @@ class MoviesViewModelTest {
     }
 
     @Test
+    @Suppress("IgnoredReturnValue")
     fun `when reloading movies, then the load movies use case executes`() = runTest {
         coEvery { loadMoviesUseCaseMock(any()) } returns moviesPageStream
 

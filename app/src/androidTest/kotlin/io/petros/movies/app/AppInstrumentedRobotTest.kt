@@ -25,11 +25,12 @@ import org.junit.runner.RunWith
 import java.util.*
 
 @LargeTest
-@Suppress("LongMethod")
+@Suppress("LongMethod", "StringLiteralDuplication", "FunctionNaming")
 @RunWith(AndroidJUnit4::class)
 class AppInstrumentedRobotTest {
 
-    @Suppress("LateinitUsage") private lateinit var scenario: ActivityScenario<AppActivity>
+    @Suppress("LateinitUsage")
+    private lateinit var scenario: ActivityScenario<AppActivity>
 
     private val server = MockWebServer()
 

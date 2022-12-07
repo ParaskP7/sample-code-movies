@@ -12,7 +12,7 @@ object ConnectivityUtil {
                 capabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) -> true
                 else -> false
             }
-        } ?: false
+        } == true
     }
 
 }

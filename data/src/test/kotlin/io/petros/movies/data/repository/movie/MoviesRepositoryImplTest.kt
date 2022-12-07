@@ -21,9 +21,15 @@ import strikt.assertions.isEqualTo
 @ExperimentalCoroutinesApi
 class MoviesRepositoryImplTest {
 
-    private val date = Result.Success(Pair(MOVIE_YEAR, MOVIE_MONTH))
+    private val date = Result.Success(MOVIE_YEAR to MOVIE_MONTH)
     private val movie = Result.Success(movie())
-    private val movieEntity = MovieEntity.from(null, SECOND_PAGE, date.value.first, date.value.second, movie.value)
+    private val movieEntity = MovieEntity.from(
+        prevPage = null,
+        nextPage = SECOND_PAGE,
+        year = date.value.first,
+        month = date.value.second,
+        movie = movie.value
+    )
     private val movieEntityStream = flow<MovieEntity> { movieEntity }
 
     private val moviesDaoMock = mockk<MoviesDao>()
@@ -52,7 +58,7 @@ class MoviesRepositoryImplTest {
 
     @Test
     fun `when load movie is triggered, then the movie stream is the expected one`() = runTest {
-        coEvery { moviesDaoMock.movie(MOVIE_ID) } returns movieEntityStream
+        every { moviesDaoMock.movie(MOVIE_ID) } returns movieEntityStream
 
         val result = testedClass.loadMovieStream(MOVIE_ID)
 

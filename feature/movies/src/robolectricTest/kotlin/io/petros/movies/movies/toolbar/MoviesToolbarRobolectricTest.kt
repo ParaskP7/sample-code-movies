@@ -344,8 +344,8 @@ class MoviesToolbarRobolectricTest {
         testedClass.binding.ivToolbarCloseIcon.performClick()
         expect { that(testedClass.binding.ivToolbarFilterIcon.isVisible).isTrue() }
         expect { that(testedClass.binding.ivToolbarCloseIcon.isVisible).isFalse() }
-        val savedInstanceState = Bundle().also {
-            it.putBoolean(MoviesToolbar.INSTANCE_STATE_KEY_CLOSE_ICON, false)
+        val savedInstanceState = Bundle().apply {
+            putBoolean(MoviesToolbar.INSTANCE_STATE_KEY_CLOSE_ICON, false)
         }
 
         testedClass.onRestoreInstanceState(savedInstanceState)
@@ -359,8 +359,8 @@ class MoviesToolbarRobolectricTest {
         testedClass.binding.ivToolbarCloseIcon.performClick()
         expect { that(testedClass.binding.ivToolbarFilterIcon.isVisible).isTrue() }
         expect { that(testedClass.binding.ivToolbarCloseIcon.isVisible).isFalse() }
-        val savedInstanceState = Bundle().also {
-            it.putBoolean(MoviesToolbar.INSTANCE_STATE_KEY_CLOSE_ICON, true)
+        val savedInstanceState = Bundle().apply {
+            putBoolean(MoviesToolbar.INSTANCE_STATE_KEY_CLOSE_ICON, true)
         }
 
         testedClass.onRestoreInstanceState(savedInstanceState)
@@ -374,8 +374,8 @@ class MoviesToolbarRobolectricTest {
     @Test
     fun `given year filter state is null, when restore instance state, then year is not shown`() {
         testedClass.hideYear()
-        val savedInstanceState = Bundle().also {
-            it.putString(MoviesToolbar.INSTANCE_STATE_KEY_YEAR_FILTER, null)
+        val savedInstanceState = Bundle().apply {
+            putString(MoviesToolbar.INSTANCE_STATE_KEY_YEAR_FILTER, null)
         }
 
         testedClass.onRestoreInstanceState(savedInstanceState)
@@ -386,8 +386,8 @@ class MoviesToolbarRobolectricTest {
     @Test
     fun `given year filter state is not null, when restore instance state, then year is shown`() {
         testedClass.hideYear()
-        val savedInstanceState = Bundle().also {
-            it.putString(MoviesToolbar.INSTANCE_STATE_KEY_YEAR_FILTER, 2019.toString())
+        val savedInstanceState = Bundle().apply {
+            putString(MoviesToolbar.INSTANCE_STATE_KEY_YEAR_FILTER, 2019.toString())
         }
 
         testedClass.onRestoreInstanceState(savedInstanceState)
@@ -398,8 +398,8 @@ class MoviesToolbarRobolectricTest {
     @Test
     fun `given year filter state is null, when restore instance state, then month is not shown`() {
         testedClass.hideMonth()
-        val savedInstanceState = Bundle().also {
-            it.putString(MoviesToolbar.INSTANCE_STATE_KEY_YEAR_FILTER, null)
+        val savedInstanceState = Bundle().apply {
+            putString(MoviesToolbar.INSTANCE_STATE_KEY_YEAR_FILTER, null)
         }
 
         testedClass.onRestoreInstanceState(savedInstanceState)
@@ -410,8 +410,8 @@ class MoviesToolbarRobolectricTest {
     @Test
     fun `given year filter state is not null, when restore instance state, then month is shown`() {
         testedClass.hideMonth()
-        val savedInstanceState = Bundle().also {
-            it.putString(MoviesToolbar.INSTANCE_STATE_KEY_YEAR_FILTER, 2020.toString())
+        val savedInstanceState = Bundle().apply {
+            putString(MoviesToolbar.INSTANCE_STATE_KEY_YEAR_FILTER, 2020.toString())
         }
 
         testedClass.onRestoreInstanceState(savedInstanceState)
@@ -423,8 +423,8 @@ class MoviesToolbarRobolectricTest {
     fun `given year filter state is null, when restore instance state, then year is not set`() {
         val previousYear = 2019
         testedClass.setYear(previousYear)
-        val savedInstanceState = Bundle().also {
-            it.putString(MoviesToolbar.INSTANCE_STATE_KEY_YEAR_FILTER, null)
+        val savedInstanceState = Bundle().apply {
+            putString(MoviesToolbar.INSTANCE_STATE_KEY_YEAR_FILTER, null)
         }
 
         testedClass.onRestoreInstanceState(savedInstanceState)
@@ -437,8 +437,8 @@ class MoviesToolbarRobolectricTest {
         val previousYear = 2019
         val currentYear = 2020
         testedClass.setYear(previousYear)
-        val savedInstanceState = Bundle().also {
-            it.putString(MoviesToolbar.INSTANCE_STATE_KEY_YEAR_FILTER, currentYear.toString())
+        val savedInstanceState = Bundle().apply {
+            putString(MoviesToolbar.INSTANCE_STATE_KEY_YEAR_FILTER, currentYear.toString())
         }
 
         testedClass.onRestoreInstanceState(savedInstanceState)
@@ -451,8 +451,8 @@ class MoviesToolbarRobolectricTest {
     @Test
     fun `given month filter state is null, when restore instance state, then month is not shown`() {
         testedClass.hideMonth()
-        val savedInstanceState = Bundle().also {
-            it.putString(MoviesToolbar.INSTANCE_STATE_KEY_MONTH_FILTER, null)
+        val savedInstanceState = Bundle().apply {
+            putString(MoviesToolbar.INSTANCE_STATE_KEY_MONTH_FILTER, null)
         }
 
         testedClass.onRestoreInstanceState(savedInstanceState)
@@ -463,8 +463,8 @@ class MoviesToolbarRobolectricTest {
     @Test
     fun `given month filter state is not null, when restore instance state, then month is shown`() {
         testedClass.hideMonth()
-        val savedInstanceState = Bundle().also {
-            it.putString(MoviesToolbar.INSTANCE_STATE_KEY_MONTH_FILTER, MonthOfYear.FEBRUARY.number.toString())
+        val savedInstanceState = Bundle().apply {
+            putString(MoviesToolbar.INSTANCE_STATE_KEY_MONTH_FILTER, MonthOfYear.FEBRUARY.number.toString())
         }
 
         testedClass.onRestoreInstanceState(savedInstanceState)
@@ -476,8 +476,8 @@ class MoviesToolbarRobolectricTest {
     fun `given month filter state is null, when restore instance state, then month is not set`() {
         val previousMonth = MonthOfYear.JANUARY.number
         testedClass.setMonth(previousMonth)
-        val savedInstanceState = Bundle().also {
-            it.putString(MoviesToolbar.INSTANCE_STATE_KEY_MONTH_FILTER, null)
+        val savedInstanceState = Bundle().apply {
+            putString(MoviesToolbar.INSTANCE_STATE_KEY_MONTH_FILTER, null)
         }
 
         testedClass.onRestoreInstanceState(savedInstanceState)
@@ -490,8 +490,8 @@ class MoviesToolbarRobolectricTest {
         val previousMonth = MonthOfYear.JANUARY.number
         val currentMonth = MonthOfYear.FEBRUARY.number
         testedClass.setMonth(previousMonth)
-        val savedInstanceState = Bundle().also {
-            it.putString(MoviesToolbar.INSTANCE_STATE_KEY_MONTH_FILTER, currentMonth.toString())
+        val savedInstanceState = Bundle().apply {
+            putString(MoviesToolbar.INSTANCE_STATE_KEY_MONTH_FILTER, currentMonth.toString())
         }
 
         testedClass.onRestoreInstanceState(savedInstanceState)
@@ -503,22 +503,22 @@ class MoviesToolbarRobolectricTest {
 
     @Test
     fun `given year is not set, when save instance state, then don't save close icon state`() {
-        val closeIconState = false
-        testedClass.binding.ivToolbarCloseIcon.isVisible = closeIconState
+        val isCloseIconState = false
+        testedClass.binding.ivToolbarCloseIcon.isVisible = isCloseIconState
         val savedInstanceState = Bundle()
 
         testedClass.onSaveInstanceState(savedInstanceState)
 
         expect {
             that(savedInstanceState.getBoolean(MoviesToolbar.INSTANCE_STATE_KEY_CLOSE_ICON))
-                .isEqualTo(closeIconState)
+                .isEqualTo(isCloseIconState)
         }
     }
 
     @Test
     fun `given year is set, when save instance state, then do save close icon state`() {
-        val closeIconState = true
-        testedClass.binding.ivToolbarCloseIcon.isVisible = closeIconState
+        val isCloseIconState = true
+        testedClass.binding.ivToolbarCloseIcon.isVisible = isCloseIconState
         val savedInstanceState = Bundle()
         testedClass.setYear(2020)
 
@@ -526,7 +526,7 @@ class MoviesToolbarRobolectricTest {
 
         expect {
             that(savedInstanceState.getBoolean(MoviesToolbar.INSTANCE_STATE_KEY_CLOSE_ICON))
-                .isEqualTo(closeIconState)
+                .isEqualTo(isCloseIconState)
         }
     }
 

@@ -33,6 +33,7 @@ dependencyAnalysis {
         onIncorrectConfiguration {
             exclude(
                 libs.koin.core.jvm.identifier(), // Ignore change to 'api' advice.
+                libs.kotlinx.coroutines.core.jvm.identifier(), // Ignore change to 'api' advice.
             )
         }
     }

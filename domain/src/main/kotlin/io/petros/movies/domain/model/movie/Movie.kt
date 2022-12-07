@@ -32,13 +32,13 @@ data class Movie(
         private const val NOT_AVAILABLE = "Not Available"
 
         val Default = Movie(
-            0,
-            "Title",
-            GregorianCalendar(1, Calendar.JANUARY, 1).time,
-            0.0,
-            0,
-            "Overview",
-            null,
+            id = 0,
+            title = "Title",
+            releaseDate = GregorianCalendar(1, Calendar.JANUARY, 1).time,
+            voteAverage = 0.0,
+            voteCount = 0,
+            overview = "Overview",
+            backdrop = null,
         )
 
     }

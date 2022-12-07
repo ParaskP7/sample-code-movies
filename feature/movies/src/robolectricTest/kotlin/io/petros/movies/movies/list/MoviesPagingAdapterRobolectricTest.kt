@@ -20,9 +20,11 @@ class MoviesPagingAdapterRobolectricTest {
     private val context = context()
     private val recyclerView = RecyclerView(context())
 
-    private val testedClass = spyk(MoviesPagingAdapter().also {
-        it.itemCallback = mockk()
-    })
+    private val testedClass = spyk(
+        MoviesPagingAdapter().also {
+            it.itemCallback = mockk()
+        }
+    )
 
     /* CONTEXT */
 

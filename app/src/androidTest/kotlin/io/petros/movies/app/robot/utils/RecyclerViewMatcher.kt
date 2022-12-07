@@ -17,6 +17,7 @@ class RecyclerViewMatcher(
         var resources: Resources? = null
         var childView: View? = null
 
+        @Suppress("UnsafeCallOnNullableType")
         override fun describeTo(description: Description) {
             var idDescription = recyclerViewId.toString()
             if (this.resources != null) {

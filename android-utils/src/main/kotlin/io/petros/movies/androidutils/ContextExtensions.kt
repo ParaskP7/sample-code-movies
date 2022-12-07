@@ -17,7 +17,8 @@ fun Context.getDimension(@DimenRes resource: Int) = resources.getDimensionPixelO
 
 /* TOAST */
 
-fun Context.toast(@StringRes message: Int) = Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+@Suppress("OptionalUnit")
+fun Context.toast(@StringRes message: Int): Unit = Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
 
 fun Fragment.toast(@StringRes message: Int) {
     requireContext().toast(message)

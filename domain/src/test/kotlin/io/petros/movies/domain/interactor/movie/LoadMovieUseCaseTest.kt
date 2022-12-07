@@ -1,6 +1,6 @@
 package io.petros.movies.domain.interactor.movie
 
-import io.mockk.coEvery
+import io.mockk.every
 import io.mockk.mockk
 import io.petros.movies.domain.model.Result
 import io.petros.movies.domain.model.movie.Movie
@@ -27,7 +27,7 @@ class LoadMovieUseCaseTest {
 
     @Test
     fun `when executing the use case, then the movie stream is the expected one`() = runTest {
-        coEvery { moviesRepositoryMock.loadMovieStream(MOVIE_ID) } returns movieStream
+        every { moviesRepositoryMock.loadMovieStream(MOVIE_ID) } returns movieStream
 
         val result = testedClass(params)
 

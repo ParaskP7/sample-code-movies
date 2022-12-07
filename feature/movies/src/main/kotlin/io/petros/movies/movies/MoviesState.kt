@@ -106,15 +106,24 @@ object MoviesReducer {
 
     @Suppress("UseIfInsteadOfWhen")
     fun once(action: MoviesAction) = when (action) {
+        is MoviesAction.DateSuccess -> throw IllegalArgumentException(
+            "This movies action has no side effects associated with this date success action."
+        )
         is MoviesAction.DateError -> MoviesSideEffect.DateError
+        is MoviesAction.MoviesIdle -> throw IllegalArgumentException(
+            "This movies action has no side effects associated with this movies idle action."
+        )
+        is MoviesAction.MoviesReload -> throw IllegalArgumentException(
+            "This movies action has no side effects associated with this movies reload action."
+        )
+        is MoviesAction.MoviesSuccess -> throw IllegalArgumentException(
+            "This movies action has no side effects associated with this movies success action."
+        )
         is MoviesAction.MoviesError -> when (action.loadType) {
             LoadType.REFRESH -> MoviesSideEffect.MoviesRefreshError
             LoadType.APPEND -> MoviesSideEffect.MoviesAppendError
             LoadType.PREPEND -> MoviesSideEffect.MoviesPrependError
         }
-        else -> throw IllegalArgumentException(
-            "This movies action has no side effects associated with it. [Action: $action]"
-        )
     }
 
 }

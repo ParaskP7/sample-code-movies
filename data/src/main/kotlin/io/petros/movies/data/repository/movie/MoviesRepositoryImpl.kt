@@ -22,7 +22,7 @@ class MoviesRepositoryImpl(
     }
 
     // TODO: Figure out a way to test this function.
-    override suspend fun loadMoviesStream(year: Int?, month: Int?) = pager(year, month).map { pagingData ->
+    override fun loadMoviesStream(year: Int?, month: Int?) = pager(year, month).map { pagingData ->
         pagingData.map { it.toMovie() }
     }
 
@@ -40,7 +40,7 @@ class MoviesRepositoryImpl(
         pagingSourceFactory = { database.moviesDao().movies() }
     ).flow
 
-    override suspend fun loadMovieStream(id: Int) = database.moviesDao().movie(id)
+    override fun loadMovieStream(id: Int) = database.moviesDao().movie(id)
         .map { asResult { it.toMovie() } }
 
 }

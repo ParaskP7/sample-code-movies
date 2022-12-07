@@ -57,6 +57,7 @@ class MoviesRemoteMediator(
     /**
      * Get the item closest to the anchor position. From that item, get the next page.
      */
+    @Suppress("NestedScopeFunctions")
     private fun getNextPageForCurrentItem(state: PagingState<Int, MovieEntity>) =
         state.anchorPosition?.let { position ->
             state.closestItemToPosition(position)?.let { movieEntity ->
@@ -69,6 +70,7 @@ class MoviesRemoteMediator(
      * Get the last page that was retrieved, that contained items. From that last page, get the last item. From that
      * item, get the next page.
      */
+    @Suppress("MaxChainedCallsOnSameLine")
     private fun getNextPageForLastItem(state: PagingState<Int, MovieEntity>) =
         state.pages.lastOrNull { it.data.isNotEmpty() }?.data?.lastOrNull()?.let { movieEntity ->
             Timber.v("Get next page for an append load. [Movie Entity: $movieEntity]")
@@ -79,17 +81,19 @@ class MoviesRemoteMediator(
      * Get the first page that was retrieved, that contained items. From that first page, get the first item. From that
      * item, get the previous page.
      */
+    @Suppress("MaxChainedCallsOnSameLine")
     private fun getPreviousPageForFirstItem(state: PagingState<Int, MovieEntity>) =
         state.pages.firstOrNull { it.data.isNotEmpty() }?.data?.firstOrNull()?.let { movieEntity ->
             Timber.v("Get previous page for a prepend load. [Movie Entity: $movieEntity]")
             movieEntity.prevPage
         }
 
+    @Suppress("OptionalUnit")
     private suspend fun updateDatabase(
         loadType: LoadType,
         page: Int?,
         movies: List<Movie>,
-    ) = database.withTransaction {
+    ): Unit = database.withTransaction {
         checkAndClearMovies(loadType)
         insertMovies(page, movies)
     }

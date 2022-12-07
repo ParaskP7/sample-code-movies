@@ -109,6 +109,7 @@ class MovieDetailsViewModelTest {
     }
 
     @Test
+    @Suppress("IgnoredReturnValue")
     fun `when loading movie, then the load movie use case executes`() = runTest {
         coEvery { loadMovieUseCaseMock(any()) } returns flow { movieStream }
 

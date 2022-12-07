@@ -1,7 +1,7 @@
 package io.petros.movies.domain.interactor.movie
 
 import androidx.paging.PagingData
-import io.mockk.coEvery
+import io.mockk.every
 import io.mockk.mockk
 import io.petros.movies.domain.model.movie.Movie
 import io.petros.movies.domain.repository.movie.MoviesRepository
@@ -26,7 +26,7 @@ class LoadMoviesUseCaseTest {
 
     @Test
     fun `when invoking the use case, then the movies page stream is the expected one`() = runTest {
-        coEvery { moviesRepositoryMock.loadMoviesStream(MOVIE_YEAR, MOVIE_MONTH) } returns moviesPageStream
+        every { moviesRepositoryMock.loadMoviesStream(MOVIE_YEAR, MOVIE_MONTH) } returns moviesPageStream
 
         val result = testedClass(params)
 

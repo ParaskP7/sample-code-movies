@@ -69,7 +69,8 @@ class MovieDetailsFragment : MviFragment<MovieDetailsFragmentBinding,
 
     /* SIDE EFFECT */
 
-    override fun renderSideEffect(sideEffect: MovieDetailsSideEffect) = when (sideEffect) {
+    @Suppress("OptionalUnit")
+    override fun renderSideEffect(sideEffect: MovieDetailsSideEffect): Unit = when (sideEffect) {
         is MovieDetailsSideEffect.Error -> renderErrorSideEffect()
     }
 

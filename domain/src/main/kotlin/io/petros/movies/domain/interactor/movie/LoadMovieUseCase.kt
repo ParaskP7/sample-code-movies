@@ -6,7 +6,7 @@ class LoadMovieUseCase(
     private val moviesRepository: MoviesRepository,
 ) {
 
-    suspend operator fun invoke(params: Params) = moviesRepository.loadMovieStream(params.id)
+    operator fun invoke(params: Params) = moviesRepository.loadMovieStream(params.id)
 
     data class Params(val id: Int)
 

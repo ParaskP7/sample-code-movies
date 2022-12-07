@@ -121,8 +121,8 @@ class MoviesToolbar(
     }
 
     private fun onRestoreIconInstanceState(savedInstanceState: Bundle) {
-        val closeIcon = savedInstanceState.getBoolean(INSTANCE_STATE_KEY_CLOSE_ICON)
-        if (closeIcon) showCloseIcon()
+        val isCloseIcon = savedInstanceState.getBoolean(INSTANCE_STATE_KEY_CLOSE_ICON)
+        if (isCloseIcon) showCloseIcon()
     }
 
     private fun onRestoreYearInstanceState(savedInstanceState: Bundle) {

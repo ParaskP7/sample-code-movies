@@ -58,6 +58,7 @@ dependencyAnalysis {
                 Projects.Implementation.Android.Core.DATABASE, // Ignore change to 'api' advice.
                 libs.androidx.paging.common.identifier(), // Ignore change to 'api' advice.
                 libs.koin.core.jvm.identifier(), // Ignore change to 'api' advice.
+                libs.kotlinx.coroutines.core.jvm.identifier(), // Ignore change to 'api' advice.
             )
         }
     }
