@@ -14,7 +14,7 @@ jobs:
   build:
     strategy:
       matrix:
-        version: [ 11, 17, 19 ]
+        version: [ 11, 17 ]
     runs-on: ubuntu-latest
     continue-on-error: true
     steps:
