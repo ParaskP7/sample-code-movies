@@ -46,7 +46,7 @@ mockk = "1.13.3"
 modulesGraphAssert = "2.3.0"
 okhttp = "5.0.0-alpha.11"
 retrofit = "2.9.0"
-robolectric = "4.9.1"
+robolectric = "4.9.2"
 strikt = "0.34.1"
 timber = "5.0.1"
 
