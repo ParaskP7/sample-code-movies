@@ -319,6 +319,7 @@ object Android {
             "InvalidPackage",
             "DialogFragmentCallbacksDetector", // From Android Gradle Plugin version 7.4.0-alpha02 and onwards
             "UnknownIssueId", // From Android Gradle Plugin version 7.4.0-alpha02 and onwards
+            "GradleDependency",
         )
 
         val disabledDatabaseIssues = arrayOf(
