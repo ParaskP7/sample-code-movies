@@ -52,15 +52,15 @@ dependencies {
     androidTestImplementation(project(Projects.Implementation.Kotlin.UTILS))
     androidTestImplementation(project(Projects.TestImplementation.Kotlin.TEST))
 
+    androidTestImplementation(libs.androidx.recycler.view)
+    androidTestImplementation(libs.junit4)
     androidTestImplementation(libs.androidx.test.core.main)
     androidTestImplementation(libs.androidx.test.core.ktx)
     androidTestImplementation(libs.androidx.test.junit)
     androidTestImplementation(libs.androidx.test.runner)
-    androidTestImplementation(libs.androidx.test.rules)
     androidTestImplementation(libs.androidx.test.espresso.core)
     androidTestImplementation(libs.androidx.test.espresso.contrib)
     androidTestImplementation(libs.okhttp.mock.web.server)
-    androidTestImplementation(libs.strikt)
 }
 
 dependencyAnalysis {
@@ -69,6 +69,11 @@ dependencyAnalysis {
             exclude(
                 libs.leak.canary.identifier(), // Ignore remove advise. Required for nav.
                 libs.androidx.navigation.fragment.ktx.identifier(), // Ignore remove advise. Required for nav.
+            )
+        }
+        onUsedTransitiveDependencies {
+            exclude(
+                libs.hamcrest.identifier(), // Ignore remove advise. Required for espresso.
             )
         }
     }
