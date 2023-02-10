@@ -37,12 +37,10 @@ jobs:
           java-version: ${{ matrix.version }}
           distribution: 'temurin'
           cache: gradle
-      - name: Dependency Versions - Dependency Updates
-        run: ./gradlew dependencyUpdates
       - name: Build - Assemble (Debug)
         run: ./gradlew assembleDebug
       - name: Dependency Analysis - Build Health
-        run: ./gradlew assembleDebug
+        run: ./gradlew buildHealth
       - name: Static Analysis - Detekt without Type Resolution
         run: ./gradlew detekt
       - name: Static Analysis - Detekt with Type Resolution (Main)
@@ -56,7 +54,7 @@ jobs:
       - name: Test - Unit Test - Android Modules (Debug)
         run: ./gradlew testDebugUnitTest
       - name: Test - Unit Test - Code Coverage
-        run: ./gradlew testDebugUnitTest
+        run: ./gradlew jacoco
       - name: Test - Assemble UI Test - App Module (Debug)
         run: ./gradlew app:assembleDebugAndroidTest
   test:
