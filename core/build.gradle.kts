@@ -20,6 +20,7 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.app.compat.main)
     implementation(libs.androidx.fragment.main)
+    implementation(libs.androidx.core.main)
     implementation(libs.androidx.lifecycle.common.main)
     implementation(libs.androidx.lifecycle.common.java8)
     implementation(libs.androidx.lifecycle.livedata.core)

@@ -19,12 +19,14 @@ dependencies {
 
     implementation(libs.kotlinx.coroutines.core.main)
     implementation(libs.kotlinx.coroutines.core.jvm)
+    implementation(platform(libs.androidx.compose.bom))
+    implementation(libs.androidx.compose.ui.tooling.preview)
+    debugImplementation(libs.androidx.compose.ui.tooling.main)
     implementation(libs.androidx.compose.runtime)
     implementation(libs.androidx.compose.ui.main)
     implementation(libs.androidx.compose.ui.graphics)
     implementation(libs.androidx.compose.ui.text)
     implementation(libs.androidx.compose.ui.unit)
-    implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.compose.foundation.main)
     implementation(libs.androidx.compose.foundation.layout)
     implementation(libs.androidx.compose.material)
@@ -48,6 +50,11 @@ dependencyAnalysis {
                 libs.androidx.fragment.main.identifier(), // Ignore change to 'api' advice.
                 libs.androidx.lifecycle.view.model.main.identifier(), // Ignore change to 'api' advice.
                 libs.koin.core.jvm.identifier(), // Ignore change to 'api' advice.
+            )
+        }
+        onAny {
+            exclude(
+                libs.androidx.compose.ui.tooling.main.identifier(), // Ignore change to 'api' advice.
             )
         }
     }
