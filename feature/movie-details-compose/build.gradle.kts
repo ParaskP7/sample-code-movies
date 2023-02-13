@@ -52,5 +52,10 @@ dependencyAnalysis {
                 libs.koin.core.jvm.identifier(), // Ignore change to 'api' advice.
             )
         }
+        onAny {
+            exclude(
+                libs.androidx.compose.ui.tooling.main.identifier(), // Ignore change to 'api' advice.
+            )
+        }
     }
 }

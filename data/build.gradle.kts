@@ -45,11 +45,6 @@ dependencies {
 
 dependencyAnalysis {
     issues {
-        onUnusedDependencies {
-            exclude(
-                libs.robolectric.main.identifier(), // Ignore remove advise. Required for tests.
-            )
-        }
         onIncorrectConfiguration {
             exclude(
                 Projects.Implementation.Kotlin.DOMAIN, // Ignore change to 'api' advice.
@@ -59,6 +54,11 @@ dependencyAnalysis {
                 libs.androidx.paging.common.identifier(), // Ignore change to 'api' advice.
                 libs.koin.core.jvm.identifier(), // Ignore change to 'api' advice.
                 libs.kotlinx.coroutines.core.jvm.identifier(), // Ignore change to 'api' advice.
+            )
+        }
+        onAny {
+            exclude(
+                libs.robolectric.main.identifier(), // Ignore remove advise. Required for tests.
             )
         }
     }

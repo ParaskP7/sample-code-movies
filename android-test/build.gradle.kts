@@ -30,9 +30,11 @@ dependencyAnalysis {
                 libs.junit4.identifier(), // Ignore remove advise. Required because of Robolectric.
             )
         }
-        onIncorrectConfiguration {
+        onAny {
             exclude(
                 libs.robolectric.main.identifier(), // Ignore change to 'api' advice.
+                libs.robolectric.utils.identifier(), // Ignore change to 'api' advice.
+                libs.robolectric.junit.identifier(), // Ignore change to 'api' advice.
             )
         }
     }

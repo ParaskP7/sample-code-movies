@@ -78,6 +78,7 @@ androidx-compose-ui-tooling-main = { group = "androidx.compose.ui", name = "ui-t
 androidx-compose-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
 androidx-constraint-layout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "androidxConstraintLayout" }
 androidx-coordinator-layout = { group = "androidx.coordinatorlayout", name = "coordinatorlayout", version.ref = "androidXCoordinatorLayout" }
+androidx-core-main = { group = "androidx.core", name = "core", version.ref = "androidXCore" }
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "androidXCore" }
 androidx-custom-view = { group = "androidx.customview", name = "customview", version.ref = "androidxCustomView" }
 androidx-datastore-core = { group = "androidx.datastore", name = "datastore-core", version.ref = "androidxDatastore" }
@@ -141,6 +142,8 @@ retrofit-main = { group = "com.squareup.retrofit2", name = "retrofit", version.r
 retrofit-gson = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofit" }
 robolectric-main = { group = "org.robolectric", name = "robolectric", version.ref = "robolectric" }
 robolectric-annotations = { group = "org.robolectric", name = "annotations", version.ref = "robolectric" }
+robolectric-utils = { group = "org.robolectric", name = "utils", version.ref = "robolectric" }
+robolectric-junit = { group = "org.robolectric", name = "junit", version.ref = "robolectric" }
 strikt = { group = "io.strikt", name = "strikt-core", version.ref = "strikt" }
 timber = { group = "com.jakewharton.timber", name = "timber", version.ref = "timber" }
 
