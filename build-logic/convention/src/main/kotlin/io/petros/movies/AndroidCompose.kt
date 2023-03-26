@@ -16,7 +16,6 @@ internal fun Project.configureAndroidCompose(
 
 /* BUILD FEATURES */
 
-@Suppress("UnstableApiUsage")
 fun CommonExtension<*, *, *, *, *>.buildFeaturesCompose() {
     buildFeatures {
         compose = true

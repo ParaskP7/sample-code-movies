@@ -110,7 +110,6 @@ fun Any?.asString() = "\"$this\""
 
 /* BUILD FEATURES */
 
-@Suppress("UnstableApiUsage")
 fun CommonExtension<*, *, *, *, *>.buildFeatures() {
     buildFeatures.apply {
         aidl = false
@@ -128,7 +127,6 @@ fun CommonExtension<*, *, *, *, *>.buildFeatures() {
     }
 }
 
-@Suppress("UnstableApiUsage")
 fun BaseAppModuleExtension.enableViewBindingAndBuildConfig() {
     buildFeatures {
         viewBinding = true
@@ -150,7 +148,6 @@ fun LibraryExtension.enableBuildConfig() {
 
 /* LINT */
 
-@Suppress("UnstableApiUsage")
 fun CommonExtension<*, *, *, *, *>.lint(project: Project) {
     lint {
         abortOnError = true
@@ -165,7 +162,6 @@ fun CommonExtension<*, *, *, *, *>.lint(project: Project) {
     }
 }
 
-@Suppress("UnstableApiUsage")
 fun LibraryExtension.disabledDatabaseIssues() {
     lint {
         disable += Android.Lint.disabledDatabaseIssues
@@ -204,7 +200,6 @@ fun CommonExtension<*, *, *, *, *>.testOptions() {
 
 /* PACKAGING OPTIONS */
 
-@Suppress("UnstableApiUsage")
 fun CommonExtension<*, *, *, *, *>.packagingOptions() {
     packagingOptions {
         jniLibs.useLegacyPackaging = false
@@ -223,7 +218,6 @@ fun CommonExtension<*, *, *, *, *>.packagingOptions() {
 
 /* SOURCE SETS */
 
-@Suppress("UnstableApiUsage")
 fun CommonExtension<*, *, *, *, *>.sourceSets() {
     sourceSets {
         named(Sources.MAIN) { mainAndroidSourceSets() }
@@ -232,7 +226,6 @@ fun CommonExtension<*, *, *, *, *>.sourceSets() {
     }
 }
 
-@Suppress("UnstableApiUsage")
 fun AndroidSourceSet.mainAndroidSourceSets() {
     java.setSrcDirs(
         arrayListOf(
@@ -246,7 +239,6 @@ fun AndroidSourceSet.mainAndroidSourceSets() {
     )
 }
 
-@Suppress("UnstableApiUsage")
 fun AndroidSourceSet.testAndroidSourceSets() {
     java.setSrcDirs(
         arrayListOf(
@@ -262,7 +254,6 @@ fun AndroidSourceSet.testAndroidSourceSets() {
     )
 }
 
-@Suppress("UnstableApiUsage")
 fun AndroidSourceSet.androidTestAndroidSourceSets() {
     java.setSrcDirs(
         arrayListOf(
