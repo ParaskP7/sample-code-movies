@@ -16,7 +16,7 @@ import org.jetbrains.kotlin.gradle.dsl.KotlinJvmOptions
 import java.util.*
 
 internal fun Project.configureKotlinAndroid(
-    commonExtension: CommonExtension<*, *, *, *>,
+    commonExtension: CommonExtension<*, *, *, *, *>,
 ) {
     commonExtension.apply {
         commonSdk()
@@ -25,7 +25,7 @@ internal fun Project.configureKotlinAndroid(
         compileOptions()
         kotlinOptions()
         testOptions()
-        packagingOptions()
+        packaging()
         sourceSets()
     }
 }
@@ -59,7 +59,7 @@ fun String.namespace() = this
 
 /* COMMON SDK */
 
-fun CommonExtension<*, *, *, *>.commonSdk() {
+fun CommonExtension<*, *, *, *, *>.commonSdk() {
     defaultConfig.minSdk = Android.Sdk.MIN
     compileSdk = Android.Sdk.COMPILE
 }
@@ -110,8 +110,7 @@ fun Any?.asString() = "\"$this\""
 
 /* BUILD FEATURES */
 
-@Suppress("UnstableApiUsage")
-fun CommonExtension<*, *, *, *>.buildFeatures() {
+fun CommonExtension<*, *, *, *, *>.buildFeatures() {
     buildFeatures.apply {
         aidl = false
         compose = false
@@ -128,7 +127,6 @@ fun CommonExtension<*, *, *, *>.buildFeatures() {
     }
 }
 
-@Suppress("UnstableApiUsage")
 fun BaseAppModuleExtension.enableViewBindingAndBuildConfig() {
     buildFeatures {
         viewBinding = true
@@ -150,8 +148,7 @@ fun LibraryExtension.enableBuildConfig() {
 
 /* LINT */
 
-@Suppress("UnstableApiUsage")
-fun CommonExtension<*, *, *, *>.lint(project: Project) {
+fun CommonExtension<*, *, *, *, *>.lint(project: Project) {
     lint {
         abortOnError = true
         checkAllWarnings = true
@@ -165,7 +162,6 @@ fun CommonExtension<*, *, *, *>.lint(project: Project) {
     }
 }
 
-@Suppress("UnstableApiUsage")
 fun LibraryExtension.disabledDatabaseIssues() {
     lint {
         disable += Android.Lint.disabledDatabaseIssues
@@ -174,7 +170,7 @@ fun LibraryExtension.disabledDatabaseIssues() {
 
 /* COMPILE OPTIONS */
 
-fun CommonExtension<*, *, *, *>.compileOptions() {
+fun CommonExtension<*, *, *, *, *>.compileOptions() {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
@@ -183,18 +179,18 @@ fun CommonExtension<*, *, *, *>.compileOptions() {
 
 /* KOTLIN OPTIONS */
 
-fun CommonExtension<*, *, *, *>.kotlinOptions() {
+fun CommonExtension<*, *, *, *, *>.kotlinOptions() {
     kotlinOptions { kotlinOptions() }
 }
 
-fun CommonExtension<*, *, *, *>.kotlinOptions(block: KotlinJvmOptions.() -> Unit) {
+fun CommonExtension<*, *, *, *, *>.kotlinOptions(block: KotlinJvmOptions.() -> Unit) {
     (this as ExtensionAware).extensions.configure(Android.Extension.KOTLIN_OPTIONS, block)
 }
 
 /* TEST OPTIONS */
 
 @Suppress("UnstableApiUsage")
-fun CommonExtension<*, *, *, *>.testOptions() {
+fun CommonExtension<*, *, *, *, *>.testOptions() {
     testOptions {
         animationsDisabled = true
         unitTests.isIncludeAndroidResources = true
@@ -202,11 +198,10 @@ fun CommonExtension<*, *, *, *>.testOptions() {
     }
 }
 
-/* PACKAGING OPTIONS */
+/* PACKAGING */
 
-@Suppress("UnstableApiUsage")
-fun CommonExtension<*, *, *, *>.packagingOptions() {
-    packagingOptions {
+fun CommonExtension<*, *, *, *, *>.packaging() {
+    packaging {
         jniLibs.useLegacyPackaging = false
         resources {
             excludes += mutableSetOf(
@@ -223,8 +218,7 @@ fun CommonExtension<*, *, *, *>.packagingOptions() {
 
 /* SOURCE SETS */
 
-@Suppress("UnstableApiUsage")
-fun CommonExtension<*, *, *, *>.sourceSets() {
+fun CommonExtension<*, *, *, *, *>.sourceSets() {
     sourceSets {
         named(Sources.MAIN) { mainAndroidSourceSets() }
         named(Sources.TEST) { testAndroidSourceSets() }
@@ -232,7 +226,6 @@ fun CommonExtension<*, *, *, *>.sourceSets() {
     }
 }
 
-@Suppress("UnstableApiUsage")
 fun AndroidSourceSet.mainAndroidSourceSets() {
     java.setSrcDirs(
         arrayListOf(
@@ -246,7 +239,6 @@ fun AndroidSourceSet.mainAndroidSourceSets() {
     )
 }
 
-@Suppress("UnstableApiUsage")
 fun AndroidSourceSet.testAndroidSourceSets() {
     java.setSrcDirs(
         arrayListOf(
@@ -262,7 +254,6 @@ fun AndroidSourceSet.testAndroidSourceSets() {
     )
 }
 
-@Suppress("UnstableApiUsage")
 fun AndroidSourceSet.androidTestAndroidSourceSets() {
     java.setSrcDirs(
         arrayListOf(
