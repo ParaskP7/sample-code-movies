@@ -25,7 +25,7 @@ internal fun Project.configureKotlinAndroid(
         compileOptions()
         kotlinOptions()
         testOptions()
-        packagingOptions()
+        packaging()
         sourceSets()
     }
 }
@@ -198,10 +198,10 @@ fun CommonExtension<*, *, *, *, *>.testOptions() {
     }
 }
 
-/* PACKAGING OPTIONS */
+/* PACKAGING */
 
-fun CommonExtension<*, *, *, *, *>.packagingOptions() {
-    packagingOptions {
+fun CommonExtension<*, *, *, *, *>.packaging() {
+    packaging {
         jniLibs.useLegacyPackaging = false
         resources {
             excludes += mutableSetOf(
