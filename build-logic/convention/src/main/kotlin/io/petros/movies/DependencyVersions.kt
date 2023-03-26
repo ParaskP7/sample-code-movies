@@ -28,13 +28,13 @@ fun DependencyUpdatesTask.rejectVersionIf() {
 }
 
 fun isDev(version: String) =
-    DependencyVersions.devKeyword.any { version.toLowerCase(Locale.ROOT).contains(it) }
+    DependencyVersions.devKeyword.any { version.lowercase(Locale.ROOT).contains(it) }
 
 fun isAlpha(version: String) =
-    DependencyVersions.alphaKeyword.any { version.toLowerCase(Locale.ROOT).contains(it) }
+    DependencyVersions.alphaKeyword.any { version.lowercase(Locale.ROOT).contains(it) }
 
 fun isMilestone(version: String) =
-    DependencyVersions.milestoneKeyword.any { version.toUpperCase(Locale.ROOT).contains(it) }
+    DependencyVersions.milestoneKeyword.any { version.uppercase(Locale.ROOT).contains(it) }
 
 /* CONFIG */
 
