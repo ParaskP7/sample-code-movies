@@ -16,7 +16,7 @@ import org.jetbrains.kotlin.gradle.dsl.KotlinJvmOptions
 import java.util.*
 
 internal fun Project.configureKotlinAndroid(
-    commonExtension: CommonExtension<*, *, *, *>,
+    commonExtension: CommonExtension<*, *, *, *, *>,
 ) {
     commonExtension.apply {
         commonSdk()
@@ -59,7 +59,7 @@ fun String.namespace() = this
 
 /* COMMON SDK */
 
-fun CommonExtension<*, *, *, *>.commonSdk() {
+fun CommonExtension<*, *, *, *, *>.commonSdk() {
     defaultConfig.minSdk = Android.Sdk.MIN
     compileSdk = Android.Sdk.COMPILE
 }
@@ -111,7 +111,7 @@ fun Any?.asString() = "\"$this\""
 /* BUILD FEATURES */
 
 @Suppress("UnstableApiUsage")
-fun CommonExtension<*, *, *, *>.buildFeatures() {
+fun CommonExtension<*, *, *, *, *>.buildFeatures() {
     buildFeatures.apply {
         aidl = false
         compose = false
@@ -151,7 +151,7 @@ fun LibraryExtension.enableBuildConfig() {
 /* LINT */
 
 @Suppress("UnstableApiUsage")
-fun CommonExtension<*, *, *, *>.lint(project: Project) {
+fun CommonExtension<*, *, *, *, *>.lint(project: Project) {
     lint {
         abortOnError = true
         checkAllWarnings = true
@@ -174,7 +174,7 @@ fun LibraryExtension.disabledDatabaseIssues() {
 
 /* COMPILE OPTIONS */
 
-fun CommonExtension<*, *, *, *>.compileOptions() {
+fun CommonExtension<*, *, *, *, *>.compileOptions() {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
@@ -183,18 +183,18 @@ fun CommonExtension<*, *, *, *>.compileOptions() {
 
 /* KOTLIN OPTIONS */
 
-fun CommonExtension<*, *, *, *>.kotlinOptions() {
+fun CommonExtension<*, *, *, *, *>.kotlinOptions() {
     kotlinOptions { kotlinOptions() }
 }
 
-fun CommonExtension<*, *, *, *>.kotlinOptions(block: KotlinJvmOptions.() -> Unit) {
+fun CommonExtension<*, *, *, *, *>.kotlinOptions(block: KotlinJvmOptions.() -> Unit) {
     (this as ExtensionAware).extensions.configure(Android.Extension.KOTLIN_OPTIONS, block)
 }
 
 /* TEST OPTIONS */
 
 @Suppress("UnstableApiUsage")
-fun CommonExtension<*, *, *, *>.testOptions() {
+fun CommonExtension<*, *, *, *, *>.testOptions() {
     testOptions {
         animationsDisabled = true
         unitTests.isIncludeAndroidResources = true
@@ -205,7 +205,7 @@ fun CommonExtension<*, *, *, *>.testOptions() {
 /* PACKAGING OPTIONS */
 
 @Suppress("UnstableApiUsage")
-fun CommonExtension<*, *, *, *>.packagingOptions() {
+fun CommonExtension<*, *, *, *, *>.packagingOptions() {
     packagingOptions {
         jniLibs.useLegacyPackaging = false
         resources {
@@ -224,7 +224,7 @@ fun CommonExtension<*, *, *, *>.packagingOptions() {
 /* SOURCE SETS */
 
 @Suppress("UnstableApiUsage")
-fun CommonExtension<*, *, *, *>.sourceSets() {
+fun CommonExtension<*, *, *, *, *>.sourceSets() {
     sourceSets {
         named(Sources.MAIN) { mainAndroidSourceSets() }
         named(Sources.TEST) { testAndroidSourceSets() }
