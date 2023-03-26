@@ -38,7 +38,6 @@ dependencies {
     implementation(libs.androidx.drawer.layout)
     implementation(libs.androidx.core.main)
     implementation(libs.androidx.lifecycle.common.main)
-    implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.lifecycle.livedata.core)
     implementation(libs.androidx.lifecycle.view.model.main)
     implementation(libs.androidx.lifecycle.process)

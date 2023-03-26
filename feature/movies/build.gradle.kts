@@ -32,7 +32,6 @@ dependencies {
     implementation(libs.androidx.coordinator.layout)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.common.main)
-    implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.lifecycle.livedata.core)
     implementation(libs.androidx.lifecycle.view.model.main)
     implementation(libs.androidx.lifecycle.view.model.ktx)
