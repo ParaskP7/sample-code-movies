@@ -16,13 +16,13 @@ android {
 dependencies {
     implementation(project(Projects.Implementation.Kotlin.DOMAIN))
     implementation(project(Projects.Implementation.Kotlin.NETWORK))
-    implementation(project(Projects.Implementation.Android.Core.DATASTORE))
+//    implementation(project(Projects.Implementation.Android.Core.DATASTORE))
     implementation(project(Projects.Implementation.Android.Core.DATABASE))
 
     implementation(libs.kotlinx.coroutines.core.main)
     implementation(libs.kotlinx.coroutines.core.jvm)
-    implementation(libs.androidx.datastore.core)
-    implementation(libs.androidx.datastore.preferences.core)
+//    implementation(libs.androidx.datastore.core)
+//    implementation(libs.androidx.datastore.preferences.core)
     implementation(libs.androidx.room.runtime)
     implementation(libs.androidx.room.ktx)
     implementation(libs.androidx.paging.common)

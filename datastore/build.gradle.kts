@@ -13,12 +13,12 @@ android {
 }
 
 dependencies {
-    implementation(libs.kotlinx.coroutines.core.jvm)
-    implementation(libs.androidx.datastore.core)
-    implementation(libs.androidx.datastore.preferences.core)
-    implementation(libs.androidx.datastore.preferences.main)
-    implementation(libs.koin.core.main)
-    implementation(libs.koin.core.jvm)
+//    implementation(libs.kotlinx.coroutines.core.jvm)
+//    implementation(libs.androidx.datastore.core)
+//    implementation(libs.androidx.datastore.preferences.core)
+//    implementation(libs.androidx.datastore.preferences.main)
+//    implementation(libs.koin.core.main)
+//    implementation(libs.koin.core.jvm)
 }
 
 dependencyAnalysis {
