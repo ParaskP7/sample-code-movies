@@ -23,8 +23,14 @@ dependencies {
     implementation(libs.okhttp.mock.web.server)
 }
 
+@Suppress("ForbiddenComment")
 dependencyAnalysis {
     issues {
+        onUnusedDependencies {
+            exclude(
+                "() -> java.io.File?", // TODO: Figure out why this is reported as unused.
+            )
+        }
         onIncorrectConfiguration {
             exclude(
                 Projects.Implementation.Kotlin.DOMAIN, // Ignore change to 'api' advice.

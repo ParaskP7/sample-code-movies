@@ -28,8 +28,14 @@ dependencies {
     testImplementation(libs.mockk.dsl.jvm)
 }
 
+@Suppress("ForbiddenComment")
 dependencyAnalysis {
     issues {
+        onUnusedDependencies {
+            exclude(
+                "() -> java.io.File?", // TODO: Figure out why this is reported as unused.
+            )
+        }
         onIncorrectConfiguration {
             exclude(
                 libs.koin.core.jvm.identifier(), // Ignore change to 'api' advice.
