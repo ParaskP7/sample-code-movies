@@ -15,6 +15,10 @@ android {
     disabledDatabaseIssues()
 }
 
+kotlin {
+    jvmToolchain(JavaVersion.VERSION_11.toString().toInt())
+}
+
 dependencies {
     implementation(project(Projects.Implementation.Kotlin.UTILS))
     implementation(project(Projects.Implementation.Kotlin.DOMAIN))
