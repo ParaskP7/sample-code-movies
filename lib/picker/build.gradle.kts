@@ -18,6 +18,7 @@ dependencies {
     implementation(libs.androidx.lifecycle.view.model.main)
     implementation(libs.androidx.app.compat.main)
     implementation(libs.androidx.app.compat.resources)
+    implementation(libs.androidx.annotation)
     implementation(libs.androidx.fragment.main)
     implementation(libs.timber)
 }
