@@ -26,6 +26,7 @@ dependencies {
     implementation(libs.kotlinx.coroutines.core.jvm)
     implementation(libs.material)
     implementation(libs.androidx.app.compat.main)
+    implementation(libs.androidx.annotation)
     implementation(libs.androidx.fragment.main)
     implementation(libs.androidx.recycler.view)
     implementation(libs.androidx.constraint.layout)

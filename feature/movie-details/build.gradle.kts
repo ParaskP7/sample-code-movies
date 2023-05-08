@@ -23,6 +23,7 @@ dependencies {
     implementation(libs.kotlinx.coroutines.core.main)
     implementation(libs.kotlinx.coroutines.core.jvm)
     implementation(libs.material)
+    implementation(libs.androidx.annotation)
     implementation(libs.androidx.fragment.main)
     implementation(libs.androidx.constraint.layout)
     implementation(libs.androidx.core.ktx)
