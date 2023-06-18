@@ -21,6 +21,12 @@
         "com.google.devtools.ksp"
       ],
       "groupName": "kotlin"
+    },
+    {
+      "matchPackagePatterns": [
+        "io.insert-koin"
+      ],
+      "groupName": "koin"
     }
   ]
 }
