@@ -312,6 +312,7 @@ object Android {
             "UnknownIssueId", // From Android Gradle Plugin version 7.4.0-alpha02 and onwards
             "GradleDependency",
             "AndroidGradlePluginVersion",
+            "NewerVersionAvailable",
         )
 
         val disabledDatabaseIssues = arrayOf(

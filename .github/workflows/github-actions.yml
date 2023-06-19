@@ -18,6 +18,8 @@ jobs:
           java-version: ${{ matrix.version }}
           distribution: 'temurin'
           cache: gradle
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v2
       - name: Validate Gradle Wrapper
         uses: gradle/wrapper-validation-action@v1
       - name: Validate Dependency Versions
@@ -37,6 +39,8 @@ jobs:
           java-version: ${{ matrix.version }}
           distribution: 'temurin'
           cache: gradle
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v2
       - name: Build - Assemble (Debug)
         run: ./gradlew assembleDebug
       - name: Dependency Analysis - Build Health
@@ -71,6 +75,8 @@ jobs:
           java-version: ${{ matrix.version }}
           distribution: 'temurin'
           cache: gradle
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v2
       - name: Test - UI Test - App Module (Debug)
         uses: reactivecircus/android-emulator-runner@v2
         with:
